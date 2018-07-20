@@ -30,7 +30,7 @@ setup(
     ],
     keywords='Python Plone',
     author='Roberto Diaz',
-    author_email='roberto.diaz@upcnet.es',
+    author_email='plone.team@upcnet.es',
     url='https://pypi.python.org/pypi/gwopa.core',
     license='GPL version 2',
     packages=find_packages('src', exclude=['ez_setup']),
@@ -51,7 +51,7 @@ setup(
             # Plone KGS does not use this version, because it would break
             # Remove if your package shall be part of coredev.
             # plone_coredev tests as of 2016-04-01.
-            'plone.testing>=5.0.0',
+            'plone.testing',
             'plone.app.contenttypes',
             'plone.app.robotframework[debug]',
         ],
