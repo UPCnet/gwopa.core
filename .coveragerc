@@ -1,0 +1,6 @@
+[report]
+include =
+    src/gwopa/*
+omit =
+    */test*
+    */upgrades/*

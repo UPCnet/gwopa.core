@@ -1,0 +1,3 @@
+==========gwopa.core
+==========
+User documentation
