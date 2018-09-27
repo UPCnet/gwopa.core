@@ -3,4 +3,4 @@
 from zope.i18nmessageid import MessageFactory
 
 
-_ = MessageFactory('gwopa.core')
+_ = MessageFactory('gwopa')

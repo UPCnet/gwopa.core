@@ -1,0 +1,118 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: gwopa/theme/content/project.py:158
+msgid "Budget"
+msgstr ""
+
+#: gwopa/theme/content/project.py:164
+msgid "Contribution by partners and donors"
+msgstr ""
+
+#: gwopa/theme/content/project.py:48
+msgid "Description"
+msgstr ""
+
+#: gwopa/theme/content/project.py:128
+msgid "Geolocation"
+msgstr ""
+
+#: gwopa/theme/content/project.py:152
+msgid "Improvement track team and members"
+msgstr ""
+
+#: gwopa/theme/content/project.py:49
+msgid "Indicate the project description"
+msgstr ""
+
+#: gwopa/theme/content/project.py:43
+msgid "Indicates the project title"
+msgstr ""
+
+#: gwopa/theme/content/project.py:146
+msgid "Interest Areas"
+msgstr ""
+
+#: gwopa/theme/content/project.py:134
+msgid "Partners"
+msgstr ""
+
+#: gwopa/theme/content/project.py:140
+msgid "Project Manager"
+msgstr ""
+
+#: gwopa/theme/content/project.py:42
+msgid "Project name"
+msgstr ""
+
+#: gwopa/theme/content/project.py:170
+msgid "WOP Program"
+msgstr ""
+
+#. Default: "End date must be after start date."
+#: gwopa/theme/content/project.py:185
+msgid "error_end_must_be_after_start_date"
+msgstr ""
+
+#. Default: "Invalid start or end date"
+#: gwopa/theme/content/project.py:20
+msgid "error_invalid_date"
+msgstr ""
+
+#. Default: "Date and Time, when the event ends."
+#: gwopa/theme/content/project.py:77
+msgid "help_event_end"
+msgstr ""
+
+#. Default: "This event is open ended."
+#: gwopa/theme/content/project.py:114
+msgid "help_event_open_end"
+msgstr ""
+
+#. Default: "Date and Time, when the event begins."
+#: gwopa/theme/content/project.py:58
+msgid "help_event_start"
+msgstr ""
+
+#. Default: "Event lasts whole day."
+#: gwopa/theme/content/project.py:96
+msgid "help_event_whole_day"
+msgstr ""
+
+#. Default: "Event Ends"
+#: gwopa/theme/content/project.py:73
+msgid "label_event_end"
+msgstr ""
+
+#. Default: "Open End"
+#: gwopa/theme/content/project.py:110
+msgid "label_event_open_end"
+msgstr ""
+
+#. Default: "Event Starts"
+#: gwopa/theme/content/project.py:54
+msgid "label_event_start"
+msgstr ""
+
+#. Default: "Whole Day"
+#: gwopa/theme/content/project.py:92
+msgid "label_event_whole_day"
+msgstr ""
+
+#. Default: "Project Image"
+#: gwopa/theme/content/project.py:176
+msgid "project_image"
+msgstr ""

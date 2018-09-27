@@ -3,10 +3,19 @@
 # ``export PATH=$PATH:$BUILDOUT_DIR/bin`` when i18ndude is located in your buildout's bin directory)
 #
 # For every language you want to translate into you need a
-# locales/[language]/LC_MESSAGES/gwopa.core.po
-# (e.g. locales/de/LC_MESSAGES/gwopa.core.po)
+# locales/[language]/LC_MESSAGES/gwopa.po
+# (e.g. locales/de/LC_MESSAGES/gwopa.po)
 
-domain=gwopa.core
+domain=gwopa
 
-i18ndude rebuild-pot --pot $domain.pot --create $domain ../
-i18ndude sync --pot $domain.pot */LC_MESSAGES/$domain.po
+echo ""
+echo "### Remember to add MANUALLY the NEW gwopahome.theme directories to this script ###"
+echo "### This script doesnt check the THEME directory                                ###"
+echo ""
+../../../../../../bin/i18ndude rebuild-pot --pot $domain.pot --create $domain  ../  \
+  ../../../../../gwopa.theme/src/gwopa/theme/behaviors  \
+  ../../../../../gwopa.theme/src/gwopa/theme/browser \
+  ../../../../../gwopa.theme/src/gwopa/theme/content \
+  ../../../../../gwopa.theme/src/gwopa/theme/profiles \
+  ../../../../../gwopa.theme/src/gwopa/theme/templates
+../../../../../../bin/i18ndude sync --pot $domain.pot */LC_MESSAGES/$domain.po
