@@ -14,105 +14,217 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: gwopa/theme/content/project.py:158
+#: gwopa/theme/profiles/default/types/Area.xml
+msgid "Area"
+msgstr ""
+
+#: gwopa/theme/content/area.py:171
+#: gwopa/theme/content/project.py:171
 msgid "Budget"
 msgstr ""
 
-#: gwopa/theme/content/project.py:164
+#: gwopa/theme/content/area.py:177
+#: gwopa/theme/content/project.py:177
 msgid "Contribution by partners and donors"
 msgstr ""
 
-#: gwopa/theme/content/project.py:48
-msgid "Description"
+#: gwopa/theme/content/projectmember.py:42
+msgid "Country"
 msgstr ""
 
-#: gwopa/theme/content/project.py:128
+#: ../configure.zcml:31
+msgid "GWOPA Core package (gwopa.core)"
+msgstr ""
+
+#: gwopa/theme/content/area.py:141
+#: gwopa/theme/content/project.py:141
 msgid "Geolocation"
 msgstr ""
 
-#: gwopa/theme/content/project.py:152
+#: gwopa/theme/profiles/default/types/GoalIndicator.xml
+msgid "GoalIndicator"
+msgstr ""
+
+#: gwopa/theme/content/area.py:165
+#: gwopa/theme/content/project.py:165
 msgid "Improvement track team and members"
 msgstr ""
 
-#: gwopa/theme/content/project.py:49
-msgid "Indicate the project description"
+#: gwopa/theme/content/projectmember.py:50
+msgid "Indicate the year of..."
 msgstr ""
 
-#: gwopa/theme/content/project.py:43
+#: gwopa/theme/content/area.py:46
+#: gwopa/theme/content/goalindicator.py:43
+#: gwopa/theme/content/outcomeindicator.py:43
 msgid "Indicates the project title"
 msgstr ""
 
-#: gwopa/theme/content/project.py:146
+#: ../configure.zcml:31
+msgid "Installs the gwopa.core add-on."
+msgstr ""
+
+#: gwopa/theme/content/area.py:159
+#: gwopa/theme/content/project.py:159
 msgid "Interest Areas"
 msgstr ""
 
-#: gwopa/theme/content/project.py:134
+#: gwopa/theme/profiles/default/types/OutcomeIndicator.xml
+msgid "OutcomeIndicator"
+msgstr ""
+
+#: gwopa/theme/profiles/default/types/OutputIndicator.xml
+msgid "OutputIndicator"
+msgstr ""
+
+#: gwopa/theme/content/area.py:147
+#: gwopa/theme/content/project.py:147
 msgid "Partners"
 msgstr ""
 
-#: gwopa/theme/content/project.py:140
+#: gwopa/theme/profiles/default/types/Project.xml
+msgid "Project"
+msgstr ""
+
+#: gwopa/theme/content/area.py:153
+#: gwopa/theme/content/project.py:153
 msgid "Project Manager"
 msgstr ""
 
-#: gwopa/theme/content/project.py:42
+#: gwopa/theme/profiles/default/types/ProjectMember.xml
+msgid "Project Member"
+msgstr ""
+
+#: gwopa/theme/content/area.py:45
+#: gwopa/theme/content/goalindicator.py:42
+#: gwopa/theme/content/outcomeindicator.py:42
 msgid "Project name"
 msgstr ""
 
-#: gwopa/theme/content/project.py:170
+#: gwopa/theme/profiles/default/types/QualitativeIndicator.xml
+msgid "QualitativeIndicator"
+msgstr ""
+
+#: gwopa/theme/profiles/default/types/QuantitativeIndicator.xml
+msgid "QuantitativeIndicator"
+msgstr ""
+
+#: gwopa/theme/content/projectmember.py:43
+msgid "Select country"
+msgstr ""
+
+#: gwopa/theme/content/projectmember.py:31
+msgid "The Member Name and Surname"
+msgstr ""
+
+#: ../configure.zcml:40
+msgid "Uninstall: GWOPA Core package (gwopa.core)"
+msgstr ""
+
+#: ../configure.zcml:40
+msgid "Uninstalls the gwopa.core add-on."
+msgstr ""
+
+#: gwopa/theme/content/projectmember.py:30
+msgid "Username"
+msgstr ""
+
+#: gwopa/theme/content/area.py:183
+#: gwopa/theme/content/project.py:183
 msgid "WOP Program"
 msgstr ""
 
+#: gwopa/theme/content/projectmember.py:49
+msgid "Year"
+msgstr ""
+
 #. Default: "End date must be after start date."
-#: gwopa/theme/content/project.py:185
+#: gwopa/theme/content/area.py:192
+#: gwopa/theme/content/goalindicator.py:99
+#: gwopa/theme/content/outcomeindicator.py:99
 msgid "error_end_must_be_after_start_date"
 msgstr ""
 
 #. Default: "Invalid start or end date"
-#: gwopa/theme/content/project.py:20
+#: gwopa/theme/content/area.py:23
+#: gwopa/theme/content/goalindicator.py:20
+#: gwopa/theme/content/outcomeindicator.py:20
 msgid "error_invalid_date"
 msgstr ""
 
+#. Default: "Used in item listings and search results."
+#: gwopa/theme/content/area.py:52
+#: gwopa/theme/content/goalindicator.py:49
+#: gwopa/theme/content/outcomeindicator.py:49
+msgid "help_description"
+msgstr ""
+
 #. Default: "Date and Time, when the event ends."
-#: gwopa/theme/content/project.py:77
+#: gwopa/theme/content/area.py:90
+#: gwopa/theme/content/goalindicator.py:81
+#: gwopa/theme/content/outcomeindicator.py:81
 msgid "help_event_end"
 msgstr ""
 
 #. Default: "This event is open ended."
-#: gwopa/theme/content/project.py:114
+#: gwopa/theme/content/area.py:127
+#: gwopa/theme/content/project.py:127
 msgid "help_event_open_end"
 msgstr ""
 
 #. Default: "Date and Time, when the event begins."
-#: gwopa/theme/content/project.py:58
+#: gwopa/theme/content/area.py:71
+#: gwopa/theme/content/goalindicator.py:62
+#: gwopa/theme/content/outcomeindicator.py:62
 msgid "help_event_start"
 msgstr ""
 
 #. Default: "Event lasts whole day."
-#: gwopa/theme/content/project.py:96
+#: gwopa/theme/content/area.py:109
+#: gwopa/theme/content/project.py:109
 msgid "help_event_whole_day"
 msgstr ""
 
+#. Default: "Summary"
+#: gwopa/theme/content/area.py:51
+#: gwopa/theme/content/goalindicator.py:48
+#: gwopa/theme/content/outcomeindicator.py:48
+msgid "label_description"
+msgstr ""
+
 #. Default: "Event Ends"
-#: gwopa/theme/content/project.py:73
+#: gwopa/theme/content/area.py:86
+#: gwopa/theme/content/goalindicator.py:77
+#: gwopa/theme/content/outcomeindicator.py:77
 msgid "label_event_end"
 msgstr ""
 
 #. Default: "Open End"
-#: gwopa/theme/content/project.py:110
+#: gwopa/theme/content/area.py:123
+#: gwopa/theme/content/project.py:123
 msgid "label_event_open_end"
 msgstr ""
 
 #. Default: "Event Starts"
-#: gwopa/theme/content/project.py:54
+#: gwopa/theme/content/area.py:67
+#: gwopa/theme/content/goalindicator.py:58
+#: gwopa/theme/content/outcomeindicator.py:58
 msgid "label_event_start"
 msgstr ""
 
 #. Default: "Whole Day"
-#: gwopa/theme/content/project.py:92
+#: gwopa/theme/content/area.py:105
+#: gwopa/theme/content/project.py:105
 msgid "label_event_whole_day"
 msgstr ""
 
+#. Default: "Member profile picture"
+#: gwopa/theme/content/projectmember.py:36
+msgid "member_image"
+msgstr ""
+
 #. Default: "Project Image"
-#: gwopa/theme/content/project.py:176
+#: gwopa/theme/content/area.py:61
+#: gwopa/theme/content/project.py:61
 msgid "project_image"
 msgstr ""
