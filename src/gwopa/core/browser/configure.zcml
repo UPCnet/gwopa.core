@@ -6,16 +6,26 @@
 
   <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
   <include package="z3c.jbot" file="meta.zcml" />
-  <browser:jbot
-      directory="overrides"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-      />
 
-  <!-- Publish static files -->
-  <plone:static
-      name="gwopa.core"
-      type="plone"
-      directory="static"
-      />
+  <!-- HOMEPAGE TEMPLATE-->
+  <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="homepage"
+      class=".homepage.MainTemplate"
+      template="templates/homepage.pt"
+      permission="cmf.SetOwnPassword"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <!-- DASHBOARD TEMPLATE-->
+  <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="globalhome"
+      class=".globalhome.MainTemplate"
+      template="templates/globalhome.pt"
+      permission="cmf.SetOwnPassword"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
 
 </configure>
