@@ -44,15 +44,15 @@ class IQuantitativeindicator(model.Schema):
         required=False,
     )
 
-    description = schema.Text(
-        title=_(u'label_description', default=u'Summary'),
-        description=_(
-            u'help_description',
-            default=u'Used in item listings and search results.'
-        ),
-        required=False,
-        missing_value=u'',
-    )
+    # description = schema.Text(
+    #     title=_(u'label_description', default=u'Summary'),
+    #     description=_(
+    #         u'help_description',
+    #         default=u'Used in item listings and search results.'
+    #     ),
+    #     required=False,
+    #     missing_value=u'',
+    # )
 
     start = schema.Datetime(
         title=_(
@@ -99,6 +99,36 @@ class IQuantitativeindicator(model.Schema):
                 _("error_end_must_be_after_start_date",
                   default=u"End date must be after start date.")
             )
+
+    baseline = schema.TextLine(
+        title=_(u"Baseline value"),
+        required=True,
+    )
+
+    baseline_date = schema.TextLine(
+        title=_(u"Baseline Date"),
+        required=True,
+    )
+
+    target = schema.TextLine(
+        title=_(u"Target value"),
+        required=True,
+    )
+
+    measuring = schema.TextLine(
+        title=_(u"Measuring Unit"),
+        required=True,
+    )
+
+    frequency = schema.TextLine(
+        title=_(u"Frequency"),
+        required=True,
+    )
+
+    primary_data = schema.TextLine(
+        title=_(u"Primary Source of Data"),
+        required=True,
+    )
 
 
 class View(grok.View):

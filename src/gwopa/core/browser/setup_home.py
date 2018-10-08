@@ -8,6 +8,10 @@ from plone.app.multilingual.browser.setup import SetupMultilingualSite
 from plone.app.multilingual.interfaces import ITranslationManager
 import logging
 from gwopa.core.interfaces import IGwopaCoreLayer
+from Products.CMFPlone.interfaces.controlpanel import ISiteSchema
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
+
 
 grok.templatedir("templates")
 
@@ -94,8 +98,19 @@ class setup(grok.View):
         if getattr(portal, 'events', False):
             api.content.delete(obj=portal['events'])
 
+        # Set toolbar top
         pc = api.portal.get_tool('portal_catalog')
         pc.clearFindAndRebuild()
+        registry = getUtility(IRegistry)
+        site_settings = registry.forInterface(
+            ISiteSchema,
+            prefix='plone',
+            check=False
+        )
+        site_settings.toolbar_position == 'top'
+
+        # Set the default pages to the homepage view
+        portal_en.setLayout('homepage')
 
         return True
 

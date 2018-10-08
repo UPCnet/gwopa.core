@@ -124,18 +124,8 @@
                 <h1 class="documentFirstHeading">My company projects</h1>
                 <div class="has-table">
                   <table class="listing" summary="Content listing">
-                    <thead>
-                      <tr>
-                        <th class="nosort"></th>
-                        <th class="nosort">Project Title</th>
-                        <th class="nosort">Starting Date</th>
-                        <th class="nosort">Realisation Date</th>
-                        <th class="nosort">Location</th>
-                        <th class="nosort">Contact person</th>
-                      </tr>
-                    </thead>
                     <tbody>
-                      <tal:MyProjects define="items view/listProjects;
+                      <tal:MyProjects define="items view/companyProjects;
                               toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
                         <tal:repeatProjects repeat="item items">
                           <tr tal:define="oddrow repeat/item/odd;"
@@ -169,18 +159,8 @@
                 <h1 class="documentFirstHeading">Related projects</h1>
                 <div class="has-table">
                   <table class="listing" summary="Content listing">
-                    <thead>
-                      <tr>
-                        <th class="nosort"></th>
-                        <th class="nosort">Project Title</th>
-                        <th class="nosort">Starting Date</th>
-                        <th class="nosort">Realisation Date</th>
-                        <th class="nosort">Location</th>
-                        <th class="nosort">Contact person</th>
-                      </tr>
-                    </thead>
                     <tbody>
-                      <tal:MyProjects define="items view/listProjects;
+                      <tal:MyProjects define="items view/companyProjects;
                               toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
                         <tal:repeatProjects repeat="item items">
                           <tr tal:define="oddrow repeat/item/odd;"

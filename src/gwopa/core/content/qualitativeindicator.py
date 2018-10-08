@@ -44,15 +44,15 @@ class IQualitativeindicator(model.Schema):
         required=False,
     )
 
-    description = schema.Text(
-        title=_(u'label_description', default=u'Summary'),
-        description=_(
-            u'help_description',
-            default=u'Used in item listings and search results.'
-        ),
-        required=False,
-        missing_value=u'',
-    )
+    # description = schema.Text(
+    #     title=_(u'label_description', default=u'Summary'),
+    #     description=_(
+    #         u'help_description',
+    #         default=u'Used in item listings and search results.'
+    #     ),
+    #     required=False,
+    #     missing_value=u'',
+    # )
 
     start = schema.Datetime(
         title=_(
