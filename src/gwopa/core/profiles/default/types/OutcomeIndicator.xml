@@ -2,7 +2,7 @@
 <object name="OutcomeIndicator" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">OutcomeIndicator</property>
+ <property name="title" i18n:translate="">Outcome</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
  <property name="factory">OutcomeIndicator</property>
@@ -12,8 +12,7 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-        <element value="QualitativeIndicator"/>
-        <element value="QuantitativeIndicator"/>
+        <element value="Indicator"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>

@@ -5,8 +5,7 @@
   <object meta_type="Dexterity FTI" name="GoalIndicator" />
   <object meta_type="Dexterity FTI" name="OutcomeIndicator" />
   <object meta_type="Dexterity FTI" name="OutputIndicator" />
-  <object meta_type="Dexterity FTI" name="QualitativeIndicator" />
-  <object meta_type="Dexterity FTI" name="QuantitativeIndicator" />
+  <object meta_type="Dexterity FTI" name="Indicator" />
   <object meta_type="Dexterity FTI" name="Area" />
   <object meta_type="Dexterity FTI" name="ImprovementArea" />
 </object>

@@ -2,7 +2,7 @@
 <object name="GoalIndicator" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">GoalIndicator</property>
+ <property name="title" i18n:translate="">Goal</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
  <property name="factory">GoalIndicator</property>
@@ -14,8 +14,7 @@
  <property name="allowed_content_types">
         <element value="OutcomeIndicator"/>
         <element value="OutputIndicator"/>
-        <element value="QualitativeIndicator"/>
-        <element value="QuantitativeIndicator"/>
+        <element value="Indicator"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>

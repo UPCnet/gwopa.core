@@ -39,20 +39,9 @@ class IOutcomeindicator(model.Schema):
     """  Project type
     """
     title = schema.TextLine(
-        title=_(u"Project name"),
-        description=_(u"Indicates the project title"),
-        required=False,
+        title=_(u"Outcome indicator"),
+        required=True,
     )
-
-    # description = schema.Text(
-    #     title=_(u'label_description', default=u'Summary'),
-    #     description=_(
-    #         u'help_description',
-    #         default=u'Used in item listings and search results.'
-    #     ),
-    #     required=False,
-    #     missing_value=u'',
-    # )
 
     start = schema.Datetime(
         title=_(

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<object name="QuantitativeIndicator" meta_type="Dexterity FTI"
+<object name="Indicator" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">QuantitativeIndicator</property>
+ <property name="title" i18n:translate="">Indicator</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
- <property name="factory">QuantitativeIndicator</property>
- <property name="add_view_expr">string:${folder_url}/++add++QuantitativeIndicator</property>
+ <property name="factory">Indicator</property>
+ <property name="add_view_expr">string:${folder_url}/++add++Indicator</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
  <property name="global_allow">False</property>
@@ -20,10 +20,9 @@
   <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="plone.app.relationfield.behavior.IRelatedItems"/>
  </property>
 
- <property name="schema">gwopa.core.content.quantitativeindicator.IQuantitativeindicator</property>
+ <property name="schema">gwopa.core.content.indicator.IIndicator</property>
 
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>

@@ -2,7 +2,7 @@
 <object name="OutputIndicator" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">OutputIndicator</property>
+ <property name="title" i18n:translate="">Output</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
  <property name="factory">OutputIndicator</property>
@@ -12,8 +12,7 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-        <element value="QualitativeIndicator"/>
-        <element value="QuantitativeIndicator"/>
+        <element value="Indicator"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>
@@ -24,7 +23,6 @@
   <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="plone.app.relationfield.behavior.IRelatedItems"/>
  </property>
 
  <property name="schema">gwopa.core.content.outputindicator.IOutputindicator</property>

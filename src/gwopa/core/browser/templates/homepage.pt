@@ -96,15 +96,19 @@
                             <td>
                                 <img tal:condition="item/image"
                                      tal:attributes="src string:${item/url}/@@images/image/thumb;"/>
+                                <img tal:condition="not:item/image"
+                                     tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;"/>
                             </td>
                             <td>
                                 <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
                             </td>
                             <td>
-                              <span itemprop="start" class="dtstart" tal:content="item/start">start</span>
+                              <span itemprop="start" class="dtstart" tal:define="date_start item/start"
+                                    tal:content="python:date_start.strftime('%m/%d/%Y')"></span>
                             </td>
                             <td>
-                              <span itemprop="end" class="dtend" tal:content="item/end">start</span>
+                              <span itemprop="end" class="dtend" tal:define="date_end item/end"
+                                    tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
                             </td>
                             <td>
                               <span tal:content="item/geolocation"> Geolocation</span>

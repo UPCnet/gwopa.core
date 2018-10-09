@@ -47,15 +47,15 @@ class IArea(model.Schema):
         required=False,
     )
 
-    description = schema.Text(
-        title=_(u'label_description', default=u'Summary'),
-        description=_(
-            u'help_description',
-            default=u'Used in item listings and search results.'
-        ),
-        required=False,
-        missing_value=u'',
-    )
+    # description = schema.Text(
+    #     title=_(u'label_description', default=u'Summary'),
+    #     description=_(
+    #         u'help_description',
+    #         default=u'Used in item listings and search results.'
+    #     ),
+    #     required=False,
+    #     missing_value=u'',
+    # )
 
     image = namedfile.NamedBlobImage(
         title=_(u'project_image', default=u'Project Image'),
@@ -131,11 +131,6 @@ class IArea(model.Schema):
         required=False,
         default=False
     )
-    directives.widget(
-        'open_end',
-        SingleCheckBoxFieldWidget,
-        klass=u'event_open_end'
-    )
 
     geolocation = schema.TextLine(
         title=_(u"Geolocation"),
@@ -187,7 +182,7 @@ class IArea(model.Schema):
 
     @invariant
     def validate_start_end(data):
-        if (data.start and data.end and data.start > data.end and not data.open_end):
+        if (data.start and data.end and data.start > data.end):
             raise StartBeforeEnd(
                 _("error_end_must_be_after_start_date",
                   default=u"End date must be after start date.")

@@ -2,16 +2,12 @@
 from five import grok
 from plone.supermodel import model
 from zope import schema
-from plone.app.event.base import default_timezone
 from zope.schema.interfaces import IContextAwareDefaultFactory
-from plone.app.event.base import default_end as default_end_dt
-from plone.app.event.base import default_start as default_start_dt
 from zope.interface import provider
-from plone.app.z3cform.widget import DatetimeFieldWidget
-from plone.autoform import directives
 from zope.interface import Invalid
 from zope.interface import invariant
 from gwopa.core import _
+import datetime
 
 grok.templatedir("templates")
 
@@ -22,74 +18,29 @@ class StartBeforeEnd(Invalid):
 
 
 @provider(IContextAwareDefaultFactory)
-def default_start(context):
-    """Provide default start for the form.
-    """
-    return default_start_dt(context)
-
-
-@provider(IContextAwareDefaultFactory)
-def default_end(context):
-    """Provide default end for the form.
-    """
-    return default_end_dt(context)
+def todayValue(context):
+    return datetime.date.today() - datetime.timedelta(1)
 
 
 class IOutputindicator(model.Schema):
-    """  Project type
-    """
+    """  Output indicator """
     title = schema.TextLine(
-        title=_(u"Project name"),
-        description=_(u"Indicates the project title"),
-        required=False,
-    )
-
-    # description = schema.Text(
-    #     title=_(u'label_description', default=u'Summary'),
-    #     description=_(
-    #         u'help_description',
-    #         default=u'Used in item listings and search results.'
-    #     ),
-    #     required=False,
-    #     missing_value=u'',
-    # )
-
-    start = schema.Datetime(
-        title=_(
-            u'label_event_start',
-            default=u'Event Starts'
-        ),
-        description=_(
-            u'help_event_start',
-            default=u'Date and Time, when the event begins.'
-        ),
+        title=_(u"Title"),
         required=True,
-        defaultFactory=default_start
-    )
-    directives.widget(
-        'start',
-        DatetimeFieldWidget,
-        default_timezone=default_timezone,
-        klass=u'event_start'
     )
 
-    end = schema.Datetime(
-        title=_(
-            u'label_event_end',
-            default=u'Event Ends'
-        ),
-        description=_(
-            u'help_event_end',
-            default=u'Date and Time, when the event ends.'
-        ),
+    start = schema.Date(
+        title=_(u'Start date'),
+        description=_(u'Date when the indicator begins.'),
         required=True,
-        defaultFactory=default_end
+        defaultFactory=todayValue
     )
-    directives.widget(
-        'end',
-        DatetimeFieldWidget,
-        default_timezone=default_timezone,
-        klass=u'event_end'
+
+    end = schema.Date(
+        title=_(u'End date'),
+        description=_(u'Date when the indicator ends.'),
+        required=True,
+        defaultFactory=todayValue
     )
 
     @invariant
