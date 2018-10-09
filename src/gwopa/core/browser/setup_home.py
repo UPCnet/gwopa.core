@@ -110,7 +110,7 @@ class setup(grok.View):
         site_settings.toolbar_position == 'top'
 
         # Set the default pages to the homepage view
-        portal_en.setLayout('homepage')
+        # portal_en.setLayout('homepage')
 
         return True
 

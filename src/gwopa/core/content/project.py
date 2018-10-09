@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from five import grok
+from plone import api
 from plone.supermodel import model
 from zope import schema
 from plone.app.event.base import default_timezone
@@ -15,8 +16,26 @@ from zope.interface import Invalid
 from zope.interface import invariant
 from plone.namedfile import field as namedfile
 from gwopa.core import _
+from zope.schema.vocabulary import SimpleVocabulary
+from zope.schema.interfaces import IContextSourceBinder
+from zope.interface import directlyProvides
+import unicodedata
+from zope.schema.vocabulary import SimpleTerm
+import pycountry
+
 
 grok.templatedir("templates")
+
+
+def vocabulary_maker(l):
+    vocab_list = []
+    for row in l:
+        entry = SimpleTerm(value=unicodedata.normalize('NFKD', row).encode('ascii', errors='ignore').decode('ascii'), title=_(row))
+        vocab_list.append(entry)
+    return SimpleVocabulary(vocab_list)
+
+
+countries = vocabulary_maker([country.name for country in pycountry.countries])
 
 
 class StartBeforeEnd(Invalid):
@@ -36,6 +55,24 @@ def default_end(context):
     """Provide default end for the form.
     """
     return default_end_dt(context)
+
+
+def ImprovementAreaList(context):
+    """ Create vocabulary """
+    terms = []
+    values = api.content.find(portal_type="ImprovementArea")
+    for item in values:
+        item = item.Title
+        if isinstance(item, str):
+            flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
+        else:
+            flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item, flattened, item))
+
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(ImprovementAreaList, IContextSourceBinder)
 
 
 class IProject(model.Schema):
@@ -119,28 +156,11 @@ class IProject(model.Schema):
         klass=u'event_whole_day'
     )
 
-    open_end = schema.Bool(
-        title=_(
-            u'label_event_open_end',
-            default=u'Open End'
-        ),
-        description=_(
-            u'help_event_open_end',
-            default=u"This event is open ended."
-        ),
-        required=False,
-        default=False
-    )
-    directives.widget(
-        'open_end',
-        SingleCheckBoxFieldWidget,
-        klass=u'event_open_end'
-    )
-
-    geolocation = schema.TextLine(
+    geolocation = schema.Choice(
         title=_(u"Geolocation"),
-        description=_(u""),
-        required=False,
+        description=_(u"Select country"),
+        vocabulary=countries,
+        required=True,
     )
 
     partners = RichText(
@@ -155,9 +175,12 @@ class IProject(model.Schema):
         required=False,
     )
 
-    area = schema.TextLine(
+    area = schema.List(
         title=_(u"Interest Areas"),
         description=_(u""),
+        value_type=schema.Choice(
+            source=ImprovementAreaList,
+        ),
         required=False,
     )
 
@@ -187,7 +210,7 @@ class IProject(model.Schema):
 
     @invariant
     def validate_start_end(data):
-        if (data.start and data.end and data.start > data.end and not data.open_end):
+        if (data.start and data.end and data.start > data.end):
             raise StartBeforeEnd(
                 _("error_end_must_be_after_start_date",
                   default=u"End date must be after start date.")
@@ -197,3 +220,17 @@ class IProject(model.Schema):
 class View(grok.View):
     grok.context(IProject)
     grok.template('project_view')
+
+    def getArea(self):
+        values = self.context.area
+        results = ''
+        if values:
+            if len(values) == 1:
+                return values[0]
+            else:
+                for value in values:
+                    results = str(results) + str(value) + str(', ')
+        else:
+            return None
+
+        return results[:-2]  # Removes latest comma
