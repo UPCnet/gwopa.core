@@ -18,8 +18,6 @@
             geolocation context/geolocation;
             partners context/partners;
             project_manager context/project_manager;
-            area view/getArea;
-            it_members context/it_members;
             budget context/budget;
             contribution context/contribution;
             wop_program context/wop_program">
@@ -39,16 +37,15 @@
         <span tal:content="project_manager" />
       </div>
 
-      <div tal:condition="area">
+<!--       <div tal:condition="area">
         <h3 i18n:translate="">Interest Areas</h3>
         <span tal:content="area" />
       </div>
 
       <div tal:condition="it_members">
         <h3 i18n:translate="">Improvement track team and members</h3>
-
         <span tal:content="it_members" />
-      </div>
+      </div> -->
 
       <div tal:condition="budget">
         <h3 i18n:translate="">Budget</h3>

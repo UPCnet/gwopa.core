@@ -35,7 +35,7 @@
             <input id="create" class="context" type="submit" value="Create" name="create"/>
         </form>
         <br/>
-        If you are developing, you can create DEMO CONTENT to view the Site with some contents.
+        If you are developing, you can create DEMO CONTENT to view the Site with some content already created (all with demo key inside to easily find them).
         <br/>
         <br/>
         <form method="get" action="@@setup_home">

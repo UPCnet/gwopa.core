@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <registry>
-<!-- -*- extra stuff goes here -*- -->
+
+    <records interface="gwopa.core.controlpanel.IGWOPASettings" purge="False" />
 
 </registry>

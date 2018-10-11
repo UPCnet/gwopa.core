@@ -9,8 +9,9 @@
 domain=gwopa
 
 echo ""
-echo "### Remember to add MANUALLY the NEW gwopahome.theme directories to this script ###"
-echo "### This script doesnt check the THEME directory                                ###"
+echo "### Remember to add MANUALLY the NEW gwopa.theme directories to this script ###"
+echo "### This script doesnt check the THEME directory.                           ###"
+echo "### Add the missings dir, excluding theme dir.                              ###"
 echo ""
 ../../../../../../bin/i18ndude rebuild-pot --pot $domain.pot --create $domain  ../  \
   ../../../../../gwopa.theme/src/gwopa/theme/behaviors  \

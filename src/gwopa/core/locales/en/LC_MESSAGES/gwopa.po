@@ -18,6 +18,10 @@ msgstr ""
 msgid "Add the project title"
 msgstr "Add the project title"
 
+#: ../controlpanel.py:29
+msgid "All this parameters are needed for the correct use of GWOPA PMP system."
+msgstr "All this parameters are needed for the correct use of GWOPA PMP system."
+
 #: ../content/improvement_area.py:15
 msgid "An improvement area used on the Site"
 msgstr "An improvement area used on the Site"
@@ -25,6 +29,14 @@ msgstr "An improvement area used on the Site"
 #: ../profiles/default/types/Area.xml
 msgid "Area"
 msgstr "Area"
+
+#: ../controlpanel.py:19
+msgid "Available Partners shown in the portal. One per line."
+msgstr "Available Partners shown in the portal. One per line."
+
+#: ../controlpanel.py:12
+msgid "Available WOP Programs in the portal. One per line."
+msgstr "Available WOP Programs in the portal. One per line."
 
 #: ../content/indicator.py:28
 msgid "Baseline Date"
@@ -41,7 +53,7 @@ msgid "Budget"
 msgstr "Budget"
 
 #: ../content/area.py:172
-#: ../content/project.py:141
+#: ../content/project.py:140
 #: ../content/templates/improvementarea_view.pt:59
 msgid "Contribution by partners and donors"
 msgstr "Contribution by partners and donors"
@@ -75,9 +87,13 @@ msgstr "End date"
 msgid "Frequency"
 msgstr "Frequency"
 
-#: ../configure.zcml:31
+#: ../configure.zcml:32
 msgid "GWOPA Core package (gwopa.core)"
 msgstr "GWOPA Core package (gwopa.core)"
+
+#: ../controlpanel.py:30
+msgid "GWOPA Settings"
+msgstr "GWOPA Settings"
 
 #: ../content/area.py:136
 #: ../content/project.py:101
@@ -95,7 +111,6 @@ msgid "Improvement Area"
 msgstr "Improvement Area"
 
 #: ../content/area.py:160
-#: ../content/project.py:129
 #: ../content/templates/improvementarea_view.pt:48
 msgid "Improvement track team and members"
 msgstr "Improvement track team and members"
@@ -117,12 +132,11 @@ msgstr "Indicator"
 msgid "Indicator title"
 msgstr "Indicator title"
 
-#: ../configure.zcml:31
+#: ../configure.zcml:32
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
 #: ../content/area.py:154
-#: ../content/project.py:120
 #: ../content/templates/improvementarea_view.pt:43
 msgid "Interest Areas"
 msgstr "Interest Areas"
@@ -148,6 +162,10 @@ msgstr "Output"
 #: ../content/templates/improvementarea_view.pt:33
 msgid "Partners"
 msgstr "Partners"
+
+#: ../controlpanel.py:18
+msgid "Partners list"
+msgstr "Partners list"
 
 #: ../content/indicator.py:50
 msgid "Primary Source of Data"
@@ -207,11 +225,11 @@ msgstr "The Member Name and Surname"
 msgid "Title"
 msgstr "Title"
 
-#: ../configure.zcml:40
+#: ../configure.zcml:41
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr "Uninstall: GWOPA Core package (gwopa.core)"
 
-#: ../configure.zcml:40
+#: ../configure.zcml:41
 msgid "Uninstalls the gwopa.core add-on."
 msgstr "Uninstalls the gwopa.core add-on."
 
@@ -220,10 +238,14 @@ msgid "Username"
 msgstr "Username"
 
 #: ../content/area.py:178
-#: ../content/project.py:147
+#: ../content/project.py:146
 #: ../content/templates/improvementarea_view.pt:64
 msgid "WOP Program"
 msgstr "WOP Program"
+
+#: ../controlpanel.py:11
+msgid "WOP Program list"
+msgstr "WOP Program list"
 
 #: ../content/projectmember.py:49
 msgid "Year"

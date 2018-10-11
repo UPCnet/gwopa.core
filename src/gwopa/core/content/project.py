@@ -116,20 +116,20 @@ class IProject(model.Schema):
         required=False,
     )
 
-    area = schema.List(
-        title=_(u"Interest Areas"),
-        description=_(u""),
-        value_type=schema.Choice(
-            source=ImprovementAreaList,
-        ),
-        required=False,
-    )
+    # area = schema.List(
+    #     title=_(u"Interest Areas"),
+    #     description=_(u""),
+    #     value_type=schema.Choice(
+    #         source=ImprovementAreaList,
+    #     ),
+    #     required=False,
+    # )
 
-    it_members = schema.TextLine(
-        title=_(u"Improvement track team and members"),
-        description=_(u""),
-        required=False,
-    )
+    # it_members = schema.TextLine(
+    #     title=_(u"Improvement track team and members"),
+    #     description=_(u""),
+    #     required=False,
+    # )
 
     budget = schema.Int(
         title=_(u"Budget"),
