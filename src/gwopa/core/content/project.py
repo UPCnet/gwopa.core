@@ -131,9 +131,8 @@ class IProject(model.Schema):
         required=False,
     )
 
-    budget = schema.TextLine(
+    budget = schema.Int(
         title=_(u"Budget"),
-        description=_(u""),
         required=False,
     )
 

@@ -2,7 +2,7 @@
 <metadata>
   <version>1000</version>
   <dependencies>
-    <dependency>profile-plone.app.multilingual:default</dependency>
+    <!-- <dependency>profile-plone.app.multilingual:default</dependency> -->
     <!-- <dependency>profile-plone.app.mosaic:default</dependency> -->
     <!-- <dependency>profile-collective.easyform:default</dependency> -->
     <!-- <dependency>profile-plone.restapi:default</dependency> -->

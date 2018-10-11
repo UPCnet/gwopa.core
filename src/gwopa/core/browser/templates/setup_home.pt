@@ -14,33 +14,34 @@
     <metal:main-macro define-macro="main">
       <div>
         <h1 class="documentFirstHeading">Initial GWOPA configuration</h1>
-        <p class="documentDescription">Execute this view to make the initial GWOPA configurations available in the Site.</p>
+        <p class="documentDescription">This procedure make the initial GWOPA configurations available on the Site.</p>
         <div class="visualClear"></div>
 
       </div>
       <fieldset class="formPanel">
         <div class="field">
-          <table class="listing">
-            <thead>
-                <tr>
-                    <th class="nosort"></th>
-                    <th class="nosort">en</th>
-                    <th class="nosort">es</th>
-                    <th class="nosort">fr</th>
-                </tr>
-            </thead>
-            <tal:block repeat="files view/contentStatus">
-              <tr tal:define="isodd repeat/files/odd" tal:attributes="class python:isodd and 'odd' or 'even'">
-                  <td tal:repeat="columna files" >
-                      <span tal:replace="columna"></span>
-                  </td>
-              </tr>
-            </tal:block>
-          </table>
+
+            <ul>
+              <li>Assign English as default language</li>
+              <li>Make [English / French / Spanish] languages available on User profiles</li>
+              <li>Set default homepage available</li>
+              <li>Create gwopa controlpanel with default values</li>
+              <li>Modify user profile to assign new fields</li>
+              <li>Assign GWOPA default workflow</li>
+            </ul>
+
         </div>
         <form method="get" action="@@setup_home">
             <input id="create" class="context" type="submit" value="Create" name="create"/>
         </form>
+        <br/>
+        If you are developing, you can create DEMO CONTENT to view the Site with some contents.
+        <br/>
+        <br/>
+        <form method="get" action="@@setup_home">
+            <input id="createdemocontent" class="context" type="submit" value="Create Demo content" name="createdemocontent"/>
+        </form>
+
       </fieldset>
     </metal:main-macro>
   </div>
