@@ -29,7 +29,7 @@
 
       <div tal:condition="partners">
         <h3 i18n:translate="">Partners</h3>
-        <span tal:replace="structure partners/output" />
+        <span tal:content="partners" />
       </div>
 
       <div tal:condition="project_manager">

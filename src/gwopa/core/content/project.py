@@ -45,6 +45,40 @@ def default_today(context):
     return datetime.date.today() - datetime.timedelta(1)
 
 
+def PartnersList(self):
+    values = api.portal.get_registry_record(
+        'gwopa.core.controlpanel.IGWOPASettings.partners_list')
+    terms = []
+    for item in values:
+        if isinstance(item, str):
+            flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
+        else:
+            flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item, flattened, item))
+
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(PartnersList, IContextSourceBinder)
+
+
+def WOPList(self):
+    values = api.portal.get_registry_record(
+        'gwopa.core.controlpanel.IGWOPASettings.wop_list')
+    terms = []
+    for item in values:
+        if isinstance(item, str):
+            flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
+        else:
+            flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item, flattened, item))
+
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(WOPList, IContextSourceBinder)
+
+
 def ImprovementAreaList(context):
     """ Create vocabulary """
     terms = []
@@ -104,10 +138,14 @@ class IProject(model.Schema):
         required=True,
     )
 
-    partners = RichText(
+    # Partners are in gwopa controlpanel
+    partners = schema.List(
         title=_(u"Partners"),
-        description=_(u""),
+        description=_(u"Partner/partners associated to this project"),
         required=False,
+        value_type=schema.Choice(
+            source=PartnersList,
+        ),
     )
 
     project_manager = schema.TextLine(
@@ -142,9 +180,13 @@ class IProject(model.Schema):
         required=False,
     )
 
-    wop_program = schema.TextLine(
+    # WOPS are in gwopa controlpanel
+    wop_program = schema.List(
         title=_(u"WOP Program"),
-        description=_(u""),
+        description=_(u"Program/programs associated to this project"),
+        value_type=schema.Choice(
+            source=WOPList,
+        ),
         required=False,
     )
 

@@ -7,18 +7,22 @@ from plone.supermodel import model
 
 class IGWOPASettings(model.Schema):
 
-    wop_list = schema.Text(
+    wop_list = schema.List(
         title=_(u'WOP Program list'),
         description=_(u'Available WOP Programs in the portal. One per line.'),
-        default=u'',
-        required=False
+        required=False,
+        default=[u''],
+        value_type=schema.TextLine(),
+        missing_value=(),
     )
 
-    partners_list = schema.Text(
+    partners_list = schema.List(
         title=_(u'Partners list'),
         description=_(u'Available Partners shown in the portal. One per line.'),
-        default=u'',
-        required=False
+        required=False,
+        default=[u''],
+        value_type=schema.TextLine(),
+        missing_value=(),
     )
 
 

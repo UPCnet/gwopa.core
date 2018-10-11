@@ -80,7 +80,37 @@ class setup(grok.View):
         return True
 
     def createDemoContent(self):
-        self.createProjects(4)
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
+        default_wop_list = [
+            u'WOP Program Demo List 1',
+            u'WOP Program Demo List 2',
+            u'WOP Program Demo List 3',
+            u'WOP Program Demo List 4',
+            u'WOP Program Demo List 5']
+        if isinstance(current, (list,)):
+            for item in default_wop_list:
+                if item not in current:
+                    current.append(default_wop_list)
+            default_wop_list = current
+
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.wop_list', default_wop_list)
+
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
+        default_partners_list = [
+            u'Partner Demo User 1',
+            u'Partner Demo User 2',
+            u'Partner Demo User 3',
+            u'Partner Demo User 4',
+            u'Partner Demo User 5']
+        if isinstance(current, (list,)):
+            for item in default_partners_list:
+                if item not in current:
+                    current.append(default_partners_list)
+            default_partners_list = current
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.partners_list', default_partners_list)
+        self.createProjects(5)
         return "Demo content created"
 
     def getRandomImage(self, w, h):
@@ -101,11 +131,13 @@ class setup(grok.View):
     def getLoremIpsum(self, number, length, type_code):
         """ Returns Lorem Ipsum text
         """
-        data = requests.get('http://loripsum.net/api/{0}/{1}/{2}'.format(number, type_code, length), verify=False, timeout=10).content
-        return data
+        text = requests.get('http://loripsum.net/api/{0}/{1}/{2}'.format(number, type_code, length), verify=False, timeout=10).content
+        return text
 
     def createProjects(self, number):
         portal = api.portal.get()
+        wops = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
+        partners = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
         for i in range(number):
             project = api.content.create(
                 type='Project',
@@ -116,9 +148,8 @@ class setup(grok.View):
             project.image = self.getRandomImage(200, 200)
             project.description = self.getLoremIpsum(1, 'medium', 'plaintext')
             project.budget = random.randint(1, 101)
-            project.partners = RichTextValue(
-                self.getLoremIpsum(3, 'medium', 'html'),
-                'text/html', 'text/html')
             project.contribution = RichTextValue(
                 self.getLoremIpsum(2, 'long', 'html'),
                 'text/html', 'text/html')
+            project.wop_list = wops[i]
+            project.partners_list = partners[i]
