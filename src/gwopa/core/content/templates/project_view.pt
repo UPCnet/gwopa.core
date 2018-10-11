@@ -29,7 +29,9 @@
 
       <div tal:condition="partners">
         <h3 i18n:translate="">Partners</h3>
-        <span tal:content="partners" />
+        <ul tal:repeat="partner partners">
+          <li tal:content="partner"></li>
+        </ul>
       </div>
 
       <div tal:condition="project_manager">
@@ -59,7 +61,9 @@
 
       <div tal:condition="wop_program">
         <h3 i18n:translate="">WOP Program</h3>
-        <span tal:content="wop_program" />
+        <ul tal:repeat="wop wop_program">
+          <li tal:content="wop"></li>
+        </ul>
       </div>
 
     </metal:block>

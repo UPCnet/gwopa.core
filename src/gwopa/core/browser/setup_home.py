@@ -12,6 +12,7 @@ import requests
 from plone.namedfile.file import NamedBlobImage
 from plone.app.textfield.value import RichTextValue
 import random
+import transaction
 
 grok.templatedir("templates")
 
@@ -110,7 +111,8 @@ class setup(grok.View):
             default_partners_list = current
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.partners_list', default_partners_list)
-        self.createProjects(5)
+
+        self.createProjects(1)
         return "Demo content created"
 
     def getRandomImage(self, w, h):
@@ -151,5 +153,12 @@ class setup(grok.View):
             project.contribution = RichTextValue(
                 self.getLoremIpsum(2, 'long', 'html'),
                 'text/html', 'text/html')
-            project.wop_list = wops[i]
-            project.partners_list = partners[i]
+            wop_item = wops[i]
+            new_value = []
+            new_value.append(wop_item)
+            project.wop_program = new_value
+
+            partner_item = partners[i]
+            new_value = []
+            new_value.append(partner_item)
+            project.partners = new_value
