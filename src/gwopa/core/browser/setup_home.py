@@ -82,35 +82,32 @@ class setup(grok.View):
 
     def createDemoContent(self):
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
+        if not current:
+            current = []
         default_wop_list = [
             u'WOP Program Demo List 1',
             u'WOP Program Demo List 2',
             u'WOP Program Demo List 3',
             u'WOP Program Demo List 4',
             u'WOP Program Demo List 5']
-        if isinstance(current, (list,)):
-            for item in default_wop_list:
-                if item not in current:
-                    current.append(default_wop_list)
-            default_wop_list = current
 
+        new_values = current + default_wop_list
         api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.wop_list', default_wop_list)
+            'gwopa.core.controlpanel.IGWOPASettings.wop_list', sorted(list(set(new_values))))
 
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
+        if not current:
+            current = []
         default_partners_list = [
             u'Partner Demo User 1',
             u'Partner Demo User 2',
             u'Partner Demo User 3',
             u'Partner Demo User 4',
             u'Partner Demo User 5']
-        if isinstance(current, (list,)):
-            for item in default_partners_list:
-                if item not in current:
-                    current.append(default_partners_list)
-            default_partners_list = current
+
+        new_values = current + default_partners_list
         api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.partners_list', default_partners_list)
+            'gwopa.core.controlpanel.IGWOPASettings.partners_list', sorted(list(set(new_values))))
 
         self.createProjects(1)
         return "Demo content created"
