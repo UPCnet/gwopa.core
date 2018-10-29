@@ -46,6 +46,7 @@ setup(
         'setuptools',
         'z3c.jbot',
         'pycountry'
+        'requests'
     ],
     extras_require={
         'test': [
