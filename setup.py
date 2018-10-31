@@ -45,8 +45,8 @@ setup(
         'plone.app.dexterity [grok]',
         'setuptools',
         'z3c.jbot',
-        'pycountry'
-        'requests'
+        'pycountry',
+        'requests',
     ],
     extras_require={
         'test': [

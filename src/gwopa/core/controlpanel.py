@@ -25,6 +25,24 @@ class IGWOPASettings(model.Schema):
         missing_value=(),
     )
 
+    measuring_unit = schema.List(
+        title=_(u'Measuring unit'),
+        description=_(u'Used in indicators'),
+        required=False,
+        default=[u''],
+        value_type=schema.TextLine(),
+        missing_value=(),
+    )
+
+    measuring_frequency = schema.List(
+        title=_(u'Measuring frequency'),
+        description=_(u'Used in indicators'),
+        required=False,
+        default=[u''],
+        value_type=schema.TextLine(),
+        missing_value=(),
+    )
+
 
 class GwopaControlPanelForm(controlpanel.RegistryEditForm):
 

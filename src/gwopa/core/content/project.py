@@ -34,8 +34,7 @@ countries = vocabulary_maker([country.name for country in pycountry.countries])
 
 
 class StartBeforeEnd(Invalid):
-    __doc__ = _("error_invalid_date",
-                default=u"Invalid start or end date")
+    __doc__ = _(u"Invalid start or end date")
 
 
 @provider(IContextAwareDefaultFactory)
@@ -193,10 +192,7 @@ class IProject(model.Schema):
     @invariant
     def validate_start_end(data):
         if (data.start and data.end and data.start > data.end):
-            raise StartBeforeEnd(
-                _("error_end_must_be_after_start_date",
-                  default=u"End date must be after start date.")
-            )
+            raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):

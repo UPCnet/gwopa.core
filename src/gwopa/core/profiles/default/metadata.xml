@@ -6,6 +6,6 @@
     <!-- <dependency>profile-plone.app.mosaic:default</dependency> -->
     <!-- <dependency>profile-collective.easyform:default</dependency> -->
     <!-- <dependency>profile-plone.restapi:default</dependency> -->
-    <dependency>profile-gwopa.theme:default</dependency>
+    <!-- <dependency>profile-gwopa.theme:default</dependency> -->
   </dependencies>
 </metadata>

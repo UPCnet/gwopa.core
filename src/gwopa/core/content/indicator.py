@@ -19,6 +19,21 @@ class IIndicator(model.Schema):
         required=True,
     )
 
+    description = schema.TextLine(
+        title=_(u"Describe Indicator"),
+        required=True,
+    )
+
+    indicator_kind = schema.TextLine(
+        title=_(u"Indicate which results chain component it is informing"),
+        required=True,
+    )
+
+    indicator_type = schema.TextLine(
+        title=_(u"Indicator type"),
+        required=True,
+    )
+
     baseline = schema.Int(
         title=_(u"Baseline value"),
         required=True,
@@ -30,10 +45,28 @@ class IIndicator(model.Schema):
         defaultFactory=todayValue
     )
 
-    target = schema.TextLine(
-        title=_(u"Target value"),
+    target1 = schema.TextLine(
+        title=_(u"Target value 1"),
         description=_(u"TODO : Problems with inline addition..."),
         required=True,
+    )
+
+    target1_date = schema.Date(
+        title=_(u'Target Value 1 Date'),
+        required=True,
+        defaultFactory=todayValue
+    )
+
+    target2 = schema.TextLine(
+        title=_(u"Target value 2"),
+        description=_(u"TODO : Problems with inline addition..."),
+        required=True,
+    )
+
+    target2_date = schema.Date(
+        title=_(u'Target Value 2 Date'),
+        required=True,
+        defaultFactory=todayValue
     )
 
     measuring = schema.TextLine(
@@ -42,12 +75,12 @@ class IIndicator(model.Schema):
     )
 
     frequency = schema.TextLine(
-        title=_(u"Frequency"),
+        title=_(u"Measuring Frequency"),
         required=True,
     )
 
-    primary_data = schema.TextLine(
-        title=_(u"Primary Source of Data"),
+    disaggregation = schema.TextLine(
+        title=_(u"Disaggregation's"),
         required=True,
     )
 

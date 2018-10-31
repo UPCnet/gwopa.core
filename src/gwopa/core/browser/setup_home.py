@@ -90,7 +90,6 @@ class setup(grok.View):
             u'WOP Program Demo List 3',
             u'WOP Program Demo List 4',
             u'WOP Program Demo List 5']
-
         new_values = current + default_wop_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.wop_list', sorted(list(set(new_values))))
@@ -104,10 +103,34 @@ class setup(grok.View):
             u'Partner Demo User 3',
             u'Partner Demo User 4',
             u'Partner Demo User 5']
-
         new_values = current + default_partners_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.partners_list', sorted(list(set(new_values))))
+
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.measuring_unit')
+        if not current:
+            current = []
+        default_measuring_list = [
+            u'liters',
+            u'm3',
+            u'people',
+            u'others',
+        ]
+        new_values = current + default_measuring_list
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.measuring_unit', sorted(list(set(new_values))))
+
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.measuring_frequency')
+        if not current:
+            current = []
+        default_measuringfreq_list = [
+            u'quarterly',
+            u'biannually',
+            u'annually',
+        ]
+        new_values = current + default_measuringfreq_list
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.measuring_frequency', sorted(list(set(new_values))))
 
         self.createProjects(1)
         return "Demo content created"

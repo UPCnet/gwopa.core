@@ -17,15 +17,4 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- DASHBOARD TEMPLATE-->
-  <browser:page
-      for="Products.CMFCore.interfaces.ISiteRoot"
-      name="globalhome"
-      class=".globalhome.MainTemplate"
-      template="templates/globalhome.pt"
-      permission="cmf.SetOwnPassword"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-  />
-
-
 </configure>
