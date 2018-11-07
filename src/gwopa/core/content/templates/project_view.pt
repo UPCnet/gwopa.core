@@ -9,23 +9,16 @@
 
 <metal:content-core fill-slot="content-core">
 
-  <div class="pull-right" tal:condition="context/image">
+    <div class="pull-right" tal:condition="context/image">
     <img tal:attributes="src string:${context/absolute_url}/@@images/image" />
-  </div>
+    </div>
 
     <metal:block define-macro="content-core"
-        tal:define="
-            geolocation context/geolocation;
-            partners context/partners;
-            project_manager context/project_manager;
-            budget context/budget;
-            contribution context/contribution;
-            wop_program context/wop_program">
-
-      <div tal:condition="geolocation">
-        <h3 i18n:translate="">Geolocation</h3>
-        <span tal:content="geolocation" />
-      </div>
+        tal:define="partners context/partners;
+                    project_manager context/project_manager;
+                    budget context/budget;
+                    contribution context/contribution;
+                    wop_program context/wop_program">
 
       <div tal:condition="partners">
         <h3 i18n:translate="">Partners</h3>
@@ -38,16 +31,6 @@
         <h3 i18n:translate="">Project Manager</h3>
         <span tal:content="project_manager" />
       </div>
-
-<!--       <div tal:condition="area">
-        <h3 i18n:translate="">Interest Areas</h3>
-        <span tal:content="area" />
-      </div>
-
-      <div tal:condition="it_members">
-        <h3 i18n:translate="">Improvement track team and members</h3>
-        <span tal:content="it_members" />
-      </div> -->
 
       <div tal:condition="budget">
         <h3 i18n:translate="">Budget</h3>
@@ -65,10 +48,79 @@
           <li tal:content="wop"></li>
         </ul>
       </div>
-
+      <tal:block define="latitude context/geolocation/latitude;
+                   longitude context/geolocation/longitude">
+        <div tal:condition="python: latitude and longitude" class="pat-leaflet map" style="float:right; width:600px;"
+         data-geojson='{
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "id": 1,
+              "properties":
+              {
+                "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
+              },
+              "geometry":
+              {
+                "type": "Point",
+                "coordinates": [ ${longitude},
+                  ${latitude}
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "id": 2,
+              "properties":
+              {
+                "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
+              },
+              "geometry":
+              {
+                "type": "Point",
+                "coordinates": [
+                  15.4382918,
+                  47.0708101
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "id": 3,
+              "properties": {
+                "popup": "sarajevo days of poetry (bih), sarajevo, bosnia"
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                      18.3886134,
+                      43.8514981
+                  ]
+              }
+          }
+          ]}' data-pat-leaflet='{
+           "fullscreencontrol": true,
+           "locatecontrol": false,
+           "zoomcontrol": true,
+           "minimap": false,
+           "addmarker": false,
+           "map_layers": [
+           ]
+          }'>
+        </div>
+        <span> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
+        <span> Longitude: <tal:omit-tag tal:content="longitude"></tal:omit-tag></span>
+      </tal:block>
     </metal:block>
 
 </metal:content-core>
 
 </body>
 </html>
+
+
+<!-- {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"},
+     {"title": "Satellite", "id": "Esri.WorldImagery"},
+     {"title": "Topographic", "id": "OpenTopoMap"},
+     {"title": "Toner", "id": "Stamen.Toner"} -->

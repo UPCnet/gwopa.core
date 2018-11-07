@@ -18,7 +18,6 @@ from zope.schema.vocabulary import SimpleTerm
 import pycountry
 import datetime
 
-
 grok.templatedir("templates")
 
 
@@ -41,7 +40,14 @@ class StartBeforeEnd(Invalid):
 def default_today(context):
     """Provide default start for the form.
     """
-    return datetime.date.today() - datetime.timedelta(1)
+    return datetime.date.today()
+
+
+@provider(IContextAwareDefaultFactory)
+def default_tomorrow(context):
+    """Provide default start for the form.
+    """
+    return datetime.date.today() + datetime.timedelta(1)
 
 
 def PartnersList(self):
@@ -127,7 +133,7 @@ class IProject(model.Schema):
         title=_(u'End date'),
         description=_(u'Date when the project ends.'),
         required=True,
-        defaultFactory=default_today
+        defaultFactory=default_tomorrow
     )
 
     geolocation = schema.Choice(
