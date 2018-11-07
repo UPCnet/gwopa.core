@@ -39,51 +39,46 @@ class IGoalindicator(model.Schema):
     """  Project type
     """
     title = schema.TextLine(
-        title=_(u"Goal name"),
-        description=_(u"Indicates the goal title"),
+        title=_(u"Goal title"),
         required=False,
     )
 
-    # description = schema.Text(
-    #     title=_(u'label_description', default=u'Summary'),
-    #     description=_(
-    #         u'help_description',
-    #         default=u'Used in item listings and search results.'
-    #     ),
-    #     required=False,
-    #     missing_value=u'',
+    description = schema.Text(
+        title=_(u'Summary'),
+        required=False,
+        missing_value=u'',
+    )
+
+    # start = schema.Datetime(
+    #     title=_(u'Event Starts'),
+    #     description=_(u'Date and Time, when the event begins.'),
+    #     required=True,
+    #     defaultFactory=default_start
+    # )
+    # directives.widget(
+    #     'start',
+    #     DatetimeFieldWidget,
+    #     default_timezone=default_timezone,
+    #     klass=u'event_start'
     # )
 
-    start = schema.Datetime(
-        title=_(u'Event Starts'),
-        description=_(u'Date and Time, when the event begins.'),
-        required=True,
-        defaultFactory=default_start
-    )
-    directives.widget(
-        'start',
-        DatetimeFieldWidget,
-        default_timezone=default_timezone,
-        klass=u'event_start'
-    )
+    # end = schema.Datetime(
+    #     title=_(u'Event Ends'),
+    #     description=_(u'Date and Time, when the event ends.'),
+    #     required=True,
+    #     defaultFactory=default_end
+    # )
+    # directives.widget(
+    #     'end',
+    #     DatetimeFieldWidget,
+    #     default_timezone=default_timezone,
+    #     klass=u'event_end'
+    # )
 
-    end = schema.Datetime(
-        title=_(u'Event Ends'),
-        description=_(u'Date and Time, when the event ends.'),
-        required=True,
-        defaultFactory=default_end
-    )
-    directives.widget(
-        'end',
-        DatetimeFieldWidget,
-        default_timezone=default_timezone,
-        klass=u'event_end'
-    )
-
-    @invariant
-    def validate_start_end(data):
-        if (data.start and data.end and data.start > data.end):
-            raise StartBeforeEnd(u"End date must be after start date.")
+    # @invariant
+    # def validate_start_end(data):
+    #     if (data.start and data.end and data.start > data.end):
+    #         raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):

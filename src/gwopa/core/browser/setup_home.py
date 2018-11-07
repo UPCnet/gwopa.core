@@ -132,7 +132,7 @@ class setup(grok.View):
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.measuring_frequency', sorted(list(set(new_values))))
 
-        self.createProjects(1)
+        self.createProjects(5)
         return "Demo content created"
 
     def getRandomImage(self, w, h):
@@ -177,6 +177,11 @@ class setup(grok.View):
             new_value = []
             new_value.append(wop_item)
             project.wop_program = new_value
+            # from plone.formwidget.geolocation.interfaces import IGeolocation
+            # import ipdb; ipdb.set_trace()
+            # value = IGeolocation.providedBy(project)
+            # project.geolocation.latitude = 0.0
+            # project.geolocation.longitude = 0.0
 
             partner_item = partners[i]
             new_value = []

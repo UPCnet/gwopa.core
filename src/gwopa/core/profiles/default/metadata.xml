@@ -7,5 +7,6 @@
     <!-- <dependency>profile-collective.easyform:default</dependency> -->
     <!-- <dependency>profile-plone.restapi:default</dependency> -->
     <!-- <dependency>profile-gwopa.theme:default</dependency> -->
+    <dependency>profile-collective.geolocationbehavior:default</dependency>
   </dependencies>
 </metadata>

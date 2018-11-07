@@ -111,7 +111,12 @@
                                     tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
                             </td>
                             <td>
-                              <span tal:content="item/geolocation"> Geolocation</span>
+<!--                               <tal:block tal:condition="item/latitude">
+                                <span tal:content="item/latitude"> Geolocation</span>
+                              </tal:block>
+                              <tal:block tal:condition="item/longitude">
+                                <span tal:content="item/longitude"> Geolocation</span>
+                              </tal:block> -->
                             </td>
                             <td>
                               <span tal:content="item/project_manager"> Project manager</span>
@@ -148,9 +153,6 @@
                               <span itemprop="end" class="dtend" tal:content="item/end">start</span>
                             </td>
                             <td>
-                              <span tal:content="item/geolocation"> Geolocation</span>
-                            </td>
-                            <td>
                               <span tal:content="item/project_manager"> Project manager</span>
                             </td>
                           </tr>
@@ -181,9 +183,6 @@
                             </td>
                             <td>
                               <span itemprop="end" class="dtend" tal:content="item/end">start</span>
-                            </td>
-                            <td>
-                              <span tal:content="item/geolocation"> Geolocation</span>
                             </td>
                             <td>
                               <span tal:content="item/project_manager"> Project manager</span>

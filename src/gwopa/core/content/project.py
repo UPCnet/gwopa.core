@@ -143,6 +143,14 @@ class IProject(model.Schema):
         required=True,
     )
 
+    latitude = schema.Text(
+        title=_(u"latitude"),
+    )
+
+    longitude = schema.Text(
+        title=_(u"longitude"),
+    )
+
     # Partners are in gwopa controlpanel
     partners = schema.List(
         title=_(u"Partners"),
@@ -193,6 +201,18 @@ class IProject(model.Schema):
             source=WOPList,
         ),
         required=False,
+    )
+
+    risks = schema.Text(
+        title=_(u'Risks'),
+        required=False,
+        missing_value=u'',
+    )
+
+    assumptions = schema.Text(
+        title=_(u'Assumptions'),
+        required=False,
+        missing_value=u'',
     )
 
     @invariant

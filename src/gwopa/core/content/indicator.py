@@ -14,15 +14,7 @@ def todayValue():
     return datetime.date.today() - datetime.timedelta(1)
 
 
-indicator_kind = [
-    u"Goal",
-    u"Objective",
-    u"Outcome",
-    u"Output",
-]
-
 indicator_type = [
-    u"None",
     u"Qualitative",
     u"Quantitative",
 ]
@@ -43,12 +35,6 @@ class IIndicator(model.Schema):
 
     description = schema.TextLine(
         title=_(u"Describe Indicator"),
-        required=True,
-    )
-
-    indicator_kind = schema.Choice(
-        title=_(u"Indicate which results chain component it is informing"),
-        vocabulary=get_vocabulary(indicator_kind),
         required=True,
     )
 
@@ -75,23 +61,23 @@ class IIndicator(model.Schema):
         required=True,
     )
 
-    target1_date = schema.Date(
-        title=_(u'Target Value 1 Date'),
-        required=True,
-        defaultFactory=todayValue
-    )
+    # target1_date = schema.Date(
+    #     title=_(u'Target Value 1 Date'),
+    #     required=True,
+    #     defaultFactory=todayValue
+    # )
 
-    target2 = schema.TextLine(
-        title=_(u"Target value 2"),
-        description=_(u"TODO : Problems with inline addition..."),
-        required=True,
-    )
+    # target2 = schema.TextLine(
+    #     title=_(u"Target value 2"),
+    #     description=_(u"TODO : Problems with inline addition..."),
+    #     required=True,
+    # )
 
-    target2_date = schema.Date(
-        title=_(u'Target Value 2 Date'),
-        required=True,
-        defaultFactory=todayValue
-    )
+    # target2_date = schema.Date(
+    #     title=_(u'Target Value 2 Date'),
+    #     required=True,
+    #     defaultFactory=todayValue
+    # )
 
     measuring = schema.TextLine(
         title=_(u"Measuring Unit"),
@@ -105,6 +91,11 @@ class IIndicator(model.Schema):
 
     disaggregation = schema.TextLine(
         title=_(u"Disaggregation's"),
+        required=True,
+    )
+
+    means = schema.Text(
+        title=_(u"Means of verification"),
         required=True,
     )
 

@@ -47,6 +47,9 @@ setup(
         'z3c.jbot',
         'pycountry',
         'requests',
+        'plone.patternslib',
+        'collective.geolocationbehavior',
+        'plone.formwidget.geolocation'
     ],
     extras_require={
         'test': [

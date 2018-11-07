@@ -48,9 +48,9 @@
           <li tal:content="wop"></li>
         </ul>
       </div>
-      <tal:block define="latitude context/geolocation/latitude;
-                   longitude context/geolocation/longitude">
-        <div tal:condition="python: latitude and longitude" class="pat-leaflet map" style="float:right; width:600px;"
+      <tal:block define="latitude context/latitude;
+                   longitude context/longitude">
+        <div tal:condition="python: latitude and longitude" class="pat-leaflet map"
          data-geojson='{
           "type": "FeatureCollection",
           "features": [
@@ -68,44 +68,16 @@
                   ${latitude}
                 ]
               }
-            },
-            {
-              "type": "Feature",
-              "id": 2,
-              "properties":
-              {
-                "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
-              },
-              "geometry":
-              {
-                "type": "Point",
-                "coordinates": [
-                  15.4382918,
-                  47.0708101
-                ]
-              }
-            },
-            {
-              "type": "Feature",
-              "id": 3,
-              "properties": {
-                "popup": "sarajevo days of poetry (bih), sarajevo, bosnia"
-              },
-              "geometry": {
-                  "type": "Point",
-                  "coordinates": [
-                      18.3886134,
-                      43.8514981
-                  ]
-              }
-          }
+            }
           ]}' data-pat-leaflet='{
            "fullscreencontrol": true,
            "locatecontrol": false,
            "zoomcontrol": true,
-           "minimap": false,
+           "minimap": true,
            "addmarker": false,
            "map_layers": [
+            {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+
            ]
           }'>
         </div>
