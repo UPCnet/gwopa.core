@@ -11,6 +11,8 @@
   <browser:page
       for="Products.CMFCore.interfaces.ISiteRoot"
       name="homepage"
+      menu="plone_displayviews"
+      title="PMP Projects View"
       class=".homepage.MainTemplate"
       template="templates/homepage.pt"
       permission="cmf.SetOwnPassword"

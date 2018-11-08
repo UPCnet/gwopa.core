@@ -75,9 +75,11 @@
             <article id="content">
               <metal:bodytext define-slot="main">
                 <h1 class="documentFirstHeading">My Projects</h1>
-                <div class="has-table" tal:define="items view/listProjects;" >
                   <a class="context right" href="#"
                      tal:attributes="href string:${context/absolute_url}/++add++Project">+ New Project</a>
+                     <br/><br/>
+                <div class="has-table" tal:define="items view/listProjects;" >
+
                   <table class="listing" summary="Content listing">
                     <thead tal:condition="items">
                       <tr>
@@ -137,6 +139,8 @@
                               <div class="box">
                                 <img class="box-img" tal:condition="item/image"
                                      tal:attributes="src string:${item/url}/@@images/image/thumb;"/>
+                                <img class="box-img" tal:condition="not:item/image"
+                                     tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;"/>
                                 <div class="card-body">
                                   <h4 class="card-title">
                                     <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
@@ -162,8 +166,10 @@
                           <tr tal:define="oddrow repeat/item/odd;"
                               tal:attributes="class python: oddrow and 'even' or 'odd'">
                             <td>
-                                <img tal:condition="item/image"
-                                     tal:attributes="src string:${item/url}/@@images/image/thumb;"/>
+                              <img class="box-img" tal:condition="item/image"
+                                   tal:attributes="src string:${item/url}/@@images/image/thumb;"/>
+                              <img class="box-img" tal:condition="not:item/image"
+                                   tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;"/>
                             </td>
                             <td>
                                 <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>

@@ -6,10 +6,8 @@ from gwopa.core import _
 import datetime
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-from plone import api
-import unicodedata
-from zope.schema.interfaces import IContextSourceBinder
-from zope.interface import implements
+from gwopa.core.utils import vocabulary_values
+
 grok.templatedir("templates")
 
 
@@ -21,26 +19,6 @@ indicator_type = [
     u"Qualitative",
     u"Quantitative",
 ]
-
-
-class vocabulary_values(object):
-    implements(IContextSourceBinder)
-
-    def __init__(self, key):
-        self.key = key
-
-    def __call__(self, context):
-        values = api.portal.get_registry_record(self.key)
-        terms = []
-        for item in values:
-            if len(item.lstrip()) != 0:
-                if isinstance(item, str):
-                    flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
-                else:
-                    flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(item, flattened, item))
-
-        return SimpleVocabulary(terms)
 
 
 class IIndicator(model.Schema):

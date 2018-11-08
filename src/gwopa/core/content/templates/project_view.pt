@@ -85,8 +85,10 @@
            ]
           }'>
         </div>
-        <span> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
-        <span> Longitude: <tal:omit-tag tal:content="longitude"></tal:omit-tag></span>
+        <span tal:condition="latitude"> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
+        <span tal:condition="longitude"> Longitude: <tal:omit-tag tal:content="longitude"></tal:omit-tag></span>
+        <span tal:content="view/getImprovementAreas"></span>
+        <!-- <tal:debug><?python import ipdb; ipdb.set_trace()?></tal:debug> -->
       </tal:block>
     </metal:block>
 

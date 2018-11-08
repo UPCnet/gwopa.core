@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from five import grok
-from plone import api
 from plone.supermodel import model
 from zope import schema
 from zope.schema.interfaces import IContextAwareDefaultFactory
@@ -10,27 +9,12 @@ from zope.interface import Invalid
 from zope.interface import invariant
 from plone.namedfile import field as namedfile
 from gwopa.core import _
-from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema.interfaces import IContextSourceBinder
-from zope.interface import directlyProvides
-import unicodedata
-from zope.schema.vocabulary import SimpleTerm
-import pycountry
+from gwopa.core import utils
 import datetime
 from plone.directives import form
+from plone import api
 
 grok.templatedir("templates")
-
-
-def vocabulary_maker(l):
-    vocab_list = []
-    for row in l:
-        entry = SimpleTerm(value=unicodedata.normalize('NFKD', row).encode('ascii', errors='ignore').decode('ascii'), title=_(row))
-        vocab_list.append(entry)
-    return SimpleVocabulary(vocab_list)
-
-
-countries = vocabulary_maker([country.name for country in pycountry.countries])
 
 
 class StartBeforeEnd(Invalid):
@@ -46,64 +30,9 @@ def default_today(context):
 
 @provider(IContextAwareDefaultFactory)
 def default_tomorrow(context):
-    """Provide default start for the form.
+    """Provide default end for the form.
     """
     return datetime.date.today() + datetime.timedelta(1)
-
-
-def PartnersList(self):
-    values = api.portal.get_registry_record(
-        'gwopa.core.controlpanel.IGWOPASettings.partners_list')
-    terms = []
-    for item in values:
-        if len(item.lstrip()) != 0:
-            if isinstance(item, str):
-                flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
-            else:
-                flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
-            terms.append(SimpleVocabulary.createTerm(item, flattened, item))
-
-    return SimpleVocabulary(terms)
-
-
-directlyProvides(PartnersList, IContextSourceBinder)
-
-
-def WOPList(self):
-    values = api.portal.get_registry_record(
-        'gwopa.core.controlpanel.IGWOPASettings.wop_list')
-    terms = []
-    for item in values:
-        if len(item.lstrip()) != 0:
-            if isinstance(item, str):
-                flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
-            else:
-                flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
-            terms.append(SimpleVocabulary.createTerm(item, flattened, item))
-
-    return SimpleVocabulary(terms)
-
-
-directlyProvides(WOPList, IContextSourceBinder)
-
-
-def ImprovementAreaList(context):
-    """ Create vocabulary """
-    terms = []
-    values = api.content.find(portal_type="ImprovementArea")
-    for item in values:
-        item = item.Title
-        if len(item.lstrip()) != 0:
-            if isinstance(item, str):
-                flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
-            else:
-                flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
-            terms.append(SimpleVocabulary.createTerm(item, flattened, item))
-
-    return SimpleVocabulary(terms)
-
-
-directlyProvides(ImprovementAreaList, IContextSourceBinder)
 
 
 class IProject(model.Schema):
@@ -143,7 +72,7 @@ class IProject(model.Schema):
     country = schema.Choice(
         title=_(u"Country"),
         description=_(u"Select country"),
-        vocabulary=countries,
+        vocabulary=utils.countries,
         required=True,
     )
 
@@ -161,13 +90,12 @@ class IProject(model.Schema):
         default=0.0
     )
 
-    # Partners are in gwopa controlpanel
     partners = schema.List(
         title=_(u"Partners"),
         description=_(u"Partner/partners associated to this project"),
         required=False,
         value_type=schema.Choice(
-            source=PartnersList,
+            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.partners_list'),
         ),
     )
 
@@ -203,12 +131,11 @@ class IProject(model.Schema):
         required=False,
     )
 
-    # WOPS are in gwopa controlpanel
     wop_program = schema.List(
         title=_(u"WOP Program"),
         description=_(u"Program/programs associated to this project"),
         value_type=schema.Choice(
-            source=WOPList,
+            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.wop_list'),
         ),
         required=False,
     )
@@ -238,16 +165,6 @@ class View(grok.View):
     grok.context(IProject)
     grok.template('project_view')
 
-    def getArea(self):
-        values = self.context.area
-        results = ''
-        if values:
-            if len(values) == 1:
-                return values[0]
-            else:
-                for value in values:
-                    results = str(results) + str(value) + str(', ')
-        else:
-            return None
-
-        return results[:-2]  # Removes latest comma
+    def getImprovementAreas(self):
+        items = api.content.find(content_type='ImprovementArea')
+        return len(items)
