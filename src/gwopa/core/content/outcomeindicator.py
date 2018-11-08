@@ -42,36 +42,42 @@ class IOutcomeindicator(model.Schema):
         required=True,
     )
 
-    start = schema.Datetime(
-        title=_(u'Event Starts'),
-        description=_(u'Date and Time, when the event begins.'),
-        required=True,
-        defaultFactory=default_start
-    )
-    directives.widget(
-        'start',
-        DatetimeFieldWidget,
-        default_timezone=default_timezone,
-        klass=u'event_start'
+    description = schema.Text(
+        title=_(u'Summary'),
+        required=False,
+        missing_value=u'',
     )
 
-    end = schema.Datetime(
-        title=_(u'Event Ends'),
-        description=_(u'Date and Time, when the event ends.'),
-        required=True,
-        defaultFactory=default_end
-    )
-    directives.widget(
-        'end',
-        DatetimeFieldWidget,
-        default_timezone=default_timezone,
-        klass=u'event_end'
-    )
+    # start = schema.Datetime(
+    #     title=_(u'Event Starts'),
+    #     description=_(u'Date and Time, when the event begins.'),
+    #     required=True,
+    #     defaultFactory=default_start
+    # )
+    # directives.widget(
+    #     'start',
+    #     DatetimeFieldWidget,
+    #     default_timezone=default_timezone,
+    #     klass=u'event_start'
+    # )
 
-    @invariant
-    def validate_start_end(data):
-        if (data.start and data.end and data.start > data.end):
-            raise StartBeforeEnd(u"End date must be after start date.")
+    # end = schema.Datetime(
+    #     title=_(u'Event Ends'),
+    #     description=_(u'Date and Time, when the event ends.'),
+    #     required=True,
+    #     defaultFactory=default_end
+    # )
+    # directives.widget(
+    #     'end',
+    #     DatetimeFieldWidget,
+    #     default_timezone=default_timezone,
+    #     klass=u'event_end'
+    # )
+
+    # @invariant
+    # def validate_start_end(data):
+    #     if (data.start and data.end and data.start > data.end):
+    #         raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):

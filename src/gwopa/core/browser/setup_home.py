@@ -38,7 +38,7 @@ class setup(grok.View):
                 logger = logging.getLogger('Creating DEMO CONTENT on Site ->')
                 logger.info('%s' % self.context.id)
                 self.createDemoContent()
-                self.request.response.redirect(self.context.absolute_url())
+                # self.request.response.redirect(self.context.absolute_url())
 
     def apply_default_language_settings(self):
         pl = api.portal.get_tool('portal_languages')
@@ -173,17 +173,17 @@ class setup(grok.View):
             project.contribution = RichTextValue(
                 self.getLoremIpsum(2, 'long', 'html'),
                 'text/html', 'text/html')
-            wop_item = wops[i]
+            wop_item = wops[i + 1]
             new_value = []
             new_value.append(wop_item)
             project.wop_program = new_value
-            # from plone.formwidget.geolocation.interfaces import IGeolocation
-            # import ipdb; ipdb.set_trace()
-            # value = IGeolocation.providedBy(project)
-            # project.geolocation.latitude = 0.0
-            # project.geolocation.longitude = 0.0
-
-            partner_item = partners[i]
+            partner_item = partners[i + 1]
             new_value = []
             new_value.append(partner_item)
             project.partners = new_value
+            project.latitude = 41.3828939
+            project.longitude = 2.1774322
+            project.risks = project.contribution
+            project.assumptions = project.contribution
+            project.objectives = project.contribution
+            project.country = 'Spain'

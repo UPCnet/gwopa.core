@@ -10,17 +10,18 @@
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
  <property name="global_allow">False</property>
- <property name="filter_content_types">False</property>
- <property name="allowed_content_types"></property>
+ <property name="filter_content_types">True</property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
-
+ <property name="allowed_content_types">
+        <element value="TargetValue"/>
+ </property>
  <property name="behaviors">
-  <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>
+ <property name="klass">plone.dexterity.content.Container</property>
 
  <property name="schema">gwopa.core.content.indicator.IIndicator</property>
 

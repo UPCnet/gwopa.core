@@ -12,13 +12,13 @@ import datetime
 grok.templatedir("templates")
 
 
-class StartBeforeEnd(Invalid):
-    __doc__ = _(u"Invalid start or end date")
+# class StartBeforeEnd(Invalid):
+#     __doc__ = _(u"Invalid start or end date")
 
 
-@provider(IContextAwareDefaultFactory)
-def todayValue(context):
-    return datetime.date.today() - datetime.timedelta(1)
+# @provider(IContextAwareDefaultFactory)
+# def todayValue(context):
+#     return datetime.date.today() - datetime.timedelta(1)
 
 
 class IOutputindicator(model.Schema):
@@ -28,24 +28,30 @@ class IOutputindicator(model.Schema):
         required=True,
     )
 
-    start = schema.Date(
-        title=_(u'Start date'),
-        description=_(u'Date when the indicator begins.'),
-        required=True,
-        defaultFactory=todayValue
+    description = schema.Text(
+        title=_(u'Summary'),
+        required=False,
+        missing_value=u'',
     )
 
-    end = schema.Date(
-        title=_(u'End date'),
-        description=_(u'Date when the indicator ends.'),
-        required=True,
-        defaultFactory=todayValue
-    )
+    # start = schema.Date(
+    #     title=_(u'Start date'),
+    #     description=_(u'Date when the indicator begins.'),
+    #     required=True,
+    #     defaultFactory=todayValue
+    # )
 
-    @invariant
-    def validate_start_end(data):
-        if (data.start and data.end and data.start > data.end):
-            raise StartBeforeEnd(u"End date must be after start date.")
+    # end = schema.Date(
+    #     title=_(u'End date'),
+    #     description=_(u'Date when the indicator ends.'),
+    #     required=True,
+    #     defaultFactory=todayValue
+    # )
+
+    # @invariant
+    # def validate_start_end(data):
+    #     if (data.start and data.end and data.start > data.end):
+    #         raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):

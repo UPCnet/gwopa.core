@@ -11,22 +11,25 @@
 
   <metal:block define-macro="content-core">
 
-      <h2>indicators list</h2>
+      <h2>Indicators list</h2>
 
-      <button type="button" class="btn btn-primary">
-        <a href="#">+ NEW GOAL</a>
+      <button type="button"> 
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to project </a>
       </button>
-      <hr/>
+      <button type="button" class="btn btn-primary">
+        <a href="++add++GoalIndicator">+ New Goal Indicator</a>
+      </button>
 
-<!--       <span tal:content="view/goalsList"></span> -->
+      <hr/>
 
           <tal:objects repeat="item view/goalsList">
             <tr>
               <td>
-                <p>
+                  <span class="label label-primary">Default Label</span>
+
                 <i class="fa fa-list"></i>GOAL &nbsp;
                   <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-                </p>
                 <p>
                   <span tal:content="item/description"> Item Description </span>
                 </p>

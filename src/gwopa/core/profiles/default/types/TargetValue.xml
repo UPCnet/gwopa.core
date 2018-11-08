@@ -1,25 +1,21 @@
 <?xml version="1.0"?>
-<object name="GoalIndicator" meta_type="Dexterity FTI"
+<object name="TargetValue" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Goal</property>
+ <property name="title" i18n:translate="">Target Value</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
- <property name="factory">GoalIndicator</property>
- <property name="add_view_expr">string:${folder_url}/++add++GoalIndicator</property>
+ <property name="factory">TargetValue</property>
+ <property name="add_view_expr">string:${folder_url}/++add++TargetValue</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-        <element value="OutcomeIndicator"/>
-        <element value="OutputIndicator"/>
-        <element value="Indicator"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">plone.dexterity.content.Container</property>
 
  <property name="behaviors">
   <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
@@ -27,7 +23,7 @@
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>
 
- <property name="schema">gwopa.core.content.goalindicator.IGoalindicator</property>
+ <property name="schema">gwopa.core.content.targetvalue.ITargetvalue</property>
 
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>

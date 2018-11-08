@@ -17,6 +17,7 @@ import unicodedata
 from zope.schema.vocabulary import SimpleTerm
 import pycountry
 import datetime
+from plone.directives import form
 
 grok.templatedir("templates")
 
@@ -55,11 +56,12 @@ def PartnersList(self):
         'gwopa.core.controlpanel.IGWOPASettings.partners_list')
     terms = []
     for item in values:
-        if isinstance(item, str):
-            flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
-        else:
-            flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item, flattened, item))
+        if len(item.lstrip()) != 0:
+            if isinstance(item, str):
+                flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
+            else:
+                flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
+            terms.append(SimpleVocabulary.createTerm(item, flattened, item))
 
     return SimpleVocabulary(terms)
 
@@ -72,11 +74,12 @@ def WOPList(self):
         'gwopa.core.controlpanel.IGWOPASettings.wop_list')
     terms = []
     for item in values:
-        if isinstance(item, str):
-            flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
-        else:
-            flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item, flattened, item))
+        if len(item.lstrip()) != 0:
+            if isinstance(item, str):
+                flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
+            else:
+                flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
+            terms.append(SimpleVocabulary.createTerm(item, flattened, item))
 
     return SimpleVocabulary(terms)
 
@@ -90,11 +93,12 @@ def ImprovementAreaList(context):
     values = api.content.find(portal_type="ImprovementArea")
     for item in values:
         item = item.Title
-        if isinstance(item, str):
-            flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
-        else:
-            flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item, flattened, item))
+        if len(item.lstrip()) != 0:
+            if isinstance(item, str):
+                flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
+            else:
+                flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
+            terms.append(SimpleVocabulary.createTerm(item, flattened, item))
 
     return SimpleVocabulary(terms)
 
@@ -136,19 +140,25 @@ class IProject(model.Schema):
         defaultFactory=default_tomorrow
     )
 
-    geolocation = schema.Choice(
-        title=_(u"Geolocation"),
+    country = schema.Choice(
+        title=_(u"Country"),
         description=_(u"Select country"),
         vocabulary=countries,
         required=True,
     )
 
-    latitude = schema.Text(
-        title=_(u"latitude"),
+    form.mode(latitude='hidden')
+    latitude = schema.Float(
+        title=_(u"Latitude"),
+        required=False,
+        default=0.0
     )
 
-    longitude = schema.Text(
-        title=_(u"longitude"),
+    form.mode(longitude='hidden')
+    longitude = schema.Float(
+        title=_(u"Longitude"),
+        required=False,
+        default=0.0
     )
 
     # Partners are in gwopa controlpanel
@@ -203,16 +213,19 @@ class IProject(model.Schema):
         required=False,
     )
 
-    risks = schema.Text(
+    risks = RichText(
         title=_(u'Risks'),
         required=False,
-        missing_value=u'',
     )
 
-    assumptions = schema.Text(
+    assumptions = RichText(
         title=_(u'Assumptions'),
         required=False,
-        missing_value=u'',
+    )
+
+    objectives = RichText(
+        title=_(u'Objectives'),
+        required=False,
     )
 
     @invariant

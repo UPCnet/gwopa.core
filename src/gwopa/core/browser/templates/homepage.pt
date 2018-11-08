@@ -74,10 +74,12 @@
           <metal:slot define-slot="body">
             <article id="content">
               <metal:bodytext define-slot="main">
-                <h1 class="documentFirstHeading">My projects</h1>
-                <div class="has-table">
+                <h1 class="documentFirstHeading">My Projects</h1>
+                <div class="has-table" tal:define="items view/listProjects;" >
+                  <a class="context right" href="#"
+                     tal:attributes="href string:${context/absolute_url}/++add++Project">+ New Project</a>
                   <table class="listing" summary="Content listing">
-                    <thead>
+                    <thead tal:condition="items">
                       <tr>
                         <th class="nosort"></th>
                         <th class="nosort">Project Title</th>
@@ -88,7 +90,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tal:MyProjects define="items view/listProjects;
+                      <tal:MyProjects tal:define="
                               toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
                         <tal:repeatProjects repeat="item items">
                           <tr tal:define="oddrow repeat/item/odd;"
@@ -111,12 +113,7 @@
                                     tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
                             </td>
                             <td>
-<!--                               <tal:block tal:condition="item/latitude">
-                                <span tal:content="item/latitude"> Geolocation</span>
-                              </tal:block>
-                              <tal:block tal:condition="item/longitude">
-                                <span tal:content="item/longitude"> Geolocation</span>
-                              </tal:block> -->
+                                <span tal:content="item/country"> Country</span>
                             </td>
                             <td>
                               <span tal:content="item/project_manager"> Project manager</span>
@@ -126,43 +123,36 @@
                       </tal:MyProjects>
                     </tbody>
                   </table>
-                  <a class="context right" href="++add++Project">+ New Project</a>
-                  <div class="clearfix"></div>
                 </div>
                 <br/>
-                <h1 class="documentFirstHeading">My company projects</h1>
+                <h1 class="documentFirstHeading">My company Projects</h1>
                 <div class="has-table">
                   <table class="listing" summary="Content listing">
                     <tbody>
                       <tal:MyProjects define="items view/companyProjects;
                               toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
-                        <tal:repeatProjects repeat="item items">
-                          <tr tal:define="oddrow repeat/item/odd;"
-                              tal:attributes="class python: oddrow and 'even' or 'odd'">
-                            <td>
-                                <img tal:condition="item/image"
+                        <div class="row">
+                          <tal:repeatProjects repeat="item items">
+                            <div class="col-lg-3 col-md-6">
+                              <div class="box">
+                                <img class="box-img" tal:condition="item/image"
                                      tal:attributes="src string:${item/url}/@@images/image/thumb;"/>
-                            </td>
-                            <td>
-                                <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                            </td>
-                            <td>
-                              <span itemprop="start" class="dtstart" tal:content="item/start">start</span>
-                            </td>
-                            <td>
-                              <span itemprop="end" class="dtend" tal:content="item/end">start</span>
-                            </td>
-                            <td>
-                              <span tal:content="item/project_manager"> Project manager</span>
-                            </td>
-                          </tr>
+                                <div class="card-body">
+                                  <h4 class="card-title">
+                                    <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+                                  </h4>
+                                  <p class="card-text" tal:content="item/country"></p>
+                                </div>
+                              </div>
+                            </div>
                         </tal:repeatProjects>
+                      </div>
                       </tal:MyProjects>
                     </tbody>
                   </table>
                 </div>
                 <br/>
-                <h1 class="documentFirstHeading">Related projects</h1>
+                <h1 class="documentFirstHeading">Related Projects</h1>
                 <div class="has-table">
                   <table class="listing" summary="Content listing">
                     <tbody>

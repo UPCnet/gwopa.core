@@ -36,7 +36,7 @@ class MainTemplate(BrowserView):
                                     url=item.absolute_url_path(),
                                     start=item.start,
                                     end=item.end,
-                                    geolocation=item.geolocation,
+                                    country=item.country,
                                     project_manager=item.project_manager,
                                     image=image
                                     ))
@@ -57,7 +57,7 @@ class MainTemplate(BrowserView):
                                     url=item.absolute_url_path(),
                                     start=item.start,
                                     end=item.end,
-                                    geolocation=item.geolocation,
+                                    country=item.country,
                                     project_manager=item.project_manager,
                                     image=image
                                     ))

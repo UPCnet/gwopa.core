@@ -19,7 +19,11 @@
                     budget context/budget;
                     contribution context/contribution;
                     wop_program context/wop_program">
-
+      
+      <button type="button"> 
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+        <a tal:attributes="href string:${context/absolute_url}/indicators" href="#"> Show indicators </a>
+      </button>
       <div tal:condition="partners">
         <h3 i18n:translate="">Partners</h3>
         <ul tal:repeat="partner partners">
@@ -50,7 +54,7 @@
       </div>
       <tal:block define="latitude context/latitude;
                    longitude context/longitude">
-        <div tal:condition="python: latitude and longitude" class="pat-leaflet map"
+        <div style="width:50%" tal:condition="python: latitude and longitude" class="pat-leaflet map"
          data-geojson='{
           "type": "FeatureCollection",
           "features": [
@@ -73,11 +77,11 @@
            "fullscreencontrol": true,
            "locatecontrol": false,
            "zoomcontrol": true,
-           "minimap": true,
+           "minimap": false,
            "addmarker": false,
+           "zoom": 17,
            "map_layers": [
             {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-
            ]
           }'>
         </div>

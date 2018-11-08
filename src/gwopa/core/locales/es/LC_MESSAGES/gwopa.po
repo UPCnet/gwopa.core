@@ -14,11 +14,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../content/project.py:71
+#: ../content/project.py:114
 msgid "Add the project title"
 msgstr ""
 
-#: ../controlpanel.py:29
+#: ../controlpanel.py:51
 msgid "All this parameters are needed for the correct use of GWOPA PMP system."
 msgstr ""
 
@@ -26,11 +26,11 @@ msgstr ""
 msgid "An improvement area used on the Site"
 msgstr ""
 
-#: ../profiles/default/types/Area.xml
-msgid "Area"
+#: ../content/project.py:222
+msgid "Assumptions"
 msgstr ""
 
-#: ../controlpanel.py:19
+#: ../controlpanel.py:21
 msgid "Available Partners shown in the portal. One per line."
 msgstr ""
 
@@ -38,71 +38,59 @@ msgstr ""
 msgid "Available WOP Programs in the portal. One per line."
 msgstr ""
 
-#: ../content/indicator.py:28
+#: ../content/indicator.py:76
 msgid "Baseline Date"
 msgstr ""
 
-#: ../content/indicator.py:23
+#: ../content/indicator.py:71
 msgid "Baseline value"
 msgstr ""
 
-#: ../content/area.py:166
-#: ../content/project.py:135
-#: ../content/templates/improvementarea_view.pt:54
+#: ../content/project.py:196
+#: ../content/templates/project_view.pt:40
 msgid "Budget"
 msgstr ""
 
-#: ../content/area.py:172
-#: ../content/project.py:140
-#: ../content/templates/improvementarea_view.pt:59
+#: ../content/project.py:201
+#: ../content/templates/project_view.pt:45
 msgid "Contribution by partners and donors"
 msgstr ""
 
+#: ../content/project.py:144
 #: ../content/projectmember.py:42
 msgid "Country"
 msgstr ""
 
-#: ../content/outputindicator.py:34
-msgid "Date when the indicator begins."
-msgstr ""
-
-#: ../content/outputindicator.py:41
-msgid "Date when the indicator ends."
-msgstr ""
-
-#: ../content/project.py:88
+#: ../content/project.py:131
 msgid "Date when the project begins."
 msgstr ""
 
-#: ../content/project.py:95
+#: ../content/project.py:138
 msgid "Date when the project ends."
 msgstr ""
 
-#: ../content/outputindicator.py:40
-#: ../content/project.py:94
-msgid "End date"
+#: ../content/indicator.py:60
+msgid "Describe Indicator"
 msgstr ""
 
-#: ../content/indicator.py:45
-msgid "Frequency"
+#: ../content/project.py:137
+msgid "End date"
 msgstr ""
 
 #: ../configure.zcml:32
 msgid "GWOPA Core package (gwopa.core)"
 msgstr ""
 
-#: ../controlpanel.py:30
+#: ../controlpanel.py:52
 msgid "GWOPA Settings"
-msgstr ""
-
-#: ../content/area.py:136
-#: ../content/project.py:101
-#: ../content/templates/improvementarea_view.pt:28
-msgid "Geolocation"
 msgstr ""
 
 #: ../profiles/default/types/GoalIndicator.xml
 msgid "Goal"
+msgstr ""
+
+#: ../content/goalindicator.py:42
+msgid "Goal title"
 msgstr ""
 
 #: ../content/improvement_area.py:14
@@ -110,46 +98,68 @@ msgstr ""
 msgid "Improvement Area"
 msgstr ""
 
-#: ../content/area.py:160
-#: ../content/templates/improvementarea_view.pt:48
-msgid "Improvement track team and members"
-msgstr ""
-
 #: ../content/projectmember.py:50
 msgid "Indicate the year of..."
-msgstr ""
-
-#: ../content/area.py:46
-#: ../content/goalindicator.py:43
-msgid "Indicates the project title"
 msgstr ""
 
 #: ../profiles/default/types/Indicator.xml
 msgid "Indicator"
 msgstr ""
 
-#: ../content/indicator.py:18
+#: ../content/indicator.py:55
 msgid "Indicator title"
+msgstr ""
+
+#: ../content/indicator.py:65
+msgid "Indicator type"
 msgstr ""
 
 #: ../configure.zcml:32
 msgid "Installs the gwopa.core add-on."
 msgstr ""
 
-#: ../content/area.py:154
-#: ../content/templates/improvementarea_view.pt:43
-msgid "Interest Areas"
+#: ../content/outcomeindicator.py:20
+#: ../content/project.py:37
+msgid "Invalid start or end date"
 msgstr ""
 
-#: ../content/indicator.py:40
+#: ../content/project.py:152
+msgid "Latitude"
+msgstr ""
+
+#: ../content/project.py:159
+msgid "Longitude"
+msgstr ""
+
+#: ../content/indicator.py:123
+msgid "Means of verification"
+msgstr ""
+
+#: ../content/indicator.py:112
+msgid "Measuring Frequency"
+msgstr ""
+
+#: ../content/indicator.py:106
 msgid "Measuring Unit"
+msgstr ""
+
+#: ../controlpanel.py:38
+msgid "Measuring frequency"
+msgstr ""
+
+#: ../controlpanel.py:29
+msgid "Measuring unit"
+msgstr ""
+
+#: ../content/project.py:227
+msgid "Objectives"
 msgstr ""
 
 #: ../profiles/default/types/OutcomeIndicator.xml
 msgid "Outcome"
 msgstr ""
 
-#: ../content/outcomeindicator.py:42
+#: ../content/outcomeindicator.py:41
 msgid "Outcome indicator"
 msgstr ""
 
@@ -157,31 +167,33 @@ msgstr ""
 msgid "Output"
 msgstr ""
 
-#: ../content/area.py:142
-#: ../content/project.py:108
-#: ../content/templates/improvementarea_view.pt:33
+#: ../content/project.py:167
+msgid "Partner/partners associated to this project"
+msgstr ""
+
+#: ../content/project.py:166
+#: ../content/templates/project_view.pt:28
 msgid "Partners"
 msgstr ""
 
-#: ../controlpanel.py:18
+#: ../controlpanel.py:20
 msgid "Partners list"
 msgstr ""
 
-#: ../content/indicator.py:50
-msgid "Primary Source of Data"
+#: ../content/project.py:209
+msgid "Program/programs associated to this project"
 msgstr ""
 
 #: ../profiles/default/types/Project.xml
 msgid "Project"
 msgstr ""
 
-#: ../content/project.py:82
+#: ../content/project.py:125
 msgid "Project Image"
 msgstr ""
 
-#: ../content/area.py:148
-#: ../content/project.py:114
-#: ../content/templates/improvementarea_view.pt:38
+#: ../content/project.py:175
+#: ../content/templates/project_view.pt:35
 msgid "Project Manager"
 msgstr ""
 
@@ -189,39 +201,46 @@ msgstr ""
 msgid "Project Member"
 msgstr ""
 
-#: ../content/area.py:45
-#: ../content/goalindicator.py:42
-#: ../content/project.py:70
+#: ../content/project.py:113
 msgid "Project name"
 msgstr ""
 
-#: ../content/project.py:102
+#: ../content/project.py:217
+msgid "Risks"
+msgstr ""
+
+#: ../content/project.py:145
 #: ../content/projectmember.py:43
 msgid "Select country"
 msgstr ""
 
-#: ../content/outputindicator.py:33
-#: ../content/project.py:87
+#: ../content/project.py:130
 msgid "Start date"
 msgstr ""
 
-#: ../content/project.py:76
+#: ../content/goalindicator.py:47
+#: ../content/outcomeindicator.py:46
+#: ../content/outputindicator.py:32
 msgid "Summary"
 msgstr ""
 
-#: ../content/indicator.py:35
-msgid "TODO : Problems with inline addition..."
+#: ../profiles/default/types/TargetValue.xml
+msgid "Target Value"
 msgstr ""
 
-#: ../content/indicator.py:34
-msgid "Target value"
+#: ../content/targetvalue.py:24
+msgid "Target Value Date"
+msgstr ""
+
+#: ../content/targetvalue.py:19
+msgid "Target Value title"
 msgstr ""
 
 #: ../content/projectmember.py:31
 msgid "The Member Name and Surname"
 msgstr ""
 
-#: ../content/outputindicator.py:28
+#: ../content/outputindicator.py:27
 msgid "Title"
 msgstr ""
 
@@ -233,13 +252,16 @@ msgstr ""
 msgid "Uninstalls the gwopa.core add-on."
 msgstr ""
 
+#: ../controlpanel.py:30
+msgid "Used in indicators"
+msgstr ""
+
 #: ../content/projectmember.py:30
 msgid "Username"
 msgstr ""
 
-#: ../content/area.py:178
-#: ../content/project.py:146
-#: ../content/templates/improvementarea_view.pt:64
+#: ../content/project.py:208
+#: ../content/templates/project_view.pt:50
 msgid "WOP Program"
 msgstr ""
 
@@ -251,74 +273,12 @@ msgstr ""
 msgid "Year"
 msgstr ""
 
-#. Default: "End date must be after start date."
-#: ../content/area.py:187
-#: ../content/goalindicator.py:99
-#: ../content/outcomeindicator.py:88
-msgid "error_end_must_be_after_start_date"
-msgstr ""
-
 #. Default: "Invalid start or end date"
-#: ../content/area.py:23
 #: ../content/goalindicator.py:20
-#: ../content/outcomeindicator.py:20
 msgid "error_invalid_date"
-msgstr ""
-
-#. Default: "Date and Time, when the event ends."
-#: ../content/area.py:90
-#: ../content/goalindicator.py:81
-#: ../content/outcomeindicator.py:70
-msgid "help_event_end"
-msgstr ""
-
-#. Default: "This event is open ended."
-#: ../content/area.py:127
-msgid "help_event_open_end"
-msgstr ""
-
-#. Default: "Date and Time, when the event begins."
-#: ../content/area.py:71
-#: ../content/goalindicator.py:62
-#: ../content/outcomeindicator.py:51
-msgid "help_event_start"
-msgstr ""
-
-#. Default: "Event lasts whole day."
-#: ../content/area.py:109
-msgid "help_event_whole_day"
-msgstr ""
-
-#. Default: "Event Ends"
-#: ../content/area.py:86
-#: ../content/goalindicator.py:77
-#: ../content/outcomeindicator.py:66
-msgid "label_event_end"
-msgstr ""
-
-#. Default: "Open End"
-#: ../content/area.py:123
-msgid "label_event_open_end"
-msgstr ""
-
-#. Default: "Event Starts"
-#: ../content/area.py:67
-#: ../content/goalindicator.py:58
-#: ../content/outcomeindicator.py:47
-msgid "label_event_start"
-msgstr ""
-
-#. Default: "Whole Day"
-#: ../content/area.py:105
-msgid "label_event_whole_day"
 msgstr ""
 
 #. Default: "Member profile picture"
 #: ../content/projectmember.py:36
 msgid "member_image"
-msgstr ""
-
-#. Default: "Project Image"
-#: ../content/area.py:61
-msgid "project_image"
 msgstr ""
