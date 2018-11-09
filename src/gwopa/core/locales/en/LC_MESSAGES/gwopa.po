@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../content/project.py:114
+#: ../content/project.py:43
 msgid "Add the project title"
 msgstr "Add the project title"
 
@@ -22,11 +22,11 @@ msgstr "Add the project title"
 msgid "All this parameters are needed for the correct use of GWOPA PMP system."
 msgstr "All this parameters are needed for the correct use of GWOPA PMP system."
 
-#: ../content/improvement_area.py:15
+#: ../content/improvement_area.py:16
 msgid "An improvement area used on the Site"
 msgstr "An improvement area used on the Site"
 
-#: ../content/project.py:222
+#: ../content/project.py:149
 msgid "Assumptions"
 msgstr "Assumptions"
 
@@ -38,42 +38,41 @@ msgstr "Available Partners shown in the portal. One per line."
 msgid "Available WOP Programs in the portal. One per line."
 msgstr "Available WOP Programs in the portal. One per line."
 
-#: ../content/indicator.py:76
+#: ../content/indicator.py:54
 msgid "Baseline Date"
 msgstr "Baseline Date"
 
-#: ../content/indicator.py:71
+#: ../content/indicator.py:49
 msgid "Baseline value"
 msgstr "Baseline value"
 
-#: ../content/project.py:196
+#: ../content/project.py:124
 #: ../content/templates/project_view.pt:40
 msgid "Budget"
 msgstr "Budget"
 
-#: ../content/project.py:201
+#: ../content/project.py:129
 #: ../content/templates/project_view.pt:45
 msgid "Contribution by partners and donors"
 msgstr "Contribution by partners and donors"
 
-#: ../content/project.py:144
-#: ../content/projectmember.py:42
+#: ../content/project.py:73
 msgid "Country"
 msgstr "Country"
 
-#: ../content/project.py:131
+#: ../content/project.py:60
 msgid "Date when the project begins."
 msgstr "Date when the project begins."
 
-#: ../content/project.py:138
+#: ../content/project.py:67
 msgid "Date when the project ends."
 msgstr "Date when the project ends."
 
-#: ../content/indicator.py:60
+#: ../content/indicator.py:38
 msgid "Describe Indicator"
 msgstr "Describe indicator"
 
-#: ../content/project.py:137
+#: ../content/project.py:66
 msgid "End date"
 msgstr "End date"
 
@@ -93,24 +92,24 @@ msgstr "Goal"
 msgid "Goal title"
 msgstr "Goal Title"
 
-#: ../content/improvement_area.py:14
+#: ../content/improvement_area.py:21
+msgid "Image Area"
+msgstr ""
+
+#: ../content/improvement_area.py:15
 #: ../profiles/default/types/ImprovementArea.xml
 msgid "Improvement Area"
 msgstr "Improvement Area"
-
-#: ../content/projectmember.py:50
-msgid "Indicate the year of..."
-msgstr "Indicate the year"
 
 #: ../profiles/default/types/Indicator.xml
 msgid "Indicator"
 msgstr "Indicator"
 
-#: ../content/indicator.py:55
+#: ../content/indicator.py:33
 msgid "Indicator title"
 msgstr "Indicator title"
 
-#: ../content/indicator.py:65
+#: ../content/indicator.py:43
 msgid "Indicator type"
 msgstr "Indicator type"
 
@@ -119,27 +118,27 @@ msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
 #: ../content/outcomeindicator.py:20
-#: ../content/project.py:37
+#: ../content/project.py:21
 msgid "Invalid start or end date"
 msgstr "Invalid start or end date"
 
-#: ../content/project.py:152
+#: ../content/project.py:81
 msgid "Latitude"
 msgstr "Latitude"
 
-#: ../content/project.py:159
+#: ../content/project.py:88
 msgid "Longitude"
 msgstr "Longitude"
 
-#: ../content/indicator.py:123
+#: ../content/indicator.py:101
 msgid "Means of verification"
 msgstr "Means of verification"
 
-#: ../content/indicator.py:112
+#: ../content/indicator.py:90
 msgid "Measuring Frequency"
 msgstr "Measuring Frequency"
 
-#: ../content/indicator.py:106
+#: ../content/indicator.py:84
 msgid "Measuring Unit"
 msgstr "Measuring Unit"
 
@@ -151,7 +150,7 @@ msgstr "Measuring frequency"
 msgid "Measuring unit"
 msgstr "Measuring unit"
 
-#: ../content/project.py:227
+#: ../content/project.py:154
 msgid "Objectives"
 msgstr "Objectives"
 
@@ -167,11 +166,15 @@ msgstr "Outcome"
 msgid "Output"
 msgstr "Output"
 
-#: ../content/project.py:167
+#: ../browser/configure.zcml:20
+msgid "PMP Projects View"
+msgstr ""
+
+#: ../content/project.py:95
 msgid "Partner/partners associated to this project"
 msgstr "Partner or partners associated to this project"
 
-#: ../content/project.py:166
+#: ../content/project.py:94
 #: ../content/templates/project_view.pt:28
 msgid "Partners"
 msgstr "Partners"
@@ -180,7 +183,7 @@ msgstr "Partners"
 msgid "Partners list"
 msgstr "Partners list"
 
-#: ../content/project.py:209
+#: ../content/project.py:136
 msgid "Program/programs associated to this project"
 msgstr "Program or programs associated to this project"
 
@@ -188,33 +191,28 @@ msgstr "Program or programs associated to this project"
 msgid "Project"
 msgstr "Project"
 
-#: ../content/project.py:125
+#: ../content/project.py:54
 msgid "Project Image"
 msgstr "Project Image"
 
-#: ../content/project.py:175
+#: ../content/project.py:103
 #: ../content/templates/project_view.pt:35
 msgid "Project Manager"
 msgstr "Project Manager"
 
-#: ../profiles/default/types/ProjectMember.xml
-msgid "Project Member"
-msgstr "Project Member"
-
-#: ../content/project.py:113
+#: ../content/project.py:42
 msgid "Project name"
 msgstr "Project name"
 
-#: ../content/project.py:217
+#: ../content/project.py:144
 msgid "Risks"
 msgstr "Risks"
 
-#: ../content/project.py:145
-#: ../content/projectmember.py:43
+#: ../content/project.py:74
 msgid "Select country"
 msgstr "Select country"
 
-#: ../content/project.py:130
+#: ../content/project.py:59
 msgid "Start date"
 msgstr "Start date"
 
@@ -236,10 +234,6 @@ msgstr "Target Value Date"
 msgid "Target Value title"
 msgstr "Target Value"
 
-#: ../content/projectmember.py:31
-msgid "The Member Name and Surname"
-msgstr "The Member Name and Surname"
-
 #: ../content/outputindicator.py:27
 msgid "Title"
 msgstr "Title"
@@ -256,11 +250,7 @@ msgstr "Uninstalls the gwopa.core add-on."
 msgid "Used in indicators"
 msgstr "Used inside indicators"
 
-#: ../content/projectmember.py:30
-msgid "Username"
-msgstr "Username"
-
-#: ../content/project.py:208
+#: ../content/project.py:135
 #: ../content/templates/project_view.pt:50
 msgid "WOP Program"
 msgstr "WOP Program"
@@ -269,16 +259,7 @@ msgstr "WOP Program"
 msgid "WOP Program list"
 msgstr "WOP Program list"
 
-#: ../content/projectmember.py:49
-msgid "Year"
-msgstr "Year"
-
 #. Default: "Invalid start or end date"
 #: ../content/goalindicator.py:20
 msgid "error_invalid_date"
 msgstr "Invalid start or end date"
-
-#. Default: "Member profile picture"
-#: ../content/projectmember.py:36
-msgid "member_image"
-msgstr "Member profile picture"

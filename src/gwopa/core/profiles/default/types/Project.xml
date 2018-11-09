@@ -9,14 +9,13 @@
  <property name="add_view_expr">string:${folder_url}/++add++Project</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
- <property name="global_allow">False</property>
+ <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
         <element value="GoalIndicator"/>
         <element value="OutputIndicator"/>
         <element value="OutcomeIndicator"/>
         <element value="ImprovementArea"/>
-        <element value="ProjectMember"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>

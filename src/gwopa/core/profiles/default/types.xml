@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <object name="portal_types">
   <object meta_type="Dexterity FTI" name="Project" />
-  <object meta_type="Dexterity FTI" name="ProjectMember" />
   <object meta_type="Dexterity FTI" name="GoalIndicator" />
   <object meta_type="Dexterity FTI" name="OutcomeIndicator" />
   <object meta_type="Dexterity FTI" name="OutputIndicator" />
   <object meta_type="Dexterity FTI" name="Indicator" />
   <object meta_type="Dexterity FTI" name="ImprovementArea" />
   <object meta_type="Dexterity FTI" name="TargetValue" />
+  <object meta_type="Dexterity FTI" name="Folder" />
 </object>
