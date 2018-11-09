@@ -49,7 +49,9 @@ setup(
         'requests',
         'plone.patternslib',
         'collective.geolocationbehavior',
-        'plone.formwidget.geolocation'
+        'plone.formwidget.geolocation',
+        'repoze.catalog',
+        'souper'
     ],
     extras_require={
         'test': [
