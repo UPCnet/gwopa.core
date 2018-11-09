@@ -8,6 +8,7 @@ from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
 
 import gwopa.core
+import collective.geolocationbehavior
 
 
 class GwopaCoreLayer(PloneSandboxLayer):
@@ -19,9 +20,11 @@ class GwopaCoreLayer(PloneSandboxLayer):
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
         self.loadZCML(package=gwopa.core)
+        self.loadZCML(package=collective.geolocationbehavior)
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'gwopa.core:default')
+        applyProfile(portal, 'collective.geolocationbehavior:default')
 
 
 GWOPA_CORE_FIXTURE = GwopaCoreLayer()
