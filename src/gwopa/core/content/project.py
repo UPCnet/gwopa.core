@@ -166,5 +166,17 @@ class View(grok.View):
     grok.template('project_view')
 
     def getImprovementAreas(self):
-        items = api.content.find(content_type='ImprovementArea')
-        return len(items)
+        items = api.content.find(portal_type='ImprovementArea')
+        results = []
+        for item in items:
+            obj = item.getObject()
+            if obj.image is None:
+                image = obj.absolute_url_path() + '/++theme++gwopa.theme/assets/images/128x85.jpg'
+            else:
+                image = obj.absolute_url_path() + '/@@images/image/thumb'
+            results.append(dict(
+                title=item.Title,
+                image=image,
+                url=item.getPath(),
+                description=item.description))
+        return results
