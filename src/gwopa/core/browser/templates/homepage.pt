@@ -83,12 +83,12 @@
                   <table class="listing" summary="Content listing">
                     <thead tal:condition="items">
                       <tr>
-                        <th class="nosort"></th>
-                        <th class="nosort">Project Title</th>
-                        <th class="nosort">Starting Date</th>
-                        <th class="nosort">Realisation Date</th>
-                        <th class="nosort">Location</th>
-                        <th class="nosort">Contact person</th>
+                        <th class="nosort" style="width: 100px;"></th>
+                        <th class="nosort" style="width: 250px;">Project Title</th>
+                        <th class="nosort" style="width: 50px; text-align: center">Starting Date</th>
+                        <th class="nosort" style="width: 50px; text-align: center">Realisation Date</th>
+                        <th class="nosort" style="width: 80px;">Location</th>
+                        <th class="nosort" style="width: 150px;">Contact person</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -106,11 +106,11 @@
                             <td>
                                 <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
                             </td>
-                            <td>
+                            <td style="text-align: center">
                               <span itemprop="start" class="dtstart" tal:define="date_start item/start"
                                     tal:content="python:date_start.strftime('%m/%d/%Y')"></span>
                             </td>
-                            <td>
+                            <td style="text-align: center">
                               <span itemprop="end" class="dtend" tal:define="date_end item/end"
                                     tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
                             </td>
