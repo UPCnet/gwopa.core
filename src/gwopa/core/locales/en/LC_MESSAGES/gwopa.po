@@ -57,6 +57,7 @@ msgid "Contribution by partners and donors"
 msgstr "Contribution by partners and donors"
 
 #: ../content/project.py:73
+#: ../userschema.py:20
 msgid "Country"
 msgstr "Country"
 
@@ -67,6 +68,10 @@ msgstr "Date when the project begins."
 #: ../content/project.py:67
 msgid "Date when the project ends."
 msgstr "Date when the project ends."
+
+#: ../userschema.py:28
+msgid "Define your language"
+msgstr "Define your language"
 
 #: ../content/indicator.py:38
 msgid "Describe Indicator"
@@ -94,7 +99,7 @@ msgstr "Goal Title"
 
 #: ../content/improvement_area.py:21
 msgid "Image Area"
-msgstr ""
+msgstr "Image Area"
 
 #: ../content/improvement_area.py:15
 #: ../profiles/default/types/ImprovementArea.xml
@@ -122,9 +127,17 @@ msgstr "Installs the gwopa.core add-on."
 msgid "Invalid start or end date"
 msgstr "Invalid start or end date"
 
+#: ../userschema.py:27
+msgid "Language"
+msgstr "Language"
+
 #: ../content/project.py:81
 msgid "Latitude"
 msgstr "Latitude"
+
+#: ../userschema.py:40
+msgid "Location"
+msgstr "Location"
 
 #: ../content/project.py:88
 msgid "Longitude"
@@ -168,7 +181,7 @@ msgstr "Output"
 
 #: ../browser/configure.zcml:20
 msgid "PMP Projects View"
-msgstr ""
+msgstr "PMP Projects View"
 
 #: ../content/project.py:95
 msgid "Partner/partners associated to this project"
@@ -182,6 +195,10 @@ msgstr "Partners"
 #: ../controlpanel.py:20
 msgid "Partners list"
 msgstr "Partners list"
+
+#: ../userschema.py:46
+msgid "Phone"
+msgstr "Phone"
 
 #: ../content/project.py:136
 msgid "Program/programs associated to this project"
@@ -209,6 +226,7 @@ msgid "Risks"
 msgstr "Risks"
 
 #: ../content/project.py:74
+#: ../userschema.py:21
 msgid "Select country"
 msgstr "Select country"
 
@@ -238,6 +256,10 @@ msgstr "Target Value"
 msgid "Title"
 msgstr "Title"
 
+#: ../userschema.py:34
+msgid "Twitter username"
+msgstr "Twitter username"
+
 #: ../configure.zcml:41
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr "Uninstall: GWOPA Core package (gwopa.core)"
@@ -259,7 +281,67 @@ msgstr "WOP Program"
 msgid "WOP Program list"
 msgstr "WOP Program list"
 
+#: ../userschema.py:35
+msgid "Your Twitter username. Could include the @. Example: @unhabitat"
+msgstr "Your Twitter username. Could include the @. Example: @unhabitat"
+
+#: ../userschema.py:41
+msgid "Your location - either city and country - or in a company setting, where your office is located."
+msgstr "Your location - either city and country - or in a company setting, where your office is located."
+
+#: ../userschema.py:47
+msgid "Your telephone number."
+msgstr "Your telephone number."
+
+#: ../indexers.py:20
+msgid "check_telefon"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "check_twitter_username"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "check_ubicacio"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "description"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "email"
+msgstr ""
+
 #. Default: "Invalid start or end date"
 #: ../content/goalindicator.py:20
 msgid "error_invalid_date"
 msgstr "Invalid start or end date"
+
+#: ../indexers.py:20
+msgid "fullname"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "home_page"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "location"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "telefon"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "twitter_username"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "ubicacio"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "username"
+msgstr ""

@@ -13,7 +13,7 @@
     Be careful if you use general includeDependencies, it can have sideffects!
     Better import explicite packages or configurations ;)
   -->
-  <!--<includeDependencies package="." />-->
+  <includeDependencies package="." />
   <grok:grok package="." />
 
   <include package=".browser" />
@@ -21,6 +21,11 @@
   <include file="permissions.zcml" />
 
   <include file="upgrades.zcml" />
+
+  <browser:jbot
+      directory="templates"
+      layer=".interfaces.IGwopaCoreLayer"
+  />
 
   <genericsetup:registerProfile
       name="default"
@@ -45,14 +50,11 @@
       name="gwopa.core-hiddenprofiles"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
 
-    <permission id="gwopa.controlpanel"
-                title="GWOPA: Modify settings">
-        <role name="Manager"/>
-    </permission>
-
-
+  <permission id="gwopa.controlpanel"
+              title="GWOPA: Modify settings">
+      <role name="Manager"/>
+  </permission>
 
   <!-- Editing GWOPA Control Panel -->
   <browser:page

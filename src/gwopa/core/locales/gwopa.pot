@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-11-09 12:07+0000\n"
+"POT-Creation-Date: 2018-11-12 09:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,6 +64,7 @@ msgid "Contribution by partners and donors"
 msgstr ""
 
 #: ../content/project.py:73
+#: ../userschema.py:20
 msgid "Country"
 msgstr ""
 
@@ -73,6 +74,10 @@ msgstr ""
 
 #: ../content/project.py:67
 msgid "Date when the project ends."
+msgstr ""
+
+#: ../userschema.py:28
+msgid "Define your language"
 msgstr ""
 
 #: ../content/indicator.py:38
@@ -129,8 +134,16 @@ msgstr ""
 msgid "Invalid start or end date"
 msgstr ""
 
+#: ../userschema.py:27
+msgid "Language"
+msgstr ""
+
 #: ../content/project.py:81
 msgid "Latitude"
+msgstr ""
+
+#: ../userschema.py:40
+msgid "Location"
 msgstr ""
 
 #: ../content/project.py:88
@@ -190,6 +203,10 @@ msgstr ""
 msgid "Partners list"
 msgstr ""
 
+#: ../userschema.py:46
+msgid "Phone"
+msgstr ""
+
 #: ../content/project.py:136
 msgid "Program/programs associated to this project"
 msgstr ""
@@ -216,6 +233,7 @@ msgid "Risks"
 msgstr ""
 
 #: ../content/project.py:74
+#: ../userschema.py:21
 msgid "Select country"
 msgstr ""
 
@@ -245,6 +263,10 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
+#: ../userschema.py:34
+msgid "Twitter username"
+msgstr ""
+
 #: ../configure.zcml:41
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr ""
@@ -266,7 +288,67 @@ msgstr ""
 msgid "WOP Program list"
 msgstr ""
 
+#: ../userschema.py:35
+msgid "Your Twitter username. Could include the @. Example: @unhabitat"
+msgstr ""
+
+#: ../userschema.py:41
+msgid "Your location - either city and country - or in a company setting, where your office is located."
+msgstr ""
+
+#: ../userschema.py:47
+msgid "Your telephone number."
+msgstr ""
+
+#: ../indexers.py:20
+msgid "check_telefon"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "check_twitter_username"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "check_ubicacio"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "description"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "email"
+msgstr ""
+
 #. Default: "Invalid start or end date"
 #: ../content/goalindicator.py:20
 msgid "error_invalid_date"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "fullname"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "home_page"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "location"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "telefon"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "twitter_username"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "ubicacio"
+msgstr ""
+
+#: ../indexers.py:20
+msgid "username"
 msgstr ""
