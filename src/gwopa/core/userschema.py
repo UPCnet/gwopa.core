@@ -16,13 +16,6 @@ from gwopa.core.interfaces import IGwopaCoreLayer
 
 class IDemoUserSchema(model.Schema):
 
-    country = schema.Choice(
-        title=_(u"Country"),
-        description=_(u"Select country"),
-        vocabulary=utils.countries,
-        required=True,
-    )
-
     language = schema.Choice(
         title=_(u'Language'),
         description=_(u"Define your language"),
@@ -36,18 +29,65 @@ class IDemoUserSchema(model.Schema):
         required=False,
     )
 
+    telefon = schema.TextLine(
+        title=_(u'Phone'),
+        description=_(u'Your telephone number.'),
+        required=False,
+    )
+    country = schema.Choice(
+        title=_(u"Country"),
+        description=_(u"Select country"),
+        vocabulary=utils.countries,
+        required=True,
+    )
+
     ubicacio = schema.TextLine(
         title=_(u'Location'),
         description=_(u'Your location - either city and country - or in a company setting, where your office is located.'),
         required=False,
     )
 
-    telefon = schema.TextLine(
-        title=_(u'Phone'),
-        description=_(u'Your telephone number.'),
+    region = schema.List(
+        title=_(u'Region'),
+        required=False,
+        value_type=schema.Choice(
+            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.region_list'),
+        ),
+    )
+
+    wop_program = schema.List(
+        title=_(u"WOP Program"),
+        description=_(u"Program/programs associated to this project"),
+        value_type=schema.Choice(
+            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.wop_list'),
+        ),
         required=False,
     )
 
+    wop_platform = schema.List(
+        title=_(u'WOP Platform'),
+        required=False,
+        value_type=schema.Choice(
+            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.wop_platform'),
+        ),
+    )
+
+    partners = schema.List(
+        title=_(u"Partners"),
+        description=_(u"Partner/partners associated to this project"),
+        required=False,
+        value_type=schema.Choice(
+            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.partners_list'),
+        ),
+    )
+
+    arees_exp = schema.List(
+        title=_(u'Experimental Areas'),
+        required=False,
+        value_type=schema.Choice(
+            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.experimental_areas'),
+        ),
+    )
     # OK Nombre completo del usuario (obligatorio)
     # OK Nombre de usuario (obligatorio)
     # OK Email de contacto del usuario (obligatorio)

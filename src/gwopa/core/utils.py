@@ -10,6 +10,7 @@ from gwopa.core import _
 
 
 class vocabulary_values(object):
+    """ Generates Multivalue list field """
     implements(IContextSourceBinder)
 
     def __init__(self, key):
@@ -25,16 +26,17 @@ class vocabulary_values(object):
                 else:
                     flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
                 terms.append(SimpleVocabulary.createTerm(item, flattened, item))
-
         return SimpleVocabulary(terms)
 
 
-def countries_vocabulary(l):
-    vocab_list = []
-    for row in l:
+def generate_vocabulary(value):
+    """ Generates Dropdown with the values """
+    vocabulary_list = []
+    for row in value:
         entry = SimpleTerm(value=unicodedata.normalize('NFKD', row).encode('ascii', errors='ignore').decode('ascii'), title=_(row))
-        vocab_list.append(entry)
-    return SimpleVocabulary(vocab_list)
+        vocabulary_list.append(entry)
+    print vocabulary_list
+    return SimpleVocabulary(vocabulary_list)
 
 
-countries = countries_vocabulary([country.name for country in pycountry.countries])
+countries = generate_vocabulary([country.name for country in pycountry.countries])

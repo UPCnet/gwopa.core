@@ -12,7 +12,7 @@ import requests
 from plone.namedfile.file import NamedBlobImage
 from plone.app.textfield.value import RichTextValue
 import random
-import transaction
+# import transaction
 
 grok.templatedir("templates")
 
@@ -81,6 +81,8 @@ class setup(grok.View):
         return True
 
     def createDemoContent(self):
+        """ Assign default values to panel control options """
+        # WOP LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
         if not current:
             current = []
@@ -93,7 +95,7 @@ class setup(grok.View):
         new_values = current + default_wop_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.wop_list', sorted(list(set(new_values))))
-
+        # Partners LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
         if not current:
             current = []
@@ -106,7 +108,7 @@ class setup(grok.View):
         new_values = current + default_partners_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.partners_list', sorted(list(set(new_values))))
-
+        # Measuring units LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.measuring_unit')
         if not current:
             current = []
@@ -119,7 +121,7 @@ class setup(grok.View):
         new_values = current + default_measuring_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.measuring_unit', sorted(list(set(new_values))))
-
+        # Measuring frequency LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.measuring_frequency')
         if not current:
             current = []
@@ -131,6 +133,46 @@ class setup(grok.View):
         new_values = current + default_measuringfreq_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.measuring_frequency', sorted(list(set(new_values))))
+        #  Regions LIST
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.region_list')
+        if not current:
+            current = []
+        default_region_list = [
+            u'Europe',
+            u'Africa',
+            u'America',
+        ]
+        new_values = current + default_region_list
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.region_list', sorted(list(set(new_values))))
+        #  wop_platform LIST
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_platform')
+        if not current:
+            current = []
+        default_wop_platform_list = [
+            u'WOP Platform 1',
+            u'WOP Platform 2',
+            u'WOP Platform 3',
+            u'WOP Platform 4',
+            u'WOP Platform 5',
+        ]
+        new_values = current + default_wop_platform_list
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.wop_platform', sorted(list(set(new_values))))
+        #  experimental areas LIST
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.experimental_areas')
+        if not current:
+            current = []
+        default_experimental_areas_list = [
+            u'Experimental Area 1',
+            u'Experimental Area 2',
+            u'Experimental Area 3',
+            u'Experimental Area 4',
+            u'Experimental Area 5',
+        ]
+        new_values = current + default_experimental_areas_list
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.experimental_areas', sorted(list(set(new_values))))
 
         self.createProjects(5)
         return "Demo content created"
