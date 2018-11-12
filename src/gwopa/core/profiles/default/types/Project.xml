@@ -12,9 +12,9 @@
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-        <element value="GoalIndicator"/>
-        <element value="OutputIndicator"/>
-        <element value="OutcomeIndicator"/>
+        <element value="Goal"/>
+        <element value="Output"/>
+        <element value="Outcome"/>
         <element value="ImprovementArea"/>
  </property>
  <property name="allow_discussion">False</property>

@@ -24,7 +24,7 @@ grok.templatedir("templates")
 class IOutputindicator(model.Schema):
     """  Output indicator """
     title = schema.TextLine(
-        title=_(u"Title"),
+        title=_(u"Output"),
         required=True,
     )
 

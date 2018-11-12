@@ -12,21 +12,23 @@ class listIndicators(BrowserView):
         return self.context.Title()
 
     def goalsList(self):
-        items = api.content.find(portal_type='GoalIndicator')
+        items = api.content.find(portal_type='Goal')
         results = []
         for item in items:
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
+                portal_type=item.portal_type,
                 url=item.getPath()))
         return results
 
     def indicatorsInside(self, item):
-        items = api.content.find(portal_type='GoalIndicator', path=item.getPath())
+        items = api.content.find(portal_type=['Indicator', 'Outcome', 'Output'], path=item['url'])
         results = []
         for item in items:
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
+                portal_type=item.portal_type,
                 url=item.getPath()))
         return results

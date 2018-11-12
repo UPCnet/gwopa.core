@@ -13,35 +13,33 @@
 
       <h2>Indicators list</h2>
 
-      <button type="button"> 
+      <button type="button">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to project </a>
       </button>
       <button type="button" class="btn btn-primary">
-        <a href="++add++GoalIndicator">+ New Goal Indicator</a>
+        <a href="++add++Goal">+ New Goal</a>
       </button>
-
       <hr/>
-
-          <tal:objects repeat="item view/goalsList">
-            <tr>
-              <td>
-                  <span class="label label-primary">Default Label</span>
-
-                <i class="fa fa-list"></i>GOAL &nbsp;
-                  <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-                <p>
-                  <span tal:content="item/description"> Item Description </span>
-                </p>
-                <p>
-                  <span tal:content="item/description"> Item Description </span>
-
-                </p>
-              </td>
-
-            </tr>
-            <hr/>
-          </tal:objects>
+      <tal:objects repeat="item view/goalsList">
+        <ul class="goal_item">
+          <li>
+            <span class="label label-default" tal:content="item/portal_type"> GOAL </span>
+              <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+            <p tal:condition="item/description">
+              <span tal:content="item/description"> Item Description </span>
+            </p>
+          </li>
+          <tal:block-subacords tal:define="files python:view.indicatorsInside(item);">
+            <ul tal:repeat="item files">
+              <li class="indicator_item">
+                <span class="label label-default" tal:content="item/portal_type"> INDICATOR </span>
+                <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+              </li>
+            </ul>
+          </tal:block-subacords>
+      </ul>
+      </tal:objects>
 
   </metal:block>
 
