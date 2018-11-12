@@ -99,10 +99,11 @@ class IProject(model.Schema):
         ),
     )
 
-    project_manager = schema.TextLine(
+    project_manager = schema.Choice(
         title=_(u"Project Manager"),
         description=_(u""),
         required=False,
+        vocabulary=u'plone.app.vocabularies.Users',
     )
 
     # area = schema.List(
@@ -114,11 +115,14 @@ class IProject(model.Schema):
     #     required=False,
     # )
 
-    # it_members = schema.TextLine(
-    #     title=_(u"Improvement track team and members"),
-    #     description=_(u""),
-    #     required=False,
-    # )
+    members = schema.List(
+        title=_(u"Members"),
+        description=_(u"Improvement track team and members"),
+        required=False,
+        value_type=schema.Choice(
+            source='plone.app.vocabularies.Users',
+        )
+    )
 
     budget = schema.Int(
         title=_(u"Budget"),

@@ -26,7 +26,7 @@ msgstr ""
 msgid "An improvement area used on the Site"
 msgstr ""
 
-#: ../content/project.py:149
+#: ../content/project.py:153
 msgid "Assumptions"
 msgstr ""
 
@@ -46,12 +46,12 @@ msgstr ""
 msgid "Baseline value"
 msgstr ""
 
-#: ../content/project.py:124
+#: ../content/project.py:128
 #: ../content/templates/project_view.pt:40
 msgid "Budget"
 msgstr ""
 
-#: ../content/project.py:129
+#: ../content/project.py:133
 #: ../content/templates/project_view.pt:45
 msgid "Contribution by partners and donors"
 msgstr ""
@@ -101,6 +101,10 @@ msgstr ""
 #: ../content/improvement_area.py:15
 #: ../profiles/default/types/ImprovementArea.xml
 msgid "Improvement Area"
+msgstr ""
+
+#: ../content/project.py:120
+msgid "Improvement track team and members"
 msgstr ""
 
 #: ../content/indicator.py:33
@@ -161,7 +165,11 @@ msgstr ""
 msgid "Measuring unit"
 msgstr ""
 
-#: ../content/project.py:154
+#: ../content/project.py:119
+msgid "Members"
+msgstr ""
+
+#: ../content/project.py:158
 msgid "Objectives"
 msgstr ""
 
@@ -196,7 +204,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: ../content/project.py:136
+#: ../content/project.py:140
 msgid "Program/programs associated to this project"
 msgstr ""
 
@@ -217,7 +225,7 @@ msgstr ""
 msgid "Project name"
 msgstr ""
 
-#: ../content/project.py:144
+#: ../content/project.py:148
 msgid "Risks"
 msgstr ""
 
@@ -264,7 +272,7 @@ msgstr ""
 msgid "Used in indicators"
 msgstr ""
 
-#: ../content/project.py:135
+#: ../content/project.py:139
 #: ../content/templates/project_view.pt:50
 msgid "WOP Program"
 msgstr ""
