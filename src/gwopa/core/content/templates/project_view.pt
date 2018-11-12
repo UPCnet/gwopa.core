@@ -87,8 +87,8 @@
         </div>
         <span tal:condition="latitude"> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
         <span tal:condition="longitude"> Longitude: <tal:omit-tag tal:content="longitude"></tal:omit-tag></span>
-
-        <h1 class="documentFirstHeading"> Areas</h1>
+        <div class="clearfix"></div>
+        <h1 class="documentFirstHeading paddingtop"> Areas</h1>
         <tal:repeatProjects repeat="item view/getImprovementAreas">
           <div class="col-lg-3 col-md-6">
             <a tal:attributes="href item/url;

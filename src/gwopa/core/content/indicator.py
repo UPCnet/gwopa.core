@@ -15,12 +15,6 @@ def todayValue():
     return datetime.date.today()
 
 
-indicator_type = [
-    u"Qualitative",
-    u"Quantitative",
-]
-
-
 class IIndicator(model.Schema):
     """  indicator """
 
@@ -36,13 +30,7 @@ class IIndicator(model.Schema):
 
     description = schema.TextLine(
         title=_(u"Describe Indicator"),
-        required=True,
-    )
-
-    indicator_type = schema.Choice(
-        title=_(u"Indicator type"),
-        vocabulary=get_vocabulary(indicator_type),
-        required=True,
+        required=False,
     )
 
     baseline = schema.Int(
@@ -56,30 +44,6 @@ class IIndicator(model.Schema):
         defaultFactory=todayValue
     )
 
-    # target1 = schema.TextLine(
-    #     title=_(u"Target value 1"),
-    #     description=_(u"TODO : Problems with inline addition..."),
-    #     required=True,
-    # )
-
-    # target1_date = schema.Date(
-    #     title=_(u'Target Value 1 Date'),
-    #     required=True,
-    #     defaultFactory=todayValue
-    # )
-
-    # target2 = schema.TextLine(
-    #     title=_(u"Target value 2"),
-    #     description=_(u"TODO : Problems with inline addition..."),
-    #     required=True,
-    # )
-
-    # target2_date = schema.Date(
-    #     title=_(u'Target Value 2 Date'),
-    #     required=True,
-    #     defaultFactory=todayValue
-    # )
-
     measuring = schema.Choice(
         title=_(u"Measuring Unit"),
         required=True,
@@ -92,14 +56,9 @@ class IIndicator(model.Schema):
         source=vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.measuring_frequency'),
     )
 
-    # disaggregation = schema.TextLine(
-    #     title=_(u"Disaggregation's"),
-    #     required=True,
-    # )
-
     means = schema.Text(
         title=_(u"Means of verification"),
-        required=True,
+        required=False,
     )
 
 

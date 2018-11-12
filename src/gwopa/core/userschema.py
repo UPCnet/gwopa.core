@@ -56,9 +56,9 @@ class IDemoUserSchema(model.Schema):
     # OK Idioma del usuario (a elegir entre inglés, francés o español). Por defecto inglés.
     # Región. Lista cerrada de regiones (opcional). Definida la región, se incluyen los países asociados
     # WOP Platform. Lista cerrada de plataformas regionales (opcional)
-    # WOP Program. Lista cerrada de programas WOP (opcional)
-    # Water Operator (partner). Lista cerrada (Obligatorio)
-    # Áreas de experiencia (lista cerrada) (opcional)
+    # WOP Program. Lista cerrada de programas WOP (opcional) multi
+    # Water Operator (partner). Lista cerrada (Obligatorio) (partner list)  uniq
+    # Áreas de experiencia (lista cerrada) (opcional) controlpanel
 
     # Default fields and added ones:
     # Fullname
