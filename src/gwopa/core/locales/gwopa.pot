@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-11-12 09:07+0000\n"
+"POT-Creation-Date: 2018-11-12 11:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,7 +88,7 @@ msgstr ""
 msgid "End date"
 msgstr ""
 
-#: ../configure.zcml:32
+#: ../configure.zcml:37
 msgid "GWOPA Core package (gwopa.core)"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Indicator type"
 msgstr ""
 
-#: ../configure.zcml:32
+#: ../configure.zcml:37
 msgid "Installs the gwopa.core add-on."
 msgstr ""
 
@@ -267,11 +267,11 @@ msgstr ""
 msgid "Twitter username"
 msgstr ""
 
-#: ../configure.zcml:41
+#: ../configure.zcml:46
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr ""
 
-#: ../configure.zcml:41
+#: ../configure.zcml:46
 msgid "Uninstalls the gwopa.core add-on."
 msgstr ""
 
@@ -298,18 +298,6 @@ msgstr ""
 
 #: ../userschema.py:47
 msgid "Your telephone number."
-msgstr ""
-
-#: ../indexers.py:20
-msgid "check_telefon"
-msgstr ""
-
-#: ../indexers.py:20
-msgid "check_twitter_username"
-msgstr ""
-
-#: ../indexers.py:20
-msgid "check_ubicacio"
 msgstr ""
 
 #: ../indexers.py:20

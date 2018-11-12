@@ -81,7 +81,7 @@ msgstr "Describe indicator"
 msgid "End date"
 msgstr "End date"
 
-#: ../configure.zcml:32
+#: ../configure.zcml:37
 msgid "GWOPA Core package (gwopa.core)"
 msgstr "GWOPA Core package (gwopa.core)"
 
@@ -118,7 +118,7 @@ msgstr "Indicator title"
 msgid "Indicator type"
 msgstr "Indicator type"
 
-#: ../configure.zcml:32
+#: ../configure.zcml:37
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
@@ -260,11 +260,11 @@ msgstr "Title"
 msgid "Twitter username"
 msgstr "Twitter username"
 
-#: ../configure.zcml:41
+#: ../configure.zcml:46
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr "Uninstall: GWOPA Core package (gwopa.core)"
 
-#: ../configure.zcml:41
+#: ../configure.zcml:46
 msgid "Uninstalls the gwopa.core add-on."
 msgstr "Uninstalls the gwopa.core add-on."
 
@@ -292,18 +292,6 @@ msgstr "Your location - either city and country - or in a company setting, where
 #: ../userschema.py:47
 msgid "Your telephone number."
 msgstr "Your telephone number."
-
-#: ../indexers.py:20
-msgid "check_telefon"
-msgstr ""
-
-#: ../indexers.py:20
-msgid "check_twitter_username"
-msgstr ""
-
-#: ../indexers.py:20
-msgid "check_ubicacio"
-msgstr ""
 
 #: ../indexers.py:20
 msgid "description"

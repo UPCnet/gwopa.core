@@ -17,7 +17,7 @@ class UserPropertiesSoupCatalogFactory(object):
         of queries, so for certain operations is needed a FieldIndex for the
         username.
     """
-    properties = [_(u'username'), _(u'fullname'), _(u'email'), _(u'description'), _(u'location'), _(u'check_ubicacio'), _(u'ubicacio'), _(u'check_telefon'), _(u'telefon'), _(u'check_twitter_username'), _(u'twitter_username'), _(u'home_page')]
+    properties = [_(u'username'), _(u'fullname'), _(u'email'), _(u'description'), _(u'location'), _(u'ubicacio'), _(u'telefon'), _(u'twitter_username'), _(u'home_page')]
 
     profile_properties = ['email', 'description', 'location', 'ubicacio', 'telefon', 'twitter_username', 'home_page']
 
