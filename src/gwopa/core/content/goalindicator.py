@@ -39,7 +39,7 @@ class IGoalindicator(model.Schema):
     """  Project type
     """
     title = schema.TextLine(
-        title=_(u"Goal title"),
+        title=_(u"Goal"),
         required=False,
     )
 

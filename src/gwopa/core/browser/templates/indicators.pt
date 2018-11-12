@@ -11,29 +11,31 @@
 
   <metal:block define-macro="content-core">
 
-      <h2>Indicators list</h2>
+      <h2 i18n:translate="">Indicators list</h2>
 
       <button type="button">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to project </a>
       </button>
       <button type="button" class="btn btn-primary">
-        <a href="++add++Goal">+ New Goal</a>
+        <a href="++add++Goal" >+ New Goal</a>
       </button>
       <hr/>
       <tal:objects repeat="item view/goalsList">
         <ul class="goal_item">
           <li>
-            <span class="label label-default" tal:content="item/portal_type"> GOAL </span>
+            <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+            tal:content="item/portal_type"> GOAL </span>
               <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
             <p tal:condition="item/description">
               <span tal:content="item/description"> Item Description </span>
             </p>
           </li>
           <tal:block-subacords tal:define="files python:view.indicatorsInside(item);">
-            <ul tal:repeat="item files">
+            <ul tal:repeat="item files" class="block_sub_indicators">
               <li class="indicator_item">
-                <span class="label label-default" tal:content="item/portal_type"> INDICATOR </span>
+                <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+            tal:content="item/portal_type"> INDICATOR </span>
                 <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
               </li>
             </ul>

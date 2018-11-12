@@ -89,13 +89,10 @@ msgstr "GWOPA Core package (gwopa.core)"
 msgid "GWOPA Settings"
 msgstr "GWOPA Settings"
 
-#: ../profiles/default/types/GoalIndicator.xml
+#: ../content/goalindicator.py:42
+#: ../profiles/default/types/Goal.xml
 msgid "Goal"
 msgstr "Goal"
-
-#: ../content/goalindicator.py:42
-msgid "Goal title"
-msgstr "Goal Title"
 
 #: ../content/improvement_area.py:21
 msgid "Image Area"
@@ -106,17 +103,18 @@ msgstr "Image Area"
 msgid "Improvement Area"
 msgstr "Improvement Area"
 
+#: ../content/indicator.py:33
 #: ../profiles/default/types/Indicator.xml
 msgid "Indicator"
 msgstr "Indicator"
 
-#: ../content/indicator.py:33
-msgid "Indicator title"
-msgstr "Indicator title"
-
 #: ../content/indicator.py:43
 msgid "Indicator type"
 msgstr "Indicator type"
+
+#: ../browser/templates/indicators.pt:14
+msgid "Indicators list"
+msgstr ""
 
 #: ../configure.zcml:37
 msgid "Installs the gwopa.core add-on."
@@ -167,15 +165,13 @@ msgstr "Measuring unit"
 msgid "Objectives"
 msgstr "Objectives"
 
-#: ../profiles/default/types/OutcomeIndicator.xml
+#: ../content/outcomeindicator.py:41
+#: ../profiles/default/types/Outcome.xml
 msgid "Outcome"
 msgstr "Outcome"
 
-#: ../content/outcomeindicator.py:41
-msgid "Outcome indicator"
-msgstr "Outcome"
-
-#: ../profiles/default/types/OutputIndicator.xml
+#: ../content/outputindicator.py:27
+#: ../profiles/default/types/Output.xml
 msgid "Output"
 msgstr "Output"
 
@@ -219,7 +215,7 @@ msgstr "Project Manager"
 
 #: ../content/project.py:42
 msgid "Project name"
-msgstr "Project name"
+msgstr "Project"
 
 #: ../content/project.py:144
 msgid "Risks"
@@ -251,10 +247,6 @@ msgstr "Target Value Date"
 #: ../content/targetvalue.py:19
 msgid "Target Value title"
 msgstr "Target Value"
-
-#: ../content/outputindicator.py:27
-msgid "Title"
-msgstr "Title"
 
 #: ../userschema.py:34
 msgid "Twitter username"

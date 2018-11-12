@@ -38,7 +38,7 @@ class IOutcomeindicator(model.Schema):
     """  Project type
     """
     title = schema.TextLine(
-        title=_(u"Outcome indicator"),
+        title=_(u"Outcome"),
         required=True,
     )
 

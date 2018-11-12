@@ -89,12 +89,9 @@ msgstr ""
 msgid "GWOPA Settings"
 msgstr ""
 
-#: ../profiles/default/types/GoalIndicator.xml
-msgid "Goal"
-msgstr ""
-
 #: ../content/goalindicator.py:42
-msgid "Goal title"
+#: ../profiles/default/types/Goal.xml
+msgid "Goal"
 msgstr ""
 
 #: ../content/improvement_area.py:21
@@ -106,16 +103,17 @@ msgstr ""
 msgid "Improvement Area"
 msgstr ""
 
+#: ../content/indicator.py:33
 #: ../profiles/default/types/Indicator.xml
 msgid "Indicator"
 msgstr ""
 
-#: ../content/indicator.py:33
-msgid "Indicator title"
-msgstr ""
-
 #: ../content/indicator.py:43
 msgid "Indicator type"
+msgstr ""
+
+#: ../browser/templates/indicators.pt:14
+msgid "Indicators list"
 msgstr ""
 
 #: ../configure.zcml:37
@@ -167,15 +165,13 @@ msgstr ""
 msgid "Objectives"
 msgstr ""
 
-#: ../profiles/default/types/OutcomeIndicator.xml
+#: ../content/outcomeindicator.py:41
+#: ../profiles/default/types/Outcome.xml
 msgid "Outcome"
 msgstr ""
 
-#: ../content/outcomeindicator.py:41
-msgid "Outcome indicator"
-msgstr ""
-
-#: ../profiles/default/types/OutputIndicator.xml
+#: ../content/outputindicator.py:27
+#: ../profiles/default/types/Output.xml
 msgid "Output"
 msgstr ""
 
@@ -250,10 +246,6 @@ msgstr ""
 
 #: ../content/targetvalue.py:19
 msgid "Target Value title"
-msgstr ""
-
-#: ../content/outputindicator.py:27
-msgid "Title"
 msgstr ""
 
 #: ../userschema.py:34

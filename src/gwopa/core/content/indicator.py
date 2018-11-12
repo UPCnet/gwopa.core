@@ -30,7 +30,7 @@ class IIndicator(model.Schema):
             for token, value in enumerate(values)])
 
     title = schema.TextLine(
-        title=_(u"Indicator title"),
+        title=_(u"Indicator"),
         required=True,
     )
 
