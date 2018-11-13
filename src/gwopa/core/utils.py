@@ -35,7 +35,6 @@ def generate_vocabulary(value):
     for row in value:
         entry = SimpleTerm(value=unicodedata.normalize('NFKD', row).encode('ascii', errors='ignore').decode('ascii'), title=_(row))
         vocabulary_list.append(entry)
-    print vocabulary_list
     return SimpleVocabulary(vocabulary_list)
 
 
