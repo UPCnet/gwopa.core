@@ -13,6 +13,17 @@
 
       <h2 i18n:translate="">Indicators list</h2>
 
+<!--
+  Items structure:
+
+  GOAL
+      OUTCOME
+          INDICATOR (KPI)
+      OUTPUT
+          INDICATOR
+      INDICATOR
+-->
+
       <button type="button">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to project </a>
@@ -31,15 +42,24 @@
               <span tal:content="item/description"> Item Description </span>
             </p>
           </li>
-          <tal:block-subacords tal:define="files python:view.indicatorsInside(item);">
+          <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
             <ul tal:repeat="item files" class="block_sub_indicators">
               <li class="indicator_item">
                 <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
-            tal:content="item/portal_type"> INDICATOR </span>
+                      tal:content="item/portal_type"> INDICATOR </span>
                 <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
               </li>
+              <tal:block-subsubitems tal:define="files python:view.indicatorsInsideInside(item);">
+                <ul tal:repeat="item files" class="block_sub_indicators">
+                  <li class="indicator_item">
+                    <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+                          tal:content="item/portal_type"> INDICATOR </span>
+                    <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+                  </li>
+                </ul>
+              </tal:block-subsubitems>
             </ul>
-          </tal:block-subacords>
+          </tal:block-subitems>
       </ul>
       </tal:objects>
 
