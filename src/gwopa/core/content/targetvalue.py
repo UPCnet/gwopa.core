@@ -13,10 +13,10 @@ def todayValue():
 
 
 class ITargetvalue(model.Schema):
-    """  Project type
+    """  Target Value used inside Indicator to assign more then one
     """
     targetvalue = schema.TextLine(
-        title=_(u"Target Value title"),
+        title=_(u"Target Value"),
         required=True,
     )
 

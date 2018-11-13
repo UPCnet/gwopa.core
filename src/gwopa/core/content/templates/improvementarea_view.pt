@@ -9,7 +9,62 @@
 
 <metal:content-core fill-slot="content-core">
 
-You are vieweng an improvement area!
+    <div class="row">
+      <div class="col-xs-6 col-lg-8">
+        <h2>Wall</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+      </div>
+
+      <div class="col-xs-6 col-lg-4">
+        <div id="membersBlock" tal:define="recent_items view/getMembers">
+          <h2>Members</h2>
+          <table class="table">
+            <tbody>
+              <tal:items tal:repeat="obj recent_items">
+                <tr>
+                  <td tal:content="obj/id"> User Photo </td>
+                  <td tal:content="obj/id"> UserID</td>
+                  <td tal:content="obj/id"> Country </td>
+                </tr>
+              </tal:items>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="calendarBlock">
+          <h2>Calendar</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+
+        <div id="filesBlock" tal:define="recent_items view/getFiles">
+          <h2>Recent files changes</h2>
+          <table class="table">
+            <tbody>
+              <tal:items tal:repeat="obj recent_items">
+                <tr>
+                  <td>
+                    <span tal:content="obj/portal_type"></span>
+                  </td>
+                  <td>
+                    <a href="" tal:attributes="href obj/url"><tal:omit-tag tal:content="obj/title">
+                      TITLE</tal:omit-tag>
+                    </a>
+                  </td>
+                  <td>
+                    <span tal:content="obj/date"></span>
+                  </td>
+                </tr>
+              </tal:items>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
 
 </metal:content-core>
 

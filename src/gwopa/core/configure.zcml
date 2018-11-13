@@ -22,10 +22,10 @@
 
   <include file="upgrades.zcml" />
 
-  <browser:jbot
+<!--   <browser:jbot
       directory="templates"
       layer=".interfaces.IGwopaCoreLayer"
-  />
+  /> -->
 
   <genericsetup:registerProfile
       name="default"

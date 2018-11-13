@@ -22,7 +22,6 @@
  <property name="klass">plone.dexterity.content.Container</property>
 
  <property name="behaviors">
-  <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>

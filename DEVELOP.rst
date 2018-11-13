@@ -16,3 +16,8 @@ Run buildout::
 Start Plone in foreground:
 
     $ ./bin/instance fg
+
+
+Patterns Plone:
+
+    http://plone.github.io/mockup/dev/#pattern

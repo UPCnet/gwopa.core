@@ -10,7 +10,7 @@
 <metal:content-core fill-slot="content-core">
 
     <div class="pull-right" tal:condition="context/image">
-    <img tal:attributes="src string:${context/absolute_url}/@@images/image" />
+      <img tal:attributes="src string:${context/absolute_url}/@@images/image" />
     </div>
 
     <metal:block define-macro="content-core"
@@ -95,7 +95,7 @@
                                title item/title;
                                alt item/title">
             <div class="box">
-              <img class="box-img"
+              <img class="img200"
                    tal:attributes="src string:${item/image};"/>
               <div class="card-body">
                 <h4 class="card-title">

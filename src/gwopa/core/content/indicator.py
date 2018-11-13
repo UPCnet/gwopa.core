@@ -16,7 +16,7 @@ def todayValue():
 
 
 class IIndicator(model.Schema):
-    """  indicator """
+    """  Indicator """
 
     def get_vocabulary(values):
         return SimpleVocabulary([

@@ -1,0 +1,19 @@
+
+<!--    <a href="#modal" class="plone-btn plone-btn-lg plone-btn-primary pat-plone-modal"
+                     data-pat-plone-modal="width: 80%"> Modal Title </a>
+   <div id="modal" style="display: none">
+     <h1>Basic with scrolling</h1>
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+     bla bla bla
+     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     <textarea class="pat-tinymce"></textarea>
+
+   </div> -->
+
+
+<a href=""><i class="fa fa-home" aria-hidden="true"></i> Home</a> |
+<a href=""><i class="fa fa-area-chart" aria-hidden="true"></i> Graph </a> |
+<a href=""><i class="fa fa-users" aria-hidden="true"></i> Members </a> |
+<a href=""><i class="fa fa-files-o" aria-hidden="true"></i> Files </a> |
+<a href=""><i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+

@@ -15,9 +15,12 @@
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
-
+ <property name="allowed_content_types">
+    <element value="File"/>
+    <element value="Document"/>
+ </property>
+ <property name="klass">plone.dexterity.content.Container</property>
  <property name="behaviors">
-  <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>

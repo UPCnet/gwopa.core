@@ -99,9 +99,9 @@
                               tal:attributes="class python: oddrow and 'even' or 'odd'">
                             <td>
                                 <img tal:condition="item/image"
-                                     tal:attributes="src string:${item/url}/@@images/image/thumb;"/>
+                                     tal:attributes="src string:${item/url}/@@images/image/thumb;" class="img128" />
                                 <img tal:condition="not:item/image"
-                                     tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;"/>
+                                     tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;" class="img128" />
                             </td>
                             <td>
                                 <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
@@ -137,9 +137,9 @@
                           <tal:repeatProjects repeat="item items">
                             <div class="col-lg-3 col-md-6">
                               <div class="box">
-                                <img class="box-img" tal:condition="item/image"
-                                     tal:attributes="src string:${item/url}/@@images/image/thumb;"/>
-                                <img class="box-img" tal:condition="not:item/image"
+                                <img class="img200" tal:condition="item/image"
+                                     tal:attributes="src string:${item/url}/@@images/image/preview;"/>
+                                <img class="img200" tal:condition="not:item/image"
                                      tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;"/>
                                 <div class="card-body">
                                   <h4 class="card-title">
@@ -166,10 +166,10 @@
                           <tr tal:define="oddrow repeat/item/odd;"
                               tal:attributes="class python: oddrow and 'even' or 'odd'">
                             <td>
-                              <img class="box-img" tal:condition="item/image"
-                                   tal:attributes="src string:${item/url}/@@images/image/thumb;"/>
-                              <img class="box-img" tal:condition="not:item/image"
-                                   tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;"/>
+                              <img class="img200" tal:condition="item/image"
+                                   tal:attributes="src string:${item/url}/@@images/image/preview;"/>
+                              <img class="img200" tal:condition="not:item/image"
+                                   tal:attributes="src string:++theme++gwopa.theme/assets/images/200x200.png;"/>
                             </td>
                             <td>
                                 <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>

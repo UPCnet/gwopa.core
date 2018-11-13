@@ -101,7 +101,7 @@ class IProject(model.Schema):
 
     project_manager = schema.Choice(
         title=_(u"Project Manager"),
-        description=_(u""),
+        description=_(u"The responsible of this project"),
         required=False,
         vocabulary=u'plone.app.vocabularies.Users',
     )
@@ -175,7 +175,7 @@ class View(grok.View):
         for item in items:
             obj = item.getObject()
             if obj.image is None:
-                image = obj.absolute_url_path() + '/++theme++gwopa.theme/assets/images/128x85.jpg'
+                image = obj.absolute_url_path() + '/++theme++gwopa.theme/assets/images/200x200.png'
             else:
                 image = obj.absolute_url_path() + '/@@images/image/thumb'
             results.append(dict(
