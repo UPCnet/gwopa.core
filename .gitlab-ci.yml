@@ -33,11 +33,11 @@ before_script:
   - bin/buildout -n -c buildout.cfg code-analysis:return-status-codes=True
 
 
-code-analysis:
-  # still not available, see: https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/5004
-  # success_with_warnings: True
-  script:
-    - bin/code-analysis
+# code-analysis:
+#   # still not available, see: https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/5004
+#   # success_with_warnings: True
+#   script:
+#     - bin/code-analysis
 
 norobot:
   script:
