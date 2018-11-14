@@ -9,11 +9,15 @@
      <textarea class="pat-tinymce"></textarea>
 
    </div> -->
+<tal:block
+    tal:define="portal_state context/@@plone_portal_state;
+                portal_url portal_state/portal_url;">
 
+    <a href="" tal:attributes="href string:${portal_url}/"><i class="fa fa-home" aria-hidden="true"></i> Home</a> |
+    <a href=""><i class="fa fa-area-chart" aria-hidden="true"></i> Area </a> |
+    <a href=""><i class="fa fa-users" aria-hidden="true"></i> Team </a> |
+    <a href=""><i class="fa fa-files-o" aria-hidden="true"></i> Files </a> |
+    <a href=""><i class="fa fa-cog" aria-hidden="true"></i> Settings</a> |
+    <a href="" tal:attributes="href string:${portal_url}/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out </a>
 
-<a href=""><i class="fa fa-home" aria-hidden="true"></i> Home</a> |
-<a href=""><i class="fa fa-area-chart" aria-hidden="true"></i> Graph </a> |
-<a href=""><i class="fa fa-users" aria-hidden="true"></i> Members </a> |
-<a href=""><i class="fa fa-files-o" aria-hidden="true"></i> Files </a> |
-<a href=""><i class="fa fa-sign-out" aria-hidden="true"></i> Logout
-
+</tal:block>
