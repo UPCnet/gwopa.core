@@ -28,4 +28,13 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <!-- INDICATORS TEMPLATE-->
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="files"
+      class=".views.listFiles"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
 </configure>
