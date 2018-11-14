@@ -4,8 +4,6 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
 from gwopa.core.utils import vocabulary_values
 
 grok.templatedir("templates")
@@ -18,19 +16,15 @@ def todayValue():
 class IIndicator(model.Schema):
     """  Indicator """
 
-    def get_vocabulary(values):
-        return SimpleVocabulary([
-            SimpleTerm(title=_(value), value=value, token=token)
-            for token, value in enumerate(values)])
-
     title = schema.TextLine(
         title=_(u"Indicator"),
         required=True,
     )
 
-    description = schema.TextLine(
-        title=_(u"Describe Indicator"),
+    description = schema.Text(
+        title=_(u'Summary'),
         required=False,
+        missing_value=u'',
     )
 
     baseline = schema.Int(

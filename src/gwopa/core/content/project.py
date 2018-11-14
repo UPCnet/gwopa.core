@@ -23,15 +23,13 @@ class StartBeforeEnd(Invalid):
 
 @provider(IContextAwareDefaultFactory)
 def default_today(context):
-    """Provide default start for the form.
-    """
+    """Provide default start for the form. """
     return datetime.date.today()
 
 
 @provider(IContextAwareDefaultFactory)
 def default_tomorrow(context):
-    """Provide default end for the form.
-    """
+    """Provide default end for the form. """
     return datetime.date.today() + datetime.timedelta(1)
 
 
@@ -97,6 +95,13 @@ class IProject(model.Schema):
         value_type=schema.Choice(
             source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.partners_list'),
         ),
+    )
+
+    project_manager_admin = schema.Choice(
+        title=_(u"Project Manager Admin"),
+        description=_(u"The responsible of this project"),
+        required=False,
+        vocabulary=u'plone.app.vocabularies.Users',
     )
 
     project_manager = schema.Choice(

@@ -8,4 +8,5 @@
   <object meta_type="Dexterity FTI" name="ImprovementArea" />
   <object meta_type="Dexterity FTI" name="TargetValue" />
   <object meta_type="Dexterity FTI" name="Folder" />
+  <object meta_type="Dexterity FTI" name="Activity" />
 </object>
