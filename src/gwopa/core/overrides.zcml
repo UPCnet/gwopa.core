@@ -3,19 +3,18 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="gwopa.core">
 
-    <!-- Enhanced user properties adapter -->
-    <adapter
-      factory=".userschema.DemoUserDataPanelExtender"
+  <adapter
+      factory=".userdataschema.UserDataPanelExtender"
       provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
 
-    <adapter
-      provides=".userschema.IDemoUserSchema"
-      for="Products.CMFCore.interfaces.ISiteRoot"
-      factory=".userschema.DemoUserDataSchemaAdapter"
+  <adapter
+      factory=".userdataschema.AddUserFormExtender"
+      provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
+
+  <adapter
+      provides=".userdataschema.IEnhancedUserDataSchema"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      factory=".userdataschema.EnhancedUserDataSchemaAdapter"
       />
-
-    <adapter
-      factory=".userschema.DemoRegistrationPanelExtender"
-      provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
 
 </configure>

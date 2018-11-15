@@ -38,7 +38,7 @@
 
       <div tal:condition="budget">
         <h3 i18n:translate="">Budget</h3>
-        <span tal:content="budget" />
+        <span tal:content="budget" /> <span tal:content="context/currency" />
       </div>
 
       <div tal:condition="contribution">

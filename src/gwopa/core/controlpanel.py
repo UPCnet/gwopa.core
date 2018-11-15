@@ -43,6 +43,15 @@ class IGWOPASettings(model.Schema):
         missing_value=(),
     )
 
+    currency = schema.List(
+        title=_(u'Currency Exchange'),
+        description=_(u'Used in the projects item. One per line.'),
+        required=False,
+        default=[u''],
+        value_type=schema.TextLine(),
+        missing_value=(),
+    )
+
     experimental_areas = schema.List(
         title=_(u'Experimental Areas list'),
         description=_(u'Available Experimental Areas used in the portal. One per line.'),

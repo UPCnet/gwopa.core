@@ -17,38 +17,52 @@ class UserPropertiesSoupCatalogFactory(object):
         of queries, so for certain operations is needed a FieldIndex for the
         username.
     """
-    properties = [_(u'username'), _(u'fullname'), _(u'email'), _(u'description'), _(u'location'), _(u'ubicacio'), _(u'telefon'), _(u'twitter_username'), _(u'home_page')]
+    properties = [
+        _(u'username'),
+        _(u'fullname'),
+        _(u'email'),
+        _(u'description'),
+        _(u'region'),
+        _(u'country'),
+        _(u'phone'),
+        _(u'twitter_username'),
+        _(u'home_page')]
 
-    profile_properties = ['email', 'description', 'location', 'ubicacio', 'telefon', 'twitter_username', 'home_page']
+    profile_properties = [
+        'email',
+        'description',
+        'region',
+        'country',
+        'phone',
+        'twitter_username',
+        'home_page']
 
-    directory_properties = ['email', 'telefon', 'location', 'ubicacio']
+    directory_properties = ['email', 'phone', 'region']
 
     directory_icons = {'email': 'fa fa-envelope',
-                       'telefon': 'fa fa-mobile',
-                       'location': 'fa fa-building-o',
-                       'ubicacio': 'fa fa-user'}
+                       'phone': 'fa fa-mobile',
+                       'region': 'fa fa-building-o'}
 
     def __call__(self, context):
         catalog = Catalog()
         idindexer = NodeAttributeIndexer('id')
         catalog['id'] = CatalogFieldIndex(idindexer)
-        searchable_blob = NodeAttributeIndexer('searchable_text')
-        catalog['searchable_text'] = CatalogTextIndex(searchable_blob)
-        notlegit = NodeAttributeIndexer('notlegit')
-        catalog['notlegit'] = CatalogFieldIndex(notlegit)
 
         userindexer = NodeAttributeIndexer('username')
         catalog['username'] = CatalogTextIndex(userindexer)
+
         fullname = NodeAttributeIndexer('fullname')
         catalog['fullname'] = CatalogTextIndex(fullname)
+
         email = NodeAttributeIndexer('email')
         catalog['email'] = CatalogTextIndex(email)
-        location = NodeAttributeIndexer('location')
-        catalog['location'] = CatalogTextIndex(location)
-        ubicacio = NodeAttributeIndexer('ubicacio')
-        catalog['ubicacio'] = CatalogTextIndex(ubicacio)
-        telefon = NodeAttributeIndexer('telefon')
-        catalog['telefon'] = CatalogTextIndex(telefon)
+
+        region = NodeAttributeIndexer('region')
+        catalog['region'] = CatalogTextIndex(region)
+
+        country = NodeAttributeIndexer('country')
+        catalog['country'] = CatalogTextIndex(country)
+
         twitter_username = NodeAttributeIndexer('twitter_username')
         catalog['twitter_username'] = CatalogTextIndex(twitter_username)
         return catalog

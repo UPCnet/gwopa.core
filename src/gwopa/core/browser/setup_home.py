@@ -5,14 +5,11 @@ from cgi import parse_qs
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 import logging
 from gwopa.core.interfaces import IGwopaCoreLayer
-from Products.CMFPlone.interfaces.controlpanel import ISiteSchema
-from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
 import requests
 from plone.namedfile.file import NamedBlobImage
 from plone.app.textfield.value import RichTextValue
 import random
-# import transaction
+from requests.exceptions import ConnectionError
 
 grok.templatedir("templates")
 
@@ -29,13 +26,13 @@ class setup(grok.View):
         if qs is not None:
             query = parse_qs(qs)
             if 'create' in query:
-                logger = logging.getLogger('Executed setup_home on Site ->')
+                logger = logging.getLogger('# Executed setup_home on Site ->')
                 logger.info('%s' % self.context.id)
                 self.apply_default_language_settings()
-                self.createContent()
-                self.request.response.redirect(self.context.absolute_url())
+                self.createConfigFolders()
+                # self.request.response.redirect(self.context.absolute_url())
             if 'createdemocontent' in query:
-                logger = logging.getLogger('Creating DEMO CONTENT on Site ->')
+                logger = logging.getLogger('# Creating DEMO CONTENT on Site ->')
                 logger.info('%s' % self.context.id)
                 self.createDemoContent()
                 # self.request.response.redirect(self.context.absolute_url())
@@ -48,7 +45,7 @@ class setup(grok.View):
         pl.addSupportedLanguage('fr')
         pl.setDefaultLanguage('en')
 
-    def createContent(self):
+    def createConfigFolders(self):
         """ Method that creates all the default content """
         portal = api.portal.get()
 
@@ -64,27 +61,31 @@ class setup(grok.View):
         if getattr(portal, 'events', False):
             api.content.delete(obj=portal['events'])
 
-        # Set toolbar top
-        pc = api.portal.get_tool('portal_catalog')
-        pc.clearFindAndRebuild()
-        registry = getUtility(IRegistry)
-        site_settings = registry.forInterface(
-            ISiteSchema,
-            prefix='plone',
-            check=False
-        )
-        site_settings.toolbar_position == 'top'
-
         # Set the default pages to the homepage view
         portal.setLayout('homepage')
-
+        try:
+            config_folder = api.content.create(
+                type='Folder',
+                id='config',
+                title='Config folder',
+                Description='This folder will be used to create default site contents',
+                container=portal,
+                safe_id=False)
+            api.content.create(
+                type='Folder',
+                id='regions',
+                title='Regions',
+                container=config_folder,
+                safe_id=False)
+        except Exception:
+                pass
         return True
 
     def createDemoContent(self):
         """ Assign default values to panel control options """
         # WOP LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
-        if not current:
+        if not current or current[0] is '':
             current = []
         default_wop_list = [
             u'WOP Program Demo List 1',
@@ -97,7 +98,7 @@ class setup(grok.View):
             'gwopa.core.controlpanel.IGWOPASettings.wop_list', sorted(list(set(new_values))))
         # Partners LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
-        if not current:
+        if not current or current[0] is '':
             current = []
         default_partners_list = [
             u'Partner Demo User 1',
@@ -108,9 +109,20 @@ class setup(grok.View):
         new_values = current + default_partners_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.partners_list', sorted(list(set(new_values))))
+        # Currency LIST
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.currency')
+        if not current or current[0] is '':
+            current = []
+        default_currency_list = [
+            u'$ - Dollars',
+            u'€ - Euros',
+            u'£ - Pounds']
+        new_values = current + default_currency_list
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.currency', sorted(list(set(new_values))))
         # Measuring units LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.measuring_unit')
-        if not current:
+        if not current or current[0] is '':
             current = []
         default_measuring_list = [
             u'liters',
@@ -123,7 +135,7 @@ class setup(grok.View):
             'gwopa.core.controlpanel.IGWOPASettings.measuring_unit', sorted(list(set(new_values))))
         # Measuring frequency LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.measuring_frequency')
-        if not current:
+        if not current or current[0] is '':
             current = []
         default_measuringfreq_list = [
             u'quarterly',
@@ -135,7 +147,7 @@ class setup(grok.View):
             'gwopa.core.controlpanel.IGWOPASettings.measuring_frequency', sorted(list(set(new_values))))
         #  Regions LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.region_list')
-        if not current:
+        if not current or current[0] is '':
             current = []
         default_region_list = [
             u'Europe',
@@ -147,7 +159,7 @@ class setup(grok.View):
             'gwopa.core.controlpanel.IGWOPASettings.region_list', sorted(list(set(new_values))))
         #  wop_platform LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_platform')
-        if not current:
+        if not current or current[0] is '':
             current = []
         default_wop_platform_list = [
             u'WOP Platform 1',
@@ -161,7 +173,7 @@ class setup(grok.View):
             'gwopa.core.controlpanel.IGWOPASettings.wop_platform', sorted(list(set(new_values))))
         #  experimental areas LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.experimental_areas')
-        if not current:
+        if not current or current[0] is '':
             current = []
         default_experimental_areas_list = [
             u'Experimental Area 1',
@@ -186,7 +198,11 @@ class setup(grok.View):
                     http://lorempixel.com/
 
         """
-        data = requests.get('http://dummyimage.com/{0}x{1}/aeaeae/ffffff'.format(w, h), verify=False, timeout=10).content
+        try:
+            data = requests.get('http://dummyimage.com/{0}x{1}/aeaeae/ffffff'.format(w, h), verify=False, timeout=10).content
+        except ConnectionError:
+            data = requests.get(api.portal.get().absolute_url() + '/++theme++gwopa.theme/assets/images/empty200.png', verify=False, timeout=10).content
+
         image = NamedBlobImage(data=data,
                                filename=u'image.jpg',
                                contentType='image/jpeg')
@@ -195,7 +211,10 @@ class setup(grok.View):
     def getLoremIpsum(self, number, length, type_code):
         """ Returns Lorem Ipsum text
         """
-        text = requests.get('http://loripsum.net/api/{0}/{1}/{2}'.format(number, type_code, length), verify=False, timeout=10).content
+        try:
+            text = requests.get('http://loripsum.net/api/{0}/{1}/{2}'.format(number, type_code, length), verify=False, timeout=10).content
+        except ConnectionError:
+            return "</ Empty field because no network response from http://loripsum.net />"
         return text
 
     def createProjects(self, number):
@@ -215,11 +234,11 @@ class setup(grok.View):
             project.contribution = RichTextValue(
                 self.getLoremIpsum(2, 'long', 'html'),
                 'text/html', 'text/html')
-            wop_item = wops[i + 1]
+            wop_item = wops[i]
             new_value = []
             new_value.append(wop_item)
             project.wop_program = new_value
-            partner_item = partners[i + 1]
+            partner_item = partners[i]
             new_value = []
             new_value.append(partner_item)
             project.partners = new_value

@@ -51,7 +51,8 @@ setup(
         'collective.geolocationbehavior',
         'plone.formwidget.geolocation',
         'repoze.catalog',
-        'souper'
+        'souper',
+        'Products.PloneKeywordManager'
     ],
     extras_require={
         'test': [

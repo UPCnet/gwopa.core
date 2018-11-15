@@ -6,10 +6,10 @@
     purge="False">
 
  <configlet
-    title="GWOPA Settings"
+    title="GWOPA PMP"
     action_id="gwopasettings"
     appId="gwopasettings"
-    category="plone-advanced"
+    category="Products"
     condition_expr=""
     icon_expr=""
     url_expr="string:${portal_url}/@@gwopa-controlpanel"

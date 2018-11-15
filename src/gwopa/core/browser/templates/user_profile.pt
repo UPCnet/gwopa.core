@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1);
+                             disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+</head>
+
+<body>
+
+<tal:comment replace="nothing">
+    Please note that this template fills the "content" slot instead of the
+    "main" slot, this is done so we can provide stuff like the content
+    tabs. This also means that we have to supply things that are normally
+    present from main_template.
+</tal:comment>
+
+
+<metal:main metal:fill-slot="content"
+                    tal:define="username view/username;
+                                userinfo view/user_info;
+                                portal_url context/@@plone_portal_state/navigation_root_url;
+                                member context/@@plone_portal_state/member;">
+
+      <tal:haveAuthor condition="userinfo"
+          tal:define="isOwner python:member.getId()==username;">
+
+          <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+              Portal status message
+          </div>
+
+          <div id="content">
+              <h1 class="documentFirstHeading" tal:condition="view/fullname" tal:content="view/fullname">
+                  Author name
+              </h1>
+
+              <h1 class="documentFirstHeading" tal:condition="not: view/fullname" tal:content="username">
+                  Author ID
+              </h1>
+
+              <div id="content-core">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="row">
+                        <div class="photo col-md-12">
+                          <p>
+                            <span class="dades currentactivity">
+                              <max-activities-count object="user" tal:attributes="username username"></max-activities-count>
+                            </span>
+                          </p>
+                          <a tal:omit-tag="not: isOwner"
+                             tal:attributes="href string:${view/portal_url}/@@personal-information">
+                              <img tal:attributes="src string:/++theme++gwopa.theme/assets/images/empty200.png" alt="admin user">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-10" tal:define="properties view/user_properties">
+                    <span tal:content="properties"></span>
+                      <div class="infoProfile">
+                        <tal:field repeat="field properties">
+                          <h3 class="control-label" tal:content="field">Biography</h3>
+                          <!-- <p tal:content="field/value"></p> -->
+                        </tal:field>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        </tal:haveAuthor>
+
+
+</metal:main>
+
+</body>
+</html>

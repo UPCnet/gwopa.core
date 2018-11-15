@@ -37,4 +37,12 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <!-- profile template  -->
+  <browser:page
+      name="profile"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".user_profile.userProfile"
+      permission="zope2.View"
+    />
+
 </configure>

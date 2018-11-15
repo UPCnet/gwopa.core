@@ -14,6 +14,7 @@ import datetime
 from plone.directives import form
 from plone import api
 
+
 grok.templatedir("templates")
 
 
@@ -132,6 +133,12 @@ class IProject(model.Schema):
     budget = schema.Int(
         title=_(u"Budget"),
         required=False,
+    )
+
+    currency = schema.Choice(
+        title=_(u"Currency"),
+        source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.currency'),
+        required=True,
     )
 
     contribution = RichText(
