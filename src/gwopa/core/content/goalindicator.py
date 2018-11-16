@@ -5,8 +5,14 @@ from zope import schema
 from gwopa.core import _
 import datetime
 from gwopa.core.utils import vocabulary_values
+from plone.app.dexterity.behaviors.metadata import ICategorization
+from plone.autoform.interfaces import OMITTED_KEY
+from zope.interface import Interface
 
 grok.templatedir("templates")
+
+# Hide language from keyword fieldset
+ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
 
 
 def todayValue():

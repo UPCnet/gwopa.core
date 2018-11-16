@@ -9,7 +9,10 @@ import requests
 from plone.namedfile.file import NamedBlobImage
 from plone.app.textfield.value import RichTextValue
 import random
+from Products.statusmessages.interfaces import IStatusMessage
+from gwopa.core import _
 from requests.exceptions import ConnectionError
+requests.packages.urllib3.disable_warnings()
 
 grok.templatedir("templates")
 
@@ -30,11 +33,15 @@ class setup(grok.View):
                 logger.info('%s' % self.context.id)
                 self.apply_default_language_settings()
                 self.createConfigFolders()
+                message = _(u"The default config has been applied.")
+                IStatusMessage(self.request).addStatusMessage(message, type="info")
                 # self.request.response.redirect(self.context.absolute_url())
             if 'createdemocontent' in query:
                 logger = logging.getLogger('# Creating DEMO CONTENT on Site ->')
                 logger.info('%s' % self.context.id)
                 self.createDemoContent()
+                message = _(u"Demo content has been created.")
+                IStatusMessage(self.request).addStatusMessage(message, type="info")
                 # self.request.response.redirect(self.context.absolute_url())
 
     def apply_default_language_settings(self):

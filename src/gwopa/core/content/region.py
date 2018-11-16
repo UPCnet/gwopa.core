@@ -4,7 +4,7 @@ from plone.supermodel import model
 from zope import schema
 from plone.namedfile import field as namedfile
 from gwopa.core import _
-from gwopa.core import utils
+# from gwopa.core import utils
 
 grok.templatedir("templates")
 
@@ -28,13 +28,13 @@ class IRegion(model.Schema):
         required=False,
     )
 
-    country = schema.List(
-        title=_(u"Country"),
-        description=_(u"Choose countries from list that represents this country."),
-        value_type=schema.Choice(
-            source=utils.countries),
-        required=True,
-    )
+    # country = schema.List(
+    #     title=_(u"Country"),
+    #     description=_(u"Choose countries from list that represents this country."),
+    #     value_type=schema.Choice(
+    #         source=utils.countries),
+    #     required=True,
+    # )
 
 
 class View(grok.View):
