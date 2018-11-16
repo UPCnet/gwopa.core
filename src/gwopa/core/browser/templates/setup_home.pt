@@ -14,7 +14,7 @@
     <metal:main-macro define-macro="main">
       <div>
         <h1 class="documentFirstHeading">Initial GWOPA configuration</h1>
-        <p class="documentDescription">This procedure make the initial GWOPA configurations available on the Site.</p>
+        <p class="documentDescription">Execute the initial GWOPA configurations on the Site.</p>
         <div class="visualClear"></div>
 
       </div>
@@ -22,20 +22,20 @@
         <div class="field">
 
             <ul>
-              <li>Assign English as default language</li>
-              <li>Make [English / French / Spanish] languages available on User profiles</li>
-              <li>Set default homepage available</li>
-              <li>Create gwopa controlpanel with default values</li>
-              <li>Modify user profile to assign new fields</li>
-              <li>Assign GWOPA default workflow</li>
+              <li>Create GWOPA controlpanel with default values</li>
+              <li>Make [English / French / Spanish] languages availables on users profiles</li>
+              <li>Assign English as default language of the Site</li>
+              <li>Set default Homepage view</li>
+              <li>Modify users profiles to assign new fields</li>
+              <li>Assign GWOPA workflow</li>
             </ul>
 
         </div>
         <form method="get" action="@@setup_home">
-            <input id="create" class="context" type="submit" value="Create" name="create"/>
+            <input id="create" class="context" type="submit" value="Initial Setup" name="create"/>
         </form>
-        <br/>
-        If you are developing, you can create DEMO CONTENT to view the Site with some content already created (all with demo key inside to easily find them).
+        <br/>For developers. This option creates DEMO CONTENT to simulate Site with some content.
+        <br/>All the content will be marked with DEMO word to easily find and delete them if needed.
         <br/>
         <br/>
         <form method="get" action="@@setup_home">

@@ -76,7 +76,7 @@
               <metal:bodytext define-slot="main">
                 <h1 class="documentFirstHeading">My Projects</h1>
                   <a class="context right" href="#"
-                     tal:attributes="href string:${context/absolute_url}/++add++Project">+ New Project</a>
+                     tal:attributes="href string:${context/absolute_url}/projects/++add++Project">+ New Project</a>
                      <br/><br/>
                 <div class="has-table" tal:define="items view/listProjects;" >
 

@@ -75,14 +75,22 @@ class setup(grok.View):
                 type='Folder',
                 id='config',
                 title='Config folder',
-                Description='This folder will be used to create default site contents',
+                Description='This folder will hold configuration folders used by the Site and managed by the administrators',
                 container=portal,
                 safe_id=False)
             api.content.create(
                 type='Folder',
                 id='regions',
                 title='Regions',
+                description='Regions used as user registration field',
                 container=config_folder,
+                safe_id=False)
+            config_folder = api.content.create(
+                type='Folder',
+                id='projects',
+                title='Projects',
+                Description='Projects of the Site',
+                container=portal,
                 safe_id=False)
         except Exception:
                 pass
@@ -233,7 +241,7 @@ class setup(grok.View):
                 type='Project',
                 id='project' + str(int(i + 1)),
                 title='Demo Project ' + str(int(i + 1)),
-                container=portal,
+                container=portal['projects'],
                 safe_id=True)
             project.image = self.getRandomImage(200, 200)
             project.description = self.getLoremIpsum(1, 'medium', 'plaintext')
