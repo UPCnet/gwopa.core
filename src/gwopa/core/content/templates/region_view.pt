@@ -7,9 +7,36 @@
       i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="content-core">
+<metal:content-core fill-slot="content-core"
+    tal:define="members view/listMembers;
+                portal_state context/@@plone_portal_state;
+                portal_url portal_state/portal_url;">
 
+    <div class="leadImage"
+         tal:define="scale_func context/@@images;
+                     scaled_image python: getattr(context.aq_explicit, 'image', False) and scale_func.scale('image', scale='mini')">
+        <figure class="newsImageContainer" tal:condition="scaled_image">
+            <a class="pat-plone-modal" data-pat-plone-modal="image: true" href="#"
+                tal:attributes="href string:${context/absolute_url}/@@images/image">
+              <img src="" tal:attributes="src string:${context/absolute_url}/@@images/image" height="200" width="200" class="newsImage">
+            </a>
+        </figure>
+    </div>
 
+    <tal:block tal:condition="members">
+        <h2 i18n:translate=""> Members in to this region</h2>
+        <tal:objects repeat="member members">
+            <ul class="member_item">
+              <li>
+                    <i class="fa fa-user"></i>
+                    <a href="" tal:attributes="href string:${portal_url}/profile/${member/id}">
+                        <span tal:content="member/id"> Userid </span>
+                    </a>
+                    <span tal:content="member/country"> Country </span>
+              </li>
+            </ul>
+        </tal:objects>
+    </tal:block>
 
 </metal:content-core>
 

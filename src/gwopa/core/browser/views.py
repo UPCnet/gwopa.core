@@ -13,6 +13,16 @@ class listIndicators(BrowserView):
     def getTitle(self):
         return self.context.Title()
 
+    def listActivities(self):
+        items = api.content.find(portal_type='Activity')
+        results = []
+        for item in items:
+            results.append(dict(
+                title=item.Title,
+                description=item.Description,
+                url=item.getPath()))
+        return results
+
     def goalsList(self):
         items = api.content.find(portal_type='Goal')
         results = []

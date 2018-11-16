@@ -20,10 +20,9 @@
                     contribution context/contribution;
                     wop_program context/wop_program">
 
-      <button type="button">
+
         <i class="fa fa-info-circle" aria-hidden="true"></i>
-        <a tal:attributes="href string:${context/absolute_url}/indicators" href="#"> Show indicators </a>
-      </button>
+        <a tal:attributes="href string:${context/absolute_url}/indicators" href="#"> Indicators </a>
       <div tal:condition="partners">
         <h3 i18n:translate="">Partners</h3>
         <ul tal:repeat="partner partners">

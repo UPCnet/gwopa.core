@@ -58,8 +58,9 @@ class IEnhancedUserDataSchema(model.Schema):
     region = schema.Choice(
         title=_(u'Region'),
         required=False,
-        source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.region_list'),
+        source=utils.listRegions
     )
+    # source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.region_list'),
 
     wop_program = schema.List(
         title=_(u"WOP Program"),

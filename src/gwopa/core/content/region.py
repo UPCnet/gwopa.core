@@ -3,6 +3,7 @@ from five import grok
 from plone.supermodel import model
 from zope import schema
 from plone.namedfile import field as namedfile
+from plone import api
 from gwopa.core import _
 # from gwopa.core import utils
 
@@ -40,3 +41,16 @@ class IRegion(model.Schema):
 class View(grok.View):
     grok.context(IRegion)
     grok.template('region_view')
+
+    def listMembers(self):
+        """ Returns users registerd on this Region """
+        members = api.user.get_users()
+        results = []
+
+        for item in members:
+            if item.getProperty('region') == self.context.Title():
+                results += [{
+                    'id': item.id,
+                    'country': item.getProperty('country'),
+                }]
+        return results

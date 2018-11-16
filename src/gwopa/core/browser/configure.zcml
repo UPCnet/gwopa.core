@@ -30,6 +30,15 @@
 
   <!-- INDICATORS TEMPLATE-->
   <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="dash"
+      class=".views.listIndicators"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <!-- INDICATORS TEMPLATE-->
+  <browser:page
       for="gwopa.core.content.project.IProject"
       name="files"
       class=".views.listFiles"

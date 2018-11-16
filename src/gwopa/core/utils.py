@@ -9,6 +9,7 @@ import pycountry
 from gwopa.core import _
 from souper.soup import get_soup
 from repoze.catalog.query import Eq
+from zope.interface import directlyProvides
 
 
 class vocabulary_values(object):
@@ -41,6 +42,18 @@ def generate_vocabulary(value):
 
 
 countries = generate_vocabulary([country.name for country in pycountry.countries])
+
+
+def listRegions(context):
+    terms = []
+    literals = api.content.find(portal_type="Region")
+    for item in literals:
+        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(listRegions, IContextSourceBinder)
 
 
 def get_safe_member_by_id(username):
