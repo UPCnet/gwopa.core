@@ -23,10 +23,11 @@
         <div class="visualClear"></div>
       </div>
 
-      <h2> Projects</h2>
-      <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
-        <button id="add-new-user" class="context focus">Add New Project</button>
-      </a><br/><br/>
+      <h2> Projects
+        <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
+          <button id="add-new-user" class="context focus"> + Add New Project</button>
+        </a>
+      </h2>
       <table class="sortable" tal:define="elements view/getProjects">
         <thead>
           <tr>
@@ -75,28 +76,22 @@
           </tr>
         </tbody>
       </table>
-      <h2> Users </h2>
-      <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
-        <button id="add-new-user" class="context focus">Add New User</button>
-      </a><br/><br/>
+      <h2> Users 
+        <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
+          <button id="add-new-user" class="context focus"> + Add New User</button>
+        </a>
+      </h2>
       <table class="sortable" tal:define="elements view/getUsers">
         <thead>
           <tr>
-            <th scope="col">Project Name</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Admin role</th>
-            <th scope="col">Country</th>
-            <th scope="col">Actions</th>
+            <th scope="col"> UserID </th>
           </tr>
         </thead>
         <tbody>
           <tr tal:repeat="project elements">
             <td>
-              <a href="" tal:attributes="href project/url" tal:content="project/title">Title</a>
+              <a href="" tal:attributes="href string:${portal_url}/profile/${project/id}" tal:content="project/id"> User ID </a>
             </td>
-
-            <td> Edit / Delete </td>
           </tr>
         </tbody>
       </table>
