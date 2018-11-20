@@ -7,7 +7,6 @@
   <object meta_type="Dexterity FTI" name="Indicator" />
   <object meta_type="Dexterity FTI" name="ImprovementArea" />
   <object meta_type="Dexterity FTI" name="TargetValue" />
-  <object meta_type="Dexterity FTI" name="Folder" />
   <object meta_type="Dexterity FTI" name="Activity" />
   <object meta_type="Dexterity FTI" name="Region" />
 </object>

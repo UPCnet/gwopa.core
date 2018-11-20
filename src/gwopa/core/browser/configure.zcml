@@ -28,25 +28,25 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- INDICATORS TEMPLATE-->
+  <!-- DASH TEST TEMPLATE-->
   <browser:page
-      for="Products.CMFCore.interfaces.ISiteRoot"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="dash"
       class=".views.listIndicators"
       permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- INDICATORS TEMPLATE-->
+  <!-- FILES VIEW -->
   <browser:page
-      for="gwopa.core.content.project.IProject"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="files"
       class=".views.listFiles"
       permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- profile template  -->
+  <!-- VIEW USER PROFILES  -->
   <browser:page
       name="profile"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"

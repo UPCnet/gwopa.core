@@ -16,7 +16,7 @@ msgstr ""
 
 #: ../browser/templates/indicators.pt:37
 msgid "Activities"
-msgstr ""
+msgstr "Activities"
 
 #: ../content/activity.py:19
 #: ../profiles/default/types/Activity.xml
@@ -35,7 +35,7 @@ msgstr "All this parameters are needed for the correct use of GWOPA PMP system."
 msgid "An improvement area used on the Site"
 msgstr "An improvement area used on the Site"
 
-#: ../content/project.py:165
+#: ../content/project.py:171
 msgid "Assumptions"
 msgstr "Assumptions"
 
@@ -71,28 +71,33 @@ msgstr "Baseline Date"
 msgid "Baseline value"
 msgstr "Baseline value"
 
-#: ../content/project.py:134
+#: ../content/project.py:140
 #: ../content/templates/project_view.pt:39
 msgid "Budget"
 msgstr "Budget"
 
-#: ../content/project.py:145
+#: ../content/region.py:34
+msgid "Choose countries from list that represents this country."
+msgstr "Choose countries from the list"
+
+#: ../content/project.py:151
 #: ../content/templates/project_view.pt:44
 msgid "Contribution by partners and donors"
 msgstr "Contribution by partners and donors"
 
-#: ../content/project.py:72
+#: ../content/project.py:78
+#: ../content/region.py:33
 #: ../userdataschema.py:52
 msgid "Country"
 msgstr "Country"
 
-#: ../content/project.py:139
+#: ../content/project.py:145
 msgid "Currency"
-msgstr ""
+msgstr "Currency"
 
 #: ../controlpanel.py:47
 msgid "Currency Exchange"
-msgstr ""
+msgstr "Exchange currency"
 
 #: ../content/project.py:59
 msgid "Date when the project begins."
@@ -106,9 +111,9 @@ msgstr "Date when the project ends."
 msgid "Define your language"
 msgstr "Define your language"
 
-#: ../browser/setup_home.py:43
+#: ../browser/setup_home.py:44
 msgid "Demo content has been created."
-msgstr ""
+msgstr "Demo content has been created."
 
 #: ../content/project.py:65
 msgid "End date"
@@ -121,6 +126,10 @@ msgstr "Experimental Areas"
 #: ../controlpanel.py:56
 msgid "Experimental Areas list"
 msgstr "Experimental Areas list"
+
+#: ../browser/templates/files.pt:25
+msgid "File list"
+msgstr "File list"
 
 #: ../configure.zcml:37
 msgid "GWOPA Core package (gwopa.core)"
@@ -137,7 +146,7 @@ msgstr "Goal"
 
 #: ../content/region.py:28
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #: ../content/improvement_area.py:23
 msgid "Image Area"
@@ -152,7 +161,7 @@ msgstr "Image used to describe the Area. If no file chosen, a defult one will be
 msgid "Improvement Area"
 msgstr "Improvement Area"
 
-#: ../content/project.py:126
+#: ../content/project.py:132
 msgid "Improvement track team and members"
 msgstr "Improvement track team and members"
 
@@ -163,7 +172,7 @@ msgstr "Indicator"
 
 #: ../browser/templates/indicators.pt:50
 msgid "Indicators"
-msgstr ""
+msgstr "Indicators"
 
 #: ../configure.zcml:37
 msgid "Installs the gwopa.core add-on."
@@ -177,11 +186,11 @@ msgstr "Invalid start or end date"
 msgid "Language"
 msgstr "Language"
 
-#: ../content/project.py:80
+#: ../content/project.py:86
 msgid "Latitude"
 msgstr "Latitude"
 
-#: ../content/project.py:87
+#: ../content/project.py:93
 msgid "Longitude"
 msgstr "Longitude"
 
@@ -212,23 +221,23 @@ msgid "Measuring unit"
 msgstr "Measuring unit"
 
 #: ../content/activity.py:36
-#: ../content/project.py:125
+#: ../content/project.py:131
 msgid "Members"
 msgstr "Members"
 
 #: ../content/templates/region_view.pt:27
 msgid "Members in to this region"
-msgstr ""
+msgstr "Members in this region"
 
 #: ../content/activity.py:37
 msgid "Members of this activity"
-msgstr ""
+msgstr "Members of this activity"
 
 #: ../content/activity.py:30
 msgid "Milestones"
-msgstr ""
+msgstr "Milestones"
 
-#: ../content/project.py:170
+#: ../content/project.py:176
 msgid "Objectives"
 msgstr "Objectives"
 
@@ -246,12 +255,12 @@ msgstr "Output"
 msgid "PMP Projects View"
 msgstr "PMP Projects View"
 
-#: ../content/project.py:94
+#: ../content/project.py:100
 #: ../userdataschema.py:84
 msgid "Partner/partners associated to this project"
 msgstr "Partner or partners associated to this project"
 
-#: ../content/project.py:93
+#: ../content/project.py:99
 #: ../content/templates/project_view.pt:27
 #: ../userdataschema.py:83
 msgid "Partners"
@@ -265,7 +274,7 @@ msgstr "Partners list"
 msgid "Phone"
 msgstr "Phone"
 
-#: ../content/project.py:152
+#: ../content/project.py:158
 #: ../userdataschema.py:67
 msgid "Program/programs associated to this project"
 msgstr "Program or programs associated to this project"
@@ -278,23 +287,20 @@ msgstr "Project"
 msgid "Project Image"
 msgstr "Project Image"
 
-#: ../content/project.py:109
+#: ../content/project.py:115
 #: ../content/templates/project_view.pt:34
 msgid "Project Manager"
 msgstr "Project Manager"
 
-#: ../content/project.py:102
+#: ../content/project.py:108
 msgid "Project Manager Admin"
 msgstr "Project Manager (Administrator role)"
-
-#: ../browser/templates/files.pt:25
-msgid "Project file list"
-msgstr "Project files list"
 
 #: ../content/project.py:41
 msgid "Project name"
 msgstr "Project"
 
+#: ../content/project.py:72
 #: ../profiles/default/types/Region.xml
 #: ../userdataschema.py:59
 msgid "Region"
@@ -304,11 +310,11 @@ msgstr "Region"
 msgid "Regions list"
 msgstr "Regions list"
 
-#: ../content/project.py:160
+#: ../content/project.py:166
 msgid "Risks"
 msgstr "Risks"
 
-#: ../content/project.py:73
+#: ../content/project.py:79
 #: ../userdataschema.py:53
 msgid "Select country"
 msgstr "Select country"
@@ -332,17 +338,21 @@ msgstr "Target Value"
 msgid "Target Value Date"
 msgstr "Target Value Date"
 
-#: ../browser/setup_home.py:36
+#: ../browser/setup_home.py:118
 msgid "The default config has been applied."
-msgstr ""
+msgstr "The default config has been applied."
 
-#: ../content/project.py:103
+#: ../content/project.py:109
+msgid "The responsible manager of this project"
+msgstr "The responsible manager of this project"
+
+#: ../content/project.py:116
 msgid "The responsible of this project"
 msgstr "The responsible of this project"
 
 #: ../content/region.py:17
 msgid "Title"
-msgstr ""
+msgstr "Title"
 
 #: ../userdataschema.py:33
 msgid "Twitter username"
@@ -362,14 +372,14 @@ msgstr "Used inside indicators"
 
 #: ../controlpanel.py:48
 msgid "Used in the projects item. One per line."
-msgstr ""
+msgstr "Used in the projects item. One per line."
 
 #: ../controlpanel.py:20
 #: ../userdataschema.py:75
 msgid "WOP Platform"
 msgstr "WOP Platform"
 
-#: ../content/project.py:151
+#: ../content/project.py:157
 #: ../content/templates/project_view.pt:49
 #: ../userdataschema.py:66
 msgid "WOP Program"
@@ -389,7 +399,7 @@ msgstr "Your telephone number."
 
 #: ../indexers.py:26
 msgid "country"
-msgstr ""
+msgstr "country"
 
 #: ../indexers.py:24
 msgid "description"
@@ -406,7 +416,7 @@ msgstr "Fullname"
 #. Default: "Your date of birth, in the format dd-mm-yyyy"
 #: ../userdataschema.py:40
 msgid "help_birthdate"
-msgstr ""
+msgstr "help_birthdate"
 
 #: ../indexers.py:29
 msgid "home_page"
@@ -415,15 +425,15 @@ msgstr "Homepage"
 #. Default: "Birthdate"
 #: ../userdataschema.py:39
 msgid "label_birthdate"
-msgstr ""
+msgstr "label_birthdate"
 
 #: ../indexers.py:27
 msgid "phone"
-msgstr ""
+msgstr "phone"
 
 #: ../indexers.py:25
 msgid "region"
-msgstr ""
+msgstr "region"
 
 #: ../indexers.py:28
 msgid "twitter_username"

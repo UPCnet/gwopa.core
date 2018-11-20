@@ -22,7 +22,7 @@
 
   <metal:block define-macro="content-core">
 
-      <h2 i18n:translate="">Project file list</h2>
+      <h2 i18n:translate=""> File list</h2>
 
       <tal:objects repeat="item view/allfiles">
         <ul class="goal_item">
@@ -36,6 +36,12 @@
           </li>
       </ul>
       </tal:objects>
+
+  <h3>TODO:</h3>
+  <ul>
+      <li>Show all Site files if called from root</li>
+      <li>Show project files if called from project </li>
+  </ul>
 
   </metal:block>
 

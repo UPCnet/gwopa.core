@@ -35,7 +35,7 @@ msgstr ""
 msgid "An improvement area used on the Site"
 msgstr ""
 
-#: ../content/project.py:165
+#: ../content/project.py:171
 msgid "Assumptions"
 msgstr ""
 
@@ -71,22 +71,27 @@ msgstr ""
 msgid "Baseline value"
 msgstr ""
 
-#: ../content/project.py:134
+#: ../content/project.py:140
 #: ../content/templates/project_view.pt:39
 msgid "Budget"
 msgstr ""
 
-#: ../content/project.py:145
+#: ../content/region.py:34
+msgid "Choose countries from list that represents this country."
+msgstr ""
+
+#: ../content/project.py:151
 #: ../content/templates/project_view.pt:44
 msgid "Contribution by partners and donors"
 msgstr ""
 
-#: ../content/project.py:72
+#: ../content/project.py:78
+#: ../content/region.py:33
 #: ../userdataschema.py:52
 msgid "Country"
 msgstr ""
 
-#: ../content/project.py:139
+#: ../content/project.py:145
 msgid "Currency"
 msgstr ""
 
@@ -106,7 +111,7 @@ msgstr ""
 msgid "Define your language"
 msgstr ""
 
-#: ../browser/setup_home.py:43
+#: ../browser/setup_home.py:44
 msgid "Demo content has been created."
 msgstr ""
 
@@ -120,6 +125,10 @@ msgstr ""
 
 #: ../controlpanel.py:56
 msgid "Experimental Areas list"
+msgstr ""
+
+#: ../browser/templates/files.pt:25
+msgid "File list"
 msgstr ""
 
 #: ../configure.zcml:37
@@ -152,7 +161,7 @@ msgstr ""
 msgid "Improvement Area"
 msgstr ""
 
-#: ../content/project.py:126
+#: ../content/project.py:132
 msgid "Improvement track team and members"
 msgstr ""
 
@@ -177,11 +186,11 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: ../content/project.py:80
+#: ../content/project.py:86
 msgid "Latitude"
 msgstr ""
 
-#: ../content/project.py:87
+#: ../content/project.py:93
 msgid "Longitude"
 msgstr ""
 
@@ -212,7 +221,7 @@ msgid "Measuring unit"
 msgstr ""
 
 #: ../content/activity.py:36
-#: ../content/project.py:125
+#: ../content/project.py:131
 msgid "Members"
 msgstr ""
 
@@ -228,7 +237,7 @@ msgstr ""
 msgid "Milestones"
 msgstr ""
 
-#: ../content/project.py:170
+#: ../content/project.py:176
 msgid "Objectives"
 msgstr ""
 
@@ -246,12 +255,12 @@ msgstr ""
 msgid "PMP Projects View"
 msgstr ""
 
-#: ../content/project.py:94
+#: ../content/project.py:100
 #: ../userdataschema.py:84
 msgid "Partner/partners associated to this project"
 msgstr ""
 
-#: ../content/project.py:93
+#: ../content/project.py:99
 #: ../content/templates/project_view.pt:27
 #: ../userdataschema.py:83
 msgid "Partners"
@@ -265,7 +274,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: ../content/project.py:152
+#: ../content/project.py:158
 #: ../userdataschema.py:67
 msgid "Program/programs associated to this project"
 msgstr ""
@@ -278,23 +287,20 @@ msgstr ""
 msgid "Project Image"
 msgstr ""
 
-#: ../content/project.py:109
+#: ../content/project.py:115
 #: ../content/templates/project_view.pt:34
 msgid "Project Manager"
 msgstr ""
 
-#: ../content/project.py:102
+#: ../content/project.py:108
 msgid "Project Manager Admin"
-msgstr ""
-
-#: ../browser/templates/files.pt:25
-msgid "Project file list"
 msgstr ""
 
 #: ../content/project.py:41
 msgid "Project name"
 msgstr ""
 
+#: ../content/project.py:72
 #: ../profiles/default/types/Region.xml
 #: ../userdataschema.py:59
 msgid "Region"
@@ -304,11 +310,11 @@ msgstr ""
 msgid "Regions list"
 msgstr ""
 
-#: ../content/project.py:160
+#: ../content/project.py:166
 msgid "Risks"
 msgstr ""
 
-#: ../content/project.py:73
+#: ../content/project.py:79
 #: ../userdataschema.py:53
 msgid "Select country"
 msgstr ""
@@ -332,11 +338,15 @@ msgstr ""
 msgid "Target Value Date"
 msgstr ""
 
-#: ../browser/setup_home.py:36
+#: ../browser/setup_home.py:118
 msgid "The default config has been applied."
 msgstr ""
 
-#: ../content/project.py:103
+#: ../content/project.py:109
+msgid "The responsible manager of this project"
+msgstr ""
+
+#: ../content/project.py:116
 msgid "The responsible of this project"
 msgstr ""
 
@@ -369,7 +379,7 @@ msgstr ""
 msgid "WOP Platform"
 msgstr ""
 
-#: ../content/project.py:151
+#: ../content/project.py:157
 #: ../content/templates/project_view.pt:49
 #: ../userdataschema.py:66
 msgid "WOP Program"

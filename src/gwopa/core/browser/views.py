@@ -77,6 +77,7 @@ class listIndicators(BrowserView):
 class listFiles(BrowserView):
     """ View all the files associated to the project.
         Separated by area.
+        If this is a root call, shows all site files
     """
     __call__ = ViewPageTemplateFile('templates/files.pt')
 
@@ -93,4 +94,3 @@ class listFiles(BrowserView):
                 portal_type=item.portal_type,
                 url=item.getPath()))
         return results
-

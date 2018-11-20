@@ -68,10 +68,16 @@ class IProject(model.Schema):
         defaultFactory=default_tomorrow
     )
 
+    region = schema.Choice(
+        title=_(u'Region'),
+        required=False,
+        source=utils.listRegions
+    )
+
     country = schema.Choice(
         title=_(u"Country"),
         description=_(u"Select country"),
-        vocabulary=utils.countries,
+        source=utils.countries,
         required=True,
     )
 
@@ -100,7 +106,7 @@ class IProject(model.Schema):
 
     project_manager_admin = schema.Choice(
         title=_(u"Project Manager Admin"),
-        description=_(u"The responsible of this project"),
+        description=_(u"The responsible manager of this project"),
         required=False,
         vocabulary=u'plone.app.vocabularies.Users',
     )

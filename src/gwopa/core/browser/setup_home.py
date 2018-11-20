@@ -12,6 +12,8 @@ import random
 from Products.statusmessages.interfaces import IStatusMessage
 from gwopa.core import _
 from requests.exceptions import ConnectionError
+from Products.statusmessages.interfaces import IStatusMessage
+from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 requests.packages.urllib3.disable_warnings()
 
 grok.templatedir("templates")
@@ -33,8 +35,7 @@ class setup(grok.View):
                 logger.info('%s' % self.context.id)
                 self.apply_default_language_settings()
                 self.createConfigFolders()
-                message = _(u"The default config has been applied.")
-                IStatusMessage(self.request).addStatusMessage(message, type="info")
+
                 # self.request.response.redirect(self.context.absolute_url())
             if 'createdemocontent' in query:
                 logger = logging.getLogger('# Creating DEMO CONTENT on Site ->')
@@ -70,6 +71,7 @@ class setup(grok.View):
 
         # Set the default pages to the homepage view
         portal.setLayout('homepage')
+        messages = IStatusMessage(self.request)
         try:
             config_folder = api.content.create(
                 type='Folder',
@@ -85,16 +87,39 @@ class setup(grok.View):
                 description='Regions used as user registration field',
                 container=config_folder,
                 safe_id=False)
+            api.content.create(
+                type='Folder',
+                id='programs',
+                title='WOP Programs',
+                description='WOP Programs',
+                container=config_folder,
+                safe_id=False)
+            api.content.create(
+                type='Folder',
+                id='platforms',
+                title='WOP Platforms',
+                description='WOP Platform',
+                container=config_folder,
+                safe_id=False)
             config_folder = api.content.create(
+                type='Folder',
+                id='partners',
+                title='Partners',
+                description='Partners',
+                container=config_folder,
+                safe_id=False)
+            api.content.create(
                 type='Folder',
                 id='projects',
                 title='Projects',
                 Description='Projects of the Site',
                 container=portal,
                 safe_id=False)
-        except Exception:
-                pass
-        return True
+            message = _(u"The default config has been applied.")
+            messages.addStatusMessage(message, type="info")
+        except Exception, e:
+            # Show friendly error message
+            messages.addStatusMessage(unicode(e), 'error')
 
     def createDemoContent(self):
         """ Assign default values to panel control options """
