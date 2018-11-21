@@ -34,11 +34,20 @@ class userProfile(BrowserView):
         return self
 
     def user_properties(self):
-        member_data = api.user.get_current()
-        return {'fullname': member_data.getProperty('fullname'),
-                'email': member_data.getProperty('email'),
-                'description': member_data.getProperty('description'),
-                'twitter_username': member_data.getProperty('twitter_username'),
-                'phone': member_data.getProperty('phone'),
-                'region': member_data.getProperty('region'),
-                }
+        member_data = api.user.get(username=self.username)
+        profile__properties = ['fullname', 'email', 'description', 'twitter_username', 'phone', 'region']
+        # return {'fullname': member_data.getProperty('fullname'),
+        #         'email': member_data.getProperty('email'),
+        #         'description': member_data.getProperty('description'),
+        #         'twitter_username': member_data.getProperty('twitter_username'),
+        #         'phone': member_data.getProperty('phone'),
+        #         'region': member_data.getProperty('region'),
+        #         }
+        rendered_properties = []
+        for prop in profile__properties:
+            rendered_properties.append(dict(
+                name=(prop),
+                value=member_data.getProperty(prop, '')
+            ))
+        return rendered_properties
+

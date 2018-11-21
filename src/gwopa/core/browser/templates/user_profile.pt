@@ -47,7 +47,7 @@
 
               <div id="content-core">
                 <div class="row">
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     <div class="row">
                         <div class="photo col-md-12">
                           <p>
@@ -62,13 +62,11 @@
                         </div>
                     </div>
                   </div>
-
-                  <div class="col-md-10" tal:define="properties view/user_properties">
-                    <span tal:content="properties"></span>
+                  <div class="col-md-9" tal:define="properties view/user_properties">
                       <div class="infoProfile">
                         <tal:field repeat="field properties">
-                          <h3 class="control-label" tal:content="field">Biography</h3>
-                          <!-- <p tal:content="field/value"></p> -->
+                          <h3 class="control-label" tal:content="field/name">Biography</h3>
+                          <p tal:content="field/value"></p>
                         </tal:field>
                       </div>
                   </div>
