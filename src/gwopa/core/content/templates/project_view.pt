@@ -87,24 +87,26 @@
         <span tal:condition="latitude"> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
         <span tal:condition="longitude"> Longitude: <tal:omit-tag tal:content="longitude"></tal:omit-tag></span>
         <div class="clearfix"></div>
-        <h1 class="documentFirstHeading paddingtop"> Areas</h1>
-        <tal:repeatProjects repeat="item view/getImprovementAreas">
-          <div class="col-lg-3 col-md-6">
-            <a tal:attributes="href item/url;
-                               title item/title;
-                               alt item/title">
-            <div class="box">
-              <img class="img200"
-                   tal:attributes="src string:${item/image};"/>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                </h4>
+        <tal:block-areas tal:define="areas view/getImprovementAreas" tal:condition="areas">
+          <h1 class="documentFirstHeading paddingtop"> Areas</h1>
+          <tal:repeatProjects repeat="item areas">
+            <div class="col-lg-3 col-md-6">
+              <a tal:attributes="href item/url;
+                                 title item/title;
+                                 alt item/title">
+              <div class="box">
+                <img class="img200"
+                     tal:attributes="src string:${item/image};"/>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+                  </h4>
+                </div>
               </div>
+            </a>
             </div>
-          </a>
-          </div>
-      </tal:repeatProjects>
+        </tal:repeatProjects>
+      </tal:block-areas>
         <!-- <tal:debug><?python import ipdb; ipdb.set_trace()?></tal:debug> -->
     </tal:block>
   </metal:block>

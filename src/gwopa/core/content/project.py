@@ -13,7 +13,8 @@ from gwopa.core import utils
 import datetime
 from plone.directives import form
 from plone import api
-
+from plone.app.z3cform.widget import SelectWidget
+from plone.autoform import directives
 
 grok.templatedir("templates")
 
@@ -49,6 +50,18 @@ class IProject(model.Schema):
         missing_value=u'',
     )
 
+    # directives.widget('select_field', SelectWidget)
+    # select_field = schema.Choice(
+    #     title=u'Select Widget',
+    #     values=['one', 'two', 'three', ]
+    # )
+
+    # directives.widget('list_field', SelectWidget)
+    # list_field = schema.List(
+    #     title=u'Select Multiple Widget',
+    #     value_type=schema.Choice(values=['four', 'five', 'six', ]),
+    # )
+
     image = namedfile.NamedBlobImage(
         title=_(u'Project Image'),
         required=False,
@@ -74,6 +87,7 @@ class IProject(model.Schema):
         source=utils.listRegions
     )
 
+    directives.widget('country', SelectWidget)
     country = schema.Choice(
         title=_(u"Country"),
         description=_(u"Select country"),
@@ -95,6 +109,7 @@ class IProject(model.Schema):
         default=0.0
     )
 
+    directives.widget('partners', SelectWidget)
     partners = schema.List(
         title=_(u"Partners"),
         description=_(u"Partner/partners associated to this project"),
@@ -111,6 +126,7 @@ class IProject(model.Schema):
         vocabulary=u'plone.app.vocabularies.Users',
     )
 
+    directives.widget('project_manager', SelectWidget)
     project_manager = schema.Choice(
         title=_(u"Project Manager"),
         description=_(u"The responsible of this project"),

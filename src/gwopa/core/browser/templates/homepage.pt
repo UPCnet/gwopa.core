@@ -157,6 +157,15 @@
                 </div>
                 <br/>
                 <h1 class="documentFirstHeading">Related Projects</h1>
+
+
+                <input type="text" class="pat-select2"
+                      data-pat-select2="placeholder:Search...;
+                                        vocabularyUrl: ${portal_url}/select2-test.json;
+                                        width:20em" />
+                <a tal:attributes="href string:${portal_url}/" href="#">
+                  <button class="context focus"> All </button>
+                </a>
                 <div class="has-table">
                   <table class="listing" summary="Content listing">
                     <tbody>

@@ -3,6 +3,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 from plone import api
 from Products.CMFCore.utils import getToolByName
+import json
 
 
 class listIndicators(BrowserView):
@@ -94,3 +95,15 @@ class listFiles(BrowserView):
                 portal_type=item.portal_type,
                 url=item.getPath()))
         return results
+
+
+class select2(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type=['Project'])
+        results = []
+        for item in items:
+            results.append(dict(
+                id=item.id,
+                text=item.Title))
+        return json.dumps({'results': results})
