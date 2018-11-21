@@ -79,6 +79,15 @@ class IGWOPASettings(model.Schema):
         missing_value=(),
     )
 
+    capacity_changes = schema.List(
+        title=_(u'Capacity Changes'),
+        description=_(u''),
+        required=False,
+        default=[u''],
+        value_type=schema.TextLine(),
+        missing_value=(),
+    )
+
 
 class GwopaControlPanelForm(controlpanel.RegistryEditForm):
 

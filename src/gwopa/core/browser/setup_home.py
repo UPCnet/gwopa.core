@@ -225,6 +225,30 @@ class setup(grok.View):
         new_values = current + default_experimental_areas_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.experimental_areas', sorted(list(set(new_values))))
+        # Capcaity Changes LIST
+        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.capacity_changes')
+        if not current or current[0] is '':
+            current = []
+        default_capacity_changes = [
+            u'External Environment',
+            u'Leadership',
+            u'Mission/Strategy',
+            u'Organizational culture',
+            u'Management practices',
+            u'Working routines',
+            u'Organizational structure',
+            u'Systems (procedures and policies)',
+            u'Information on current conditions',
+            u'Equipment',
+            u'Infrastructure',
+            u'Financial resources',
+            u'Staff motivation',
+            u'Staff skills & Knowledge',
+            u'Others',
+        ]
+        new_values = current + default_capacity_changes
+        api.portal.set_registry_record(
+            'gwopa.core.controlpanel.IGWOPASettings.capacity_changes', sorted(list(set(new_values))))
 
         self.createProjects(5)
         return "Demo content created"
