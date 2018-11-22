@@ -3,7 +3,7 @@
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
-from gwopa.core.testing import GWOPA_CORE_INTEGRATION_TESTING  # noqa
+from gwopa.core.testing import GWOPA_CORE_INTEGRATION_TESTING
 
 import unittest
 

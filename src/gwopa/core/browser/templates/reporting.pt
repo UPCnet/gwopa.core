@@ -11,13 +11,10 @@
 
   <metal:block define-macro="content-core">
      
-    <h1 class="documentFirstHeading">Reporting Module</h1>
-    <div class="documentDescription description"> Describing reporting module.</div>
+    <h1 class="documentFirstHeading" i18n:translate="">Reporting Module</h1>
+    <div class="documentDescription description" i18n:translate=""> Describing reporting module.</div>
     <br/>
-    <button type="button">
-      <i class="fa fa-arrow-left" aria-hidden="true"></i>
-      <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to Project </a>
-    </button>
+    <a tal:attributes="href string:${context/absolute_url}/" href="#"><button><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Return to Project </tal:omit-tag></button></a>
 
   </metal:block>
 

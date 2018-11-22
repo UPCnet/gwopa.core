@@ -73,5 +73,19 @@ class planningView(BrowserView):
                     url=item.getPath()))
             return results
 
+    def getLogFrame(self):
+        logframes = api.content.find(
+            portal_type='LogFrame',
+            context=self.context)
 
-
+        if not logframes:
+            return False
+        else:
+            results = []
+            for item in logframes:
+                results.append(dict(
+                    title=item.Title,
+                    description=item.Description,
+                    portal_type=item.portal_type,
+                    url=item.getPath()))
+            return results

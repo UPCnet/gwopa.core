@@ -9,14 +9,10 @@
 
 <metal:title fill-slot="content-title">
   <h1 class="documentFirstHeading">
-
-
     <a tal:attributes="href string:${context/absolute_url}/" href="#">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag tal:content="context/Title"></tal:omit-tag></a>
-
   </h1>
 </metal:title>
-
 
 <metal:content-core fill-slot="content-core">
 

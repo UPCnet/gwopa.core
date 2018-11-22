@@ -9,4 +9,5 @@
   <object meta_type="Dexterity FTI" name="TargetValue" />
   <object meta_type="Dexterity FTI" name="Activity" />
   <object meta_type="Dexterity FTI" name="Region" />
+  <object meta_type="Dexterity FTI" name="LogFrame" />
 </object>

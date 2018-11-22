@@ -1,4 +1,6 @@
 share/
+downloads/
+.Python
 .coverage
 *.egg-info
 *.log

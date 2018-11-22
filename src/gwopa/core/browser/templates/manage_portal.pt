@@ -6,24 +6,21 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="homeupc">
 
-
-
 <body>
   <metal:block fill-slot="top_slot"
         tal:define="dummy python:request.set('disable_border',1)" />
-
 
   <div metal:fill-slot="main" tal:define="portal_state context/@@plone_portal_state;
                                           portal_url portal_state/portal_url;">
     <metal:main-macro define-macro="main">
       <script src="https://kryogenix.org/code/browser/sorttable/sorttable.js"></script>
       <div>
-        <h1 class="documentFirstHeading">GWOPA administration page</h1>
-        <p class="documentDescription">Control panel to configure and view all the important system parameters</p>
+        <h1 class="documentFirstHeading" i18n:translate="">GWOPA administration page</h1>
+        <p class="documentDescription" i18n:translate="">Control panel to configure and view all the important system parameters</p>
         <div class="visualClear"></div>
       </div>
 
-      <h2> Projects
+      <h2 i18n:translate=""> Projects
         <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
           <button id="add-new-user" class="context focus"> + Add New Project</button>
         </a>
@@ -31,11 +28,11 @@
       <table class="sortable" tal:define="elements view/getProjects">
         <thead>
           <tr>
-            <th scope="col"> Project Name </th>
-            <th scope="col"> Start Date </th>
-            <th scope="col"> End Date </th>
-            <th scope="col"> Admin role </th>
-            <th scope="col"> Country </th>
+            <th scope="col" i18n:translate=""> Project Name </th>
+            <th scope="col" i18n:translate=""> Start Date </th>
+            <th scope="col" i18n:translate=""> End Date </th>
+            <th scope="col" i18n:translate=""> Admin role </th>
+            <th scope="col" i18n:translate=""> Country </th>
           </tr>
         </thead>
         <tbody>
@@ -47,10 +44,10 @@
               <span  tal:content="project/title">Title</span>
             </td>
 
-            <td tal:content="project/start"> Start </td>
-            <td tal:content="project/end"> End </td>
-            <td tal:content="project/manager"> Admin </td>
-            <td tal:content="project/country"> Country </td>
+            <td i18n:translate="" tal:content="project/start"> Start </td>
+            <td i18n:translate="" tal:content="project/end"> End </td>
+            <td i18n:translate="" tal:content="project/manager"> Admin </td>
+            <td i18n:translate="" tal:content="project/country"> Country </td>
           </tr>
         </tbody>
       </table>
@@ -58,9 +55,9 @@
       <table class="sortable" tal:define="elements view/getAreas">
         <thead>
           <tr>
-            <th scope="col"> Area Title </th>
-            <th scope="col"> Container </th>
-            <th scope="col"> Actions </th>
+            <th i18n:translate="" scope="col"> Area Title </th>
+            <th i18n:translate="" scope="col"> Container </th>
+            <th i18n:translate="" scope="col"> Actions </th>
           </tr>
         </thead>
         <tbody>
@@ -69,10 +66,10 @@
               <a href="" tal:attributes="href string:${area/url}"><i class="fa fa-eye" aria-hidden="true" style="color:blu"></i></a>
               <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
               <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
-              <span  tal:content="area/title">Title</span>
+              <span tal:content="area/title">Title</span>
             </td>
             <td tal:content="area/parent"> End </td>
-            <td> Edit / Delete </td>
+            <td i18n:translate=""> Edit / Delete </td>
           </tr>
         </tbody>
       </table>

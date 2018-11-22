@@ -10,16 +10,14 @@
 <metal:content-core fill-slot="main">
 
   <metal:block define-macro="content-core">
-    <h1 class="documentFirstHeading">Collaborating module</h1>
-    <div class="documentDescription description"> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return".</div>
-     <button type="button">
-      <i class="fa fa-arrow-left" aria-hidden="true"></i>
-      <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to Project </a>
-    </button>
+    <h1 class="documentFirstHeading" i18n:translate="">Collaborating module</h1>
+    <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return".</div>
+
+    <a tal:attributes="href string:${context/absolute_url}/" href="#"><button><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Return to Project </tal:omit-tag></button></a>
+
     <hr/>
     <div class="has-table">
-    <h2 i18n:translate=""> Improvement areas</h2>
-
+      <h2 i18n:translate=""> Improvement areas</h2>
       <table class="listing" summary="Content listing">
         <tbody>
           <tal:MyProjects define="items view/getAreas;" condition="items">
@@ -37,22 +35,17 @@
                          tal:attributes="src string:${item/url}/@@images/image/preview;"/>
                     <img class="img200" tal:condition="not:item/image"
                          tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;"/>
-   
                   </div>
                 </a>
                 </div>
             </tal:repeatProjects>
           </div>
           <hr/>
-                <button type="button">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-        <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to Project </a>
-      </button>
+          <a tal:attributes="href string:${context/absolute_url}/" href="#"><button><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Return to Project </tal:omit-tag></button></a>
           </tal:MyProjects>
         </tbody>
       </table>
     </div>
-
 
   </metal:block>
 
