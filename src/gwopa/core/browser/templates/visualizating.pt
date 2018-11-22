@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="gwopa">
+<body>
+
+<metal:content-core fill-slot="main">
+
+  <metal:block define-macro="content-core">
+     
+    <h1 class="documentFirstHeading">Visualizating Module</h1>
+    <div class="documentDescription description"> Describing visualizating module.</div>
+    <br/>
+    <button type="button">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to Project </a>
+    </button>
+
+  </metal:block>
+
+</metal:content-core>
+
+</body>
+</html>

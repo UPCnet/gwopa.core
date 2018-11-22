@@ -9,6 +9,12 @@
 
 <metal:content-core fill-slot="content-core">
 
+    <a tal:attributes="href string:${context/absolute_url}/planning" href="#"> Planning </a> /
+    <a tal:attributes="href string:${context/absolute_url}/monitoring" href="#"> Monitoring </a> /
+    <a tal:attributes="href string:${context/absolute_url}/collaborating" href="#"> Collaborating </a> /
+    <a tal:attributes="href string:${context/absolute_url}/reporting" href="#"> Reporting </a> /
+    <a tal:attributes="href string:${context/absolute_url}/visualizating" href="#"> Visualizating </a>
+
     <div class="pull-right" tal:condition="context/image">
       <img tal:attributes="src string:${context/absolute_url}/@@images/image" />
     </div>
@@ -20,9 +26,6 @@
                     contribution context/contribution;
                     wop_program context/wop_program">
 
-
-        <i class="fa fa-info-circle" aria-hidden="true"></i>
-        <a tal:attributes="href string:${context/absolute_url}/indicators" href="#"> Indicators </a>
       <div tal:condition="partners">
         <h3 i18n:translate="">Partners</h3>
         <ul tal:repeat="partner partners">
@@ -86,28 +89,7 @@
         </div>
         <span tal:condition="latitude"> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
         <span tal:condition="longitude"> Longitude: <tal:omit-tag tal:content="longitude"></tal:omit-tag></span>
-        <div class="clearfix"></div>
-        <tal:block-areas tal:define="areas view/getImprovementAreas" tal:condition="areas">
-          <h1 class="documentFirstHeading paddingtop"> Areas</h1>
-          <tal:repeatProjects repeat="item areas">
-            <div class="col-lg-3 col-md-6">
-              <a tal:attributes="href item/url;
-                                 title item/title;
-                                 alt item/title">
-              <div class="box">
-                <img class="img200"
-                     tal:attributes="src string:${item/image};"/>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                  </h4>
-                </div>
-              </div>
-            </a>
-            </div>
-        </tal:repeatProjects>
-      </tal:block-areas>
-        <!-- <tal:debug><?python import ipdb; ipdb.set_trace()?></tal:debug> -->
+
     </tal:block>
   </metal:block>
 

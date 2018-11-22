@@ -17,7 +17,7 @@ class IIndicator(model.Schema):
     """  Indicator """
 
     title = schema.TextLine(
-        title=_(u"Indicator"),
+        title=_(u"Title"),
         required=True,
     )
 

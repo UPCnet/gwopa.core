@@ -39,7 +39,7 @@ class IProject(model.Schema):
     """  Project type
     """
     title = schema.TextLine(
-        title=_(u"Project name"),
+        title=_(u"Title"),
         description=_(u"Add the project title"),
         required=True,
     )
@@ -63,7 +63,8 @@ class IProject(model.Schema):
     # )
 
     image = namedfile.NamedBlobImage(
-        title=_(u'Project Image'),
+        title=_(u'Image'),
+        description=_(u'Image describing the project'),
         required=False,
     )
 

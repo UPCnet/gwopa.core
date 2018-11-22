@@ -7,36 +7,31 @@
     i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="content-core">
+<metal:content-core fill-slot="main">
 
   <metal:block define-macro="content-core">
-
-<!--
-  Items structure:
-
-  GOAL
-      OUTCOME
-          INDICATOR (KPI)
-      OUTPUT
-          INDICATOR
-      INDICATOR
--->
-
-      <hr/>
-      <button type="button">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-        <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to Project </a>
+    <h1 class="documentFirstHeading">Planning Module</h1>
+    <div class="documentDescription description"> There are no Annual Work Plan in this project.</div>
+    <br/>
+    <button type="button">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      <a tal:attributes="href string:${context/absolute_url}/indicators/++add++AnnualWorkPlan" href="#" style="color:inherit"> Create Annual Work Plan </a>
+    </button>
+    <hr/>
+    <button type="button">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      <a tal:attributes="href string:${context/absolute_url}/" href="#" style="color:inherit"> Return to Project </a>
+    </button>
+    <!--   <button type="button" class="btn btn-primary">
+        <a href="indicators/++add++Activity" >+ New Activity</a>
       </button>
       <button type="button" class="btn btn-primary">
-        <a href="++add++Activity" >+ New Activity</a>
-      </button>
-      <button type="button" class="btn btn-primary">
-        <a href="++add++Goal" >+ New Goal</a>
-      </button>
+        <a href="indicators/++add++Goal" >+ New Goal</a>
+      </button> -->
 
+    <tal:block-activities tal:define="activities view/listActivities" tal:condition="activities">
       <h3 i18n:translate="">Activities</h3>
-
-      <tal:objects repeat="item view/listActivities">
+      <tal:objects repeat="item activities">
         <ul class="activity_item">
           <li>
               <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
@@ -46,10 +41,11 @@
           </li>
         </ul>
       </tal:objects>
+    </tal:block-activities>
 
+    <tal:block-activities tal:define="goals view/goalsList" tal:condition="goals">
       <h3 i18n:translate="">Indicators</h3>
-
-      <tal:objects repeat="item view/goalsList">
+      <tal:objects repeat="item goals">
         <ul class="goal_item">
           <li>
             <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
@@ -79,6 +75,7 @@
           </tal:block-subitems>
         </ul>
       </tal:objects>
+    </tal:block-activities>
 
   </metal:block>
 

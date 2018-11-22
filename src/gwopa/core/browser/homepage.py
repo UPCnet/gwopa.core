@@ -27,19 +27,19 @@ class MainTemplate(BrowserView):
             context=self.context)
         results = []
         for project in projects:
-                item = project.getObject()
-                if item.image:
-                    image = True
-                else:
-                    image = False
-                results.append(dict(title=self.abreviaText(item.title),
-                                    url=item.absolute_url_path(),
-                                    start=item.start,
-                                    end=item.end,
-                                    country=item.country,
-                                    project_manager=item.project_manager,
-                                    image=image
-                                    ))
+            item = project.getObject()
+            if item.image:
+                image = True
+            else:
+                image = False
+            results.append(dict(title=self.abreviaText(item.title),
+                                url=item.absolute_url_path(),
+                                start=item.start,
+                                end=item.end,
+                                country=item.country,
+                                project_manager=item.project_manager,
+                                image=image
+                                ))
         return results[:4]
 
     def companyProjects(self):

@@ -23,7 +23,7 @@ class IGoalindicator(model.Schema):
     """  Goal indicator
     """
     title = schema.TextLine(
-        title=_(u"Goal"),
+        title=_(u"Title"),
         required=True,
     )
 

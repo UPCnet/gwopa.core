@@ -12,8 +12,6 @@ import random
 from Products.statusmessages.interfaces import IStatusMessage
 from gwopa.core import _
 from requests.exceptions import ConnectionError
-from Products.statusmessages.interfaces import IStatusMessage
-from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 requests.packages.urllib3.disable_warnings()
 
 grok.templatedir("templates")
@@ -35,7 +33,6 @@ class setup(grok.View):
                 logger.info('%s' % self.context.id)
                 self.apply_default_language_settings()
                 self.createConfigFolders()
-
                 # self.request.response.redirect(self.context.absolute_url())
             if 'createdemocontent' in query:
                 logger = logging.getLogger('# Creating DEMO CONTENT on Site ->')
@@ -77,7 +74,7 @@ class setup(grok.View):
                 type='Folder',
                 id='config',
                 title='Config folder',
-                Description='This folder will hold configuration folders used by the Site and managed by the administrators',
+                Description='This folder contains configuration folders used in the Site and managed by the administrators',
                 container=portal,
                 safe_id=False)
             api.content.create(
@@ -98,7 +95,7 @@ class setup(grok.View):
                 type='Folder',
                 id='platforms',
                 title='WOP Platforms',
-                description='WOP Platform',
+                description='WOP Platforms',
                 container=config_folder,
                 safe_id=False)
             config_folder = api.content.create(
@@ -112,7 +109,7 @@ class setup(grok.View):
                 type='Folder',
                 id='projects',
                 title='Projects',
-                Description='Projects of the Site',
+                Description='Projects of the Platform',
                 container=portal,
                 safe_id=False)
             message = _(u"The default config has been applied.")

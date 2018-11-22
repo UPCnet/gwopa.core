@@ -19,20 +19,47 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- INDICATORS TEMPLATE-->
+  <!-- Planning Module view  -->
   <browser:page
       for="gwopa.core.content.project.IProject"
-      name="indicators"
-      class=".views.listIndicators"
+      name="planning"
+      class=".planning.planningView"
       permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- DASH TEST TEMPLATE-->
+  <!-- Monitoring Module view  -->
   <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      name="dash"
-      class=".views.listIndicators"
+      for="gwopa.core.content.project.IProject"
+      name="monitoring"
+      class=".monitoring.monitoringView"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <!-- Collaborating Module view  -->
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="collaborating"
+      class=".collaborating.collaboratingView"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <!-- Reporting Module view  -->
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="reporting"
+      class=".reporting.reportingView"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <!-- Visualizating Module view  -->
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="visualizating"
+      class=".visualizating.visualizatingView"
       permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />

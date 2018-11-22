@@ -14,13 +14,19 @@ class IImprovementArea(model.Schema):
     """  Improvement Area type
     """
     title = schema.TextLine(
-        title=_(u"Improvement Area"),
+        title=_(u"Title"),
         description=_(u"An improvement area used on the Site"),
         required=True,
     )
 
+    description = schema.Text(
+        title=_(u'Summary'),
+        required=False,
+        missing_value=u'',
+    )
+
     image = namedfile.NamedBlobImage(
-        title=_(u'Image Area'),
+        title=_(u'Image'),
         description=_(u"Image used to describe the Area. If no file chosen, a defult one will be used."),
         required=False,
     )

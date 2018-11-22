@@ -17,7 +17,7 @@ class IOutcomeindicator(model.Schema):
     """  Outcome indicator
     """
     title = schema.TextLine(
-        title=_(u"Outcome"),
+        title=_(u"Title"),
         required=True,
     )
 

@@ -16,7 +16,7 @@ def todayValue():
 class IOutputindicator(model.Schema):
     """  Output indicator """
     title = schema.TextLine(
-        title=_(u"Output"),
+        title=_(u"Title"),
         required=True,
     )
 

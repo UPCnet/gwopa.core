@@ -16,7 +16,7 @@ class IActivity(model.Schema):
     """  Activity """
 
     title = schema.TextLine(
-        title=_(u"Activity"),
+        title=_(u"Title"),
         required=True,
     )
 

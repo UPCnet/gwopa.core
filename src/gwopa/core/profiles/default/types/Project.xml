@@ -15,6 +15,7 @@
         <element value="Goal"/>
         <element value="Activity"/>
         <element value="ImprovementArea"/>
+        <element value="Folder"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>
