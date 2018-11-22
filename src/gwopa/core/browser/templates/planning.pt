@@ -7,7 +7,9 @@
     i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="main" tal:define="logframe view/getLogFrame">
+<metal:content-core fill-slot="main"
+  tal:define="logframe view/getLogFrame;
+              workplan view/getWorkPlan">
 
   <metal:block define-macro="content-core">
     <h1 class="documentFirstHeading" i18n:translate="">Planning Module</h1>
@@ -18,18 +20,14 @@
          <button class="context focus"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Add Log Frame</tal:omit-tag></button></a>
     </span>
 
-    <a tal:attributes="href string:${context/absolute_url}/indicators/++add++AnnualWorkPlan" href="#"><button><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Create Annual Work Plan </tal:omit-tag></button></a>
+    <span tal:condition="not:workplan"> 
+      <a tal:attributes="href string:${context/absolute_url}/indicators/++add++WorkPlan" href="#"><button><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Create Annual Work Plan </tal:omit-tag></button></a>
+    </span>
 
-    <hr/>
     <a tal:attributes="href string:${context/absolute_url}/" href="#"><button><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Return to Project </tal:omit-tag></button></a>
-    <!--   <button type="button" class="btn btn-primary">
-        <a href="indicators/++add++Activity" >+ New Activity</a>
-      </button>
-      <button type="button" class="btn btn-primary">
-        <a href="indicators/++add++Goal" >+ New Goal</a>
-      </button> -->
 
-    <tal:block-activities tal:condition="logframe">
+
+    <tal:block-logframes tal:condition="logframe">
       <h3 i18n:translate="">Log Frames</h3>
       <tal:objects repeat="item logframe">
         <ul class="activity_item">
@@ -41,11 +39,11 @@
           </li>
         </ul>
       </tal:objects>
-    </tal:block-activities>
+    </tal:block-logframes>
 
-    <tal:block-activities tal:define="activities view/listActivities" tal:condition="activities">
-      <h3 i18n:translate="">Activities</h3>
-      <tal:objects repeat="item activities">
+    <tal:block-workplan tal:condition="workplan">
+      <h3 i18n:translate="">WorkPlans</h3>
+      <tal:objects repeat="item workplan">
         <ul class="activity_item">
           <li>
               <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
@@ -55,41 +53,7 @@
           </li>
         </ul>
       </tal:objects>
-    </tal:block-activities>
-
-    <tal:block-activities tal:define="goals view/goalsList" tal:condition="goals">
-      <h3 i18n:translate="">Indicators</h3>
-      <tal:objects repeat="item goals">
-        <ul class="goal_item">
-          <li>
-            <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
-            tal:content="item/portal_type"> GOAL </span>
-              <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-            <p tal:condition="item/description">
-              <span tal:content="item/description"> Item Description </span>
-            </p>
-          </li>
-          <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
-            <ul tal:repeat="item files" class="block_sub_indicators">
-              <li class="indicator_item">
-                <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
-                      tal:content="item/portal_type"> INDICATOR </span>
-                <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-              </li>
-              <tal:block-subsubitems tal:define="files python:view.indicatorsInsideInside(item);">
-                <ul tal:repeat="item files" class="block_sub_indicators">
-                  <li class="indicator_item">
-                    <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
-                          tal:content="item/portal_type"> INDICATOR </span>
-                    <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-                  </li>
-                </ul>
-              </tal:block-subsubitems>
-            </ul>
-          </tal:block-subitems>
-        </ul>
-      </tal:objects>
-    </tal:block-activities>
+    </tal:block-workplan>
 
   </metal:block>
 

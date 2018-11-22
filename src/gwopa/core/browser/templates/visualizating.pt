@@ -12,10 +12,9 @@
   <metal:block define-macro="content-core">
      
     <h1 class="documentFirstHeading" i18n:translate="">Visualizating Module</h1>
-    <div class="documentDescription description i18n:translate="""> Describing visualizating module.</div>
+    <div class="documentDescription description" i18n:translate=""> Describing visualizating module.</div>
     <br/>
     <a tal:attributes="href string:${context/absolute_url}/" href="#"><button><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Return to Project </tal:omit-tag></button></a>
-
   </metal:block>
 
 </metal:content-core>

@@ -13,7 +13,9 @@ class collaboratingView(BrowserView):
         return self.context.Title()
 
     def getAreas(self):
-        items = api.content.find(portal_type='ImprovementArea')
+        items = api.content.find(
+            portal_type='ImprovementArea',
+            context=self.context)
         results = []
         for project in items:
             item = project.getObject()

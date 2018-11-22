@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="gwopa">
+<body>
+
+<metal:content-core fill-slot="content-core">
+
+    <a tal:attributes="href string:${view/projectUrl}/" href="#"><button><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Return to Project </tal:omit-tag></button></a>
+
+      <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#">
+        <button class="context focus"> + New Activity</button>
+      </a>
+      <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Goal" href="#">
+        <button class="context focus"> + New Goal</button>
+      </a>
+
+    <tal:block-activities tal:define="activities view/listActivities" tal:condition="activities">
+      <h3 i18n:translate="">Activities</h3>
+      <tal:objects repeat="item activities">
+        <ul class="activity_item">
+          <li>
+              <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+            <p tal:condition="item/description">
+              <span tal:content="item/description"> Item Description </span>
+            </p>
+          </li>
+        </ul>
+      </tal:objects>
+    </tal:block-activities>
+
+    <tal:block-activities tal:define="goals view/goalsList" tal:condition="goals">
+      <h3 i18n:translate="">Indicators</h3>
+      <tal:objects repeat="item goals">
+        <ul class="goal_item">
+          <li>
+            <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+            tal:content="item/portal_type"> GOAL </span>
+              <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+            <p tal:condition="item/description">
+              <span tal:content="item/description"> Item Description </span>
+            </p>
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Indicator" href="#">
+              <button class="plone-btn plone-btn-sm plone-btn-success"> + New Indicator </button></a>
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#">
+              <button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Outcome" href="#">
+              <button class="plone-btn plone-btn-sm plone-btn-success"> + New outcome </button></a>
+          </li>
+          <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
+            <ul tal:repeat="item files" class="block_sub_indicators">
+              <li class="indicator_item">
+                <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+                      tal:content="item/portal_type"> INDICATOR </span>
+                <a class="pat-plone-modal"  tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+                <a tal:condition="python:item['portal_type'] != 'Indicator'" class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++TargetValue" href="#">
+                  <button class="plone-btn plone-btn-sm"> + Target Value </button></a>
+              </li>
+              <tal:block-subsubitems tal:define="files python:view.indicatorsInsideInside(item);">
+                <ul tal:repeat="item files" class="block_sub_indicators">
+                  <li class="indicator_item">
+                    <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+                          tal:content="item/portal_type"> INDICATOR </span>
+                    <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+                  </li>
+                </ul>
+              </tal:block-subsubitems>
+            </ul>
+          </tal:block-subitems>
+        </ul>
+      </tal:objects>
+    </tal:block-activities>
+
+</metal:content-core>
+
+</body>
+</html>

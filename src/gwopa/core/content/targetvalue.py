@@ -15,12 +15,12 @@ def todayValue():
 class ITargetvalue(model.Schema):
     """  Target Value used inside Indicator to assign more then one
     """
-    targetvalue = schema.TextLine(
+    title = schema.TextLine(
         title=_(u"Target Value"),
         required=True,
     )
 
-    targetvalue_date = schema.Date(
+    date = schema.Date(
         title=_(u'Target Value Date'),
         required=True,
         defaultFactory=todayValue
