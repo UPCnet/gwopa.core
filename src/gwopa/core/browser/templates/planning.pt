@@ -34,7 +34,7 @@
     </span>
 
     <tal:block-logframes tal:condition="logframe">
-      <h3 i18n:translate="">LogFrames
+      <h3><tal:omit-tag i18n:translate="">LogFrames</tal:omit-tag>
       <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++LogFrame" href="#">
          <button class="context focus"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Add Log Frame</tal:omit-tag></button></a>
       </h3>

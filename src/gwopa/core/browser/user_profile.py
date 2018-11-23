@@ -4,6 +4,7 @@ from plone import api
 from gwopa.core.utils import get_safe_member_by_id
 from zope.publisher.interfaces import IPublishTraverse, NotFound
 from zope.interface import implements
+from gwopa.core import _
 
 
 class userProfile(BrowserView):
@@ -35,19 +36,23 @@ class userProfile(BrowserView):
 
     def user_properties(self):
         member_data = api.user.get(username=self.username)
-        profile__properties = ['fullname', 'email', 'description', 'twitter_username', 'phone', 'region']
-        # return {'fullname': member_data.getProperty('fullname'),
-        #         'email': member_data.getProperty('email'),
-        #         'description': member_data.getProperty('description'),
-        #         'twitter_username': member_data.getProperty('twitter_username'),
-        #         'phone': member_data.getProperty('phone'),
-        #         'region': member_data.getProperty('region'),
-        #         }
+        profile__properties = [
+            _(u'fullname'),
+            _(u'email'),
+            _(u'twitter_username'),
+            _(u'phone'),
+            _(u'region'),
+            _(u'country'),
+            _(u'wop_program'),
+            _(u'wop_platform'),
+            _(u'partners'),
+            _(u'arees_exp')
+        ]
+
         rendered_properties = []
         for prop in profile__properties:
             rendered_properties.append(dict(
-                name=(prop),
+                name=_(prop),
                 value=member_data.getProperty(prop, '')
             ))
         return rendered_properties
-

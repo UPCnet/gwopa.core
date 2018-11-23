@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../browser/templates/planning.pt:47
+#: ../content/templates/workplan_view.pt:34
 msgid "Activities"
 msgstr ""
 
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: ../browser/templates/planning.pt:18
+#: ../browser/templates/planning.pt:29
 msgid "Add Log Frame"
 msgstr ""
 
@@ -36,6 +36,14 @@ msgstr ""
 
 #: ../content/improvement_area.py:18
 msgid "An improvement area used on the Site"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:46
+msgid "Annual Work Plan"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:24
+msgid "Annual Work Plan for this project"
 msgstr ""
 
 #: ../content/project.py:188
@@ -75,7 +83,7 @@ msgid "Baseline value"
 msgstr ""
 
 #: ../content/project.py:157
-#: ../content/templates/project_view.pt:42
+#: ../content/templates/project_view.pt:48
 msgid "Budget"
 msgstr ""
 
@@ -87,12 +95,12 @@ msgstr ""
 msgid "Choose countries from list that represents this country."
 msgstr ""
 
-#: ../browser/templates/collaborating.pt:13
+#: ../browser/templates/collaborating.pt:23
 msgid "Collaborating module"
 msgstr ""
 
 #: ../content/project.py:168
-#: ../content/templates/project_view.pt:47
+#: ../content/templates/project_view.pt:53
 msgid "Contribution by partners and donors"
 msgstr ""
 
@@ -102,7 +110,7 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: ../browser/templates/planning.pt:21
+#: ../browser/templates/planning.pt:33
 msgid "Create Annual Work Plan"
 msgstr ""
 
@@ -130,12 +138,16 @@ msgstr ""
 msgid "Demo content has been created."
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:15
+#: ../browser/templates/monitoring.pt:25
 msgid "Describing monitoring module."
 msgstr ""
 
-#: ../browser/templates/reporting.pt:15
+#: ../browser/templates/reporting.pt:25
 msgid "Describing reporting module."
+msgstr ""
+
+#: ../browser/templates/visualizating.pt:25
+msgid "Describing visualizating module."
 msgstr ""
 
 #: ../content/project.py:79
@@ -154,10 +166,6 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-#: ../browser/templates/files.pt:21
-msgid "File list"
-msgstr ""
-
 #: ../configure.zcml:40
 msgid "GWOPA Core package (gwopa.core)"
 msgstr ""
@@ -170,12 +178,13 @@ msgstr ""
 msgid "Goal"
 msgstr ""
 
-#: ../browser/templates/collaborating.pt:14
+#: ../browser/templates/collaborating.pt:24
+#: ../browser/templates/files.pt:15
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return\"."
 msgstr ""
 
-#: ../browser/templates/planning.pt:14
-msgid "Here are the Annual Work Plans of this project."
+#: ../browser/templates/planning.pt:25
+msgid "Here are the Annual Work Plans and the Log Frames of the project."
 msgstr ""
 
 #: ../content/improvement_area.py:29
@@ -196,7 +205,7 @@ msgstr ""
 msgid "Improvement Area"
 msgstr ""
 
-#: ../browser/templates/collaborating.pt:20
+#: ../browser/templates/collaborating.pt:28
 msgid "Improvement areas"
 msgstr ""
 
@@ -208,8 +217,8 @@ msgstr ""
 msgid "Indicator"
 msgstr ""
 
-#: ../browser/templates/planning.pt:61
-msgid "Indicators"
+#: ../content/activity.py:30
+msgid "Initial situation description"
 msgstr ""
 
 #: ../configure.zcml:40
@@ -228,12 +237,16 @@ msgstr ""
 msgid "Latitude"
 msgstr ""
 
+#: ../browser/templates/files.pt:14
+msgid "List of site files"
+msgstr ""
+
 #: ../profiles/default/types/LogFrame.xml
 msgid "Log Frame"
 msgstr ""
 
-#: ../browser/templates/planning.pt:33
-msgid "Log Frames"
+#: ../browser/templates/planning.pt:37
+msgid "LogFrames"
 msgstr ""
 
 #: ../content/project.py:108
@@ -266,7 +279,7 @@ msgstr ""
 msgid "Measuring unit"
 msgstr ""
 
-#: ../content/activity.py:36
+#: ../content/activity.py:42
 #: ../content/project.py:148
 msgid "Members"
 msgstr ""
@@ -275,16 +288,20 @@ msgstr ""
 msgid "Members in to this region"
 msgstr ""
 
-#: ../content/activity.py:37
+#: ../content/activity.py:43
 msgid "Members of this activity"
 msgstr ""
 
-#: ../content/activity.py:30
+#: ../content/activity.py:36
 msgid "Milestones"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:14
+#: ../browser/templates/monitoring.pt:24
 msgid "Monitoring Module"
+msgstr ""
+
+#: ../content/activity.py:19
+msgid "Name"
 msgstr ""
 
 #: ../content/project.py:193
@@ -309,7 +326,7 @@ msgid "Partner/partners associated to this project"
 msgstr ""
 
 #: ../content/project.py:115
-#: ../content/templates/project_view.pt:30
+#: ../content/templates/project_view.pt:36
 #: ../userdataschema.py:83
 msgid "Partners"
 msgstr ""
@@ -322,7 +339,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: ../browser/templates/planning.pt:13
+#: ../browser/templates/planning.pt:24
 msgid "Planning Module"
 msgstr ""
 
@@ -336,7 +353,7 @@ msgid "Project"
 msgstr ""
 
 #: ../content/project.py:132
-#: ../content/templates/project_view.pt:37
+#: ../content/templates/project_view.pt:43
 msgid "Project Manager"
 msgstr ""
 
@@ -354,14 +371,8 @@ msgstr ""
 msgid "Regions list"
 msgstr ""
 
-#: ../browser/templates/reporting.pt:14
+#: ../browser/templates/reporting.pt:24
 msgid "Reporting Module"
-msgstr ""
-
-#: ../browser/templates/collaborating.pt:16
-#: ../browser/templates/monitoring.pt:17
-#: ../browser/templates/planning.pt:24
-msgid "Return to Project"
 msgstr ""
 
 #: ../content/project.py:183
@@ -404,9 +415,9 @@ msgstr ""
 msgid "The responsible of this project"
 msgstr ""
 
-#: ../content/activity.py:19
 #: ../content/goalindicator.py:26
 #: ../content/improvement_area.py:17
+#: ../content/indicator.py:20
 msgid "Title"
 msgstr ""
 
@@ -434,7 +445,7 @@ msgstr ""
 msgid "Used in the projects item. One per line."
 msgstr ""
 
-#: ../browser/templates/visualizating.pt:14
+#: ../browser/templates/visualizating.pt:24
 msgid "Visualizating Module"
 msgstr ""
 
@@ -444,13 +455,25 @@ msgid "WOP Platform"
 msgstr ""
 
 #: ../content/project.py:174
-#: ../content/templates/project_view.pt:52
+#: ../content/templates/project_view.pt:58
 #: ../userdataschema.py:66
 msgid "WOP Program"
 msgstr ""
 
 #: ../controlpanel.py:11
 msgid "WOP Program list"
+msgstr ""
+
+#: ../profiles/default/types/WorkPlan.xml
+msgid "Work Plan"
+msgstr ""
+
+#: ../browser/templates/planning.pt:52
+msgid "Work Plans"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:23
+msgid "WorkPlan"
 msgstr ""
 
 #: ../userdataschema.py:34
@@ -461,6 +484,11 @@ msgstr ""
 msgid "Your telephone number."
 msgstr ""
 
+#: ../browser/user_profile.py:49
+msgid "arees_exp"
+msgstr ""
+
+#: ../browser/user_profile.py:45
 #: ../indexers.py:26
 msgid "country"
 msgstr ""
@@ -469,10 +497,12 @@ msgstr ""
 msgid "description"
 msgstr ""
 
+#: ../browser/user_profile.py:41
 #: ../indexers.py:23
 msgid "email"
 msgstr ""
 
+#: ../browser/user_profile.py:40
 #: ../indexers.py:22
 msgid "fullname"
 msgstr ""
@@ -491,18 +521,33 @@ msgstr ""
 msgid "label_birthdate"
 msgstr ""
 
+#: ../browser/user_profile.py:48
+msgid "partners"
+msgstr ""
+
+#: ../browser/user_profile.py:43
 #: ../indexers.py:27
 msgid "phone"
 msgstr ""
 
+#: ../browser/user_profile.py:44
 #: ../indexers.py:25
 msgid "region"
 msgstr ""
 
+#: ../browser/user_profile.py:42
 #: ../indexers.py:28
 msgid "twitter_username"
 msgstr ""
 
 #: ../indexers.py:21
 msgid "username"
+msgstr ""
+
+#: ../browser/user_profile.py:47
+msgid "wop_platform"
+msgstr ""
+
+#: ../browser/user_profile.py:46
+msgid "wop_program"
 msgstr ""
