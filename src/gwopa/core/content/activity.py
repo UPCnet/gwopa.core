@@ -16,12 +16,18 @@ class IActivity(model.Schema):
     """  Activity """
 
     title = schema.TextLine(
-        title=_(u"Title"),
+        title=_(u"Name"),
         required=True,
     )
 
     description = schema.Text(
         title=_(u'Summary'),
+        required=False,
+        missing_value=u'',
+    )
+
+    initial_situation = schema.Text(
+        title=_(u'Initial situation description'),
         required=False,
         missing_value=u'',
     )

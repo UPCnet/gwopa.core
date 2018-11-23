@@ -7,31 +7,25 @@
     i18n:domain="gwopa">
 <body>
 
-<metal:title fill-slot="content-title">
-  <h1 class="documentFirstHeading">
-    <a tal:attributes="href string:${context/absolute_url}/" href="#">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag tal:content="context/Title"></tal:omit-tag></a>
-  </h1>
-</metal:title>
-
-<metal:content-core fill-slot="content-core">
+<metal:content-core fill-slot="main">
 
   <metal:block define-macro="content-core">
 
-      <h2 i18n:translate=""> File list</h2>
+    <h1 class="documentFirstHeading" i18n:translate="">List of site files</h1>
+    <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return".</div>
 
-      <tal:objects repeat="item view/allfiles">
-        <ul class="goal_item">
-          <li>
-            <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
-            tal:content="item/portal_type"> Portal_type </span>
-              <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-            <p tal:condition="item/description">
-              <span tal:content="item/description"> Item Description </span>
-            </p>
-          </li>
-      </ul>
-      </tal:objects>
+    <tal:objects repeat="item view/allfiles">
+      <ul class="goal_item">
+        <li>
+          <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+          tal:content="item/portal_type"> Portal_type </span>
+            <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+          <p tal:condition="item/description">
+            <span tal:content="item/description"> Item Description </span>
+          </p>
+        </li>
+    </ul>
+    </tal:objects>
 
   <h3>TODO:</h3>
   <ul>

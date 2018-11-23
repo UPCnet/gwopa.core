@@ -8,16 +8,15 @@
 <body>
 
 <metal:content-core fill-slot="main">
-
-    <h4>
-      <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/planning" href="#"><i class="fa fa-tasks" aria-hidden="true"></i> Planning </a>
+  <h4>
+    <a class="plone-btn plone-btn-lg plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}" href="#"><i class="fa fa-building" aria-hidden="true"></i> Project </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/planning" href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Planning </a>
     <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/monitoring" href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> Monitoring </a>
     <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/collaborating" href="#"><i class="fa fa-users" aria-hidden="true"></i> Collaborating </a>
     <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/reporting" href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Reporting </a>
     <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/visualizating" href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i> Visualizating </a>
   </h4>
-<hr/>
-
 
   <h1 class="documentFirstHeading" i18n:translate="" tal:content="context/title">Reporting Module</h1>
   <div class="documentDescription description" i18n:translate="" tal:content="context/description"> Describing reporting module.</div>

@@ -7,9 +7,21 @@
       i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="content-core">
+<metal:content-core fill-slot="main">
 
-    <a tal:attributes="href string:${view/projectUrl}/" href="#"><button><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Return to Project </tal:omit-tag></button></a>
+  <h4>
+    <a class="plone-btn plone-btn-lg plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}" href="#"><i class="fa fa-building" aria-hidden="true"></i> Project </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/planning" href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Planning </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/monitoring" href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> Monitoring </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/collaborating" href="#"><i class="fa fa-users" aria-hidden="true"></i> Collaborating </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/reporting" href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Reporting </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/visualizating" href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i> Visualizating </a>
+  </h4>
+
+  <metal:block define-macro="content-core">
+    <h1 class="documentFirstHeading" i18n:translate="">WorkPlan</h1>
+    <div class="documentDescription description" i18n:translate=""> Annual Work Plan for this project</div>
 
       <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#">
         <button class="context focus"> + New Activity</button>
@@ -23,26 +35,21 @@
       <tal:objects repeat="item activities">
         <ul class="activity_item">
           <li>
-              <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-            <p tal:condition="item/description">
-              <span tal:content="item/description"> Item Description </span>
-            </p>
+            <a tal:attributes="href item/url; title item/description" data-toggle="tooltip" class="pat-tooltip">
+              <i class="fa fa-list"></i>&nbsp;<tal:block tal:content="item/title">Item Title </tal:block></a>
           </li>
         </ul>
       </tal:objects>
     </tal:block-activities>
 
     <tal:block-activities tal:define="goals view/goalsList" tal:condition="goals">
-      <h3 i18n:translate="">Indicators</h3>
+      <h3 i18n:translate=""> Annual Work Plan </h3>
       <tal:objects repeat="item goals">
         <ul class="goal_item">
           <li>
             <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
             tal:content="item/portal_type"> GOAL </span>
-              <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-            <p tal:condition="item/description">
-              <span tal:content="item/description"> Item Description </span>
-            </p>
+            <a tal:attributes="href item/url;title item/description" data-toggle="tooltip" class="pat-tooltip" tal:content="item/title"> Item Title </a>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Indicator" href="#">
               <button class="plone-btn plone-btn-sm plone-btn-success"> + New Indicator </button></a>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#">
@@ -55,8 +62,8 @@
               <li class="indicator_item">
                 <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
                       tal:content="item/portal_type"> INDICATOR </span>
-                <a class="pat-plone-modal"  tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-                <a tal:condition="python:item['portal_type'] != 'Indicator'" class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++TargetValue" href="#">
+                <a tal:attributes="href item/url;title item/description" data-toggle="tooltip" class="pat-tooltip" tal:content="item/title"> Item Title </a>
+                <a tal:condition="python:item['portal_type'] != 'Indicator'" tal:attributes="href string:${item/url}/++add++TargetValue" href="#">
                   <button class="plone-btn plone-btn-sm"> + Target Value </button></a>
               </li>
               <tal:block-subsubitems tal:define="files python:view.indicatorsInsideInside(item);">
@@ -64,7 +71,7 @@
                   <li class="indicator_item">
                     <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
                           tal:content="item/portal_type"> INDICATOR </span>
-                    <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+                    <a tal:attributes="href item/url;title item/description" data-toggle="tooltip" class="pat-tooltip" tal:content="item/title"> Item Title </a>
                   </li>
                 </ul>
               </tal:block-subsubitems>
@@ -74,7 +81,9 @@
       </tal:objects>
     </tal:block-activities>
 
+  </metal:block>
 </metal:content-core>
+
 
 </body>
 </html>

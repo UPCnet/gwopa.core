@@ -73,7 +73,7 @@
           </tr>
         </tbody>
       </table>
-      <h2> Users 
+      <h2> Users
         <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
           <button id="add-new-user" class="context focus"> + Add New User</button>
         </a>
