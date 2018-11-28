@@ -1,14 +1,15 @@
+<!--
+<a href="#modal" class="plone-btn plone-btn-lg plone-btn-primary pat-plone-modal"
+                 data-pat-plone-modal="width: 80%"> Modal Title </a>
 
-<!--    <a href="#modal" class="plone-btn plone-btn-lg plone-btn-primary pat-plone-modal"
-                     data-pat-plone-modal="width: 80%"> Modal Title </a>
-   <div id="modal" style="display: none">
-     <h1>Basic with scrolling</h1>
-     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-     bla bla bla
-     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-     <textarea class="pat-tinymce"></textarea>
-
-   </div> -->
+<div id="modal" style="display: none">
+    <h1>Basic with scrolling</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+    bla bla bla
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <textarea class="pat-tinymce"></textarea>
+</div>
+ -->
 <tal:block
     tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;">
@@ -21,5 +22,14 @@
     &nbsp;
     <a style="float:right" href="" tal:attributes="href string:${portal_url}/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out </a>
 
+  <h4>
+    <a class="plone-btn plone-btn-lg plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}" href="#"><i class="fa fa-building" aria-hidden="true"></i> Project </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/planning" href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Planning </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/monitoring" href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> Monitoring </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/collaborating" href="#"><i class="fa fa-users" aria-hidden="true"></i> Collaborating </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/reporting" href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Reporting </a>
+    <a class="plone-btn plone-btn-lg plone-btn-success" tal:attributes="href string:${context/absolute_url}/visualizating" href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i> Visualizating </a>
+  </h4>
 
 </tal:block>
