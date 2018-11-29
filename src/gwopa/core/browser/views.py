@@ -4,6 +4,8 @@ from Products.Five.browser import BrowserView
 from plone import api
 from Products.CMFCore.utils import getToolByName
 import json
+from Products.CMFPlone.utils import safe_unicode
+from geojson import Feature, Point, FeatureCollection
 
 
 class listFiles(BrowserView):
@@ -38,3 +40,17 @@ class select2(BrowserView):
                 id=item.id,
                 text=item.Title))
         return json.dumps({'results': results})
+
+
+class mapView(BrowserView):
+    """ Generate valid json to show POI in map """
+    __call__ = ViewPageTemplateFile('templates/global_map.pt')
+
+    def getPoints(self):
+        items = api.content.find(portal_type=['Project'])
+        results = []
+        for item in items:
+            obj = item.getObject()
+            poi = Feature(geometry=Point((obj.longitude, obj.latitude)), properties={'popup': obj.title})
+            results.append(poi)
+        return FeatureCollection(results)

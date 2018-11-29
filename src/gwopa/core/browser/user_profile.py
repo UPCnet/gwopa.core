@@ -41,7 +41,6 @@ class userProfile(BrowserView):
             _(u'email'),
             _(u'twitter_username'),
             _(u'phone'),
-            _(u'region'),
             _(u'country'),
             _(u'wop_program'),
             _(u'wop_platform'),

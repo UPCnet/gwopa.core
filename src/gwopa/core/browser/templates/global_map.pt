@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="gwopa">
+<body>
+
+<metal:content-core fill-slot="main">
+
+  <metal:block define-macro="content-core">
+
+    <h1 class="documentFirstHeading" i18n:translate=""> Current projects map </h1>
+    <div class="documentDescription description" i18n:translate=""> All the projects in one map.</div>
+
+  
+  <div class="geolocation_wrapper" >
+    <div class="pat-leaflet map" tal:attributes="data-geojson view/getPoints" data-pat-leaflet='{
+      "fullscreencontrol": true,
+      "locatecontrol": false,
+      "zoomcontrol": true,
+      "minimap": true,
+      "geosearch": false,
+      "addmarker": false,
+      "map_layers": [
+            {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+      ]
+    }'></div>
+  </div>
+
+  </metal:block>
+
+</metal:content-core>
+
+</body>
+</html>

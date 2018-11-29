@@ -89,4 +89,13 @@
       permission="zope2.View"
     />
 
+  <!-- Map Module view  -->
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="showMap"
+      class=".views.mapView"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
 </configure>

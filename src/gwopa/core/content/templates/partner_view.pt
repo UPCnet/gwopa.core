@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="gwopa">
+<body>
+
+<metal:content-core fill-slot="content-core"
+    tal:define="portal_state context/@@plone_portal_state;
+                portal_url portal_state/portal_url;">
+
+    <div class="leadImage"
+         tal:define="scale_func context/@@images;
+                     scaled_image python: getattr(context.aq_explicit, 'image', False) and scale_func.scale('image', scale='mini')">
+        <figure class="newsImageContainer" tal:condition="scaled_image">
+            <a class="pat-plone-modal" data-pat-plone-modal="image: true" href="#"
+                tal:attributes="href string:${context/absolute_url}/@@images/image">
+              <img src="" tal:attributes="src string:${context/absolute_url}/@@images/image" height="200" width="200" class="newsImage">
+            </a>
+        </figure>
+    </div>
+
+</metal:content-core>
+
+</body>
+</html>

@@ -35,13 +35,6 @@ class IEnhancedUserDataSchema(model.Schema):
         required=False,
     )
 
-    birthdate = schema.Date(
-        title=_(u'label_birthdate', default=u'Birthdate'),
-        description=_(u'help_birthdate',
-                      default=u'Your date of birth, in the format dd-mm-yyyy'),
-        required=False,
-    )
-
     phone = schema.TextLine(
         title=_(u'Phone'),
         description=_(u'Your telephone number.'),
@@ -55,13 +48,6 @@ class IEnhancedUserDataSchema(model.Schema):
         required=True,
     )
 
-    region = schema.Choice(
-        title=_(u'Region'),
-        required=False,
-        source=utils.listRegions
-    )
-    # source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.region_list'),
-
     wop_program = schema.List(
         title=_(u"WOP Program"),
         description=_(u"Program/programs associated to this project"),
@@ -71,12 +57,11 @@ class IEnhancedUserDataSchema(model.Schema):
         required=False,
     )
 
-    wop_platform = schema.List(
-        title=_(u'WOP Platform'),
+    wop_platform = schema.Choice(
+        title=_(u'Regional WOP Platform'),
+        description=_(u'Select one or more regional WOP Platforms from the list'),
         required=False,
-        value_type=schema.Choice(
-            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.wop_platform'),
-        ),
+        source=utils.listWOPPlatforms
     )
 
     partners = schema.List(
@@ -92,22 +77,13 @@ class IEnhancedUserDataSchema(model.Schema):
         title=_(u'Experimental Areas'),
         required=False,
         value_type=schema.Choice(
-            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.experimental_areas'),
+            source=utils.listPartners,
         ),
     )
 
 
 class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
     schema = IEnhancedUserDataSchema
-
-    # def get_birthdate(self):
-    #     bd = self._getProperty('birthdate')
-    #     return None if bd == '' else bd.asdatetime().date()
-
-    # def set_birthdate(self, value):
-    #     return self._setProperty('birthdate', DateTime(datetime.datetime(value.year, value.month, value.day, 0, 0)))
-
-    # birthdate = property(get_birthdate, set_birthdate)
 
 
 class UserDataPanelExtender(extensible.FormExtender):

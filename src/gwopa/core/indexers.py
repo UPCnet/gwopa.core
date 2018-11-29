@@ -22,7 +22,7 @@ class UserPropertiesSoupCatalogFactory(object):
         _(u'fullname'),
         _(u'email'),
         _(u'description'),
-        _(u'region'),
+        _(u'wop_platform'),
         _(u'country'),
         _(u'phone'),
         _(u'twitter_username'),
@@ -31,17 +31,17 @@ class UserPropertiesSoupCatalogFactory(object):
     profile_properties = [
         'email',
         'description',
-        'region',
+        'wop_platform',
         'country',
         'phone',
         'twitter_username',
         'home_page']
 
-    directory_properties = ['email', 'phone', 'region']
+    directory_properties = ['email', 'phone', 'wop_platform']
 
     directory_icons = {'email': 'fa fa-envelope',
                        'phone': 'fa fa-mobile',
-                       'region': 'fa fa-building-o'}
+                       'wop_platform': 'fa fa-building-o'}
 
     def __call__(self, context):
         catalog = Catalog()
@@ -57,8 +57,8 @@ class UserPropertiesSoupCatalogFactory(object):
         email = NodeAttributeIndexer('email')
         catalog['email'] = CatalogTextIndex(email)
 
-        region = NodeAttributeIndexer('region')
-        catalog['region'] = CatalogTextIndex(region)
+        wop_platform = NodeAttributeIndexer('wop_platform')
+        catalog['wop_platform'] = CatalogTextIndex(wop_platform)
 
         country = NodeAttributeIndexer('country')
         catalog['country'] = CatalogTextIndex(country)

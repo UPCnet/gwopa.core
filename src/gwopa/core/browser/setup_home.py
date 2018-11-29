@@ -186,39 +186,39 @@ class setup(grok.View):
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.region_list')
         if not current or current[0] is '':
             current = []
-        default_region_list = [
-            u'Europe',
-            u'Africa',
-            u'America',
-        ]
-        new_values = current + default_region_list
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.region_list', sorted(list(set(new_values))))
-        #  wop_platform LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_platform')
-        if not current or current[0] is '':
-            current = []
-        default_wop_platform_list = [
-            u'WOP Platform 1',
-            u'WOP Platform 2',
-            u'WOP Platform 3',
-            u'WOP Platform 4',
-            u'WOP Platform 5',
-        ]
-        new_values = current + default_wop_platform_list
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.wop_platform', sorted(list(set(new_values))))
-        #  experimental areas LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.experimental_areas')
-        if not current or current[0] is '':
-            current = []
-        default_experimental_areas_list = [
-            u'Experimental Area 1',
-            u'Experimental Area 2',
-            u'Experimental Area 3',
-            u'Experimental Area 4',
-            u'Experimental Area 5',
-        ]
+        # default_region_list = [
+            # u'Europe',
+            # u'Africa',
+            # u'America',
+        # ]
+        # new_values = current + default_region_list
+        # api.portal.set_registry_record(
+        #     'gwopa.core.controlpanel.IGWOPASettings.region_list', sorted(list(set(new_values))))
+        # #  wop_platform LIST
+        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_platform')
+        # if not current or current[0] is '':
+        #     current = []
+        # default_wop_platform_list = [
+        #     u'WOP Platform 1',
+        #     u'WOP Platform 2',
+        #     u'WOP Platform 3',
+        #     u'WOP Platform 4',
+        #     u'WOP Platform 5',
+        # ]
+        # new_values = current + default_wop_platform_list
+        # api.portal.set_registry_record(
+        #     'gwopa.core.controlpanel.IGWOPASettings.wop_platform', sorted(list(set(new_values))))
+        # #  experimental areas LIST
+        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.experimental_areas')
+        # if not current or current[0] is '':
+        #     current = []
+        # default_experimental_areas_list = [
+        #     u'Experimental Area 1',
+        #     u'Experimental Area 2',
+        #     u'Experimental Area 3',
+        #     u'Experimental Area 4',
+        #     u'Experimental Area 5',
+        # ]
         new_values = current + default_experimental_areas_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.experimental_areas', sorted(list(set(new_values))))

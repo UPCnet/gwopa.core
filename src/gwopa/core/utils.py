@@ -44,7 +44,8 @@ def generate_vocabulary(value):
 countries = generate_vocabulary([country.name for country in pycountry.countries])
 
 
-def listRegions(context):
+def listWOPPlatforms(context):
+    """ WOP Platforms are like regions """
     terms = []
     literals = api.content.find(portal_type="Region")
     for item in literals:
@@ -53,7 +54,33 @@ def listRegions(context):
     return SimpleVocabulary(terms)
 
 
-directlyProvides(listRegions, IContextSourceBinder)
+directlyProvides(listWOPPlatforms, IContextSourceBinder)
+
+
+def listPartners(context):
+    """ Partners list """
+    terms = []
+    literals = api.content.find(portal_type="Partner")
+    for item in literals:
+        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(listPartners, IContextSourceBinder)
+
+
+def listWOPPrograms(context):
+    """ WOP Programs """
+    terms = []
+    literals = api.content.find(portal_type="Partner")
+    for item in literals:
+        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(listWOPPrograms, IContextSourceBinder)
 
 
 def get_safe_member_by_id(username):

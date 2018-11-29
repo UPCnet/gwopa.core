@@ -40,7 +40,7 @@ class IProject(model.Schema):
     """
     title = schema.TextLine(
         title=_(u"Title"),
-        description=_(u"Add the project title"),
+        description=_(u"Project title"),
         required=True,
     )
 
@@ -64,7 +64,7 @@ class IProject(model.Schema):
 
     image = namedfile.NamedBlobImage(
         title=_(u'Image'),
-        description=_(u'Image describing the project'),
+        description=_(u'Project image'),
         required=False,
     )
 
@@ -82,10 +82,11 @@ class IProject(model.Schema):
         defaultFactory=default_tomorrow
     )
 
-    region = schema.Choice(
-        title=_(u'Region'),
+    wop_platform = schema.Choice(
+        title=_(u'Regional WOP Platform'),
+        description=_(u'Select one or more regional WOP Platforms from the list'),
         required=False,
-        source=utils.listRegions
+        source=utils.listWOPPlatforms
     )
 
     directives.widget('country', SelectWidget)
@@ -113,16 +114,16 @@ class IProject(model.Schema):
     directives.widget('partners', SelectWidget)
     partners = schema.List(
         title=_(u"Partners"),
-        description=_(u"Partner/partners associated to this project"),
+        description=_(u"Partner/partners of the project"),
         required=False,
         value_type=schema.Choice(
-            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.partners_list'),
+            source=utils.listPartners,
         ),
     )
 
     project_manager_admin = schema.Choice(
         title=_(u"Project Manager Admin"),
-        description=_(u"The responsible manager of this project"),
+        description=_(u"The responsible manager of the project"),
         required=False,
         vocabulary=u'plone.app.vocabularies.Users',
     )
@@ -154,7 +155,7 @@ class IProject(model.Schema):
     )
 
     budget = schema.Int(
-        title=_(u"Budget"),
+        title=_(u"Total budget"),
         required=False,
     )
 
@@ -174,20 +175,19 @@ class IProject(model.Schema):
         title=_(u"WOP Program"),
         description=_(u"Program/programs associated to this project"),
         value_type=schema.Choice(
-            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.wop_list'),
-        ),
+            source=utils.listWOPPrograms),
         required=False,
     )
 
-    risks = RichText(
-        title=_(u'Risks'),
-        required=False,
-    )
+    # risks = RichText(
+    #     title=_(u'Risks'),
+    #     required=False,
+    # )
 
-    assumptions = RichText(
-        title=_(u'Assumptions'),
-        required=False,
-    )
+    # assumptions = RichText(
+    #     title=_(u'Assumptions'),
+    #     required=False,
+    # )
 
     objectives = RichText(
         title=_(u'Objectives'),

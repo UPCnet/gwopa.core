@@ -4,10 +4,8 @@
  <property name="twitter_username" type="string"></property>
  <property name="phone" type="string"></property>
  <property name="country" type="string"></property>
- <property name="region" type="string"></property>
  <property name="wop_program" type="lines"></property>
  <property name="wop_platform" type="lines"></property>
  <property name="partners" type="lines"></property>
  <property name="arees_exp" type="lines"></property>
- <!-- <property name="birthdate" type="date">2000/01/01 00:00:00</property> -->
 </object>

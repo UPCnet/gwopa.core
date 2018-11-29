@@ -52,7 +52,8 @@ setup(
         'plone.formwidget.geolocation',
         'repoze.catalog',
         'souper',
-        'Products.PloneKeywordManager'
+        'Products.PloneKeywordManager',
+        'geojson'
     ],
     extras_require={
         'test': [

@@ -16,32 +16,32 @@ class IGWOPASettings(model.Schema):
         missing_value=(),
     )
 
-    wop_platform = schema.List(
-        title=_(u'WOP Platform'),
-        description=_(u'Available WOP Platform in the portal. One per line.'),
-        required=False,
-        default=[u''],
-        value_type=schema.TextLine(),
-        missing_value=(),
-    )
+    # wop_platform = schema.List(
+    #     title=_(u'WOP Platform'),
+    #     description=_(u'Available WOP Platform in the portal. One per line.'),
+    #     required=False,
+    #     default=[u''],
+    #     value_type=schema.TextLine(),
+    #     missing_value=(),
+    # )
 
-    partners_list = schema.List(
-        title=_(u'Partners list'),
-        description=_(u'Available Partners shown in the portal. One per line.'),
-        required=False,
-        default=[u''],
-        value_type=schema.TextLine(),
-        missing_value=(),
-    )
+    # partners_list = schema.List(
+    #     title=_(u'Partners list'),
+    #     description=_(u'Available Partners shown in the portal. One per line.'),
+    #     required=False,
+    #     default=[u''],
+    #     value_type=schema.TextLine(),
+    #     missing_value=(),
+    # )
 
-    region_list = schema.List(
-        title=_(u'Regions list'),
-        description=_(u'Available Regions used in the portal. One per line.'),
-        required=False,
-        default=[u''],
-        value_type=schema.TextLine(),
-        missing_value=(),
-    )
+    # region_list = schema.List(
+    #     title=_(u'Regions list'),
+    #     description=_(u'Available Regions used in the portal. One per line.'),
+    #     required=False,
+    #     default=[u''],
+    #     value_type=schema.TextLine(),
+    #     missing_value=(),
+    # )
 
     currency = schema.List(
         title=_(u'Currency Exchange'),
