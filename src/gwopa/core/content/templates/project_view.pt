@@ -53,7 +53,7 @@
       </div>
       <tal:block define="latitude context/latitude;
                    longitude context/longitude">
-        <div style="width:50%" tal:condition="python: latitude and longitude" class="pat-leaflet map"
+        <div tal:condition="python: latitude and longitude" class="pat-leaflet map"
          data-geojson='{
           "type": "FeatureCollection",
           "features": [
@@ -82,9 +82,9 @@
            ]
           }'>
         </div>
-        <span tal:condition="latitude"> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
+       <!--  <span tal:condition="latitude"> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
         <span tal:condition="longitude"> Longitude: <tal:omit-tag tal:content="longitude"></tal:omit-tag></span>
-
+ -->
     </tal:block>
   </metal:block>
 
