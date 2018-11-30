@@ -15,9 +15,9 @@
                 portal_url portal_state/portal_url;">
 
     <a href="" tal:attributes="href string:${portal_url}/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a> |
-    <a href="" tal:attributes="href string:${context/absolute_url}/files"><i class="fa fa-files-o" aria-hidden="true"></i> Files </a> |
-    <a href="" tal:attributes="href string:${context/absolute_url}/@@gwopa-controlpanel"><i class="fa fa-cog" aria-hidden="true"></i> Settings </a> |
-    <a href="" tal:attributes="href string:${portal_url}/managePortal"><i class="fa fa-table" aria-hidden="true"></i> Dashboard </a>
+    <a href="" tal:attributes="href string:${portal_url}/files"><i class="fa fa-files-o" aria-hidden="true"></i> Files </a> |
+    <a href="" tal:attributes="href string:${portal_url}/managePortal"><i class="fa fa-table" aria-hidden="true"></i> Dashboard </a> |
+    <a href="" tal:attributes="href string:${portal_url}/@@gwopa-controlpanel"><i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
     &nbsp;
     &nbsp;
     <a style="float:right" href="" tal:attributes="href string:${portal_url}/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out </a>

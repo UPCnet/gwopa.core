@@ -158,6 +158,7 @@ class IProject(model.Schema):
     #     required=False,
     # )
 
+    directives.widget('members', SelectWidget)
     members = schema.List(
         title=_(u"Members"),
         description=_(u"Improvement track team and members"),
