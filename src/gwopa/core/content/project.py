@@ -256,3 +256,14 @@ class View(grok.View):
                 url=item.getPath(),
                 description=item.description))
         return results
+
+    def get_currency(self):
+        value = getattr(self.context, 'currency', None)
+        if value == _('Dollars'):
+            return "$"
+        elif value == _('Pounds'):
+            return "£"
+        elif value == _('Euros'):
+            return "€"
+        else:
+            return "$"

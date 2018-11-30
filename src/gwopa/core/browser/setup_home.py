@@ -144,9 +144,9 @@ class setup(grok.View):
         if not current or current[0] is '':
             current = []
         default_currency_list = [
-            u'$ - Dollars',
-            u'€ - Euros',
-            u'£ - Pounds']
+            u'Dollars',
+            u'Euros',
+            u'Pounds']
         new_values = current + default_currency_list
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.currency', sorted(list(set(new_values))))
