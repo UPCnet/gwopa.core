@@ -7,14 +7,14 @@ from plone.supermodel import model
 
 class IGWOPASettings(model.Schema):
 
-    wop_list = schema.List(
-        title=_(u'WOP Program list'),
-        description=_(u'Available WOP Programs in the portal. One per line.'),
-        required=False,
-        default=[u''],
-        value_type=schema.TextLine(),
-        missing_value=(),
-    )
+    # wop_list = schema.List(
+    #     title=_(u'WOP Program list'),
+    #     description=_(u'Available WOP Programs in the portal. One per line.'),
+    #     required=False,
+    #     default=[u''],
+    #     value_type=schema.TextLine(),
+    #     missing_value=(),
+    # )
 
     # wop_platform = schema.List(
     #     title=_(u'WOP Platform'),
@@ -52,14 +52,14 @@ class IGWOPASettings(model.Schema):
         missing_value=(),
     )
 
-    experimental_areas = schema.List(
-        title=_(u'Experimental Areas list'),
-        description=_(u'Available Experimental Areas used in the portal. One per line.'),
-        required=False,
-        default=[u''],
-        value_type=schema.TextLine(),
-        missing_value=(),
-    )
+    # experimental_areas = schema.List(
+    #     title=_(u'Experimental Areas list'),
+    #     description=_(u'Available Experimental Areas used in the portal. One per line.'),
+    #     required=False,
+    #     default=[u''],
+    #     value_type=schema.TextLine(),
+    #     missing_value=(),
+    # )
 
     measuring_unit = schema.List(
         title=_(u'Measuring unit'),

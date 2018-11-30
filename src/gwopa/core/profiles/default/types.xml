@@ -12,4 +12,5 @@
   <object meta_type="Dexterity FTI" name="LogFrame" />
   <object meta_type="Dexterity FTI" name="WorkPlan" />
   <object meta_type="Dexterity FTI" name="Partner" />
+  <object meta_type="Dexterity FTI" name="Program" />
 </object>

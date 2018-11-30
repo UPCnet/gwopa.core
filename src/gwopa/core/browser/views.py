@@ -33,13 +33,18 @@ class listFiles(BrowserView):
 class select2(BrowserView):
 
     def __call__(self):
-        items = api.content.find(portal_type=['Project'])
+        items = api.content.find(portal_type=['Project', 'ImprovementArea'])
         results = []
         for item in items:
             results.append(dict(
                 id=item.id,
                 text=item.Title))
-        return json.dumps({'results': results})
+        return json.dumps(
+            {
+                'placeholder': "Select a Category",
+                'results': results
+            }
+        )
 
 
 class mapView(BrowserView):

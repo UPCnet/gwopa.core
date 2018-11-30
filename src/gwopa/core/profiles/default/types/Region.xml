@@ -2,7 +2,7 @@
 <object name="Region" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Region</property>
+ <property name="title" i18n:translate="">WOP Platform</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
  <property name="factory">Region</property>

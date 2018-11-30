@@ -7,12 +7,25 @@ from plone import api
 from gwopa.core import _
 from gwopa.core import utils
 from plone.directives import form
-
+import re
 
 grok.templatedir("templates")
 
+# email re w/o leading '^'
+EMAIL_RE = "([0-9a-zA-Z_&.'+-]+!)*[0-9a-zA-Z_&.'+-]+@(([0-9a-zA-Z]([0-9a-zA-Z-]*[0-9a-z-A-Z])?\.)+[a-zA-Z]{2,}|([0-9]{1,3}\.){3}[0-9]{1,3})$"
 
-class IPartner(model.Schema):
+
+class InvalidEmailError(schema.ValidationError):
+    __doc__ = u'Please enter a valid e-mail address.'
+
+
+def isEmail(value):
+    if re.match('^' + EMAIL_RE, value):
+        return True
+    raise InvalidEmailError
+
+
+class IProgram(model.Schema):
     """  Project type
     """
     title = schema.TextLine(
@@ -43,23 +56,10 @@ class IPartner(model.Schema):
         title=_(u'Contact email'),
         required=False,
         missing_value=u'',
-    )
-
-    form.mode(latitude='hidden')
-    latitude = schema.Float(
-        title=_(u"Latitude"),
-        required=False,
-        default=0.0
-    )
-
-    form.mode(longitude='hidden')
-    longitude = schema.Float(
-        title=_(u"Longitude"),
-        required=False,
-        default=0.0
+        constraint=isEmail
     )
 
 
 class View(grok.View):
-    grok.context(IPartner)
-    grok.template('partner_view')
+    grok.context(IProgram)
+    grok.template('program_view')

@@ -79,13 +79,6 @@ class setup(grok.View):
                 safe_id=False)
             api.content.create(
                 type='Folder',
-                id='regions',
-                title='Regions',
-                description='Regions used as user registration field',
-                container=config_folder,
-                safe_id=False)
-            api.content.create(
-                type='Folder',
                 id='programs',
                 title='WOP Programs',
                 description='WOP Programs',
@@ -101,8 +94,8 @@ class setup(grok.View):
             config_folder = api.content.create(
                 type='Folder',
                 id='partners',
-                title='Partners',
-                description='Partners',
+                title='WOP Partners',
+                description='WOP Partners',
                 container=config_folder,
                 safe_id=False)
             api.content.create(
@@ -121,31 +114,31 @@ class setup(grok.View):
     def createDemoContent(self):
         """ Assign default values to panel control options """
         # WOP LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
-        if not current or current[0] is '':
-            current = []
-        default_wop_list = [
-            u'WOP Program Demo List 1',
-            u'WOP Program Demo List 2',
-            u'WOP Program Demo List 3',
-            u'WOP Program Demo List 4',
-            u'WOP Program Demo List 5']
-        new_values = current + default_wop_list
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.wop_list', sorted(list(set(new_values))))
+        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
+        # if not current or current[0] is '':
+        #     current = []
+        # default_wop_list = [
+        #     u'WOP Program Demo List 1',
+        #     u'WOP Program Demo List 2',
+        #     u'WOP Program Demo List 3',
+        #     u'WOP Program Demo List 4',
+        #     u'WOP Program Demo List 5']
+        # new_values = current + default_wop_list
+        # api.portal.set_registry_record(
+        #     'gwopa.core.controlpanel.IGWOPASettings.wop_list', sorted(list(set(new_values))))
         # Partners LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
-        if not current or current[0] is '':
-            current = []
-        default_partners_list = [
-            u'Partner Demo User 1',
-            u'Partner Demo User 2',
-            u'Partner Demo User 3',
-            u'Partner Demo User 4',
-            u'Partner Demo User 5']
-        new_values = current + default_partners_list
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.partners_list', sorted(list(set(new_values))))
+        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
+        # if not current or current[0] is '':
+        #     current = []
+        # default_partners_list = [
+        #     u'Partner Demo User 1',
+        #     u'Partner Demo User 2',
+        #     u'Partner Demo User 3',
+        #     u'Partner Demo User 4',
+        #     u'Partner Demo User 5']
+        # new_values = current + default_partners_list
+        # api.portal.set_registry_record(
+        #     'gwopa.core.controlpanel.IGWOPASettings.partners_list', sorted(list(set(new_values))))
         # Currency LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.currency')
         if not current or current[0] is '':
@@ -183,13 +176,13 @@ class setup(grok.View):
         api.portal.set_registry_record(
             'gwopa.core.controlpanel.IGWOPASettings.measuring_frequency', sorted(list(set(new_values))))
         #  Regions LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.region_list')
-        if not current or current[0] is '':
-            current = []
+        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.region_list')
+        # if not current or current[0] is '':
+        #     current = []
         # default_region_list = [
-            # u'Europe',
-            # u'Africa',
-            # u'America',
+        # u'Europe',
+        # u'Africa',
+        # u'America',
         # ]
         # new_values = current + default_region_list
         # api.portal.set_registry_record(
@@ -219,9 +212,9 @@ class setup(grok.View):
         #     u'Experimental Area 4',
         #     u'Experimental Area 5',
         # ]
-        new_values = current + default_experimental_areas_list
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.experimental_areas', sorted(list(set(new_values))))
+        # new_values = current + default_experimental_areas_list
+        # api.portal.set_registry_record(
+        #     'gwopa.core.controlpanel.IGWOPASettings.experimental_areas', sorted(list(set(new_values))))
         # Capcaity Changes LIST
         current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.capacity_changes')
         if not current or current[0] is '':
@@ -270,8 +263,7 @@ class setup(grok.View):
         return image
 
     def getLoremIpsum(self, number, length, type_code):
-        """ Returns Lorem Ipsum text
-        """
+        """ Returns Lorem Ipsum text """
         try:
             text = requests.get('http://loripsum.net/api/{0}/{1}/{2}'.format(number, type_code, length), verify=False, timeout=10).content
         except ConnectionError:
@@ -280,8 +272,8 @@ class setup(grok.View):
 
     def createProjects(self, number):
         portal = api.portal.get()
-        wops = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
-        partners = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
+        # wops = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
+        # partners = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
         for i in range(number):
             project = api.content.create(
                 type='Project',
@@ -295,13 +287,13 @@ class setup(grok.View):
             project.contribution = RichTextValue(
                 self.getLoremIpsum(2, 'long', 'html'),
                 'text/html', 'text/html')
-            wop_item = wops[i]
+            # wop_item = wops[i]
             new_value = []
-            new_value.append(wop_item)
-            project.wop_program = new_value
-            partner_item = partners[i]
-            new_value = []
-            new_value.append(partner_item)
+            # new_value.append(wop_item)
+            # project.wop_program = new_value
+            # partner_item = partners[i]
+            # new_value = []
+            # new_value.append(partner_item)
             project.partners = new_value
             project.latitude = 41.3828939
             project.longitude = 2.1774322

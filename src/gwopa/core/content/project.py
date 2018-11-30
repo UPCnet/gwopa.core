@@ -15,6 +15,10 @@ from plone.directives import form
 from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
+from z3c.relationfield.schema import RelationList
+from z3c.relationfield.schema import RelationChoice
+from plone.app.z3cform.widget import RelatedItemsFieldWidget
 
 grok.templatedir("templates")
 
@@ -97,6 +101,15 @@ class IProject(model.Schema):
         required=True,
     )
 
+    directives.widget('wop_program', SelectWidget)
+    wop_program = schema.List(
+        title=_(u"WOP Program"),
+        description=_(u"Program/programs associated to this project"),
+        value_type=schema.Choice(
+            source=utils.listWOPPrograms),
+        required=False,
+    )
+
     form.mode(latitude='hidden')
     latitude = schema.Float(
         title=_(u"Latitude"),
@@ -171,14 +184,6 @@ class IProject(model.Schema):
         required=False,
     )
 
-    wop_program = schema.List(
-        title=_(u"WOP Program"),
-        description=_(u"Program/programs associated to this project"),
-        value_type=schema.Choice(
-            source=utils.listWOPPrograms),
-        required=False,
-    )
-
     # risks = RichText(
     #     title=_(u'Risks'),
     #     required=False,
@@ -193,6 +198,38 @@ class IProject(model.Schema):
         title=_(u'Objectives'),
         required=False,
     )
+
+    # subjects = schema.Tuple(
+    #     title=_(u'label_tags', default=u'Tags'),
+    #     description=_(
+    #         u'help_tags',
+    #         default=u'Tags are commonly used for ad-hoc organization of ' +
+    #                 u'content.'
+    #     ),
+    #     value_type=schema.TextLine(),
+    #     required=False,
+    #     missing_value=(),
+    # )
+    # directives.widget(
+    #     'subjects',
+    #     AjaxSelectFieldWidget,
+    #     vocabulary='plone.app.vocabularies.Keywords'
+    # )
+
+    # relatedItems = RelationList(
+    #     title=_(u'label_related_items', default=u'Related Items'),
+    #     default=[],
+    #     value_type=RelationChoice(
+    #         title=u'Related',
+    #         vocabulary='plone.app.vocabularies.Catalog'
+    #     ),
+    #     required=False
+    # )
+    # form.widget(
+    #     'relatedItems',
+    #     RelatedItemsFieldWidget,
+    #     vocabulary='plone.app.vocabularies.Catalog'
+    # )
 
     @invariant
     def validate_start_end(data):

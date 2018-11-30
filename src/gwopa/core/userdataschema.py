@@ -52,7 +52,7 @@ class IEnhancedUserDataSchema(model.Schema):
         title=_(u"WOP Program"),
         description=_(u"Program/programs associated to this project"),
         value_type=schema.Choice(
-            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.wop_list'),
+            source=utils.listWOPPrograms,
         ),
         required=False,
     )
@@ -69,12 +69,12 @@ class IEnhancedUserDataSchema(model.Schema):
         description=_(u"Partner/partners associated to this project"),
         required=False,
         value_type=schema.Choice(
-            source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.partners_list'),
+            source=utils.listPartners,
         ),
     )
 
     arees_exp = schema.List(
-        title=_(u'Experimental Areas'),
+        title=_(u'TODO: Improvement Areas?'),
         required=False,
         value_type=schema.Choice(
             source=utils.listPartners,

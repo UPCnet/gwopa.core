@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<object name="Partner" meta_type="Dexterity FTI"
+<object name="Program" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">WOP Partner</property>
+ <property name="title" i18n:translate="">WOP Program</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
- <property name="factory">Partner</property>
- <property name="add_view_expr">string:${folder_url}/++add++Partner</property>
+ <property name="factory">Program</property>
+ <property name="add_view_expr">string:${folder_url}/++add++Program</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
  <property name="global_allow">True</property>
@@ -18,10 +18,9 @@
  <property name="behaviors">
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
  </property>
 
- <property name="schema">gwopa.core.content.partner.IPartner</property>
+ <property name="schema">gwopa.core.content.program.IProgram</property>
 
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>

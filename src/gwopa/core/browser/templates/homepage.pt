@@ -161,6 +161,7 @@
 
                 <input type="text" class="pat-select2"
                       data-pat-select2="placeholder:Search...;
+                                        multiple:true;
                                         vocabularyUrl: ${portal_url}/select2-test.json;
                                         width:20em" />
                 <a tal:attributes="href string:${portal_url}/" href="#">
