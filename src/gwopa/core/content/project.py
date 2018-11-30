@@ -266,4 +266,4 @@ class View(grok.View):
         elif value == _('Euros'):
             return "€"
         else:
-            return "$"
+            return value
