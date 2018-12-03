@@ -14,15 +14,21 @@ class viewletBase(grok.Viewlet):
     grok.baseclass()
 
 
-class viewletHeaderUlearn(viewletBase):
-    grok.name('ulearn.header')
+class viewletHeader(viewletBase):
+    grok.name('gwopa.header')
     grok.template('header')
     grok.viewletmanager(IPortalHeader)
     grok.layer(IGwopaCoreLayer)
 
+    def isProject(self):
+        if (self.context.portal_type == 'Project' or self.context.portal_type == 'WorkPlan'):
+            return True
+        else:
+            return False
 
-class viewletFooterUlearn(viewletBase):
-    grok.name('ulearn.footer')
+
+class viewletFooter(viewletBase):
+    grok.name('gwopa.footer')
     grok.template('footer')
     grok.viewletmanager(IPortalFooter)
     grok.layer(IGwopaCoreLayer)

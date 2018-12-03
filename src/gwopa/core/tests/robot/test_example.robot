@@ -6,6 +6,10 @@
 #
 #  $ bin/test -s gwopa.core -t test_example.robot --all
 #
+# If you want to execute with Chrome:
+#
+#  $ ROBOT_BROWSER=chrome bin/test -s gwopa.core -t test_example.robot --all
+#
 # Run this robot test with robot server (which is faster):
 #
 # 1) Start robot server:

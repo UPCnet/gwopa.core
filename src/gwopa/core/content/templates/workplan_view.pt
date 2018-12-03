@@ -10,15 +10,34 @@
 <metal:content-core fill-slot="main">
 
   <metal:block define-macro="content-core">
-    <h1 class="documentFirstHeading" i18n:translate="">WorkPlan</h1>
-    <div class="documentDescription description" i18n:translate=""> Annual Work Plan for this project</div>
+    <h1 class="documentFirstHeading">Planning - Annual <tal:omit-tag tal:content="view/currentYear"></tal:omit-tag></h1>
+    <div class="documentDescription description"> Annual Work Plan for year <tal:omit-tag tal:content="view/currentYear"></tal:omit-tag>
+      <ul class="pagination pagination-lg" style="float:right">
+        <li tal:condition="view/prevYear">
+          <a href="#" class="serverprevious" tal:attributes="href string:awp-${view/prevYear}">
+             &lt; Previous Year
+          </a>
+        </li>
+        <li tal:condition="view/nextYear">
+          <a href="#" class="servernext" tal:attributes="href string:awp-${view/nextYear}">
+            Next Year &gt;
+          </a>
+        </li>
+      </ul>
+      <br/>
+    </div>
 
-      <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#">
-        <button class="context focus"> + New Activity</button>
-      </a>
-      <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Goal" href="#">
-        <button class="context focus"> + New Goal</button>
-      </a>
+    <a tal:attributes="href string:${context/absolute_url}/copyWorkPlan" href="#">
+      <button class="plone-btn-warning"><i class="fa fa-copy"></i> New Work Plan</button></a>
+    <a tal:attributes="href string:${context/absolute_url}/deleteWorkPlan" href="#">
+      <button class="plone-btn-danger"><i class="fa fa-remove"></i> Delete Work Plan</button></a>
+    <br/>
+    <br/>
+    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#">
+      <button class="context focus"> + New Activity</button></a>
+
+    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Goal" href="#">
+      <button class="context focus"> + New Goal</button></a>
 
     <tal:block-activities tal:define="activities view/listActivities" tal:condition="activities">
       <h3 i18n:translate="">Activities</h3>

@@ -1,47 +1,35 @@
 # -*- coding: utf-8 -*-
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
+import datetime
 
 
 class planningView(BrowserView):
-    """ View all the indicators associated to the project
+    """ get current workplan and redirect!
     """
-    __call__ = ViewPageTemplateFile('templates/planning.pt')
 
-    def getTitle(self):
-        return self.context.Title()
+    index = ViewPageTemplateFile('templates/planning.pt')
 
-    def getLogFrame(self):
-        logframes = api.content.find(
-            portal_type='LogFrame',
+    def __call__(self):
+        current_year = datetime.datetime.now().year
+        newid = 'awp-' + str(current_year)
+        folder = api.content.find(
+            portal_type='WorkPlan',
             context=self.context)
-
-        if not logframes:
-            return False
+        if folder:
+            for item in folder:
+                if item.id == newid:
+                    return self.request.response.redirect(item.getPath())
+            return self.request.response.redirect(folder[0].getPath())
         else:
-            results = []
-            for item in logframes:
-                results.append(dict(
-                    title=item.Title,
-                    description=item.Description,
-                    portal_type=item.portal_type,
-                    url=item.getPath()))
-            return results
+            return self.index()
 
-    def getWorkPlan(self):
+    def getWorkplan(self):
         workplan = api.content.find(
             portal_type='WorkPlan',
-            context=self.context['indicators'])
-
-        if not workplan:
-            return False
+            context=self.context)
+        if workplan:
+            return True
         else:
-            results = []
-            for item in workplan:
-                results.append(dict(
-                    title=item.Title,
-                    description=item.Description,
-                    portal_type=item.portal_type,
-                    url=item.getPath()))
-            return results
+            return False

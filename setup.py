@@ -47,13 +47,14 @@ setup(
         'z3c.jbot',
         'pycountry',
         'requests',
+        'gwopa.theme',
         'plone.patternslib',
         'collective.geolocationbehavior',
         'plone.formwidget.geolocation',
         'repoze.catalog',
         'souper',
         'Products.PloneKeywordManager',
-        'geojson'
+        'geojson',
     ],
     extras_require={
         'test': [

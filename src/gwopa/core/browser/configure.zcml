@@ -98,4 +98,25 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+    for="gwopa.core.content.project.IProject"
+    name="addWorkPlan"
+    class=".actions.AddWorkPlan"
+    layer="..interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="gwopa.core.content.workplan.IWorkplan"
+    name="copyWorkPlan"
+    class=".actions.CopyWorkPlan"
+    layer="..interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="gwopa.core.content.workplan.IWorkplan"
+    name="deleteWorkPlan"
+    class=".actions.DeleteWorkPlan"
+    layer="..interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
 </configure>

@@ -5,6 +5,7 @@ from gwopa.core.content.project import IProject
 from gwopa.core.content.partner import IPartner
 # from gwopa.core.content.improvement_area import IImprovementArea
 from plone import api
+import datetime
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
@@ -15,9 +16,10 @@ def projectModified(content, event):
     if content.geolocation:
         content.latitude = content.geolocation.latitude
         content.longitude = content.geolocation.longitude
+    year = datetime.datetime.now().year
     api.content.create(
-        type='Folder',
-        id='indicators',
+        type='WorkPlan',
+        id='awp-' + str(year),
         container=content)
 
 

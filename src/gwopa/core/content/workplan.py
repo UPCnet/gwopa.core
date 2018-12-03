@@ -33,6 +33,32 @@ class View(grok.View):
     grok.context(IWorkplan)
     grok.template('workplan_view')
 
+    def currentYear(self):
+        year = self.context.absolute_url_path().split('-')[1:][0]
+        return year
+
+    def prevYear(self):
+        year = self.context.absolute_url_path().split('-')[1:][0]
+        folder = api.content.find(
+            portal_type='WorkPlan',
+            id='awp-' + str(int(year) - 1),
+            context=self.context.aq_parent)
+        if folder:
+            return int(year) - 1
+        else:
+            return False
+
+    def nextYear(self):
+        year = self.context.absolute_url_path().split('-')[1:][0]
+        folder = api.content.find(
+            portal_type='WorkPlan',
+            id='awp-' + str(int(year) + 1),
+            context=self.context.aq_parent)
+        if folder:
+            return int(year) + 1
+        else:
+            return False
+
     def projectUrl(self):
         return self.context.aq_parent.aq_parent.absolute_url()
 
