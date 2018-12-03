@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 import datetime
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 
 
 class planningView(BrowserView):
     """ get current workplan and redirect!
     """
-
-    index = ViewPageTemplateFile('templates/planning.pt')
 
     def __call__(self):
         current_year = datetime.datetime.now().year
@@ -23,7 +22,12 @@ class planningView(BrowserView):
                     return self.request.response.redirect(item.getPath())
             return self.request.response.redirect(folder[0].getPath())
         else:
-            return self.index()
+            alsoProvides(self.request, IDisableCSRFProtection)
+            newplan = api.content.create(
+                type='WorkPlan',
+                id='awp-' + str(current_year),
+                container=self.context)
+            return self.request.response.redirect(newplan.absolute_url_path())
 
     def getWorkplan(self):
         workplan = api.content.find(
