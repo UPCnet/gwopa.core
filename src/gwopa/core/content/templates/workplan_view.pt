@@ -12,7 +12,7 @@
   <metal:block define-macro="content-core" tal:define="currentYear view/currentYear; prevYear view/prevYear; nextYear view/nextYear">
     <h1 class="documentFirstHeading">Planning - Annual <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
     <div class="documentDescription description"> Annual Work Plan for year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
-      <ul class="pagination pagination-lg" style="float:right">
+      <ul class="pagination pagination-lg" style="float:right; margin: 0px;">
         <li tal:condition="prevYear">
           <a href="#" class="serverprevious" tal:attributes="href string:awp-${prevYear}">
              &lt; Previous Year
@@ -27,37 +27,38 @@
       <br/>
     </div>
 
-    <a tal:attributes="href string:${context/absolute_url}/copyWorkPlan" href="#">
-      <button class="plone-btn-warning"><i class="fa fa-copy"></i> New Work Plan</button></a>
-    <a tal:attributes="href string:${context/absolute_url}/deleteWorkPlan" href="#">
-      <button class="plone-btn-danger"><i class="fa fa-remove"></i> Delete Work Plan</button></a>
-    <br/>
-    <br/>
-    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#">
-      <button class="context focus"> + New Activity</button></a>
+    <div style="float: right;">
+      <a tal:attributes="href string:${context/absolute_url}/copyWorkPlan" href="#">
+        <button class="plone-btn-warning"><i class="fa fa-copy"></i> Duplicate Work Plan</button></a>
+      <a tal:attributes="href string:${context/absolute_url}/deleteWorkPlan" href="#">
+        <button class="plone-btn-danger"><i class="fa fa-remove"></i> Delete Work Plan</button></a>
+    </div>
+    <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
+      <fieldset>
+        <legend>Project</legend>
+        <div>
+          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea" href="#">
+            <button class="context focus"> + New Improvement Area</button></a>
+            <h2>Current Improvement Areas</h2>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Outcomes</legend>
+        <div>
+          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#">
+            <button class="context focus"> + New Activity</button></a>
+          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeIndicator" href="#">
+            <button class="context focus"> + New Outcome</button></a>
+            <h2> List of KPI </h2>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Collaboration</legend>
+          <h2>TODO: Check this!</h2>
+      </fieldset>
+    </div>
 
-    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Goal" href="#">
-      <button class="context focus"> + New Goal</button></a>
-
-<!-- <br/>
-<ul class="plone-nav plone-navbar-nav">
-  <li>
-    <a href="#">Active</a>
-  </li>
-  <li>
-    <a  href="#">Link</a>
-  </li>
-  <li>
-    <a  href="#">Link</a>
-  </li>
-  <li >
-    <a href="#">Disabled</a>
-  </li>
-</ul>
-
-<br/>
-<br/> -->
-    <tal:block-activities tal:define="activities view/listActivities" tal:condition="activities">
+     <tal:block-activities tal:define="activities view/listActivities" tal:condition="activities">
       <h3 i18n:translate="">Activities</h3>
       <tal:objects repeat="item activities">
         <ul class="activity_item">
