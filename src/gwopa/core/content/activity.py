@@ -4,12 +4,23 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
+from zope.interface import Invalid
+from zope.interface import invariant
+
 
 grok.templatedir("templates")
 
 
-def todayValue():
-    return datetime.date.today()
+class StartBeforeEnd(Invalid):
+    __doc__ = _(u"Invalid start or end date")
+
+
+def startDefaultValue():
+    return datetime.datetime.today() + datetime.timedelta(7)
+
+
+def endDefaultValue():
+    return datetime.datetime.today() + datetime.timedelta(10)
 
 
 class IActivity(model.Schema):
@@ -32,10 +43,40 @@ class IActivity(model.Schema):
         missing_value=u'',
     )
 
+    start = schema.Datetime(
+        title=_(u'Starting time'),
+        required=True,
+        defaultFactory=startDefaultValue
+    )
+
+    end = schema.Datetime(
+        title=_(u'Completion time'),
+        required=True,
+        defaultFactory=endDefaultValue
+    )
+
+    inputs = schema.Text(
+        title=_(u'Related inputs'),
+        required=False,
+        missing_value=u'',
+    )
+
+    bidget = schema.Text(
+        title=_(u'Assigned budget'),
+        required=False,
+        missing_value=u'',
+    )
+
     milestones = schema.Text(
         title=_(u'Milestones'),
         required=False,
         missing_value=u'',
+    )
+
+    outputs = schema.Choice(
+        title=_(u"Related outputs"),
+        required=False,
+        vocabulary=u'plone.app.vocabularies.Users',
     )
 
     members = schema.Choice(
@@ -44,6 +85,11 @@ class IActivity(model.Schema):
         required=False,
         vocabulary=u'plone.app.vocabularies.Users',
     )
+
+    @invariant
+    def validate_start_end(data):
+        if (data.start and data.end and data.start > data.end):
+            raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):

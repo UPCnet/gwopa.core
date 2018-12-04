@@ -59,6 +59,29 @@ class View(grok.View):
         else:
             return False
 
+    def getAreas(self):
+        items = api.content.find(
+            portal_type='ImprovementArea',
+            context=self.context)
+        results = []
+        for project in items:
+            item = project.getObject()
+            if item.image:
+                image = True
+            else:
+                image = False
+            if item.description:
+                description = item.description
+            else:
+                description = item.title
+            results.append(dict(title=item.title,
+                                url=item.absolute_url_path(),
+                                image=image,
+                                description=description,
+                                portal_type=item.portal_type
+                                ))
+        return results
+
     def projectUrl(self):
         return self.context.aq_parent.aq_parent.absolute_url()
 
@@ -93,8 +116,8 @@ class View(grok.View):
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
         items = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Indicator', 'Outcome', 'Output'],
-            path={'query': folder_path,
+            portal_type=['Activity', 'Outcome', 'Output'],
+            path={'query': '/'.join(folder_path.split('/')[:-1]),
                   'depth': 1})
 
         results = []
@@ -106,21 +129,21 @@ class View(grok.View):
                 url=item.getPath()))
         return results
 
-    def indicatorsInsideInside(self, item):
-        """ Returns objects from second level, except indicators.
-            Because an indicator inside an indicator is not accepted.
-        """
-        if item['portal_type'] != 'Indicator':
-            portal_catalog = getToolByName(self, 'portal_catalog')
-            folder_path = item['url']
-            items = portal_catalog.unrestrictedSearchResults(
-                path={'query': folder_path,
-                      'depth': 1})
-            results = []
-            for item in items:
-                results.append(dict(
-                    title=item.Title,
-                    description=item.Description,
-                    portal_type=item.portal_type,
-                    url=item.getPath()))
-            return results
+    # def indicatorsInsideInside(self, item):
+    #     """ Returns objects from second level, except indicators.
+    #         Because an indicator inside an indicator is not accepted.
+    #     """
+    #     if item['portal_type'] != 'Indicator':
+    #         portal_catalog = getToolByName(self, 'portal_catalog')
+    #         folder_path = item['url']
+    #         items = portal_catalog.unrestrictedSearchResults(
+    #             path={'query': folder_path,
+    #                   'depth': 1})
+    #         results = []
+    #         for item in items:
+    #             results.append(dict(
+    #                 title=item.Title,
+    #                 description=item.Description,
+    #                 portal_type=item.portal_type,
+    #                 url=item.getPath()))
+    #         return results

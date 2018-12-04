@@ -11,7 +11,7 @@
 
   <metal:block define-macro="content-core">
     <h1 class="documentFirstHeading" i18n:translate="">Collaborating module</h1>
-    <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return".</div>
+    <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below.</div>
 
     <tal:MyProjects define="items view/getAreas;" condition="items">
       <div class="has-table">

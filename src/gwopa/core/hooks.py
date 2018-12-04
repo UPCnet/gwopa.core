@@ -9,9 +9,10 @@ import datetime
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
-def projectModified(content, event):
+def projectAdded(content, event):
     """ Project created handler to assign geolocation.
-        Copy value from behaviour fields to project fields
+        Copy value from behaviour fields to project fields.projectAnd create
+        current year workplan
     """
     if content.geolocation:
         content.latitude = content.geolocation.latitude
@@ -21,6 +22,16 @@ def projectModified(content, event):
         type='WorkPlan',
         id='awp-' + str(year),
         container=content)
+
+
+@grok.subscribe(IProject, IObjectModifiedEvent)
+def projectModified(content, event):
+    """ Project modified handler to assign geolocation.
+        Copy value from behaviour fields to project fields
+    """
+    if content.geolocation:
+        content.latitude = content.geolocation.latitude
+        content.longitude = content.geolocation.longitude
 
 
 @grok.subscribe(IPartner, IObjectAddedEvent)

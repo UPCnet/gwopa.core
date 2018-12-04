@@ -37,38 +37,57 @@
       <fieldset>
         <legend>Project</legend>
         <div>
-          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea" href="#">
-            <button class="context focus"> + New Improvement Area</button></a>
-            <h2>Current Improvement Areas</h2>
+          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea" href="#"><button class="context focus"> + New Improvement Area</button></a>
+          <tal:block-activities tal:define="goals view/getAreas" tal:condition="goals">
+            <h2 i18n:translate=""> Improvement Areas </h2>
+            <tal:objects repeat="item goals">
+              <ul class="goal_item">
+                <li>
+                  <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+                  tal:content="item/portal_type"> GOAL </span>
+                  <a tal:attributes="href item/url;title item/description" data-toggle="tooltip" class="pat-tooltip" tal:content="item/title"> Item Title </a>
+                  <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Activity </button></a>
+                  <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
+                  <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
+                    <ul tal:repeat="item files" class="block_sub_indicators">
+                      <li class="indicator_item">
+                        <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+                              tal:content="item/portal_type"> INDICATOR </span>
+                        <a tal:attributes="href item/url;title item/description" data-toggle="tooltip" class="pat-tooltip" tal:content="item/title"> Item Title </a>
+                        <a tal:condition="python:item['portal_type'] != 'Indicator'" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
+                      </li>
+                    </ul>
+                  </tal:block-subitems>
+                </li>
+              </ul>
+            </tal:objects>
+          </tal:block-activities>
         </div>
       </fieldset>
       <fieldset>
         <legend>Outcomes</legend>
         <div>
-          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#">
-            <button class="context focus"> + New Activity</button></a>
-          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeIndicator" href="#">
-            <button class="context focus"> + New Outcome</button></a>
-            <h2> List of KPI </h2>
+          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++Activity" href="#"><button class="context focus"> + New Activity</button></a>
+          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeIndicator" href="#"><button class="context focus"> + New Outcome</button></a>
+          <h2> List of KPI </h2>
+          <tal:block-activities tal:define="activities view/listActivities" tal:condition="activities">
+            <h3 i18n:translate="">Activities</h3>
+            <tal:objects repeat="item activities">
+              <ul class="activity_item">
+                <li>
+                  <a tal:attributes="href item/url; title item/description" data-toggle="tooltip" class="pat-tooltip">
+                    <i class="fa fa-list"></i>&nbsp;<tal:block tal:content="item/title">Item Title </tal:block></a>
+                </li>
+              </ul>
+            </tal:objects>
+          </tal:block-activities>
         </div>
       </fieldset>
       <fieldset>
         <legend>Collaboration</legend>
-          <h2>TODO: Check this!</h2>
+        <h2>TODO: Check this!</h2>
       </fieldset>
     </div>
-
-     <tal:block-activities tal:define="activities view/listActivities" tal:condition="activities">
-      <h3 i18n:translate="">Activities</h3>
-      <tal:objects repeat="item activities">
-        <ul class="activity_item">
-          <li>
-            <a tal:attributes="href item/url; title item/description" data-toggle="tooltip" class="pat-tooltip">
-              <i class="fa fa-list"></i>&nbsp;<tal:block tal:content="item/title">Item Title </tal:block></a>
-          </li>
-        </ul>
-      </tal:objects>
-    </tal:block-activities>
 
     <tal:block-activities tal:define="goals view/goalsList" tal:condition="goals">
       <h3 i18n:translate=""> Annual Work Plan </h3>

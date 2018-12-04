@@ -14,6 +14,8 @@
  <property name="allowed_content_types">
         <element value="Goal"/>
         <element value="Activity"/>
+        <element value="Output"/>
+        <element value="Outcome"/>
         <element value="ImprovementArea"/>
         <element value="Folder"/>
  </property>
