@@ -110,7 +110,7 @@ class MainTemplate(BrowserView):
                     return results
         else:
             # Tuple to list in the next code
-            userPartners = (list(api.user.get_current().getProperty('partners')))
+            userPartners = (list(api.user.get_current().getProperty('wop_partners')))
             for project in projects:
                 item = project._unrestrictedGetObject()
                 for a in userPartners:
@@ -138,7 +138,6 @@ class MainTemplate(BrowserView):
             portal_type='Project',
             review_state='published')
         results = []
-        # Tuple to list in the next code
         for project in projects:
             item = project._unrestrictedGetObject()
             if item.image:
@@ -153,7 +152,6 @@ class MainTemplate(BrowserView):
                                 project_manager=item.project_manager,
                                 image=image
                                 ))
-        print len(results)
         return results
 
     def abreviaText(self, text):

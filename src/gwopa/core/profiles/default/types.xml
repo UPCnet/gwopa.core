@@ -8,9 +8,9 @@
   <object meta_type="Dexterity FTI" name="ImprovementArea" />
   <object meta_type="Dexterity FTI" name="TargetValue" />
   <object meta_type="Dexterity FTI" name="Activity" />
-  <object meta_type="Dexterity FTI" name="Region" />
   <object meta_type="Dexterity FTI" name="LogFrame" />
   <object meta_type="Dexterity FTI" name="WorkPlan" />
+  <object meta_type="Dexterity FTI" name="Platform" />
   <object meta_type="Dexterity FTI" name="Partner" />
   <object meta_type="Dexterity FTI" name="Program" />
 </object>

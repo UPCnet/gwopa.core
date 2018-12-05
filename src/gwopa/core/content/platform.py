@@ -10,7 +10,7 @@ from gwopa.core import utils
 grok.templatedir("templates")
 
 
-class IRegion(model.Schema):
+class IPlatform(model.Schema):
     """  Project type
     """
     title = schema.TextLine(
@@ -39,8 +39,8 @@ class IRegion(model.Schema):
 
 
 class View(grok.View):
-    grok.context(IRegion)
-    grok.template('region_view')
+    grok.context(IPlatform)
+    grok.template('platform_view')
 
     def listMembers(self):
         """ Returns users registerd on this Region """
@@ -48,7 +48,7 @@ class View(grok.View):
         results = []
 
         for item in members:
-            if item.getProperty('region') == self.context.Title():
+            if item.getProperty('wop_platform') == self.context.Title():
                 results += [{
                     'id': item.id,
                     'country': item.getProperty('country'),

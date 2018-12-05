@@ -48,3 +48,40 @@ class managePortal(grok.View):
             results += [{'id': item.id,
                          }]
         return results
+
+    def getPlatforms(self):
+        items = api.content.find(portal_type=['Platform'])
+        results = []
+        for item in items:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                url=item.getPath(),
+                country=', '.join(map(str, obj.country)))
+            )
+        return results
+
+    def getPrograms(self):
+        items = api.content.find(portal_type=['Program'])
+        results = []
+        for item in items:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                url=item.getPath(),
+                email=obj.contact,
+                country=', '.join(map(str, obj.country)))
+            )
+        return results
+
+    def getPartners(self):
+        items = api.content.find(portal_type=['Partner'])
+        results = []
+        for item in items:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                url=item.getPath(),
+                country=', '.join(map(str, obj.country)))
+            )
+        return results

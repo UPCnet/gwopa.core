@@ -47,7 +47,7 @@ countries = generate_vocabulary([country.name for country in pycountry.countries
 def listWOPPlatforms(context):
     """ WOP Platforms are like regions """
     terms = []
-    literals = api.content.find(portal_type="Region")
+    literals = api.content.find(portal_type="Platform")
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
         terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))

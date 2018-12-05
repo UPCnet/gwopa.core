@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-12-05 12:34+0000\n"
+"POT-Creation-Date: 2018-12-05 16:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,12 +22,29 @@ msgstr ""
 msgid ""
 msgstr ""
 
+#: ../browser/templates/homepage.pt:79
+msgid "(Manager: 1 random element)"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:133
+msgid "(Manager: 4 random elements)"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:77
+#: ../browser/templates/manage_portal.pt:25
+msgid "+ New Project"
+msgstr ""
+
 #: ../content/templates/workplan_view.pt:74
 msgid "Activities"
 msgstr ""
 
 #: ../profiles/default/types/Activity.xml
 msgid "Activity"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:34
+msgid "Admin role"
 msgstr ""
 
 #: ../browser/templates/global_map.pt:15
@@ -44,6 +61,10 @@ msgstr ""
 
 #: ../content/templates/workplan_view.pt:93
 msgid "Annual Work Plan"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:57
+msgid "Area"
 msgstr ""
 
 #: ../content/activity.py:65
@@ -67,8 +88,8 @@ msgid "Capacity Changes"
 msgstr ""
 
 #: ../content/partner.py:36
+#: ../content/platform.py:34
 #: ../content/program.py:49
-#: ../content/region.py:34
 msgid "Choose countries from list that represents this country."
 msgstr ""
 
@@ -80,9 +101,21 @@ msgstr ""
 msgid "Completion time"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:125
+msgid "Contact"
+msgstr ""
+
 #: ../content/partner.py:43
 #: ../content/program.py:56
 msgid "Contact email"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:93
+msgid "Contact person"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:58
+msgid "Container"
 msgstr ""
 
 #: ../content/project.py:183
@@ -90,10 +123,18 @@ msgstr ""
 msgid "Contribution by partners and donors"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:19
+msgid "Control panel to configure and view all the important system parameters"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:35
 #: ../content/partner.py:35
-#: ../content/program.py:48
-#: ../content/project.py:98
+#: ../content/platform.py:33
 msgid "Country"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:102
+msgid "Country/Countries"
 msgstr ""
 
 #: ../content/project.py:177
@@ -140,6 +181,10 @@ msgstr ""
 msgid "Dollars"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:33
+msgid "End Date"
+msgstr ""
+
 #: ../content/project.py:83
 msgid "End date"
 msgstr ""
@@ -160,6 +205,10 @@ msgstr ""
 msgid "GWOPA Settings"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:18
+msgid "GWOPA administration page"
+msgstr ""
+
 #: ../profiles/default/types/Goal.xml
 msgid "Goal"
 msgstr ""
@@ -174,7 +223,7 @@ msgstr ""
 
 #: ../content/improvement_area.py:29
 #: ../content/partner.py:30
-#: ../content/program.py:43
+#: ../content/platform.py:28
 msgid "Image"
 msgstr ""
 
@@ -228,6 +277,10 @@ msgstr ""
 msgid "List of site files"
 msgstr ""
 
+#: ../browser/templates/homepage.pt:92
+msgid "Location"
+msgstr ""
+
 #: ../profiles/default/types/LogFrame.xml
 msgid "Log Frame"
 msgstr ""
@@ -268,12 +321,12 @@ msgstr ""
 msgid "Members"
 msgstr ""
 
-#: ../content/templates/region_view.pt:27
-msgid "Members in to this region"
-msgstr ""
-
 #: ../content/activity.py:84
 msgid "Members of this activity"
+msgstr ""
+
+#: ../content/templates/platform_view.pt:27
+msgid "Members with this region"
 msgstr ""
 
 #: ../content/activity.py:71
@@ -282,6 +335,14 @@ msgstr ""
 
 #: ../browser/templates/monitoring.pt:14
 msgid "Monitoring Module"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:79
+msgid "My Projects"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:133
+msgid "My company Projects"
 msgstr ""
 
 #: ../content/activity.py:30
@@ -304,8 +365,8 @@ msgstr ""
 msgid "PMP Projects View"
 msgstr ""
 
-#: ../userdataschema.py:69
-msgid "Partner/partners associated to this project"
+#: ../browser/templates/manage_portal.pt:147
+msgid "Partner"
 msgstr ""
 
 #: ../content/project.py:130
@@ -314,7 +375,6 @@ msgstr ""
 
 #: ../content/project.py:129
 #: ../content/templates/project_view.pt:27
-#: ../userdataschema.py:68
 msgid "Partners"
 msgstr ""
 
@@ -326,11 +386,15 @@ msgstr ""
 msgid "Pounds"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:123
+msgid "Program"
+msgstr ""
+
 #: ../content/project.py:107
-#: ../userdataschema.py:53
 msgid "Program/programs associated to this project"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:31
 #: ../profiles/default/types/Project.xml
 msgid "Project"
 msgstr ""
@@ -344,6 +408,10 @@ msgstr ""
 msgid "Project Manager Admin"
 msgstr ""
 
+#: ../browser/templates/homepage.pt:89
+msgid "Project Title"
+msgstr ""
+
 #: ../content/project.py:71
 msgid "Project image"
 msgstr ""
@@ -352,8 +420,16 @@ msgstr ""
 msgid "Project title"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:23
+msgid "Projects"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:91
+msgid "Realisation Date"
+msgstr ""
+
 #: ../content/project.py:90
-#: ../userdataschema.py:61
+#: ../userdataschema.py:60
 msgid "Regional WOP Platform"
 msgstr ""
 
@@ -369,18 +445,33 @@ msgstr ""
 msgid "Reporting Module"
 msgstr ""
 
+#: ../browser/templates/homepage.pt:162
+msgid "Search"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:161
+msgid "Search Projects"
+msgstr ""
+
 #: ../content/project.py:99
 #: ../userdataschema.py:46
 msgid "Select country"
 msgstr ""
 
 #: ../content/project.py:91
-#: ../userdataschema.py:62
 msgid "Select one or more regional WOP Platforms from the list"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:32
+msgid "Start Date"
 msgstr ""
 
 #: ../content/project.py:76
 msgid "Start date"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:90
+msgid "Starting Date"
 msgstr ""
 
 #: ../content/activity.py:47
@@ -393,7 +484,7 @@ msgstr ""
 msgid "Summary"
 msgstr ""
 
-#: ../userdataschema.py:77
+#: ../userdataschema.py:76
 msgid "TODO: Improvement Areas?"
 msgstr ""
 
@@ -453,6 +544,10 @@ msgstr ""
 msgid "Used in the projects item. One per line."
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:81
+msgid "UserID"
+msgstr ""
+
 #: ../browser/templates/visualizating.pt:14
 msgid "Visualizating Module"
 msgstr ""
@@ -461,7 +556,11 @@ msgstr ""
 msgid "WOP Partner"
 msgstr ""
 
-#: ../profiles/default/types/Region.xml
+#: ../userdataschema.py:68
+msgid "WOP Partners"
+msgstr ""
+
+#: ../profiles/default/types/Platform.xml
 msgid "WOP Platform"
 msgstr ""
 
@@ -475,8 +574,16 @@ msgstr ""
 msgid "Work Plan"
 msgstr ""
 
+#: ../browser/templates/homepage.pt:81
+msgid "You don't have assigned projects."
+msgstr ""
+
 #: ../userdataschema.py:34
 msgid "Your Twitter username. Could include the @. Example: @unhabitat"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:135
+msgid "Your company has no projects."
 msgstr ""
 
 #: ../userdataschema.py:40
@@ -510,10 +617,6 @@ msgstr ""
 msgid "home_page"
 msgstr ""
 
-#: ../browser/user_profile.py:47
-msgid "partners"
-msgstr ""
-
 #: ../browser/user_profile.py:43
 #: ../indexers.py:27
 msgid "phone"
@@ -526,6 +629,10 @@ msgstr ""
 
 #: ../indexers.py:21
 msgid "username"
+msgstr ""
+
+#: ../browser/user_profile.py:47
+msgid "wop_partners"
 msgstr ""
 
 #: ../browser/user_profile.py:46

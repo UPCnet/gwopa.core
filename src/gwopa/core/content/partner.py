@@ -69,7 +69,7 @@ class View(grok.View):
         results = []
 
         for item in members:
-            partners = item.getProperty('partners')
+            partners = item.getProperty('wop_partners')
             contextpartner = self.context.Title()
             for obj in partners:
                 if obj == contextpartner:

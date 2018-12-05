@@ -50,23 +50,22 @@ class IEnhancedUserDataSchema(model.Schema):
 
     wop_program = schema.List(
         title=_(u"WOP Program"),
-        description=_(u"Program/programs associated to this project"),
+        required=False,
         value_type=schema.Choice(
             source=utils.listWOPPrograms,
         ),
-        required=False,
     )
 
-    wop_platform = schema.Choice(
+    wop_platform = schema.List(
         title=_(u'Regional WOP Platform'),
-        description=_(u'Select one or more regional WOP Platforms from the list'),
         required=False,
-        source=utils.listWOPPlatforms
+        value_type=schema.Choice(
+            source=utils.listWOPPlatforms
+        ),
     )
 
-    partners = schema.List(
-        title=_(u"Partners"),
-        description=_(u"Partner/partners associated to this project"),
+    wop_partners = schema.List(
+        title=_(u"WOP Partners"),
         required=False,
         value_type=schema.Choice(
             source=utils.listPartners,

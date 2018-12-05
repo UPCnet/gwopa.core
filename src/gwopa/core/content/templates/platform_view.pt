@@ -24,7 +24,7 @@
     </div>
 
     <tal:block tal:condition="members">
-        <h2 i18n:translate=""> Members in to this region</h2>
+        <h2 i18n:translate=""> Members with this region</h2>
         <tal:objects repeat="member members">
             <ul class="member_item">
               <li>

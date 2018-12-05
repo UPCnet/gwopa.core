@@ -17,7 +17,7 @@
           site_properties context/portal_properties/site_properties;
           ajax_include_head request/ajax_include_head | nothing;
           ajax_load python:False;"
-      i18n:domain="plone"
+      i18n:domain="gwopa"
       tal:attributes="lang lang;">
 
     <metal:cache tal:replace="structure provider:plone.httpheaders" />
@@ -75,8 +75,8 @@
             <article id="content">
               <metal:bodytext define-slot="main">
                 <a class="context right" href="#"
-                   tal:attributes="href string:${context/absolute_url}/projects/++add++Project">+ New Project</a>
-                <h1 class="documentFirstHeading">My Projects <span style="color:red" tal:condition="view/isManager">(Manager: 1 random element)</span></h1>
+                   tal:attributes="href string:${context/absolute_url}/projects/++add++Project" i18n:translate="">+ New Project</a>
+                <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My Projects</tal:omit-tag> <span style="color:red" tal:condition="view/isManager" i18n:translate="">(Manager: 1 random element)</span></h1>
                 <div class="has-table" tal:define="items view/myProjects;" >
                   <h4 tal:condition="not:items" i18n:translate="">
                     You don't have assigned projects.
@@ -85,12 +85,12 @@
                     <table class="listing" summary="Content listing">
                       <thead>
                         <tr>
-                          <th class="nosort" style="width: 100px;"></th>
-                          <th class="nosort" style="width: 250px;">Project Title</th>
-                          <th class="nosort" style="width: 50px; text-align: center">Starting Date</th>
-                          <th class="nosort" style="width: 50px; text-align: center">Realisation Date</th>
-                          <th class="nosort" style="width: 80px;">Location</th>
-                          <th class="nosort" style="width: 150px;">Contact person</th>
+                          <th i18n:translate="" class="nosort" style="width: 100px;"></th>
+                          <th i18n:translate="" class="nosort" style="width: 250px;">Project Title</th>
+                          <th i18n:translate="" class="nosort" style="width: 50px; text-align: center">Starting Date</th>
+                          <th i18n:translate="" class="nosort" style="width: 50px; text-align: center">Realisation Date</th>
+                          <th i18n:translate="" class="nosort" style="width: 80px;">Location</th>
+                          <th i18n:translate="" class="nosort" style="width: 150px;">Contact person</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -130,12 +130,14 @@
                   </tal:projects>
                 </div> 
                 <br/>
-                <h1 class="documentFirstHeading">My company Projects <span style="color:red" tal:condition="view/isManager">(Manager: 4 random elements)</span></h1>
-                <div class="has-table">
-                  <table class="listing" summary="Content listing">
+                <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My company Projects </tal:omit-tag> <span style="color:red" tal:condition="view/isManager" i18n:translate="">(Manager: 4 random elements)</span></h1>
+                <div class="has-table" tal:define="items view/companyProjects">
+                  <h4 tal:condition="not:items" i18n:translate="">
+                    Your company has no projects.
+                  </h4>
+                  <table class="listing" summary="Content listing" tal:condition="items">
                     <tbody>
-                      <tal:CompanyProjects define="items view/companyProjects;
-                              toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
+                      <tal:CompanyProjects tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime;">
                         <div class="row">
                           <tal:items repeat="item items">
                             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -156,12 +158,13 @@
                   </table>
                 </div>
                 <br/>
-                <h1 class="documentFirstHeading">Search Projects</h1>
+                <h1 class="documentFirstHeading" i18n:translate="">Search Projects</h1>
                 <input type="text" class="pat-select2"  name="findProject"
                       data-pat-select2="placeholder:Search...;
                                         multiple:true;
                                         vocabularyUrl: ${portal_url}/select2-test.json;
-                                        width:20em" />
+                                        width:20em"
+                      i18n:attributes="placeholder Search" />
                 <!-- <a tal:attributes="href string:${portal_url}/" href="#">
                   <button class="context focus"> All </button>
                 </a> -->

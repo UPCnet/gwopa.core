@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="homeupc">
+      i18n:domain="gwopa">
 
 <body>
   <metal:block fill-slot="top_slot"
@@ -20,15 +20,15 @@
         <div class="visualClear"></div>
       </div>
 
-      <h2 i18n:translate=""> Projects
+      <h2><tal:omit-tag i18n:translate=""> Projects </tal:omit-tag>
         <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
-          <button id="add-new-user" class="context focus"> + Add New Project</button>
+          <button id="add-new-user" class="context focus" i18n:translate=""> + New Project</button>
         </a>
       </h2>
       <table class="sortable" tal:define="elements view/getProjects">
         <thead>
           <tr>
-            <th scope="col" i18n:translate=""> Project Name </th>
+            <th scope="col" i18n:translate=""> Project </th>
             <th scope="col" i18n:translate=""> Start Date </th>
             <th scope="col" i18n:translate=""> End Date </th>
             <th scope="col" i18n:translate=""> Admin role </th>
@@ -38,50 +38,47 @@
         <tbody>
           <tr tal:repeat="project elements">
             <td>
-              <a href="" tal:attributes="href string:${project/url}"><i class="fa fa-eye" aria-hidden="true" style="color:blu"></i></a>
               <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
               <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
-              <span  tal:content="project/title">Title</span>
+              <a href="" tal:attributes="href string:${project/url}/" target="_blank" tal:content="project/title">Title</a>
             </td>
-
-            <td i18n:translate="" tal:content="project/start"> Start </td>
-            <td i18n:translate="" tal:content="project/end"> End </td>
-            <td i18n:translate="" tal:content="project/manager"> Admin </td>
-            <td i18n:translate="" tal:content="project/country"> Country </td>
+            <td tal:content="project/start"> Start </td>
+            <td tal:content="project/end"> End </td>
+            <td tal:content="project/manager"> Admin </td>
+            <td tal:content="project/country"> Country </td>
           </tr>
         </tbody>
       </table>
+
       <h2> Areas </h2>
       <table class="sortable" tal:define="elements view/getAreas">
         <thead>
           <tr>
-            <th i18n:translate="" scope="col"> Area Title </th>
+            <th i18n:translate="" scope="col"> Area </th>
             <th i18n:translate="" scope="col"> Container </th>
-            <th i18n:translate="" scope="col"> Actions </th>
           </tr>
         </thead>
         <tbody>
           <tr tal:repeat="area elements">
             <td>
-              <a href="" tal:attributes="href string:${area/url}"><i class="fa fa-eye" aria-hidden="true" style="color:blu"></i></a>
               <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
               <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
-              <span tal:content="area/title">Title</span>
+              <a href="" tal:attributes="href string:${area/url}/" target="_blank" tal:content="area/title">Title</a>
             </td>
             <td tal:content="area/parent"> End </td>
-            <td i18n:translate=""> Edit / Delete </td>
           </tr>
         </tbody>
       </table>
+
       <h2> Users
         <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
-          <button id="add-new-user" class="context focus"> + Add New User</button>
+          <button id="add-new-user" class="context focus"> + New User</button>
         </a>
       </h2>
       <table class="sortable" tal:define="elements view/getUsers">
         <thead>
           <tr>
-            <th scope="col"> UserID </th>
+            <th i18n:translate="" scope="col"> UserID </th>
           </tr>
         </thead>
         <tbody>
@@ -89,6 +86,74 @@
             <td>
               <a href="" tal:attributes="href string:${portal_url}/profile/${project/id}" tal:content="project/id"> User ID </a>
             </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2> WOP Platforms
+        <a class="pat-plone-modal" id="add-platform" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/platforms/++add++Platform" href="#">
+          <button id="add-new-platform" class="context focus"> + New WOP Platform </button>
+        </a>
+      </h2>
+      <table class="sortable" tal:define="elements view/getPlatforms">
+        <thead>
+          <tr>
+            <th i18n:translate="" scope="col"> Project </th>
+            <th i18n:translate="" scope="col"> Country/Countries </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="project elements">
+            <td>
+              <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Project Title </a>
+            </td>
+            <td tal:content="project/country"> Country </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2> WOP Programs
+        <a class="pat-plone-modal" id="add-program" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/programs/++add++Program" href="#">
+          <button id="add-new-program" class="context focus"> + New WOP Program </button>
+        </a>
+      </h2>
+      <table class="sortable" tal:define="elements view/getPrograms">
+        <thead>
+          <tr>
+            <th i18n:translate="" scope="col"> Program </th>
+            <th i18n:translate="" scope="col"> Country/Countries </th>
+            <th i18n:translate="" scope="col"> Contact </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="project elements">
+            <td>
+              <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Program Title </a>
+            </td>
+            <td tal:content="project/country"> Country </td>
+            <td tal:content="project/email"> Contact </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2> WOP Partners
+        <a class="pat-plone-modal" id="add-partner" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/programs/++add++Partner" href="#">
+          <button id="add-new-partner" class="context focus"> + New WOP Partner </button>
+        </a>
+      </h2>
+      <table class="sortable" tal:define="elements view/getPartners">
+        <thead>
+          <tr>
+            <th i18n:translate="" scope="col"> Partner </th>
+            <th i18n:translate="" scope="col"> Country/Countries </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="project elements">
+            <td>
+              <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Partner </a>
+            </td>
+            <td tal:content="project/country"> Country </td>
           </tr>
         </tbody>
       </table>
