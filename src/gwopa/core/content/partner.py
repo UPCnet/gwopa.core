@@ -63,3 +63,16 @@ class IPartner(model.Schema):
 class View(grok.View):
     grok.context(IPartner)
     grok.template('partner_view')
+
+    def usersinthisPartner(self):
+        members = api.user.get_users()
+        results = []
+
+        for item in members:
+            partners = item.getProperty('partners')
+            contextpartner = self.context.Title()
+            for obj in partners:
+                if obj == contextpartner:
+                    results += [{'id': item.id,
+                                'profile': api.portal.get().absolute_url() + '/profile/' + item.id}]
+        return results

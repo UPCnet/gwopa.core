@@ -42,7 +42,7 @@ class select2(BrowserView):
         return json.dumps(
             {
                 'placeholder': "Select a Category",
-                'results': results
+                'results': results,
             }
         )
 

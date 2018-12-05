@@ -22,7 +22,7 @@
         </figure>
     </div>
 
-    <tal:block define="latitude context/latitude;
+    <tal:map define="latitude context/latitude;
                        longitude context/longitude">
         <div tal:condition="python: latitude and longitude" class="pat-leaflet map"
          data-geojson='{
@@ -53,7 +53,18 @@
            ]
           }'>
         </div>
-    </tal:block>
+    </tal:map>
+
+    <tal:users tal:define="users view/usersinthisPartner" tal:condition="users">
+    <h3> Users in this Partner </h3>
+      <span tal:repeat="user users">
+        <ul>
+          <li>
+            <a href="" tal:attributes="href user/profile" tal:content="user/id">USERNAME</a>
+          </li>
+        </ul>
+      </span>
+    </tal:users>
 
 </metal:content-core>
 

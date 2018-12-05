@@ -14,17 +14,13 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../content/templates/workplan_view.pt:24
+#: ../content/templates/workplan_view.pt:74
 msgid "Activities"
 msgstr "Activities"
 
 #: ../profiles/default/types/Activity.xml
 msgid "Activity"
 msgstr "Activity"
-
-#: ../browser/templates/planning.pt:19
-msgid "Add Log Frame"
-msgstr "Add Log Frame"
 
 #: ../browser/templates/global_map.pt:15
 msgid "All the projects in one map."
@@ -38,21 +34,13 @@ msgstr "All this parameters are needed for the correct use of GWOPA PMP system."
 msgid "An improvement area used on the Site"
 msgstr "An improvement area used on the Site"
 
-#: ../content/templates/workplan_view.pt:36
+#: ../content/templates/workplan_view.pt:93
 msgid "Annual Work Plan"
 msgstr "Annual Work Plan"
 
-#: ../content/templates/workplan_view.pt:14
-msgid "Annual Work Plan for this project"
-msgstr "Annual Work Plan for this project"
-
-#: ../controlpanel.py:57
-msgid "Available Experimental Areas used in the portal. One per line."
-msgstr "Available Experimental Areas used in the portal. One per line."
-
-#: ../controlpanel.py:12
-msgid "Available WOP Programs in the portal. One per line."
-msgstr "Available WOP Programs in the portal. One per line."
+#: ../content/activity.py:65
+msgid "Assigned budget"
+msgstr "Assigned budget"
 
 #: ../content/goalindicator.py:42
 #: ../content/indicator.py:36
@@ -71,6 +59,7 @@ msgid "Capacity Changes"
 msgstr "Capacity changes"
 
 #: ../content/partner.py:36
+#: ../content/program.py:49
 #: ../content/region.py:34
 msgid "Choose countries from list that represents this country."
 msgstr "Choose countries from the list"
@@ -79,26 +68,27 @@ msgstr "Choose countries from the list"
 msgid "Collaborating module"
 msgstr "Collaborating module"
 
+#: ../content/activity.py:53
+msgid "Completion time"
+msgstr "Completion time"
+
 #: ../content/partner.py:43
+#: ../content/program.py:56
 msgid "Contact email"
 msgstr "Contact email"
 
-#: ../content/project.py:169
+#: ../content/project.py:183
 #: ../content/templates/project_view.pt:44
 msgid "Contribution by partners and donors"
 msgstr "Contribution by partners and donors"
 
 #: ../content/partner.py:35
-#: ../content/project.py:94
-#: ../content/region.py:33
+#: ../content/program.py:48
+#: ../content/project.py:98
 msgid "Country"
 msgstr "Country"
 
-#: ../browser/templates/planning.pt:23
-msgid "Create Annual Work Plan"
-msgstr "Create Annual Work Plan"
-
-#: ../content/project.py:163
+#: ../content/project.py:177
 msgid "Currency"
 msgstr "Currency"
 
@@ -110,11 +100,11 @@ msgstr "Exchange currency"
 msgid "Current projects map"
 msgstr "Current projects"
 
-#: ../content/project.py:73
+#: ../content/project.py:77
 msgid "Date when the project begins."
 msgstr "Date when the project begins."
 
-#: ../content/project.py:80
+#: ../content/project.py:84
 msgid "Date when the project ends."
 msgstr "Date when the project ends."
 
@@ -138,17 +128,17 @@ msgstr "Describing reporting module"
 msgid "Describing visualizating module."
 msgstr "Describing visualizating module."
 
-#: ../content/project.py:79
+#: ../content/project.py:263
+msgid "Dollars"
+msgstr "Dollars"
+
+#: ../content/project.py:83
 msgid "End date"
 msgstr "End date"
 
-#: ../userdataschema.py:77
-msgid "Experimental Areas"
-msgstr "Experimental Areas"
-
-#: ../controlpanel.py:56
-msgid "Experimental Areas list"
-msgstr "Experimental Areas list"
+#: ../content/project.py:267
+msgid "Euros"
+msgstr "Euros"
 
 #: ../content/logframe.py:31
 msgid "File"
@@ -167,17 +157,16 @@ msgid "Goal"
 msgstr "Goal"
 
 #: ../browser/templates/collaborating.pt:14
+msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
+msgstr "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
+
 #: ../browser/templates/files.pt:15
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return\"."
 msgstr "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return\"."
 
-#: ../browser/templates/planning.pt:15
-msgid "Here are the Annual Work Plans and the Log Frames of the project."
-msgstr "Here are the Annual Work Plans and the Log Frames of the project."
-
 #: ../content/improvement_area.py:29
 #: ../content/partner.py:30
-#: ../content/project.py:66
+#: ../content/program.py:43
 msgid "Image"
 msgstr "Image"
 
@@ -189,11 +178,15 @@ msgstr "Image used to describe the Area. If no file chosen, a defult one will be
 msgid "Improvement Area"
 msgstr "Improvement Area"
 
+#: ../content/templates/workplan_view.pt:42
+msgid "Improvement Areas"
+msgstr "Improvement Areas"
+
 #: ../browser/templates/collaborating.pt:18
 msgid "Improvement areas"
 msgstr "Improvement areas"
 
-#: ../content/project.py:150
+#: ../content/project.py:164
 msgid "Improvement track team and members"
 msgstr "Improvement track team and members"
 
@@ -201,7 +194,7 @@ msgstr "Improvement track team and members"
 msgid "Indicator"
 msgstr "Indicator"
 
-#: ../content/activity.py:30
+#: ../content/activity.py:41
 msgid "Initial situation description"
 msgstr "Initial situation description"
 
@@ -209,7 +202,8 @@ msgstr "Initial situation description"
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
-#: ../content/project.py:23
+#: ../content/activity.py:15
+#: ../content/project.py:27
 msgid "Invalid start or end date"
 msgstr "Invalid start or end date"
 
@@ -218,7 +212,7 @@ msgid "Language"
 msgstr "Language"
 
 #: ../content/partner.py:50
-#: ../content/project.py:102
+#: ../content/project.py:115
 msgid "Latitude"
 msgstr "Latitude"
 
@@ -230,12 +224,8 @@ msgstr "List of site files"
 msgid "Log Frame"
 msgstr "Log Frame"
 
-#: ../browser/templates/planning.pt:27
-msgid "LogFrames"
-msgstr "LogFrames"
-
 #: ../content/partner.py:57
-#: ../content/project.py:109
+#: ../content/project.py:122
 msgid "Longitude"
 msgstr "Longitude"
 
@@ -265,8 +255,8 @@ msgstr "Measuring frequency"
 msgid "Measuring unit"
 msgstr "Measuring unit"
 
-#: ../content/activity.py:42
-#: ../content/project.py:149
+#: ../content/activity.py:83
+#: ../content/project.py:163
 msgid "Members"
 msgstr "Members"
 
@@ -274,11 +264,11 @@ msgstr "Members"
 msgid "Members in to this region"
 msgstr "Members in this region"
 
-#: ../content/activity.py:43
+#: ../content/activity.py:84
 msgid "Members of this activity"
 msgstr "Members of this activity"
 
-#: ../content/activity.py:36
+#: ../content/activity.py:71
 msgid "Milestones"
 msgstr "Milestones"
 
@@ -286,11 +276,11 @@ msgstr "Milestones"
 msgid "Monitoring Module"
 msgstr "Monitoring Module"
 
-#: ../content/activity.py:19
+#: ../content/activity.py:30
 msgid "Name"
 msgstr "Name"
 
-#: ../content/project.py:193
+#: ../content/project.py:199
 msgid "Objectives"
 msgstr "Objectives"
 
@@ -306,19 +296,15 @@ msgstr "Output"
 msgid "PMP Projects View"
 msgstr "PMP Projects View"
 
-#: ../profiles/default/types/Partner.xml
-msgid "Partner"
-msgstr "Partner"
-
 #: ../userdataschema.py:69
 msgid "Partner/partners associated to this project"
-msgstr "Partner or partners associated to this project"
+msgstr "You can indicate more than one Partner"
 
-#: ../content/project.py:117
+#: ../content/project.py:130
 msgid "Partner/partners of the project"
-msgstr "Select the partner or partners of the project"
+msgstr "You can indicate more than one Partner"
 
-#: ../content/project.py:116
+#: ../content/project.py:129
 #: ../content/templates/project_view.pt:27
 #: ../userdataschema.py:68
 msgid "Partners"
@@ -328,11 +314,11 @@ msgstr "Partners"
 msgid "Phone"
 msgstr "Phone"
 
-#: ../browser/templates/planning.pt:14
-msgid "Planning Module"
-msgstr "Planning Module"
+#: ../content/project.py:265
+msgid "Pounds"
+msgstr "Pounds"
 
-#: ../content/project.py:176
+#: ../content/project.py:107
 #: ../userdataschema.py:53
 msgid "Program/programs associated to this project"
 msgstr "Program or programs associated to this project"
@@ -341,55 +327,67 @@ msgstr "Program or programs associated to this project"
 msgid "Project"
 msgstr "Project"
 
-#: ../content/project.py:133
+#: ../content/project.py:146
 #: ../content/templates/project_view.pt:34
 msgid "Project Manager"
 msgstr "Project Manager"
 
-#: ../content/project.py:125
+#: ../content/project.py:138
 msgid "Project Manager Admin"
 msgstr "Project Manager (Administrator role)"
 
-#: ../content/project.py:67
+#: ../content/project.py:71
 msgid "Project image"
 msgstr "Project image"
 
-#: ../content/project.py:43
+#: ../content/project.py:47
 msgid "Project title"
 msgstr "Project Title"
 
-#: ../profiles/default/types/Region.xml
-msgid "Region"
-msgstr "Region"
-
-#: ../content/project.py:86
+#: ../content/project.py:90
 #: ../userdataschema.py:61
 msgid "Regional WOP Platform"
 msgstr "Regional WOP Platform"
+
+#: ../content/activity.py:59
+msgid "Related inputs"
+msgstr "Related inputs"
+
+#: ../content/activity.py:77
+msgid "Related outputs"
+msgstr "Related outputs"
 
 #: ../browser/templates/reporting.pt:14
 msgid "Reporting Module"
 msgstr "Reporting Module"
 
-#: ../content/project.py:95
+#: ../content/project.py:99
 #: ../userdataschema.py:46
 msgid "Select country"
 msgstr "Select country"
 
-#: ../content/project.py:87
+#: ../content/project.py:91
 #: ../userdataschema.py:62
 msgid "Select one or more regional WOP Platforms from the list"
 msgstr "Select one or more regional WOP Platforms from the list"
 
-#: ../content/project.py:72
+#: ../content/project.py:76
 msgid "Start date"
 msgstr "Start date"
 
-#: ../content/activity.py:24
+#: ../content/activity.py:47
+msgid "Starting time"
+msgstr "Starting time"
+
+#: ../content/activity.py:35
 #: ../content/goalindicator.py:31
 #: ../content/improvement_area.py:23
 msgid "Summary"
 msgstr "Summary"
+
+#: ../userdataschema.py:77
+msgid "TODO: Improvement Areas?"
+msgstr "TODO: Improvement Areas?"
 
 #: ../content/targetvalue.py:19
 #: ../profiles/default/types/TargetValue.xml
@@ -400,15 +398,15 @@ msgstr "Target Value"
 msgid "Target Value Date"
 msgstr "Target Value Date"
 
-#: ../browser/setup_home.py:115
+#: ../browser/setup_home.py:108
 msgid "The default config has been applied."
 msgstr "The default config has been applied."
 
-#: ../content/project.py:126
+#: ../content/project.py:139
 msgid "The responsible manager of the project"
 msgstr "The responsible manager of the project"
 
-#: ../content/project.py:134
+#: ../content/project.py:147
 msgid "The responsible of this project"
 msgstr "The responsible of this project"
 
@@ -418,7 +416,7 @@ msgstr "The responsible of this project"
 msgid "Title"
 msgstr "Title"
 
-#: ../content/project.py:158
+#: ../content/project.py:172
 #: ../content/templates/project_view.pt:39
 msgid "Total budget"
 msgstr "Total budget"
@@ -451,26 +449,22 @@ msgstr "Used in the projects item. One per line."
 msgid "Visualizating Module"
 msgstr "Visualizating Module"
 
-#: ../content/project.py:175
+#: ../profiles/default/types/Partner.xml
+msgid "WOP Partner"
+msgstr "WOP Partner"
+
+#: ../profiles/default/types/Region.xml
+msgid "WOP Platform"
+msgstr "WOP Platform"
+
+#: ../content/project.py:106
 #: ../content/templates/project_view.pt:49
-#: ../userdataschema.py:52
+#: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr "WOP Program"
 
-#: ../controlpanel.py:11
-msgid "WOP Program list"
-msgstr "WOP Program list"
-
 #: ../profiles/default/types/WorkPlan.xml
 msgid "Work Plan"
-msgstr "WorkPlan"
-
-#: ../browser/templates/planning.pt:42
-msgid "Work Plans"
-msgstr "WorkPlans"
-
-#: ../content/templates/workplan_view.pt:13
-msgid "WorkPlan"
 msgstr "WorkPlan"
 
 #: ../userdataschema.py:34
@@ -488,7 +482,7 @@ msgstr "Experimental Arees"
 #: ../browser/user_profile.py:44
 #: ../indexers.py:26
 msgid "country"
-msgstr "country"
+msgstr "Country"
 
 #: ../indexers.py:24
 msgid "description"

@@ -21,6 +21,7 @@
         <div class="field">
             <ul>
               <li>Create GWOPA controlpanel with default values</li>
+              <li>Create GWOPA config folder for system items</li>
               <li>Make [English / French / Spanish] languages availables on users profiles</li>
               <li>Assign English as default language of the Site</li>
               <li>Set default Homepage view</li>
@@ -31,8 +32,8 @@
         <form method="get" action="@@setup_home">
             <input id="create" class="context" type="submit" value="Initial Setup" name="create"/>
         </form>
-        <br/>For developers. This option creates DEMO CONTENT to simulate Site with some content.
-        <br/>All the content will be marked with DEMO word to easily find and delete them if needed.
+        <br/>For developers only.
+        <br/>This option generate loremipsum items in the Site.
         <br/>
         <br/>
         <form method="get" action="@@setup_home">
