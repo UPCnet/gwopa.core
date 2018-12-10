@@ -53,19 +53,4 @@
       name="gwopa.core-hiddenprofiles"
       />
 
-
-  <permission id="gwopa.controlpanel"
-              title="GWOPA: Modify settings">
-      <role name="Manager"/>
-  </permission>
-
-  <!-- Editing GWOPA Control Panel -->
-  <browser:page
-      name="gwopa-controlpanel"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      class=".controlpanel.GwopaEditingControlPanel"
-      permission="cmf.ManagePortal"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-      />
-
 </configure>

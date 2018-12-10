@@ -65,6 +65,7 @@ setup(
             'plone.testing',
             'plone.app.contenttypes',
             'plone.app.robotframework[debug]',
+            'gwopa.theme',
         ],
     },
     entry_points="""

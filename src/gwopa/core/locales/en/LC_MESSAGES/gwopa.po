@@ -43,10 +43,6 @@ msgstr "Admin role"
 msgid "All the projects in one map."
 msgstr "Map with all the projects."
 
-#: ../controlpanel.py:96
-msgid "All this parameters are needed for the correct use of GWOPA PMP system."
-msgstr "All this parameters are needed for the correct use of GWOPA PMP system."
-
 #: ../content/improvement_area.py:18
 msgid "An improvement area used on the Site"
 msgstr "An improvement area used on the Site"
@@ -75,7 +71,7 @@ msgstr "Baseline Date"
 msgid "Baseline value"
 msgstr "Baseline value"
 
-#: ../controlpanel.py:83
+#: ../content/settingspage.py:47
 msgid "Capacity Changes"
 msgstr "Capacity changes"
 
@@ -133,7 +129,7 @@ msgstr "Country/Countries"
 msgid "Currency"
 msgstr "Currency"
 
-#: ../controlpanel.py:47
+#: ../content/settingspage.py:29
 msgid "Currency Exchange"
 msgstr "Exchange currency"
 
@@ -192,10 +188,6 @@ msgstr "File"
 #: ../configure.zcml:40
 msgid "GWOPA Core package (gwopa.core)"
 msgstr "GWOPA Core package (gwopa.core)"
-
-#: ../controlpanel.py:97
-msgid "GWOPA Settings"
-msgstr "GWOPA Settings"
 
 #: ../browser/templates/manage_portal.pt:18
 msgid "GWOPA administration page"
@@ -300,11 +292,11 @@ msgstr "Measuring Frequency"
 msgid "Measuring Unit"
 msgstr "Measuring Unit"
 
-#: ../controlpanel.py:74
+#: ../content/settingspage.py:41
 msgid "Measuring frequency"
 msgstr "Measuring frequency"
 
-#: ../controlpanel.py:65
+#: ../content/settingspage.py:35
 msgid "Measuring unit"
 msgstr "Measuring unit"
 
@@ -454,6 +446,10 @@ msgstr "Select country"
 msgid "Select one or more regional WOP Platforms from the list"
 msgstr "Select one or more regional WOP Platforms from the list"
 
+#: ../profiles/default/types/SettingsPage.xml
+msgid "SettingsPage"
+msgstr "Settings Page"
+
 #: ../browser/templates/manage_portal.pt:32
 msgid "Start Date"
 msgstr "Start Date"
@@ -489,7 +485,7 @@ msgstr "Target Value"
 msgid "Target Value Date"
 msgstr "Target Value Date"
 
-#: ../browser/setup_home.py:108
+#: ../browser/setup_home.py:110
 msgid "The default config has been applied."
 msgstr "The default config has been applied."
 
@@ -500,6 +496,14 @@ msgstr "The responsible manager of the project"
 #: ../content/project.py:147
 msgid "The responsible of this project"
 msgstr "The responsible of this project"
+
+#: ../content/settingspage.py:17
+msgid "The system will use the settings id. Change for testing purposes only."
+msgstr "The system will use the settings id. Change for testing purposes only."
+
+#: ../content/settingspage.py:25
+msgid "This values are necessary for create elements on the Platform"
+msgstr "This values are necessary for create elements on the Platform"
 
 #: ../content/goalindicator.py:26
 #: ../content/improvement_area.py:17
@@ -528,11 +532,11 @@ msgstr "Uninstalls the gwopa.core add-on."
 msgid "Upload a file"
 msgstr "Upload a file"
 
-#: ../controlpanel.py:66
+#: ../content/settingspage.py:36
 msgid "Used in indicators"
 msgstr "Used inside indicators"
 
-#: ../controlpanel.py:48
+#: ../content/settingspage.py:30
 msgid "Used in the projects item. One per line."
 msgstr "Used in the projects item. One per line."
 
@@ -613,6 +617,10 @@ msgstr "Homepage"
 #: ../indexers.py:27
 msgid "phone"
 msgstr "Telephone number"
+
+#: ../content/settingspage.py:19
+msgid "settings"
+msgstr "Settings"
 
 #: ../browser/user_profile.py:42
 #: ../indexers.py:28

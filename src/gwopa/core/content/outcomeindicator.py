@@ -3,7 +3,7 @@ import datetime
 from five import grok
 from plone.supermodel import model
 from zope import schema
-from gwopa.core.utils import vocabulary_values
+from gwopa.core import utils
 from gwopa.core import _
 
 grok.templatedir("templates")
@@ -41,13 +41,13 @@ class IOutcomeindicator(model.Schema):
     measuring = schema.Choice(
         title=_(u"Measuring Unit"),
         required=True,
-        source=vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.measuring_unit'),
+        source=utils.settings_measuring_unit,
     )
 
     frequency = schema.Choice(
         title=_(u"Measuring Frequency"),
         required=True,
-        source=vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.measuring_frequency'),
+        source=utils.settings_measuring_frequency,
     )
 
     means = schema.Text(

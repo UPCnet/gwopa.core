@@ -19,8 +19,7 @@
     <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fa fa-home" aria-hidden="true"></i> FILES </a>
 
     <div style="float:right">
-        <a href="" tal:attributes="href string:${portal_url}/managePortal"><i class="fa fa-table" aria-hidden="true"></i> Management </a> |
-        <a href="" tal:attributes="href string:${portal_url}/@@gwopa-controlpanel"><i class="fa fa-cog" aria-hidden="true"></i> Configuration </a> |
+        <a href="" tal:attributes="href string:${portal_url}/managePortal"><i class="fa fa-table" aria-hidden="true"></i> Configuration </a> |
         <a href="" tal:attributes="href string:${portal_url}/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out </a>
     </div>
     <br/>

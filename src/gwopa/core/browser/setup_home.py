@@ -40,6 +40,8 @@ class setup(grok.View):
                 self.createDemoContent()
                 message = _(u"Demo content has been created.")
                 IStatusMessage(self.request).addStatusMessage(message, type="info")
+                logger = logging.getLogger('# Created DEMO CONTENT')
+                logger.info('%s' % self.context.id)
                 # self.request.response.redirect(self.context.absolute_url())
 
     def apply_default_language_settings(self):
@@ -91,7 +93,7 @@ class setup(grok.View):
                 description='WOP Platforms',
                 container=config_folder,
                 safe_id=False)
-            config_folder = api.content.create(
+            api.content.create(
                 type='Folder',
                 id='partners',
                 title='WOP Partners',
@@ -113,132 +115,180 @@ class setup(grok.View):
 
     def createDemoContent(self):
         """ Assign default values to panel control options """
-        # WOP LIST
-        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
-        # if not current or current[0] is '':
-        #     current = []
-        # default_wop_list = [
-        #     u'WOP Program Demo List 1',
-        #     u'WOP Program Demo List 2',
-        #     u'WOP Program Demo List 3',
-        #     u'WOP Program Demo List 4',
-        #     u'WOP Program Demo List 5']
-        # new_values = current + default_wop_list
-        # api.portal.set_registry_record(
-        #     'gwopa.core.controlpanel.IGWOPASettings.wop_list', sorted(list(set(new_values))))
-        # Partners LIST
-        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
-        # if not current or current[0] is '':
-        #     current = []
-        # default_partners_list = [
-        #     u'Partner Demo User 1',
-        #     u'Partner Demo User 2',
-        #     u'Partner Demo User 3',
-        #     u'Partner Demo User 4',
-        #     u'Partner Demo User 5']
-        # new_values = current + default_partners_list
-        # api.portal.set_registry_record(
-        #     'gwopa.core.controlpanel.IGWOPASettings.partners_list', sorted(list(set(new_values))))
-        # Currency LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.currency')
-        if not current or current[0] is '':
-            current = []
-        default_currency_list = [
-            u'Dollars',
-            u'Euros',
-            u'Pounds']
-        new_values = current + default_currency_list
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.currency', sorted(list(set(new_values))))
-        # Measuring units LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.measuring_unit')
-        if not current or current[0] is '':
-            current = []
-        default_measuring_list = [
-            u'liters',
-            u'm3',
-            u'people',
-            u'others',
-        ]
-        new_values = current + default_measuring_list
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.measuring_unit', sorted(list(set(new_values))))
-        # Measuring frequency LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.measuring_frequency')
-        if not current or current[0] is '':
-            current = []
-        default_measuringfreq_list = [
-            u'quarterly',
-            u'biannually',
-            u'annually',
-        ]
-        new_values = current + default_measuringfreq_list
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.measuring_frequency', sorted(list(set(new_values))))
-        #  Regions LIST
-        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.region_list')
-        # if not current or current[0] is '':
-        #     current = []
-        # default_region_list = [
-        # u'Europe',
-        # u'Africa',
-        # u'America',
-        # ]
-        # new_values = current + default_region_list
-        # api.portal.set_registry_record(
-        #     'gwopa.core.controlpanel.IGWOPASettings.region_list', sorted(list(set(new_values))))
-        # #  wop_platform LIST
-        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_platform')
-        # if not current or current[0] is '':
-        #     current = []
-        # default_wop_platform_list = [
-        #     u'WOP Platform 1',
-        #     u'WOP Platform 2',
-        #     u'WOP Platform 3',
-        #     u'WOP Platform 4',
-        #     u'WOP Platform 5',
-        # ]
-        # new_values = current + default_wop_platform_list
-        # api.portal.set_registry_record(
-        #     'gwopa.core.controlpanel.IGWOPASettings.wop_platform', sorted(list(set(new_values))))
-        # #  experimental areas LIST
-        # current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.experimental_areas')
-        # if not current or current[0] is '':
-        #     current = []
-        # default_experimental_areas_list = [
-        #     u'Experimental Area 1',
-        #     u'Experimental Area 2',
-        #     u'Experimental Area 3',
-        #     u'Experimental Area 4',
-        #     u'Experimental Area 5',
-        # ]
-        # new_values = current + default_experimental_areas_list
-        # api.portal.set_registry_record(
-        #     'gwopa.core.controlpanel.IGWOPASettings.experimental_areas', sorted(list(set(new_values))))
-        # Capcaity Changes LIST
-        current = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.capacity_changes')
-        if not current or current[0] is '':
-            current = []
-        default_capacity_changes = [
-            u'External Environment',
-            u'Leadership',
-            u'Mission/Strategy',
-            u'Organizational culture',
-            u'Management practices',
-            u'Working routines',
-            u'Organizational structure',
-            u'Systems (procedures and policies)',
-            u'Information on current conditions',
-            u'Equipment',
-            u'Infrastructure',
-            u'Financial resources',
-            u'Staff motivation',
-            u'Staff skills & Knowledge',
-            u'Others',
-        ]
-        new_values = current + default_capacity_changes
-        api.portal.set_registry_record(
-            'gwopa.core.controlpanel.IGWOPASettings.capacity_changes', sorted(list(set(new_values))))
+        portal = api.portal.get()
+        settingspage = api.content.create(
+            type='SettingsPage',
+            id='settings',
+            title='GWOPA Settings Page',
+            description='GWOPA default values used in Site',
+            container=portal.config,
+            safe_id=False)
+        settingspage.currency = 'Dollars\nEuros\nPounds'
+        settingspage.measuring_unit = 'liters\nm3\npeople\nothers'
+        settingspage.measuring_frequency = 'quarterly\nbiannually\nannually'
+        settingspage.capacity_changes = 'External Environment \
+            \nLeadership \
+            \nMission/Strategy \
+            \nOrganizational culture \
+            \nManagement practices \
+            \nWorking routines \
+            \nOrganizational structure \
+            \nSystems (procedures and policies) \
+            \nInformation on current conditions \
+            \nEquipment \
+            \nInfrastructure \
+            \nFinancial resources \
+            \nStaff motivation \
+            \nStaff skills & Knowledge \
+            \nOthers'
+
+        # Create demo Platforms
+        p1 = api.content.create(
+            type='Platform',
+            id='platform1',
+            title='WOP Platform 1',
+            description='WOP Platform 1',
+            container=portal.config.platforms,
+            safe_id=False)
+        p1.country = ['Spain']
+        p2 = api.content.create(
+            type='Platform',
+            id='platform2',
+            title='WOP Platform 2',
+            description='WOP Platform 2',
+            container=portal.config.platforms,
+            safe_id=False)
+        p2.country = ['Spain']
+        p3 = api.content.create(
+            type='Platform',
+            id='platform3',
+            title='WOP Platform 3',
+            description='WOP Platform 3',
+            container=portal.config.platforms,
+            safe_id=False)
+        p3.country = ['Spain']
+        p4 = api.content.create(
+            type='Platform',
+            id='platform4',
+            title='WOP Platform 4',
+            description='WOP Platform 4',
+            container=portal.config.platforms,
+            safe_id=False)
+        p4.country = ['Spain']
+        p5 = api.content.create(
+            type='Platform',
+            id='platform5',
+            title='WOP Platform 5',
+            description='WOP Platform 5',
+            container=portal.config.platforms,
+            safe_id=False)
+        p5.country = ['Spain']
+
+        # Create demo programs
+        portal = api.portal.get()
+        p1 = api.content.create(
+            type='Program',
+            id='program1',
+            title='WOP Program 1',
+            description='WOP Program 1',
+            container=portal.config.programs,
+            safe_id=False)
+        p1.contact = 'userprogram1@test.com'
+        p1.country = ['Spain']
+        p2 = api.content.create(
+            type='Program',
+            id='program2',
+            title='WOP Program 2',
+            description='WOP Program 2',
+            container=portal.config.programs,
+            safe_id=False)
+        p2.contact = 'userprogram2@test.com'
+        p2.country = ['Spain']
+        p3 = api.content.create(
+            type='Program',
+            id='program3',
+            title='WOP Program 3',
+            description='WOP Program 3',
+            container=portal.config.programs,
+            safe_id=False)
+        p3.contact = 'userprogram3@test.com'
+        p3.country = ['Spain']
+        p4 = api.content.create(
+            type='Program',
+            id='program4',
+            title='WOP Program 4',
+            description='WOP Program 4',
+            container=portal.config.programs,
+            safe_id=False)
+        p4.contact = 'userprogram4@test.com'
+        p4.country = ['Spain']
+        p5 = api.content.create(
+            type='Program',
+            id='program5',
+            title='WOP Program 5',
+            description='WOP Program 5',
+            container=portal.config.programs,
+            safe_id=False)
+        p5.contact = 'userprogram5@test.com'
+        p5.country = ['Spain']
+
+        # Create demo partners
+        portal = api.portal.get()
+        p1 = api.content.create(
+            type='Partner',
+            id='partner1',
+            title='WOP Partner 1',
+            description='WOP Partner 1',
+            container=portal.config.partners,
+            safe_id=False)
+        p1.contact = 'userpartner1@test.com'
+        p1.country = ['Spain']
+        p1.latitude = 41.3828939
+        p1.longitude = 2.1774322
+        p2 = api.content.create(
+            type='Partner',
+            id='partner2',
+            title='WOP Partner 2',
+            description='WOP Partner 2',
+            container=portal.config.partners,
+            safe_id=False)
+        p2.contact = 'userpartner2@test.com'
+        p2.country = ['Spain']
+        p2.latitude = 41.3828939
+        p2.longitude = 2.1774322
+        p3 = api.content.create(
+            type='Partner',
+            id='partner3',
+            title='WOP Partner 3',
+            description='WOP Partner 3',
+            container=portal.config.partners,
+            safe_id=False)
+        p3.contact = 'userpartner3@test.com'
+        p3.country = ['Spain']
+        p3.latitude = 41.3828939
+        p3.longitude = 2.1774322
+        p4 = api.content.create(
+            type='Partner',
+            id='partner4',
+            title='WOP Partner 4',
+            description='WOP Partner 4',
+            container=portal.config.partners,
+            safe_id=False)
+        p4.contact = 'userpartner4@test.com'
+        p4.country = ['Spain']
+        p4.latitude = 41.3828939
+        p4.longitude = 2.1774322
+        p5 = api.content.create(
+            type='Partner',
+            id='partner5',
+            title='WOP Partner 5',
+            description='WOP Partner 5',
+            container=portal.config.partners,
+            safe_id=False)
+        p5.contact = 'userpartner5@test.com'
+        p5.country = ['Spain']
+        p5.latitude = 41.3828939
+        p5.longitude = 2.1774322
 
         self.createProjects(5)
         return "Demo content created"
@@ -272,8 +322,6 @@ class setup(grok.View):
 
     def createProjects(self, number):
         portal = api.portal.get()
-        # wops = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.wop_list')
-        # partners = api.portal.get_registry_record('gwopa.core.controlpanel.IGWOPASettings.partners_list')
         for i in range(number):
             project = api.content.create(
                 type='Project',
@@ -287,13 +335,7 @@ class setup(grok.View):
             project.contribution = RichTextValue(
                 self.getLoremIpsum(2, 'long', 'html'),
                 'text/html', 'text/html')
-            # wop_item = wops[i]
             new_value = []
-            # new_value.append(wop_item)
-            # project.wop_program = new_value
-            # partner_item = partners[i]
-            # new_value = []
-            # new_value.append(partner_item)
             project.partners = new_value
             project.latitude = 41.3828939
             project.longitude = 2.1774322

@@ -158,6 +158,13 @@
         </tbody>
       </table>
 
+      <h2> Currency/Measuring/Capacity Settings
+        <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}; title: PMP Settings" tal:attributes="href string:${portal_url}/config/settings/edit" href="#">
+          <button class="context focus"> View or edit values </button>
+        </a>
+      </h2>
+      <p> Shows the current values for: Exchange Currency / Measuring Unit / Measuring Frequency / Capacity Changes</p>
+
     </metal:main-macro>
   </div>
 

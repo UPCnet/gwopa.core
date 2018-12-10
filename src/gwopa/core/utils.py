@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from plone import api
-from zope.interface import implements
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
 import unicodedata
@@ -10,26 +9,6 @@ from gwopa.core import _
 from souper.soup import get_soup
 from repoze.catalog.query import Eq
 from zope.interface import directlyProvides
-
-
-class vocabulary_values(object):
-    """ Generates Vocabulary list field """
-    implements(IContextSourceBinder)
-
-    def __init__(self, key):
-        self.key = key
-
-    def __call__(self, context):
-        values = api.portal.get_registry_record(self.key)
-        terms = []
-        for item in values:
-            if len(item.lstrip()) != 0:
-                if isinstance(item, str):
-                    flattened = unicodedata.normalize('NFKD', item.decode('utf-8')).encode('ascii', errors='ignore')
-                else:
-                    flattened = unicodedata.normalize('NFKD', item).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(item, flattened, item))
-        return SimpleVocabulary(terms)
 
 
 def generate_vocabulary(value):
@@ -81,6 +60,78 @@ def listWOPPrograms(context):
 
 
 directlyProvides(listWOPPrograms, IContextSourceBinder)
+
+
+def settings_currency(context):
+    """ WOP Currency """
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().currency
+        terms = []
+        for value in values.split('\n'):
+            if value != '':
+                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+        return SimpleVocabulary(terms)
+    else:
+        return None
+
+
+directlyProvides(settings_currency, IContextSourceBinder)
+
+
+def settings_measuring_unit(context):
+    """ WOP Currency """
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().measuring_unit
+        terms = []
+        for value in values.split('\n'):
+            if value != '':
+                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+        return SimpleVocabulary(terms)
+    else:
+        return None
+
+
+directlyProvides(settings_measuring_unit, IContextSourceBinder)
+
+
+def settings_measuring_frequency(context):
+    """ WOP Currency """
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().measuring_frequency
+        terms = []
+        for value in values.split('\n'):
+            if value != '':
+                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+        return SimpleVocabulary(terms)
+    else:
+        return None
+
+
+directlyProvides(settings_measuring_frequency, IContextSourceBinder)
+
+
+def settings_capacity_changes(context):
+    """ WOP Currency """
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().capacity_changes
+        terms = []
+        for value in values.split('\n'):
+            if value != '':
+                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+        return SimpleVocabulary(terms)
+    else:
+        return None
+
+
+directlyProvides(settings_capacity_changes, IContextSourceBinder)
 
 
 def get_safe_member_by_id(username):

@@ -20,8 +20,7 @@
       <fieldset class="formPanel">
         <div class="field">
             <ul>
-              <li>Create GWOPA controlpanel with default values</li>
-              <li>Create GWOPA config folder for system items</li>
+              <li>Create GWOPA config folder, with default values</li>
               <li>Make [English / French / Spanish] languages availables on users profiles</li>
               <li>Assign English as default language of the Site</li>
               <li>Set default Homepage view</li>

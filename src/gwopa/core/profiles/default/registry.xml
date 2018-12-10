@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<registry>
-
-    <records interface="gwopa.core.controlpanel.IGWOPASettings" purge="False" />
-
-</registry>

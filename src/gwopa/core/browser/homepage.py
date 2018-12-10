@@ -39,8 +39,7 @@ class MainTemplate(BrowserView):
                 context=self.context,
                 sort_order='reverse',
                 sort_on='modified',
-                sort_limit=limit,
-                review_state='published')
+                sort_limit=limit)
             for project in projects:
                 item = project._unrestrictedGetObject()
                 if item.image:
@@ -84,13 +83,12 @@ class MainTemplate(BrowserView):
 
     def companyProjects(self):
         catalog = api.portal.get_tool('portal_catalog')
-        projects = catalog.unrestrictedSearchResults(
-            portal_type='Project',
-            context=self.context,
-            review_state='published')
         results = []
         # Manager views all projects
         if 'Manager' in api.user.get_roles(username=api.user.get_current().id):
+            projects = catalog.unrestrictedSearchResults(
+                portal_type='Project',
+                context=self.context)
             for project in projects:
                 item = project._unrestrictedGetObject()
                 if item.image:
@@ -109,6 +107,10 @@ class MainTemplate(BrowserView):
                 else:
                     return results
         else:
+            projects = catalog.unrestrictedSearchResults(
+                portal_type='Project',
+                context=self.context,
+                review_state='published')
             # Tuple to list in the next code
             userPartners = (list(api.user.get_current().getProperty('wop_partners')))
             for project in projects:
@@ -135,8 +137,7 @@ class MainTemplate(BrowserView):
     def allProjects(self):
         catalog = api.portal.get_tool('portal_catalog')
         projects = catalog.unrestrictedSearchResults(
-            portal_type='Project',
-            review_state='published')
+            portal_type='Project')
         results = []
         for project in projects:
             item = project._unrestrictedGetObject()

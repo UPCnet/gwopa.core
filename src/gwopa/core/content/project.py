@@ -15,10 +15,10 @@ from plone.directives import form
 from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
-from plone.app.z3cform.widget import AjaxSelectFieldWidget
-from z3c.relationfield.schema import RelationList
-from z3c.relationfield.schema import RelationChoice
-from plone.app.z3cform.widget import RelatedItemsFieldWidget
+# from plone.app.z3cform.widget import AjaxSelectFieldWidget
+# from z3c.relationfield.schema import RelationList
+# from z3c.relationfield.schema import RelationChoice
+# from plone.app.z3cform.widget import RelatedItemsFieldWidget
 
 grok.templatedir("templates")
 
@@ -175,7 +175,7 @@ class IProject(model.Schema):
 
     currency = schema.Choice(
         title=_(u"Currency"),
-        source=utils.vocabulary_values('gwopa.core.controlpanel.IGWOPASettings.currency'),
+        source=utils.settings_currency,
         required=True,
     )
 

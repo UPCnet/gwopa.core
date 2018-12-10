@@ -43,10 +43,6 @@ msgstr ""
 msgid "All the projects in one map."
 msgstr ""
 
-#: ../controlpanel.py:96
-msgid "All this parameters are needed for the correct use of GWOPA PMP system."
-msgstr ""
-
 #: ../content/improvement_area.py:18
 msgid "An improvement area used on the Site"
 msgstr ""
@@ -75,7 +71,7 @@ msgstr ""
 msgid "Baseline value"
 msgstr ""
 
-#: ../controlpanel.py:83
+#: ../content/settingspage.py:47
 msgid "Capacity Changes"
 msgstr ""
 
@@ -133,7 +129,7 @@ msgstr ""
 msgid "Currency"
 msgstr ""
 
-#: ../controlpanel.py:47
+#: ../content/settingspage.py:29
 msgid "Currency Exchange"
 msgstr ""
 
@@ -191,10 +187,6 @@ msgstr ""
 
 #: ../configure.zcml:40
 msgid "GWOPA Core package (gwopa.core)"
-msgstr ""
-
-#: ../controlpanel.py:97
-msgid "GWOPA Settings"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:18
@@ -300,11 +292,11 @@ msgstr ""
 msgid "Measuring Unit"
 msgstr ""
 
-#: ../controlpanel.py:74
+#: ../content/settingspage.py:41
 msgid "Measuring frequency"
 msgstr ""
 
-#: ../controlpanel.py:65
+#: ../content/settingspage.py:35
 msgid "Measuring unit"
 msgstr ""
 
@@ -454,6 +446,10 @@ msgstr ""
 msgid "Select one or more regional WOP Platforms from the list"
 msgstr ""
 
+#: ../profiles/default/types/SettingsPage.xml
+msgid "SettingsPage"
+msgstr ""
+
 #: ../browser/templates/manage_portal.pt:32
 msgid "Start Date"
 msgstr ""
@@ -489,7 +485,7 @@ msgstr ""
 msgid "Target Value Date"
 msgstr ""
 
-#: ../browser/setup_home.py:108
+#: ../browser/setup_home.py:110
 msgid "The default config has been applied."
 msgstr ""
 
@@ -499,6 +495,14 @@ msgstr ""
 
 #: ../content/project.py:147
 msgid "The responsible of this project"
+msgstr ""
+
+#: ../content/settingspage.py:17
+msgid "The system will use the settings id. Change for testing purposes only."
+msgstr ""
+
+#: ../content/settingspage.py:25
+msgid "This values are necessary for create elements on the Platform"
 msgstr ""
 
 #: ../content/goalindicator.py:26
@@ -528,11 +532,11 @@ msgstr ""
 msgid "Upload a file"
 msgstr ""
 
-#: ../controlpanel.py:66
+#: ../content/settingspage.py:36
 msgid "Used in indicators"
 msgstr ""
 
-#: ../controlpanel.py:48
+#: ../content/settingspage.py:30
 msgid "Used in the projects item. One per line."
 msgstr ""
 
@@ -612,6 +616,10 @@ msgstr ""
 #: ../browser/user_profile.py:43
 #: ../indexers.py:27
 msgid "phone"
+msgstr ""
+
+#: ../content/settingspage.py:19
+msgid "settings"
 msgstr ""
 
 #: ../browser/user_profile.py:42
