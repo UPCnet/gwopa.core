@@ -14,13 +14,18 @@
     <div class="documentDescription description"> Annual Work Plan for year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
       <ul class="pagination pagination-lg" style="float:right; margin: 0px;">
         <li tal:condition="prevYear">
-          <a href="#" class="serverprevious" tal:attributes="href string:awp-${prevYear}">
-             &lt; Previous Year
+          <a href="#" class="serverprevious" tal:attributes="href string:awp-${prevYear}" tal:content="prevYear">
+             &lt;
+          </a>
+        </li>
+        <li >
+          <a href="#" class="servernext" tal:attributes="href  string:awp-${currentYear}" tal:content="currentYear">
+             &gt;
           </a>
         </li>
         <li tal:condition="nextYear">
-          <a href="#" class="servernext" tal:attributes="href string:awp-${nextYear}">
-            Next Year &gt;
+          <a href="#" class="servernext" tal:attributes="href string:awp-${nextYear}" tal:content="nextYear">
+             &gt;
           </a>
         </li>
       </ul>
