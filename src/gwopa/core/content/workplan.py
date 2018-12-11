@@ -33,31 +33,24 @@ class View(grok.View):
     grok.context(IWorkplan)
     grok.template('workplan_view')
 
+    def getItems(self):
+        items = self.context.aq_parent.items()
+        results = []
+        for item in items:
+            if item[1].portal_type == 'WorkPlan':
+                if self.context.id == item[0]:
+                    classe = 'disabled'
+                else:
+                    classe = 'visible'
+                results.append(dict(
+                    title=item[0].split('-')[1],
+                    url=item[1].absolute_url_path(),
+                    classe=classe))
+        return results
+
     def currentYear(self):
         year = self.context.absolute_url_path().split('-')[1:][0]
         return year
-
-    def prevYear(self):
-        year = self.context.absolute_url_path().split('-')[1:][0]
-        folder = api.content.find(
-            portal_type='WorkPlan',
-            id='awp-' + str(int(year) - 1),
-            context=self.context.aq_parent)
-        if folder:
-            return int(year) - 1
-        else:
-            return False
-
-    def nextYear(self):
-        year = self.context.absolute_url_path().split('-')[1:][0]
-        folder = api.content.find(
-            portal_type='WorkPlan',
-            id='awp-' + str(int(year) + 1),
-            context=self.context.aq_parent)
-        if folder:
-            return int(year) + 1
-        else:
-            return False
 
     def getAreas(self):
         items = api.content.find(
@@ -81,9 +74,6 @@ class View(grok.View):
                                 portal_type=item.portal_type
                                 ))
         return results
-
-    def projectUrl(self):
-        return self.context.aq_parent.aq_parent.absolute_url()
 
     def listActivities(self):
         items = api.content.find(

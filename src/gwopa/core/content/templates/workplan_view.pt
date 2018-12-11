@@ -9,29 +9,18 @@
 
 <metal:content-core fill-slot="main">
 
-  <metal:block define-macro="content-core" tal:define="currentYear view/currentYear; prevYear view/prevYear; nextYear view/nextYear">
+  <metal:block define-macro="content-core" tal:define="items view/getItems;currentYear view/currentYear;">
     <h1 class="documentFirstHeading">Planning - Annual <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
-    <div class="documentDescription description"> Annual Work Plan for year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
+    <div class="documentDescription description"> Annual Work Plan for year  <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
       <ul class="pagination pagination-lg" style="float:right; margin: 0px;">
-        <li tal:condition="prevYear">
-          <a href="#" class="serverprevious" tal:attributes="href string:awp-${prevYear}" tal:content="prevYear">
-             &lt;
+        <tal:block tal:repeat="item items">
+        <li tal:attributes="class item/classe">
+          <a href="#" tal:attributes="href item/url">Planning <tal:omit-tag tal:content="item/title"></tal:omit-tag>
           </a>
         </li>
-        <li >
-          <a href="#" class="servernext" tal:attributes="href  string:awp-${currentYear}" tal:content="currentYear">
-             &gt;
-          </a>
-        </li>
-        <li tal:condition="nextYear">
-          <a href="#" class="servernext" tal:attributes="href string:awp-${nextYear}" tal:content="nextYear">
-             &gt;
-          </a>
-        </li>
+      </tal:block>
       </ul>
-      <br/>
     </div>
-
     <div style="float: right;">
       <a tal:attributes="href string:${context/absolute_url}/copyWorkPlan" href="#">
         <button class="plone-btn-warning"><i class="fa fa-copy"></i> Duplicate Work Plan</button></a>
