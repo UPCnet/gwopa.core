@@ -3,6 +3,7 @@
   <object meta_type="Dexterity FTI" name="Project" />
   <object meta_type="Dexterity FTI" name="Goal" />
   <object meta_type="Dexterity FTI" name="Outcome" />
+  <object meta_type="Dexterity FTI" name="OutcomeCC" />
   <object meta_type="Dexterity FTI" name="Output" />
   <object meta_type="Dexterity FTI" name="Indicator" />
   <object meta_type="Dexterity FTI" name="ImprovementArea" />
