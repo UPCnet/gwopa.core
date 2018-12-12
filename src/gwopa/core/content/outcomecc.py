@@ -15,8 +15,8 @@ def todayValue():
     return datetime.date.today()
 
 
-class IOutcomeCC(model.Schema):
-    """  Outcomccor
+class IOutcomecc(model.Schema):
+    """  OutcomeCC
     """
     title = schema.TextLine(
         title=_(u"Title"),
@@ -55,12 +55,12 @@ class IOutcomeCC(model.Schema):
 
 
 class View(grok.View):
-    grok.context(IOutcomeCC)
+    grok.context(IOutcomecc)
     grok.template('outcomecc_view')
 
 
 class Edit(form.SchemaEditForm):
-    grok.context(IOutcomeCC)
+    grok.context(IOutcomecc)
 
     def updateWidgets(self):
         super(Edit, self).updateWidgets()

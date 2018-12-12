@@ -27,9 +27,9 @@ msgstr "(Manager: 4 elementos al azar)"
 msgid "+ New Project"
 msgstr "+ Nuevo Proyecto"
 
-#: ../content/templates/workplan_view.pt:74
+#: ../content/templates/workplan_view.pt:71
 msgid "Activities"
-msgstr "Actividades"
+msgstr ""
 
 #: ../profiles/default/types/Activity.xml
 msgid "Activity"
@@ -47,10 +47,6 @@ msgstr "Todos los proyectos en un único mapa."
 msgid "An improvement area used on the Site"
 msgstr "Un 'Improvement Area' dentro del sistema"
 
-#: ../content/templates/workplan_view.pt:93
-msgid "Annual Work Plan"
-msgstr "Annual Work Plan"
-
 #: ../browser/templates/manage_portal.pt:57
 msgid "Area"
 msgstr ""
@@ -59,21 +55,29 @@ msgstr ""
 msgid "Assigned budget"
 msgstr "Assigned budget"
 
-#: ../content/goalindicator.py:42
-#: ../content/indicator.py:36
-#: ../content/outcomeindicator.py:36
+#: ../content/output.py:37
 msgid "Baseline Date"
 msgstr "Baseline Date"
 
-#: ../content/goalindicator.py:37
-#: ../content/indicator.py:31
-#: ../content/outcomeindicator.py:31
+#: ../content/outcomecc.py:41
+#: ../content/outcomeccs.py:41
+#: ../content/outcomekpi.py:41
+msgid "Baseline description"
+msgstr ""
+
+#: ../content/output.py:32
 msgid "Baseline value"
 msgstr "Baseline value"
 
 #: ../content/settingspage.py:47
 msgid "Capacity Changes"
 msgstr "Capacity Changes"
+
+#: ../content/outcomecc.py:27
+#: ../content/outcomeccs.py:27
+#: ../content/outcomekpi.py:27
+msgid "Capacity Items"
+msgstr ""
 
 #: ../content/partner.py:36
 #: ../content/platform.py:34
@@ -137,6 +141,12 @@ msgstr ""
 msgid "Current projects map"
 msgstr ""
 
+#: ../content/outcomecc.py:46
+#: ../content/outcomeccs.py:46
+#: ../content/outcomekpi.py:46
+msgid "Date of the Baseline"
+msgstr ""
+
 #: ../content/project.py:77
 msgid "Date when the project begins."
 msgstr ""
@@ -193,10 +203,6 @@ msgstr ""
 msgid "GWOPA administration page"
 msgstr ""
 
-#: ../profiles/default/types/Goal.xml
-msgid "Goal"
-msgstr ""
-
 #: ../browser/templates/collaborating.pt:14
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
 msgstr ""
@@ -215,11 +221,17 @@ msgstr ""
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr ""
 
+#: ../content/outcomecc.py:28
+#: ../content/outcomeccs.py:28
+#: ../content/outcomekpi.py:28
+msgid "Improved specific capacity"
+msgstr ""
+
 #: ../profiles/default/types/ImprovementArea.xml
 msgid "Improvement Area"
 msgstr ""
 
-#: ../content/templates/workplan_view.pt:42
+#: ../content/templates/workplan_view.pt:37
 msgid "Improvement Areas"
 msgstr ""
 
@@ -229,10 +241,6 @@ msgstr ""
 
 #: ../content/project.py:164
 msgid "Improvement track team and members"
-msgstr ""
-
-#: ../profiles/default/types/Indicator.xml
-msgid "Indicator"
 msgstr ""
 
 #: ../content/activity.py:41
@@ -274,21 +282,17 @@ msgstr ""
 msgid "Longitude"
 msgstr ""
 
-#: ../content/goalindicator.py:60
-#: ../content/indicator.py:54
-#: ../content/outcomeindicator.py:54
+#: ../content/outcomecc.py:52
+#: ../content/outcomeccs.py:52
+#: ../content/outcomekpi.py:52
 msgid "Means of verification"
 msgstr ""
 
-#: ../content/goalindicator.py:54
-#: ../content/indicator.py:48
-#: ../content/outcomeindicator.py:48
+#: ../content/output.py:49
 msgid "Measuring Frequency"
 msgstr ""
 
-#: ../content/goalindicator.py:48
-#: ../content/indicator.py:42
-#: ../content/outcomeindicator.py:42
+#: ../content/output.py:43
 msgid "Measuring Unit"
 msgstr ""
 
@@ -337,8 +341,20 @@ msgstr "Nombre"
 msgid "Objectives"
 msgstr ""
 
-#: ../profiles/default/types/Outcome.xml
-msgid "Outcome"
+#: ../profiles/default/types/OutcomeCC.xml
+msgid "OutcomeCC"
+msgstr ""
+
+#: ../profiles/default/types/OutcomeCCS.xml
+msgid "OutcomeCCS"
+msgstr ""
+
+#: ../profiles/default/types/OutcomeKPI.xml
+msgid "OutcomeKPI"
+msgstr ""
+
+#: ../profiles/default/types/OutcomeZONE.xml
+msgid "OutcomeZONE"
 msgstr ""
 
 #: ../profiles/default/types/Output.xml
@@ -467,8 +483,8 @@ msgid "Starting time"
 msgstr ""
 
 #: ../content/activity.py:35
-#: ../content/goalindicator.py:31
 #: ../content/improvement_area.py:23
+#: ../content/logframe.py:25
 msgid "Summary"
 msgstr ""
 
@@ -476,12 +492,12 @@ msgstr ""
 msgid "TODO: Improvement Areas?"
 msgstr ""
 
-#: ../content/targetvalue.py:19
+#: ../content/targetvalue.py:20
 #: ../profiles/default/types/TargetValue.xml
 msgid "Target Value"
 msgstr ""
 
-#: ../content/targetvalue.py:24
+#: ../content/targetvalue.py:25
 msgid "Target Value Date"
 msgstr ""
 
@@ -505,9 +521,9 @@ msgstr ""
 msgid "This values are necessary for create elements on the Platform"
 msgstr ""
 
-#: ../content/goalindicator.py:26
 #: ../content/improvement_area.py:17
-#: ../content/indicator.py:20
+#: ../content/logframe.py:20
+#: ../content/outcomecc.py:22
 msgid "Title"
 msgstr ""
 

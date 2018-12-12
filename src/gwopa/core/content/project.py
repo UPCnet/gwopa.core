@@ -51,7 +51,6 @@ class IProject(model.Schema):
     description = schema.Text(
         title=_(u'Summary'),
         required=False,
-        missing_value=u'',
     )
 
     # directives.widget('select_field', SelectWidget)

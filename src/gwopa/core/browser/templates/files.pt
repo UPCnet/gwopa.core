@@ -15,7 +15,7 @@
     <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return".</div>
 
     <tal:objects repeat="item view/allfiles">
-      <ul class="goal_item">
+      <ul class="item">
         <li>
           <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
           tal:content="item/portal_type"> Portal_type </span>

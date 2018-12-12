@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <object name="portal_types">
-  <object meta_type="Dexterity FTI" name="Project" />
-  <object meta_type="Dexterity FTI" name="Goal" />
-  <object meta_type="Dexterity FTI" name="Outcome" />
-  <object meta_type="Dexterity FTI" name="OutcomeCC" />
-  <object meta_type="Dexterity FTI" name="Output" />
-  <object meta_type="Dexterity FTI" name="Indicator" />
-  <object meta_type="Dexterity FTI" name="ImprovementArea" />
-  <object meta_type="Dexterity FTI" name="TargetValue" />
   <object meta_type="Dexterity FTI" name="Activity" />
+  <object meta_type="Dexterity FTI" name="ImprovementArea" />
   <object meta_type="Dexterity FTI" name="LogFrame" />
-  <object meta_type="Dexterity FTI" name="WorkPlan" />
-  <object meta_type="Dexterity FTI" name="Platform" />
+  <object meta_type="Dexterity FTI" name="OutcomeCC" />
+  <object meta_type="Dexterity FTI" name="OutcomeCCS" />
+  <object meta_type="Dexterity FTI" name="OutcomeKPI" />
+  <object meta_type="Dexterity FTI" name="OutcomeZONE" />
+  <object meta_type="Dexterity FTI" name="Output" />
   <object meta_type="Dexterity FTI" name="Partner" />
+  <object meta_type="Dexterity FTI" name="Platform" />
   <object meta_type="Dexterity FTI" name="Program" />
+  <object meta_type="Dexterity FTI" name="Project" />
   <object meta_type="Dexterity FTI" name="SettingsPage" />
+  <object meta_type="Dexterity FTI" name="TargetValue" />
+  <object meta_type="Dexterity FTI" name="WorkPlan" />
 </object>

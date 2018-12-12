@@ -12,10 +12,8 @@
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-        <element value="Goal"/>
-        <element value="Activity"/>
-        <element value="Output"/>
-        <element value="Outcome"/>
+        <element value="OutcomeKPI"/>
+        <element value="OutcomeZONE"/>
         <element value="ImprovementArea"/>
         <element value="Folder"/>
  </property>

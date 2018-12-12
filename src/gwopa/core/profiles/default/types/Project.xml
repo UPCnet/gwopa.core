@@ -15,7 +15,6 @@
         <element value="Folder"/>
         <element value="LogFrame"/>
         <element value="WorkPlan"/>
-        <element value="ImprovementArea"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>

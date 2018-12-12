@@ -72,15 +72,16 @@ class View(grok.View):
                                 ))
         return results
 
-    def listActivities(self):
+    def listOutcomes(self):
         items = api.content.find(
-            portal_type='Activity',
+            portal_type=['OutcomeCC', 'OutcomeCCS'],
             context=self.context)
         results = []
         for item in items:
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
+                portal_type=item.portal_type,
                 url=item.getPath()))
         return results
 
@@ -89,7 +90,7 @@ class View(grok.View):
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
         items = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Output', 'Activity'],
+            portal_type=['Activity', 'Output', 'OutcomeCC', 'OutcomeCCS'],
             path={'query': folder_path,
                   'depth': 1})
         results = []

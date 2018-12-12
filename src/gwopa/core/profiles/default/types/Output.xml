@@ -17,14 +17,12 @@
  <property name="allowed_content_types">
         <element value="TargetValue"/>
  </property>
-
  <property name="behaviors">
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>
  <property name="klass">plone.dexterity.content.Container</property>
- <property name="schema">gwopa.core.content.outputindicator.IOutputindicator</property>
-
+ <property name="schema">gwopa.core.content.output.IOutput</property>
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>
  <alias from="(Default)" to="(dynamic view)"/>

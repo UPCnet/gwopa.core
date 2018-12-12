@@ -16,6 +16,10 @@
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
  <property name="allowed_content_types">
+    <element value="Activity"/>
+    <element value="Output"/>
+    <element value="OutcomeCC"/>
+    <element value="OutcomeCCS"/>
     <element value="File"/>
     <element value="Document"/>
  </property>
