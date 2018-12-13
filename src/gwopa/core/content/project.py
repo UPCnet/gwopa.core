@@ -15,10 +15,6 @@ from plone.directives import form
 from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
-# from plone.app.z3cform.widget import AjaxSelectFieldWidget
-# from z3c.relationfield.schema import RelationList
-# from z3c.relationfield.schema import RelationChoice
-# from plone.app.z3cform.widget import RelatedItemsFieldWidget
 
 grok.templatedir("templates")
 
@@ -29,13 +25,13 @@ class StartBeforeEnd(Invalid):
 
 @provider(IContextAwareDefaultFactory)
 def default_today(context):
-    """Provide default start for the form. """
+    """ Provide default start for the form. """
     return datetime.date.today()
 
 
 @provider(IContextAwareDefaultFactory)
 def default_tomorrow(context):
-    """Provide default end for the form. """
+    """ Provide default end for the form. """
     return datetime.date.today() + datetime.timedelta(1)
 
 
@@ -52,18 +48,6 @@ class IProject(model.Schema):
         title=_(u'Summary'),
         required=False,
     )
-
-    # directives.widget('select_field', SelectWidget)
-    # select_field = schema.Choice(
-    #     title=u'Select Widget',
-    #     values=['one', 'two', 'three', ]
-    # )
-
-    # directives.widget('list_field', SelectWidget)
-    # list_field = schema.List(
-    #     title=u'Select Multiple Widget',
-    #     value_type=schema.Choice(values=['four', 'five', 'six', ]),
-    # )
 
     image = namedfile.NamedBlobImage(
         title=_(u'Image'),
@@ -148,15 +132,6 @@ class IProject(model.Schema):
         vocabulary=u'plone.app.vocabularies.Users',
     )
 
-    # area = schema.List(
-    #     title=_(u"Interest Areas"),
-    #     description=_(u""),
-    #     value_type=schema.Choice(
-    #         source=ImprovementAreaList,
-    #     ),
-    #     required=False,
-    # )
-
     directives.widget('members', SelectWidget)
     members = schema.List(
         title=_(u"Members"),
@@ -184,52 +159,10 @@ class IProject(model.Schema):
         required=False,
     )
 
-    # risks = RichText(
-    #     title=_(u'Risks'),
-    #     required=False,
-    # )
-
-    # assumptions = RichText(
-    #     title=_(u'Assumptions'),
-    #     required=False,
-    # )
-
     objectives = RichText(
         title=_(u'Objectives'),
         required=False,
     )
-
-    # subjects = schema.Tuple(
-    #     title=_(u'label_tags', default=u'Tags'),
-    #     description=_(
-    #         u'help_tags',
-    #         default=u'Tags are commonly used for ad-hoc organization of ' +
-    #                 u'content.'
-    #     ),
-    #     value_type=schema.TextLine(),
-    #     required=False,
-    #     missing_value=(),
-    # )
-    # directives.widget(
-    #     'subjects',
-    #     AjaxSelectFieldWidget,
-    #     vocabulary='plone.app.vocabularies.Keywords'
-    # )
-
-    # relatedItems = RelationList(
-    #     title=_(u'label_related_items', default=u'Related Items'),
-    #     default=[],
-    #     value_type=RelationChoice(
-    #         title=u'Related',
-    #         vocabulary='plone.app.vocabularies.Catalog'
-    #     ),
-    #     required=False
-    # )
-    # form.widget(
-    #     'relatedItems',
-    #     RelatedItemsFieldWidget,
-    #     vocabulary='plone.app.vocabularies.Catalog'
-    # )
 
     @invariant
     def validate_start_end(data):
@@ -259,11 +192,11 @@ class View(grok.View):
 
     def get_currency(self):
         value = getattr(self.context, 'currency', None)
-        if value == _('Dollars'):
+        if value == 'Dollars':
             return "$"
-        elif value == _('Pounds'):
+        elif value == 'Pounds':
             return "£"
-        elif value == _('Euros'):
+        elif value == 'Euros':
             return "€"
         else:
             return value
