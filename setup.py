@@ -47,7 +47,6 @@ setup(
         'z3c.jbot',
         'pycountry',
         'requests',
-        'gwopa.theme',
         'plone.patternslib',
         'collective.geolocationbehavior',
         'plone.formwidget.geolocation',
@@ -66,7 +65,6 @@ setup(
             'plone.testing',
             'plone.app.contenttypes',
             'plone.app.robotframework[debug]',
-            'gwopa.theme',
         ],
     },
     entry_points="""
