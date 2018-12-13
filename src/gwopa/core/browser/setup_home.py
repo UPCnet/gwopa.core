@@ -104,7 +104,7 @@ class setup(grok.View):
                 type='Folder',
                 id='projects',
                 title='Projects',
-                Description='Projects of the Platform',
+                description='Projects of the Platform',
                 container=portal,
                 safe_id=False)
             message = _(u"The default config has been applied.")
