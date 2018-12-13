@@ -78,11 +78,11 @@
         <div>
           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI" href="#"><button class="context focus"> + New OutcomeKPI</button></a>
           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE" href="#"><button class="context focus"> + New OutcomeZONE</button></a>
-          <tal:block-activities tal:define="outcomes view/listOutcomes" tal:condition="outcomes">
+          <tal:block-ouctomeskpi tal:define="outcomes view/listOutcomesKPI" tal:condition="outcomes">
             <h3><i class="fa fa-plus-circle"></i> Outcomes </h3>
             <tal:objects repeat="outcome outcomes">
               <ul class="item">
-                <li>
+                <li style="padding-left: 20px; list-style: none;">
                   <span tal:attributes="class string:label ${outcome/portal_type}"
                               tal:content="outcome/portal_type"> ACTIVITY </span>
                   <a tal:attributes="href outcome/url; title outcome/description" data-toggle="tooltip" class="pat-tooltip">
@@ -90,7 +90,21 @@
                 </li>
               </ul>
             </tal:objects>
-          </tal:block-activities>
+          </tal:block-ouctomeskpi>
+          <tal:block-ouctomes tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
+            <h3><i class="fa fa-plus-circle"></i> Improvement Area </h3>
+            <tal:objects repeat="outcome outcomes">
+              <ul class="item">
+                <li style="padding-left: 20px; list-style: none;">
+                  <span tal:content="outcome/area"></span>
+                  <span tal:attributes="class string:label ${outcome/portal_type}"
+                              tal:content="outcome/portal_type"> ACTIVITY </span>
+                  <a tal:attributes="href outcome/url; title outcome/description" data-toggle="tooltip" class="pat-tooltip">
+                    <tal:block tal:content="outcome/title"> Outcome Title </tal:block></a>
+                </li>
+              </ul>
+            </tal:objects>
+          </tal:block-ouctomes>
         </div>
       </fieldset>
       <fieldset>

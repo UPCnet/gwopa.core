@@ -72,13 +72,31 @@ class View(grok.View):
                                 ))
         return results
 
-    def listOutcomes(self):
+    def listOutcomesKPI(self):
         items = api.content.find(
-            portal_type=['OutcomeCC', 'OutcomeCCS'],
+            portal_type=['OutcomeKPI', 'OutcomeZONE'],
             context=self.context)
         results = []
         for item in items:
             results.append(dict(
+                title=item.Title,
+                description=item.Description,
+                portal_type=item.portal_type,
+                url=item.getPath()))
+        return results
+
+    def listOutcomesCC(self):
+        items = api.content.find(
+            portal_type=['OutcomeCC', 'OutcomeCCS', 'Output'],
+            context=self.context)
+        results = []
+        for item in items:
+            if item.getObject().aq_parent.portal_type == 'ImprovementArea':
+                area = item.getObject().aq_parent.title
+            else:
+                area = item.getObject().aq_parent.aq_parent.title
+            results.append(dict(
+                area=area,
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
@@ -90,7 +108,7 @@ class View(grok.View):
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
         items = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Activity', 'Output', 'OutcomeCC', 'OutcomeCCS'],
+            portal_type=['Activity', 'Output'],
             path={'query': folder_path,
                   'depth': 1})
         results = []
