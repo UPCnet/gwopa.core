@@ -33,19 +33,23 @@
             <th scope="col" i18n:translate=""> End Date </th>
             <th scope="col" i18n:translate=""> Admin role </th>
             <th scope="col" i18n:translate=""> Country </th>
+            <th scope="col" i18n:translate=""> Actions </th>
           </tr>
         </thead>
         <tbody>
           <tr tal:repeat="project elements">
-            <td>
-              <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
-              <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+            <td class="paddingleft20">
+              <i class="fa fa-caret-right"></i>
               <a href="" tal:attributes="href string:${project/url}/" target="_blank" tal:content="project/title">Title</a>
             </td>
             <td tal:content="project/start"> Start </td>
             <td tal:content="project/end"> End </td>
             <td tal:content="project/manager"> Admin </td>
             <td tal:content="project/country"> Country </td>
+            <td style="text-align: center;">
+              <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
+              <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -56,16 +60,20 @@
           <tr>
             <th i18n:translate="" scope="col"> Area </th>
             <th i18n:translate="" scope="col"> Container </th>
+            <th scope="col" i18n:translate="" style="text-align: center;"> Actions </th>
           </tr>
         </thead>
         <tbody>
           <tr tal:repeat="area elements">
-            <td>
-              <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
-              <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+            <td class="paddingleft20">
+              <i class="fa fa-caret-right"></i>
               <a href="" tal:attributes="href string:${area/url}/" target="_blank" tal:content="area/title">Title</a>
             </td>
-            <td tal:content="area/parent"> End </td>
+            <td tal:content="area/parent"> Parent </td>
+            <td style="text-align: center;">
+              <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
+              <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -75,16 +83,22 @@
           <button id="add-new-user" class="context focus"> + New User</button>
         </a>
       </h2>
-      <table class="sortable" tal:define="elements view/getUsers">
+      <table class="sortable" tal:define="users view/getUsers">
         <thead>
           <tr>
-            <th i18n:translate="" scope="col"> UserID </th>
+            <th i18n:translate="" scope="col" class="paddingleft20"> UserID </th>
+            <th i18n:translate="" scope="col" style="width: 80px; text-align: center;"> Actions </th>
           </tr>
         </thead>
         <tbody>
-          <tr tal:repeat="project elements">
-            <td>
-              <a href="" tal:attributes="href string:${portal_url}/profile/${project/id}" tal:content="project/id"> User ID </a>
+          <tr tal:repeat="user users">
+            <td class="paddingleft20">
+              <i class="fa fa-user"></i>
+              <a href="" tal:attributes="href string:${portal_url}/profile/${user/id}" tal:content="user/id"> User ID </a>
+            </td>
+            <td style="text-align: center;">
+              <a href="" tal:attributes="href string:${portal_url}/@@user-information?userid=${user/id}"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
+              <a href="" tal:attributes="href string:${portal_url}/@@user-information?userid=${user/id}"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
             </td>
           </tr>
         </tbody>
@@ -104,7 +118,8 @@
         </thead>
         <tbody>
           <tr tal:repeat="project elements">
-            <td>
+            <td class="paddingleft20">
+              <i class="fa fa-caret-right"></i>
               <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Project Title </a>
             </td>
             <td tal:content="project/country"> Country </td>
@@ -127,7 +142,8 @@
         </thead>
         <tbody>
           <tr tal:repeat="project elements">
-            <td>
+            <td class="paddingleft20">
+              <i class="fa fa-caret-right"></i>
               <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Program Title </a>
             </td>
             <td tal:content="project/country"> Country </td>
@@ -150,7 +166,8 @@
         </thead>
         <tbody>
           <tr tal:repeat="project elements">
-            <td>
+            <td class="paddingleft20">
+              <i class="fa fa-caret-right"></i>
               <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Partner </a>
             </td>
             <td tal:content="project/country"> Country </td>

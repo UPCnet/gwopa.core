@@ -36,7 +36,7 @@ class managePortal(grok.View):
         for item in items:
             results.append(dict(
                 title=item.Title,
-                parent=item.getObject().aq_parent.title,
+                parent=item.getObject().aq_parent.aq_parent.title,
                 url=item.getPath()))
         return results
 

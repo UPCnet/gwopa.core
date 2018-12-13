@@ -4,8 +4,8 @@
  <property name="twitter_username" type="string"></property>
  <property name="phone" type="string"></property>
  <property name="country" type="string"></property>
- <property name="wop_program" type="lines"></property>
- <property name="wop_platform" type="lines"></property>
+ <property name="wop_programs" type="lines"></property>
+ <property name="wop_platforms" type="lines"></property>
  <property name="wop_partners" type="lines"></property>
  <property name="arees_exp" type="lines"></property>
 </object>

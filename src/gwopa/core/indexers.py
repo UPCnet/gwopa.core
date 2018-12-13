@@ -22,7 +22,9 @@ class UserPropertiesSoupCatalogFactory(object):
         _(u'fullname'),
         _(u'email'),
         _(u'description'),
-        _(u'wop_platform'),
+        _(u'wop_platforms'),
+        _(u'wop_programs'),
+        _(u'wop_partners'),
         _(u'country'),
         _(u'phone'),
         _(u'twitter_username'),
@@ -31,17 +33,22 @@ class UserPropertiesSoupCatalogFactory(object):
     profile_properties = [
         'email',
         'description',
-        'wop_platform',
+        'wop_platforms',
+        'wop_programs',
+        'wop_partners',
         'country',
         'phone',
         'twitter_username',
         'home_page']
 
-    directory_properties = ['email', 'phone', 'wop_platform']
+    directory_properties = ['email', 'phone', 'wop_platforms', 'wop_programs', 'wop_partners']
 
     directory_icons = {'email': 'fa fa-envelope',
                        'phone': 'fa fa-mobile',
-                       'wop_platform': 'fa fa-building-o'}
+                       'wop_platforms': 'fa fa-building-o',
+                       'wop_programs': 'fa fa-building-o',
+                       'wop_partners': 'fa fa-building-o',
+                       }
 
     def __call__(self, context):
         catalog = Catalog()
@@ -57,8 +64,14 @@ class UserPropertiesSoupCatalogFactory(object):
         email = NodeAttributeIndexer('email')
         catalog['email'] = CatalogTextIndex(email)
 
-        wop_platform = NodeAttributeIndexer('wop_platform')
-        catalog['wop_platform'] = CatalogTextIndex(wop_platform)
+        wop_platforms = NodeAttributeIndexer('wop_platforms')
+        catalog['wop_platforms'] = CatalogTextIndex(wop_platforms)
+
+        wop_programs = NodeAttributeIndexer('wop_programs')
+        catalog['wop_programs'] = CatalogTextIndex(wop_programs)
+
+        wop_partners = NodeAttributeIndexer('wop_partners')
+        catalog['wop_partners'] = CatalogTextIndex(wop_partners)
 
         country = NodeAttributeIndexer('country')
         catalog['country'] = CatalogTextIndex(country)

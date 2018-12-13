@@ -64,7 +64,7 @@ setup(
             # plone_coredev tests as of 2016-04-01.
             'plone.testing',
             'plone.app.contenttypes',
-            'plone.app.robotframework[debug]',
+            'plone.app.robotframework[debug]'
         ],
     },
     entry_points="""
