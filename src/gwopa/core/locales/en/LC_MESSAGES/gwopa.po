@@ -111,7 +111,7 @@ msgid "Container"
 msgstr "Related project"
 
 #: ../content/project.py:157
-#: ../content/templates/project_view.pt:44
+#: ../content/templates/project_view.pt:43
 msgid "Contribution by partners and donors"
 msgstr "Contribution by partners and donors"
 
@@ -248,7 +248,6 @@ msgstr "Invalid start or end date"
 msgid "Language"
 msgstr "Language"
 
-#: ../content/partner.py:50
 #: ../content/project.py:98
 msgid "Latitude"
 msgstr "Latitude"
@@ -265,7 +264,6 @@ msgstr "Location"
 msgid "Log Frame"
 msgstr "Log Frame"
 
-#: ../content/partner.py:57
 #: ../content/project.py:105
 msgid "Longitude"
 msgstr "Longitude"
@@ -362,7 +360,7 @@ msgid "Partner/partners of the project"
 msgstr "You can indicate more than one Partner"
 
 #: ../content/project.py:112
-#: ../content/templates/project_view.pt:27
+#: ../content/templates/project_view.pt:26
 msgid "Partners"
 msgstr "Partners"
 
@@ -384,7 +382,7 @@ msgid "Project"
 msgstr "Project"
 
 #: ../content/project.py:129
-#: ../content/templates/project_view.pt:34
+#: ../content/templates/project_view.pt:33
 msgid "Project Manager"
 msgstr "Project Manager"
 
@@ -512,7 +510,7 @@ msgid "Title"
 msgstr "Title"
 
 #: ../content/project.py:146
-#: ../content/templates/project_view.pt:39
+#: ../content/templates/project_view.pt:38
 msgid "Total budget"
 msgstr "Total budget"
 
@@ -561,7 +559,7 @@ msgid "WOP Platform"
 msgstr "Regional WOP Platform"
 
 #: ../content/project.py:89
-#: ../content/templates/project_view.pt:49
+#: ../content/templates/project_view.pt:48
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr "WOP Program"

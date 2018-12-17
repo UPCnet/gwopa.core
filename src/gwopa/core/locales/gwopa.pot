@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-12-13 17:36+0000\n"
+"POT-Creation-Date: 2018-12-17 16:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,7 +119,7 @@ msgid "Container"
 msgstr ""
 
 #: ../content/project.py:157
-#: ../content/templates/project_view.pt:44
+#: ../content/templates/project_view.pt:43
 msgid "Contribution by partners and donors"
 msgstr ""
 
@@ -256,7 +256,6 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: ../content/partner.py:50
 #: ../content/project.py:98
 msgid "Latitude"
 msgstr ""
@@ -273,7 +272,6 @@ msgstr ""
 msgid "Log Frame"
 msgstr ""
 
-#: ../content/partner.py:57
 #: ../content/project.py:105
 msgid "Longitude"
 msgstr ""
@@ -370,7 +368,7 @@ msgid "Partner/partners of the project"
 msgstr ""
 
 #: ../content/project.py:112
-#: ../content/templates/project_view.pt:27
+#: ../content/templates/project_view.pt:26
 msgid "Partners"
 msgstr ""
 
@@ -392,7 +390,7 @@ msgid "Project"
 msgstr ""
 
 #: ../content/project.py:129
-#: ../content/templates/project_view.pt:34
+#: ../content/templates/project_view.pt:33
 msgid "Project Manager"
 msgstr ""
 
@@ -520,7 +518,7 @@ msgid "Title"
 msgstr ""
 
 #: ../content/project.py:146
-#: ../content/templates/project_view.pt:39
+#: ../content/templates/project_view.pt:38
 msgid "Total budget"
 msgstr ""
 
@@ -569,7 +567,7 @@ msgid "WOP Platform"
 msgstr ""
 
 #: ../content/project.py:89
-#: ../content/templates/project_view.pt:49
+#: ../content/templates/project_view.pt:48
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr ""
