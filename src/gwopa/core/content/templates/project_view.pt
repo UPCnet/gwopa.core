@@ -2,7 +2,6 @@
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:metal="http://xml.zope.org/namespaces/metal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    lang="en"
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="gwopa">
 <body>
@@ -51,8 +50,8 @@
           <li tal:content="wop"></li>
         </ul>
       </div>
-      <tal:block define="latitude context/latitude;
-                   longitude context/longitude">
+      <tal:block define="latitude context/geolocation/latitude;
+                   longitude context/geolocation/longitude">
         <div tal:condition="python: latitude and longitude" class="pat-leaflet map"
          data-geojson='{
           "type": "FeatureCollection",

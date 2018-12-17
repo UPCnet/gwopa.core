@@ -14,9 +14,9 @@ def projectAdded(content, event):
         Copy value from behaviour fields to project fields.projectAnd create
         current year workplan
     """
-    if content.geolocation:
-        content.latitude = content.geolocation.latitude
-        content.longitude = content.geolocation.longitude
+    # if content.geolocation:
+    #     content.latitude = content.geolocation.latitude
+    #     content.longitude = content.geolocation.longitude
     year = datetime.datetime.now().year
     api.content.create(
         type='WorkPlan',
@@ -29,9 +29,9 @@ def projectModified(content, event):
     """ Project modified handler to assign geolocation.
         Copy value from behaviour fields to project fields
     """
-    if content.geolocation:
-        content.latitude = content.geolocation.latitude
-        content.longitude = content.geolocation.longitude
+    # if content.geolocation:
+    #     content.latitude = content.geolocation.latitude
+    #     content.longitude = content.geolocation.longitude
 
 
 @grok.subscribe(IPartner, IObjectAddedEvent)
@@ -39,6 +39,6 @@ def projectModified(content, event):
 def partnerModified(content, event):
     """ Copy value from behaviour fields to project fields
     """
-    if content.geolocation:
-        content.latitude = content.geolocation.latitude
-        content.longitude = content.geolocation.longitude
+    # if content.geolocation:
+    #     content.latitude = content.geolocation.latitude
+    #     content.longitude = content.geolocation.longitude

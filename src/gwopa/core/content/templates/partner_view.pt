@@ -22,8 +22,8 @@
         </figure>
     </div>
 
-    <tal:map define="latitude context/latitude;
-                       longitude context/longitude">
+    <tal:map define="latitude context/geolocation/latitude;
+                       longitude context/geolocation/longitude">
         <div tal:condition="python: latitude and longitude" class="pat-leaflet map"
          data-geojson='{
           "type": "FeatureCollection",

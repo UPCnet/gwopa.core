@@ -113,7 +113,7 @@ msgstr ""
 #: ../content/project.py:157
 #: ../content/templates/project_view.pt:44
 msgid "Contribution by partners and donors"
-msgstr ""
+msgstr "Contribución de socios y donantes"
 
 #: ../browser/templates/manage_portal.pt:19
 msgid "Control panel to configure and view all the important system parameters"

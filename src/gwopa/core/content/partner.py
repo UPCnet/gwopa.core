@@ -45,19 +45,19 @@ class IPartner(model.Schema):
         missing_value=u'',
     )
 
-    form.mode(latitude='hidden')
-    latitude = schema.Float(
-        title=_(u"Latitude"),
-        required=False,
-        default=0.0
-    )
+    # form.mode(latitude='hidden')
+    # latitude = schema.Float(
+    #     title=_(u"Latitude"),
+    #     required=False,
+    #     default=0.0
+    # )
 
-    form.mode(longitude='hidden')
-    longitude = schema.Float(
-        title=_(u"Longitude"),
-        required=False,
-        default=0.0
-    )
+    # form.mode(longitude='hidden')
+    # longitude = schema.Float(
+    #     title=_(u"Longitude"),
+    #     required=False,
+    #     default=0.0
+    # )
 
 
 class View(grok.View):

@@ -61,13 +61,9 @@ class View(grok.View):
         results = []
         for project in items:
             item = project.getObject()
-            if item.description:
-                description = item.description
-            else:
-                description = item.title
             results.append(dict(title=item.title,
                                 url=item.absolute_url_path(),
-                                description=description,
+                                description=item.description,
                                 portal_type=item.portal_type
                                 ))
         return results

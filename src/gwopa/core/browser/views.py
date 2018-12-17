@@ -56,6 +56,6 @@ class mapView(BrowserView):
         results = []
         for item in items:
             obj = item.getObject()
-            poi = Feature(geometry=Point((obj.longitude, obj.latitude)), properties={'popup': obj.title})
+            poi = Feature(geometry=Point((obj.geolocation.longitude, obj.geolocation.latitude)), properties={'popup': obj.title})
             results.append(poi)
         return FeatureCollection(results)
