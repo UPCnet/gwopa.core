@@ -22,10 +22,30 @@ msgstr "(Manager: 1 elemento al azar)"
 msgid "(Manager: 4 random elements)"
 msgstr "(Manager: 4 elementos al azar)"
 
+#: ../content/templates/workplan_view.pt:34
+msgid "+ New Improvement Area"
+msgstr "+ Añadir Área de mejora"
+
+#: ../content/templates/workplan_view.pt:78
+msgid "+ New OutcomeKPI"
+msgstr "+ Nuevo Outcome KPI"
+
+#: ../content/templates/workplan_view.pt:79
+msgid "+ New OutcomeZONE"
+msgstr "+ Nuevo Outcome de ZONA"
+
+#: ../content/templates/workplan_view.pt:56
+msgid "+ New Output"
+msgstr "+ Nuevo Output"
+
 #: ../browser/templates/homepage.pt:77
 #: ../browser/templates/manage_portal.pt:25
 msgid "+ New Project"
 msgstr "+ Nuevo Proyecto"
+
+#: ../content/templates/workplan_view.pt:61
+msgid "+ Target Value"
+msgstr "+ Añadir Valor de referencia"
 
 #: ../browser/templates/manage_portal.pt:36
 msgid "Actions"
@@ -46,6 +66,10 @@ msgstr "Todos los proyectos en un único mapa."
 #: ../content/improvement_area.py:18
 msgid "An improvement area used on the Site"
 msgstr "Un 'Improvement Area' dentro del sistema"
+
+#: ../content/templates/workplan_view.pt:14
+msgid "Annual Work Plan for year"
+msgstr "Plan anual de trabajo del año "
 
 #: ../browser/templates/manage_portal.pt:61
 msgid "Area"
@@ -89,9 +113,18 @@ msgstr "Elija el país de la lista que representa al país."
 msgid "Collaborating module"
 msgstr "Módulo de colaboración"
 
+#: ../browser/viewlets_templates/header.pt:22
+#: ../content/templates/workplan_view.pt:110
+msgid "Collaboration"
+msgstr "Colaboración"
+
 #: ../content/activity.py:53
 msgid "Completion time"
 msgstr "Tiempo de finalización"
+
+#: ../browser/viewlets_templates/header.pt:12
+msgid "Configuration"
+msgstr "Configuración"
 
 #: ../browser/templates/manage_portal.pt:140
 msgid "Contact"
@@ -141,6 +174,10 @@ msgstr "Cambio de moneda"
 msgid "Current projects map"
 msgstr "Mapa con los proyectos actuales"
 
+#: ../browser/viewlets_templates/header.pt:25
+msgid "Dashboard"
+msgstr "Tablero"
+
 #: ../content/outcomecc.py:46
 #: ../content/outcomeccs.py:46
 #: ../content/outcomekpi.py:46
@@ -159,6 +196,10 @@ msgstr "Fecha de finalización del proyecto."
 msgid "Define your language"
 msgstr "Define tu idioma"
 
+#: ../content/templates/workplan_view.pt:28
+msgid "Delete Work Plan"
+msgstr "Eliminar WorkPlan"
+
 #: ../browser/setup_home.py:41
 msgid "Demo content has been created."
 msgstr "Se ha creado contenido de ejemplo."
@@ -174,6 +215,10 @@ msgstr "Descripción del módulo de informes"
 #: ../browser/templates/visualizating.pt:15
 msgid "Describing visualizating module."
 msgstr "Describing reporting modulo de visualización"
+
+#: ../content/templates/workplan_view.pt:26
+msgid "Duplicate Work Plan"
+msgstr "Duplicar WorkPlan"
 
 #: ../browser/templates/manage_portal.pt:33
 msgid "End Date"
@@ -219,6 +264,7 @@ msgstr "Imagen utilizada para describir el Área de Mejora. Si no se elige ning�
 msgid "Improved specific capacity"
 msgstr "Capacidad específica mejorada"
 
+#: ../content/templates/workplan_view.pt:94
 #: ../profiles/default/types/ImprovementArea.xml
 msgid "Improvement Area"
 msgstr "Área de mejora"
@@ -264,6 +310,10 @@ msgstr "Localización"
 msgid "Log Frame"
 msgstr "Marco de registro"
 
+#: ../browser/viewlets_templates/header.pt:15
+msgid "Log out"
+msgstr "Salir"
+
 #: ../content/project.py:105
 msgid "Longitude"
 msgstr "Longitud"
@@ -307,6 +357,10 @@ msgstr "Miembros en esta región"
 msgid "Milestones"
 msgstr "Hitos"
 
+#: ../browser/viewlets_templates/header.pt:23
+msgid "Monitoring"
+msgstr "Monitorización"
+
 #: ../browser/templates/monitoring.pt:14
 msgid "Monitoring Module"
 msgstr "Módulo de monitorización"
@@ -343,6 +397,10 @@ msgstr "Outcome KPI"
 msgid "OutcomeZONE"
 msgstr "Outcome ZONE"
 
+#: ../content/templates/workplan_view.pt:76
+msgid "Outcomes"
+msgstr "Outcomes"
+
 #: ../profiles/default/types/Output.xml
 msgid "Output"
 msgstr "Output"
@@ -368,6 +426,15 @@ msgstr "Socios"
 msgid "Phone"
 msgstr "Teléfono"
 
+#: ../browser/viewlets_templates/header.pt:21
+#: ../content/templates/workplan_view.pt:18
+msgid "Planning"
+msgstr "Planificación"
+
+#: ../content/templates/workplan_view.pt:13
+msgid "Planning - Annual ${DYNAMIC_CONTENT}"
+msgstr "Planificación del año ${DYNAMIC_CONTENT}"
+
 #: ../browser/templates/manage_portal.pt:138
 msgid "Program"
 msgstr "Programa"
@@ -377,6 +444,7 @@ msgid "Program/programs associated to this project"
 msgstr "Programa/Programas asociados al proyecto"
 
 #: ../browser/templates/manage_portal.pt:31
+#: ../content/templates/workplan_view.pt:32
 #: ../profiles/default/types/Project.xml
 msgid "Project"
 msgstr "Proyecto"
@@ -422,6 +490,10 @@ msgstr "Entradas relacionadas"
 #: ../content/activity.py:77
 msgid "Related outputs"
 msgstr "Salidas relacionadas"
+
+#: ../browser/viewlets_templates/header.pt:24
+msgid "Reporting"
+msgstr "Informes"
 
 #: ../browser/templates/reporting.pt:14
 msgid "Reporting Module"

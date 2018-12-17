@@ -22,9 +22,29 @@ msgstr ""
 msgid "(Manager: 4 random elements)"
 msgstr ""
 
+#: ../content/templates/workplan_view.pt:34
+msgid "+ New Improvement Area"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:78
+msgid "+ New OutcomeKPI"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:79
+msgid "+ New OutcomeZONE"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:56
+msgid "+ New Output"
+msgstr ""
+
 #: ../browser/templates/homepage.pt:77
 #: ../browser/templates/manage_portal.pt:25
 msgid "+ New Project"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:61
+msgid "+ Target Value"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:36
@@ -45,6 +65,10 @@ msgstr ""
 
 #: ../content/improvement_area.py:18
 msgid "An improvement area used on the Site"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:14
+msgid "Annual Work Plan for year"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:61
@@ -89,8 +113,17 @@ msgstr ""
 msgid "Collaborating module"
 msgstr ""
 
+#: ../browser/viewlets_templates/header.pt:22
+#: ../content/templates/workplan_view.pt:110
+msgid "Collaboration"
+msgstr ""
+
 #: ../content/activity.py:53
 msgid "Completion time"
+msgstr ""
+
+#: ../browser/viewlets_templates/header.pt:12
+msgid "Configuration"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:140
@@ -141,6 +174,10 @@ msgstr ""
 msgid "Current projects map"
 msgstr ""
 
+#: ../browser/viewlets_templates/header.pt:25
+msgid "Dashboard"
+msgstr ""
+
 #: ../content/outcomecc.py:46
 #: ../content/outcomeccs.py:46
 #: ../content/outcomekpi.py:46
@@ -159,6 +196,10 @@ msgstr ""
 msgid "Define your language"
 msgstr ""
 
+#: ../content/templates/workplan_view.pt:28
+msgid "Delete Work Plan"
+msgstr ""
+
 #: ../browser/setup_home.py:41
 msgid "Demo content has been created."
 msgstr ""
@@ -173,6 +214,10 @@ msgstr ""
 
 #: ../browser/templates/visualizating.pt:15
 msgid "Describing visualizating module."
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:26
+msgid "Duplicate Work Plan"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:33
@@ -219,6 +264,7 @@ msgstr ""
 msgid "Improved specific capacity"
 msgstr ""
 
+#: ../content/templates/workplan_view.pt:94
 #: ../profiles/default/types/ImprovementArea.xml
 msgid "Improvement Area"
 msgstr ""
@@ -264,6 +310,10 @@ msgstr ""
 msgid "Log Frame"
 msgstr ""
 
+#: ../browser/viewlets_templates/header.pt:15
+msgid "Log out"
+msgstr ""
+
 #: ../content/project.py:105
 msgid "Longitude"
 msgstr ""
@@ -307,6 +357,10 @@ msgstr ""
 msgid "Milestones"
 msgstr ""
 
+#: ../browser/viewlets_templates/header.pt:23
+msgid "Monitoring"
+msgstr ""
+
 #: ../browser/templates/monitoring.pt:14
 msgid "Monitoring Module"
 msgstr ""
@@ -343,6 +397,10 @@ msgstr ""
 msgid "OutcomeZONE"
 msgstr ""
 
+#: ../content/templates/workplan_view.pt:76
+msgid "Outcomes"
+msgstr ""
+
 #: ../profiles/default/types/Output.xml
 msgid "Output"
 msgstr ""
@@ -368,6 +426,15 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
+#: ../browser/viewlets_templates/header.pt:21
+#: ../content/templates/workplan_view.pt:18
+msgid "Planning"
+msgstr ""
+
+#: ../content/templates/workplan_view.pt:13
+msgid "Planning - Annual ${DYNAMIC_CONTENT}"
+msgstr ""
+
 #: ../browser/templates/manage_portal.pt:138
 msgid "Program"
 msgstr ""
@@ -377,6 +444,7 @@ msgid "Program/programs associated to this project"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:31
+#: ../content/templates/workplan_view.pt:32
 #: ../profiles/default/types/Project.xml
 msgid "Project"
 msgstr ""
@@ -421,6 +489,10 @@ msgstr ""
 
 #: ../content/activity.py:77
 msgid "Related outputs"
+msgstr ""
+
+#: ../browser/viewlets_templates/header.pt:24
+msgid "Reporting"
 msgstr ""
 
 #: ../browser/templates/reporting.pt:14
