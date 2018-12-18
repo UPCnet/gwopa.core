@@ -58,11 +58,11 @@
                             <ol tal:repeat="output outputs" class="block_sub_indicators">
                               <span tal:attributes="class string:label ${output/portal_type}" tal:content="output/portal_type"> ACTIVITY </span>
                               <span tal:content="output/title"> TItle </span>
-                              <a tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"><tal:omit-tag i18n:translate="">+ Target Value</tal:omit-tag></button></a>
+                              <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${output/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"><tal:omit-tag i18n:translate="">+ Target Value</tal:omit-tag></button></a>
                             </ol>
                           </tal:block-subitems2>
                         </tal:omit.tag>
-                        <a tal:condition="python:item['portal_type'] == 'Output'" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"><tal:omit-tag i18n:translate="">+ Target Value</tal:omit-tag></button></a>
+                        <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:condition="python:item['portal_type'] == 'Output'" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"><tal:omit-tag i18n:translate="">+ Target Value</tal:omit-tag></button></a>
                       </li>
                     </ul>
                   </tal:block-subitems>
