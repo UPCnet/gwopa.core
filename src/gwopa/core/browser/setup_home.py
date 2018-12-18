@@ -11,6 +11,9 @@ from plone.app.textfield.value import RichTextValue
 import random
 from Products.statusmessages.interfaces import IStatusMessage
 from gwopa.core import _
+from collective.geolocationbehavior.geolocation import IGeolocatable
+from plone.formwidget.geolocation.geolocation import Geolocation
+
 from requests.exceptions import ConnectionError
 requests.packages.urllib3.disable_warnings()
 
@@ -243,8 +246,8 @@ class setup(grok.View):
             safe_id=False)
         p1.contact = 'userpartner1@test.com'
         p1.country = ['Spain']
-        p1.latitude = 41.3828939
-        p1.longitude = 2.1774322
+        geo = IGeolocatable(p1, None)
+        geo.geolocation = Geolocation(41.3828939, 2.1774322)
         p2 = api.content.create(
             type='Partner',
             id='partner2',
@@ -254,8 +257,8 @@ class setup(grok.View):
             safe_id=False)
         p2.contact = 'userpartner2@test.com'
         p2.country = ['Spain']
-        p2.latitude = 41.3828939
-        p2.longitude = 2.1774322
+        geo = IGeolocatable(p2, None)
+        geo.geolocation = Geolocation(41.3828939, 2.1774322)
         p3 = api.content.create(
             type='Partner',
             id='partner3',
@@ -265,8 +268,8 @@ class setup(grok.View):
             safe_id=False)
         p3.contact = 'userpartner3@test.com'
         p3.country = ['Spain']
-        p3.latitude = 41.3828939
-        p3.longitude = 2.1774322
+        geo = IGeolocatable(p3, None)
+        geo.geolocation = Geolocation(41.3828939, 2.1774322)
         p4 = api.content.create(
             type='Partner',
             id='partner4',
@@ -276,8 +279,8 @@ class setup(grok.View):
             safe_id=False)
         p4.contact = 'userpartner4@test.com'
         p4.country = ['Spain']
-        p4.latitude = 41.3828939
-        p4.longitude = 2.1774322
+        geo = IGeolocatable(p4, None)
+        geo.geolocation = Geolocation(41.3828939, 2.1774322)
         p5 = api.content.create(
             type='Partner',
             id='partner5',
@@ -287,8 +290,8 @@ class setup(grok.View):
             safe_id=False)
         p5.contact = 'userpartner5@test.com'
         p5.country = ['Spain']
-        p5.latitude = 41.3828939
-        p5.longitude = 2.1774322
+        geo = IGeolocatable(p5, None)
+        geo.geolocation = Geolocation(41.3828939, 2.1774322)
 
         self.createProjects(5)
         return "Demo content created"
@@ -337,8 +340,8 @@ class setup(grok.View):
                 'text/html', 'text/html')
             new_value = []
             project.partners = new_value
-            project.latitude = 41.3828939
-            project.longitude = 2.1774322
+            geo = IGeolocatable(project, None)
+            geo.geolocation = Geolocation(41.3828939, 2.1774322)
             project.risks = project.contribution
             project.assumptions = project.contribution
             project.objectives = project.contribution
