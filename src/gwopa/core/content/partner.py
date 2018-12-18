@@ -6,8 +6,7 @@ from plone.namedfile import field as namedfile
 from plone import api
 from gwopa.core import _
 from gwopa.core import utils
-from plone.directives import form
-
+from collective.geolocationbehavior.geolocation import IGeolocatable
 
 grok.templatedir("templates")
 
@@ -45,20 +44,6 @@ class IPartner(model.Schema):
         missing_value=u'',
     )
 
-    # form.mode(latitude='hidden')
-    # latitude = schema.Float(
-    #     title=_(u"Latitude"),
-    #     required=False,
-    #     default=0.0
-    # )
-
-    # form.mode(longitude='hidden')
-    # longitude = schema.Float(
-    #     title=_(u"Longitude"),
-    #     required=False,
-    #     default=0.0
-    # )
-
 
 class View(grok.View):
     grok.context(IPartner)
@@ -76,3 +61,16 @@ class View(grok.View):
                     results += [{'id': item.id,
                                 'profile': api.portal.get().absolute_url() + '/profile/' + item.id}]
         return results
+
+    def google_maps_link(self):
+        geo = IGeolocatable(self.context, None)
+        if geo:
+            coordinates = [geo.geolocation.latitude, geo.geolocation.longitude]
+
+            maps_link = "https://www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
+                coordinates[0],
+                coordinates[1]
+            )
+            return maps_link
+        else:
+            return None

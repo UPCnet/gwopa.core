@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-12-17 17:07+0000\n"
+"POT-Creation-Date: 2018-12-18 11:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: gwopa\n"
 
-#: ../content/project.py:158
+#: ../content/project.py:159
 #: ../content/settingspage.py:48
 msgid ""
 msgstr ""
@@ -151,8 +151,8 @@ msgstr ""
 msgid "Container"
 msgstr ""
 
-#: ../content/project.py:157
-#: ../content/templates/project_view.pt:43
+#: ../content/project.py:158
+#: ../content/templates/project_view.pt:44
 msgid "Contribution by partners and donors"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Country/Countries"
 msgstr ""
 
-#: ../content/project.py:151
+#: ../content/project.py:152
 msgid "Currency"
 msgstr ""
 
@@ -192,11 +192,11 @@ msgstr ""
 msgid "Date of the Baseline"
 msgstr ""
 
-#: ../content/project.py:60
+#: ../content/project.py:61
 msgid "Date when the project begins."
 msgstr ""
 
-#: ../content/project.py:67
+#: ../content/project.py:68
 msgid "Date when the project ends."
 msgstr ""
 
@@ -232,7 +232,7 @@ msgstr ""
 msgid "End Date"
 msgstr ""
 
-#: ../content/project.py:66
+#: ../content/project.py:67
 msgid "End date"
 msgstr ""
 
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Improvement areas"
 msgstr ""
 
-#: ../content/project.py:138
+#: ../content/project.py:139
 msgid "Improvement track team and members"
 msgstr ""
 
@@ -294,7 +294,7 @@ msgid "Installs the gwopa.core add-on."
 msgstr ""
 
 #: ../content/activity.py:15
-#: ../content/project.py:23
+#: ../content/project.py:24
 msgid "Invalid start or end date"
 msgstr ""
 
@@ -302,7 +302,7 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: ../content/project.py:98
+#: ../content/project.py:99
 msgid "Latitude"
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: ../content/project.py:105
+#: ../content/project.py:106
 msgid "Longitude"
 msgstr ""
 
@@ -349,7 +349,7 @@ msgid "Measuring unit"
 msgstr ""
 
 #: ../content/activity.py:83
-#: ../content/project.py:137
+#: ../content/project.py:138
 msgid "Members"
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../content/project.py:163
+#: ../content/project.py:164
 msgid "Objectives"
 msgstr ""
 
@@ -421,12 +421,12 @@ msgstr ""
 msgid "Partner"
 msgstr ""
 
-#: ../content/project.py:113
+#: ../content/project.py:114
 msgid "Partner/partners of the project"
 msgstr ""
 
-#: ../content/project.py:112
-#: ../content/templates/project_view.pt:26
+#: ../content/project.py:113
+#: ../content/templates/project_view.pt:27
 msgid "Partners"
 msgstr ""
 
@@ -447,7 +447,7 @@ msgstr ""
 msgid "Program"
 msgstr ""
 
-#: ../content/project.py:90
+#: ../content/project.py:91
 msgid "Program/programs associated to this project"
 msgstr ""
 
@@ -457,12 +457,12 @@ msgstr ""
 msgid "Project"
 msgstr ""
 
-#: ../content/project.py:129
-#: ../content/templates/project_view.pt:33
+#: ../content/project.py:130
+#: ../content/templates/project_view.pt:34
 msgid "Project Manager"
 msgstr ""
 
-#: ../content/project.py:121
+#: ../content/project.py:122
 msgid "Project Manager Admin"
 msgstr ""
 
@@ -470,11 +470,11 @@ msgstr ""
 msgid "Project Title"
 msgstr ""
 
-#: ../content/project.py:54
+#: ../content/project.py:55
 msgid "Project image"
 msgstr ""
 
-#: ../content/project.py:43
+#: ../content/project.py:44
 msgid "Project title"
 msgstr ""
 
@@ -486,7 +486,7 @@ msgstr ""
 msgid "Realisation Date"
 msgstr ""
 
-#: ../content/project.py:73
+#: ../content/project.py:74
 #: ../userdataschema.py:60
 msgid "Regional WOP Platform"
 msgstr ""
@@ -515,12 +515,12 @@ msgstr ""
 msgid "Search Projects"
 msgstr ""
 
-#: ../content/project.py:82
+#: ../content/project.py:83
 #: ../userdataschema.py:46
 msgid "Select country"
 msgstr ""
 
-#: ../content/project.py:74
+#: ../content/project.py:75
 msgid "Select one or more regional WOP Platforms from the list"
 msgstr ""
 
@@ -532,7 +532,7 @@ msgstr ""
 msgid "Start Date"
 msgstr ""
 
-#: ../content/project.py:59
+#: ../content/project.py:60
 msgid "Start date"
 msgstr ""
 
@@ -567,11 +567,11 @@ msgstr ""
 msgid "The default config has been applied."
 msgstr ""
 
-#: ../content/project.py:122
+#: ../content/project.py:123
 msgid "The responsible manager of the project"
 msgstr ""
 
-#: ../content/project.py:130
+#: ../content/project.py:131
 msgid "The responsible of this project"
 msgstr ""
 
@@ -589,8 +589,8 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ../content/project.py:146
-#: ../content/templates/project_view.pt:38
+#: ../content/project.py:147
+#: ../content/templates/project_view.pt:39
 msgid "Total budget"
 msgstr ""
 
@@ -638,8 +638,8 @@ msgstr ""
 msgid "WOP Platform"
 msgstr ""
 
-#: ../content/project.py:89
-#: ../content/templates/project_view.pt:48
+#: ../content/project.py:90
+#: ../content/templates/project_view.pt:49
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr ""
@@ -689,6 +689,11 @@ msgstr ""
 
 #: ../indexers.py:31
 msgid "home_page"
+msgstr ""
+
+#. Default: "Show in Google Maps"
+#: ../content/templates/project_view.pt:87
+msgid "label_google_maps_link"
 msgstr ""
 
 #: ../browser/user_profile.py:43

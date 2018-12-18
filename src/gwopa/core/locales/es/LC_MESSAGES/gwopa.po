@@ -143,8 +143,8 @@ msgstr "Persona de contacto"
 msgid "Container"
 msgstr "Contenedor"
 
-#: ../content/project.py:157
-#: ../content/templates/project_view.pt:43
+#: ../content/project.py:158
+#: ../content/templates/project_view.pt:44
 msgid "Contribution by partners and donors"
 msgstr "Contribución de socios y donantes"
 
@@ -162,7 +162,7 @@ msgstr "País"
 msgid "Country/Countries"
 msgstr "País/Paises"
 
-#: ../content/project.py:151
+#: ../content/project.py:152
 msgid "Currency"
 msgstr "Moneda"
 
@@ -184,11 +184,11 @@ msgstr "Tablero"
 msgid "Date of the Baseline"
 msgstr "Fecha de referencia"
 
-#: ../content/project.py:60
+#: ../content/project.py:61
 msgid "Date when the project begins."
 msgstr "Fecha cuando se inicia el proyecto."
 
-#: ../content/project.py:67
+#: ../content/project.py:68
 msgid "Date when the project ends."
 msgstr "Fecha de finalización del proyecto."
 
@@ -224,7 +224,7 @@ msgstr "Duplicar WorkPlan"
 msgid "End Date"
 msgstr "Fecha de finalización"
 
-#: ../content/project.py:66
+#: ../content/project.py:67
 msgid "End date"
 msgstr "Fecha de finalización"
 
@@ -273,7 +273,7 @@ msgstr "Área de mejora"
 msgid "Improvement areas"
 msgstr "Áreas de mejora"
 
-#: ../content/project.py:138
+#: ../content/project.py:139
 msgid "Improvement track team and members"
 msgstr "Equipo de mejora y miembros."
 
@@ -286,7 +286,7 @@ msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
 #: ../content/activity.py:15
-#: ../content/project.py:23
+#: ../content/project.py:24
 msgid "Invalid start or end date"
 msgstr "Fecha de inicio o finalización incorrecta."
 
@@ -294,7 +294,7 @@ msgstr "Fecha de inicio o finalización incorrecta."
 msgid "Language"
 msgstr "Idioma"
 
-#: ../content/project.py:98
+#: ../content/project.py:99
 msgid "Latitude"
 msgstr "Latitud"
 
@@ -314,7 +314,7 @@ msgstr "Marco de registro"
 msgid "Log out"
 msgstr "Salir"
 
-#: ../content/project.py:105
+#: ../content/project.py:106
 msgid "Longitude"
 msgstr "Longitud"
 
@@ -341,7 +341,7 @@ msgid "Measuring unit"
 msgstr "Unidad de medida"
 
 #: ../content/activity.py:83
-#: ../content/project.py:137
+#: ../content/project.py:138
 msgid "Members"
 msgstr "Miembros"
 
@@ -377,7 +377,7 @@ msgstr "Los proyectos de mi compañía"
 msgid "Name"
 msgstr "Nombre"
 
-#: ../content/project.py:163
+#: ../content/project.py:164
 msgid "Objectives"
 msgstr "Objectivos"
 
@@ -413,12 +413,12 @@ msgstr "Vista de proyectos de PMP"
 msgid "Partner"
 msgstr "Socio"
 
-#: ../content/project.py:113
+#: ../content/project.py:114
 msgid "Partner/partners of the project"
 msgstr "Socio/Socios del proyecto"
 
-#: ../content/project.py:112
-#: ../content/templates/project_view.pt:26
+#: ../content/project.py:113
+#: ../content/templates/project_view.pt:27
 msgid "Partners"
 msgstr "Socios"
 
@@ -439,7 +439,7 @@ msgstr "Planificación del año ${DYNAMIC_CONTENT}"
 msgid "Program"
 msgstr "Programa"
 
-#: ../content/project.py:90
+#: ../content/project.py:91
 msgid "Program/programs associated to this project"
 msgstr "Programa/Programas asociados al proyecto"
 
@@ -449,12 +449,12 @@ msgstr "Programa/Programas asociados al proyecto"
 msgid "Project"
 msgstr "Proyecto"
 
-#: ../content/project.py:129
-#: ../content/templates/project_view.pt:33
+#: ../content/project.py:130
+#: ../content/templates/project_view.pt:34
 msgid "Project Manager"
 msgstr "Gerente del proyecto"
 
-#: ../content/project.py:121
+#: ../content/project.py:122
 msgid "Project Manager Admin"
 msgstr "Administrador del proyecto"
 
@@ -462,11 +462,11 @@ msgstr "Administrador del proyecto"
 msgid "Project Title"
 msgstr "Título del proyecto"
 
-#: ../content/project.py:54
+#: ../content/project.py:55
 msgid "Project image"
 msgstr "Imagen del proyecto"
 
-#: ../content/project.py:43
+#: ../content/project.py:44
 msgid "Project title"
 msgstr "Título del proyecto"
 
@@ -478,7 +478,7 @@ msgstr "Proyectos"
 msgid "Realisation Date"
 msgstr "Fecha de realización "
 
-#: ../content/project.py:73
+#: ../content/project.py:74
 #: ../userdataschema.py:60
 msgid "Regional WOP Platform"
 msgstr "Regional WOP Platform"
@@ -507,12 +507,12 @@ msgstr "Buscar..."
 msgid "Search Projects"
 msgstr "Buscador de proyectos"
 
-#: ../content/project.py:82
+#: ../content/project.py:83
 #: ../userdataschema.py:46
 msgid "Select country"
 msgstr "Seleccionar país"
 
-#: ../content/project.py:74
+#: ../content/project.py:75
 msgid "Select one or more regional WOP Platforms from the list"
 msgstr "Seleccione una o más regional WOP Platform de la lista"
 
@@ -524,7 +524,7 @@ msgstr "Página de configuración"
 msgid "Start Date"
 msgstr "Fecha de inicio"
 
-#: ../content/project.py:59
+#: ../content/project.py:60
 msgid "Start date"
 msgstr "Fecha de inicio"
 
@@ -559,11 +559,11 @@ msgstr "Fecha del valor de objetivo"
 msgid "The default config has been applied."
 msgstr "Se ha aplicado la configuración por defecto"
 
-#: ../content/project.py:122
+#: ../content/project.py:123
 msgid "The responsible manager of the project"
 msgstr "El administrador y responsable del proyecto"
 
-#: ../content/project.py:130
+#: ../content/project.py:131
 msgid "The responsible of this project"
 msgstr "El responsable del proyecto"
 
@@ -581,8 +581,8 @@ msgstr "Estos valores son necesarios para crear elementos en la Plataforma."
 msgid "Title"
 msgstr "Título"
 
-#: ../content/project.py:146
-#: ../content/templates/project_view.pt:38
+#: ../content/project.py:147
+#: ../content/templates/project_view.pt:39
 msgid "Total budget"
 msgstr "Presupuesto total"
 
@@ -630,8 +630,8 @@ msgstr "WOP Partners"
 msgid "WOP Platform"
 msgstr "Regional WOP Platform"
 
-#: ../content/project.py:89
-#: ../content/templates/project_view.pt:48
+#: ../content/project.py:90
+#: ../content/templates/project_view.pt:49
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr "WOP Program"
@@ -682,6 +682,11 @@ msgstr "Nombre completo"
 #: ../indexers.py:31
 msgid "home_page"
 msgstr "Homepage"
+
+#. Default: "Show in Google Maps"
+#: ../content/templates/project_view.pt:87
+msgid "label_google_maps_link"
+msgstr "Ver en Google Maps"
 
 #: ../browser/user_profile.py:43
 #: ../indexers.py:29

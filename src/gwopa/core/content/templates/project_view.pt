@@ -20,7 +20,8 @@
                     project_manager context/project_manager;
                     budget context/budget;
                     contribution context/contribution;
-                    wop_program context/wop_program">
+                    wop_program context/wop_program;
+                    google_maps_link view/google_maps_link">
 
       <div tal:condition="partners">
         <h3 i18n:translate="">Partners</h3>
@@ -50,9 +51,10 @@
           <li tal:content="wop"></li>
         </ul>
       </div>
-      <tal:block define="latitude context/geolocation/latitude;
-                   longitude context/geolocation/longitude">
-        <div tal:condition="python: latitude and longitude" class="pat-leaflet map"
+      <tal:map tal:condition="google_maps_link">
+        <div tal:define="latitude context/geolocation/latitude;
+                     longitude context/geolocation/longitude;"
+              class="pat-leaflet map"
          data-geojson='{
           "type": "FeatureCollection",
           "features": [
@@ -81,19 +83,12 @@
            ]
           }'>
         </div>
-       <!--  <span tal:condition="latitude"> Latitude: <tal:omit-tag tal:content="latitude"></tal:omit-tag></span><br/>
-        <span tal:condition="longitude"> Longitude: <tal:omit-tag tal:content="longitude"></tal:omit-tag></span>
- -->
-    </tal:block>
+        <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
+      </tal:map>
+
   </metal:block>
 
 </metal:content-core>
 
 </body>
 </html>
-
-
-<!-- {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"},
-     {"title": "Satellite", "id": "Esri.WorldImagery"},
-     {"title": "Topographic", "id": "OpenTopoMap"},
-     {"title": "Toner", "id": "Stamen.Toner"} -->

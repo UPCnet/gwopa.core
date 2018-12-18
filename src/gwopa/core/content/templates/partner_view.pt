@@ -9,7 +9,8 @@
 
 <metal:content-core fill-slot="content-core"
     tal:define="portal_state context/@@plone_portal_state;
-                portal_url portal_state/portal_url;">
+                portal_url portal_state/portal_url;
+                google_maps_link view/google_maps_link;">
 
     <div class="leadImage"
          tal:define="scale_func context/@@images;
@@ -22,41 +23,43 @@
         </figure>
     </div>
 
-    <tal:map define="latitude context/geolocation/latitude;
-                       longitude context/geolocation/longitude">
-        <div tal:condition="python: latitude and longitude" class="pat-leaflet map"
-         data-geojson='{
-          "type": "FeatureCollection",
-          "features": [
+    <tal:map tal:condition="google_maps_link">
+      <div tal:define="latitude context/geolocation/latitude;
+                       longitude context/geolocation/longitude"
+            class="pat-leaflet map"
+       data-geojson='{
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "id": 1,
+            "properties":
             {
-              "type": "Feature",
-              "id": 1,
-              "properties":
-              {
-                "popup": "<h4><a href=>${context/Title}</a></h4>"
-              },
-              "geometry":
-              {
-                "type": "Point",
-                "coordinates": [ ${longitude}, ${latitude} ]
-              }
+              "popup": "<h4><a href=>${context/Title}</a></h4>"
+            },
+            "geometry":
+            {
+              "type": "Point",
+              "coordinates": [ ${longitude}, ${latitude} ]
             }
-          ]}' data-pat-leaflet='{
-           "fullscreencontrol": true,
-           "locatecontrol": false,
-           "zoomcontrol": true,
-           "minimap": false,
-           "addmarker": false,
-           "zoom": 17,
-           "map_layers": [
-            {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-           ]
-          }'>
-        </div>
+          }
+        ]}' data-pat-leaflet='{
+         "fullscreencontrol": true,
+         "locatecontrol": false,
+         "zoomcontrol": true,
+         "minimap": false,
+         "addmarker": false,
+         "zoom": 17,
+         "map_layers": [
+          {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+         ]
+        }'>
+      </div>
+      <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
     </tal:map>
 
     <tal:users tal:define="users view/usersinthisPartner" tal:condition="users">
-    <h3> Users in this Partner </h3>
+      <h3 i18n:translate=""> Users in this Partner </h3>
       <span tal:repeat="user users">
         <ul>
           <li>

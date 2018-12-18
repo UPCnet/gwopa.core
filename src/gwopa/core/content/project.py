@@ -15,6 +15,7 @@ from plone.directives import form
 from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
+from collective.geolocationbehavior.geolocation import IGeolocatable
 
 grok.templatedir("templates")
 
@@ -200,3 +201,16 @@ class View(grok.View):
             return "€"
         else:
             return value
+
+    def google_maps_link(self):
+        geo = IGeolocatable(self.context, None)
+        if geo:
+            coordinates = [geo.geolocation.latitude, geo.geolocation.longitude]
+
+            maps_link = "https://www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
+                coordinates[0],
+                coordinates[1]
+            )
+            return maps_link
+        else:
+            return None
