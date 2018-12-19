@@ -83,7 +83,7 @@ class View(grok.View):
 
     def listOutcomesCC(self):
         items = api.content.find(
-            portal_type=['OutcomeCC', 'OutcomeCCS', 'Output'],
+            portal_type=['OutcomeCC', 'OutcomeCCS'],
             context=self.context)
         results = []
         for item in items:
