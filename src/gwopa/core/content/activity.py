@@ -6,6 +6,9 @@ from gwopa.core import _
 import datetime
 from zope.interface import Invalid
 from zope.interface import invariant
+from gwopa.core import utils
+from plone.app.z3cform.widget import SelectWidget
+from plone.autoform import directives
 
 
 grok.templatedir("templates")
@@ -73,10 +76,12 @@ class IActivity(model.Schema):
         missing_value=u'',
     )
 
-    outputs = schema.Choice(
+    directives.widget('outputs', SelectWidget)
+    outputs = schema.List(
         title=_(u"Related outputs"),
+        value_type=schema.Choice(
+            source=utils.outputs),
         required=False,
-        vocabulary=u'plone.app.vocabularies.Users',
     )
 
     members = schema.Choice(

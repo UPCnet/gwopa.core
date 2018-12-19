@@ -39,10 +39,15 @@
                   <h4>
                     <i class="fa fa-plus-circle"></i>
                     <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Activity" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"><tal:omit-tag i18n:translate=""> + Add Activity </tal:omit-tag></button></a>
+
                     <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"><tal:omit-tag i18n:translate=""> + Add Output </tal:omit-tag></button></a>
+
+                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Activity" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"><tal:omit-tag i18n:translate=""> + Add Activity </tal:omit-tag></button></a>
+
                     <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++OutcomeCC" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"><tal:omit-tag i18n:translate=""> + Add OutcomeCC </tal:omit-tag></button></a>
+
                     <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++OutcomeCCS" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"><tal:omit-tag i18n:translate=""> + Add OutcomeCCS </tal:omit-tag></button></a>
+
                     <br/>
                     <span style="padding-left:20px;" tal:content="item/description"></span>
                   </h4>

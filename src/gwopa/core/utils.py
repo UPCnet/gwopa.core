@@ -134,6 +134,22 @@ def settings_capacity_changes(context):
 directlyProvides(settings_capacity_changes, IContextSourceBinder)
 
 
+def outputs(context):
+    """ Outputs for the Activity """
+    terms = []
+    literals = api.content.find(portal_type="Output", context=context)
+    for item in literals:
+        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(listWOPPrograms, IContextSourceBinder)
+
+
+directlyProvides(outputs, IContextSourceBinder)
+
+
 def get_safe_member_by_id(username):
     """Gets user info from the repoze.catalog based user properties catalog.
        This is a safe implementation for getMemberById portal_membership to
