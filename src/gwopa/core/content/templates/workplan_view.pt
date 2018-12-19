@@ -83,7 +83,7 @@
           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI" href="#"><button class="context focus"><tal:omit-tag i18n:translate="">+ New OutcomeKPI</tal:omit-tag></button></a>
           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE" href="#"><button class="context focus"><tal:omit-tag i18n:translate="">+ New OutcomeZONE</tal:omit-tag></button></a>
           <tal:block-ouctomeskpi tal:define="outcomes view/listOutcomesKPI" tal:condition="outcomes">
-            <h3><i class="fa fa-plus-circle"></i><tal:omit-tag i18n:translate="">Outcomes</tal:omit-tag></h3>
+            <h3><i class="fa fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Project</tal:omit-tag></h3>
             <tal:objects repeat="outcome outcomes">
               <ul class="item">
                 <li style="padding-left: 20px; list-style: none;">
@@ -96,7 +96,7 @@
             </tal:objects>
           </tal:block-ouctomeskpi>
           <tal:block-ouctomes tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
-            <h3><i class="fa fa-plus-circle"></i><tal:omit-tag i18n:translate="">Improvement Area</tal:omit-tag></h3>
+            <h3><i class="fa fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improvement Area</tal:omit-tag></h3>
             <tal:objects repeat="outcome outcomes">
               <ul class="item">
                 <li style="padding-left: 20px; list-style: none;">
