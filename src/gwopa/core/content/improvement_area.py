@@ -15,7 +15,6 @@ class IImprovementArea(model.Schema):
     """
     title = schema.TextLine(
         title=_(u"Title"),
-        description=_(u"An improvement area used on the Site"),
         required=True,
     )
 

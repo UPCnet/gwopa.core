@@ -37,7 +37,7 @@ directlyProvides(listWOPPlatforms, IContextSourceBinder)
 
 
 def listPartners(context):
-    """ Partners list """
+    """ WOP Partners list """
     terms = []
     literals = api.content.find(portal_type="Partner")
     for item in literals:
@@ -63,7 +63,7 @@ directlyProvides(listWOPPrograms, IContextSourceBinder)
 
 
 def settings_currency(context):
-    """ WOP Currency """
+    """ Currency settings page """
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
         values = item[0].getObject().currency
@@ -81,7 +81,7 @@ directlyProvides(settings_currency, IContextSourceBinder)
 
 
 def settings_measuring_unit(context):
-    """ WOP Currency """
+    """ Measuring Settings """
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
         values = item[0].getObject().measuring_unit
@@ -99,7 +99,7 @@ directlyProvides(settings_measuring_unit, IContextSourceBinder)
 
 
 def settings_measuring_frequency(context):
-    """ WOP Currency """
+    """ Measuring frequency settings """
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
         values = item[0].getObject().measuring_frequency
@@ -117,7 +117,7 @@ directlyProvides(settings_measuring_frequency, IContextSourceBinder)
 
 
 def settings_capacity_changes(context):
-    """ WOP Currency """
+    """ Capacity changes settings """
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
         values = item[0].getObject().capacity_changes

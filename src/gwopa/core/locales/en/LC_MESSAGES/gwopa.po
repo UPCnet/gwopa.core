@@ -256,7 +256,7 @@ msgstr "Image"
 
 #: ../content/improvement_area.py:30
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
-msgstr "Image used to describe the Area. If no file chosen, a defult one will be used."
+msgstr "Image used to describe the Area. If no file chosen, a default one will be used."
 
 #: ../content/outcomecc.py:28
 #: ../content/outcomeccs.py:28
