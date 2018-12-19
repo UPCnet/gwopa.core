@@ -53,4 +53,9 @@
       name="gwopa.core-hiddenprofiles"
       />
 
+   <adapter
+        factory=".patches.NegotiateLanguage"
+        for="* gwopa.core.interfaces.IGwopaCoreLayer"
+    />
+
 </configure>
