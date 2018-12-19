@@ -19,8 +19,8 @@ class planningView(BrowserView):
         if folder:
             for item in folder:
                 if item.id == newid:
-                    return self.request.response.redirect(item.getPath())
-            return self.request.response.redirect(folder[0].getPath())
+                    return self.request.response.redirect('/'.join(item.getPhysicalPath()))
+            return self.request.response.redirect('/'.join(folder[0].getPhysicalPath()))
         else:
             alsoProvides(self.request, IDisableCSRFProtection)
             newplan = api.content.create(

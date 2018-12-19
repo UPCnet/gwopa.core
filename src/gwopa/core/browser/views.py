@@ -26,7 +26,7 @@ class listFiles(BrowserView):
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                url=item.getPath()))
+                url='/'.join(item.getPhysicalPath())))
         return results
 
 

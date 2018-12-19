@@ -62,7 +62,7 @@ class View(grok.View):
         for project in items:
             item = project.getObject()
             results.append(dict(title=item.title,
-                                url=item.absolute_url_path(),
+                                url='/'.join(item.getPhysicalPath()),
                                 description=item.description,
                                 portal_type=item.portal_type
                                 ))
@@ -78,7 +78,7 @@ class View(grok.View):
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                url=item.getPath()))
+                url='/'.join(item.getPhysicalPath())))
         return results
 
     def listOutcomesCC(self):
@@ -96,7 +96,7 @@ class View(grok.View):
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                url=item.getPath()))
+                url='/'.join(item.getPhysicalPath())))
         return results
 
     def indicatorsInside(self, item):
@@ -113,5 +113,5 @@ class View(grok.View):
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                url=item.getPath()))
+                url='/'.join(item.getPhysicalPath())))
         return results
