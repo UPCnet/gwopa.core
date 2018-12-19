@@ -113,5 +113,5 @@ class View(grok.View):
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                url='/'.join(item.getPhysicalPath())))
+                url='/'.join(item.getObject().getPhysicalPath())))
         return results
