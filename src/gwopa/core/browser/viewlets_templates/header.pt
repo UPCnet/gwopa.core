@@ -12,13 +12,13 @@
 
 
     <br/>
-    <h4 tal:condition="viewlet/isProject">
+    <tal:omit-tag tal:condition="viewlet/isProject">
         <a class="plone-btn plone-btn-success" tal:attributes="href string:${context/absolute_url}/planning" href="#"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Planning </tal:omit-tag></a>
         <a class="plone-btn plone-btn-success" tal:attributes="href string:${context/absolute_url}/collaborating" href="#"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Collaboration </tal:omit-tag></a>
         <a class="plone-btn plone-btn-success" tal:attributes="href string:${context/absolute_url}/monitoring" href="#"><i class="fa fa-area-chart" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>
         <a class="plone-btn plone-btn-success" tal:attributes="href string:${context/absolute_url}/reporting" href="#"><i class="fa fa-files-o" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Reporting </tal:omit-tag></a>
         <a class="plone-btn plone-btn-success" tal:attributes="href string:${context/absolute_url}/visualizating" href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></a>
-    </h4>
+    </tal:omit-tag>
     <ul id="portal-logout">
         <li>
             <a href="" tal:attributes="href string:${portal_url}/managePortal"><i class="fa fa-table" aria-hidden="true"></i> <tal:omit-tag i18n:translate=""> Configuration </tal:omit-tag></a>
