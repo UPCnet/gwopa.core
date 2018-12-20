@@ -342,7 +342,6 @@ class setup(grok.View):
             project.partners = new_value
             geo = IGeolocatable(project, None)
             geo.geolocation = Geolocation(41.3828939, 2.1774322)
-            project.risks = project.contribution
             project.assumptions = project.contribution
             project.objectives = project.contribution
             project.country = 'Spain'
