@@ -14,6 +14,10 @@ def todayValue():
     return datetime.date.today()
 
 
+def endDefaultValue():
+    return datetime.datetime.today() + datetime.timedelta(10)
+
+
 class IOutput(model.Schema):
     """  Output
     """
@@ -28,31 +32,30 @@ class IOutput(model.Schema):
         missing_value=u'',
     )
 
-    baseline = schema.Int(
-        title=_(u"Baseline value"),
-        required=True,
+    initial_situation = schema.Text(
+        title=_(u'Initial situation description'),
+        required=False,
+        missing_value=u'',
     )
 
-    baseline_date = schema.Date(
-        title=_(u'Baseline Date'),
+    end = schema.Datetime(
+        title=_(u'Completion time'),
         required=True,
-        defaultFactory=todayValue
+        defaultFactory=endDefaultValue
     )
 
-    measuring = schema.Choice(
-        title=_(u"Measuring Unit"),
+    target = schema.Text(
+        title=_(u"Measurable Target"),
         required=True,
-        source=utils.settings_measuring_unit,
-    )
-
-    frequency = schema.Choice(
-        title=_(u"Measuring Frequency"),
-        required=True,
-        source=utils.settings_measuring_frequency,
     )
 
     means = schema.Text(
         title=_(u"Means of verification"),
+        required=False,
+    )
+
+    risks = schema.Text(
+        title=_(u"Risks / Assumptions"),
         required=False,
     )
 

@@ -72,7 +72,6 @@ class IProject(model.Schema):
 
     wop_platform = schema.Choice(
         title=_(u'Regional WOP Platform'),
-        description=_(u'Select one or more regional WOP Platforms from the list'),
         required=False,
         source=utils.listWOPPlatforms
     )

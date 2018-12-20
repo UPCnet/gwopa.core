@@ -3,10 +3,8 @@ from five import grok
 from plone.supermodel import model
 from zope import schema
 from plone.namedfile import field as namedfile
-from plone import api
 from gwopa.core import _
 from gwopa.core import utils
-from plone.directives import form
 import re
 
 grok.templatedir("templates")

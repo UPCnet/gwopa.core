@@ -20,15 +20,14 @@ class IOutcomecc(model.Schema):
     """
     title = schema.TextLine(
         title=_(u"Title"),
-        required=False,
+        required=True,
     )
 
-    wop_program = schema.List(
+    wop_program = schema.Choice(
         title=_(u"Capacity Items"),
         description=_(u"Improved specific capacity"),
-        value_type=schema.Choice(
-            source=utils.settings_capacity_changes),
-        required=False,
+        source=utils.settings_capacity_changes,
+        required=True,
     )
 
     description = schema.Text(
@@ -50,6 +49,11 @@ class IOutcomecc(model.Schema):
 
     means = schema.Text(
         title=_(u"Means of verification"),
+        required=False,
+    )
+
+    risks = schema.Text(
+        title=_(u"Risks / Assumptions"),
         required=False,
     )
 
