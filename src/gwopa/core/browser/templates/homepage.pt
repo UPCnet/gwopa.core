@@ -100,10 +100,7 @@
                             <tr tal:define="oddrow repeat/item/odd;"
                                 tal:attributes="class python: oddrow and 'even' or 'odd'">
                               <td>
-                                  <img tal:condition="item/image"
-                                       tal:attributes="src string:${item/url}/@@images/image/thumb;" class="img128" />
-                                  <img tal:condition="not:item/image"
-                                       tal:attributes="src string:++theme++gwopa.theme/assets/images/128x85.jpg;" class="img128" />
+                                  <img class="img128" tal:attributes="src string:${item/image};"/>
                               </td>
                               <td>
                                   <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
@@ -165,9 +162,6 @@
                                         vocabularyUrl: ${portal_url}/select2-test.json;
                                         width:20em"
                       i18n:attributes="placeholder Search" />
-                <!-- <a tal:attributes="href string:${portal_url}/" href="#">
-                  <button class="context focus"> All </button>
-                </a> -->
                 <div class="has-table">
                   <table class="listing" summary="Content listing">
                     <tbody>
