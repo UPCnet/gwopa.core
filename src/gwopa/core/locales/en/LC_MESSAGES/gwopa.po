@@ -18,34 +18,46 @@ msgstr ""
 msgid "(Manager: 1 random element)"
 msgstr "(Manager: 1 random element)"
 
-#: ../browser/templates/homepage.pt:133
+#: ../browser/templates/homepage.pt:130
 msgid "(Manager: 4 random elements)"
 msgstr "(Manager: 4 random elements)"
+
+#: ../content/templates/workplan_view.pt:45
+msgid "+ Add Activity"
+msgstr "+ Add Activity"
+
+#: ../content/templates/workplan_view.pt:47
+msgid "+ Add OutcomeCC"
+msgstr "+ Add OutcomeCC"
+
+#: ../content/templates/workplan_view.pt:49
+msgid "+ Add OutcomeCCS"
+msgstr "+ Add OutcomeCCS"
+
+#: ../content/templates/workplan_view.pt:43
+msgid "+ Add Output"
+msgstr "+ Add Output"
+
+#: ../content/templates/workplan_view.pt:66
+msgid "+ Add Target Value"
+msgstr "+ Add Target Value"
 
 #: ../content/templates/workplan_view.pt:34
 msgid "+ New Improvement Area"
 msgstr "+ New Improvement Area"
 
-#: ../content/templates/workplan_view.pt:78
+#: ../content/templates/workplan_view.pt:83
 msgid "+ New OutcomeKPI"
 msgstr "+ New OutcomeKPI"
 
-#: ../content/templates/workplan_view.pt:79
+#: ../content/templates/workplan_view.pt:84
 msgid "+ New OutcomeZONE"
 msgstr "+ New OutcomeZONE"
-
-#: ../content/templates/workplan_view.pt:56
-msgid "+ New Output"
-msgstr "+ New Output"
 
 #: ../browser/templates/homepage.pt:77
 #: ../browser/templates/manage_portal.pt:25
 msgid "+ New Project"
 msgstr "+ New Project"
-
-#: ../content/templates/workplan_view.pt:61
-msgid "+ Target Value"
-msgstr "+ Target Value"
 
 #: ../browser/templates/manage_portal.pt:36
 msgid "Actions"
@@ -63,10 +75,6 @@ msgstr "Admin role"
 msgid "All the projects in one map."
 msgstr "Map with all the projects."
 
-#: ../content/improvement_area.py:18
-msgid "An improvement area used on the Site"
-msgstr "An improvement area used on the Site"
-
 #: ../content/templates/workplan_view.pt:14
 msgid "Annual Work Plan for year"
 msgstr "Annual Work Plan for year"
@@ -75,23 +83,15 @@ msgstr "Annual Work Plan for year"
 msgid "Area"
 msgstr "Area"
 
-#: ../content/activity.py:65
+#: ../content/activity.py:68
 msgid "Assigned budget"
 msgstr "Assigned budget"
-
-#: ../content/output.py:37
-msgid "Baseline Date"
-msgstr "Baseline Date"
 
 #: ../content/outcomecc.py:41
 #: ../content/outcomeccs.py:41
 #: ../content/outcomekpi.py:41
 msgid "Baseline description"
 msgstr "Baseline description"
-
-#: ../content/output.py:32
-msgid "Baseline value"
-msgstr "Baseline value"
 
 #: ../content/settingspage.py:47
 msgid "Capacity Changes"
@@ -103,7 +103,7 @@ msgstr "Capacity changes"
 msgid "Capacity Items"
 msgstr "Capacity Items"
 
-#: ../content/partner.py:36
+#: ../content/partner.py:35
 #: ../content/platform.py:34
 #: ../content/program.py:49
 msgid "Choose countries from list that represents this country."
@@ -113,16 +113,16 @@ msgstr "Choose countries from the list"
 msgid "Collaborating module"
 msgstr "Collaborating module"
 
-#: ../browser/viewlets_templates/header.pt:22
-#: ../content/templates/workplan_view.pt:110
+#: ../browser/viewlets_templates/header.pt:17
+#: ../content/templates/workplan_view.pt:115
 msgid "Collaboration"
 msgstr "Collaboration"
 
-#: ../content/activity.py:53
+#: ../content/activity.py:56
 msgid "Completion time"
 msgstr "Completion time"
 
-#: ../browser/viewlets_templates/header.pt:12
+#: ../browser/viewlets_templates/header.pt:24
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -130,7 +130,7 @@ msgstr "Configuration"
 msgid "Contact"
 msgstr "Contact"
 
-#: ../content/partner.py:43
+#: ../content/partner.py:42
 #: ../content/program.py:56
 msgid "Contact email"
 msgstr "Contact email"
@@ -153,7 +153,7 @@ msgid "Control panel to configure and view all the important system parameters"
 msgstr "Control panel to configure and view all the important system parameters"
 
 #: ../browser/templates/manage_portal.pt:35
-#: ../content/partner.py:35
+#: ../content/partner.py:34
 #: ../content/platform.py:33
 msgid "Country"
 msgstr "Country"
@@ -174,7 +174,7 @@ msgstr "Exchange currency"
 msgid "Current projects map"
 msgstr "Current projects"
 
-#: ../browser/viewlets_templates/header.pt:25
+#: ../browser/viewlets_templates/header.pt:20
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -200,7 +200,7 @@ msgstr "Define your language"
 msgid "Delete Work Plan"
 msgstr "Delete Work Plan"
 
-#: ../browser/setup_home.py:41
+#: ../browser/setup_home.py:44
 msgid "Demo content has been created."
 msgstr "Demo content has been created."
 
@@ -248,13 +248,13 @@ msgstr "Here are shown all the Improvement Areas of this project. You can view t
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return\"."
 msgstr "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return\"."
 
-#: ../content/improvement_area.py:29
-#: ../content/partner.py:30
+#: ../content/improvement_area.py:28
+#: ../content/partner.py:29
 #: ../content/platform.py:28
 msgid "Image"
 msgstr "Image"
 
-#: ../content/improvement_area.py:30
+#: ../content/improvement_area.py:29
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr "Image used to describe the Area. If no file chosen, a default one will be used."
 
@@ -264,7 +264,7 @@ msgstr "Image used to describe the Area. If no file chosen, a default one will b
 msgid "Improved specific capacity"
 msgstr "Improved specific capacity"
 
-#: ../content/templates/workplan_view.pt:94
+#: ../content/templates/workplan_view.pt:99
 #: ../profiles/default/types/ImprovementArea.xml
 msgid "Improvement Area"
 msgstr "Improvement Area"
@@ -277,7 +277,7 @@ msgstr "Improvement areas"
 msgid "Improvement track team and members"
 msgstr "Improvement track team and members"
 
-#: ../content/activity.py:41
+#: ../content/activity.py:44
 msgid "Initial situation description"
 msgstr "Initial situation description"
 
@@ -285,7 +285,7 @@ msgstr "Initial situation description"
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
-#: ../content/activity.py:15
+#: ../content/activity.py:18
 #: ../content/project.py:24
 msgid "Invalid start or end date"
 msgstr "Invalid start or end date"
@@ -310,7 +310,7 @@ msgstr "Location"
 msgid "Log Frame"
 msgstr "Log Frame"
 
-#: ../browser/viewlets_templates/header.pt:15
+#: ../browser/viewlets_templates/header.pt:27
 msgid "Log out"
 msgstr "Log out"
 
@@ -340,12 +340,12 @@ msgstr "Measuring frequency"
 msgid "Measuring unit"
 msgstr "Measuring unit"
 
-#: ../content/activity.py:83
+#: ../content/activity.py:88
 #: ../content/project.py:138
 msgid "Members"
 msgstr "Members"
 
-#: ../content/activity.py:84
+#: ../content/activity.py:89
 msgid "Members of this activity"
 msgstr "Members of this activity"
 
@@ -353,11 +353,11 @@ msgstr "Members of this activity"
 msgid "Members with this region"
 msgstr "Members with this region"
 
-#: ../content/activity.py:71
+#: ../content/activity.py:74
 msgid "Milestones"
 msgstr "Milestones"
 
-#: ../browser/viewlets_templates/header.pt:23
+#: ../browser/viewlets_templates/header.pt:18
 msgid "Monitoring"
 msgstr "Monitoring"
 
@@ -369,11 +369,11 @@ msgstr "Monitoring Module"
 msgid "My Projects"
 msgstr "My Projects"
 
-#: ../browser/templates/homepage.pt:133
+#: ../browser/templates/homepage.pt:130
 msgid "My company Projects"
 msgstr "My company Projects"
 
-#: ../content/activity.py:30
+#: ../content/activity.py:33
 msgid "Name"
 msgstr "Name"
 
@@ -397,7 +397,7 @@ msgstr "Outcome KPI"
 msgid "OutcomeZONE"
 msgstr "Outcome Zone"
 
-#: ../content/templates/workplan_view.pt:76
+#: ../content/templates/workplan_view.pt:81
 msgid "Outcomes"
 msgstr "Outcomes"
 
@@ -426,7 +426,7 @@ msgstr "Partners"
 msgid "Phone"
 msgstr "Phone"
 
-#: ../browser/viewlets_templates/header.pt:21
+#: ../browser/viewlets_templates/header.pt:16
 #: ../content/templates/workplan_view.pt:18
 msgid "Planning"
 msgstr "Planning"
@@ -483,15 +483,15 @@ msgstr "Realisation Date"
 msgid "Regional WOP Platform"
 msgstr "Regional WOP Platform"
 
-#: ../content/activity.py:59
+#: ../content/activity.py:62
 msgid "Related inputs"
 msgstr "Related inputs"
 
-#: ../content/activity.py:77
+#: ../content/activity.py:81
 msgid "Related outputs"
 msgstr "Related outputs"
 
-#: ../browser/viewlets_templates/header.pt:24
+#: ../browser/viewlets_templates/header.pt:19
 msgid "Reporting"
 msgstr "Reporting"
 
@@ -499,11 +499,17 @@ msgstr "Reporting"
 msgid "Reporting Module"
 msgstr "Reporting Module"
 
-#: ../browser/templates/homepage.pt:162
+#: ../content/outcomecc.py:57
+#: ../content/outcomeccs.py:57
+#: ../content/outcomekpi.py:57
+msgid "Risks / Assumptions"
+msgstr "Risks / Assumptions"
+
+#: ../browser/templates/homepage.pt:159
 msgid "Search"
 msgstr "Search..."
 
-#: ../browser/templates/homepage.pt:161
+#: ../browser/templates/homepage.pt:158
 msgid "Search Projects"
 msgstr "Search Projects"
 
@@ -532,12 +538,12 @@ msgstr "Start date"
 msgid "Starting Date"
 msgstr "Starting Date"
 
-#: ../content/activity.py:47
+#: ../content/activity.py:50
 msgid "Starting time"
 msgstr "Starting time"
 
-#: ../content/activity.py:35
-#: ../content/improvement_area.py:23
+#: ../content/activity.py:38
+#: ../content/improvement_area.py:22
 #: ../content/logframe.py:25
 msgid "Summary"
 msgstr "Summary"
@@ -555,7 +561,7 @@ msgstr "Target Value"
 msgid "Target Value Date"
 msgstr "Target Value Date"
 
-#: ../browser/setup_home.py:110
+#: ../browser/setup_home.py:113
 msgid "The default config has been applied."
 msgstr "The default config has been applied."
 
@@ -614,6 +620,10 @@ msgstr "Used in the projects item. One per line."
 msgid "UserID"
 msgstr "UserID"
 
+#: ../content/templates/partner_view.pt:62
+msgid "Users in this Partner"
+msgstr "Users in this Partner"
+
 #: ../browser/templates/visualizating.pt:14
 msgid "Visualizating Module"
 msgstr "Visualizating Module"
@@ -648,7 +658,7 @@ msgstr "You don't have assigned projects."
 msgid "Your Twitter username. Could include the @. Example: @unhabitat"
 msgstr "Your Twitter username. Could include the @. Example: @unhabitat"
 
-#: ../browser/templates/homepage.pt:135
+#: ../browser/templates/homepage.pt:132
 msgid "Your company has no projects."
 msgstr "Your company has no projects (or you don't have any assigned)."
 
@@ -684,7 +694,8 @@ msgid "home_page"
 msgstr "Homepage"
 
 #. Default: "Show in Google Maps"
-#: ../content/templates/project_view.pt:87
+#: ../content/templates/partner_view.pt:58
+#: ../content/templates/project_view.pt:86
 msgid "label_google_maps_link"
 msgstr "Show in Google Maps"
 
