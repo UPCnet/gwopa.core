@@ -1,6 +1,9 @@
 <tal:block tal:define="portal_state context/@@plone_portal_state;
                        portal_url portal_state/portal_url;"
            i18n:domain="gwopa">
+
+   <link rel="stylesheet" tal:attributes="href string:/++theme++gwopa.theme/fontawesome/css/all.css" >
+
   <div class="sidenav">
     <ul id="sidenav-vertical">
         <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fa fa-home" aria-hidden="true"></i> PMP </a>
