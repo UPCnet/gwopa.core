@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-12-20 10:44+0000\n"
+"POT-Creation-Date: 2019-01-08 08:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: gwopa\n"
 
-#: ../content/project.py:159
+#: ../content/project.py:158
 #: ../content/settingspage.py:48
 msgid ""
 msgstr ""
@@ -67,7 +67,7 @@ msgstr ""
 msgid "+ New Project"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:36
+#: ../browser/templates/manage_portal.pt:40
 msgid "Actions"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:34
+#: ../browser/templates/manage_portal.pt:38
 msgid "Admin role"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Annual Work Plan for year"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:61
+#: ../browser/templates/manage_portal.pt:78
 msgid "Area"
 msgstr ""
 
@@ -95,9 +95,9 @@ msgstr ""
 msgid "Assigned budget"
 msgstr ""
 
-#: ../content/outcomecc.py:41
-#: ../content/outcomeccs.py:41
-#: ../content/outcomekpi.py:41
+#: ../content/outcomecc.py:40
+#: ../content/outcomeccs.py:40
+#: ../content/outcomekpi.py:40
 msgid "Baseline description"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 
 #: ../content/partner.py:35
 #: ../content/platform.py:34
-#: ../content/program.py:49
+#: ../content/program.py:47
 msgid "Choose countries from list that represents this country."
 msgstr ""
 
@@ -121,25 +121,26 @@ msgstr ""
 msgid "Collaborating module"
 msgstr ""
 
-#: ../browser/viewlets_templates/header.pt:17
+#: ../browser/viewlets_templates/header.pt:18
 #: ../content/templates/workplan_view.pt:115
 msgid "Collaboration"
 msgstr ""
 
 #: ../content/activity.py:56
+#: ../content/output.py:42
 msgid "Completion time"
 msgstr ""
 
-#: ../browser/viewlets_templates/header.pt:24
+#: ../browser/viewlets_templates/header.pt:26
 msgid "Configuration"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:140
+#: ../browser/templates/manage_portal.pt:172
 msgid "Contact"
 msgstr ""
 
 #: ../content/partner.py:42
-#: ../content/program.py:56
+#: ../content/program.py:54
 msgid "Contact email"
 msgstr ""
 
@@ -147,11 +148,11 @@ msgstr ""
 msgid "Contact person"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:62
+#: ../browser/templates/manage_portal.pt:79
 msgid "Container"
 msgstr ""
 
-#: ../content/project.py:158
+#: ../content/project.py:157
 #: ../content/templates/project_view.pt:44
 msgid "Contribution by partners and donors"
 msgstr ""
@@ -160,17 +161,17 @@ msgstr ""
 msgid "Control panel to configure and view all the important system parameters"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:35
+#: ../browser/templates/manage_portal.pt:39
 #: ../content/partner.py:34
 #: ../content/platform.py:33
 msgid "Country"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:116
+#: ../browser/templates/manage_portal.pt:143
 msgid "Country/Countries"
 msgstr ""
 
-#: ../content/project.py:152
+#: ../content/project.py:151
 msgid "Currency"
 msgstr ""
 
@@ -182,13 +183,13 @@ msgstr ""
 msgid "Current projects map"
 msgstr ""
 
-#: ../browser/viewlets_templates/header.pt:20
+#: ../browser/viewlets_templates/header.pt:21
 msgid "Dashboard"
 msgstr ""
 
-#: ../content/outcomecc.py:46
-#: ../content/outcomeccs.py:46
-#: ../content/outcomekpi.py:46
+#: ../content/outcomecc.py:45
+#: ../content/outcomeccs.py:45
+#: ../content/outcomekpi.py:45
 msgid "Date of the Baseline"
 msgstr ""
 
@@ -228,7 +229,7 @@ msgstr ""
 msgid "Duplicate Work Plan"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:33
+#: ../browser/templates/manage_portal.pt:37
 msgid "End Date"
 msgstr ""
 
@@ -252,7 +253,7 @@ msgstr ""
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
 msgstr ""
 
-#: ../browser/templates/files.pt:15
+#: ../browser/templates/files.pt:23
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return\"."
 msgstr ""
 
@@ -281,11 +282,12 @@ msgstr ""
 msgid "Improvement areas"
 msgstr ""
 
-#: ../content/project.py:139
+#: ../content/project.py:138
 msgid "Improvement track team and members"
 msgstr ""
 
 #: ../content/activity.py:44
+#: ../content/output.py:36
 msgid "Initial situation description"
 msgstr ""
 
@@ -302,11 +304,11 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: ../content/project.py:99
+#: ../content/project.py:98
 msgid "Latitude"
 msgstr ""
 
-#: ../browser/templates/files.pt:14
+#: ../browser/templates/files.pt:22
 msgid "List of site files"
 msgstr ""
 
@@ -318,26 +320,22 @@ msgstr ""
 msgid "Log Frame"
 msgstr ""
 
-#: ../browser/viewlets_templates/header.pt:27
+#: ../browser/viewlets_templates/header.pt:29
 msgid "Log out"
 msgstr ""
 
-#: ../content/project.py:106
+#: ../content/project.py:105
 msgid "Longitude"
 msgstr ""
 
-#: ../content/outcomecc.py:52
-#: ../content/outcomeccs.py:52
-#: ../content/outcomekpi.py:52
+#: ../content/outcomecc.py:51
+#: ../content/outcomeccs.py:51
+#: ../content/outcomekpi.py:51
 msgid "Means of verification"
 msgstr ""
 
-#: ../content/output.py:49
-msgid "Measuring Frequency"
-msgstr ""
-
-#: ../content/output.py:43
-msgid "Measuring Unit"
+#: ../content/output.py:48
+msgid "Measurable Target"
 msgstr ""
 
 #: ../content/settingspage.py:41
@@ -349,7 +347,7 @@ msgid "Measuring unit"
 msgstr ""
 
 #: ../content/activity.py:88
-#: ../content/project.py:138
+#: ../content/project.py:137
 msgid "Members"
 msgstr ""
 
@@ -365,7 +363,7 @@ msgstr ""
 msgid "Milestones"
 msgstr ""
 
-#: ../browser/viewlets_templates/header.pt:18
+#: ../browser/viewlets_templates/header.pt:19
 msgid "Monitoring"
 msgstr ""
 
@@ -385,7 +383,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../content/project.py:164
+#: ../content/project.py:163
 msgid "Objectives"
 msgstr ""
 
@@ -417,15 +415,15 @@ msgstr ""
 msgid "PMP Projects View"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:163
+#: ../browser/templates/manage_portal.pt:200
 msgid "Partner"
 msgstr ""
 
-#: ../content/project.py:114
+#: ../content/project.py:113
 msgid "Partner/partners of the project"
 msgstr ""
 
-#: ../content/project.py:113
+#: ../content/project.py:112
 #: ../content/templates/project_view.pt:27
 msgid "Partners"
 msgstr ""
@@ -434,7 +432,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: ../browser/viewlets_templates/header.pt:16
+#: ../browser/viewlets_templates/header.pt:17
 #: ../content/templates/workplan_view.pt:18
 msgid "Planning"
 msgstr ""
@@ -443,26 +441,26 @@ msgstr ""
 msgid "Planning - Annual ${DYNAMIC_CONTENT}"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:138
+#: ../browser/templates/manage_portal.pt:170
 msgid "Program"
 msgstr ""
 
-#: ../content/project.py:91
+#: ../content/project.py:90
 msgid "Program/programs associated to this project"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:31
+#: ../browser/templates/manage_portal.pt:35
 #: ../content/templates/workplan_view.pt:32
 #: ../profiles/default/types/Project.xml
 msgid "Project"
 msgstr ""
 
-#: ../content/project.py:130
+#: ../content/project.py:129
 #: ../content/templates/project_view.pt:34
 msgid "Project Manager"
 msgstr ""
 
-#: ../content/project.py:122
+#: ../content/project.py:121
 msgid "Project Manager Admin"
 msgstr ""
 
@@ -499,7 +497,7 @@ msgstr ""
 msgid "Related outputs"
 msgstr ""
 
-#: ../browser/viewlets_templates/header.pt:19
+#: ../browser/viewlets_templates/header.pt:20
 msgid "Reporting"
 msgstr ""
 
@@ -507,9 +505,9 @@ msgstr ""
 msgid "Reporting Module"
 msgstr ""
 
-#: ../content/outcomecc.py:57
-#: ../content/outcomeccs.py:57
-#: ../content/outcomekpi.py:57
+#: ../content/outcomecc.py:56
+#: ../content/outcomeccs.py:56
+#: ../content/outcomekpi.py:56
 msgid "Risks / Assumptions"
 msgstr ""
 
@@ -521,20 +519,16 @@ msgstr ""
 msgid "Search Projects"
 msgstr ""
 
-#: ../content/project.py:83
+#: ../content/project.py:82
 #: ../userdataschema.py:46
 msgid "Select country"
-msgstr ""
-
-#: ../content/project.py:75
-msgid "Select one or more regional WOP Platforms from the list"
 msgstr ""
 
 #: ../profiles/default/types/SettingsPage.xml
 msgid "SettingsPage"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:32
+#: ../browser/templates/manage_portal.pt:36
 msgid "Start Date"
 msgstr ""
 
@@ -573,11 +567,11 @@ msgstr ""
 msgid "The default config has been applied."
 msgstr ""
 
-#: ../content/project.py:123
+#: ../content/project.py:122
 msgid "The responsible manager of the project"
 msgstr ""
 
-#: ../content/project.py:131
+#: ../content/project.py:130
 msgid "The responsible of this project"
 msgstr ""
 
@@ -595,7 +589,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ../content/project.py:147
+#: ../content/project.py:146
 #: ../content/templates/project_view.pt:39
 msgid "Total budget"
 msgstr ""
@@ -624,7 +618,7 @@ msgstr ""
 msgid "Used in the projects item. One per line."
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:89
+#: ../browser/templates/manage_portal.pt:111
 msgid "UserID"
 msgstr ""
 
@@ -648,7 +642,7 @@ msgstr ""
 msgid "WOP Platform"
 msgstr ""
 
-#: ../content/project.py:90
+#: ../content/project.py:89
 #: ../content/templates/project_view.pt:49
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
