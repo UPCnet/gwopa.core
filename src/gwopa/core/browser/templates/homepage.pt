@@ -93,12 +93,14 @@
                                 <h4 class="card-title top">
                                   <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
                                 </h4>
-                                <p class="card-text bottom"  itemprop="start" class="dtstart" tal:define="date_start item/start"
-                                        tal:content="python:date_start.strftime('%m/%d/%Y')"></p>
-                                <p class="card-text bottom"  itemprop="end" class="dtend" tal:define="date_end item/end"
-                                        tal:content="python:date_end.strftime('%m/%d/%Y')"></p>
-                                <p class="card-text bottom" tal:content="item/country"></p>
-                                <p class="card-text bottom" tal:content="item/project_manager"></p>
+                                <p class="card-text bottom">
+                                  <span tal:condition="date_start" tal:define="date_start item/start"
+                                      tal:content="python:date_start.strftime('%m/%d/%Y')"></span>
+                                  <span tal:condition="date_end" tal:define="date_end item/end"
+                                      tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
+                                  <span tal:condition="item/country" tal:content="item/country"></span>
+                                  <span tal:condition="item/project_manager" tal:content="item/project_manager"></span>
+                                </p>
                               </div>
                             </div>
                           </div>
@@ -124,7 +126,14 @@
                                 <h4 class="card-title top">
                                   <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
                                 </h4>
-                                <p class="card-text bottom" tal:content="item/country"></p>
+                                <p class="card-text bottom">
+                                  <span tal:condition="date_start" tal:define="date_start item/start"
+                                      tal:content="python:date_start.strftime('%m/%d/%Y')"></span>
+                                  <span tal:condition="date_end" tal:define="date_end item/end"
+                                      tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
+                                  <span tal:condition="item/country" tal:content="item/country"></span>
+                                  <span tal:condition="item/project_manager" tal:content="item/project_manager"></span>
+                                </p>
                               </div>
                             </div>
                           </div>
@@ -153,7 +162,14 @@
                               <h4 class="card-title top">
                                 <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
                               </h4>
-                              <p class="card-text bottom" tal:content="item/country"></p>
+                              <p class="card-text bottom">
+                                <span tal:condition="date_start" tal:define="date_start item/start"
+                                    tal:content="python:date_start.strftime('%m/%d/%Y')"></span>
+                                <span tal:condition="date_end" tal:define="date_end item/end"
+                                    tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
+                                <span tal:condition="item/country" tal:content="item/country"></span>
+                                <span tal:condition="item/project_manager" tal:content="item/project_manager"></span>
+                              </p>
                             </div>
                           </div>
                         </div>
