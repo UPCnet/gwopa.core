@@ -9,22 +9,10 @@
 
 <metal:content-core fill-slot="main">
 
-  <metal:javascript fill-slot="javascript_head_slot">
-    <script>
-      require = undefined;
-      define = undefined;
-    </script>
-    <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
-  </metal:javascript>
-
   <metal:block define-macro="content-core">
 
     <h1 class="documentFirstHeading" i18n:translate="">List of site files</h1>
     <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return".</div>
-
-    <div id="app">
-      <h1>{{ message }}</h1>
-    </div>
 
     <tal:objects repeat="item view/allfiles">
       <ul class="item">
@@ -36,20 +24,16 @@
             <span tal:content="item/description"> Item Description </span>
           </p>
         </li>
-    </ul>
+      </ul>
     </tal:objects>
 
-
-  <h3>TODO:</h3>
-  <ul>
-      <li>Show all Site files if called from root</li>
-      <li>Show project files if called from project </li>
-  </ul>
+    <h3>TODO:</h3>
+    <ul>
+        <li>Show all Site files if called from root</li>
+        <li>Show project files if called from project </li>
+    </ul>
 
   </metal:block>
-
-
-<script tal:attributes="src string:/++theme++gwopa.theme/assets/testvue.js"></script>
 
 </metal:content-core>
 
