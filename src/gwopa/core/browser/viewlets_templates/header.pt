@@ -18,13 +18,13 @@
   <div class="sidenav">
     <ul id="sidenav-vertical">
         <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fa fa-home" aria-hidden="true"></i> PMP </a>
-        <ul id="sidenav-vertical-overview"  tal:condition="viewlet/isProject">
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${context/absolute_url}" href="#"><i class="fas fa-home" aria-hidden="true"></i> Overview </a>
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fas fa-chart-area" aria-hidden="true"></i> AREA </a>
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fas fa-users" aria-hidden="true"></i> TEAM </a>
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/files" href="#"><i class="fas fa-file" aria-hidden="true"></i> FILES </a>
-        </ul>
-        <tal:omit-tag tal:condition="viewlet/isProject">
+        <tal:omit-tag tal:condition="viewlet/isRootFolder">
+            <ul id="sidenav-vertical-overview">
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${context/absolute_url}" href="#"><i class="fas fa-home" aria-hidden="true"></i> Overview </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fas fa-chart-area" aria-hidden="true"></i> AREA </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fas fa-users" aria-hidden="true"></i> TEAM </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/files" href="#"><i class="fas fa-file" aria-hidden="true"></i> FILES </a>
+            </ul>
             <a class="plone-btn plone-btn-success" tal:attributes="href string:${context/absolute_url}/planning" href="#"><i class="far fa-calendar-check" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Planning </tal:omit-tag></a>
             <a class="plone-btn plone-btn-success" tal:attributes="href string:${context/absolute_url}/collaborating" href="#"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Collaboration </tal:omit-tag></a>
             <a class="plone-btn plone-btn-success" tal:attributes="href string:${context/absolute_url}/monitoring" href="#"><i class="fas fa-chart-pie" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>

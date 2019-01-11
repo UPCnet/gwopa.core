@@ -20,8 +20,8 @@ class viewletHeader(viewletBase):
     grok.viewletmanager(IPortalHeader)
     grok.layer(IGwopaCoreLayer)
 
-    def isProject(self):
-        if (self.context.portal_type == 'Project' or self.context.portal_type == 'WorkPlan'):
+    def isRootFolder(self):
+        if (self.context.portal_type != 'Plone Site'):
             return True
         else:
             return False
