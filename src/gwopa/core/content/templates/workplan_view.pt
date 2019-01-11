@@ -49,8 +49,7 @@
 
   </metal:block>
 
-
-<script tal:attributes="src string:/++theme++gwopa.theme/assets/testvue.js"></script>
+  <script tal:attributes="src string:/++theme++gwopa.theme/assets/gwopa.umd.min.js.js"></script>
 
 </metal:content-core>
 
