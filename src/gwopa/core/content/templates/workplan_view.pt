@@ -16,9 +16,9 @@
     </script>
     <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!--     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
- -->
+
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -36,7 +36,7 @@
       </tal:block>
       </ul>
     </div>
-    <div style="float: right;">
+    <div class="wp-buttons">
       <a tal:attributes="href string:${context/absolute_url}/copyWorkPlan" href="#">
         <button class="plone-btn-warning"><i class="fa fa-copy"></i>&nbsp;<tal:omit-tag i18n:translate=""> Duplicate Work Plan</tal:omit-tag></button></a>
       <a tal:attributes="href string:${context/absolute_url}/deleteWorkPlan" href="#">
@@ -47,9 +47,9 @@
        <demo></demo>
     </div>
 
+  <script tal:attributes="src string:/++theme++gwopa.theme/assets/gwopa.umd.min.js"></script>
   </metal:block>
 
-  <script tal:attributes="src string:/++theme++gwopa.theme/assets/gwopa.umd.min.js.js"></script>
 
 </metal:content-core>
 
