@@ -11,15 +11,16 @@
 
   <metal:javascript fill-slot="javascript_head_slot">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </metal:javascript>
-
 
   <metal:block define-macro="content-core">
 
     <h1 class="documentFirstHeading" i18n:translate="">Monitoring Module</h1>
     <div class="documentDescription description" i18n:translate=""> Describing monitoring module.</div>
 
-<!-- Nav tabs -->
+  <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
       <a href="#Project" aria-controls="home" class="tablink" role="tab" data-toggle="tab">Project</a>
@@ -31,7 +32,6 @@
     Collaboration</a>
     </li>
   </ul>
-
 
   <!-- Tab panes -->
   <div class="tab-content">
@@ -82,7 +82,7 @@
                         <option value="#">Activity 2 Lorem Ipsum Name 2</option>
                       </select>
                     </form>
-                      </div>                
+                      </div>
                       <div class="form-group">
                         <label for="message-text" class="control-label">Description:</label>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
@@ -126,7 +126,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
                 </div>
             </td>
-          </tr> 
+          </tr>
           <tr href="#IA6" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA6" aria-expanded="true" class="">
                   <th scope="row" class="name">
                     <div class="output-planning">Output</div>
@@ -151,7 +151,7 @@
                       <option value="#">Activity 2 Lorem Ipsum Name 2</option>
                     </select>
                   </form>
-                    </div>                
+                    </div>
                     <div class="form-group">
                       <label for="message-text" class="control-label">Description:</label>
                       <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
@@ -190,7 +190,7 @@
             </td>
           </tr>
         </tbody>
-      </table> 
+      </table>
     </div>
     </div>
 
@@ -213,7 +213,7 @@
                   <th>Next update</th>
                 </tr>
             </thead>
-          <tbody>           
+          <tbody>
                 <tr href="#IA3" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA3" aria-expanded="true" class="">
                     <th scope="row" class="name">
                       <div class="status-a"></div>
@@ -231,7 +231,7 @@
                   <td colspan="7">
                     <div class="col-md-12 text-item-planning collapse" id="IA3" role="tabpanel" aria-expanded="true" style="">
                     <div class="form-group">
-                        <label for="recipient-name" class="control-label">Name:</label>        
+                        <label for="recipient-name" class="control-label">Name:</label>
                         <form action="#">
                       <select name="Name">
                         <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
@@ -258,7 +258,7 @@
                   <div class="row" id="targetagrupados">
                     <div class="col-md-12" id="modal-md-12">
                               <div class="col-md-6">
-                                <div class="form-group"> 
+                                <div class="form-group">
                                   <label for="message-text" class="control-label">Target 1</label>
                                   <input class="form-control" id="message-text" placeholder="Narrative... "></input>
                                   </div>
@@ -285,7 +285,7 @@
                             </div>
                     </div>
                     <button type="button" class="btn ADDNEW">
-                          <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                          <i class="fa fa-plus-circle" aria-hidden="true"></i>
                           ADD NEW
                     </button>
                   </div>
@@ -314,12 +314,12 @@
                     <td class="last">6</td>
                     <td>6</td>
                     <td>31/1/2025</td>
-                </tr>                   
+                </tr>
               <tr class="descripcion">
                   <td colspan="7">
                     <div class="col-md-12 text-item-planning collapse" id="IA4" role="tabpanel" aria-expanded="true" style="">
                     <div class="form-group">
-                      <label for="recipient-name" class="control-label">Name:</label>                   
+                      <label for="recipient-name" class="control-label">Name:</label>
                       <form action="#">
                     <select name="Name">
                       <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
@@ -346,7 +346,7 @@
                 <div class="row" id="targetagrupados">
                       <div class="col-md-12" id="modal-md-12">
                             <div class="col-md-6">
-                              <div class="form-group"> 
+                              <div class="form-group">
                                 <label for="message-text" class="control-label">Target 1</label>
                                 <input class="form-control" id="message-text" placeholder="Narrative... "></input>
                                 </div>
@@ -373,7 +373,7 @@
                           </div>
                       </div>
                       <button type="button" class="btn ADDNEW">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         ADD NEW
                       </button>
                 </div>
@@ -382,7 +382,7 @@
                         <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
                     </div>
                     <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                </div>            
+                </div>
               </td>
             </tr>
           </tbody>
@@ -418,7 +418,7 @@
                 <tbody>
                     <tr href="#IA1" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA1" aria-expanded="true" class="descripcion">
                         <th scope="row" class="name">
-                          <div class="status-w"></div>                  
+                          <div class="status-w"></div>
                           <div class="CCS-planning">CCS</div>
                           <h4 class="titulocatplan" id="activity">Ejemplo 1 de CCS</h4>
                         </th>
@@ -433,7 +433,7 @@
                       <td colspan="7">
                         <div class="col-md-12 text-item-planning collapse" id="IA1" role="tabpanel" aria-expanded="true" style="">
                         <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>                   
+                          <label for="recipient-name" class="control-label">Name:</label>
                           <form action="#">
                         <select name="Name">
                           <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
@@ -460,7 +460,7 @@
                      <div class="row" id="targetagrupados">
                           <div class="col-md-12" id="modal-md-12">
                                 <div class="col-md-6">
-                                  <div class="form-group"> 
+                                  <div class="form-group">
                                     <label for="message-text" class="control-label">Target 1</label>
                                     <input class="form-control" id="message-text" placeholder="Narrative... "></input>
                                     </div>
@@ -487,7 +487,7 @@
                               </div>
                           </div>
                           <button type="button" class="btn ADDNEW">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             ADD NEW
                           </button>
                      </div>
@@ -498,7 +498,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
                     </div>
                   </td>
-                </tr> 
+                </tr>
 
 
                 <tr href="#IA2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA2" aria-expanded="true" class="">
@@ -512,12 +512,12 @@
                         <td class="last">6</td>
                         <td>6</td>
                         <td>31/1/2025</td>
-                    </tr> 
+                    </tr>
                   <tr class="descripcion">
                       <td colspan="7">
                         <div class="col-md-12 text-item-planning collapse" id="IA2" role="tabpanel" aria-expanded="true" style="">
                                         <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>                   
+                          <label for="recipient-name" class="control-label">Name:</label>
                           <form action="#">
                         <select name="Name">
                           <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
@@ -544,7 +544,7 @@
                      <div class="row" id="targetagrupados">
                           <div class="col-md-12" id="modal-md-12">
                                 <div class="col-md-6">
-                                  <div class="form-group"> 
+                                  <div class="form-group">
                                     <label for="message-text" class="control-label">Target 1</label>
                                     <input class="form-control" id="message-text" placeholder="Narrative... "></input>
                                     </div>
@@ -571,7 +571,7 @@
                               </div>
                           </div>
                           <button type="button" class="btn ADDNEW">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             ADD NEW
                           </button>
                      </div>
@@ -584,7 +584,7 @@
                   </td>
                 </tr>
               </tbody>
-          </table> 
+          </table>
         </div>
 
         <a href="#MonitoringOutcomesIA2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesIA2" aria-expanded="false">
@@ -608,7 +608,7 @@
             <tbody>
                 <tr href="#IA1" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA1" aria-expanded="true" class="descripcion">
                         <th scope="row" class="name">
-                          <div class="status-w"></div>                  
+                          <div class="status-w"></div>
                           <div class="CCS-planning">CCS</div>
                           <h4 class="titulocatplan" id="activity">Ejemplo 1 de CCS</h4>
                         </th>
@@ -623,7 +623,7 @@
                       <td colspan="7">
                         <div class="col-md-12 text-item-planning collapse" id="IA1" role="tabpanel" aria-expanded="true" style="">
                         <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>                   
+                          <label for="recipient-name" class="control-label">Name:</label>
                           <form action="#">
                         <select name="Name">
                           <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
@@ -650,7 +650,7 @@
                      <div class="row" id="targetagrupados">
                           <div class="col-md-12" id="modal-md-12">
                                 <div class="col-md-6">
-                                  <div class="form-group"> 
+                                  <div class="form-group">
                                     <label for="message-text" class="control-label">Target 1</label>
                                     <input class="form-control" id="message-text" placeholder="Narrative... "></input>
                                     </div>
@@ -677,7 +677,7 @@
                               </div>
                           </div>
                           <button type="button" class="btn ADDNEW">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             ADD NEW
                           </button>
                      </div>
@@ -700,12 +700,12 @@
                         <td class="last">6</td>
                         <td>6</td>
                         <td>31/1/2025</td>
-                </tr> 
+                </tr>
                 <tr class="descripcion">
                       <td colspan="7">
                         <div class="col-md-12 text-item-planning collapse" id="IA2" role="tabpanel" aria-expanded="true" style="">
                                         <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>                   
+                          <label for="recipient-name" class="control-label">Name:</label>
                           <form action="#">
                         <select name="Name">
                           <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
@@ -732,7 +732,7 @@
                      <div class="row" id="targetagrupados">
                           <div class="col-md-12" id="modal-md-12">
                                 <div class="col-md-6">
-                                  <div class="form-group"> 
+                                  <div class="form-group">
                                     <label for="message-text" class="control-label">Target 1</label>
                                     <input class="form-control" id="message-text" placeholder="Narrative... "></input>
                                     </div>
@@ -759,7 +759,7 @@
                               </div>
                           </div>
                           <button type="button" class="btn ADDNEW">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             ADD NEW
                           </button>
                      </div>
@@ -772,7 +772,7 @@
                   </td>
                 </tr>
             </tbody>
-          </table> 
+          </table>
         </div>
       </div>
 
