@@ -33,10 +33,22 @@
     </li>
   </ul>
 
+<!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#Project" aria-controls="home" class="tablink" role="tab" data-toggle="tab">Project</a>
+    </li>
+    <li role="presentation">
+      <a href="#Outcomes" aria-controls="profile" class="tablink" role="tab" data-toggle="tab">Outcomes</a>
+    </li>
+    <li role="presentation"><a href="#Collaboration" class="tablink"  aria-controls="messages" role="tab" data-toggle="tab">
+    Collaboration</a>
+    </li>
+  </ul>
+
+
   <!-- Tab panes -->
   <div class="tab-content">
-
-
     <div role="tabpanel" class="tab-pane active" id="Project">
       <a href="#MonitoringProjects" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringProjects" aria-expanded="false">
         <h3 class="titulocatplan" id="ia">Improvement Area 1</h3>
@@ -127,7 +139,7 @@
                 </div>
             </td>
           </tr>
-          <tr href="#IA6" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA6" aria-expanded="true" class="">
+          <tr href="#Monitoring-Output" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA6" aria-expanded="true" class="">
                   <th scope="row" class="name">
                     <div class="output-planning">Output</div>
                     <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
@@ -141,51 +153,41 @@
               </tr>
               <tr class="descripcion">
                 <td colspan="7">
-                  <div class="col-md-12 text-item-planning collapse" id="IA6" role="tabpanel" aria-expanded="true" style="">
-                  <div class="col-md-6" id="mitad">
-                    <div class="form-group">
-                        <label for="recipient-name" class="control-label">Name:</label>
-                        <form action="#">
-                    <select name="Name">
-                      <option value="#">Preselected Output: Lorem Ipsum Name 1</option>
-                      <option value="#">Activity 2 Lorem Ipsum Name 2</option>
-                    </select>
-                  </form>
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="control-label">Description:</label>
-                      <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="control-label">Initial situation description:</label>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                    </div>
-                    <div class="form-group">
-                  <label for="message-text" class="control-label">Completion Time</label>
-                    <input type="date" name="bday">
+              <div class="row text-item-planning collapse Output-Monitoring" id="Monitoring-Output">
+                <div class="col-sm-12" id="kpi">
+                    <h3> Progress Degree</h3>
+                  <textarea class="form-control" id="message-text" placeholder="%">
+                  </textarea>
                 </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="recipient-name" class="control-label">Measurable Target:</label>
-                        <form action="#">
-                    <select name="Name">
-                      <option value="#">30 staff Trained</option>
-                      <option value="#">Activity 2 Lorem Ipsum Name 2</option>
+                <div class="col-sm-12" id="mainobstacle">
+                    <h3> Main Obstacles </h3>
+                  <div class="col-sm-6">
+                      <select name="Name">
+                      <option value="#">Ejemplo 1</option>
                     </select>
-                  </form>
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="control-label">Assigned Budgets:</label>
-                      <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="control-label">Risks/Assumptions:</label>
-                      <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                    </div>
                   </div>
-                  <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
+                  <div class="col-sm-6">
+                      <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                      </textarea>
+                  </div>
+                </div>
+                <div class="col-sm-12" id="mainsupfac">
+                    <h3> Main Supporting factors </h3>
+                  <div class="col-sm-6">
+                      <select name="Name">
+                      <option value="#">Ejemplo 1</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                      <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                      </textarea>
+                  </div>
+                </div>
+                <div class="col-sm-12" id="furexp">
+                  <h3> Main Supporting factors </h3>
+                  <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                  </textarea>
+                </div>
               </div>
             </td>
           </tr>
@@ -193,7 +195,6 @@
       </table>
     </div>
     </div>
-
     <div role="tabpanel" class="tab-pane" id="Outcomes">
         <a href="#MonitoringOutcomesOC" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesOC" aria-expanded="false">
           <h3 class="titulocatplan" id="oc">Outcomes</h3>
@@ -214,7 +215,7 @@
                 </tr>
             </thead>
           <tbody>
-                <tr href="#IA3" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA3" aria-expanded="true" class="">
+                <tr href="#Monitoring-KPI" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-KPI" aria-expanded="true" class="">
                     <th scope="row" class="name">
                       <div class="status-a"></div>
                       <div class="kpi-planning">KPI</div>
@@ -229,81 +230,54 @@
                 </tr>
                 <tr class="descripcion">
                   <td colspan="7">
-                    <div class="col-md-12 text-item-planning collapse" id="IA3" role="tabpanel" aria-expanded="true" style="">
-                    <div class="form-group">
-                        <label for="recipient-name" class="control-label">Name:</label>
-                        <form action="#">
-                      <select name="Name">
-                        <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
-                        <option value="#">GWOPA 1 Lorem Ipsum Name 2</option>
+                <div class="row text-item-planning collapse KPI-Monitoring" id="Monitoring-KPI">
+                  <div class="col-sm-12" id="kpi">
+                      <h3> Current </h3>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                    </textarea>
+                  </div>
+                  <div class="col-sm-12" id="mainobstacle">
+                      <h3> Main Obstacles </h3>
+                    <div class="col-sm-6">
+                        <label for="recipient-name" class="control-label">  Main obstacle
+                        </label>
+                        <select name="Name">
+                        <option value="#">Ejemplo 1</option>
                       </select>
-                    </form>
-                      </div>
-                      <div class="row">
-                          <div class="col-md-12" id="modal-md-12">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="message-text" class="control-label">Description:</label>
-                                <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                            <label for="message-text" class="control-label">Date of the baseline</label>
-                              <input type="date" name="bday">
-                            </div>
-                          </div>
-                       </div>
-                  </div>
-                  <div class="row" id="targetagrupados">
-                    <div class="col-md-12" id="modal-md-12">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="message-text" class="control-label">Target 1</label>
-                                  <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                              <label for="message-text" class="control-label">Date Target 1</label>
-                                <input type="date" name="bday">
-                              </div>
-                            </div>
                     </div>
-                    <div class="col-md-12" id="modal-md-12">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="message-text" class="control-label">Target 2</label>
-                                  <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                              <label for="message-text" class="control-label">Date Target 2</label>
-                                <input type="date" name="bday">
-                              </div>
-                            </div>
+                    <div class="col-sm-6">
+                        <label for="recipient-name" class="control-label">  Main obstacle
+                        </label>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
                     </div>
-                    <button type="button" class="btn ADDNEW">
-                          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                          ADD NEW
-                    </button>
                   </div>
-                  <div class="form-group">
-                      <label for="message-text" class="control-label">MOV:</label>
-                      <textarea class="form-control" id="message-text" placeholder="Narrative... " >
-                      </textarea>
-                      </div>
-                      <div class="form-group">
-                      <label for="message-text" class="control-label">Risks / Assumptions:</label>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
-                      </div>
-                      <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
+                  <div class="col-sm-12" id="mainsupfac">
+                      <h3> Main Supporting factors </h3>
+                    <div class="col-sm-6">
+                        <label for="recipient-name" class="control-label">  Main obstacle
+                        </label>
+                        <select name="Name">
+                        <option value="#">Ejemplo 1</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="recipient-name" class="control-label">  Main obstacle
+                        </label>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
+                    </div>
+                  </div>
+                  <div class="col-sm-12" id="furexp">
+                    <h3> Main Supporting factors </h3>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                    </textarea>
+                  </div>
                 </div>
               </td>
             </tr>
 
-            <tr href="#IA4" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA4" aria-expanded="true" class="">
+            <tr href="#Monitoring-KPIZone" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-KPIZone" aria-expanded="true" class="">
                     <th scope="row" class="name">
                       <div class="zone-planning">Zone</div>
                       <h4 class="titulocatplan" id="zone">Ejemplo 2 de Zone</h4>
@@ -317,71 +291,49 @@
                 </tr>
               <tr class="descripcion">
                   <td colspan="7">
-                    <div class="col-md-12 text-item-planning collapse" id="IA4" role="tabpanel" aria-expanded="true" style="">
-                    <div class="form-group">
-                      <label for="recipient-name" class="control-label">Name:</label>
-                      <form action="#">
-                    <select name="Name">
-                      <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
-                      <option value="#">GWOPA 1 Lorem Ipsum Name 2</option>
-                    </select>
-                  </form>
+                    <div class="row text-item-planning collapse KPIZone-Monitoring" id="Monitoring-KPIZone">
+                  <div class="col-sm-12" id="kpi">
+                      <h3> Current </h3>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                    </textarea>
+                  </div>
+                  <div class="col-sm-12" id="mainobstacle">
+                      <h3> Main Obstacles </h3>
+                    <div class="col-sm-6">
+                        <label for="recipient-name" class="control-label">  Main obstacle
+                        </label>
+                        <select name="Name">
+                        <option value="#">Ejemplo 1</option>
+                      </select>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12" id="modal-md-12">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="message-text" class="control-label">Description:</label>
-                              <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                          <label for="message-text" class="control-label">Date of the baseline</label>
-                            <input type="date" name="bday">
-                          </div>
-                        </div>
-                     </div>
-                </div>
-                <div class="row" id="targetagrupados">
-                      <div class="col-md-12" id="modal-md-12">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="message-text" class="control-label">Target 1</label>
-                                <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                            <label for="message-text" class="control-label">Date Target 1</label>
-                              <input type="date" name="bday">
-                            </div>
-                          </div>
-                      </div>
-                      <div class="col-md-12" id="modal-md-12">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="message-text" class="control-label">Target 2</label>
-                                <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                            <label for="message-text" class="control-label">Date Target 2</label>
-                              <input type="date" name="bday">
-                            </div>
-                          </div>
-                      </div>
-                      <button type="button" class="btn ADDNEW">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                        ADD NEW
-                      </button>
-                </div>
-                    <div class="form-group">
-                        <label for="message-text" class="control-label">MOV:</label>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
+                    <div class="col-sm-6">
+                        <label for="recipient-name" class="control-label">  Main obstacle
+                        </label>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
                     </div>
-                    <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
+                  </div>
+                  <div class="col-sm-12" id="mainsupfac">
+                      <h3> Main Supporting factors </h3>
+                    <div class="col-sm-6">
+                        <label for="recipient-name" class="control-label">  Main obstacle
+                        </label>
+                        <select name="Name">
+                        <option value="#">Ejemplo 1</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="recipient-name" class="control-label">  Main obstacle
+                        </label>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
+                    </div>
+                  </div>
+                  <div class="col-sm-12" id="furexp">
+                    <h3> Main Supporting factors </h3>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                    </textarea>
+                  </div>
                 </div>
               </td>
             </tr>
@@ -416,7 +368,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr href="#IA1" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA1" aria-expanded="true" class="descripcion">
+                    <tr href="#Monitoring-CCS" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-CCS" aria-expanded="true" class="descripcion">
                         <th scope="row" class="name">
                           <div class="status-w"></div>
                           <div class="CCS-planning">CCS</div>
@@ -431,155 +383,80 @@
                     </tr>
                     <tr class="descripcion">
                       <td colspan="7">
-                        <div class="col-md-12 text-item-planning collapse" id="IA1" role="tabpanel" aria-expanded="true" style="">
-                        <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>
-                          <form action="#">
-                        <select name="Name">
-                          <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
-                          <option value="#">GWOPA 1 Lorem Ipsum Name 2</option>
-                        </select>
-                      </form>
+                        <div class="row text-item-planning collapse CCS-Monitoring" id="Monitoring-CCS">
+                      <div class="col-sm-12" id="tabla">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th class="thname">Type of change</th>
+                              <th>Change</th>
+                              <th>Explanatory Notes</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                              <td>1</td>
+                              <td>Mission/Strategy</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="col-sm-12" id="furexp">
+                        <h3> Further explanation</h3>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
+                      </div>
+                      <div class="col-sm-12" id="mainobstacle">
+                          <h3> Main Obstacles </h3>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <select name="Name">
+                            <option value="#">Ejemplo 1</option>
+                          </select>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12" id="modal-md-12">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="message-text" class="control-label">Description:</label>
-                                  <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                              <label for="message-text" class="control-label">Date of the baseline</label>
-                                <input type="date" name="bday">
-                              </div>
-                            </div>
-                         </div>
-                     </div>
-                     <div class="row" id="targetagrupados">
-                          <div class="col-md-12" id="modal-md-12">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="message-text" class="control-label">Target 1</label>
-                                    <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                <label for="message-text" class="control-label">Date Target 1</label>
-                                  <input type="date" name="bday">
-                                </div>
-                              </div>
-                          </div>
-                          <div class="col-md-12" id="modal-md-12">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="message-text" class="control-label">Target 2</label>
-                                    <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                <label for="message-text" class="control-label">Date Target 2</label>
-                                  <input type="date" name="bday">
-                                </div>
-                              </div>
-                          </div>
-                          <button type="button" class="btn ADDNEW">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                            ADD NEW
-                          </button>
-                     </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">MOV:</label>
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                            </textarea>
                         </div>
-                        <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                    </div>
-                  </td>
-                </tr>
-
-
-                <tr href="#IA2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA2" aria-expanded="true" class="">
-                        <th scope="row" class="name">
-                          <div class="CC-planning">CC</div>
-                          <h4 class="titulocatplan" id="CC">Ejemplo 2 de CC</h4>
-                        </th>
-                        <td>2</td>
-                        <td>6</td>
-                        <td class="current">2</td>
-                        <td class="last">6</td>
-                        <td>6</td>
-                        <td>31/1/2025</td>
-                    </tr>
-                  <tr class="descripcion">
-                      <td colspan="7">
-                        <div class="col-md-12 text-item-planning collapse" id="IA2" role="tabpanel" aria-expanded="true" style="">
-                                        <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>
-                          <form action="#">
-                        <select name="Name">
-                          <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
-                          <option value="#">GWOPA 1 Lorem Ipsum Name 2</option>
-                        </select>
-                      </form>
+                      </div>
+                      <div class="col-sm-12" id="mainsupfac">
+                          <h3> Main Supporting factors </h3>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <select name="Name">
+                            <option value="#">Ejemplo 1</option>
+                          </select>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12" id="modal-md-12">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="message-text" class="control-label">Description:</label>
-                                  <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                              <label for="message-text" class="control-label">Date of the baseline</label>
-                                <input type="date" name="bday">
-                              </div>
-                            </div>
-                         </div>
-                     </div>
-                     <div class="row" id="targetagrupados">
-                          <div class="col-md-12" id="modal-md-12">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="message-text" class="control-label">Target 1</label>
-                                    <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                <label for="message-text" class="control-label">Date Target 1</label>
-                                  <input type="date" name="bday">
-                                </div>
-                              </div>
-                          </div>
-                          <div class="col-md-12" id="modal-md-12">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="message-text" class="control-label">Target 2</label>
-                                    <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                <label for="message-text" class="control-label">Date Target 2</label>
-                                  <input type="date" name="bday">
-                                </div>
-                              </div>
-                          </div>
-                          <button type="button" class="btn ADDNEW">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                            ADD NEW
-                          </button>
-                     </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">MOV:</label>
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                            </textarea>
                         </div>
-                        <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
+                      </div>
+                      <div class="col-sm-12" id="furexp">
+                        <h3> Main Supporting factors </h3>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -606,7 +483,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr href="#IA1" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA1" aria-expanded="true" class="descripcion">
+                <tr href="#Monitoring-CCS" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-CCS" aria-expanded="true" class="descripcion">
                         <th scope="row" class="name">
                           <div class="status-w"></div>
                           <div class="CCS-planning">CCS</div>
@@ -621,75 +498,84 @@
                   </tr>
                   <tr class="descripcion">
                       <td colspan="7">
-                        <div class="col-md-12 text-item-planning collapse" id="IA1" role="tabpanel" aria-expanded="true" style="">
-                        <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>
-                          <form action="#">
-                        <select name="Name">
-                          <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
-                          <option value="#">GWOPA 1 Lorem Ipsum Name 2</option>
-                        </select>
-                      </form>
+                        <div class="row text-item-planning collapse CCS-Monitoring" id="Monitoring-CCS">
+                      <div class="col-sm-12" id="tabla">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th class="thname">Type of change</th>
+                              <th>Change</th>
+                              <th>Explanatory Notes</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                              <td>1</td>
+                              <td>Mission/Strategy</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="col-sm-12" id="furexp">
+                        <h3> Further explanation</h3>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
+                      </div>
+                      <div class="col-sm-12" id="mainobstacle">
+                          <h3> Main Obstacles </h3>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <select name="Name">
+                            <option value="#">Ejemplo 1</option>
+                          </select>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12" id="modal-md-12">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="message-text" class="control-label">Description:</label>
-                                  <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                              <label for="message-text" class="control-label">Date of the baseline</label>
-                                <input type="date" name="bday">
-                              </div>
-                            </div>
-                         </div>
-                     </div>
-                     <div class="row" id="targetagrupados">
-                          <div class="col-md-12" id="modal-md-12">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="message-text" class="control-label">Target 1</label>
-                                    <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                <label for="message-text" class="control-label">Date Target 1</label>
-                                  <input type="date" name="bday">
-                                </div>
-                              </div>
-                          </div>
-                          <div class="col-md-12" id="modal-md-12">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="message-text" class="control-label">Target 2</label>
-                                    <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                <label for="message-text" class="control-label">Date Target 2</label>
-                                  <input type="date" name="bday">
-                                </div>
-                              </div>
-                          </div>
-                          <button type="button" class="btn ADDNEW">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                            ADD NEW
-                          </button>
-                     </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">MOV:</label>
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                            </textarea>
                         </div>
-                        <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
+                      </div>
+                      <div class="col-sm-12" id="mainsupfac">
+                          <h3> Main Supporting factors </h3>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <select name="Name">
+                            <option value="#">Ejemplo 1</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                            </textarea>
+                        </div>
+                      </div>
+                      <div class="col-sm-12" id="furexp">
+                        <h3> Main Supporting factors </h3>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
+                      </div>
                     </div>
                   </td>
               </tr>
-              <tr href="#IA2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA2" aria-expanded="true" class="">
+              <tr href="#Monitoring-CC" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-CC" aria-expanded="true" class="">
                         <th scope="row" class="name">
                           <div class="CC-planning">CC</div>
                           <h4 class="titulocatplan" id="CC">Ejemplo 2 de CC</h4>
@@ -703,71 +589,284 @@
                 </tr>
                 <tr class="descripcion">
                       <td colspan="7">
-                        <div class="col-md-12 text-item-planning collapse" id="IA2" role="tabpanel" aria-expanded="true" style="">
-                                        <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>
-                          <form action="#">
-                        <select name="Name">
-                          <option value="#">GWOPA 1 Lorem Ipsum Name 1</option>
-                          <option value="#">GWOPA 1 Lorem Ipsum Name 2</option>
-                        </select>
-                      </form>
+                        <div class="row text-item-planning collapse CC-Monitoring" id="Monitoring-CC">
+                      <div class="col-sm-12" id="tabla">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th class="thname">Type of change</th>
+                              <th>Change</th>
+                              <th>Explanatory Notes</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                              <td>1</td>
+                              <td>Mission/Strategy</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>Leadership</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Organizational culture</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>Relationship with jey stakeholders</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>Organizational structure</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>6</td>
+                              <td>Management practices</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>7</td>
+                              <td>Systems and policies</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>8</td>
+                              <td>Working routines</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>9</td>
+                              <td>Equipment</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>10</td>
+                              <td>Infraestructure</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>11</td>
+                              <td>Individual's position-skill fit</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>12</td>
+                              <td>Individual's motivation</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>13</td>
+                              <td>Others</td>
+                              <td>
+                                <select name="Name">
+                                  <option value="#">-2</option>
+                                  <option value="#">-1</option>
+                                  <option value="#"> 0</option>
+                                  <option value="#">+1</option>
+                                  <option value="#">+2</option>
+                                </select>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                                </textarea>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="col-sm-12" id="furexp">
+                        <h3> Further explanation</h3>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
+                      </div>
+                      <div class="col-sm-12" id="mainobstacle">
+                          <h3> Main Obstacles </h3>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <select name="Name">
+                            <option value="#">Ejemplo 1</option>
+                          </select>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12" id="modal-md-12">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="message-text" class="control-label">Description:</label>
-                                  <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                              <label for="message-text" class="control-label">Date of the baseline</label>
-                                <input type="date" name="bday">
-                              </div>
-                            </div>
-                         </div>
-                     </div>
-                     <div class="row" id="targetagrupados">
-                          <div class="col-md-12" id="modal-md-12">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="message-text" class="control-label">Target 1</label>
-                                    <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                <label for="message-text" class="control-label">Date Target 1</label>
-                                  <input type="date" name="bday">
-                                </div>
-                              </div>
-                          </div>
-                          <div class="col-md-12" id="modal-md-12">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="message-text" class="control-label">Target 2</label>
-                                    <input class="form-control" id="message-text" placeholder="Narrative... "></input>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                <label for="message-text" class="control-label">Date Target 2</label>
-                                  <input type="date" name="bday">
-                                </div>
-                              </div>
-                          </div>
-                          <button type="button" class="btn ADDNEW">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                            ADD NEW
-                          </button>
-                     </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">MOV:</label>
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... " ></textarea>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                            </textarea>
                         </div>
-                        <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
+                      </div>
+                      <div class="col-sm-12" id="mainsupfac">
+                          <h3> Main Supporting factors </h3>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <select name="Name">
+                            <option value="#">Ejemplo 1</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="recipient-name" class="control-label">  Main obstacle
+                            </label>
+                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                            </textarea>
+                        </div>
+                      </div>
+                      <div class="col-sm-12" id="furexp">
+                        <h3> Main Supporting factors </h3>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -775,14 +874,10 @@
           </table>
         </div>
       </div>
-
     </div>
-
     <div role="tabpanel" class="tab-pane" id="Collaboration">
     Empty :(
     </div>
-
-
   </div>
 
   </metal:block>
