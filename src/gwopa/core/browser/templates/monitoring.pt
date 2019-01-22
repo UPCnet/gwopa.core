@@ -227,15 +227,11 @@
                   <div class="col-sm-12" id="mainobstacle">
                       <h3> Main Obstacles </h3>
                     <div class="col-sm-6">
-
-                        </label>
                         <select name="Name">
                         <option value="#">Ejemplo 1</option>
                       </select>
                     </div>
                     <div class="col-sm-6">
-
-                        </label>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                         </textarea>
                     </div>
@@ -243,15 +239,11 @@
                   <div class="col-sm-12" id="mainsupfac">
                       <h3> Main Supporting factors </h3>
                     <div class="col-sm-6">
-
-                        </label>
                         <select name="Name">
                         <option value="#">Ejemplo 1</option>
                       </select>
                     </div>
                     <div class="col-sm-6">
-
-                        </label>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                         </textarea>
                     </div>
@@ -289,15 +281,11 @@
                   <div class="col-sm-12" id="mainobstacle">
                       <h3> Main Obstacles </h3>
                     <div class="col-sm-6">
-
-                        </label>
                         <select name="Name">
                         <option value="#">Ejemplo 1</option>
                       </select>
                     </div>
                     <div class="col-sm-6">
-
-                        </label>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                         </textarea>
                     </div>
@@ -305,15 +293,11 @@
                   <div class="col-sm-12" id="mainsupfac">
                       <h3> Main Supporting factors </h3>
                     <div class="col-sm-6">
-
-                        </label>
                         <select name="Name">
                         <option value="#">Ejemplo 1</option>
                       </select>
                     </div>
                     <div class="col-sm-6">
-
-                        </label>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                         </textarea>
                     </div>
@@ -413,15 +397,11 @@
                       <div class="col-sm-12" id="mainobstacle">
                           <h3> Main Obstacles </h3>
                         <div class="col-sm-6">
-
-                            </label>
                             <select name="Name">
                             <option value="#">Ejemplo 1</option>
                           </select>
                         </div>
                         <div class="col-sm-6">
-
-                            </label>
                             <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                             </textarea>
                         </div>
@@ -429,15 +409,11 @@
                       <div class="col-sm-12" id="mainsupfac">
                           <h3> Main Supporting factors </h3>
                         <div class="col-sm-6">
-
-                            </label>
                             <select name="Name">
                             <option value="#">Ejemplo 1</option>
                           </select>
                         </div>
                         <div class="col-sm-6">
-
-                            </label>
                             <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                             </textarea>
                         </div>
@@ -732,15 +708,11 @@
                       <div class="col-sm-12" id="mainobstacle">
                           <h3> Main Obstacles </h3>
                         <div class="col-sm-6">
-
-                            </label>
                             <select name="Name">
                             <option value="#">Ejemplo 1</option>
                           </select>
                         </div>
                         <div class="col-sm-6">
-
-                            </label>
                             <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                             </textarea>
                         </div>
@@ -748,15 +720,11 @@
                       <div class="col-sm-12" id="mainsupfac">
                           <h3> Main Supporting factors </h3>
                         <div class="col-sm-6">
-
-                            </label>
                             <select name="Name">
                             <option value="#">Ejemplo 1</option>
                           </select>
                         </div>
                         <div class="col-sm-6">
-
-                            </label>
                             <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                             </textarea>
                         </div>
