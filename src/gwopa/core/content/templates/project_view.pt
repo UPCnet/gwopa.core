@@ -60,7 +60,7 @@
                                title item/title;
                                alt item/title">
             <div class="box">
-              <img class="box-img"
+              <img class="box-img" style="width:100%"
                    tal:attributes="src string:${item/image};"/>
               <div class="card-body">
                 <h4 class="card-title">

@@ -7,10 +7,10 @@
     <div class="header">
         <div class="menuheader">
             <div class="menuleft">
-                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <a href="#" tal:attributes="href string:${portal_url}"><i class="fa fa-bars" aria-hidden="true"></i></a>
             </div>
             <div class="menuright">
-                <a href="#"><img  tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"></a>
+                <a href="#" tal:attributes="href string:${portal_url}"><img  tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"></a>
             </div>
         </div>
     </div>
