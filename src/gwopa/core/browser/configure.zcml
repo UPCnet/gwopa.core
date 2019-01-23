@@ -85,7 +85,7 @@
   <!-- Team VIEW -->
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      name="areas"
+      name="teams"
       class=".views.listTeams"
       permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
