@@ -8,20 +8,21 @@
 
 <metal:content-core fill-slot="main">
 
-  <h1 class="documentFirstHeading" i18n:translate="" tal:content="context/title">Reporting Module</h1>
-  <div class="documentDescription description" i18n:translate="" tal:content="context/description"> Describing reporting module.</div>
+  <metal:block define-macro="content-core"
+      tal:define="partners context/partners;
+                  project_manager context/project_manager;
+                  budget context/budget;
+                  contribution context/contribution;
+                  wop_program context/wop_program;
+                  google_maps_link view/google_maps_link">
 
-    <div class="pull-right" tal:condition="context/image">
+    <h1 class="documentFirstHeading" i18n:translate="" tal:content="context/title"> Project Title </h1>
+
+    <div tal:condition="context/image">
       <img tal:attributes="src string:${context/absolute_url}/@@images/image" />
     </div>
 
-    <metal:block define-macro="content-core"
-        tal:define="partners context/partners;
-                    project_manager context/project_manager;
-                    budget context/budget;
-                    contribution context/contribution;
-                    wop_program context/wop_program;
-                    google_maps_link view/google_maps_link">
+    <div class="documentDescription description" i18n:translate="" tal:content="context/description"> Project description </div>
 
       <div tal:condition="partners">
         <h3 i18n:translate="">Partners</h3>
@@ -51,40 +52,25 @@
           <li tal:content="wop"></li>
         </ul>
       </div>
-      <tal:map tal:condition="google_maps_link">
-        <div tal:define="latitude context/geolocation/latitude;
-                     longitude context/geolocation/longitude;"
-              class="pat-leaflet map"
-         data-geojson='{
-          "type": "FeatureCollection",
-          "features": [
-            {
-              "type": "Feature",
-              "id": 1,
-              "properties":
-              {
-                "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
-              },
-              "geometry":
-              {
-                "type": "Point",
-                "coordinates": [ ${longitude}, ${latitude} ]
-              }
-            }
-          ]}' data-pat-leaflet='{
-           "fullscreencontrol": true,
-           "locatecontrol": false,
-           "zoomcontrol": true,
-           "minimap": false,
-           "addmarker": false,
-           "zoom": 17,
-           "map_layers": [
-            {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-           ]
-          }'>
-        </div>
-        <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
-      </tal:map>
+
+        <h1 class="documentFirstHeading"> Areas</h1>
+        <tal:repeatProjects repeat="item view/getImprovementAreas">
+          <div class="col-lg-3 col-md-6">
+            <a tal:attributes="href item/url;
+                               title item/title;
+                               alt item/title">
+            <div class="box">
+              <img class="box-img"
+                   tal:attributes="src string:${item/image};"/>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+                </h4>
+              </div>
+            </div>
+          </a>
+          </div>
+      </tal:repeatProjects>
 
   </metal:block>
 

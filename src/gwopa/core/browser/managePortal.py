@@ -27,17 +27,18 @@ class managePortal(grok.View):
                 end=item.end,
                 manager=project.project_manager_admin,
                 country=project.country,
-                url='/'.join(item.getObject().getPhysicalPath())))
+                url='/'.join(project.getPhysicalPath())))
         return results
 
     def getAreas(self):
         items = api.content.find(portal_type=['ImprovementArea'])
         results = []
         for item in items:
+            obj = item.getObject()
             results.append(dict(
                 title=item.Title,
-                parent=item.getObject().aq_parent.aq_parent.title,
-                url='/'.join(item.getObject().getPhysicalPath())))
+                parent=obj.aq_parent.aq_parent.title,
+                url='/'.join(obj.getPhysicalPath())))
         return results
 
     def getUsers(self):
@@ -56,7 +57,7 @@ class managePortal(grok.View):
             obj = item.getObject()
             results.append(dict(
                 title=item.Title,
-                url='/'.join(item.getObject().getPhysicalPath()),
+                url='/'.join(obj.getPhysicalPath()),
                 country=', '.join(map(str, obj.country)))
             )
         return results
@@ -68,7 +69,7 @@ class managePortal(grok.View):
             obj = item.getObject()
             results.append(dict(
                 title=item.Title,
-                url='/'.join(item.getObject().getPhysicalPath()),
+                url='/'.join(obj.getPhysicalPath()),
                 email=obj.contact,
                 country=', '.join(map(str, obj.country)))
             )
@@ -81,7 +82,7 @@ class managePortal(grok.View):
             obj = item.getObject()
             results.append(dict(
                 title=item.Title,
-                url='/'.join(item.getObject().getPhysicalPath()),
+                url='/'.join(obj.getPhysicalPath()),
                 country=', '.join(map(str, obj.country)))
             )
         return results

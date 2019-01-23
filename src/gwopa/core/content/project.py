@@ -186,7 +186,7 @@ class View(grok.View):
             results.append(dict(
                 title=item.Title,
                 image=image,
-                url='/'.join(item.getPhysicalPath()),
+                url='/'.join(obj.getPhysicalPath()),
                 description=item.description))
         return results
 

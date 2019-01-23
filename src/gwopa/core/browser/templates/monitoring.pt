@@ -22,6 +22,8 @@
 
 
 
+
+
 <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
@@ -35,7 +37,7 @@
     </li>
   </ul>
 
-  <!-- Tab panes -->
+<!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="Project">
       <a href="#MonitoringProjects" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringProjects" aria-expanded="false">
@@ -73,9 +75,9 @@
               <tr class="descripcion">
                 <td colspan="7">
                   <div class="col-md-12 text-item-planning collapse" id="IA5" role="tabpanel" aria-expanded="true" style="">
-                    <div class="col-md-6" id="mitad">
+                    <div class="col-md-6" id="mainobstacle">
                       <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>
+                          <h3>Name:</h3>
                           <form action="#">
                       <select name="Name">
                         <option value="#">Activity 1 Lorem Ipsum Name 1</option>
@@ -84,33 +86,33 @@
                     </form>
                       </div>
                       <div class="form-group">
-                        <label for="message-text" class="control-label">Description:</label>
+                        <h3>Description:</h3>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
                       </div>
                       <div class="form-group">
-                          <label for="message-text" class="control-label">Initial situation description:</label>
+                          <h3>Initial situation description:</h3>
                           <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
                       </div>
                       <div class="form-group">
-                    <label for="message-text" class="control-label">Starting time</label>
+                    <h3>Starting time</h3>
                       <input type="date" name="bday">
                   </div>
                   <div class="form-group">
-                    <label for="message-text" class="control-label">Completion time</label>
+                    <h3>Completion time</h3>
                       <input type="date" name="bday">
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" id="mainsupfac">
                       <div class="form-group">
-                        <label for="message-text" class="control-label">Description:</label>
+                        <h3>Description:</h3>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
                       </div>
                       <div class="form-group">
-                        <label for="message-text" class="control-label">Description:</label>
+                        <h3>Description:</h3>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
                       </div>
                       <div class="form-group">
-                          <label for="recipient-name" class="control-label">Name:</label>
+                          <h3>Name:</h3>
                           <form action="#">
                       <select name="Name">
                         <option value="#">Activity 1 Lorem Ipsum Name 1</option>
@@ -164,7 +166,7 @@
                       </textarea>
                     </div>
                 </div>
-                <div class="col-sm-12" id="furexp">
+                <div class="row" id="furexp">
                   <h3>Degree of relevance / things to consider for future planning</h3>
                   <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                   </textarea>
@@ -218,7 +220,7 @@
                     <textarea class="form-control current" id="message-text">
                     </textarea>
                   </div>
-                  <div class="row">
+                  <div class="col-sm-12">
                     <div class="col-sm-6" id="mainobstacle">
                         <h3> Main Obstacles </h3>
                         <select name="Name">
@@ -383,8 +385,6 @@
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                           </textarea>
                         </div>
-                      </div>
-                      <div class="col-sm-12">
                         <div class="col-sm-6" id="mainsupfac">
                           <h3> Main Supporting factors </h3>
                           <select name="Name">
@@ -393,6 +393,7 @@
                           <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                           </textarea>
                         </div>
+                      </div>
                       <div class="col-sm-12" id="furexp">
                         <h3> Degree of relevance / things to consider for future planning </h3>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
@@ -440,7 +441,7 @@
                 <tr class="descripcion">
                       <td colspan="7">
                         <div class="row text-item-planning collapse CC-Monitoring" id="Monitoring-CC">
-                      <div class="col-sm-12" id="tabla">
+                          <div class="col-sm-12" id="tabla">
                         <table>
                           <thead>
                             <tr>
@@ -716,6 +717,8 @@
     Empty :(
     </div>
   </div>
+
+
 
 
 
