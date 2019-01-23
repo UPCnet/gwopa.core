@@ -9,16 +9,7 @@
 
 <metal:content-core fill-slot="main">
 
-  <metal:javascript fill-slot="javascript_head_slot">
-    <script>
-      require = undefined;
-      define = undefined;
-    </script>
-    <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </metal:javascript>
+
 
   <metal:block define-macro="content-core" tal:define="items view/getItems;currentYear view/currentYear;">
     <div class="template-planning">
@@ -43,6 +34,7 @@
       <div id="app">
          <demo></demo>
       </div>
+
     </div>
   </metal:block>
   <script tal:attributes="src string:/++theme++gwopa.theme/assets/gwopa.umd.min.js"></script>
