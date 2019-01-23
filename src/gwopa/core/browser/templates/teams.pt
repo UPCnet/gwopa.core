@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="gwopa">
+<body>
+
+<metal:content-core fill-slot="main">
+
+  <metal:block define-macro="content-core">
+
+    <h1 class="documentFirstHeading" i18n:translate="">List of site files</h1>
+    <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return".</div>
+
+    <tal:objects repeat="item view/allfiles">
+      <ul class="item">
+        <li>
+          <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
+          tal:content="item/portal_type"> Portal_type </span>
+            <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
+          <p tal:condition="item/description">
+            <span tal:content="item/description"> Item Description </span>
+          </p>
+        </li>
+      </ul>
+    </tal:objects>
+
+    <h3>TODO:</h3>
+    <ul>
+        <li>Show all Site files if called from root</li>
+        <li>Show project files if called from project </li>
+    </ul>
+
+  </metal:block>
+
+</metal:content-core>
+
+</body>
+</html>
