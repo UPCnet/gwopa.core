@@ -22,8 +22,6 @@
 
 
 
-
-
 <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
@@ -166,7 +164,7 @@
                       </textarea>
                     </div>
                 </div>
-                <div class="row" id="furexp">
+                <div class="col-sm-12" id="furexp">
                   <h3>Degree of relevance / things to consider for future planning</h3>
                   <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                   </textarea>
