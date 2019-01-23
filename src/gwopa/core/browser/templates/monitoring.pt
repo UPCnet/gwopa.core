@@ -20,6 +20,8 @@
     <h1 class="documentFirstHeading" i18n:translate="">Monitoring Module</h1>
     <div class="documentDescription description" i18n:translate=""> Describing monitoring module.</div>
 
+
+
 <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
@@ -32,7 +34,6 @@
     Collaboration</a>
     </li>
   </ul>
-
 
   <!-- Tab panes -->
   <div class="tab-content">
@@ -143,32 +144,25 @@
               <div class="row text-item-planning collapse Output-Monitoring" id="Monitoring-Output">
                 <div class="col-sm-12" id="kpi">
                     <h3> Progress Degree</h3>
-                  <textarea class="form-control" id="message-text" >
+                  <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                   </textarea>
                 </div>
-                <div class="col-sm-12" id="mainobstacle">
-                    <h3> Main Obstacles </h3>
-                  <div class="col-sm-6">
+                <div class="col-sm-12">
+                    <div class="col-sm-6" id="mainobstacle">        <h3> Main Obstacles </h3>
                       <select name="Name">
                       <option value="#">Ejemplo 1</option>
                     </select>
-                  </div>
-                  <div class="col-sm-6">
                       <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                       </textarea>
                   </div>
-                </div>
-                <div class="col-sm-12" id="mainsupfac">
-                    <h3> Main Supporting factors </h3>
-                  <div class="col-sm-6">
+                    <div class="col-sm-6" id="mainsupfac">
+                        <h3> Main Supporting factors </h3>
                       <select name="Name">
                       <option value="#">Ejemplo 1</option>
                     </select>
-                  </div>
-                  <div class="col-sm-6">
                       <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                       </textarea>
-                  </div>
+                    </div>
                 </div>
                 <div class="col-sm-12" id="furexp">
                   <h3>Degree of relevance / things to consider for future planning</h3>
@@ -209,7 +203,7 @@
                       <div class="kpi-planning">KPI</div>
                       <h4 class="titulocatplan" id="KPI">Ejemplo 1 de KPI</h4>
                     </th>
-                    <td>2</td>
+                     <td>2</td>
                     <td>6</td>
                     <td class="current">2</td>
                     <td class="last">6</td>
@@ -221,29 +215,23 @@
                 <div class="row text-item-planning collapse KPI-Monitoring" id="Monitoring-KPI">
                   <div class="col-sm-12" id="kpi">
                       <h3> Current </h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                    <textarea class="form-control current" id="message-text">
                     </textarea>
                   </div>
-                  <div class="col-sm-12" id="mainobstacle">
-                      <h3> Main Obstacles </h3>
-                    <div class="col-sm-6">
+                  <div class="row">
+                    <div class="col-sm-6" id="mainobstacle">
+                        <h3> Main Obstacles </h3>
                         <select name="Name">
                         <option value="#">Ejemplo 1</option>
                       </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                      <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                         </textarea>
                     </div>
-                  </div>
-                  <div class="col-sm-12" id="mainsupfac">
-                      <h3> Main Supporting factors </h3>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" id="mainsupfac">
+                        <h3> Main Supporting factors </h3>
                         <select name="Name">
                         <option value="#">Ejemplo 1</option>
                       </select>
-                    </div>
-                    <div class="col-sm-6">
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                         </textarea>
                     </div>
@@ -275,33 +263,25 @@
                     <div class="row text-item-planning collapse KPIZone-Monitoring" id="Monitoring-KPIZone">
                   <div class="col-sm-12" id="kpi">
                       <h3> Current </h3>
+                    <textarea class="form-control current" id="message-text"></textarea>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="col-sm-6" id="mainobstacle">
+                      <h3> Main Obstacles </h3>
+                    <select name="Name">
+                      <option value="#">Ejemplo 1</option>
+                    </select>
                     <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                     </textarea>
-                  </div>
-                  <div class="col-sm-12" id="mainobstacle">
-                      <h3> Main Obstacles </h3>
-                    <div class="col-sm-6">
-                        <select name="Name">
-                        <option value="#">Ejemplo 1</option>
+                    </div>
+                    <div class="col-sm-6" id="mainsupfac">
+                        <h3> Main Supporting factors </h3>
+                      <select name="Name">
+                      <option value="#">Ejemplo 1</option>
                       </select>
+                      <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                      </textarea>
                     </div>
-                    <div class="col-sm-6">
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                    </div>
-                  </div>
-                  <div class="col-sm-12" id="mainsupfac">
-                      <h3> Main Supporting factors </h3>
-                    <div class="col-sm-6">
-                        <select name="Name">
-                        <option value="#">Ejemplo 1</option>
-                      </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                    </div>
-                  </div>
                   <div class="col-sm-12" id="furexp">
                     <h3>Things to consider for future planning</h3>
                     <textarea class="form-control" id="message-text" placeholder="Narrative... ">
@@ -394,30 +374,25 @@
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                         </textarea>
                       </div>
-                      <div class="col-sm-12" id="mainobstacle">
+                      <div class="col-sm-12">
+                        <div class="col-sm-6" id="mainobstacle">
                           <h3> Main Obstacles </h3>
-                        <div class="col-sm-6">
-                            <select name="Name">
-                            <option value="#">Ejemplo 1</option>
-                          </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                            </textarea>
+                        <select name="Name">
+                          <option value="#">Ejemplo 1</option>
+                        </select>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                          </textarea>
                         </div>
                       </div>
-                      <div class="col-sm-12" id="mainsupfac">
+                      <div class="col-sm-12">
+                        <div class="col-sm-6" id="mainsupfac">
                           <h3> Main Supporting factors </h3>
-                        <div class="col-sm-6">
-                            <select name="Name">
-                            <option value="#">Ejemplo 1</option>
+                          <select name="Name">
+                          <option value="#">Ejemplo 1</option>
                           </select>
+                          <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                          </textarea>
                         </div>
-                        <div class="col-sm-6">
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                            </textarea>
-                        </div>
-                      </div>
                       <div class="col-sm-12" id="furexp">
                         <h3> Degree of relevance / things to consider for future planning </h3>
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
@@ -705,28 +680,22 @@
                         <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                         </textarea>
                       </div>
-                      <div class="col-sm-12" id="mainobstacle">
-                          <h3> Main Obstacles </h3>
-                        <div class="col-sm-6">
-                            <select name="Name">
-                            <option value="#">Ejemplo 1</option>
-                          </select>
+                      <div class="col-sm-12">
+                          <div class="col-sm-6" id="mainobstacle">
+                            <h3> Main Obstacles </h3>
+                        <select name="Name">
+                          <option value="#">Ejemplo 1</option>
+                        </select>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
                         </div>
-                        <div class="col-sm-6">
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                            </textarea>
-                        </div>
-                      </div>
-                      <div class="col-sm-12" id="mainsupfac">
+                        <div class="col-sm-6" id="mainsupfac">
                           <h3> Main Supporting factors </h3>
-                        <div class="col-sm-6">
-                            <select name="Name">
-                            <option value="#">Ejemplo 1</option>
-                          </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                            </textarea>
+                        <select name="Name">
+                          <option value="#">Ejemplo 1</option>
+                        </select>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                        </textarea>
                         </div>
                       </div>
                       <div class="col-sm-12" id="furexp">
@@ -748,7 +717,7 @@
     </div>
   </div>
 
-  </metal:block>
+
 
 </metal:content-core>
 
