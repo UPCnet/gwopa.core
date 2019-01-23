@@ -49,7 +49,7 @@ class listAreas(BrowserView):
         return results
 
 
-class listTeam(BrowserView):
+class listTeams(BrowserView):
     """ View all the People associated to the project.
         Separated by area.
     """
