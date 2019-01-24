@@ -7,26 +7,54 @@
     i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="main">
+<metal:content-core fill-slot="main"
+    tal:define="portal_state context/@@plone_portal_state;
+                portal_url portal_state/portal_url;">
 
-  <metal:block define-macro="content-core">
+  <metal:block define-macro="content-core" tal:define="project view/isProject">
 
-    <h1 class="documentFirstHeading" i18n:translate="">Team Members</h1>
-    <div class="documentDescription description" i18n:translate=""> List of members</div>
+    <h1 class="documentFirstHeading" i18n:translate="" tal:condition="project">Team Members</h1>
+    <h1 class="documentFirstHeading" i18n:translate="" tal:condition="not:project">Site Members</h1>
+    <div class="documentDescription description" i18n:translate="" tal:condition="project"> List of members of the project</div>
+    <div class="documentDescription description" i18n:translate="" tal:condition="not:project"> List of members of the Site</div>
 
-    <tal:objects repeat="item view/allfiles">
-      <ul class="item">
-        <li>
-          <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
-          tal:content="item/portal_type"> Portal_type </span>
-            <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-          <p tal:condition="item/description">
-            <span tal:content="item/description"> Item Description </span>
-          </p>
-        </li>
-      </ul>
-    </tal:objects>
+    <a tal:condition="not:project" class="pat-plone-modal" id="add-new-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/new-user" href="#">
+      <button id="add-new-user" class="context focus" i18n:translate=""> + New User</button>
+    </a>
 
+    <a tal:condition="project" class="pat-plone-modal" id="add-new-member" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/new-user" href="#">
+      <button id="add-new-member" class="context focus" i18n:translate=""> + New Member</button>
+    </a>
+
+    <h2> Members </h2>
+    <tal:block tal:define="users view/all_users" >
+      <table class="sortable" tal:condition="not:users">
+        No users found in the Platform
+      </table>
+      <table class="sortable" tal:condition="users">
+        <thead>
+          <tr>
+            <th i18n:translate="" scope="col" class="paddingleft20"> Username </th>
+            <th tal:condition="not:project" i18n:translate="" scope="col" class="paddingleft20"> Involved in this Projects </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="user users">
+            <td class="paddingleft20">
+              <i class="fa fa-user"></i>
+              <a href="" tal:attributes="href string:${portal_url}/profile/${user/id}" tal:content="user/id"> User ID </a>
+            </td>
+            <td tal:condition="not:project" class="paddingleft20">
+              <ul tal:define="projects user/project">
+                <li tal:repeat="project projects ">
+                  <span tal:content="project"> Projects </span>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </tal:block>
   </metal:block>
 
 </metal:content-core>

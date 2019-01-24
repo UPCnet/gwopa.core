@@ -21,8 +21,8 @@
       </div>
 
       <h2><tal:omit-tag i18n:translate=""> Projects </tal:omit-tag>
-        <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
-          <button id="add-new-user" class="context focus" i18n:translate=""> + New Project</button>
+        <a class="pat-plone-modal" id="add-new-project" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
+          <button id="add-new-project" class="context focus" i18n:translate=""> + New Project</button>
         </a>
       </h2>
       <tal:block tal:define="elements view/getProjects">

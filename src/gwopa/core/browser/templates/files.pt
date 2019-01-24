@@ -9,23 +9,22 @@
 
 <metal:content-core fill-slot="main">
 
-  <metal:block define-macro="content-core">
+  <metal:block define-macro="content-core" tal:define="isRootFolder view/isRootFolder">
 
-    <h1 class="documentFirstHeading" i18n:translate="">List of Files</h1>
-    <div class="documentDescription description" i18n:translate=""> Here are shown all the Files added to the system</div>
+    <h1 class="documentFirstHeading" i18n:translate=""> Files</h1>
+    <div class="documentDescription description" tal:content="isRootFolder"> List of the files </div>
 
-    <tal:objects repeat="item view/allfiles">
-      <ul class="item">
-        <li>
-          <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
-          tal:content="item/portal_type"> Portal_type </span>
-            <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-          <p tal:condition="item/description">
-            <span tal:content="item/description"> Item Description </span>
-          </p>
-        </li>
-      </ul>
-    </tal:objects>
+      <tal:files repeat="item view/all_files">
+        <div class="col-lg-12 col-md-12">
+          <a tal:attributes="href item/url;
+                             title item/title;
+                             alt item/title">
+            <div class="box">
+                <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+            </div>
+          </a>
+        </div>
+      </tal:files>
 
   </metal:block>
 

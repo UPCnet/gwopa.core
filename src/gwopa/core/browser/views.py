@@ -14,11 +14,18 @@ class listFiles(BrowserView):
     """
     __call__ = ViewPageTemplateFile('templates/files.pt')
 
-    def getTitle(self):
-        return self.context.Title()
+    def isRootFolder(self):
+        if (self.context.portal_type != 'Plone Site'):
+            return _(u'Here are the files of the Project.')
+        else:
+            return _(u'Here are all files of the Site.')
 
-    def allfiles(self):
-        items = api.content.find(portal_type=['Page', 'Document'])
+    def all_files(self):
+
+        if self.context.portal_type == 'Project':
+            items = api.content.find(portal_type=['Page', 'Document'], path=self.context.absolute_url_path())
+        else:
+            items = api.content.find(portal_type=['Page', 'Document'])
         results = []
         for item in items:
             results.append(dict(
@@ -41,7 +48,7 @@ class listAreas(BrowserView):
         else:
             return _(u'Here are all the Improvement Areas of the Site.')
 
-    def allfiles(self):
+    def all_areas(self):
         if self.context.portal_type == 'Project':
             items = api.content.find(portal_type=['ImprovementArea'], path=self.context.absolute_url_path())
         else:
@@ -67,19 +74,21 @@ class listTeams(BrowserView):
     """
     __call__ = ViewPageTemplateFile('templates/teams.pt')
 
-    def getTitle(self):
-        return self.context.Title()
-
-    def allfiles(self):
-        items = api.content.find(portal_type=['Page', 'Document'])
+    def all_users(self):
+        members = api.user.get_users()
         results = []
-        for item in items:
-            results.append(dict(
-                title=item.Title,
-                description=item.Description,
-                portal_type=item.portal_type,
-                url='/'.join(item.getPhysicalPath())))
+
+        for item in members:
+            results += [{'id': item.id,
+                         'project': ['1', '2']
+                         }]
         return results
+
+    def isProject(self):
+        if (self.context.portal_type == 'Plone Site'):
+            return False
+        else:
+            return True
 
 
 class select2(BrowserView):

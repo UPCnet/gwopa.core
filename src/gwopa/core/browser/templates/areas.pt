@@ -12,10 +12,9 @@
   <metal:block define-macro="content-core" tal:define="isRootFolder view/isRootFolder">
 
     <h1 class="documentFirstHeading" i18n:translate="">Improvement Areas</h1>
-    <div class="documentDescription description" i18n:translate="" tal:content="view/isRootFolder"> Here are shown a list of the Improvement Areas </div>
+    <div class="documentDescription description" tal:content="isRootFolder"> List of the Areas </div>
 
-      <h1 class="documentFirstHeading"> Areas </h1>
-      <tal:areas repeat="item view/allfiles">
+      <tal:areas repeat="item view/all_areas">
         <div class="col-lg-3 col-md-6">
           <a tal:attributes="href item/url;
                              title item/title;
