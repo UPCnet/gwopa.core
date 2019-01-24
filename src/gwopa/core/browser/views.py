@@ -4,6 +4,7 @@ from Products.Five.browser import BrowserView
 from plone import api
 import json
 from geojson import Feature, Point, FeatureCollection
+from gwopa.core import _
 
 
 class listFiles(BrowserView):
@@ -34,18 +35,29 @@ class listAreas(BrowserView):
     """
     __call__ = ViewPageTemplateFile('templates/areas.pt')
 
-    def getTitle(self):
-        return self.context.Title()
+    def isRootFolder(self):
+        if (self.context.portal_type != 'Plone Site'):
+            return _(u'Here are the Improvement Areas of the Project.')
+        else:
+            return _(u'Here are all the Improvement Areas of the Site.')
 
     def allfiles(self):
-        items = api.content.find(portal_type=['ImprovementArea'])
+        if self.context.portal_type == 'Project':
+            items = api.content.find(portal_type=['ImprovementArea'], path=self.context.absolute_url_path())
+        else:
+            items = api.content.find(portal_type=['ImprovementArea'])
         results = []
         for item in items:
+            obj = item.getObject()
+            if obj.image is None:
+                image = obj.absolute_url_path() + '/++theme++gwopa.theme/assets/images/200x200.png'
+            else:
+                image = obj.absolute_url_path() + '/@@images/image/thumb'
             results.append(dict(
                 title=item.Title,
-                description=item.Description,
-                portal_type=item.portal_type,
-                url='/'.join(item.getPhysicalPath())))
+                image=image,
+                url='/'.join(obj.getPhysicalPath()),
+                description=item.description))
         return results
 
 

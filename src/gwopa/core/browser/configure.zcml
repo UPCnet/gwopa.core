@@ -73,6 +73,14 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="projectfiles"
+      class=".views.listFiles"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
   <!-- Areas VIEW -->
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
@@ -82,10 +90,26 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="projectareas"
+      class=".views.listAreas"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
   <!-- Team VIEW -->
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="teams"
+      class=".views.listTeams"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="projectteams"
       class=".views.listTeams"
       permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
@@ -117,6 +141,7 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <!-- New Workplan -->
   <browser:page
     for="gwopa.core.content.project.IProject"
     name="addWorkPlan"
@@ -124,6 +149,7 @@
     layer="..interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 
+  <!-- Copy Workplan -->
   <browser:page
     for="gwopa.core.content.workplan.IWorkplan"
     name="copyWorkPlan"
@@ -131,6 +157,7 @@
     layer="..interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 
+  <!-- Delete Workplan -->
   <browser:page
     for="gwopa.core.content.workplan.IWorkplan"
     name="deleteWorkPlan"

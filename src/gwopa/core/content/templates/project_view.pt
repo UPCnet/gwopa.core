@@ -14,51 +14,57 @@
                   budget context/budget;
                   contribution context/contribution;
                   wop_program context/wop_program;
-                  google_maps_link view/google_maps_link">
+                  google_maps_link view/google_maps_link;
+                  getImprovementAreas view/getImprovementAreas">
 
     <h1 class="documentFirstHeading" i18n:translate="" tal:content="context/title"> Project Title </h1>
 
-    <div tal:condition="context/image">
-      <img tal:attributes="src string:${context/absolute_url}/@@images/image" />
+    <div class="row">
+      <div class="col-md-3">
+          <div tal:condition="context/image">
+            <img tal:attributes="src string:${context/absolute_url}/@@images/image" />
+          </div>
+      </div>
+      <div class="col-md-9">
+        <div class="documentDescription description" i18n:translate="" tal:content="context/description"> Project description </div>
+        <div tal:condition="partners">
+          <h3 i18n:translate="">Partners</h3>
+          <ul tal:repeat="partner partners">
+            <li tal:content="partner"></li>
+          </ul>
+        </div>
+
+        <div tal:condition="project_manager">
+          <h3 i18n:translate="">Project Manager</h3>
+          <span tal:content="project_manager" />
+        </div>
+
+        <div tal:condition="budget">
+          <h3 i18n:translate=""> Total budget</h3>
+          <span tal:content="budget" /> <span tal:content="view/get_currency" />
+        </div>
+
+        <div tal:condition="contribution">
+          <h3 i18n:translate="">Contribution by partners and donors</h3>
+          <span tal:replace="structure contribution/output" />
+        </div>
+
+        <div tal:condition="wop_program">
+          <h3 i18n:translate="">WOP Program</h3>
+          <ul tal:repeat="wop wop_program">
+            <li tal:content="wop"></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="documentDescription description" i18n:translate="" tal:content="context/description"> Project description </div>
-
-      <div tal:condition="partners">
-        <h3 i18n:translate="">Partners</h3>
-        <ul tal:repeat="partner partners">
-          <li tal:content="partner"></li>
-        </ul>
-      </div>
-
-      <div tal:condition="project_manager">
-        <h3 i18n:translate="">Project Manager</h3>
-        <span tal:content="project_manager" />
-      </div>
-
-      <div tal:condition="budget">
-        <h3 i18n:translate=""> Total budget</h3>
-        <span tal:content="budget" /> <span tal:content="view/get_currency" />
-      </div>
-
-      <div tal:condition="contribution">
-        <h3 i18n:translate="">Contribution by partners and donors</h3>
-        <span tal:replace="structure contribution/output" />
-      </div>
-
-      <div tal:condition="wop_program">
-        <h3 i18n:translate="">WOP Program</h3>
-        <ul tal:repeat="wop wop_program">
-          <li tal:content="wop"></li>
-        </ul>
-      </div>
-
-        <h1 class="documentFirstHeading"> Areas</h1>
-        <tal:repeatProjects repeat="item view/getImprovementAreas">
-          <div class="col-lg-3 col-md-6">
-            <a tal:attributes="href item/url;
-                               title item/title;
-                               alt item/title">
+    <tal:block tal:condition="getImprovementAreas">
+      <h1 class="documentFirstHeading"> Areas </h1>
+      <tal:areas repeat="item getImprovementAreas">
+        <div class="col-lg-3 col-md-6">
+          <a tal:attributes="href item/url;
+                             title item/title;
+                             alt item/title">
             <div class="box">
               <img class="box-img" style="width:100%"
                    tal:attributes="src string:${item/image};"/>
@@ -69,10 +75,11 @@
               </div>
             </div>
           </a>
-          </div>
-      </tal:repeatProjects>
+        </div>
+      </tal:areas>
+    </tal:block>
 
-  </metal:block>
+</metal:block>
 
 </metal:content-core>
 

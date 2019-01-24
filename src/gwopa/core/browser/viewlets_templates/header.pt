@@ -17,13 +17,38 @@
 
   <div class="sidenav">
     <ul id="sidenav-vertical">
+
+
+        <ul tal:define="selected_tab python:viewlet.selected_portal_tab">
+            <span tal:content="selected_tab"></span>
+           <!--  <tal:tabs tal:repeat="tab portal_tabs">
+              <li tal:define="tid tab/id"
+                  tal:attributes="class python:selected_tab==tid and 'selected' or nothing">
+                  <a href=""
+                     tal:content="tab/name"
+                     tal:attributes="href tab/url;">
+                    Tab Name
+                  </a>
+              </li>
+            </tal:tabs> -->
+        </ul>
+
+
         <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fa fa-home" aria-hidden="true"></i> PMP </a>
+        <tal:omit-tag tal:condition="not:viewlet/isRootFolder">
+            <ul id="sidenav-vertical-overview">
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/teams" href="#"><i class="fas fa-users" aria-hidden="true"></i> Teams </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/areas" href="#"><i class="fas fa-chart-area" aria-hidden="true"></i> Areas </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/files" href="#"><i class="fas fa-file" aria-hidden="true"></i> Files </a>
+            </ul>
+        </tal:omit-tag>
+
         <tal:omit-tag tal:condition="viewlet/isRootFolder">
             <ul id="sidenav-vertical-overview">
                 <a class="plone-btn plone-btn-info" tal:attributes="href string:${viewlet/projectPath}" href="#"><i class="fas fa-home" aria-hidden="true"></i> Overview </a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${viewlet/projectPath}/area" href="#"><i class="fas fa-chart-area" aria-hidden="true"></i> Area </a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${viewlet/projectPath}/team" href="#"><i class="fas fa-users" aria-hidden="true"></i> Team </a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${viewlet/projectPath}/files" href="#"><i class="fas fa-file" aria-hidden="true"></i> Files </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${viewlet/projectPath}/projectareas" href="#"><i class="fas fa-chart-area" aria-hidden="true"></i> Areas </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${viewlet/projectPath}/projectteams" href="#"><i class="fas fa-users" aria-hidden="true"></i> Team </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${viewlet/projectPath}/projectfiles" href="#"><i class="fas fa-file" aria-hidden="true"></i> Files </a>
             </ul>
             <a class="plone-btn plone-btn-success" tal:attributes="href string:${viewlet/projectPath}/planning" href="#"><i class="far fa-calendar-check" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Planning </tal:omit-tag></a>
             <a class="plone-btn plone-btn-success" tal:attributes="href string:${viewlet/projectPath}/collaborating" href="#"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate=""> Collaboration </tal:omit-tag></a>

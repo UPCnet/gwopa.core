@@ -18,7 +18,6 @@
         <div class="visualClear"></div>
       </div>
       <fieldset class="formPanel">
-        <div class="field">
             <ul>
               <li>Create GWOPA config folder, with default values</li>
               <li>Make [English / French / Spanish] languages availables on users profiles</li>
@@ -27,14 +26,16 @@
               <li>Modify users profiles to assign new fields</li>
               <li>Assign GWOPA workflow</li>
             </ul>
-        </div>
         <form method="get" action="@@setup_home">
-            <input id="create" class="context" type="submit" value="Initial Setup" name="create"/>
+            <input id="create" class="context" type="submit" value="Run Initial setup" name="create"/>
         </form>
-        <br/>For developers only.
-        <br/>This option generate loremipsum items in the Site.
         <br/>
-        <br/>
+        <div class="clearfix"></div>
+        <hr/>
+        <div> WARNING: For developers only. </div>
+        <ul>
+          <li>This option generate loremipsum items in the Site.</li>
+        </ul>
         <form method="get" action="@@setup_home">
             <input id="createdemocontent" class="context" type="submit" value="Create Demo content" name="createdemocontent"/>
         </form>

@@ -9,29 +9,29 @@
 
 <metal:content-core fill-slot="main">
 
-  <metal:block define-macro="content-core">
+  <metal:block define-macro="content-core" tal:define="isRootFolder view/isRootFolder">
 
-    <h1 class="documentFirstHeading" i18n:translate="">List of site files</h1>
-    <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below. You can return to the project, clicking on the button 'Return".</div>
+    <h1 class="documentFirstHeading" i18n:translate="">Improvement Areas</h1>
+    <div class="documentDescription description" i18n:translate="" tal:content="view/isRootFolder"> Here are shown a list of the Improvement Areas </div>
 
-    <tal:objects repeat="item view/allfiles">
-      <ul class="item">
-        <li>
-          <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
-          tal:content="item/portal_type"> Portal_type </span>
-            <a tal:attributes="href item/url;" tal:content="item/title"> Item Title </a>
-          <p tal:condition="item/description">
-            <span tal:content="item/description"> Item Description </span>
-          </p>
-        </li>
-      </ul>
-    </tal:objects>
-
-    <h3>TODO:</h3>
-    <ul>
-        <li>Show all Site files if called from root</li>
-        <li>Show project files if called from project </li>
-    </ul>
+      <h1 class="documentFirstHeading"> Areas </h1>
+      <tal:areas repeat="item view/allfiles">
+        <div class="col-lg-3 col-md-6">
+          <a tal:attributes="href item/url;
+                             title item/title;
+                             alt item/title">
+            <div class="box">
+              <img class="box-img" style="width:100%"
+                   tal:attributes="src string:${item/image};"/>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+                </h4>
+              </div>
+            </div>
+          </a>
+        </div>
+      </tal:areas>
 
   </metal:block>
 

@@ -175,7 +175,7 @@ class View(grok.View):
     grok.template('project_view')
 
     def getImprovementAreas(self):
-        items = api.content.find(portal_type='ImprovementArea')
+        items = api.content.find(portal_type='ImprovementArea', path=self.context.absolute_url_path())
         results = []
         for item in items:
             obj = item.getObject()
