@@ -37,8 +37,8 @@
         <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" href="#"><i class="fa fa-home" aria-hidden="true"></i> PMP </a>
         <tal:omit-tag tal:condition="not:viewlet/isRootFolder">
             <ul id="sidenav-vertical-overview">
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/teams" href="#"><i class="fas fa-users" aria-hidden="true"></i> Teams </a>
                 <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/areas" href="#"><i class="fas fa-chart-area" aria-hidden="true"></i> Areas </a>
+                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/teams" href="#"><i class="fas fa-users" aria-hidden="true"></i> Teams </a>
                 <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/files" href="#"><i class="fas fa-file" aria-hidden="true"></i> Files </a>
             </ul>
         </tal:omit-tag>

@@ -88,7 +88,8 @@
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box">
-                              <img class="img128" tal:attributes="src string:${item/image};"/>
+                              <a tal:attributes="href item/url">
+                                <img class="img200" tal:attributes="src string:${item/image};"/></a>
                               <div class="card-body">
                                 <h4 class="card-title top">
                                   <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
@@ -121,7 +122,9 @@
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box">
-                              <img class="img200" tal:attributes="src string:${item/image};"/>
+                              <a tal:attributes="href item/url">
+                                <img class="img200" tal:attributes="src string:${item/image};"/>
+                              </a>
                               <div class="card-body">
                                 <h4 class="card-title top">
                                   <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
@@ -157,7 +160,9 @@
                       <tal:items repeat="item items">
                         <div class="col-lg-3 col-md-4 col-sm-6">
                           <div class="box">
-                            <img class="img200" tal:attributes="src string:${item/image};"/>
+                            <a tal:attributes="href item/url">
+                             <img class="img200" tal:attributes="src string:${item/image};"/>
+                           </a>
                             <div class="card-body">
                               <h4 class="card-title top">
                                 <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
