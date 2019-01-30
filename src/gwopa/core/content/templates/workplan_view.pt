@@ -8,11 +8,47 @@
 <body >
 
 <metal:content-core fill-slot="main">
-  
+
+  <metal:javascript fill-slot="javascript_head_slot">
+    <script>
+      require = undefined;
+      define = undefined;
+    </script>
+    <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </metal:javascript>
+
   <metal:block define-macro="content-core" tal:define="items view/getItems;currentYear view/currentYear;">
     <div class="template-planning">
+
       <h1 class="documentFirstHeading" i18n:translate="">Planning - Annual <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
-      <div class="documentDescription description"><tal:omit-tag i18n:translate="">Annual Work Plan for year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"></tal:omit-tag>
+      <div class="documentDescription description">
+        <tal:omit-tag i18n:translate="">Annual Work Plan for year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"></tal:omit-tag>
+
+        <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
+          <fieldset>
+            <legend>Project</legend>
+            <div>
+              <h2>Current Improvement Areas</h2>
+              <a href="#modal1" class="plone-btn plone-btn-large plone-btn-primary pat-plone-modal" data-pat-plone-modal="width: 400">Example modal</a>
+              <div id="modal1" style="display: none">
+                <h1>Basic modal!</h1>
+                <p>Indeed. Whoa whoa whoa whoa. Wait.</p>
+             </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Outcomes</legend>
+            <div>
+              <h2> List of KPI </h2>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Collaboration</legend>
+              <h2>TODO: Check this!</h2>
+          </fieldset>
+        </div>
+
         <ul class="pagination pagination-lg" style="float:right; margin: 0px;">
           <tal:block tal:repeat="item items">
           <li tal:attributes="class item/classe">
@@ -22,6 +58,7 @@
         </tal:block>
         </ul>
       </div>
+
       <div class="wp-buttons">
         <a tal:attributes="href string:${context/absolute_url}/copyWorkPlan" href="#">
           <button class="plone-btn-warning"><i class="fa fa-copy"></i>&nbsp;<tal:omit-tag i18n:translate=""> Duplicate Work Plan</tal:omit-tag></button></a>
@@ -34,7 +71,9 @@
       </div>
 
     </div>
+
   </metal:block>
+
   <script tal:attributes="src string:/++theme++gwopa.theme/assets/gwopa.umd.min.js"></script>
 
 </metal:content-core>
