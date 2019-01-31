@@ -146,13 +146,17 @@
                   </tal:CompanyProjects>
                 </div>
                 <br/>
+
                 <h1 class="documentFirstHeading" i18n:translate="">Search Projects</h1>
-                <input type="text" class="pat-select2"  name="findProject"
-                      data-pat-select2="placeholder:Search...;
-                                        multiple:true;
-                                        vocabularyUrl: ${portal_url}/select2-test.json;
-                                        width:20em"
-                      i18n:attributes="placeholder Search" />
+                <form id="search_projects" class="filter-block filter-press">
+                  <fieldset>
+                    <legend class="sr-only" i18n:translate="">Search</legend>
+                    <label for="id_label_multiple">
+                      <input type="hidden" style="width:20em;" i18n:attributes="title Search" class="custom-select2 js-custom-data-ajax show-more-projects"/>
+                    </label>
+                  </fieldset>
+                </form>
+                <script src="/++theme++gwopa.theme/assets/search-select2.js"/>
                 <div class="row">
                   <div class="col-xs-12 col-sm-12">
                     <tal:AllProjects define="items view/allProjects;
