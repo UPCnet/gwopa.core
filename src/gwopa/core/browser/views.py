@@ -2,7 +2,6 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 from plone import api
-import json
 from geojson import Feature, Point, FeatureCollection
 from gwopa.core import _
 
@@ -80,7 +79,7 @@ class listTeams(BrowserView):
 
         for item in members:
             results += [{'id': item.id,
-                         'project': ['1', '2']
+                         'project': item.getProperty('wop_programs')
                          }]
         return results
 
@@ -89,23 +88,6 @@ class listTeams(BrowserView):
             return False
         else:
             return True
-
-
-class select2(BrowserView):
-
-    def __call__(self):
-        items = api.content.find(portal_type=['Project', 'ImprovementArea'])
-        results = []
-        for item in items:
-            results.append(dict(
-                id=item.id,
-                text=item.Title))
-        return json.dumps(
-            {
-                'placeholder': "Select a Category",
-                'results': results,
-            }
-        )
 
 
 class mapView(BrowserView):
