@@ -18,14 +18,22 @@ msgstr ""
 msgid "(Manager: 1 random element)"
 msgstr "(Manager: 1 elemento al azar)"
 
-#: ../browser/templates/homepage.pt:113
+#: ../browser/templates/homepage.pt:114
 msgid "(Manager: 4 random elements)"
 msgstr "(Manager: 4 elementos al azar)"
+
+#: ../browser/templates/teams.pt:26
+msgid "+ New Member"
+msgstr ""
 
 #: ../browser/templates/homepage.pt:77
 #: ../browser/templates/manage_portal.pt:25
 msgid "+ New Project"
 msgstr "+ Nuevo Proyecto"
+
+#: ../browser/templates/teams.pt:22
+msgid "+ New User"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:40
 msgid "Actions"
@@ -43,7 +51,7 @@ msgstr "Rol de administrador"
 msgid "All the projects in one map."
 msgstr "Todos los proyectos en un único mapa."
 
-#: ../content/templates/workplan_view.pt:15
+#: ../content/templates/workplan_view.pt:26
 msgid "Annual Work Plan for year"
 msgstr "Plan anual de trabajo del año "
 
@@ -81,7 +89,7 @@ msgstr "Elija el país de la lista que representa al país."
 msgid "Collaborating module"
 msgstr "Módulo de colaboración"
 
-#: ../browser/viewlets_templates/header.pt:90
+#: ../browser/viewlets_templates/header.pt:37
 msgid "Collaboration"
 msgstr "Colaboración"
 
@@ -90,7 +98,7 @@ msgstr "Colaboración"
 msgid "Completion time"
 msgstr "Tiempo de finalización"
 
-#: ../browser/viewlets_templates/header.pt:98
+#: ../browser/viewlets_templates/header.pt:45
 msgid "Configuration"
 msgstr "Configuración"
 
@@ -108,7 +116,7 @@ msgid "Container"
 msgstr "Contenedor"
 
 #: ../content/project.py:157
-#: ../content/templates/project_view.pt:48
+#: ../content/templates/project_view.pt:58
 msgid "Contribution by partners and donors"
 msgstr "Contribución de socios y donantes"
 
@@ -138,7 +146,7 @@ msgstr "Cambio de moneda"
 msgid "Current projects map"
 msgstr "Mapa con los proyectos actuales"
 
-#: ../browser/viewlets_templates/header.pt:93
+#: ../browser/viewlets_templates/header.pt:40
 msgid "Dashboard"
 msgstr "Tablero"
 
@@ -160,7 +168,7 @@ msgstr "Fecha de finalización del proyecto."
 msgid "Define your language"
 msgstr "Define tu idioma"
 
-#: ../content/templates/workplan_view.pt:29
+#: ../content/templates/workplan_view.pt:66
 msgid "Delete Work Plan"
 msgstr "Eliminar WorkPlan"
 
@@ -168,7 +176,7 @@ msgstr "Eliminar WorkPlan"
 msgid "Demo content has been created."
 msgstr "Se ha creado contenido de ejemplo."
 
-#: ../browser/templates/monitoring.pt:21
+#: ../browser/templates/monitoring.pt:24
 msgid "Describing monitoring module."
 msgstr ""
 
@@ -180,7 +188,7 @@ msgstr "Descripción del módulo de informes"
 msgid "Describing visualizating module."
 msgstr "Describing reporting modulo de visualización"
 
-#: ../content/templates/workplan_view.pt:27
+#: ../content/templates/workplan_view.pt:64
 msgid "Duplicate Work Plan"
 msgstr "Duplicar WorkPlan"
 
@@ -196,6 +204,10 @@ msgstr "Fecha de finalización"
 msgid "File"
 msgstr "Fichero"
 
+#: ../browser/templates/files.pt:14
+msgid "Files"
+msgstr ""
+
 #: ../configure.zcml:40
 msgid "GWOPA Core package (gwopa.core)"
 msgstr "GWOPA Core package (gwopa.core)"
@@ -204,17 +216,25 @@ msgstr "GWOPA Core package (gwopa.core)"
 msgid "GWOPA administration page"
 msgstr "Página de administración de GWOPA"
 
-#: ../browser/views.py:42
-msgid "HOLA"
+#: ../browser/views.py:20
+msgid "Here are all files of the Site."
 msgstr ""
 
-#: ../browser/templates/files.pt:15
-msgid "Here are shown all the Files added to the system"
+#: ../browser/views.py:48
+msgid "Here are all the Improvement Areas of the Site."
 msgstr ""
 
 #: ../browser/templates/collaborating.pt:14
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
 msgstr "Aquí se muestran todas las Áreas de Mejora de este proyecto. Puede acceder a ellos pinchando en las imágenes de abajo."
+
+#: ../browser/views.py:46
+msgid "Here are the Improvement Areas of the Project."
+msgstr ""
+
+#: ../browser/views.py:18
+msgid "Here are the files of the Project."
+msgstr ""
 
 #: ../content/improvement_area.py:28
 #: ../content/partner.py:29
@@ -262,6 +282,10 @@ msgstr "Installs the gwopa.core add-on."
 msgid "Invalid start or end date"
 msgstr "Fecha de inicio o finalización incorrecta."
 
+#: ../browser/templates/teams.pt:38
+msgid "Involved in this Projects"
+msgstr ""
+
 #: ../userdataschema.py:26
 msgid "Language"
 msgstr "Idioma"
@@ -270,19 +294,19 @@ msgstr "Idioma"
 msgid "Latitude"
 msgstr "Latitud"
 
-#: ../browser/templates/files.pt:14
-msgid "List of Files"
+#: ../browser/templates/teams.pt:19
+msgid "List of members of the Site"
 msgstr ""
 
-#: ../browser/templates/teams.pt:15
-msgid "List of members"
+#: ../browser/templates/teams.pt:18
+msgid "List of members of the project"
 msgstr ""
 
 #: ../profiles/default/types/LogFrame.xml
 msgid "Log Frame"
 msgstr "Marco de registro"
 
-#: ../browser/viewlets_templates/header.pt:101
+#: ../browser/viewlets_templates/header.pt:48
 msgid "Log out"
 msgstr "Salir"
 
@@ -325,11 +349,11 @@ msgstr "Miembros en esta región"
 msgid "Milestones"
 msgstr "Hitos"
 
-#: ../browser/viewlets_templates/header.pt:91
+#: ../browser/viewlets_templates/header.pt:38
 msgid "Monitoring"
 msgstr "Monitorización"
 
-#: ../browser/templates/monitoring.pt:20
+#: ../browser/templates/monitoring.pt:23
 msgid "Monitoring Module"
 msgstr ""
 
@@ -337,7 +361,7 @@ msgstr ""
 msgid "My Projects"
 msgstr "Mis proyectos"
 
-#: ../browser/templates/homepage.pt:113
+#: ../browser/templates/homepage.pt:114
 msgid "My company Projects"
 msgstr "Los proyectos de mi compañía"
 
@@ -382,7 +406,7 @@ msgid "Partner/partners of the project"
 msgstr "Socio/Socios del proyecto"
 
 #: ../content/project.py:112
-#: ../content/templates/project_view.pt:31
+#: ../content/templates/project_view.pt:41
 msgid "Partners"
 msgstr "Socios"
 
@@ -390,12 +414,12 @@ msgstr "Socios"
 msgid "Phone"
 msgstr "Teléfono"
 
-#: ../browser/viewlets_templates/header.pt:89
-#: ../content/templates/workplan_view.pt:19
+#: ../browser/viewlets_templates/header.pt:36
+#: ../content/templates/workplan_view.pt:55
 msgid "Planning"
 msgstr "Planificación"
 
-#: ../content/templates/workplan_view.pt:14
+#: ../content/templates/workplan_view.pt:24
 msgid "Planning - Annual ${DYNAMIC_CONTENT}"
 msgstr "Planificación del año ${DYNAMIC_CONTENT}"
 
@@ -413,7 +437,7 @@ msgid "Project"
 msgstr "Proyecto"
 
 #: ../content/project.py:129
-#: ../content/templates/project_view.pt:38
+#: ../content/templates/project_view.pt:48
 msgid "Project Manager"
 msgstr "Gerente del proyecto"
 
@@ -446,7 +470,7 @@ msgstr "Entradas relacionadas"
 msgid "Related outputs"
 msgstr "Salidas relacionadas"
 
-#: ../browser/viewlets_templates/header.pt:92
+#: ../browser/viewlets_templates/header.pt:39
 msgid "Reporting"
 msgstr "Informes"
 
@@ -460,11 +484,11 @@ msgstr "Mòdulo de informes"
 msgid "Risks / Assumptions"
 msgstr "Riesgos / Suposiciones"
 
-#: ../browser/templates/homepage.pt:147
+#: ../browser/templates/homepage.pt:153
 msgid "Search"
 msgstr "Buscar..."
 
-#: ../browser/templates/homepage.pt:146
+#: ../browser/templates/homepage.pt:150
 msgid "Search Projects"
 msgstr "Buscador de proyectos"
 
@@ -476,6 +500,10 @@ msgstr "Seleccionar país"
 #: ../profiles/default/types/SettingsPage.xml
 msgid "SettingsPage"
 msgstr "Página de configuración"
+
+#: ../browser/templates/teams.pt:17
+msgid "Site Members"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:36
 msgid "Start Date"
@@ -508,7 +536,7 @@ msgstr "Valor de objetivo"
 msgid "Target Value Date"
 msgstr "Fecha del valor de objetivo"
 
-#: ../browser/templates/teams.pt:14
+#: ../browser/templates/teams.pt:16
 msgid "Team Members"
 msgstr ""
 
@@ -539,7 +567,7 @@ msgid "Title"
 msgstr "Título"
 
 #: ../content/project.py:146
-#: ../content/templates/project_view.pt:43
+#: ../content/templates/project_view.pt:53
 msgid "Total budget"
 msgstr "Presupuesto total"
 
@@ -571,6 +599,10 @@ msgstr "Utilizado en los proyectos, uno por línea."
 msgid "UserID"
 msgstr "Identificador de usuario"
 
+#: ../browser/templates/teams.pt:37
+msgid "Username"
+msgstr ""
+
 #: ../content/templates/partner_view.pt:62
 msgid "Users in this Partner"
 msgstr "Usuarios asignados a este Socio"
@@ -592,7 +624,7 @@ msgid "WOP Platform"
 msgstr "Regional WOP Platform"
 
 #: ../content/project.py:89
-#: ../content/templates/project_view.pt:53
+#: ../content/templates/project_view.pt:63
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr "WOP Program"
@@ -609,7 +641,7 @@ msgstr "No tienes proyectos asignados."
 msgid "Your Twitter username. Could include the @. Example: @unhabitat"
 msgstr "La cuenta de Twitter, puede incluir el @. Por ejemplo: @unhabitat"
 
-#: ../browser/templates/homepage.pt:115
+#: ../browser/templates/homepage.pt:116
 msgid "Your company has no projects."
 msgstr "Tu compañía no tiene proyectos asignados (o no perteneces a ninguna compañía)."
 
@@ -630,6 +662,10 @@ msgstr "País"
 msgid "description"
 msgstr "Descripción"
 
+#: ../content/templates/project_view.pt:21
+msgid "edit_project"
+msgstr ""
+
 #: ../browser/user_profile.py:41
 #: ../indexers.py:23
 msgid "email"
@@ -646,6 +682,7 @@ msgstr "Homepage"
 
 #. Default: "Show in Google Maps"
 #: ../content/templates/partner_view.pt:58
+#: ../content/templates/project_view.pt:103
 msgid "label_google_maps_link"
 msgstr "Ver en Google Maps"
 

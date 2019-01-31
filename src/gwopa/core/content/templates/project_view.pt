@@ -17,7 +17,28 @@
                   google_maps_link view/google_maps_link;
                   getImprovementAreas view/getImprovementAreas">
 
-    <h1 class="documentFirstHeading" i18n:translate="" tal:content="context/title"> Project Title </h1>
+    <h1 class="documentFirstHeading" tal:condition="view/canEdit">
+      <div class="actions-in-object">
+              <span aria-hidden="true"
+             tal:attributes="class string:icon-plone-contentmenu-workflow label-state-${view/stateid}"></span>
+        <a tal:attributes="href string:${context/absolute_url}/folder_contents">
+          <span class="icon-folderContents toolbar-menu-icon" aria-hidden="true">
+          </span>
+        </a>
+        <a tal:attributes="href string:${context/absolute_url}/@@sharing" class="">
+          <span class="icon-local_roles  toolbar-menu-icon" aria-hidden="true">
+          </span>
+        </a>
+      </div>
+      <a tal:attributes="href string:${context/absolute_url}/edit;"
+          i18n:attributes="title edit_project;
+                           alt edit_project"><i class="far fa-edit"></i>&nbsp;
+      <tal:title tal:content="context/title"> Project Title</tal:title></a>
+    </h1>
+   
+    <h1 class="documentFirstHeading" tal:condition="not:view/canEdit">
+      <tal:title tal:content="context/title"> Project Title</tal:title>
+    </h1>
 
     <div class="row">
       <div class="col-md-3">
@@ -57,6 +78,42 @@
         </div>
       </div>
     </div>
+
+      <tal:map tal:condition="google_maps_link">
+        <div tal:define="latitude context/geolocation/latitude;
+                     longitude context/geolocation/longitude;"
+              class="pat-leaflet map"
+         data-geojson='{
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "id": 1,
+              "properties":
+              {
+                "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
+              },
+              "geometry":
+              {
+                "type": "Point",
+                "coordinates": [ ${longitude}, ${latitude} ]
+              }
+            }
+          ]}' data-pat-leaflet='{
+           "fullscreencontrol": true,
+           "locatecontrol": false,
+           "zoomcontrol": true,
+           "minimap": false,
+           "addmarker": false,
+           "zoom": 17,
+           "map_layers": [
+            {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+           ]
+          }'>
+        </div>
+        <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
+      </tal:map>
+
 
     <tal:block tal:condition="getImprovementAreas">
       <h1 class="documentFirstHeading"> Areas </h1>

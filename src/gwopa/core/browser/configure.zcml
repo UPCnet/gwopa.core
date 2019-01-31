@@ -115,15 +115,6 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- Select2 seach view -->
-  <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      name="select2-test.json"
-      class=".views.select2"
-      permission="zope2.View"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-  />
-
   <!-- VIEW USER PROFILES  -->
   <browser:page
       name="profile"

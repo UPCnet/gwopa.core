@@ -22,40 +22,19 @@
     <div class="template-planning">
 
       <h1 class="documentFirstHeading" i18n:translate="">Planning - Annual <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
+
       <div class="documentDescription description">
         <tal:omit-tag i18n:translate="">Annual Work Plan for year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"></tal:omit-tag>
-
-        <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
-          <fieldset>
-            <legend>Project</legend>
-            <div>
-              <h2>Current Improvement Areas</h2>
-              <a href="#modal1" class="plone-btn plone-btn-large plone-btn-primary pat-plone-modal" data-pat-plone-modal="width: 400">Example modal</a>
-              <div id="modal1" style="display: none">
-                <h1>Basic modal!</h1>
-                <p>Indeed. Whoa whoa whoa whoa. Wait.</p>
-             </div>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Outcomes</legend>
-            <div>
-              <h2> List of KPI </h2>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Collaboration</legend>
-              <h2>TODO: Check this!</h2>
-          </fieldset>
-        </div>
-
-        <ul class="pagination pagination-lg" style="float:right; margin: 0px;">
+      </div>
+    
+      <div class="paginated-years">
+        <ul class="pagination pagination-lg">
           <tal:block tal:repeat="item items">
-          <li tal:attributes="class item/classe">
-            <a href="#" tal:attributes="href item/url"><tal:omit-tag i18n:translate="">Planning</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/title"></tal:omit-tag>
-            </a>
-          </li>
-        </tal:block>
+            <li tal:attributes="class item/classe">
+              <a href="#" tal:attributes="href item/url"><tal:omit-tag i18n:translate="">Planning</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/title"></tal:omit-tag>
+              </a>
+            </li>
+          </tal:block>
         </ul>
       </div>
 
@@ -67,7 +46,7 @@
       </div>
 
       <div id="app">
-         <demo></demo>
+        <demo></demo>
       </div>
 
     </div>

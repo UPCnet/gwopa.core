@@ -16,6 +16,7 @@ from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from collective.geolocationbehavior.geolocation import IGeolocatable
+from zope.component import getMultiAdapter
 
 grok.templatedir("templates")
 
@@ -213,3 +214,15 @@ class View(grok.View):
             return maps_link
         else:
             return None
+
+    def canEdit(self):
+        user = api.user.get_current()
+        roles = api.user.get_roles(user=user)
+        if 'Editor' in roles or 'Manager' in roles:
+            return True
+        else:
+            return False
+
+    def stateid(self):
+        """ Returns review_state from the object. IE: pending """
+        return getMultiAdapter((self.context, self.request), name='plone_context_state').workflow_state()
