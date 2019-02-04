@@ -33,7 +33,7 @@
                            alt edit_project"><i class="far fa-edit"></i>&nbsp;
       <tal:title tal:content="context/title"> Project Title</tal:title></a>
     </h1>
-   
+
     <h1 class="documentFirstHeading" tal:condition="not:view/canEdit">
       <tal:title tal:content="context/title"> Project Title</tal:title>
     </h1>
@@ -111,9 +111,17 @@
         <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
       </tal:map>
 
+    <h1 class="documentFirstHeading" style="padding-top: 20px;" i18n:translate=""> Improvement Areas
+      <a class="pat-plone-modal right" id="add-new-improvementarea" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea">
+          <button id="add-new-improvementarea" class="context focus" i18n:translate=""> + New Improvement Area </button>
+      </a>
+    </h1>
+
+    <h3 tal:condition="not:getImprovementAreas" i18n:translate="">
+      No Improvement Areas found
+    </h3>
 
     <tal:block tal:condition="getImprovementAreas">
-      <h1 class="documentFirstHeading"> Areas </h1>
       <tal:areas repeat="item getImprovementAreas">
         <div class="col-lg-3 col-md-6">
           <a tal:attributes="href item/url;

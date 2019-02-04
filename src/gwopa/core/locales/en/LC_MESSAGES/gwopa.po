@@ -284,7 +284,7 @@ msgstr "Invalid start or end date"
 
 #: ../browser/templates/teams.pt:38
 msgid "Involved in this Projects"
-msgstr "Involved in this Projects"
+msgstr "Related WOP Programs"
 
 #: ../userdataschema.py:26
 msgid "Language"

@@ -26,23 +26,15 @@
       <div class="documentDescription description">
         <tal:omit-tag i18n:translate="">Annual Work Plan for year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"></tal:omit-tag>
       </div>
-    
-      <div class="paginated-years">
-        <ul class="pagination pagination-lg">
-          <tal:block tal:repeat="item items">
-            <li tal:attributes="class item/classe">
-              <a href="#" tal:attributes="href item/url"><tal:omit-tag i18n:translate="">Planning</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/title"></tal:omit-tag>
-              </a>
-            </li>
-          </tal:block>
-        </ul>
-      </div>
 
-      <div class="wp-buttons">
-        <a tal:attributes="href string:${context/absolute_url}/copyWorkPlan" href="#">
-          <button class="plone-btn-warning"><i class="fa fa-copy"></i>&nbsp;<tal:omit-tag i18n:translate=""> Duplicate Work Plan</tal:omit-tag></button></a>
-        <a tal:attributes="href string:${context/absolute_url}/deleteWorkPlan" href="#">
-          <button class="plone-btn-danger"><i class="fa fa-remove"></i>&nbsp;<tal:omit-tag i18n:translate="">Delete Work Plan</tal:omit-tag></button></a>
+      <div class="paginated-years">
+        <ul>
+          <li tal:repeat="item items">
+            <a tal:attributes="href string:${context/absolute_url}/copyWorkPlan" href="#"><i class="fa fa-copy"></i></a>
+            <a tal:attributes="href string:${context/absolute_url}/deleteWorkPlan" href="#"><i class="fa fa-remove"></i></a>
+            <a tal:attributes="href item/url"><tal:omit-tag i18n:translate="">Planning</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/title"></tal:omit-tag></a>
+          </li>
+        </ul>
       </div>
 
       <div id="app">
