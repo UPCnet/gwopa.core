@@ -209,14 +209,14 @@ class View(grok.View):
         geo = IGeolocatable(self.context, None)
         if geo:
             coordinates = [geo.geolocation.latitude, geo.geolocation.longitude]
+            if geo.geolocation.latitude != 0.0 and geo.geolocation.longitude != 0.0:
+                maps_link = "https://www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
+                    coordinates[0],
+                    coordinates[1]
+                )
+                return maps_link
 
-            maps_link = "https://www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
-                coordinates[0],
-                coordinates[1]
-            )
-            return maps_link
-        else:
-            return None
+        return None
 
     def canEdit(self):
         user = api.user.get_current()

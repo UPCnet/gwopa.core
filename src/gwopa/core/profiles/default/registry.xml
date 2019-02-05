@@ -10,7 +10,7 @@
         <element>top</element>
       </values>
     </field>
-    <value>top</value>
+    <value>side</value>
   </record>
 
   <record name="plone.use_content_negotiation" interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema" field="use_content_negotiation">

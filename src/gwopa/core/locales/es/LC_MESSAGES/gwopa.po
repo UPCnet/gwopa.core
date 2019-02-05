@@ -22,7 +22,16 @@ msgstr "(Manager: 1 elemento al azar)"
 msgid "(Manager: 4 random elements)"
 msgstr "(Manager: 4 elementos al azar)"
 
+#: ../content/templates/improvementarea_view.pt:40
+msgid "+ New Event"
+msgstr ""
+
+#: ../content/templates/project_view.pt:116
+msgid "+ New Improvement Area"
+msgstr ""
+
 #: ../browser/templates/teams.pt:26
+#: ../content/templates/improvementarea_view.pt:23
 msgid "+ New Member"
 msgstr ""
 
@@ -33,6 +42,10 @@ msgstr "+ Nuevo Proyecto"
 
 #: ../browser/templates/teams.pt:22
 msgid "+ New User"
+msgstr ""
+
+#: ../content/templates/improvementarea_view.pt:49
+msgid "+ New file"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:40
@@ -51,7 +64,7 @@ msgstr "Rol de administrador"
 msgid "All the projects in one map."
 msgstr "Todos los proyectos en un único mapa."
 
-#: ../content/templates/workplan_view.pt:26
+#: ../content/templates/workplan_view.pt:29
 msgid "Annual Work Plan for year"
 msgstr "Plan anual de trabajo del año "
 
@@ -115,8 +128,8 @@ msgstr "Dirección de contacto"
 msgid "Container"
 msgstr "Contenedor"
 
-#: ../content/project.py:157
-#: ../content/templates/project_view.pt:58
+#: ../content/project.py:158
+#: ../content/templates/project_view.pt:65
 msgid "Contribution by partners and donors"
 msgstr "Contribución de socios y donantes"
 
@@ -134,7 +147,7 @@ msgstr "País"
 msgid "Country/Countries"
 msgstr "País/Paises"
 
-#: ../content/project.py:151
+#: ../content/project.py:152
 msgid "Currency"
 msgstr "Moneda"
 
@@ -156,11 +169,11 @@ msgstr "Tablero"
 msgid "Date of the Baseline"
 msgstr "Fecha de referencia"
 
-#: ../content/project.py:61
+#: ../content/project.py:62
 msgid "Date when the project begins."
 msgstr "Fecha cuando se inicia el proyecto."
 
-#: ../content/project.py:68
+#: ../content/project.py:69
 msgid "Date when the project ends."
 msgstr "Fecha de finalización del proyecto."
 
@@ -168,9 +181,9 @@ msgstr "Fecha de finalización del proyecto."
 msgid "Define your language"
 msgstr "Define tu idioma"
 
-#: ../content/templates/workplan_view.pt:66
-msgid "Delete Work Plan"
-msgstr "Eliminar WorkPlan"
+#: ../content/templates/workplan_view.pt:37
+msgid "Delete_Work_Plan"
+msgstr ""
 
 #: ../browser/setup_home.py:44
 msgid "Demo content has been created."
@@ -188,15 +201,15 @@ msgstr "Descripción del módulo de informes"
 msgid "Describing visualizating module."
 msgstr "Describing reporting modulo de visualización"
 
-#: ../content/templates/workplan_view.pt:64
-msgid "Duplicate Work Plan"
-msgstr "Duplicar WorkPlan"
+#: ../content/templates/workplan_view.pt:34
+msgid "Duplicate_Work_Plan"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:37
 msgid "End Date"
 msgstr "Fecha de finalización"
 
-#: ../content/project.py:67
+#: ../content/project.py:68
 msgid "End date"
 msgstr "Fecha de finalización"
 
@@ -260,11 +273,15 @@ msgstr "Área de mejora"
 msgid "Improvement Areas"
 msgstr ""
 
+#: ../content/templates/project_view.pt:116
+msgid "Improvement Areas <a class=\"pat-plone-modal right\" id=\"add-new-improvementarea\" data-pat-plone-modal=\"{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}\" href=\"${DYNAMIC_CONTENT}\"> <button id=\"add-new-improvementarea\" class=\"context focus\">x</button> </a>"
+msgstr ""
+
 #: ../browser/templates/collaborating.pt:18
 msgid "Improvement areas"
 msgstr "Áreas de mejora"
 
-#: ../content/project.py:138
+#: ../content/project.py:139
 msgid "Improvement track team and members"
 msgstr "Equipo de mejora y miembros."
 
@@ -278,7 +295,7 @@ msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
 #: ../content/activity.py:18
-#: ../content/project.py:24
+#: ../content/project.py:25
 msgid "Invalid start or end date"
 msgstr "Fecha de inicio o finalización incorrecta."
 
@@ -290,7 +307,7 @@ msgstr ""
 msgid "Language"
 msgstr "Idioma"
 
-#: ../content/project.py:98
+#: ../content/project.py:99
 msgid "Latitude"
 msgstr "Latitud"
 
@@ -310,7 +327,7 @@ msgstr "Marco de registro"
 msgid "Log out"
 msgstr "Salir"
 
-#: ../content/project.py:105
+#: ../content/project.py:106
 msgid "Longitude"
 msgstr "Longitud"
 
@@ -333,7 +350,7 @@ msgid "Measuring unit"
 msgstr "Unidad de medida"
 
 #: ../content/activity.py:88
-#: ../content/project.py:137
+#: ../content/project.py:138
 msgid "Members"
 msgstr "Miembros"
 
@@ -369,7 +386,11 @@ msgstr "Los proyectos de mi compañía"
 msgid "Name"
 msgstr "Nombre"
 
-#: ../content/project.py:163
+#: ../content/templates/project_view.pt:120
+msgid "No Improvement Areas found"
+msgstr ""
+
+#: ../content/project.py:164
 msgid "Objectives"
 msgstr "Objectivos"
 
@@ -401,12 +422,12 @@ msgstr "Vista de proyectos de PMP"
 msgid "Partner"
 msgstr "Socio"
 
-#: ../content/project.py:113
+#: ../content/project.py:114
 msgid "Partner/partners of the project"
 msgstr "Socio/Socios del proyecto"
 
-#: ../content/project.py:112
-#: ../content/templates/project_view.pt:41
+#: ../content/project.py:113
+#: ../content/templates/project_view.pt:48
 msgid "Partners"
 msgstr "Socios"
 
@@ -415,19 +436,19 @@ msgid "Phone"
 msgstr "Teléfono"
 
 #: ../browser/viewlets_templates/header.pt:36
-#: ../content/templates/workplan_view.pt:55
+#: ../content/templates/workplan_view.pt:42
 msgid "Planning"
 msgstr "Planificación"
 
-#: ../content/templates/workplan_view.pt:24
-msgid "Planning - Annual ${DYNAMIC_CONTENT}"
-msgstr "Planificación del año ${DYNAMIC_CONTENT}"
+#: ../content/templates/workplan_view.pt:26
+msgid "Planning - Annual"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:170
 msgid "Program"
 msgstr "Programa"
 
-#: ../content/project.py:90
+#: ../content/project.py:91
 msgid "Program/programs associated to this project"
 msgstr "Programa/Programas asociados al proyecto"
 
@@ -436,20 +457,20 @@ msgstr "Programa/Programas asociados al proyecto"
 msgid "Project"
 msgstr "Proyecto"
 
-#: ../content/project.py:129
-#: ../content/templates/project_view.pt:48
+#: ../content/project.py:130
+#: ../content/templates/project_view.pt:55
 msgid "Project Manager"
 msgstr "Gerente del proyecto"
 
-#: ../content/project.py:121
+#: ../content/project.py:122
 msgid "Project Manager Admin"
 msgstr "Administrador del proyecto"
 
-#: ../content/project.py:55
+#: ../content/project.py:56
 msgid "Project image"
 msgstr "Imagen del proyecto"
 
-#: ../content/project.py:44
+#: ../content/project.py:45
 msgid "Project title"
 msgstr "Título del proyecto"
 
@@ -457,7 +478,7 @@ msgstr "Título del proyecto"
 msgid "Projects"
 msgstr "Proyectos"
 
-#: ../content/project.py:74
+#: ../content/project.py:75
 #: ../userdataschema.py:60
 msgid "Regional WOP Platform"
 msgstr "Regional WOP Platform"
@@ -492,7 +513,7 @@ msgstr "Buscar..."
 msgid "Search Projects"
 msgstr "Buscador de proyectos"
 
-#: ../content/project.py:82
+#: ../content/project.py:83
 #: ../userdataschema.py:46
 msgid "Select country"
 msgstr "Seleccionar país"
@@ -509,7 +530,7 @@ msgstr ""
 msgid "Start Date"
 msgstr "Fecha de inicio"
 
-#: ../content/project.py:60
+#: ../content/project.py:61
 msgid "Start date"
 msgstr "Fecha de inicio"
 
@@ -544,11 +565,11 @@ msgstr ""
 msgid "The default config has been applied."
 msgstr "Se ha aplicado la configuración por defecto"
 
-#: ../content/project.py:122
+#: ../content/project.py:123
 msgid "The responsible manager of the project"
 msgstr "El administrador y responsable del proyecto"
 
-#: ../content/project.py:130
+#: ../content/project.py:131
 msgid "The responsible of this project"
 msgstr "El responsable del proyecto"
 
@@ -566,8 +587,8 @@ msgstr "Estos valores son necesarios para crear elementos en la Plataforma."
 msgid "Title"
 msgstr "Título"
 
-#: ../content/project.py:146
-#: ../content/templates/project_view.pt:53
+#: ../content/project.py:147
+#: ../content/templates/project_view.pt:60
 msgid "Total budget"
 msgstr "Presupuesto total"
 
@@ -623,8 +644,8 @@ msgstr "WOP Partners"
 msgid "WOP Platform"
 msgstr "Regional WOP Platform"
 
-#: ../content/project.py:89
-#: ../content/templates/project_view.pt:63
+#: ../content/project.py:90
+#: ../content/templates/project_view.pt:70
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr "WOP Program"
@@ -662,7 +683,7 @@ msgstr "País"
 msgid "description"
 msgstr "Descripción"
 
-#: ../content/templates/project_view.pt:21
+#: ../content/templates/project_view.pt:31
 msgid "edit_project"
 msgstr ""
 
@@ -682,7 +703,7 @@ msgstr "Homepage"
 
 #. Default: "Show in Google Maps"
 #: ../content/templates/partner_view.pt:58
-#: ../content/templates/project_view.pt:103
+#: ../content/templates/project_view.pt:111
 msgid "label_google_maps_link"
 msgstr "Ver en Google Maps"
 

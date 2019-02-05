@@ -4,6 +4,7 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
+from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
 from plone import api
 
@@ -44,14 +45,14 @@ class View(grok.View):
                 else:
                     classe = 'visible'
                 results.append(dict(
-                    title=item[0].split('-')[1],
+                    title=item[0],
                     url=item[1].absolute_url_path(),
                     classe=classe))
-        return results
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def currentYear(self):
         """ Returns current year to show in the title """
-        return self.context.absolute_url_path().split('-')[1:][0]
+        return ' ' + self.context.absolute_url_path().split('/')[-1:][0]
 
     def getAreas(self):
         """ Returns all the Activitys of this Planning year """

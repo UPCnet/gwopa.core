@@ -12,7 +12,7 @@ class planningView(BrowserView):
 
     def __call__(self):
         current_year = datetime.datetime.now().year
-        newid = 'awp-' + str(current_year)
+        newid = str(current_year)
         folder = api.content.find(
             portal_type='WorkPlan',
             context=self.context)
@@ -20,12 +20,17 @@ class planningView(BrowserView):
             for item in folder:
                 if item.id == newid:
                     return self.request.response.redirect(item.getObject().absolute_url_path())
-            return self.request.response.redirect(item[0].getObject().absolute_url_path())
+            alsoProvides(self.request, IDisableCSRFProtection)
+            newplan = api.content.create(
+                type='WorkPlan',
+                id=str(current_year),
+                container=self.context)
+            return self.request.response.redirect(newplan.absolute_url_path())
         else:
             alsoProvides(self.request, IDisableCSRFProtection)
             newplan = api.content.create(
                 type='WorkPlan',
-                id='awp-' + str(current_year),
+                id=str(current_year),
                 container=self.context)
             return self.request.response.redirect(newplan.absolute_url_path())
 

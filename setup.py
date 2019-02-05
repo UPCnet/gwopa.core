@@ -54,7 +54,8 @@ setup(
         'souper',
         'Products.PloneKeywordManager',
         'geojson',
-        'plone.restapi'
+        'plone.restapi',
+        'collective.ploneboard',
     ],
     extras_require={
         'test': [

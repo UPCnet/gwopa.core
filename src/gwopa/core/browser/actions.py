@@ -15,7 +15,7 @@ class AddWorkPlan(BrowserView):
         current_year = datetime.datetime.now().year
         api.content.create(
             type='WorkPlan',
-            id='awp-' + str(current_year),
+            id=str(current_year),
             container=self.context)
 
         return self.request.response.redirect(self.context.absolute_url_path() + '/planning')
@@ -30,8 +30,8 @@ class CopyWorkPlan(BrowserView):
             portal_type='WorkPlan',
             context=self.context.aq_parent)
         plans = sorted(items, key=itemgetter('id'), reverse=True)
-        newyear = int(plans[0].id.split('-')[1]) + 1
-        api.content.copy(source=plans[0].getObject(), target=self.context.aq_parent, id='awp-' + str(newyear))
+        newyear = int(plans[0].id) + 1
+        api.content.copy(source=plans[0].getObject(), target=self.context.aq_parent, id=str(newyear))
         return self.request.response.redirect(self.context.aq_parent.absolute_url_path() + '/planning')
 
 

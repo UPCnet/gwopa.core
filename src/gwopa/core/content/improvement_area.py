@@ -42,7 +42,6 @@ class View(grok.View):
             portal_type=['File', 'Document'],
             path={'query': self.context.absolute_url_path(),
                   'depth': 1})
-        items = api.content.find(portal_type=['File', 'Document'])
         results = []
         lang = api.portal.get_current_language()
         if lang == 'es':
@@ -57,6 +56,20 @@ class View(grok.View):
                          }]
         return results
 
+    def getTopics(self):
+        """ Return files of the Area """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        items = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Topic'],
+            path={'query': self.context.absolute_url_path() + '/topics',
+                  'depth': 1})
+        results = []
+        for item in items:
+            results += [{'title': item.Title,
+                         'url': item.getURL(),
+                         }]
+        return results
+
     def getMembers(self):
         """ Returns Site Members """
         members = api.user.get_users()
@@ -64,5 +77,6 @@ class View(grok.View):
 
         for item in members:
             results += [{'id': item.id,
+                         'country': item.getProperty('country')
                          }]
         return results

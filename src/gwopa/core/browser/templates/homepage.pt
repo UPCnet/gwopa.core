@@ -156,7 +156,7 @@
                     </label>
                   </fieldset>
                 </form>
-                <script src="/++theme++gwopa.theme/assets/search-select2.js"/>
+                <script src="/++theme++gwopa.theme/assets/javascripts/search-select2.js"/>
                 <div class="row">
                   <div class="col-xs-12 col-sm-12">
                     <tal:AllProjects define="items view/allProjects;
