@@ -58,4 +58,10 @@
         for="* gwopa.core.interfaces.IGwopaCoreLayer"
     />
 
+    <include package="z3c.jbot" file="meta.zcml" />
+    <browser:jbot
+      directory="templates"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    />
+
 </configure>

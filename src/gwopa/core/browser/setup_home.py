@@ -105,6 +105,13 @@ class setup(grok.View):
                 safe_id=False)
             api.content.create(
                 type='Folder',
+                id='capacitychanges',
+                title='Capacity Changes Values',
+                description='Values used in Outcome CC and CCS',
+                container=config_folder,
+                safe_id=False)
+            api.content.create(
+                type='Folder',
                 id='projects',
                 title='Projects',
                 description='Projects of the Platform',
@@ -129,22 +136,6 @@ class setup(grok.View):
         settingspage.currency = 'Dollars\nEuros\nPounds'
         settingspage.measuring_unit = 'liters\nm3\npeople\nothers'
         settingspage.measuring_frequency = 'quarterly\nbiannually\nannually'
-        settingspage.capacity_changes = 'External Environment \
-            \nLeadership \
-            \nMission/Strategy \
-            \nOrganizational culture \
-            \nManagement practices \
-            \nWorking routines \
-            \nOrganizational structure \
-            \nSystems (procedures and policies) \
-            \nInformation on current conditions \
-            \nEquipment \
-            \nInfrastructure \
-            \nFinancial resources \
-            \nStaff motivation \
-            \nStaff skills & Knowledge \
-            \nOthers'
-
         # Create demo Platforms
         p1 = api.content.create(
             type='Platform',

@@ -5,6 +5,7 @@
   <object meta_type="Dexterity FTI" name="LogFrame" />
   <object meta_type="Dexterity FTI" name="OutcomeCC" />
   <object meta_type="Dexterity FTI" name="OutcomeCCS" />
+  <object meta_type="Dexterity FTI" name="OutcomeCCValues" />
   <object meta_type="Dexterity FTI" name="OutcomeKPI" />
   <object meta_type="Dexterity FTI" name="OutcomeZONE" />
   <object meta_type="Dexterity FTI" name="Output" />

@@ -43,12 +43,6 @@ class ISettingspage(model.Schema):
         required=True,
     )
 
-    capacity_changes = schema.Text(
-        title=_(u'Capacity Changes'),
-        description=_(u''),
-        required=True,
-    )
-
 
 class View(grok.View):
     grok.context(ISettingspage)

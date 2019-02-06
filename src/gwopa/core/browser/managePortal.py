@@ -37,7 +37,7 @@ class managePortal(grok.View):
             obj = item.getObject()
             results.append(dict(
                 title=item.Title,
-                parent=obj.aq_parent.aq_parent.title,
+                parent=obj.aq_parent.title,
                 url='/'.join(obj.getPhysicalPath())))
         return results
 

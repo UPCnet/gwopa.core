@@ -68,3 +68,9 @@ def improvementAreaAdded(content, event):
         id='topics',
         title='Topics',
         container=content)
+
+    api.content.create(
+        type='OutcomeCC',
+        id='outcomecc',
+        title='OutcomeCC',
+        container=content)

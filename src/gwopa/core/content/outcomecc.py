@@ -23,39 +23,39 @@ class IOutcomecc(model.Schema):
         required=True,
     )
 
-    wop_program = schema.Choice(
-        title=_(u"Capacity Items"),
-        description=_(u"Improved specific capacity"),
-        source=utils.settings_capacity_changes,
-        required=True,
-    )
+    # wop_program = schema.Choice(
+    #     title=_(u"Capacity Items"),
+    #     description=_(u"Improved specific capacity"),
+    #     source=utils.settings_capacity_changes,
+    #     required=True,
+    # )
 
-    description = schema.Text(
-        title=_(u'Summary'),
-        required=False,
-        missing_value=u'',
-    )
+    # description = schema.Text(
+    #     title=_(u'Summary'),
+    #     required=False,
+    #     missing_value=u'',
+    # )
 
-    baseline = schema.Text(
-        title=_(u"Baseline description"),
-        required=True,
-    )
+    # baseline = schema.Text(
+    #     title=_(u"Baseline description"),
+    #     required=True,
+    # )
 
-    baseline_date = schema.Date(
-        title=_(u'Date of the Baseline'),
-        required=True,
-        defaultFactory=todayValue
-    )
+    # baseline_date = schema.Date(
+    #     title=_(u'Date of the Baseline'),
+    #     required=True,
+    #     defaultFactory=todayValue
+    # )
 
-    means = schema.Text(
-        title=_(u"Means of verification"),
-        required=False,
-    )
+    # means = schema.Text(
+    #     title=_(u"Means of verification"),
+    #     required=False,
+    # )
 
-    risks = schema.Text(
-        title=_(u"Risks / Assumptions"),
-        required=False,
-    )
+    # risks = schema.Text(
+    #     title=_(u"Risks / Assumptions"),
+    #     required=False,
+    # )
 
 
 class View(grok.View):

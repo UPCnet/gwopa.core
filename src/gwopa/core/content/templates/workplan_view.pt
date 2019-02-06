@@ -10,10 +10,6 @@
 <metal:content-core fill-slot="main">
 
   <metal:javascript fill-slot="javascript_head_slot">
-<!--     <script>
-      require = undefined;
-      define = undefined;
-    </script> -->
     <script src="/++theme++gwopa.theme/assets/vue/vue.js"/>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/++theme++gwopa.theme/assets/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -21,32 +17,22 @@
   </metal:javascript>
 
   <metal:block define-macro="content-core" tal:define="items view/getItems; currentYear view/currentYear;">
+    <ul class="pagination pagination-lg" style="float:right;">
+      <tal:block tal:repeat="item items">
+        <li tal:attributes="class item/classe">
+          <a href="#" tal:attributes="href item/url"><tal:omit-tag i18n:translate="">Planning</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/title">2019</tal:omit-tag></a>
+        </li>
+      </tal:block>
+    </ul>
     <div class="template-planning">
-
       <h1 class="documentFirstHeading">
-
-            <tal:omit-tag i18n:translate="">Planning - Annual</tal:omit-tag><tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
-
+        <tal:omit-tag i18n:translate="">Planning - Annual</tal:omit-tag><tal:omit-tag tal:content="currentYear"></tal:omit-tag>
+          <a class="btn_warning" tal:attributes="href string:${context/absolute_url}/copyWorkPlan" i18n:attributes="title Duplicate_Work_Plan; alt Duplicate_Work_Plan"><i class="fa fa-copy"></i></a>
+          <a class="btn_remove" tal:attributes="href string:${context/absolute_url}/deleteWorkPlan" i18n:attributes="title Delete_Work_Plan; alt Delete_Work_Plan"><i class="fa fa-remove"></i></a>
+      </h1>
       <div class="documentDescription description">
         <tal:omit-tag i18n:translate="">Annual Work Plan for year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"></tal:omit-tag>
       </div>
-
-        <ul class="pagination pagination-lg" style="float:right; margin: 0px;">
-
-          <tal:block tal:repeat="item items">
-          <li tal:attributes="class item/classe">
-            <a href="#" tal:attributes="href item/url"><tal:omit-tag i18n:translate="">Planning</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/title">2019</tal:omit-tag>
-            </a>
-          </li>
-        </tal:block>
-          <li style="padding-left: 20px;">
-            <button class="plone-btn-warning" tal:attributes="href string:${context/absolute_url}/copyWorkPlan" i18n:attributes="title Duplicate_Work_Plan; alt Duplicate_Work_Plan"><i class="fa fa-copy"></i></button>
-          </li>
-          <li>
-            <button class="plone-btn-danger" tal:attributes="href string:${context/absolute_url}/deleteWorkPlan" i18n:attributes="title Delete_Work_Plan; alt Delete_Work_Plan"><i class="fa fa-remove"></i></button>
-          </li>
-
-        </ul>
 
       <div id="app">
         <demo></demo>
@@ -55,11 +41,8 @@
     </div>
 
   </metal:block>
-
   <script src="/++theme++gwopa.theme/assets/javascripts/gwopa.umd.min.js"></script>
-
 </metal:content-core>
-
 
 </body>
 </html>

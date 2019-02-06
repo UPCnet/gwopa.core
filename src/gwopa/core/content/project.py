@@ -217,18 +217,3 @@ class View(grok.View):
                 return maps_link
 
         return None
-
-    def canEdit(self):
-        user = api.user.get_current()
-        if api.user.is_anonymous():
-            return False
-        else:
-            roles = api.user.get_roles(user=user)
-            if 'Editor' in roles or 'Manager' in roles:
-                return True
-            else:
-                return False
-
-    def stateid(self):
-        """ Returns review_state from the object. IE: pending """
-        return getMultiAdapter((self.context, self.request), name='plone_context_state').workflow_state()
