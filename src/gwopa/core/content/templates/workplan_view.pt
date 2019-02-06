@@ -10,11 +10,13 @@
 <metal:content-core fill-slot="main">
 
   <metal:javascript fill-slot="javascript_head_slot">
-    <script>
+<!--     <script>
       require = undefined;
       define = undefined;
-    </script>
+    </script> -->
     <script src="/++theme++gwopa.theme/assets/vue/vue.js"/>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/++theme++gwopa.theme/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css"/>
   </metal:javascript>
 
