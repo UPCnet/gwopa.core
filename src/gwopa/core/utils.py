@@ -118,17 +118,14 @@ directlyProvides(settings_measuring_frequency, IContextSourceBinder)
 
 def settings_capacity_changes(context):
     """ Capacity changes settings """
-    item = api.content.find(portal_type="SettingsPage", id='settings')
-    if item:
-        values = item[0].getObject().capacity_changes
-        terms = []
-        for value in values.split('\n'):
-            if value != '':
-                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(value, flattened, value))
-        return SimpleVocabulary(terms)
-    else:
-        return None
+    items = api.content.find(portal_type="OutcomeCCItem")
+    terms = []
+
+    for item in items:
+        value = item.Title
+        flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+    return SimpleVocabulary(terms)
 
 
 directlyProvides(settings_capacity_changes, IContextSourceBinder)

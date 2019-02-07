@@ -18,7 +18,7 @@ def todayValue():
 class IOutcomeccs(model.Schema):
     """  OutcomeCCS
     """
-    title = schema.TextLine(
+    Title = schema.TextLine(
         title=_(u"Title"),
         required=True,
     )
@@ -66,7 +66,7 @@ class View(grok.View):
 class Edit(form.SchemaEditForm):
     grok.context(IOutcomeccs)
 
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        self.widgets["title"].mode = HIDDEN_MODE
-        self.widgets["description"].mode = HIDDEN_MODE
+    # def updateWidgets(self):
+        # super(Edit, self).updateWidgets()
+        # self.widgets["title"].mode = HIDDEN_MODE
+        # self.widgets["description"].mode = HIDDEN_MODE

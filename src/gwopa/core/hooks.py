@@ -4,6 +4,7 @@ from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 from gwopa.core.content.project import IProject
 from gwopa.core.content.partner import IPartner
 from gwopa.core.content.improvement_area import IImprovementArea
+from gwopa.core.content.outcomecc import IOutcomecc
 # from gwopa.core.content.improvement_area import IImprovementArea
 from plone import api
 import datetime
@@ -74,3 +75,19 @@ def improvementAreaAdded(content, event):
         id='outcomecc',
         title='OutcomeCC',
         container=content)
+
+
+@grok.subscribe(IOutcomecc, IObjectAddedEvent)
+def OutcomeCCAdded(content, event):
+    """ Create the 13 CC vaues inside """
+    import ipdb; ipdb.set_trace()
+    items = api.content.find(portal_type="OutcomeCCItem")
+    for item in items:
+        Title = item.Title
+        id = item.Title
+
+        api.content.create(
+            type='OutcomeCCValues',
+            id=id,
+            title=Title,
+            container=content)
