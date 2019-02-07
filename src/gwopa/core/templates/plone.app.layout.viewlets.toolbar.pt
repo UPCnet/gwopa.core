@@ -12,13 +12,112 @@
         <img alt="Plone Toolbar" tal:attributes="src view/get_toolbar_logo" />
       </a>
       <a class="plone-toolbar-switcher" tal:condition="view/show_switcher"><span>Left-Top switcher</span></a>
-      <a href="#" tal:attributes="href string:${portal_url}"><img  class="logo_img" tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"></a>
-        <nav>
-        <ul class="plone-toolbar-main">
+      <a href="#" tal:attributes="href string:${portal_url}">
+        <img class="logo_img" tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png">
+      </a>
+      <nav>
+<!--         <ul class="plone-toolbar-main">
           <div tal:replace="structure view/base_render">
           </div>
-        </ul>
-        <ul id="personal-bar-container">
+        </ul> -->
+
+        <ul class="plone-toolbar-main">
+          <li id="contentview-folderContents" class="">
+              <a tal:attributes="href string:${context/absolute_url}/folder_contents" class="">
+                <span class="icon-folderContents  toolbar-menu-icon" aria-hidden="true">
+                </span>
+                <span>Contents</span>
+              </a>
+          </li>
+          <li id="contentview-edit" class="">
+              <a tal:attributes="href string:${context/absolute_url}/edit" class="">
+                <span class="icon-edit  toolbar-menu-icon" aria-hidden="true">
+                </span>
+                <span>Edit</span>
+              </a>
+          </li>
+          <li id="contentview-view" class="">
+              <a tal:attributes="href string:${context/absolute_url}/" class="">
+                <span class="icon-view  toolbar-menu-icon" aria-hidden="true">
+                </span>
+                <span>View</span>
+              </a>
+          </li>
+          <li id="plone-contentmenu-workflow">
+            <a tal:attributes="href string:${context/absolute_url}/content_status_history" title="Change the state of this item" class="label-state-published">
+              <span aria-hidden="true" class="icon-plone-contentmenu-workflow state-published toolbar-menu-icon"></span>
+              <span>
+                <span class="plone-toolbar-title">State:</span>
+              <span class="plone-toolbar-short-title">State</span>
+                <span class="plone-toolbar-state-title">Published</span>
+              </span>
+              <span class="plone-toolbar-caret"></span>
+            </a>
+            <ul aria-hidden="true">
+              <li class="plone-toolbar-submenu-header">
+                <span>
+                  <span>State:</span>
+                  <span class="state-published">Published</span>
+                </span>
+              </li>
+              <li class="plonetoolbar-workfow-transition">
+                <a tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=reject" title="Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published." id="workflow-transition-reject" class="">
+                  Send back
+                </a>
+              </li>
+              <li class="plonetoolbar-workfow-transition">
+                <a tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=retract" title="If you submitted the item by mistake or want to perform additional edits, this will take it back." id="workflow-transition-retract" class="">
+                  Retract
+                </a>
+              </li>
+              <li class="plonetoolbar-workfow-transition actionSeparator">
+                <a tal:attributes="href string:${context/absolute_url}/content_status_history" title="" id="workflow-transition-advanced" class="pat-plone-modal">
+                  Advanced...
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li id="plone-contentmenu-actions">
+            <a tal:attributes="href string:${context/absolute_url}/folder_contents" title="Actions for the current content item" class="label-">
+              <span aria-hidden="true" class="icon-plone-contentmenu-actions toolbar-menu-icon"></span>
+                <span class="plone-toolbar-title">Actions</span>
+              <span class="plone-toolbar-short-title">Actions</span>
+              <span class="plone-toolbar-caret"></span>
+            </a>
+            <ul aria-hidden="true">
+              <li class="plone-toolbar-submenu-header">
+                  <span>Actions</span>
+              </li>
+              <li class="plonetoolbar-content-action">
+                <a tal:attributes="href string:${context/absolute_url}/object_cut" title="" id="plone-contentmenu-actions-cut" class="actionicon-object_buttons-cut">
+                  Cut
+                </a>
+              </li>
+              <li class="plonetoolbar-content-action">
+                <a tal:attributes="href string:${context/absolute_url}/object_copy" title="" id="plone-contentmenu-actions-copy" class="actionicon-object_buttons-copy">
+                  Copy
+                </a>
+              </li>
+              <li class="plonetoolbar-content-action">
+                <a tal:attributes="href string:${context/absolute_url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;disableAjaxFormSubmit&quot;:true, &quot;redirectOnResponse&quot;:true}}">
+                  Delete
+                </a>
+              </li>
+              <li class="plonetoolbar-content-action">
+                <a tal:attributes="href string:${context/absolute_url}/object_rename" title="" id="plone-contentmenu-actions-rename" class="actionicon-object_buttons-rename pat-plone-modal" data-pat-plone-modal="{}">
+                  Rename
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li id="contentview-local_roles" class="" style="display: none;">
+              <a tal:attributes="href string:${context/absolute_url}/@@sharing" class="">
+                <span class="icon-local_roles  toolbar-menu-icon" aria-hidden="true">
+                </span>
+                <span>Sharing</span>
+              </a>
+          </li>
+  
           <li id="portal-personaltools" class="plone-toolbar-separator"
               tal:condition="personal_bar/user_actions">
             <a href="#"
