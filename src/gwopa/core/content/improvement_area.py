@@ -39,8 +39,8 @@ class View(grok.View):
         """ Return files of the Area """
         portal_catalog = getToolByName(self, 'portal_catalog')
         items = portal_catalog.unrestrictedSearchResults(
-            portal_type=['File', 'Document'],
-            path={'query': self.context.absolute_url_path(),
+            portal_type=['File'],
+            path={'query': self.context.absolute_url_path() + '/files',
                   'depth': 1})
         results = []
         lang = api.portal.get_current_language()

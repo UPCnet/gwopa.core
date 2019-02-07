@@ -22,16 +22,16 @@ msgstr "(Manager: 1 elemento al azar)"
 msgid "(Manager: 4 random elements)"
 msgstr "(Manager: 4 elementos al azar)"
 
-#: ../content/templates/improvementarea_view.pt:40
+#: ../content/templates/improvementarea_view.pt:54
 msgid "+ New Event"
 msgstr ""
 
-#: ../content/templates/project_view.pt:116
+#: ../content/templates/project_view.pt:135
 msgid "+ New Improvement Area"
 msgstr ""
 
 #: ../browser/templates/teams.pt:26
-#: ../content/templates/improvementarea_view.pt:23
+#: ../content/templates/improvementarea_view.pt:37
 msgid "+ New Member"
 msgstr ""
 
@@ -40,11 +40,15 @@ msgstr ""
 msgid "+ New Project"
 msgstr "+ Nuevo Proyecto"
 
+#: ../content/templates/improvementarea_view.pt:16
+msgid "+ New Topic"
+msgstr ""
+
 #: ../browser/templates/teams.pt:22
 msgid "+ New User"
 msgstr ""
 
-#: ../content/templates/improvementarea_view.pt:49
+#: ../content/templates/improvementarea_view.pt:61
 msgid "+ New file"
 msgstr ""
 
@@ -64,11 +68,11 @@ msgstr "Rol de administrador"
 msgid "All the projects in one map."
 msgstr "Todos los proyectos en un único mapa."
 
-#: ../content/templates/workplan_view.pt:29
+#: ../content/templates/workplan_view.pt:34
 msgid "Annual Work Plan for year"
 msgstr "Plan anual de trabajo del año "
 
-#: ../browser/templates/manage_portal.pt:78
+#: ../browser/templates/manage_portal.pt:72
 msgid "Area"
 msgstr "Area"
 
@@ -76,21 +80,25 @@ msgstr "Area"
 msgid "Assigned budget"
 msgstr "Presupuesto asignado"
 
-#: ../content/outcomecc.py:40
 #: ../content/outcomeccs.py:40
+#: ../content/outcomeccvalues.py:38
 #: ../content/outcomekpi.py:40
 msgid "Baseline description"
 msgstr "Descripción de referencia"
 
-#: ../content/settingspage.py:47
-msgid "Capacity Changes"
-msgstr "Cambios de capacidad"
+#: ../content/templates/improvementarea_view.pt:52
+msgid "Calendar"
+msgstr ""
 
-#: ../content/outcomecc.py:27
 #: ../content/outcomeccs.py:27
 #: ../content/outcomekpi.py:27
+#: ../content/outcomezone.py:27
 msgid "Capacity Items"
 msgstr "Elementos de cambio"
+
+#: ../content/outcomeccvalues.py:32
+msgid "Category"
+msgstr ""
 
 #: ../content/partner.py:35
 #: ../content/platform.py:34
@@ -111,11 +119,7 @@ msgstr "Colaboración"
 msgid "Completion time"
 msgstr "Tiempo de finalización"
 
-#: ../browser/viewlets_templates/header.pt:45
-msgid "Configuration"
-msgstr "Configuración"
-
-#: ../browser/templates/manage_portal.pt:172
+#: ../browser/templates/manage_portal.pt:167
 msgid "Contact"
 msgstr "Contacto"
 
@@ -124,12 +128,12 @@ msgstr "Contacto"
 msgid "Contact email"
 msgstr "Dirección de contacto"
 
-#: ../browser/templates/manage_portal.pt:79
+#: ../browser/templates/manage_portal.pt:73
 msgid "Container"
 msgstr "Contenedor"
 
 #: ../content/project.py:158
-#: ../content/templates/project_view.pt:65
+#: ../content/templates/project_view.pt:47
 msgid "Contribution by partners and donors"
 msgstr "Contribución de socios y donantes"
 
@@ -143,7 +147,7 @@ msgstr "Panel de control para configurar y visualizar todos los parámetros impo
 msgid "Country"
 msgstr "País"
 
-#: ../browser/templates/manage_portal.pt:143
+#: ../browser/templates/manage_portal.pt:138
 msgid "Country/Countries"
 msgstr "País/Paises"
 
@@ -163,9 +167,9 @@ msgstr "Mapa con los proyectos actuales"
 msgid "Dashboard"
 msgstr "Tablero"
 
-#: ../content/outcomecc.py:45
 #: ../content/outcomeccs.py:45
 #: ../content/outcomekpi.py:45
+#: ../content/outcomezone.py:45
 msgid "Date of the Baseline"
 msgstr "Fecha de referencia"
 
@@ -181,13 +185,25 @@ msgstr "Fecha de finalización del proyecto."
 msgid "Define your language"
 msgstr "Define tu idioma"
 
-#: ../content/templates/workplan_view.pt:37
+#: ../content/templates/workplan_view.pt:31
 msgid "Delete_Work_Plan"
 msgstr ""
 
 #: ../browser/setup_home.py:44
 msgid "Demo content has been created."
 msgstr "Se ha creado contenido de ejemplo."
+
+#: ../content/outcomeccvalues.py:43
+msgid "Describe perceived changes in the selected dimension"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:55
+msgid "Describe the contributing factors to the perceived changes"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:63
+msgid "Describe the limiting factors to the perceived changes"
+msgstr ""
 
 #: ../browser/templates/monitoring.pt:24
 msgid "Describing monitoring module."
@@ -201,7 +217,7 @@ msgstr "Descripción del módulo de informes"
 msgid "Describing visualizating module."
 msgstr "Describing reporting modulo de visualización"
 
-#: ../content/templates/workplan_view.pt:34
+#: ../content/templates/workplan_view.pt:30
 msgid "Duplicate_Work_Plan"
 msgstr ""
 
@@ -249,6 +265,10 @@ msgstr ""
 msgid "Here are the files of the Project."
 msgstr ""
 
+#: ../content/outcomeccvalues.py:27
+msgid "Icon"
+msgstr ""
+
 #: ../content/improvement_area.py:28
 #: ../content/partner.py:29
 #: ../content/platform.py:28
@@ -259,9 +279,9 @@ msgstr "Imagen"
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr "Imagen utilizada para describir el Área de Mejora. Si no se elige ningún archivo, se utilizará una predeterminada."
 
-#: ../content/outcomecc.py:28
 #: ../content/outcomeccs.py:28
 #: ../content/outcomekpi.py:28
+#: ../content/outcomezone.py:28
 msgid "Improved specific capacity"
 msgstr "Capacidad específica mejorada"
 
@@ -270,11 +290,8 @@ msgid "Improvement Area"
 msgstr "Área de mejora"
 
 #: ../browser/templates/areas.pt:14
+#: ../content/templates/project_view.pt:132
 msgid "Improvement Areas"
-msgstr ""
-
-#: ../content/templates/project_view.pt:116
-msgid "Improvement Areas <a class=\"pat-plone-modal right\" id=\"add-new-improvementarea\" data-pat-plone-modal=\"{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}\" href=\"${DYNAMIC_CONTENT}\"> <button id=\"add-new-improvementarea\" class=\"context focus\">x</button> </a>"
 msgstr ""
 
 #: ../browser/templates/collaborating.pt:18
@@ -284,6 +301,10 @@ msgstr "Áreas de mejora"
 #: ../content/project.py:139
 msgid "Improvement track team and members"
 msgstr "Equipo de mejora y miembros."
+
+#: ../content/outcomeccvalues.py:71
+msgid "Inform participation in the assessment"
+msgstr ""
 
 #: ../content/activity.py:44
 #: ../content/output.py:36
@@ -331,11 +352,15 @@ msgstr "Salir"
 msgid "Longitude"
 msgstr "Longitud"
 
-#: ../content/outcomecc.py:51
 #: ../content/outcomeccs.py:51
 #: ../content/outcomekpi.py:51
+#: ../content/outcomezone.py:51
 msgid "Means of verification"
 msgstr "Medios de verificación"
+
+#: ../content/outcomeccvalues.py:67
+msgid "Means of verification used to assess capacity change in this dimension"
+msgstr ""
 
 #: ../content/output.py:48
 msgid "Measurable Target"
@@ -348,6 +373,10 @@ msgstr "Frecuencia de medición"
 #: ../content/settingspage.py:35
 msgid "Measuring unit"
 msgstr "Unidad de medida"
+
+#: ../content/templates/improvementarea_view.pt:35
+msgid "Member"
+msgstr ""
 
 #: ../content/activity.py:88
 #: ../content/project.py:138
@@ -386,7 +415,7 @@ msgstr "Los proyectos de mi compañía"
 msgid "Name"
 msgstr "Nombre"
 
-#: ../content/templates/project_view.pt:120
+#: ../content/templates/project_view.pt:139
 msgid "No Improvement Areas found"
 msgstr ""
 
@@ -401,6 +430,10 @@ msgstr "Outcome CC"
 #: ../profiles/default/types/OutcomeCCS.xml
 msgid "OutcomeCCS"
 msgstr "Outcome CCS"
+
+#: ../profiles/default/types/OutcomeCCValues.xml
+msgid "OutcomeCCValues"
+msgstr ""
 
 #: ../profiles/default/types/OutcomeKPI.xml
 msgid "OutcomeKPI"
@@ -418,7 +451,7 @@ msgstr "Output"
 msgid "PMP Projects View"
 msgstr "Vista de proyectos de PMP"
 
-#: ../browser/templates/manage_portal.pt:200
+#: ../browser/templates/manage_portal.pt:195
 msgid "Partner"
 msgstr "Socio"
 
@@ -427,7 +460,7 @@ msgid "Partner/partners of the project"
 msgstr "Socio/Socios del proyecto"
 
 #: ../content/project.py:113
-#: ../content/templates/project_view.pt:48
+#: ../content/templates/project_view.pt:30
 msgid "Partners"
 msgstr "Socios"
 
@@ -436,15 +469,15 @@ msgid "Phone"
 msgstr "Teléfono"
 
 #: ../browser/viewlets_templates/header.pt:36
-#: ../content/templates/workplan_view.pt:42
+#: ../content/templates/workplan_view.pt:23
 msgid "Planning"
 msgstr "Planificación"
 
-#: ../content/templates/workplan_view.pt:26
+#: ../content/templates/workplan_view.pt:29
 msgid "Planning - Annual"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:170
+#: ../browser/templates/manage_portal.pt:165
 msgid "Program"
 msgstr "Programa"
 
@@ -458,7 +491,7 @@ msgid "Project"
 msgstr "Proyecto"
 
 #: ../content/project.py:130
-#: ../content/templates/project_view.pt:55
+#: ../content/templates/project_view.pt:37
 msgid "Project Manager"
 msgstr "Gerente del proyecto"
 
@@ -477,6 +510,10 @@ msgstr "Título del proyecto"
 #: ../browser/templates/manage_portal.pt:23
 msgid "Projects"
 msgstr "Proyectos"
+
+#: ../content/templates/improvementarea_view.pt:59
+msgid "Recent files"
+msgstr ""
 
 #: ../content/project.py:75
 #: ../userdataschema.py:60
@@ -499,9 +536,9 @@ msgstr "Informes"
 msgid "Reporting Module"
 msgstr "Mòdulo de informes"
 
-#: ../content/outcomecc.py:56
 #: ../content/outcomeccs.py:56
 #: ../content/outcomekpi.py:56
+#: ../content/outcomezone.py:56
 msgid "Risks / Assumptions"
 msgstr "Riesgos / Suposiciones"
 
@@ -517,6 +554,18 @@ msgstr "Buscador de proyectos"
 #: ../userdataschema.py:46
 msgid "Select country"
 msgstr "Seleccionar país"
+
+#: ../content/outcomeccvalues.py:51
+msgid "Select the contributing factors to the perceived change"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:59
+msgid "Select the limiting factors to the perceived change"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:47
+msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
+msgstr ""
 
 #: ../profiles/default/types/SettingsPage.xml
 msgid "SettingsPage"
@@ -561,7 +610,7 @@ msgstr "Fecha del valor de objetivo"
 msgid "Team Members"
 msgstr ""
 
-#: ../browser/setup_home.py:113
+#: ../browser/setup_home.py:120
 msgid "The default config has been applied."
 msgstr "Se ha aplicado la configuración por defecto"
 
@@ -588,7 +637,7 @@ msgid "Title"
 msgstr "Título"
 
 #: ../content/project.py:147
-#: ../content/templates/project_view.pt:60
+#: ../content/templates/project_view.pt:42
 msgid "Total budget"
 msgstr "Presupuesto total"
 
@@ -616,7 +665,7 @@ msgstr "Utilizado en los indicadores, uno por línea."
 msgid "Used in the projects item. One per line."
 msgstr "Utilizado en los proyectos, uno por línea."
 
-#: ../browser/templates/manage_portal.pt:111
+#: ../browser/templates/manage_portal.pt:107
 msgid "UserID"
 msgstr "Identificador de usuario"
 
@@ -645,10 +694,14 @@ msgid "WOP Platform"
 msgstr "Regional WOP Platform"
 
 #: ../content/project.py:90
-#: ../content/templates/project_view.pt:70
+#: ../content/templates/project_view.pt:52
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr "WOP Program"
+
+#: ../content/templates/improvementarea_view.pt:14
+msgid "Wall"
+msgstr ""
 
 #: ../profiles/default/types/WorkPlan.xml
 msgid "Work Plan"
@@ -683,10 +736,6 @@ msgstr "País"
 msgid "description"
 msgstr "Descripción"
 
-#: ../content/templates/project_view.pt:31
-msgid "edit_project"
-msgstr ""
-
 #: ../browser/user_profile.py:41
 #: ../indexers.py:23
 msgid "email"
@@ -703,7 +752,7 @@ msgstr "Homepage"
 
 #. Default: "Show in Google Maps"
 #: ../content/templates/partner_view.pt:58
-#: ../content/templates/project_view.pt:111
+#: ../content/templates/project_view.pt:129
 msgid "label_google_maps_link"
 msgstr "Ver en Google Maps"
 

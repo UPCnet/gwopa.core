@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-02-05 14:54+0000\n"
+"POT-Creation-Date: 2019-02-07 12:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,6 @@ msgstr ""
 "Domain: gwopa\n"
 
 #: ../content/project.py:159
-#: ../content/settingspage.py:48
 msgid ""
 msgstr ""
 
@@ -30,16 +29,16 @@ msgstr ""
 msgid "(Manager: 4 random elements)"
 msgstr ""
 
-#: ../content/templates/improvementarea_view.pt:40
+#: ../content/templates/improvementarea_view.pt:54
 msgid "+ New Event"
 msgstr ""
 
-#: ../content/templates/project_view.pt:116
+#: ../content/templates/project_view.pt:135
 msgid "+ New Improvement Area"
 msgstr ""
 
 #: ../browser/templates/teams.pt:26
-#: ../content/templates/improvementarea_view.pt:23
+#: ../content/templates/improvementarea_view.pt:37
 msgid "+ New Member"
 msgstr ""
 
@@ -48,11 +47,15 @@ msgstr ""
 msgid "+ New Project"
 msgstr ""
 
+#: ../content/templates/improvementarea_view.pt:16
+msgid "+ New Topic"
+msgstr ""
+
 #: ../browser/templates/teams.pt:22
 msgid "+ New User"
 msgstr ""
 
-#: ../content/templates/improvementarea_view.pt:49
+#: ../content/templates/improvementarea_view.pt:61
 msgid "+ New file"
 msgstr ""
 
@@ -72,11 +75,11 @@ msgstr ""
 msgid "All the projects in one map."
 msgstr ""
 
-#: ../content/templates/workplan_view.pt:29
+#: ../content/templates/workplan_view.pt:34
 msgid "Annual Work Plan for year"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:78
+#: ../browser/templates/manage_portal.pt:72
 msgid "Area"
 msgstr ""
 
@@ -84,20 +87,24 @@ msgstr ""
 msgid "Assigned budget"
 msgstr ""
 
-#: ../content/outcomecc.py:40
 #: ../content/outcomeccs.py:40
+#: ../content/outcomeccvalues.py:38
 #: ../content/outcomekpi.py:40
 msgid "Baseline description"
 msgstr ""
 
-#: ../content/settingspage.py:47
-msgid "Capacity Changes"
+#: ../content/templates/improvementarea_view.pt:52
+msgid "Calendar"
 msgstr ""
 
-#: ../content/outcomecc.py:27
 #: ../content/outcomeccs.py:27
 #: ../content/outcomekpi.py:27
+#: ../content/outcomezone.py:27
 msgid "Capacity Items"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:32
+msgid "Category"
 msgstr ""
 
 #: ../content/partner.py:35
@@ -119,11 +126,7 @@ msgstr ""
 msgid "Completion time"
 msgstr ""
 
-#: ../browser/viewlets_templates/header.pt:45
-msgid "Configuration"
-msgstr ""
-
-#: ../browser/templates/manage_portal.pt:172
+#: ../browser/templates/manage_portal.pt:167
 msgid "Contact"
 msgstr ""
 
@@ -132,12 +135,12 @@ msgstr ""
 msgid "Contact email"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:79
+#: ../browser/templates/manage_portal.pt:73
 msgid "Container"
 msgstr ""
 
 #: ../content/project.py:158
-#: ../content/templates/project_view.pt:65
+#: ../content/templates/project_view.pt:47
 msgid "Contribution by partners and donors"
 msgstr ""
 
@@ -151,7 +154,7 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:143
+#: ../browser/templates/manage_portal.pt:138
 msgid "Country/Countries"
 msgstr ""
 
@@ -171,9 +174,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: ../content/outcomecc.py:45
 #: ../content/outcomeccs.py:45
 #: ../content/outcomekpi.py:45
+#: ../content/outcomezone.py:45
 msgid "Date of the Baseline"
 msgstr ""
 
@@ -189,12 +192,24 @@ msgstr ""
 msgid "Define your language"
 msgstr ""
 
-#: ../content/templates/workplan_view.pt:37
+#: ../content/templates/workplan_view.pt:31
 msgid "Delete_Work_Plan"
 msgstr ""
 
 #: ../browser/setup_home.py:44
 msgid "Demo content has been created."
+msgstr ""
+
+#: ../content/outcomeccvalues.py:43
+msgid "Describe perceived changes in the selected dimension"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:55
+msgid "Describe the contributing factors to the perceived changes"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:63
+msgid "Describe the limiting factors to the perceived changes"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:24
@@ -209,7 +224,7 @@ msgstr ""
 msgid "Describing visualizating module."
 msgstr ""
 
-#: ../content/templates/workplan_view.pt:34
+#: ../content/templates/workplan_view.pt:30
 msgid "Duplicate_Work_Plan"
 msgstr ""
 
@@ -257,6 +272,10 @@ msgstr ""
 msgid "Here are the files of the Project."
 msgstr ""
 
+#: ../content/outcomeccvalues.py:27
+msgid "Icon"
+msgstr ""
+
 #: ../content/improvement_area.py:28
 #: ../content/partner.py:29
 #: ../content/platform.py:28
@@ -267,9 +286,9 @@ msgstr ""
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr ""
 
-#: ../content/outcomecc.py:28
 #: ../content/outcomeccs.py:28
 #: ../content/outcomekpi.py:28
+#: ../content/outcomezone.py:28
 msgid "Improved specific capacity"
 msgstr ""
 
@@ -278,11 +297,8 @@ msgid "Improvement Area"
 msgstr ""
 
 #: ../browser/templates/areas.pt:14
+#: ../content/templates/project_view.pt:132
 msgid "Improvement Areas"
-msgstr ""
-
-#: ../content/templates/project_view.pt:116
-msgid "Improvement Areas <a class=\"pat-plone-modal right\" id=\"add-new-improvementarea\" data-pat-plone-modal=\"{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}\" href=\"${DYNAMIC_CONTENT}\"> <button id=\"add-new-improvementarea\" class=\"context focus\">x</button> </a>"
 msgstr ""
 
 #: ../browser/templates/collaborating.pt:18
@@ -291,6 +307,10 @@ msgstr ""
 
 #: ../content/project.py:139
 msgid "Improvement track team and members"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:71
+msgid "Inform participation in the assessment"
 msgstr ""
 
 #: ../content/activity.py:44
@@ -339,10 +359,14 @@ msgstr ""
 msgid "Longitude"
 msgstr ""
 
-#: ../content/outcomecc.py:51
 #: ../content/outcomeccs.py:51
 #: ../content/outcomekpi.py:51
+#: ../content/outcomezone.py:51
 msgid "Means of verification"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:67
+msgid "Means of verification used to assess capacity change in this dimension"
 msgstr ""
 
 #: ../content/output.py:48
@@ -355,6 +379,10 @@ msgstr ""
 
 #: ../content/settingspage.py:35
 msgid "Measuring unit"
+msgstr ""
+
+#: ../content/templates/improvementarea_view.pt:35
+msgid "Member"
 msgstr ""
 
 #: ../content/activity.py:88
@@ -394,7 +422,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../content/templates/project_view.pt:120
+#: ../content/templates/project_view.pt:139
 msgid "No Improvement Areas found"
 msgstr ""
 
@@ -408,6 +436,10 @@ msgstr ""
 
 #: ../profiles/default/types/OutcomeCCS.xml
 msgid "OutcomeCCS"
+msgstr ""
+
+#: ../profiles/default/types/OutcomeCCValues.xml
+msgid "OutcomeCCValues"
 msgstr ""
 
 #: ../profiles/default/types/OutcomeKPI.xml
@@ -426,7 +458,7 @@ msgstr ""
 msgid "PMP Projects View"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:200
+#: ../browser/templates/manage_portal.pt:195
 msgid "Partner"
 msgstr ""
 
@@ -435,7 +467,7 @@ msgid "Partner/partners of the project"
 msgstr ""
 
 #: ../content/project.py:113
-#: ../content/templates/project_view.pt:48
+#: ../content/templates/project_view.pt:30
 msgid "Partners"
 msgstr ""
 
@@ -444,15 +476,15 @@ msgid "Phone"
 msgstr ""
 
 #: ../browser/viewlets_templates/header.pt:36
-#: ../content/templates/workplan_view.pt:42
+#: ../content/templates/workplan_view.pt:23
 msgid "Planning"
 msgstr ""
 
-#: ../content/templates/workplan_view.pt:26
+#: ../content/templates/workplan_view.pt:29
 msgid "Planning - Annual"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:170
+#: ../browser/templates/manage_portal.pt:165
 msgid "Program"
 msgstr ""
 
@@ -466,7 +498,7 @@ msgid "Project"
 msgstr ""
 
 #: ../content/project.py:130
-#: ../content/templates/project_view.pt:55
+#: ../content/templates/project_view.pt:37
 msgid "Project Manager"
 msgstr ""
 
@@ -484,6 +516,10 @@ msgstr ""
 
 #: ../browser/templates/manage_portal.pt:23
 msgid "Projects"
+msgstr ""
+
+#: ../content/templates/improvementarea_view.pt:59
+msgid "Recent files"
 msgstr ""
 
 #: ../content/project.py:75
@@ -507,9 +543,9 @@ msgstr ""
 msgid "Reporting Module"
 msgstr ""
 
-#: ../content/outcomecc.py:56
 #: ../content/outcomeccs.py:56
 #: ../content/outcomekpi.py:56
+#: ../content/outcomezone.py:56
 msgid "Risks / Assumptions"
 msgstr ""
 
@@ -524,6 +560,18 @@ msgstr ""
 #: ../content/project.py:83
 #: ../userdataschema.py:46
 msgid "Select country"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:51
+msgid "Select the contributing factors to the perceived change"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:59
+msgid "Select the limiting factors to the perceived change"
+msgstr ""
+
+#: ../content/outcomeccvalues.py:47
+msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr ""
 
 #: ../profiles/default/types/SettingsPage.xml
@@ -569,7 +617,7 @@ msgstr ""
 msgid "Team Members"
 msgstr ""
 
-#: ../browser/setup_home.py:113
+#: ../browser/setup_home.py:120
 msgid "The default config has been applied."
 msgstr ""
 
@@ -596,7 +644,7 @@ msgid "Title"
 msgstr ""
 
 #: ../content/project.py:147
-#: ../content/templates/project_view.pt:60
+#: ../content/templates/project_view.pt:42
 msgid "Total budget"
 msgstr ""
 
@@ -624,7 +672,7 @@ msgstr ""
 msgid "Used in the projects item. One per line."
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:111
+#: ../browser/templates/manage_portal.pt:107
 msgid "UserID"
 msgstr ""
 
@@ -653,9 +701,13 @@ msgid "WOP Platform"
 msgstr ""
 
 #: ../content/project.py:90
-#: ../content/templates/project_view.pt:70
+#: ../content/templates/project_view.pt:52
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
+msgstr ""
+
+#: ../content/templates/improvementarea_view.pt:14
+msgid "Wall"
 msgstr ""
 
 #: ../profiles/default/types/WorkPlan.xml
@@ -691,10 +743,6 @@ msgstr ""
 msgid "description"
 msgstr ""
 
-#: ../content/templates/project_view.pt:31
-msgid "edit_project"
-msgstr ""
-
 #: ../browser/user_profile.py:41
 #: ../indexers.py:23
 msgid "email"
@@ -711,7 +759,7 @@ msgstr ""
 
 #. Default: "Show in Google Maps"
 #: ../content/templates/partner_view.pt:58
-#: ../content/templates/project_view.pt:111
+#: ../content/templates/project_view.pt:129
 msgid "label_google_maps_link"
 msgstr ""
 

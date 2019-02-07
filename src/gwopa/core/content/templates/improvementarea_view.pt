@@ -10,7 +10,7 @@
 <metal:content-core fill-slot="content-core">
 
     <div class="row">
-      <div class="col-xs-6 col-lg-9">
+      <div class="col-xs-6 col-lg-8">
           <h2><tal:block i18n:translate="">Wall</tal:block>
           <a class="pat-plone-modal right" id="add-new-topic" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/topics/++add++Topic">
               <button id="add-new-topic" class="context focus" i18n:translate=""> + New Topic</button>
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div class="col-xs-6 col-lg-3">
+      <div class="col-xs-6 col-lg-4">
         <div id="membersBlock" tal:define="recent_items view/getMembers">
           <h2><tal:block i18n:translate="">Member</tal:block>
             <a class="pat-plone-modal right" id="add-new-member" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/events/++add++Event">

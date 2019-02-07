@@ -52,15 +52,9 @@
               <td tal:content="project/country"> Country </td>
               <td style="text-align: center;">
                 <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
-                <button type="button" class="remove label label-important"
-                      data-container="body"
-                      data-toggle="popover"
-                      data-placement="left"
-                      data-html="true"
-                      data-trigger="focus"
-                      data-original-title="Esborra"
-                      tal:attributes="data-item project/url;">
-                  <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></button>
+                <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
+                  <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
+                </a>
               </td>
             </tr>
           </tbody>
@@ -89,7 +83,9 @@
               <td tal:content="area/parent"> Parent </td>
               <td style="text-align: center;">
                 <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
-                <a href="" tal:attributes="href string:${area/url}/edit"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+                <a tal:attributes="href string:${area/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
+                  <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
+                </a>
               </td>
             </tr>
           </tbody>
@@ -120,7 +116,6 @@
               </td>
               <td style="text-align: center;">
                 <a href="" tal:attributes="href string:${portal_url}/@@user-information?userid=${user/id}"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
-                <a href="" tal:attributes="href string:${portal_url}/@@user-information?userid=${user/id}"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
               </td>
             </tr>
           </tbody>
@@ -219,25 +214,6 @@
         </a>
       </h2>
       <p> Shows the current values for: Exchange Currency / Measuring Unit / Measuring Frequency / Capacity Changes</p>
-
-    <script  type="text/javascript">
-      $(function() {
-          $('button.remove').on('click', function (e) {
-            debugger;
-            $('[data-toggle="popover"]').each(function () {
-                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-                    $(this).popover('hide');
-                } else {
-                  var name=$(this).data()['item'];
-                  var portal_type=$(this).data()['type'];
-                  var message="hola";
-                  $(this).attr('data-content',message);
-                  $(this).popover('show');
-                }
-            });
-        });
-    </script>
-
     </metal:main-macro>
   </div>
 

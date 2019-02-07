@@ -210,7 +210,7 @@ class View(grok.View):
         if geo:
             coordinates = [geo.geolocation.latitude, geo.geolocation.longitude]
             if geo.geolocation.latitude != 0.0 and geo.geolocation.longitude != 0.0:
-                maps_link = "https://www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
+                maps_link = "//www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
                     coordinates[0],
                     coordinates[1]
                 )
