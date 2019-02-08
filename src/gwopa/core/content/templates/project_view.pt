@@ -129,12 +129,15 @@
         <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
       </tal:map>
 
-    <h1 class="documentFirstHeading" style="padding-top: 20px;"><tal:omit-tag i18n:translate="">Improvement Areas</tal:omit-tag>
-      <a class="pat-plone-modal right" id="add-new-improvementarea" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea">
+    <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">Improvement Areas</tal:omit-tag>
+      <!-- <a class="pat-plone-modal right" id="add-new-improvementarea" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea">
       </a>
-          <button id="add-new-improvementarea" class="context focus" i18n:translate=""> + New Improvement Area </button>
-
+      <button id="add-new-improvementarea" class="context focus" i18n:translate=""> + New Improvement Area </button> -->
     </h1>
+
+    <a class="pat-plone-modal" id="add-new-improvementarea" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea">
+      <button id="add-new-improvementarea" class="context focus" i18n:translate=""> + New Improvement Area </button>
+    </a>
 
     <h3 tal:condition="not:getImprovementAreas" i18n:translate="">
       No Improvement Areas found
