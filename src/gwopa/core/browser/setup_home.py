@@ -283,7 +283,119 @@ class setup(grok.View):
         p5.country = ['Spain']
         geo = IGeolocatable(p5, None)
         geo.geolocation = Geolocation(41.3828939, 2.1774322)
-
+        # Create base Outcome CC selectable Values
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Mission & Strategy',
+            icon='fa-eye',
+            category='Organizational transformational dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Leadership',
+            icon='fa-eye',
+            category='Organizational transformational dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Organizational culture',
+            icon='fa-eye',
+            category='Organizational transformational dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Others',
+            icon='fa-eye',
+            category='Organizational transformational dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Organizational structure',
+            icon='fa-eye',
+            category='Organizational transactional dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Managemenet practices',
+            icon='fa-eye',
+            category='Organizational transactional dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Systems',
+            icon='fa-eye',
+            category='Organizational transactional dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Infrastructure',
+            icon='fa-eye',
+            category='Organizational transactional dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Equipment',
+            icon='fa-eye',
+            category='Organizational transactional dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Updated knowledge on conditions of systems & infrastructure',
+            icon='fa-eye',
+            category='Organizational transactional dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Working routines',
+            icon='fa-eye',
+            category='Organizational transactional dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Others',
+            icon='fa-eye',
+            category='Organizational transactional dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Motivation',
+            icon='fa-eye',
+            category='Individual dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Fit between skill & Knowledge and tasks to perform',
+            icon='fa-eye',
+            category='Individual dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Applied new skills & knowledge',
+            icon='fa-eye',
+            category='Individual dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Others',
+            icon='fa-eye',
+            category='Individual dimensions',
+            container=portal.config.capacitychanges,
+            safe_id=True)
         self.createProjects(5)
         return "Demo content created"
 

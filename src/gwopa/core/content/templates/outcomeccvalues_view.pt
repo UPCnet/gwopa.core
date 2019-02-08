@@ -9,12 +9,6 @@
 
 <metal:content-core fill-slot="content-core">
 
-	<tal:block tal:define="item view/getData">
-
-	<i tal:attributes="class string:fa ${item/icon}"></i>
-	<span tal:content="item/title"></span>
-	<span tal:content="item/category"></span>
-	</tal:block>
 
 </metal:content-core>
 

@@ -9,7 +9,16 @@
 
 <metal:content-core fill-slot="content-core">
 
+<span tal:define="items view/getItems">
+    <ul tal:repeat="item items">
+        <li>
+            <span tal:content="item/icon"></span>
+            <span tal:content="item/category"></span>
+            <a tal:attributes="href item/url"><span tal:content="item/title"></span></a>
 
+        </li>
+    </ul>
+</span>
 
 </metal:content-core>
 

@@ -5,7 +5,7 @@ from gwopa.core.content.project import IProject
 from gwopa.core.content.partner import IPartner
 from gwopa.core.content.improvement_area import IImprovementArea
 from gwopa.core.content.outcomecc import IOutcomecc
-# from gwopa.core.content.improvement_area import IImprovementArea
+from gwopa.core.content.outcomeccs import IOutcomeccs
 from plone import api
 import datetime
 
@@ -78,8 +78,9 @@ def improvementAreaAdded(content, event):
 
 
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)
+@grok.subscribe(IOutcomeccs, IObjectAddedEvent)
 def OutcomeCCAdded(content, event):
-    """ Create the 13 CC vaues inside """
+    """ Create the 13 CC vaues inside OutcomeCC or OutcomeCCS """
     items = api.content.find(portal_type="OutcomeCCItem")
     for item in items:
         api.content.create(
