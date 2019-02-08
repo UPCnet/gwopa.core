@@ -19,7 +19,7 @@ def todayValue():
 class IOutcomeccvalues(model.Schema):
     """  OutcomeCC Values
     """
-    Title = schema.TextLine(
+    title = schema.TextLine(
         title=_(u"Title"),
         required=True,
     )

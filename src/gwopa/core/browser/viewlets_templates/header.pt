@@ -1,7 +1,1 @@
-<tal:block tal:define="portal_state context/@@plone_portal_state;
-                       portal_url portal_state/portal_url;"
-           i18n:domain="gwopa">
-
-   <link rel="stylesheet" tal:attributes="href string:/++theme++gwopa.theme/fontawesome/css/all.css" >
-
-</tal:block>
+<link rel="stylesheet" tal:attributes="href string:/++theme++gwopa.theme/fontawesome/css/all.css" >

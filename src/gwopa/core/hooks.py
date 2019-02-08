@@ -80,14 +80,9 @@ def improvementAreaAdded(content, event):
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)
 def OutcomeCCAdded(content, event):
     """ Create the 13 CC vaues inside """
-    import ipdb; ipdb.set_trace()
     items = api.content.find(portal_type="OutcomeCCItem")
     for item in items:
-        Title = item.Title
-        id = item.Title
-
         api.content.create(
             type='OutcomeCCValues',
-            id=id,
-            title=Title,
+            title=item.Title,
             container=content)
