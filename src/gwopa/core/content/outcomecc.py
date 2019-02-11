@@ -6,6 +6,8 @@ from zope import schema
 from gwopa.core import _
 from plone.directives import form
 from plone import api
+from itertools import groupby
+from operator import itemgetter
 
 grok.templatedir("templates")
 
