@@ -58,7 +58,7 @@ class View(grok.View):
         """ Returns all the Activitys of this Planning year """
         items = api.content.find(
             portal_type=['ImprovementArea'],
-            context=self.context)
+            context=self.context.aq_parent)
         results = []
         for project in items:
             item = project.getObject()

@@ -28,9 +28,7 @@
   <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
   <element value="plone.app.relationfield.behavior.IRelatedItems"/>
  </property>
-
  <property name="schema">gwopa.core.content.project.IProject</property>
-
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>
  <alias from="(Default)" to="(dynamic view)"/>

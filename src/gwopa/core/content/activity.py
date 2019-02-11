@@ -91,6 +91,19 @@ class IActivity(model.Schema):
         vocabulary=u'plone.app.vocabularies.Users',
     )
 
+    directives.widget('area', SelectWidget)
+    area = schema.List(
+        title=_(u"Related Improvement Areas"),
+        description=_(u"Used to sort in planning module"),
+        value_type=schema.Choice(
+            source=utils.contextAreas),
+        required=False,)
+
+    year = schema.TextLine(
+        title=_(u'Year'),
+        description=_(u"Used to sort in planning module"),
+        required=False)
+
     @invariant
     def validate_start_end(data):
         if (data.start and data.end and data.start > data.end):

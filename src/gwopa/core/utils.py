@@ -131,6 +131,19 @@ def settings_capacity_changes(context):
 directlyProvides(settings_capacity_changes, IContextSourceBinder)
 
 
+def contextAreas(context):
+    """ Get context areas """
+    terms = []
+    literals = api.content.find(portal_type="ImprovementArea", context=context)
+    for item in literals:
+        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(contextAreas, IContextSourceBinder)
+
+
 def outputs(context):
     """ Outputs for the Activity """
     terms = []
