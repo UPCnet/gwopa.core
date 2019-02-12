@@ -45,7 +45,7 @@ class MainTemplate(BrowserView):
                 if item.image:
                     image = item.absolute_url_path() + '/@@images/image/preview'
                 else:
-                    image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/200x200.png'
+                    image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 results.append(dict(title=self.abreviaText(item.title),
                                     url=item.absolute_url_path(),
                                     start=item.start,
@@ -70,7 +70,7 @@ class MainTemplate(BrowserView):
                         if item.image:
                             image = item.absolute_url_path() + '/@@images/image/preview'
                         else:
-                            image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/200x200.png'
+                            image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         results.append(dict(title=self.abreviaText(item.title),
                                             url=item.absolute_url_path(),
                                             start=item.start,
@@ -94,7 +94,7 @@ class MainTemplate(BrowserView):
                 if item.image:
                     image = item.absolute_url_path() + '/@@images/image/preview'
                 else:
-                    image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/200x200.png'
+                    image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 if len(results) < 4:
                     results.append(dict(title=self.abreviaText(item.title),
                                         url=item.absolute_url_path(),
@@ -120,7 +120,7 @@ class MainTemplate(BrowserView):
                         if item.image:
                             image = item.absolute_url_path() + '/@@images/image/preview'
                         else:
-                            image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/200x200.png'
+                            image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         if len(results) < 4:
                             results.append(dict(title=self.abreviaText(item.title),
                                                 url=item.absolute_url_path(),
@@ -144,7 +144,7 @@ class MainTemplate(BrowserView):
             if item.image:
                 image = item.absolute_url_path() + '/@@images/image/preview'
             else:
-                image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/200x200.png'
+                image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
             results.append(dict(title=self.abreviaText(item.title),
                                 url=item.absolute_url_path(),
                                 start=item.start,

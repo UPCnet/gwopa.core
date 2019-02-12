@@ -411,7 +411,7 @@ class setup(grok.View):
         try:
             data = requests.get('https://via.placeholder.com/{0}x{1}/007bb1/ffffff?text=DEMO%20IMAGE'.format(w, h), verify=False, timeout=10).content
         except ConnectionError:
-            data = requests.get(api.portal.get().absolute_url() + '/++theme++gwopa.theme/assets/images/empty200.png', verify=False, timeout=10).content
+            data = requests.get(api.portal.get().absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
 
         image = NamedBlobImage(data=data,
                                filename=u'image.jpg',

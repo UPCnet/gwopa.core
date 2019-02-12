@@ -56,7 +56,7 @@ class listAreas(BrowserView):
         for item in items:
             obj = item.getObject()
             if obj.image is None:
-                image = obj.absolute_url_path() + '/++theme++gwopa.theme/assets/images/200x200.png'
+                image = obj.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
             else:
                 image = obj.absolute_url_path() + '/@@images/image/thumb'
             results.append(dict(

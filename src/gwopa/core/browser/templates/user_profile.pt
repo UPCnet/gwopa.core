@@ -57,7 +57,7 @@
                           </p>
                           <a tal:omit-tag="not: isOwner"
                              tal:attributes="href string:${view/portal_url}/@@personal-information">
-                              <img tal:attributes="src string:/++theme++gwopa.theme/assets/images/empty200.png" alt="admin user">
+                              <img tal:attributes="src string:/++theme++gwopa.theme/assets/images/default_image.jpg" alt="admin user">
                           </a>
                         </div>
                     </div>

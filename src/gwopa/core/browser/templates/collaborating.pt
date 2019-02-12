@@ -31,7 +31,7 @@
                     <img class="img200" tal:condition="item/image"
                          tal:attributes="src string:${item/url}/@@images/image/preview;"/>
                     <img class="img200" tal:condition="not:item/image"
-                         tal:attributes="src string:++theme++gwopa.theme/assets/images/200x200.png;"/>
+                         tal:attributes="src string:++theme++gwopa.theme/assets/images/default_image.jpg;"/>
                   </div>
                 </a>
                 </div>
