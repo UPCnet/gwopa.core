@@ -1,4 +1,9 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-  <!--<column value="my_meta_column"/>-->
+
+  <index name="gwopa_code_ia" meta_type="FieldIndex">
+    <indexed_attr value="gwopa_code_ia"/>
+  </index>
+  <column value="gwopa_code_ia"/>
+
 </object>

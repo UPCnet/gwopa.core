@@ -16,7 +16,6 @@ from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from collective.geolocationbehavior.geolocation import IGeolocatable
-from zope.component import getMultiAdapter
 
 grok.templatedir("templates")
 

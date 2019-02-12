@@ -26,6 +26,14 @@ from datetime import datetime
 from plone.event.interfaces import IEvent
 from plone import api
 import calendar
+from plone.directives import form
+from z3c.form.interfaces import HIDDEN_MODE, DISPLAY_MODE, INPUT_MODE
+from plone.directives import form
+from zope.interface import provider
+from zope.schema.interfaces import IContextAwareDefaultFactory
+from plone.autoform import directives
+from plone.indexer import indexer
+
 
 PLMF = MessageFactory('plonelocales')
 
@@ -33,7 +41,7 @@ PLMF = MessageFactory('plonelocales')
 grok.templatedir("templates")
 
 
-class IImprovementArea(model.Schema):
+class IImprovementArea(form.Schema):
     """  Improvement Area type
     """
     title = schema.TextLine(
@@ -52,6 +60,38 @@ class IImprovementArea(model.Schema):
         description=_(u"Image used to describe the Area. If no file chosen, a defult one will be used."),
         required=False,
     )
+
+    directives.mode(code_ia='display')
+    code_ia = schema.ASCIILine(
+        title=_(u'CODE'),
+        description=_(u'Internal CODE'),
+        required=False,
+    )
+
+
+@form.default_value(field=IImprovementArea['code_ia'])
+def codeDefaultValue(data):
+    items = len(api.content.find(
+        portal_type='ImprovementArea',
+        context=data.context))
+
+    return '{0}'.format(str(items + 1).zfill(2))
+
+
+@indexer(IImprovementArea)
+def code_ia(obj):
+    return obj.code_ia
+
+
+grok.global_adapter(code_ia, name="gwopa_code_ia")
+
+
+class Edit(form.SchemaEditForm):
+    grok.context(IImprovementArea)
+
+    # def updateWidgets(self):
+    #     super(Edit, self).updateWidgets()
+    #     self.widgets["code_ia"].mode = HIDDEN_MODE
 
 
 class View(grok.View):

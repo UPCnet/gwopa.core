@@ -14,6 +14,14 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ../content/templates/improvementarea_view.pt:67
+msgid "${monthname}"
+msgstr ""
+
+#: ../content/templates/improvementarea_view.pt:70
+msgid "${year}"
+msgstr ""
+
 #: ../browser/templates/homepage.pt:79
 msgid "(Manager: 1 random element)"
 msgstr "(Manager: 1 elemento al azar)"
@@ -22,16 +30,16 @@ msgstr "(Manager: 1 elemento al azar)"
 msgid "(Manager: 4 random elements)"
 msgstr "(Manager: 4 elementos al azar)"
 
-#: ../content/templates/improvementarea_view.pt:54
+#: ../content/templates/improvementarea_view.pt:57
 msgid "+ New Event"
 msgstr ""
 
-#: ../content/templates/project_view.pt:135
+#: ../content/templates/project_view.pt:166
 msgid "+ New Improvement Area"
 msgstr ""
 
 #: ../browser/templates/teams.pt:26
-#: ../content/templates/improvementarea_view.pt:37
+#: ../content/templates/improvementarea_view.pt:40
 msgid "+ New Member"
 msgstr ""
 
@@ -40,7 +48,7 @@ msgstr ""
 msgid "+ New Project"
 msgstr "+ Nuevo Proyecto"
 
-#: ../content/templates/improvementarea_view.pt:16
+#: ../content/templates/improvementarea_view.pt:19
 msgid "+ New Topic"
 msgstr ""
 
@@ -48,7 +56,7 @@ msgstr ""
 msgid "+ New User"
 msgstr ""
 
-#: ../content/templates/improvementarea_view.pt:61
+#: ../content/templates/improvementarea_view.pt:119
 msgid "+ New file"
 msgstr ""
 
@@ -68,10 +76,6 @@ msgstr "Rol de administrador"
 msgid "All the projects in one map."
 msgstr "Todos los proyectos en un único mapa."
 
-#: ../content/templates/workplan_view.pt:34
-msgid "Annual Work Plan for year"
-msgstr "Plan anual de trabajo del año "
-
 #: ../browser/templates/manage_portal.pt:72
 msgid "Area"
 msgstr "Area"
@@ -80,23 +84,27 @@ msgstr "Area"
 msgid "Assigned budget"
 msgstr "Presupuesto asignado"
 
-#: ../content/outcomeccs.py:40
-#: ../content/outcomeccvalues.py:38
+#: ../content/outcomeccvalues.py:35
 #: ../content/outcomekpi.py:40
+#: ../content/outcomezone.py:40
 msgid "Baseline description"
 msgstr "Descripción de referencia"
 
-#: ../content/templates/improvementarea_view.pt:52
+#: ../content/improvement_area.py:66
+msgid "CODE"
+msgstr ""
+
+#: ../content/templates/improvementarea_view.pt:55
 msgid "Calendar"
 msgstr ""
 
-#: ../content/outcomeccs.py:27
+#: ../content/outcomeccvalues.py:28
 #: ../content/outcomekpi.py:27
 #: ../content/outcomezone.py:27
 msgid "Capacity Items"
 msgstr "Elementos de cambio"
 
-#: ../content/outcomeccvalues.py:32
+#: ../content/outcomeccitem.py:31
 msgid "Category"
 msgstr ""
 
@@ -109,10 +117,6 @@ msgstr "Elija el país de la lista que representa al país."
 #: ../browser/templates/collaborating.pt:13
 msgid "Collaborating module"
 msgstr "Módulo de colaboración"
-
-#: ../browser/viewlets_templates/header.pt:37
-msgid "Collaboration"
-msgstr "Colaboración"
 
 #: ../content/activity.py:56
 #: ../content/output.py:42
@@ -132,8 +136,8 @@ msgstr "Dirección de contacto"
 msgid "Container"
 msgstr "Contenedor"
 
-#: ../content/project.py:158
-#: ../content/templates/project_view.pt:47
+#: ../content/project.py:157
+#: ../content/templates/project_view.pt:106
 msgid "Contribution by partners and donors"
 msgstr "Contribución de socios y donantes"
 
@@ -151,7 +155,7 @@ msgstr "País"
 msgid "Country/Countries"
 msgstr "País/Paises"
 
-#: ../content/project.py:152
+#: ../content/project.py:151
 msgid "Currency"
 msgstr "Moneda"
 
@@ -163,21 +167,16 @@ msgstr "Cambio de moneda"
 msgid "Current projects map"
 msgstr "Mapa con los proyectos actuales"
 
-#: ../browser/viewlets_templates/header.pt:40
-msgid "Dashboard"
-msgstr "Tablero"
-
-#: ../content/outcomeccs.py:45
 #: ../content/outcomekpi.py:45
 #: ../content/outcomezone.py:45
 msgid "Date of the Baseline"
 msgstr "Fecha de referencia"
 
-#: ../content/project.py:62
+#: ../content/project.py:61
 msgid "Date when the project begins."
 msgstr "Fecha cuando se inicia el proyecto."
 
-#: ../content/project.py:69
+#: ../content/project.py:68
 msgid "Date when the project ends."
 msgstr "Fecha de finalización del proyecto."
 
@@ -185,15 +184,11 @@ msgstr "Fecha de finalización del proyecto."
 msgid "Define your language"
 msgstr "Define tu idioma"
 
-#: ../content/templates/workplan_view.pt:31
-msgid "Delete_Work_Plan"
-msgstr ""
-
 #: ../browser/setup_home.py:44
 msgid "Demo content has been created."
 msgstr "Se ha creado contenido de ejemplo."
 
-#: ../content/outcomeccvalues.py:43
+#: ../content/outcomeccvalues.py:40
 msgid "Describe perceived changes in the selected dimension"
 msgstr ""
 
@@ -201,7 +196,7 @@ msgstr ""
 msgid "Describe the contributing factors to the perceived changes"
 msgstr ""
 
-#: ../content/outcomeccvalues.py:63
+#: ../content/outcomeccvalues.py:65
 msgid "Describe the limiting factors to the perceived changes"
 msgstr ""
 
@@ -217,15 +212,15 @@ msgstr "Descripción del módulo de informes"
 msgid "Describing visualizating module."
 msgstr "Describing reporting modulo de visualización"
 
-#: ../content/templates/workplan_view.pt:30
-msgid "Duplicate_Work_Plan"
+#: ../content/templates/project_view.pt:52
+msgid "Description"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:37
 msgid "End Date"
 msgstr "Fecha de finalización"
 
-#: ../content/project.py:68
+#: ../content/project.py:67
 msgid "End date"
 msgstr "Fecha de finalización"
 
@@ -237,7 +232,7 @@ msgstr "Fichero"
 msgid "Files"
 msgstr ""
 
-#: ../configure.zcml:40
+#: ../configure.zcml:41
 msgid "GWOPA Core package (gwopa.core)"
 msgstr "GWOPA Core package (gwopa.core)"
 
@@ -265,21 +260,21 @@ msgstr ""
 msgid "Here are the files of the Project."
 msgstr ""
 
-#: ../content/outcomeccvalues.py:27
+#: ../content/outcomeccitem.py:25
 msgid "Icon"
 msgstr ""
 
-#: ../content/improvement_area.py:28
+#: ../content/improvement_area.py:59
 #: ../content/partner.py:29
 #: ../content/platform.py:28
 msgid "Image"
 msgstr "Imagen"
 
-#: ../content/improvement_area.py:29
+#: ../content/improvement_area.py:60
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr "Imagen utilizada para describir el Área de Mejora. Si no se elige ningún archivo, se utilizará una predeterminada."
 
-#: ../content/outcomeccs.py:28
+#: ../content/outcomeccvalues.py:29
 #: ../content/outcomekpi.py:28
 #: ../content/outcomezone.py:28
 msgid "Improved specific capacity"
@@ -290,7 +285,7 @@ msgid "Improvement Area"
 msgstr "Área de mejora"
 
 #: ../browser/templates/areas.pt:14
-#: ../content/templates/project_view.pt:132
+#: ../content/templates/project_view.pt:164
 msgid "Improvement Areas"
 msgstr ""
 
@@ -298,11 +293,11 @@ msgstr ""
 msgid "Improvement areas"
 msgstr "Áreas de mejora"
 
-#: ../content/project.py:139
+#: ../content/project.py:138
 msgid "Improvement track team and members"
 msgstr "Equipo de mejora y miembros."
 
-#: ../content/outcomeccvalues.py:71
+#: ../content/outcomeccvalues.py:75
 msgid "Inform participation in the assessment"
 msgstr ""
 
@@ -311,12 +306,24 @@ msgstr ""
 msgid "Initial situation description"
 msgstr "Descripción de la situación inicial"
 
-#: ../configure.zcml:40
+#: ../content/outcomeccitem.py:26
+msgid "Insert the Font Awesome icon to describe this Outcome. IE: fa-globe"
+msgstr ""
+
+#: ../content/outcomeccitem.py:32
+msgid "Insert the used category to group this element"
+msgstr ""
+
+#: ../configure.zcml:41
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
+#: ../content/improvement_area.py:67
+msgid "Internal CODE"
+msgstr ""
+
 #: ../content/activity.py:18
-#: ../content/project.py:25
+#: ../content/project.py:24
 msgid "Invalid start or end date"
 msgstr "Fecha de inicio o finalización incorrecta."
 
@@ -328,7 +335,7 @@ msgstr ""
 msgid "Language"
 msgstr "Idioma"
 
-#: ../content/project.py:99
+#: ../content/project.py:98
 msgid "Latitude"
 msgstr "Latitud"
 
@@ -344,21 +351,21 @@ msgstr ""
 msgid "Log Frame"
 msgstr "Marco de registro"
 
-#: ../browser/viewlets_templates/header.pt:48
-msgid "Log out"
-msgstr "Salir"
-
-#: ../content/project.py:106
+#: ../content/project.py:105
 msgid "Longitude"
 msgstr "Longitud"
 
-#: ../content/outcomeccs.py:51
+#: ../content/templates/project_view.pt:96
+msgid "Main Contact"
+msgstr ""
+
 #: ../content/outcomekpi.py:51
 #: ../content/outcomezone.py:51
+#: ../content/output.py:53
 msgid "Means of verification"
 msgstr "Medios de verificación"
 
-#: ../content/outcomeccvalues.py:67
+#: ../content/outcomeccvalues.py:70
 msgid "Means of verification used to assess capacity change in this dimension"
 msgstr ""
 
@@ -374,12 +381,12 @@ msgstr "Frecuencia de medición"
 msgid "Measuring unit"
 msgstr "Unidad de medida"
 
-#: ../content/templates/improvementarea_view.pt:35
+#: ../content/templates/improvementarea_view.pt:38
 msgid "Member"
 msgstr ""
 
 #: ../content/activity.py:88
-#: ../content/project.py:138
+#: ../content/project.py:137
 msgid "Members"
 msgstr "Miembros"
 
@@ -394,10 +401,6 @@ msgstr "Miembros en esta región"
 #: ../content/activity.py:74
 msgid "Milestones"
 msgstr "Hitos"
-
-#: ../browser/viewlets_templates/header.pt:38
-msgid "Monitoring"
-msgstr "Monitorización"
 
 #: ../browser/templates/monitoring.pt:23
 msgid "Monitoring Module"
@@ -415,17 +418,22 @@ msgstr "Los proyectos de mi compañía"
 msgid "Name"
 msgstr "Nombre"
 
-#: ../content/templates/project_view.pt:139
+#: ../content/templates/project_view.pt:170
 msgid "No Improvement Areas found"
 msgstr ""
 
-#: ../content/project.py:164
+#: ../content/project.py:163
+#: ../content/templates/project_view.pt:121
 msgid "Objectives"
 msgstr "Objectivos"
 
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
 msgstr "Outcome CC"
+
+#: ../profiles/default/types/OutcomeCCItem.xml
+msgid "OutcomeCCItem"
+msgstr ""
 
 #: ../profiles/default/types/OutcomeCCS.xml
 msgid "OutcomeCCS"
@@ -451,16 +459,20 @@ msgstr "Output"
 msgid "PMP Projects View"
 msgstr "Vista de proyectos de PMP"
 
+#: ../content/templates/project_view.pt:83
+msgid "Participants"
+msgstr ""
+
 #: ../browser/templates/manage_portal.pt:195
 msgid "Partner"
 msgstr "Socio"
 
-#: ../content/project.py:114
+#: ../content/project.py:113
 msgid "Partner/partners of the project"
 msgstr "Socio/Socios del proyecto"
 
-#: ../content/project.py:113
-#: ../content/templates/project_view.pt:30
+#: ../content/project.py:112
+#: ../content/templates/project_view.pt:85
 msgid "Partners"
 msgstr "Socios"
 
@@ -468,20 +480,11 @@ msgstr "Socios"
 msgid "Phone"
 msgstr "Teléfono"
 
-#: ../browser/viewlets_templates/header.pt:36
-#: ../content/templates/workplan_view.pt:23
-msgid "Planning"
-msgstr "Planificación"
-
-#: ../content/templates/workplan_view.pt:29
-msgid "Planning - Annual"
-msgstr ""
-
 #: ../browser/templates/manage_portal.pt:165
 msgid "Program"
 msgstr "Programa"
 
-#: ../content/project.py:91
+#: ../content/project.py:90
 msgid "Program/programs associated to this project"
 msgstr "Programa/Programas asociados al proyecto"
 
@@ -490,20 +493,32 @@ msgstr "Programa/Programas asociados al proyecto"
 msgid "Project"
 msgstr "Proyecto"
 
-#: ../content/project.py:130
-#: ../content/templates/project_view.pt:37
+#: ../content/templates/project_view.pt:66
+msgid "Project End"
+msgstr ""
+
+#: ../content/project.py:129
+#: ../content/templates/project_view.pt:92
 msgid "Project Manager"
 msgstr "Gerente del proyecto"
 
-#: ../content/project.py:122
+#: ../content/project.py:121
 msgid "Project Manager Admin"
 msgstr "Administrador del proyecto"
 
-#: ../content/project.py:56
+#: ../content/templates/project_view.pt:62
+msgid "Project Start"
+msgstr ""
+
+#: ../content/templates/project_view.pt:33
+msgid "Project Tags"
+msgstr ""
+
+#: ../content/project.py:55
 msgid "Project image"
 msgstr "Imagen del proyecto"
 
-#: ../content/project.py:45
+#: ../content/project.py:44
 msgid "Project title"
 msgstr "Título del proyecto"
 
@@ -511,14 +526,18 @@ msgstr "Título del proyecto"
 msgid "Projects"
 msgstr "Proyectos"
 
-#: ../content/templates/improvementarea_view.pt:59
+#: ../content/templates/improvementarea_view.pt:117
 msgid "Recent files"
 msgstr ""
 
-#: ../content/project.py:75
+#: ../content/project.py:74
 #: ../userdataschema.py:60
 msgid "Regional WOP Platform"
 msgstr "Regional WOP Platform"
+
+#: ../content/activity.py:96
+msgid "Related Improvement Areas"
+msgstr ""
 
 #: ../content/activity.py:62
 msgid "Related inputs"
@@ -528,17 +547,13 @@ msgstr "Entradas relacionadas"
 msgid "Related outputs"
 msgstr "Salidas relacionadas"
 
-#: ../browser/viewlets_templates/header.pt:39
-msgid "Reporting"
-msgstr "Informes"
-
 #: ../browser/templates/reporting.pt:14
 msgid "Reporting Module"
 msgstr "Mòdulo de informes"
 
-#: ../content/outcomeccs.py:56
 #: ../content/outcomekpi.py:56
 #: ../content/outcomezone.py:56
+#: ../content/output.py:58
 msgid "Risks / Assumptions"
 msgstr "Riesgos / Suposiciones"
 
@@ -550,20 +565,20 @@ msgstr "Buscar..."
 msgid "Search Projects"
 msgstr "Buscador de proyectos"
 
-#: ../content/project.py:83
+#: ../content/project.py:82
 #: ../userdataschema.py:46
 msgid "Select country"
 msgstr "Seleccionar país"
 
-#: ../content/outcomeccvalues.py:51
+#: ../content/outcomeccvalues.py:50
 msgid "Select the contributing factors to the perceived change"
 msgstr ""
 
-#: ../content/outcomeccvalues.py:59
+#: ../content/outcomeccvalues.py:60
 msgid "Select the limiting factors to the perceived change"
 msgstr ""
 
-#: ../content/outcomeccvalues.py:47
+#: ../content/outcomeccvalues.py:45
 msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr ""
 
@@ -579,7 +594,7 @@ msgstr ""
 msgid "Start Date"
 msgstr "Fecha de inicio"
 
-#: ../content/project.py:61
+#: ../content/project.py:60
 msgid "Start date"
 msgstr "Fecha de inicio"
 
@@ -588,7 +603,7 @@ msgid "Starting time"
 msgstr "Fecha de inicio"
 
 #: ../content/activity.py:38
-#: ../content/improvement_area.py:22
+#: ../content/improvement_area.py:53
 #: ../content/logframe.py:25
 msgid "Summary"
 msgstr "Resumen"
@@ -606,6 +621,10 @@ msgstr "Valor de objetivo"
 msgid "Target Value Date"
 msgstr "Fecha del valor de objetivo"
 
+#: ../content/templates/project_view.pt:115
+msgid "Team"
+msgstr ""
+
 #: ../browser/templates/teams.pt:16
 msgid "Team Members"
 msgstr ""
@@ -614,11 +633,11 @@ msgstr ""
 msgid "The default config has been applied."
 msgstr "Se ha aplicado la configuración por defecto"
 
-#: ../content/project.py:123
+#: ../content/project.py:122
 msgid "The responsible manager of the project"
 msgstr "El administrador y responsable del proyecto"
 
-#: ../content/project.py:131
+#: ../content/project.py:130
 msgid "The responsible of this project"
 msgstr "El responsable del proyecto"
 
@@ -630,14 +649,14 @@ msgstr "El sistema utilizará la configuración id. Cambie para propósitos de p
 msgid "This values are necessary for create elements on the Platform"
 msgstr "Estos valores son necesarios para crear elementos en la Plataforma."
 
-#: ../content/improvement_area.py:17
+#: ../content/improvement_area.py:48
 #: ../content/logframe.py:20
-#: ../content/outcomecc.py:22
+#: ../content/outcomecc.py:23
 msgid "Title"
 msgstr "Título"
 
-#: ../content/project.py:147
-#: ../content/templates/project_view.pt:42
+#: ../content/project.py:146
+#: ../content/templates/project_view.pt:101
 msgid "Total budget"
 msgstr "Presupuesto total"
 
@@ -645,11 +664,11 @@ msgstr "Presupuesto total"
 msgid "Twitter username"
 msgstr "Usuario de twitter"
 
-#: ../configure.zcml:49
+#: ../configure.zcml:50
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr "Uninstall: GWOPA Core package (gwopa.core)"
 
-#: ../configure.zcml:49
+#: ../configure.zcml:50
 msgid "Uninstalls the gwopa.core add-on."
 msgstr "Uninstalls the gwopa.core add-on."
 
@@ -664,6 +683,10 @@ msgstr "Utilizado en los indicadores, uno por línea."
 #: ../content/settingspage.py:30
 msgid "Used in the projects item. One per line."
 msgstr "Utilizado en los proyectos, uno por línea."
+
+#: ../content/activity.py:97
+msgid "Used to sort in planning module"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:107
 msgid "UserID"
@@ -689,23 +712,32 @@ msgstr "WOP Partner"
 msgid "WOP Partners"
 msgstr "WOP Partners"
 
+#: ../content/templates/project_view.pt:72
 #: ../profiles/default/types/Platform.xml
 msgid "WOP Platform"
 msgstr "Regional WOP Platform"
 
-#: ../content/project.py:90
-#: ../content/templates/project_view.pt:52
+#: ../content/project.py:89
 #: ../profiles/default/types/Program.xml
+#: ../userdataschema.py:52
 msgid "WOP Program"
 msgstr "WOP Program"
 
-#: ../content/templates/improvementarea_view.pt:14
+#: ../content/templates/project_view.pt:76
+msgid "WOP Programs"
+msgstr ""
+
+#: ../content/templates/improvementarea_view.pt:17
 msgid "Wall"
 msgstr ""
 
 #: ../profiles/default/types/WorkPlan.xml
 msgid "Work Plan"
 msgstr "Work Plan"
+
+#: ../content/activity.py:103
+msgid "Year"
+msgstr ""
 
 #: ../browser/templates/homepage.pt:81
 msgid "You don't have assigned projects."
@@ -746,13 +778,18 @@ msgstr "Correo electrónico"
 msgid "fullname"
 msgstr "Nombre completo"
 
+#. Default: "GWOPA Menu"
+#: ../portlets/sidenav.py:19
+msgid "gwopa_menu"
+msgstr ""
+
 #: ../indexers.py:31
 msgid "home_page"
 msgstr "Homepage"
 
 #. Default: "Show in Google Maps"
 #: ../content/templates/partner_view.pt:58
-#: ../content/templates/project_view.pt:129
+#: ../content/templates/project_view.pt:157
 msgid "label_google_maps_link"
 msgstr "Ver en Google Maps"
 
@@ -764,6 +801,21 @@ msgstr "Teléfono"
 #: ../content/settingspage.py:19
 msgid "settings"
 msgstr "Ajustes"
+
+#. Default: "Calendar"
+#: ../content/templates/improvementarea_view.pt:80
+msgid "summary_calendar"
+msgstr ""
+
+#. Default: "Next month"
+#: ../content/templates/improvementarea_view.pt:73
+msgid "title_next_month"
+msgstr ""
+
+#. Default: "Previous month"
+#: ../content/templates/improvementarea_view.pt:61
+msgid "title_previous_month"
+msgstr ""
 
 #: ../browser/user_profile.py:42
 #: ../indexers.py:30

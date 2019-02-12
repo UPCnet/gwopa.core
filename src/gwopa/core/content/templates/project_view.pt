@@ -11,123 +11,155 @@
   <metal:block define-macro="content-core"
       tal:define="partners context/partners;
                   project_manager context/project_manager;
+                  project_manager_admin context/project_manager_admin;
                   budget context/budget;
                   contribution context/contribution;
                   wop_program context/wop_program;
+                  wop_platform context/wop_platform;
                   google_maps_link view/google_maps_link;
-                  getImprovementAreas view/getImprovementAreas">
+                  objectives context/objectives;
+                  team context/members;
+                  getImprovementAreas view/getImprovementAreas;
+                  categories context/Subject|nothing;
+                  url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
 
     <h1 class="documentFirstHeading" tal:content="context/title"> Project Title </h1>
 
     <div class="row">
-      <tal:block tal:condition="context/image">
+        <div class="col-md-2">
+          <img class="fullwidth" tal:attributes="src string:${context/absolute_url}/@@images/image" />
+
+          <tal:block tal:condition="categories">
+            <h3 i18n:translate=""> Project Tags </h3>
+
+            <ul aria-labelledby="categories-filed-under">
+              <li tal:repeat="category categories">
+                <a href=""
+                   class="link-category"
+                   rel="tag"
+                   tal:content="category"
+                   tal:define="quotedCat python:url_quote(category)"
+                   tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
+                  Category
+                  </a>
+              </li>
+            </ul>
+          </tal:block>
+        </div>
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 i18n:translate=""> Description </h3>
+              <tal:omit-tag i18n:translate="" tal:content="context/description"> Project description </tal:omit-tag>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <h3 i18n:translate=""> Country </h3>
+              <tal:block tal:content="context/country"></tal:block>
+            </div>
+            <div class="col-md-4">
+              <h3 i18n:translate=""> Project Start </h3>
+              <tal:block tal:content="context/start"></tal:block>
+            </div>
+            <div class="col-md-4">
+              <h3 i18n:translate=""> Project End </h3>
+              <tal:block tal:content="context/end"></tal:block>
+            </div>
+          </div>
+          <div class="row">
+            <div tal:condition="wop_platform" class="col-md-6">
+              <h3 i18n:translate="">WOP Platform </h3>
+                <li tal:content="wop_platform"></li>
+            </div>
+            <div tal:condition="wop_program" class="col-md-6">
+              <h3 i18n:translate="">WOP Programs</h3>
+              <ul tal:repeat="wop wop_program">
+                <li tal:content="wop"></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <h2 i18n:translate=""> Participants </h2>
+            <div tal:condition="partners" class="col-md-12">
+              <h3 i18n:translate="">Partners</h3>
+              <ul tal:repeat="partner partners">
+                <li tal:content="partner"></li>
+              </ul>
+            </div>
+            <div class="col-md-12">
+              <div tal:condition="project_manager" class="col-md-6">
+                  <h3 i18n:translate="">Project Manager</h3>
+                  <span tal:content="project_manager" />
+              </div>
+              <div tal:condition="project_manager_admin" class="col-md-6">
+                  <h3 i18n:translate=""> Main Contact </h3>
+                  <span tal:content="project_manager_admin" />
+              </div>
+            </div>
+            <div tal:condition="budget" class="col-md-12">
+              <h3 i18n:translate=""> Total budget</h3>
+              <span tal:content="budget" /> <span tal:content="view/get_currency" />
+            </div>
+
+            <div tal:condition="contribution"  class="col-md-12">
+              <h3 i18n:translate="">Contribution by partners and donors</h3>
+              <span tal:replace="structure contribution/output" />
+            </div>
+          </div>
+
+
+        </div>
         <div class="col-md-3">
-            <img class="fullwidth" tal:attributes="src string:${context/absolute_url}/@@images/image" />
+          <div tal:condition="team">
+            <h3 i18n:translate=""> Team </h3>
+            <ul tal:repeat="user team">
+              <li tal:content="user"></li>
+            </ul>
+          </div>
+          <div tal:condition="objectives">
+            <h3 i18n:translate=""> Objectives </h3>
+            <span tal:replace="structure objectives/output" />
+          </div>
+          <tal:map tal:condition="google_maps_link">
+            <div tal:define="latitude context/geolocation/latitude;
+                         longitude context/geolocation/longitude;"
+                  class="pat-leaflet map"
+             data-geojson='{
+              "type": "FeatureCollection",
+              "features": [
+                {
+                  "type": "Feature",
+                  "id": 1,
+                  "properties":
+                  {
+                    "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
+                  },
+                  "geometry":
+                  {
+                    "type": "Point",
+                    "coordinates": [ ${longitude}, ${latitude} ]
+                  }
+                }
+              ]}' data-pat-leaflet='{
+               "fullscreencontrol": true,
+               "locatecontrol": false,
+               "zoomcontrol": true,
+               "minimap": false,
+               "addmarker": false,
+               "zoom": 17,
+               "map_layers": [
+                {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+               ]
+              }'>
+            </div>
+            <i class="fas fa-external-link-square-alt"></i>
+            <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
+          </tal:map>
         </div>
-        <div class="col-md-9">
-          <div class="documentDescription description" i18n:translate="" tal:content="context/description"> Project description </div>
-          <div tal:condition="partners">
-            <h3 i18n:translate="">Partners</h3>
-            <ul tal:repeat="partner partners">
-              <li tal:content="partner"></li>
-            </ul>
-          </div>
-
-          <div tal:condition="project_manager">
-            <h3 i18n:translate="">Project Manager</h3>
-            <span tal:content="project_manager" />
-          </div>
-
-          <div tal:condition="budget">
-            <h3 i18n:translate=""> Total budget</h3>
-            <span tal:content="budget" /> <span tal:content="view/get_currency" />
-          </div>
-
-          <div tal:condition="contribution">
-            <h3 i18n:translate="">Contribution by partners and donors</h3>
-            <span tal:replace="structure contribution/output" />
-          </div>
-
-          <div tal:condition="wop_program">
-            <h3 i18n:translate="">WOP Program</h3>
-            <ul tal:repeat="wop wop_program">
-              <li tal:content="wop"></li>
-            </ul>
-          </div>
-        </div>
-        <div class="documentDescription"></div>
-      </tal:block>
-      <tal:block tal:condition="not:context/image">
-        <div class="col-md-12">
-          <div class="documentDescription description" i18n:translate="" tal:content="context/description"> Project description </div>
-          <div tal:condition="partners">
-            <h3 i18n:translate="">Partners</h3>
-            <ul tal:repeat="partner partners">
-              <li tal:content="partner"></li>
-            </ul>
-          </div>
-
-          <div tal:condition="project_manager">
-            <h3 i18n:translate="">Project Manager</h3>
-            <span tal:content="project_manager" />
-          </div>
-
-          <div tal:condition="budget">
-            <h3 i18n:translate=""> Total budget</h3>
-            <span tal:content="budget" /> <span tal:content="view/get_currency" />
-          </div>
-
-          <div tal:condition="contribution">
-            <h3 i18n:translate="">Contribution by partners and donors</h3>
-            <span tal:replace="structure contribution/output" />
-          </div>
-
-          <div tal:condition="wop_program">
-            <h3 i18n:translate="">WOP Program</h3>
-            <ul tal:repeat="wop wop_program">
-              <li tal:content="wop"></li>
-            </ul>
-          </div>
-        </div>
-        <div class="documentDescription"></div>
-      </tal:block>
     </div>
 
-      <tal:map tal:condition="google_maps_link">
-        <div tal:define="latitude context/geolocation/latitude;
-                     longitude context/geolocation/longitude;"
-              class="pat-leaflet map"
-         data-geojson='{
-          "type": "FeatureCollection",
-          "features": [
-            {
-              "type": "Feature",
-              "id": 1,
-              "properties":
-              {
-                "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
-              },
-              "geometry":
-              {
-                "type": "Point",
-                "coordinates": [ ${longitude}, ${latitude} ]
-              }
-            }
-          ]}' data-pat-leaflet='{
-           "fullscreencontrol": true,
-           "locatecontrol": false,
-           "zoomcontrol": true,
-           "minimap": false,
-           "addmarker": false,
-           "zoom": 17,
-           "map_layers": [
-            {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-           ]
-          }'>
-        </div>
-        <i class="fas fa-external-link-square-alt"></i>
-        <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
-      </tal:map>
+    <hr/>
 
     <h2><tal:omit-tag i18n:translate="">Improvement Areas</tal:omit-tag>
     <a class="pat-plone-modal right" id="add-new-improvementarea" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea">
@@ -139,7 +171,7 @@
       No Improvement Areas found
     </h3>
 
-<div class="row-fluid">
+  <div class="row-fluid">
     <tal:block tal:condition="getImprovementAreas">
       <tal:areas repeat="item getImprovementAreas">
         <div class="col-lg-3 col-md-6">
@@ -159,7 +191,8 @@
         </div>
       </tal:areas>
     </tal:block>
-</div>
+  </div>
+
 </metal:block>
 
 </metal:content-core>
