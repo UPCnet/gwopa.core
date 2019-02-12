@@ -90,7 +90,8 @@ msgstr "Assigned budget"
 msgid "Baseline description"
 msgstr "Baseline description"
 
-#: ../content/improvement_area.py:66
+#: ../content/improvement_area.py:68
+#: ../content/project.py:170
 msgid "CODE"
 msgstr "Internal Code"
 
@@ -264,13 +265,13 @@ msgstr "Here are the files of the Project."
 msgid "Icon"
 msgstr "Icon"
 
-#: ../content/improvement_area.py:59
+#: ../content/improvement_area.py:60
 #: ../content/partner.py:29
 #: ../content/platform.py:28
 msgid "Image"
 msgstr "Image"
 
-#: ../content/improvement_area.py:60
+#: ../content/improvement_area.py:61
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr "Image used to describe the Area. If no file chosen, a default one will be used."
 
@@ -318,9 +319,10 @@ msgstr "Insert the used category to group this element"
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
-#: ../content/improvement_area.py:67
-msgid "Internal CODE"
-msgstr "Internal CODE"
+#: ../content/improvement_area.py:69
+#: ../content/project.py:171
+msgid "Internal CODE for administrators"
+msgstr "Internal CODE for administrators"
 
 #: ../content/activity.py:18
 #: ../content/project.py:24
@@ -603,7 +605,7 @@ msgid "Starting time"
 msgstr "Starting time"
 
 #: ../content/activity.py:38
-#: ../content/improvement_area.py:53
+#: ../content/improvement_area.py:54
 #: ../content/logframe.py:25
 msgid "Summary"
 msgstr "Summary"
@@ -649,7 +651,7 @@ msgstr "The system will use the settings id. Change for testing purposes only."
 msgid "This values are necessary for create elements on the Platform"
 msgstr "This values are necessary for create elements on the Platform"
 
-#: ../content/improvement_area.py:48
+#: ../content/improvement_area.py:49
 #: ../content/logframe.py:20
 #: ../content/outcomecc.py:23
 msgid "Title"

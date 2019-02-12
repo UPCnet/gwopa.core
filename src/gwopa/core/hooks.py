@@ -52,34 +52,34 @@ def improvementAreaAdded(content, event):
         Copy value from behaviour fields to project fields.projectAnd create
         current year workplan
     """
-    events = api.content.create(
-        type='Folder',
-        id='events',
-        title='Events',
-        container=content)
+    # events = api.content.create(
+    #     type='Folder',
+    #     id='events',
+    #     title='Events',
+    #     container=content)
 
-    files = api.content.create(
-        type='Folder',
-        id='files',
-        title='Files',
-        container=content)
+    # files = api.content.create(
+    #     type='Folder',
+    #     id='files',
+    #     title='Files',
+    #     container=content)
 
-    topics = api.content.create(
-        type='Folder',
-        id='topics',
-        title='Topics',
-        container=content)
+    # topics = api.content.create(
+    #     type='Folder',
+    #     id='topics',
+    #     title='Topics',
+    #     container=content)
 
-    outcomes = api.content.create(
-        type='OutcomeCC',
-        id='outcomecc',
-        title='OutcomeCC',
-        container=content)
+    # outcomes = api.content.create(
+    #     type='OutcomeCC',
+    #     id='outcomecc',
+    #     title='OutcomeCC',
+    #     container=content)
 
-    events.reindexObject()
-    files.reindexObject()
-    topics.reindexObject()
-    outcomes.reindexObject()
+    # events.reindexObject()
+    # files.reindexObject()
+    # topics.reindexObject()
+    # outcomes.reindexObject()
 
 
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)

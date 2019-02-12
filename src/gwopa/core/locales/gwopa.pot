@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-02-12 15:28+0000\n"
+"POT-Creation-Date: 2019-02-12 17:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,7 +97,8 @@ msgstr ""
 msgid "Baseline description"
 msgstr ""
 
-#: ../content/improvement_area.py:66
+#: ../content/improvement_area.py:68
+#: ../content/project.py:170
 msgid "CODE"
 msgstr ""
 
@@ -271,13 +272,13 @@ msgstr ""
 msgid "Icon"
 msgstr ""
 
-#: ../content/improvement_area.py:59
+#: ../content/improvement_area.py:60
 #: ../content/partner.py:29
 #: ../content/platform.py:28
 msgid "Image"
 msgstr ""
 
-#: ../content/improvement_area.py:60
+#: ../content/improvement_area.py:61
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr ""
 
@@ -325,8 +326,9 @@ msgstr ""
 msgid "Installs the gwopa.core add-on."
 msgstr ""
 
-#: ../content/improvement_area.py:67
-msgid "Internal CODE"
+#: ../content/improvement_area.py:69
+#: ../content/project.py:171
+msgid "Internal CODE for administrators"
 msgstr ""
 
 #: ../content/activity.py:18
@@ -610,7 +612,7 @@ msgid "Starting time"
 msgstr ""
 
 #: ../content/activity.py:38
-#: ../content/improvement_area.py:53
+#: ../content/improvement_area.py:54
 #: ../content/logframe.py:25
 msgid "Summary"
 msgstr ""
@@ -656,7 +658,7 @@ msgstr ""
 msgid "This values are necessary for create elements on the Platform"
 msgstr ""
 
-#: ../content/improvement_area.py:48
+#: ../content/improvement_area.py:49
 #: ../content/logframe.py:20
 #: ../content/outcomecc.py:23
 msgid "Title"

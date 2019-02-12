@@ -164,10 +164,27 @@ class IProject(model.Schema):
         required=False,
     )
 
+    form.mode(gwopa_code_project='hidden')
+    # form.mode(IEditForm, gwopa_code_project='display')
+    gwopa_code_project = schema.ASCIILine(
+        title=_(u'CODE'),
+        description=_(u'Internal CODE for administrators'),
+        required=False
+    )
+
     @invariant
     def validate_start_end(data):
         if (data.start and data.end and data.start > data.end):
             raise StartBeforeEnd(u"End date must be after start date.")
+
+
+@form.default_value(field=IProject['gwopa_code_project'])
+def codeDefaultValue(data):
+    items = len(api.content.find(
+        portal_type='Project',
+        context=data.context))
+
+    return 'PR-{0}'.format(str(items + 1).zfill(3))
 
 
 class View(grok.View):

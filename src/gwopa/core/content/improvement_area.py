@@ -33,6 +33,7 @@ from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 from plone.autoform import directives
 from plone.indexer import indexer
+from z3c.form.interfaces import IEditForm
 
 
 PLMF = MessageFactory('plonelocales')
@@ -61,37 +62,36 @@ class IImprovementArea(form.Schema):
         required=False,
     )
 
-    directives.mode(code_ia='display')
-    code_ia = schema.ASCIILine(
+    form.mode(gwopa_code_ia='hidden')
+    # form.mode(IEditForm, gwopa_code_ia='display')
+    gwopa_code_ia = schema.ASCIILine(
         title=_(u'CODE'),
-        description=_(u'Internal CODE'),
-        required=False,
+        description=_(u'Internal CODE for administrators'),
+        required=False
     )
 
 
-@form.default_value(field=IImprovementArea['code_ia'])
+@form.default_value(field=IImprovementArea['gwopa_code_ia'])
 def codeDefaultValue(data):
     items = len(api.content.find(
         portal_type='ImprovementArea',
         context=data.context))
 
-    return '{0}'.format(str(items + 1).zfill(2))
+    return 'IA-{0}'.format(str(items + 1).zfill(3))
 
 
+# This code assign value on every save, and when recatalog, overrides the value
 @indexer(IImprovementArea)
-def code_ia(obj):
-    return obj.code_ia
+def parent_project(obj):
+    value = obj.aq_parent.gwopa_code_project
+    return '{0}'.format(value).zfill(3)
 
 
-grok.global_adapter(code_ia, name="gwopa_code_ia")
+grok.global_adapter(parent_project, name="gwopa_code_project")
 
 
 class Edit(form.SchemaEditForm):
     grok.context(IImprovementArea)
-
-    # def updateWidgets(self):
-    #     super(Edit, self).updateWidgets()
-    #     self.widgets["code_ia"].mode = HIDDEN_MODE
 
 
 class View(grok.View):
