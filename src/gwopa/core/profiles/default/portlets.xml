@@ -11,4 +11,13 @@
                       description">
     </portlet>
 
+    <assignment
+      name="gwopa_menu"
+      category="context"
+      key="/"
+      manager="plone.leftcolumn"
+      type="gwopa.menu"
+      visible="True"
+    />
+
 </portlets>
