@@ -22,9 +22,7 @@
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>
  <property name="klass">plone.dexterity.content.Container</property>
-
  <property name="schema">gwopa.core.content.activity.IActivity</property>
-
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>
  <alias from="(Default)" to="(dynamic view)"/>

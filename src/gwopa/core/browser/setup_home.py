@@ -105,6 +105,13 @@ class setup(grok.View):
                 safe_id=False)
             api.content.create(
                 type='Folder',
+                id='areas',
+                title='Improvement Areas Items',
+                description='Improvement Areas used in the projects',
+                container=config_folder,
+                safe_id=False)
+            api.content.create(
+                type='Folder',
                 id='capacitychanges',
                 title='Capacity Changes Values',
                 description='Values used in Outcome CC and CCS',
@@ -396,6 +403,40 @@ class setup(grok.View):
             category='Individual dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
+
+        # Create demo programs
+        portal = api.portal.get()
+        api.content.create(
+            type='ItemArea',
+            id='area1',
+            title='Improvement Area 1',
+            container=portal.config.areas,
+            safe_id=True)
+        api.content.create(
+            type='ItemArea',
+            id='area2',
+            title='Improvement Area 2',
+            container=portal.config.areas,
+            safe_id=True)
+        api.content.create(
+            type='ItemArea',
+            id='area3',
+            title='Improvement Area 3',
+            container=portal.config.areas,
+            safe_id=True)
+        api.content.create(
+            type='ItemArea',
+            id='area4',
+            title='Improvement Area 4',
+            container=portal.config.areas,
+            safe_id=True)
+        api.content.create(
+            type='ItemArea',
+            id='area5',
+            title='Improvement Area 5',
+            container=portal.config.areas,
+            safe_id=True)
+
         self.createProjects(5)
         return "Demo content created"
 

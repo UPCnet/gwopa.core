@@ -2,6 +2,7 @@
 <object name="portal_types">
   <object meta_type="Dexterity FTI" name="Activity" />
   <object meta_type="Dexterity FTI" name="ImprovementArea" />
+  <object meta_type="Dexterity FTI" name="ItemArea" />
   <object meta_type="Dexterity FTI" name="LogFrame" />
   <object meta_type="Dexterity FTI" name="OutcomeCC" />
   <object meta_type="Dexterity FTI" name="OutcomeCCItem" />

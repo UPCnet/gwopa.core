@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from Acquisition import aq_inner
 from five import grok
-from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 from plone.namedfile import field as namedfile
@@ -9,31 +8,15 @@ from plone import api
 from Products.CMFCore.utils import getToolByName
 from plone.app.event.base import construct_calendar
 from plone.app.event.base import localized_today
-from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.event.base import first_weekday
-from plone.app.event.base import construct_calendar
-from plone.app.event.base import localized_today
 from plone.app.event.base import wkday_to_mon1
 from plone.app.event.portlets import get_calendar_url
-from plone.app.portlets import PloneMessageFactory as _
-from plone.app.portlets.portlets import base
-from plone.portlets.interfaces import IPortletDataProvider
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
-from datetime import datetime
-from plone.event.interfaces import IEvent
-from plone import api
 import calendar
 from plone.directives import form
-from z3c.form.interfaces import HIDDEN_MODE, DISPLAY_MODE, INPUT_MODE
-from plone.directives import form
-from zope.interface import provider
-from zope.schema.interfaces import IContextAwareDefaultFactory
-from plone.autoform import directives
 from plone.indexer import indexer
-from z3c.form.interfaces import IEditForm
+#from z3c.form.interfaces import IAddForm, IEditForm
+from gwopa.core import utils
 
 
 PLMF = MessageFactory('plonelocales')
@@ -45,8 +28,10 @@ grok.templatedir("templates")
 class IImprovementArea(form.Schema):
     """  Improvement Area type
     """
-    title = schema.TextLine(
+    title = schema.Choice(
         title=_(u"Title"),
+        description=_(u"Improved specific capacity"),
+        source=utils.area_title,
         required=True,
     )
 

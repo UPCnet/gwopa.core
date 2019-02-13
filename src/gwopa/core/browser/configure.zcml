@@ -156,4 +156,14 @@
     layer="..interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 
+  <!-- DELETE -->
+  <browser:page
+    for="*"
+    name="removeElement"
+    class=".views.Delete"
+    layer="..interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
 </configure>
+
+

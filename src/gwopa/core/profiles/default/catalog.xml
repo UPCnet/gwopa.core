@@ -13,4 +13,9 @@
   </index>
 
 
+  <index name="gwopa_year" meta_type="FieldIndex">
+    <indexed_attr value="gwopa_year"/>
+  </index>
+
+
 </object>

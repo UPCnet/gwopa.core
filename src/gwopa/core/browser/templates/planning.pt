@@ -19,8 +19,19 @@
     <div class="wp-buttons">
       <a tal:attributes="href string:${context/absolute_url}/planning/${currentYear}/copy" href="#">
         <button class="plone-btn-warning"><i class="fa fa-copy"></i> Duplicate Work Plan</button></a>
-      <a tal:attributes="href string:${context/absolute_url}/planning/${currentYear}/delete" href="#">
+      <a tal:attributes="href string:${context/absolute_url}/planning/removeElement; data-action string:delete; data-type string:${currentYear}">
         <button class="plone-btn-danger"><i class="fa fa-remove"></i> Delete Work Plan</button></a>
+                    <button type="button" class="remove label label-important"
+                        data-container="body"
+                        data-toggle="popover"
+                        data-placement="left"
+                        data-html="true"
+                        data-trigger="focus"
+                        data-original-title="Esborra"
+>
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                      </button>
+
     </div>
 
     <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
@@ -35,11 +46,8 @@
                   <h4>
                     <i class="fa fa-plus-circle"></i>
                     <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Activity" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Activity </button></a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++OutcomeCC" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New OutcomeCC </button></a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++OutcomeCCS" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New OutcomeCCS </button></a>
-                    <br/>
+                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Activity?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Activity </button></a>
+                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
                     <span style="padding-left:20px;" tal:content="item/description"></span>
                   </h4>
                   <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
@@ -49,7 +57,7 @@
                               tal:content="item/portal_type"> ACTIVITY </span>
                         <a tal:attributes="href item/url;title item/description" data-toggle="tooltip" class="pat-tooltip" tal:content="item/title"> Item Title </a>
                         <tal:omit.tag tal:condition="python:item['portal_type'] == 'Activity'">
-                          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
+                          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
                           <tal:block-subitems2 tal:define="outputs python:view.indicatorsInside(item);">
                             <ol tal:repeat="output outputs" class="block_sub_indicators">
                               <span tal:attributes="class string:label ${output/portal_type}" tal:content="output/portal_type"> ACTIVITY </span>
@@ -104,6 +112,22 @@
         </div>
       </fieldset>
     </div>
+
+    <script type="text/javascript">
+      $('button.remove').on('click', function (e) {
+        $('[data-toggle="popover"]').each(function () {
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+            } else {
+              var name=$(this).data()['item'];
+              var portal_type=$(this).data()['type'];
+              var message='<a class="btn btn-info"> No </a>';
+              $(this).attr('data-content',message);
+              $(this).popover('show');
+            }
+        });
+    });
+  </script>
 
   </metal:block>
 

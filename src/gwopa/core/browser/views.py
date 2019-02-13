@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
+from Products.CMFCore.utils import getToolByName
 from plone import api
 from geojson import Feature, Point, FeatureCollection
 from gwopa.core import _
@@ -104,3 +105,12 @@ class mapView(BrowserView):
                     poi = Feature(geometry=Point((obj.geolocation.longitude, obj.geolocation.latitude)), properties={'popup': obj.title})
                     results.append(poi)
         return FeatureCollection(results)
+
+
+class Delete(BrowserView):
+    """ Delete elements from year XXX """
+    def __call__(self):
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        action = self.request.form.get('action')
+        itemid = self.request.form.get('year')
+        import ipdb; ipdb.set_trace()

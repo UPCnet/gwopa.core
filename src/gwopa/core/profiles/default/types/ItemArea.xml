@@ -1,33 +1,25 @@
 <?xml version="1.0"?>
-<object name="Project" meta_type="Dexterity FTI"
+<object name="ItemArea" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Project</property>
+ <property name="title" i18n:translate="">ItemArea</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
- <property name="factory">Project</property>
- <property name="add_view_expr">string:${folder_url}/++add++Project</property>
+ <property name="factory">ItemArea</property>
+ <property name="add_view_expr">string:${folder_url}/++add++ItemArea</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
  <property name="global_allow">True</property>
- <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-        <element value="Folder"/>
-        <element value="WorkPlan"/>
-        <element value="ImprovementArea"/>
- </property>
+ <property name="filter_content_types">False</property>
+ <property name="allowed_content_types"></property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">plone.dexterity.content.Container</property>
  <property name="behaviors">
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
-  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
-  <element value="plone.app.relationfield.behavior.IRelatedItems"/>
  </property>
- <property name="schema">gwopa.core.content.project.IProject</property>
+ <property name="schema">gwopa.core.content.itemarea.IItemArea</property>
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>
  <alias from="(Default)" to="(dynamic view)"/>

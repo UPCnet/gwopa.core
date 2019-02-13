@@ -4,8 +4,8 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
-from gwopa.core import utils
-
+from plone.directives import form
+from z3c.form.interfaces import IAddForm, IEditForm
 
 grok.templatedir("templates")
 
@@ -58,6 +58,19 @@ class IOutput(model.Schema):
         title=_(u"Risks / Assumptions"),
         required=False,
     )
+
+    form.mode(gwopa_year='hidden')
+    form.mode(IEditForm, gwopa_year='display')
+    form.mode(IAddForm, gwopa_year='hidden')
+    gwopa_year = schema.TextLine(
+        title=_(u'Internal code (YEAR)'),
+        description=_(u'Internal code used only by administrators.'),
+        required=False)
+
+
+@form.default_value(field=IOutput['gwopa_year'])
+def codeDefaultValue(data):
+    return data.request.form['year']
 
 
 class View(grok.View):

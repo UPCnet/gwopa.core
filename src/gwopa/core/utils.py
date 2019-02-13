@@ -160,6 +160,19 @@ directlyProvides(listWOPPrograms, IContextSourceBinder)
 directlyProvides(outputs, IContextSourceBinder)
 
 
+def area_title(context):
+    """ Titles of Improvement Areas """
+    terms = []
+    literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
+    for item in literals:
+        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(area_title, IContextSourceBinder)
+
+
 def get_safe_member_by_id(username):
     """Gets user info from the repoze.catalog based user properties catalog.
        This is a safe implementation for getMemberById portal_membership to

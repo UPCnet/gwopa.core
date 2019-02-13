@@ -9,7 +9,8 @@ from zope.interface import invariant
 from gwopa.core import utils
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
-
+from plone.directives import form
+from z3c.form.interfaces import IAddForm, IEditForm
 
 grok.templatedir("templates")
 
@@ -91,18 +92,24 @@ class IActivity(model.Schema):
         vocabulary=u'plone.app.vocabularies.Users',
     )
 
-    directives.widget('area', SelectWidget)
-    area = schema.List(
+    area = schema.Choice(
         title=_(u"Related Improvement Areas"),
-        description=_(u"Used to sort in planning module"),
-        value_type=schema.Choice(
-            source=utils.contextAreas),
-        required=False,)
+        required=False,
+        source=utils.contextAreas
+    )
 
-    year = schema.TextLine(
-        title=_(u'Year'),
-        description=_(u"Used to sort in planning module"),
+    form.mode(gwopa_year='hidden')
+    form.mode(IEditForm, gwopa_year='display')
+    form.mode(IAddForm, gwopa_year='hidden')
+    gwopa_year = schema.TextLine(
+        title=_(u'Internal code (YEAR)'),
+        description=_(u'Internal code used only by administrators.'),
         required=False)
+
+
+@form.default_value(field=IActivity['gwopa_year'])
+def codeDefaultValue(data):
+    return data.request.form['year']
 
     @invariant
     def validate_start_end(data):
