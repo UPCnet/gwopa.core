@@ -6,8 +6,6 @@ from zope import schema
 from gwopa.core import _
 from plone.directives import form
 from plone import api
-from itertools import groupby
-from operator import itemgetter
 
 grok.templatedir("templates")
 
@@ -30,15 +28,16 @@ class View(grok.View):
     grok.template('outcomecc_view')
 
     def getItems(self):
+
         items = api.content.find(
             portal_type='OutcomeCCValues',
             path={'query': '/'.join(self.context.getPhysicalPath()),
                   'depth': 1})
         results = []
-
         for item in items:
-            icon = api.content.find(portal_type='OutcomeCCItem', Title=item.Title)[0].getObject().icon
-            category = api.content.find(portal_type='OutcomeCCItem', Title=item.Title)[0].getObject().category
+            outcome = api.content.find(portal_type='OutcomeCCItem', id=item.id)[0].getObject()
+            icon = outcome.icon
+            category = outcome.category
             results.append(dict(
                 title=item.Title,
                 icon=icon,

@@ -33,17 +33,20 @@ class Renderer(base.Renderer):
         if IProject.providedBy(self.context):
             return self.context.absolute_url()
         else:
-            portal_state = self.context.unrestrictedTraverse('@@plone_portal_state')
-            root = getNavigationRootObject(self.context, portal_state.portal())
-            physical_path = aq_inner(self.context).getPhysicalPath()
+            try:
+                portal_state = self.context.restrictedTraverse('@@plone_portal_state')
+                root = getNavigationRootObject(self.context, portal_state.portal())
+                physical_path = aq_inner(self.context).getPhysicalPath()
 
-            relative = physical_path[len(root.getPhysicalPath()):]
+                relative = physical_path[len(root.getPhysicalPath()):]
 
-            for i in range(len(relative)):
-                now = relative[:i + 1]
-                obj = aq_inner(root.restrictedTraverse(now))
-                if IProject.providedBy(obj):
-                    return obj.absolute_url()
+                for i in range(len(relative)):
+                    now = relative[:i + 1]
+                    obj = aq_inner(root.restrictedTraverse(now))
+                    if IProject.providedBy(obj):
+                        return obj.absolute_url()
+            except:
+                return None
 
         return None
 

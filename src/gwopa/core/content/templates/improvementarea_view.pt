@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="col-xs-6 col-md-3 col-lg-3">
+      <div class="col-xs-6 col-md-3">
         <div id="membersBlock" tal:define="recent_items view/getMembers">
           <h2><tal:block i18n:translate="">Member</tal:block>
             <a class="pat-plone-modal right" id="add-new-member" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/events/++add++Event">
@@ -56,24 +56,27 @@
           <a class="pat-plone-modal right" id="add-new-event" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/events/++add++Event">
               <button id="add-new-event" class="context focus" i18n:translate=""> + New Event </button>
           </a></h2>
+          <div class="clearfix"></div>
 
             <header class="portlet-header">
+             <h3 style="text-align: center;">
+
              <a href="#" rel="nofollow" class="calendari-anterior" title="Previous month"
                 tal:define="prev_month view/prev_month; prev_year view/prev_year;"
                 tal:attributes="href view/prev_query; data-year prev_year; data-month prev_month;"
                 i18n:attributes="title title_previous_month;"> « </a>
-             <h3>
                 <span i18n:translate="" tal:omit-tag="">
                    <span i18n:name="monthname" i18n:translate="" tal:content="view/month_name" tal:omit-tag="">monthname</span>
                 </span>
                 <span i18n:translate="" tal:omit-tag="">
                    <span i18n:name="year" i18n:translate="" tal:content="year" tal:omit-tag="">year</span>
                 </span>
-             </h3>
              <a href="#" rel="nofollow" class="calendari-seguent" title="Next month"
                 tal:define="next_month view/next_month; next_year view/next_year"
                 tal:attributes="href view/next_query; data-year next_year; data-month next_month; "
                 i18n:attributes="title title_next_month;"> » </a>
+             </h3>
+
             </header>
             <article class="portlet-content">
               <div class="pad">

@@ -7,7 +7,6 @@ from zope.publisher.interfaces import IPublishTraverse
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
-from Products.statusmessages.interfaces import IStatusMessage
 
 
 @implementer(IPublishTraverse)
@@ -109,7 +108,7 @@ class planningView(BrowserView):
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                url='/'.join(item.getPhysicalPath())))
+                url='/'.join(item.getObject().getPhysicalPath())))
         return results
 
     def listOutcomesCC(self):
@@ -127,6 +126,5 @@ class planningView(BrowserView):
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                url='/'.join(item.getPhysicalPath())))
+                url='/'.join(item.getObject().getPhysicalPath())))
         return results
-

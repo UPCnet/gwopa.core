@@ -24,7 +24,7 @@
     </div>
 
     <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
-      <fieldset>
+      <fieldset style="min-width:100%">
         <legend>Project</legend>
         <div>
           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea" href="#"><button class="context focus"> + New Improvement Area</button></a>
@@ -66,7 +66,7 @@
           </tal:block-activities>
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset style="min-width: 100%">
         <legend>Outcomes</legend>
         <div>
           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI" href="#"><button class="context focus"> + New OutcomeKPI</button></a>
@@ -101,22 +101,6 @@
         </div>
       </fieldset>
     </div>
-
-    <script type="text/javascript">
-      $('button.remove').on('click', function (e) {
-        $('[data-toggle="popover"]').each(function () {
-            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-                $(this).popover('hide');
-            } else {
-              var name=$(this).data()['item'];
-              var portal_type=$(this).data()['type'];
-              var message='<a class="btn btn-info"> No </a>';
-              $(this).attr('data-content',message);
-              $(this).popover('show');
-            }
-        });
-    });
-  </script>
 
   </metal:block>
 

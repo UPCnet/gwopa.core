@@ -8,6 +8,7 @@ from gwopa.core.content.outcomecc import IOutcomecc
 from gwopa.core.content.outcomeccs import IOutcomeccs
 from plone import api
 import datetime
+import transaction
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
@@ -52,29 +53,33 @@ def improvementAreaAdded(content, event):
         Copy value from behaviour fields to project fields.projectAnd create
         current year workplan
     """
-    # events = api.content.create(
-    #     type='Folder',
-    #     id='events',
-    #     title='Events',
-    #     container=content)
+    api.content.create(
+        type='Folder',
+        id='events',
+        title='Events',
+        container=content)
+    transaction.commit()
 
-    # files = api.content.create(
-    #     type='Folder',
-    #     id='files',
-    #     title='Files',
-    #     container=content)
+    api.content.create(
+        type='Folder',
+        id='files',
+        title='Files',
+        container=content)
+    transaction.commit()
 
-    # topics = api.content.create(
-    #     type='Folder',
-    #     id='topics',
-    #     title='Topics',
-    #     container=content)
+    api.content.create(
+        type='Folder',
+        id='topics',
+        title='Topics',
+        container=content)
+    transaction.commit()
 
-    # outcomes = api.content.create(
-    #     type='OutcomeCC',
-    #     id='outcomecc',
-    #     title='OutcomeCC',
-    #     container=content)
+    api.content.create(
+        type='OutcomeCC',
+        id='outcomecc',
+        title='OutcomeCC',
+        container=content)
+    transaction.commit()
 
     # events.reindexObject()
     # files.reindexObject()
