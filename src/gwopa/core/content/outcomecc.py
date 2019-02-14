@@ -6,6 +6,7 @@ from zope import schema
 from gwopa.core import _
 from plone.directives import form
 from plone import api
+from collections import defaultdict
 
 grok.templatedir("templates")
 
@@ -43,7 +44,12 @@ class View(grok.View):
                 icon=icon,
                 category=category,
                 url=item.getURL()))
-        return results
+        groups = defaultdict(list)
+        for obj in results:
+            groups[obj['category']].append(obj)
+
+        new_list = groups.values()
+        return dict(zero=new_list[0], uno=new_list[1], dos=new_list[2])
 
 
 class Edit(form.SchemaEditForm):

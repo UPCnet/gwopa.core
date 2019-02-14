@@ -10,15 +10,52 @@
 <metal:content-core fill-slot="content-core">
 
 <span tal:define="items view/getItems">
-    <ul tal:repeat="item items">
-        <li>
+  <span tal:define="zero items/zero">
+    <span tal:content="python:zero[0]['category']"></span>
+      <ul >
+
+          <li tal:repeat="item zero">
+              <i tal:attributes="class string:fa ${item/icon}"></i>
+              <a tal:attributes="href item/url"><span tal:content="item/title"></span></a>
+
+          </li>
+      </ul>
+  </span>
+   <span tal:define="zero items/uno">
+    <span tal:content="python:zero[0]['category']"></span>
+      <ul >
+
+          <li tal:repeat="item zero">
+              <i tal:attributes="class string:fa ${item/icon}"></i>
+              <a tal:attributes="href item/url"><span tal:content="item/title"></span></a>
+
+          </li>
+      </ul>
+  </span>
+  <span tal:define="zero items/dos">
+    <span tal:content="python:zero[0]['category']"></span>
+      <ul >
+
+          <li tal:repeat="item zero">
+              <i tal:attributes="class string:fa ${item/icon}"></i>
+              <a tal:attributes="href item/url"><span tal:content="item/title"></span></a>
+
+          </li>
+      </ul>
+  </span> 
+
+</span>
+<!-- <span tal:define="items view/getItems['zero']">
+    <span tal:content="python:items[0]['category']"></span>
+    <ul >
+
+        <li tal:repeat="item items">
             <span tal:content="item/icon"></span>
-            <span tal:content="item/category"></span>
             <a tal:attributes="href item/url"><span tal:content="item/title"></span></a>
 
         </li>
     </ul>
-</span>
+</span> -->
 
 </metal:content-core>
 
