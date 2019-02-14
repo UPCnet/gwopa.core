@@ -101,15 +101,28 @@ class IActivity(model.Schema):
     form.mode(gwopa_year='hidden')
     form.mode(IEditForm, gwopa_year='display')
     form.mode(IAddForm, gwopa_year='hidden')
-    gwopa_year = schema.TextLine(
+    gwopa_year = schema.Int(
         title=_(u'Internal code (YEAR)'),
         description=_(u'Internal code used only by administrators.'),
+        required=False)
+
+    # form.mode(gwopa_code_hash='hidden')
+    # form.mode(IEditForm, gwopa_code_hash='display')
+    # form.mode(IAddForm, gwopa_code_hash='hidden')
+    gwopa_code_hash = schema.TextLine(
+        title=_(u'GWOPA CODE HASH'),
         required=False)
 
 
 @form.default_value(field=IActivity['gwopa_year'])
 def codeDefaultValue(data):
-    return data.request.form['year']
+    return int(data.request.form['year'])
+
+
+@form.default_value(field=IActivity['gwopa_code_hash'])
+def hashValue(data):
+    """ ACT-M-2019"""
+    return 'ACT-M-' + data.request.form['year']
 
     @invariant
     def validate_start_end(data):

@@ -62,7 +62,7 @@ class IOutput(model.Schema):
     form.mode(gwopa_year='hidden')
     form.mode(IEditForm, gwopa_year='display')
     form.mode(IAddForm, gwopa_year='hidden')
-    gwopa_year = schema.TextLine(
+    gwopa_year = schema.Int(
         title=_(u'Internal code (YEAR)'),
         description=_(u'Internal code used only by administrators.'),
         required=False)

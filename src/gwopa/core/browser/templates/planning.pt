@@ -17,21 +17,10 @@
     <div class="documentDescription description"> Annual Work Plan for year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
 
     <div class="wp-buttons">
-      <a tal:attributes="href string:${context/absolute_url}/planning/${currentYear}/copy" href="#">
+      <a tal:attributes="href string:${context/absolute_url}/duplicateYear?id=${currentYear}">
         <button class="plone-btn-warning"><i class="fa fa-copy"></i> Duplicate Work Plan</button></a>
-      <a tal:attributes="href string:${context/absolute_url}/planning/removeElement; data-action string:delete; data-type string:${currentYear}">
+      <a tal:attributes="href string:${context/absolute_url}/deleteYear?id=${currentYear};">
         <button class="plone-btn-danger"><i class="fa fa-remove"></i> Delete Work Plan</button></a>
-                    <button type="button" class="remove label label-important"
-                        data-container="body"
-                        data-toggle="popover"
-                        data-placement="left"
-                        data-html="true"
-                        data-trigger="focus"
-                        data-original-title="Esborra"
->
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                      </button>
-
     </div>
 
     <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">

@@ -42,8 +42,8 @@ class setup(grok.View):
                 logger.info('%s' % self.context.id)
                 self.createDemoContent()
                 message = _(u"Demo content has been created.")
-                IStatusMessage(self.request).addStatusMessage(message, type="info")
-                logger = logging.getLogger('# Created DEMO CONTENT')
+                IStatusMessage(self.request).addStatusMessage(message, type="warning")
+                logger = logging.getLogger('# DEMO CONTENT HAS BEEN CREATED!')
                 logger.info('%s' % self.context.id)
                 # self.request.response.redirect(self.context.absolute_url())
 

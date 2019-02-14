@@ -159,8 +159,16 @@
   <!-- DELETE -->
   <browser:page
     for="*"
-    name="removeElement"
+    name="deleteYear"
     class=".views.Delete"
+    layer="..interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <!-- COPY -->
+  <browser:page
+    for="*"
+    name="duplicateYear"
+    class=".views.Copy"
     layer="..interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 

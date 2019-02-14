@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
 
-<!--   <column value="gwopa_code_ia"/>
-  <column value="gwopa_code_project"/> -->
-
   <index name="gwopa_code_ia" meta_type="FieldIndex">
     <indexed_attr value="gwopa_code_ia"/>
   </index>
@@ -17,5 +14,8 @@
     <indexed_attr value="gwopa_year"/>
   </index>
 
+  <column value="gwopa_code_ia" />
+  <column value="gwopa_code_project" />
+  <column value="gwopa_year" />
 
 </object>

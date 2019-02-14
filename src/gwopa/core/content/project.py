@@ -172,19 +172,21 @@ class IProject(model.Schema):
         required=False
     )
 
-    @invariant
-    def validate_start_end(data):
-        if (data.start and data.end and data.start > data.end):
-            raise StartBeforeEnd(u"End date must be after start date.")
-
 
 @form.default_value(field=IProject['gwopa_code_project'])
 def codeDefaultValue(data):
+    # TODO: Sort ids to assign the next one, to bypass
+    # empty/missing values on delete
     items = len(api.content.find(
         portal_type='Project',
         context=data.context))
 
     return 'PR-{0}'.format(str(items + 1).zfill(3))
+
+    @invariant
+    def validate_start_end(data):
+        if (data.start and data.end and data.start > data.end):
+            raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):

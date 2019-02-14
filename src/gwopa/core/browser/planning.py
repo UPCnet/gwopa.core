@@ -7,6 +7,7 @@ from zope.publisher.interfaces import IPublishTraverse
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
+from Products.statusmessages.interfaces import IStatusMessage
 
 
 @implementer(IPublishTraverse)
@@ -30,25 +31,6 @@ class planningView(BrowserView):
         path_ordered = request.path[-1:]
         # get all param in the path -> the year /planning/2019
         self.year = '/'.join(path_ordered)
-        if len(request.path) == 2:
-            if request.path[-2::-1][0] == 'delete':
-                print "# Deleting year -> " + str(request.path[-1])
-                self.action = 'delete'
-                #deleteyear = request.path[-1]
-                # portal_catalog = getToolByName(self, 'portal_catalog')
-                # items = portal_catalog.unrestrictedSearchResults(
-                #     portal_type=['Activity', 'Output'],
-                #     gwopa_year=self.year,
-                #     path={'query': self.context.absolute_url_path(),
-                #           'depth': 2})
-                # for item in items:
-                #     api.content.delete(obj=item)
-            elif request.path[-2::-1][0] == 'copy':
-                self.action = 'copy'
-            else:
-                self.action = 'None'
-        else:
-            self.action = 'None'
 
     def getYear(self):
         return self.year
@@ -56,9 +38,10 @@ class planningView(BrowserView):
     def __call__(self):
         if not self.year:
             # Empty query returns default template
-            self.year = str(datetime.datetime.now().year)
+            self.year = datetime.datetime.now().year
             return self.index()
         else:
+            self.year = int(self.year)
             return self.index()
         # TODO: if copy or delete make action!
 
@@ -146,5 +129,4 @@ class planningView(BrowserView):
                 portal_type=item.portal_type,
                 url='/'.join(item.getPhysicalPath())))
         return results
-
 

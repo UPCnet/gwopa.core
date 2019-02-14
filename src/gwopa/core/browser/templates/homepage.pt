@@ -89,20 +89,24 @@
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box">
                               <a tal:attributes="href item/url">
-                                <img class="img200" tal:attributes="src string:${item/image};"/></a>
-                              <div class="card-body">
-                                <h4 class="card-title top">
-                                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                                </h4>
-                                <p class="card-text bottom">
-                                  <span tal:condition="date_start" tal:define="date_start item/start"
-                                      tal:content="python:date_start.strftime('%m/%d/%Y')"></span>
-                                  <span tal:condition="date_end" tal:define="date_end item/end"
-                                      tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
-                                  <span tal:condition="item/country" tal:content="item/country"></span>
-                                  <span tal:condition="item/project_manager" tal:content="item/project_manager"></span>
-                                </p>
-                              </div>
+                                <img class="img200" tal:attributes="src string:${item/image};"/>
+                                <div class="card-body">
+                                  <h4 class="card-title top" tal:content="item/title">Event Title</h4>
+                                  <p class="card-text bottom">
+                                    <span>
+                                      <tal:block tal:condition="date_start" tal:define="date_start item/start">
+                                        From <tal:omit-tag tal:content="python:date_start.strftime('%m/%d/%Y')"></tal:omit-tag>
+                                      </tal:block>
+                                      <tal:block tal:condition="date_end" tal:define="date_end item/end">
+                                       to
+                                        <tal:omit-tag tal:content="python:date_end.strftime('%m/%d/%Y')"></tal:omit-tag>
+                                      </tal:block>
+                                    </span>
+                                    <span tal:condition="item/country" tal:content="item/country"></span>
+                                    <span tal:condition="item/project_manager" tal:content="item/project_manager"></span>
+                                  </p>
+                                </div>
+                              </a>
                             </div>
                           </div>
                         </tal:items>
@@ -124,20 +128,23 @@
                             <div class="box">
                               <a tal:attributes="href item/url">
                                 <img class="img200" tal:attributes="src string:${item/image};"/>
+                                <div class="card-body">
+                                  <h4 class="card-title top" tal:content="item/title">Event Title</h4>
+                                  <p class="card-text bottom">
+                                    <span>
+                                      <tal:block tal:condition="date_start" tal:define="date_start item/start">
+                                        From <tal:omit-tag tal:content="python:date_start.strftime('%m/%d/%Y')"></tal:omit-tag>
+                                      </tal:block>
+                                      <tal:block tal:condition="date_end" tal:define="date_end item/end">
+                                       to
+                                        <tal:omit-tag tal:content="python:date_end.strftime('%m/%d/%Y')"></tal:omit-tag>
+                                      </tal:block>
+                                    </span>
+                                    <span tal:condition="item/country" tal:content="item/country"></span>
+                                    <span tal:condition="item/project_manager" tal:content="item/project_manager"></span>
+                                  </p>
+                                </div>
                               </a>
-                              <div class="card-body">
-                                <h4 class="card-title top">
-                                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                                </h4>
-                                <p class="card-text bottom">
-                                  <span tal:condition="date_start" tal:define="date_start item/start"
-                                      tal:content="python:date_start.strftime('%m/%d/%Y')"></span>
-                                  <span tal:condition="date_end" tal:define="date_end item/end"
-                                      tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
-                                  <span tal:condition="item/country" tal:content="item/country"></span>
-                                  <span tal:condition="item/project_manager" tal:content="item/project_manager"></span>
-                                </p>
-                              </div>
                             </div>
                           </div>
                         </tal:items>
@@ -162,28 +169,31 @@
                     <div class="col-xs-12 col-sm-12">
                       <tal:AllProjects define="items view/allProjects;
                               toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
-                          <tal:items repeat="item items">
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="box">
-                                <a tal:attributes="href item/url">
-                                  <img class="img200" tal:attributes="src string:${item/image};"/>
-                                </a>
+                        <tal:items repeat="item items">
+                          <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="box">
+                              <a tal:attributes="href item/url">
+                                <img class="img200" tal:attributes="src string:${item/image};"/>
                                 <div class="card-body">
-                                  <h4 class="card-title top">
-                                    <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                                  </h4>
+                                  <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
-                                    <span tal:condition="date_start" tal:define="date_start item/start"
-                                        tal:content="python:date_start.strftime('%m/%d/%Y')"></span>
-                                    <span tal:condition="date_end" tal:define="date_end item/end"
-                                        tal:content="python:date_end.strftime('%m/%d/%Y')"></span>
+                                    <span>
+                                      <tal:block tal:condition="date_start" tal:define="date_start item/start">
+                                        From <tal:omit-tag tal:content="python:date_start.strftime('%m/%d/%Y')"></tal:omit-tag>
+                                      </tal:block>
+                                      <tal:block tal:condition="date_end" tal:define="date_end item/end">
+                                       to
+                                        <tal:omit-tag tal:content="python:date_end.strftime('%m/%d/%Y')"></tal:omit-tag>
+                                      </tal:block>
+                                    </span>
                                     <span tal:condition="item/country" tal:content="item/country"></span>
                                     <span tal:condition="item/project_manager" tal:content="item/project_manager"></span>
                                   </p>
                                 </div>
-                              </div>
+                              </a>
                             </div>
-                          </tal:items>
+                          </div>
+                        </tal:items>
                       </tal:AllProjects>
                      </div>
                   </div>

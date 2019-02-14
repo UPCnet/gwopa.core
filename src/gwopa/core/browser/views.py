@@ -5,6 +5,8 @@ from Products.CMFCore.utils import getToolByName
 from plone import api
 from geojson import Feature, Point, FeatureCollection
 from gwopa.core import _
+import transaction
+from Products.statusmessages.interfaces import IStatusMessage
 
 
 class listFiles(BrowserView):
@@ -110,7 +112,35 @@ class mapView(BrowserView):
 class Delete(BrowserView):
     """ Delete elements from year XXX """
     def __call__(self):
-        portal_catalog = getToolByName(self, 'portal_catalog')
-        action = self.request.form.get('action')
-        itemid = self.request.form.get('year')
-        import ipdb; ipdb.set_trace()
+        messages = IStatusMessage(self.request)
+        year = int(self.request.form['id'])
+        items = api.content.find(
+            portal_type=['Activity', 'Output'],
+            context=self.context,
+            gwopa_year=year)
+        for item in items:
+            elem = item.getObject()
+            api.content.delete(obj=elem)
+            transaction.commit()
+        message = _(u"Workplan deleted from year: ") + str(year)
+        messages.addStatusMessage(message, type="info")
+        self.request.response.redirect(self.context.absolute_url_path() + '/planning')
+
+
+class Copy(BrowserView):
+    """ Copy  elements from year XXX """
+    def __call__(self):
+        messages = IStatusMessage(self.request)
+        year = int(self.request.form['id'])
+        items = api.content.find(
+            portal_type=['Activity', 'Output'],
+            context=self.context,
+            gwopa_year=year)
+        for item in items:
+            elem = item.getObject()
+            obj = api.content.copy(source=elem, target=elem.aq_parent, safe_id=True)
+            obj.gwopa_year = int(year) + 1
+            transaction.commit()
+        message = _(u"Workplan duplicated.")
+        messages.addStatusMessage(message, type="info")
+        self.request.response.redirect(self.context.absolute_url_path() + '/planning')
