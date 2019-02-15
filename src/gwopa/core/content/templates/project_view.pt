@@ -6,9 +6,8 @@
     i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="main">
 
-  <metal:block define-macro="content-core"
+<metal:content-core fill-slot="content-core"
       tal:define="partners context/partners;
                   project_manager context/project_manager;
                   project_manager_admin context/project_manager_admin;
@@ -197,8 +196,6 @@
       </tal:areas>
     </tal:block>
   </div>
-
-</metal:block>
 
 </metal:content-core>
 

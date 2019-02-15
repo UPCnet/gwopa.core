@@ -9,8 +9,9 @@
                 isRootFolder view/isRootFolder;
                 projectPath view/projectPath">
     <ul id="sidenav-vertical">
-        <a tal:attributes="href string:${portal_url};
-             class python:isRootFolder and 'plone-btn plone-btn-info' or 'plone-btn plone-btn-info active'"><i class="fa fa-home" aria-hidden="true"></i> PMP </a>
+        <a href="#" tal:attributes="href string:${portal_url}"><img tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png" style="width: 157px;"/></a>
+<!--         <a tal:attributes="href string:${portal_url};
+             class python:isRootFolder and 'plone-btn plone-btn-info' or 'plone-btn plone-btn-info active'"><i class="fa fa-home" aria-hidden="true"></i> PMP </a> -->
         <tal:omit-tag tal:condition="not:isRootFolder">
             <ul id="sidenav-vertical-overview">
                 <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/areas" href="#"><i class="fas fa-chart-area" aria-hidden="true"></i> Areas </a>

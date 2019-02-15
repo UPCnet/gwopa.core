@@ -12,7 +12,7 @@
         <img alt="Plone Toolbar" tal:attributes="src view/get_toolbar_logo" />
       </a>
       <a class="plone-toolbar-switcher" tal:condition="view/show_switcher"><span>Left-Top switcher</span></a>
-      <a href="#" tal:attributes="href string:${portal_url}"><img  class="logo_img" tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"></a>
+<!--       <a href="#" tal:attributes="href string:${portal_url}"><img  class="logo_img" tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"></a> -->
       <nav>
 
         <ul id="personal-bar-container">

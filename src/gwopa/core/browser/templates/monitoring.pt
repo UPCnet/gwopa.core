@@ -163,7 +163,7 @@
       </div>
     </div>
   </fieldset>
-  
+
       <fieldset>
         <legend>Outcomes</legend>
         <div>
@@ -324,7 +324,7 @@
                         <td>6</td>
                         <td class="date-w">31/1/2025</td>
                     </tr>
-                    <tr class="descripcion">
+                    <tr class="descripcion" id="CCS">
                       <td colspan="7">
                         <div class="row text-item-planning collapse CCS-Monitoring" id="Monitoring-CCS">
                       <div class="col-sm-12" id="tabla">
@@ -425,297 +425,1346 @@
                         <td>6</td>
                         <td>31/1/2025</td>
                 </tr>
-                <tr class="descripcion">
+                <tr class="descripcion" id="CC">
                       <td colspan="7">
-                        <div class="row text-item-planning collapse CC-Monitoring" id="Monitoring-CC">
-                          <div class="col-sm-12" id="tabla">
-                        <table>
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th class="thname">Type of change</th>
-                              <th>Change</th>
-                              <th>Explanatory Notes</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                              <td>1</td>
-                              <td>Mission/Strategy</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>2</td>
-                              <td>Leadership</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>3</td>
-                              <td>Organizational culture</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>4</td>
-                              <td>Relationship with jey stakeholders</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>5</td>
-                              <td>Organizational structure</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>6</td>
-                              <td>Management practices</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>7</td>
-                              <td>Systems and policies</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>8</td>
-                              <td>Working routines</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>9</td>
-                              <td>Equipment</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>10</td>
-                              <td>Infraestructure</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>11</td>
-                              <td>Individual's position-skill fit</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>12</td>
-                              <td>Individual's motivation</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>13</td>
-                              <td>Others</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="col-sm-12" id="furexp">
-                        <h3> Further explanation</h3>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                      </div>
-                      <div class="col-sm-12">
-                          <div class="col-sm-6" id="mainobstacle">
-                            <h3> Main Obstacles </h3>
-                        <select name="Name">
-                          <option value="#">Ejemplo 1</option>
-                        </select>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                        </div>
-                        <div class="col-sm-6" id="mainsupfac">
-                          <h3> Main Supporting factors </h3>
-                        <select name="Name">
-                          <option value="#">Ejemplo 1</option>
-                        </select>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                        </div>
-                      </div>
-                      <div class="col-sm-12" id="furexp">
-                        <h3>Degree of relevance / things to consider for future planning  </h3>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                      </div>
-                     <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                  </div>
-                </td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
+
+<!-- OTFDMissionStrategy  -->
+<a href="#OTFD" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTFD" aria-expanded="true">
+    <h3 class="titulocatplan">Organizational transformational dimensions</h3>
+    <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+    <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+</a>
+<div id="OTFD" class="panel-collapse collapse in secundario" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
+  <!-- Mission & Strategy OTFDMissionStrategy -->
+  <a href="#OTFDMissionStrategy" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTFDMissionStrategy" aria-expanded="true">
+      <h4 class="titulocatplan">Mission & Strategy</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTFDMissionStrategy" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
       </div>
-
-
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Collaboration</legend>
-          Empty :(
-      </fieldset>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Leadership OTFDLeadership -->
+  <a href="#OTFDLeadership" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTFDLeadership" aria-expanded="true">
+      <h4 class="titulocatplan">Leadership</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTFDLeadership" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Organizational culture OTFDOrganizationalCulture -->
+  <a href="#OTFDOrganizationalCulture" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTFDOrganizationalCulture" aria-expanded="true">
+      <h4 class="titulocatplan">Organizational culture</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTFDOrganizationalCulture" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Others OTFDOthers -->
+  <a href="#OTFDOthers" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTFDOthers" aria-expanded="true">
+      <h4 class="titulocatplan">Mission & Strategy</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTFDOthers" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Organizational transactional dimensions -->
+<a href="#OTAD" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTAD" aria-expanded="true">
+    <h3 class="titulocatplan">Organizational transactional dimensions</h3>
+    <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+    <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+</a>
+<div id="OTAD" class="panel-collapse collapse in secundario" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
+  <!-- Organizational structure others OTADOrganizationalStructureOthers -->
+  <a href="#OTADOrganizationalStructureOthers" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTADOrganizationalStructureOthers" aria-expanded="true">
+      <h4 class="titulocatplan">Organizational structure others</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTADOrganizationalStructureOthers" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Organizational structure others</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Management practices OTADManagementPractices -->
+  <a href="#OTADManagementPractices" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTADManagementPractices" aria-expanded="true">
+      <h4 class="titulocatplan"> Management practices</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTADManagementPractices" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Systems OTADSystems -->
+  <a href="#OTADSystems" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTADSystems" aria-expanded="true">
+      <h4 class="titulocatplan">Systems</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTADSystems" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Infraestructure OTADInfraestructure -->
+  <a href="#OTADInfraestructure" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTADInfraestructure" aria-expanded="true">
+      <h4 class="titulocatplan">Infraestructure</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTADInfraestructure" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Equipment OTADEquipment -->
+  <a href="#OTADEquipment" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTADEquipment" aria-expanded="true">
+      <h4 class="titulocatplan">Equipment </h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTADEquipment" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Updated knowledge on conditions of systems & infraestructure OTADukocosi -->
+  <a href="#OTADukocosi" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTADukocosi" aria-expanded="true">
+      <h4 class="titulocatplan">Updated knowledge on conditions of systems & infraestructure</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTADukocosi" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Working routines OTADWorkingRoutines -->
+  <a href="#OTADWorkingRoutines" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTADWorkingRoutines" aria-expanded="true">
+      <h4 class="titulocatplan">Working routines</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTADWorkingRoutines" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Others OTADOthers -->
+  <a href="#OTADOthers" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTADOthers" aria-expanded="true">
+      <h4 class="titulocatplan">Others</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="OTADOthers" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Individual dimensions IndDim  -->
+<a href="#IndDim" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#IndDim" aria-expanded="true">
+    <h3 class="titulocatplan">Individual dimensions</h3>
+    <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+    <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+</a>
+<div id="IndDim" class="panel-collapse collapse in secundario" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
+  <!-- Motivation IDMotivation -->
+  <a href="#IDMotivation" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#IDMotivation" aria-expanded="true">
+      <h4 class="titulocatplan">Motivation</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="IDMotivation" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Fit between skill & knowledge and taskes to perform IDfbskattp -->
+  <a href="#IDfbskattp" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#IDfbskattp" aria-expanded="true">
+      <h4 class="titulocatplan">Fit between skill & knowledge and taskes to perform</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="IDfbskattp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Applied new skills & knowledge IDansk -->
+  <a href="#IDansk" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#IDansk" aria-expanded="true">
+      <h4 class="titulocatplan">Applied new skills & knowledge</h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="IDansk" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Others IDOthers -->
+  <a href="#IDOthers" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#IDOthers" aria-expanded="true">
+      <h4 class="titulocatplan"> Others </h4>
+      <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+      <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+  </a>
+  <div id="IDOthers" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 
-
-
+</fieldset>
 </metal:block>
-
 </metal:content-core>
+
 
 </body>
 </html>
