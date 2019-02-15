@@ -326,68 +326,87 @@
                     </tr>
                     <tr class="descripcion" id="CCS">
                       <td colspan="7">
-                        <div class="row text-item-planning collapse CCS-Monitoring" id="Monitoring-CCS">
-                      <div class="col-sm-12" id="tabla">
-                        <table>
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th class="thname">Type of change</th>
-                              <th>Change</th>
-                              <th>Explanatory Notes</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                              <td>1</td>
-                              <td>Mission/Strategy</td>
-                              <td>
-                                <select name="Name">
-                                  <option value="#">-2</option>
-                                  <option value="#">-1</option>
-                                  <option value="#"> 0</option>
-                                  <option value="#">+1</option>
-                                  <option value="#">+2</option>
-                                </select>
-                              </td>
-                              <td>
-                                <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                                </textarea>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="col-sm-12" id="furexp">
-                        <h3> Further explanation</h3>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="col-sm-6" id="mainobstacle">
-                          <h3> Main Obstacles </h3>
-                        <select name="Name">
-                          <option value="#">Ejemplo 1</option>
-                        </select>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                          </textarea>
-                        </div>
-                        <div class="col-sm-6" id="mainsupfac">
-                          <h3> Main Supporting factors </h3>
-                          <select name="Name">
-                          <option value="#">Ejemplo 1</option>
-                          </select>
-                          <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                          </textarea>
-                        </div>
-                      </div>
-                      <div class="col-sm-12" id="furexp">
-                        <h3> Degree of relevance / things to consider for future planning </h3>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                      </div>
-                      <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                    </div>
+<a href="#MonitoringCC" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringCC" aria-expanded="true">
+    <h4 class="titulocatplan">Mission & Strategy</h4>
+    <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+    <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+</a>
+<div id="MonitoringCC" class="panel-collapse collapse in secundario" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe perceived changes in the selected dimension</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+        <span data-option="PerceivedChanges">
+          <span data-option="PerceivedChanges" data-option-value="#">
+            <select name="Name">
+              <option value="#">-2 (Very negative change)</option>
+              <option value="#">-1 (Very negative change)</option>
+              <option value="#"> 0 (No perceived change)</option>
+              <option value="#">+1 (Positive change)</option>
+              <option value="#">+2 (Very positive change)</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the contributing factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the contributing factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">External enviroment</option>
+              <option value="#">WOP Activities </option>
+              <option value="#">Others </option>
+            </select>
+          </span>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Describe the limiting factors to the perceived changes</h3>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6">
+        <h3>Select the limiting factors to the perceived change</h3>
+        <span data-option="Factors">
+          <span data-option="Factors" data-option-value="#">
+            <select name="Name">
+              <option value="#">Unilaterial</option>
+              <option value="#">Consensuated</option>
+            </select>
+          </span>
+        </span>
+      </div>
+    </div>
+</div>
+
                   </td>
                 </tr>
               </tbody>
