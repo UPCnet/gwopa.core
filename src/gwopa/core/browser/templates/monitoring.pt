@@ -327,7 +327,7 @@
                     <tr class="descripcion" id="CCS">
                       <td colspan="7">
 <a href="#MonitoringCC" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringCC" aria-expanded="true">
-    <h4 class="titulocatplan">Mission & Strategy</h4>
+    <h3 class="titulocatplan">Mission & Strategy</h3>
     <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
     <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
 </a>
