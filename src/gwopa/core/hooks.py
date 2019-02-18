@@ -25,6 +25,7 @@ def projectAdded(content, event):
         type='WorkPlan',
         id=str(year),
         container=content)
+    return
 
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
@@ -80,6 +81,7 @@ def improvementAreaAdded(content, event):
         title='OutcomeCC',
         container=content)
     transaction.commit()
+    return
 
     # events.reindexObject()
     # files.reindexObject()
@@ -97,3 +99,4 @@ def OutcomeCCAdded(content, event):
             type='OutcomeCCValues',
             title=item.Title,
             container=content)
+    return

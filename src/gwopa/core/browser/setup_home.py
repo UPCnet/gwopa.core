@@ -484,11 +484,7 @@ class setup(grok.View):
                     http://lorempixel.com/
 
         """
-        try:
-            data = requests.get('https://via.placeholder.com/{0}x{1}/007bb1/ffffff?text=DEMO%20IMAGE'.format(w, h), verify=False, timeout=10).content
-        except ConnectionError:
-            data = requests.get(api.portal.get().absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
-
+        data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
         image = NamedBlobImage(data=data,
                                filename=u'image.jpg',
                                contentType='image/jpeg')
