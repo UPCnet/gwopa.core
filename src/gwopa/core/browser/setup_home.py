@@ -13,11 +13,21 @@ from Products.statusmessages.interfaces import IStatusMessage
 from gwopa.core import _
 from collective.geolocationbehavior.geolocation import IGeolocatable
 from plone.formwidget.geolocation.geolocation import Geolocation
+from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from plone.app.dexterity.behaviors import constrains
 
 from requests.exceptions import ConnectionError
 requests.packages.urllib3.disable_warnings()
 
+
 grok.templatedir("templates")
+
+
+def _setup_constrains(container, allowed_types):
+    behavior = ISelectableConstrainTypes(container)
+    behavior.setConstrainTypesMode(constrains.ENABLED)
+    behavior.setImmediatelyAddableTypes(allowed_types)
+    return True
 
 
 class setup(grok.View):
@@ -61,15 +71,26 @@ class setup(grok.View):
 
         # Get rid of the original page
         if getattr(portal, 'front-page', False):
-            api.content.delete(obj=portal['front-page'])
+            api.content.delete(obj=portal['front-page'], check_linkintegrity=False)
 
-        # Hide 'Members', 'news' and 'events' folders
+        # Delete 'Members', 'news' and 'events' folders
         if getattr(portal, 'Members', False):
-            api.content.delete(obj=portal['Members'])
+            api.content.delete(obj=portal['Members'], check_linkintegrity=False)
         if getattr(portal, 'news', False):
-            api.content.delete(obj=portal['news'])
+            api.content.delete(obj=portal['news'], check_linkintegrity=False)
         if getattr(portal, 'events', False):
-            api.content.delete(obj=portal['events'])
+            api.content.delete(obj=portal['events'], check_linkintegrity=False)
+
+        properties = dict(
+            fullname='Test',
+            location='USer1',
+        )
+        api.user.create(
+            username='user1',
+            email='user1@test.com',
+            password='user1',
+            properties=properties,
+        )
 
         # Set the default pages to the homepage view
         portal.setLayout('homepage')
@@ -82,48 +103,62 @@ class setup(grok.View):
                 Description='This folder contains configuration folders used in the Site and managed by the administrators',
                 container=portal,
                 safe_id=False)
-            api.content.create(
+            allowed_types = ['Folder', ]
+            _setup_constrains(config_folder, allowed_types)
+            programs = api.content.create(
                 type='Folder',
                 id='programs',
                 title='WOP Programs',
                 description='WOP Programs',
                 container=config_folder,
                 safe_id=False)
-            api.content.create(
+            allowed_types = ['Program', ]
+            _setup_constrains(programs, allowed_types)
+            platforms = api.content.create(
                 type='Folder',
                 id='platforms',
                 title='WOP Platforms',
                 description='WOP Platforms',
                 container=config_folder,
                 safe_id=False)
-            api.content.create(
+            allowed_types = ['Platform', ]
+            _setup_constrains(platforms, allowed_types)
+            partners = api.content.create(
                 type='Folder',
                 id='partners',
                 title='WOP Partners',
                 description='WOP Partners',
                 container=config_folder,
                 safe_id=False)
-            api.content.create(
+            allowed_types = ['Partner', ]
+            _setup_constrains(partners, allowed_types)
+            areas = api.content.create(
                 type='Folder',
                 id='areas',
                 title='Improvement Areas Items',
                 description='Improvement Areas used in the projects',
                 container=config_folder,
                 safe_id=False)
-            api.content.create(
+            allowed_types = ['ItemArea', ]
+            _setup_constrains(areas, allowed_types)
+            outcomes = api.content.create(
                 type='Folder',
                 id='capacitychanges',
                 title='Capacity Changes Values',
                 description='Values used in Outcome CC and CCS',
                 container=config_folder,
                 safe_id=False)
-            api.content.create(
+            allowed_types = ['OutcomeCCItem', ]
+            _setup_constrains(outcomes, allowed_types)
+            projects = api.content.create(
                 type='Folder',
                 id='projects',
                 title='Projects',
                 description='Projects of the Platform',
                 container=portal,
                 safe_id=False)
+            allowed_types = ['Project', ]
+            _setup_constrains(projects, allowed_types)
             message = _(u"The default config has been applied.")
             messages.addStatusMessage(message, type="info")
         except Exception, e:

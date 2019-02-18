@@ -9,19 +9,16 @@
 
 <metal:content-core fill-slot="main">
 
-  <metal:javascript fill-slot="javascript_head_slot">
-    <script>
-      require = undefined;
-      define = undefined;
-    </script>
-    <script src="/++theme++gwopa.theme/assets/vue/vue.js"/>
-    <link rel="stylesheet" href="/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css"/>
-  </metal:javascript>
+<metal:javascript fill-slot="javascript_head_slot">
+  <link rel="stylesheet" href="/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css"/>
+</metal:javascript>
+
 
   <metal:block define-macro="content-core">
 
     <h1 class="documentFirstHeading" i18n:translate="">Monitoring Module</h1>
     <div class="documentDescription description" i18n:translate=""> Introduction text of monitoring module.</div>
+    <div  class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset>
         <legend i18n:translate="">Project</legend>
         <div>
@@ -111,69 +108,68 @@
                         </div>
                       </div>
                       <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                  </div>
-              </td>
-            </tr>
-
-            <tr href="#Monitoring-Output" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="true">
-              <th scope="row" class="name">
-                <div class="output-planning" i18n:translate="">Output</div>
-                <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
-              </th>
-              <td>2</td>
-              <td>6</td>
-              <td class="current">2</td>
-              <td class="last">6</td>
-              <td>6</td>
-              <td>31/1/2025</td>
-            </tr>
-            <tr class="descripcion">
-              <td colspan="7">
-               <div class="row text-item-planning collapse Output-Monitoring" id="Monitoring-Output">
-                  <div class="col-sm-12" id="kpi">
-                    <h3> Progress Degree</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="col-sm-6" id="mainobstacle">
-                      <h3> Main Obstacles </h3>
-                      <select name="Name">
-                        <option value="#">Ejemplo 1</option>
-                      </select>
-                      <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
                     </div>
-                    <div class="col-sm-6" id="mainsupfac">
-                      <h3> Main Supporting factors </h3>
-                      <select name="Name">
-                        <option value="#">Ejemplo 1</option>
-                      </select>
-                      <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                  </td>
+                </tr>
+                <tr href="#Monitoring-Output" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="true">
+                  <th scope="row" class="name">
+                    <div class="output-planning" i18n:translate="">Output</div>
+                    <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
+                  </th>
+                  <td>2</td>
+                  <td>6</td>
+                  <td class="current">2</td>
+                  <td class="last">6</td>
+                  <td>6</td>
+                  <td>31/1/2025</td>
+                </tr>
+                <tr class="descripcion">
+                  <td colspan="7">
+                   <div class="row text-item-planning collapse Output-Monitoring" id="Monitoring-Output">
+                      <div class="col-sm-12" id="kpi">
+                        <h3> Progress Degree</h3>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-6" id="mainobstacle">
+                          <h3> Main Obstacles </h3>
+                          <select name="Name">
+                            <option value="#">Ejemplo 1</option>
+                          </select>
+                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                        </div>
+                        <div class="col-sm-6" id="mainsupfac">
+                          <h3> Main Supporting factors </h3>
+                          <select name="Name">
+                            <option value="#">Ejemplo 1</option>
+                          </select>
+                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                        </div>
+                      </div>
+                      <div class="col-sm-12" id="furexp">
+                        <h3>Degree of relevance / things to consider for future planning</h3>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                      </div>
+                      <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
                     </div>
-                  </div>
-                  <div class="col-sm-12" id="furexp">
-                    <h3>Degree of relevance / things to consider for future planning</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
-                  <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </fieldset>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </fieldset>
 
       <fieldset>
         <legend>Outcomes</legend>
         <div>
-         <a href="#MonitoringOutcomesOC" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesOC" aria-expanded="false">
-          <h3 class="titulocatplan" id="oc">Outcomes</h3>
-          <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
-        <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
-        </a>
+          <a href="#MonitoringOutcomesOC" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesOC" aria-expanded="false">
+            <h3 class="titulocatplan" id="oc">Outcomes</h3>
+            <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+            <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+          </a>
         <div id="MonitoringOutcomesOC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-        <table class="table table-hover">
+          <table class="table table-hover">
             <thead>
                 <tr>
                   <th class="thname">Indicator</th>
@@ -185,233 +181,228 @@
                   <th>Next update</th>
                 </tr>
             </thead>
-          <tbody>
-                <tr href="#Monitoring-KPI" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-KPI" aria-expanded="true" class="">
-                    <th scope="row" class="name">
-                      <div class="status-a"></div>
-                      <div class="kpi-planning">KPI</div>
-                      <h4 class="titulocatplan" id="KPI">Ejemplo 1 de KPI</h4>
-                    </th>
-                     <td>2</td>
-                    <td>6</td>
-                    <td class="current">2</td>
-                    <td class="last">6</td>
-                    <td>6</td>
-                    <td class="date-a">31/1/2025</td>
-                </tr>
-                <tr class="descripcion">
-                  <td colspan="7">
-                <div class="row text-item-planning collapse KPI-Monitoring" id="Monitoring-KPI">
-                  <div class="col-sm-12" id="kpi">
-                      <h3> Current </h3>
-                    <textarea class="form-control current" id="message-text">
-                    </textarea>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="col-sm-6" id="mainobstacle">
-                        <h3> Main Obstacles </h3>
-                        <select name="Name">
-                        <option value="#">Ejemplo 1</option>
-                      </select>
-                      <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                    </div>
-                    <div class="col-sm-6" id="mainsupfac">
-                        <h3> Main Supporting factors </h3>
-                        <select name="Name">
-                        <option value="#">Ejemplo 1</option>
-                      </select>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                        </textarea>
-                    </div>
-                  </div>
-                  <div class="col-sm-12" id="furexp">
-                    <h3>  Degree of relevance / things to consider for future planning  </h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                    </textarea>
-                  </div>
-                  <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                </div>
-              </td>
-            </tr>
-
-            <tr href="#Monitoring-KPIZone" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-KPIZone" aria-expanded="true" class="">
-                    <th scope="row" class="name">
-                      <div class="zone-planning">Zone</div>
-                      <h4 class="titulocatplan" id="zone">Ejemplo 2 de Zone</h4>
-                    </th>
-                    <td>2</td>
-                    <td>6</td>
-                    <td class="current">2</td>
-                    <td class="last">6</td>
-                    <td>6</td>
-                    <td>31/1/2025</td>
-                </tr>
+            <tbody>
+              <tr href="#Monitoring-KPI" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-KPI" aria-expanded="true" class="">
+                  <th scope="row" class="name">
+                    <div class="status-a"></div>
+                    <div class="kpi-planning">KPI</div>
+                    <h4 class="titulocatplan" id="KPI">Ejemplo 1 de KPI</h4>
+                  </th>
+                   <td>2</td>
+                  <td>6</td>
+                  <td class="current">2</td>
+                  <td class="last">6</td>
+                  <td>6</td>
+                  <td class="date-a">31/1/2025</td>
+              </tr>
               <tr class="descripcion">
-                  <td colspan="7">
-                    <div class="row text-item-planning collapse KPIZone-Monitoring" id="Monitoring-KPIZone">
-                  <div class="col-sm-12" id="kpi">
-                      <h3> Current </h3>
-                    <textarea class="form-control current" id="message-text"></textarea>
+                <td colspan="7">
+                  <div class="row text-item-planning collapse KPI-Monitoring" id="Monitoring-KPI">
+                    <div class="col-sm-12" id="kpi">
+                        <h3> Current </h3>
+                      <textarea class="form-control current" id="message-text">
+                      </textarea>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="col-sm-6" id="mainobstacle">
+                          <h3> Main Obstacles </h3>
+                          <select name="Name">
+                          <option value="#">Ejemplo 1</option>
+                        </select>
+                        <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                          </textarea>
+                      </div>
+                      <div class="col-sm-6" id="mainsupfac">
+                          <h3> Main Supporting factors </h3>
+                          <select name="Name">
+                          <option value="#">Ejemplo 1</option>
+                        </select>
+                          <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                          </textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-12" id="furexp">
+                      <h3>  Degree of relevance / things to consider for future planning  </h3>
+                      <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                      </textarea>
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
                   </div>
-                  <div class="col-sm-12">
+                </td>
+              </tr>
+              <tr href="#Monitoring-KPIZone" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-KPIZone" aria-expanded="true" class="">
+                <th scope="row" class="name">
+                  <div class="zone-planning">Zone</div>
+                  <h4 class="titulocatplan" id="zone">Ejemplo 2 de Zone</h4>
+                </th>
+                <td>2</td>
+                <td>6</td>
+                <td class="current">2</td>
+                <td class="last">6</td>
+                <td>6</td>
+                <td>31/1/2025</td>
+              </tr>
+              <tr class="descripcion">
+                <td colspan="7">
+                  <div class="row text-item-planning collapse KPIZone-Monitoring" id="Monitoring-KPIZone">
+                    <div class="col-sm-12" id="kpi">
+                        <h3> Current </h3>
+                      <textarea class="form-control current" id="message-text"></textarea>
+                    </div>
                     <div class="col-sm-6" id="mainobstacle">
                       <h3> Main Obstacles </h3>
-                    <select name="Name">
-                      <option value="#">Ejemplo 1</option>
-                    </select>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                    </textarea>
-                    </div>
-                    <div class="col-sm-6" id="mainsupfac">
-                        <h3> Main Supporting factors </h3>
                       <select name="Name">
-                      <option value="#">Ejemplo 1</option>
+                        <option value="#">Ejemplo 1</option>
                       </select>
                       <textarea class="form-control" id="message-text" placeholder="Narrative... ">
                       </textarea>
                     </div>
-                  <div class="col-sm-12" id="furexp">
-                    <h3>Things to consider for future planning</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... ">
-                    </textarea>
+                    <div class="col-sm-6" id="mainsupfac">
+                      <h3> Main Supporting factors </h3>
+                      <select name="Name">
+                        <option value="#">Ejemplo 1</option>
+                      </select>
+                      <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                      </textarea>
+                    </div>
+                    <div class="col-sm-12" id="furexp">
+                      <h3>Things to consider for future planning</h3>
+                      <textarea class="form-control" id="message-text" placeholder="Narrative... ">
+                      </textarea>
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
                   </div>
-                  <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="separador"></div>
-
-      <a href="#MonitoringOutcomesIA" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesIA" aria-expanded="false">
-        <h3 class="titulocatplan" id="oc">CCS/CC</h3>
-        <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
-        <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
-      </a>
-      <div id="MonitoringOutcomesIA" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-        <a href="#MonitoringOutcomesIA1" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesIA1" aria-expanded="false">
-          <h4 class="titulocatplan" id="oc">Improvements Area 1 </h4>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="separador"></div>
+        <a href="#MonitoringOutcomesIA" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesIA" aria-expanded="false">
+          <h3 class="titulocatplan" id="oc">CCS/CC</h3>
           <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
           <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
         </a>
-        <div id="MonitoringOutcomesIA1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-          <table class="table table-hover">
+        <div id="MonitoringOutcomesIA" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <a href="#MonitoringOutcomesIA1" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesIA1" aria-expanded="false">
+            <h4 class="titulocatplan" id="oc">Improvements Area 1 </h4>
+            <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+            <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+          </a>
+          <div id="MonitoringOutcomesIA1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <table class="table table-hover">
               <thead>
-                    <tr>
-                      <th class="thname">Indicator</th>
-                      <th>Baseline</th>
-                      <th>Past</th>
-                      <th>Current</th>
-                      <th>Target</th>
-                      <th>Final target</th>
-                      <th>Next update</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr href="#Monitoring-CCS" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-CCS" aria-expanded="true" class="descripcion">
-                        <th scope="row" class="name">
-                          <div class="status-w"></div>
-                          <div class="CCS-planning">CCS</div>
-                          <h4 class="titulocatplan" id="activity">Ejemplo 1 de CCS</h4>
-                        </th>
-                        <td>2</td>
-                        <td>6</td>
-                        <td class="current">2</td>
-                        <td class="last">6</td>
-                        <td>6</td>
-                        <td class="date-w">31/1/2025</td>
-                    </tr>
-                    <tr class="descripcion" id="CCS">
-                      <td colspan="7">
-<a href="#MonitoringCC" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringCC" aria-expanded="true">
-    <h3 class="titulocatplan">Mission & Strategy</h3>
-    <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
-    <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
-</a>
-<div id="MonitoringCC" class="panel-collapse collapse in secundario" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>Describe perceived changes in the selected dimension</h3>
-        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-      </div>
-      <div class="col-sm-6">
-        <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
-        <span data-option="PerceivedChanges">
-          <span data-option="PerceivedChanges" data-option-value="#">
-            <select name="Name">
-              <option value="#">-2 (Very negative change)</option>
-              <option value="#">-1 (Very negative change)</option>
-              <option value="#"> 0 (No perceived change)</option>
-              <option value="#">+1 (Positive change)</option>
-              <option value="#">+2 (Very positive change)</option>
-            </select>
-          </span>
-        </span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>Select the contributing factors to the perceived change</h3>
-        <span data-option="Factors">
-          <span data-option="Factors" data-option-value="#">
-            <select name="Name">
-              <option value="#">External enviroment</option>
-              <option value="#">WOP Activities </option>
-              <option value="#">Others </option>
-            </select>
-          </span>
-        </span>
-      </div>
-      <div class="col-sm-6">
-        <h3>Describe the contributing factors to the perceived changes</h3>
-        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>Select the limiting factors to the perceived change</h3>
-        <span data-option="Factors">
-          <span data-option="Factors" data-option-value="#">
-            <select name="Name">
-              <option value="#">External enviroment</option>
-              <option value="#">WOP Activities </option>
-              <option value="#">Others </option>
-            </select>
-          </span>
-        </span>
-      </div>
-      <div class="col-sm-6">
-        <h3>Describe the limiting factors to the perceived changes</h3>
-        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>Describe the limiting factors to the perceived changes</h3>
-        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-      </div>
-      <div class="col-sm-6">
-        <h3>Select the limiting factors to the perceived change</h3>
-        <span data-option="Factors">
-          <span data-option="Factors" data-option-value="#">
-            <select name="Name">
-              <option value="#">Unilaterial</option>
-              <option value="#">Consensuated</option>
-            </select>
-          </span>
-        </span>
-      </div>
-    </div>
-</div>
-
+                <tr>
+                  <th class="thname">Indicator</th>
+                  <th>Baseline</th>
+                  <th>Past</th>
+                  <th>Current</th>
+                  <th>Target</th>
+                  <th>Final target</th>
+                  <th>Next update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr href="#Monitoring-CCS" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-CCS" aria-expanded="true" class="descripcion">
+                  <th scope="row" class="name">
+                    <div class="status-w"></div>
+                    <div class="CCS-planning">CCS</div>
+                    <h4 class="titulocatplan" id="activity">Ejemplo 1 de CCS</h4>
+                  </th>
+                  <td>2</td>
+                  <td>6</td>
+                  <td class="current">2</td>
+                  <td class="last">6</td>
+                  <td>6</td>
+                  <td class="date-w">31/1/2025</td>
+                </tr>
+                <tr class="descripcion" id="CCS">
+                  <td colspan="7">
+                    <a href="#MonitoringCC" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringCC" aria-expanded="true">
+                        <h3 class="titulocatplan">Mission & Strategy</h3>
+                        <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
+                        <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
+                    </a>
+                    <div id="MonitoringCC" class="panel-collapse collapse in secundario" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <h3>Describe perceived changes in the selected dimension</h3>
+                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                        </div>
+                        <div class="col-sm-6">
+                          <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
+                          <span data-option="PerceivedChanges">
+                            <span data-option="PerceivedChanges" data-option-value="#">
+                              <select name="Name">
+                                <option value="#">-2 (Very negative change)</option>
+                                <option value="#">-1 (Very negative change)</option>
+                                <option value="#"> 0 (No perceived change)</option>
+                                <option value="#">+1 (Positive change)</option>
+                                <option value="#">+2 (Very positive change)</option>
+                              </select>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <h3>Select the contributing factors to the perceived change</h3>
+                          <span data-option="Factors">
+                            <span data-option="Factors" data-option-value="#">
+                              <select name="Name">
+                                <option value="#">External enviroment</option>
+                                <option value="#">WOP Activities </option>
+                                <option value="#">Others </option>
+                              </select>
+                            </span>
+                          </span>
+                        </div>
+                        <div class="col-sm-6">
+                          <h3>Describe the contributing factors to the perceived changes</h3>
+                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <h3>Select the limiting factors to the perceived change</h3>
+                          <span data-option="Factors">
+                            <span data-option="Factors" data-option-value="#">
+                              <select name="Name">
+                                <option value="#">External enviroment</option>
+                                <option value="#">WOP Activities </option>
+                                <option value="#">Others </option>
+                              </select>
+                            </span>
+                          </span>
+                        </div>
+                        <div class="col-sm-6">
+                          <h3>Describe the limiting factors to the perceived changes</h3>
+                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <h3>Describe the limiting factors to the perceived changes</h3>
+                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+                        </div>
+                        <div class="col-sm-6">
+                          <h3>Select the limiting factors to the perceived change</h3>
+                          <span data-option="Factors">
+                            <span data-option="Factors" data-option-value="#">
+                              <select name="Name">
+                                <option value="#">Unilaterial</option>
+                                <option value="#">Consensuated</option>
+                              </select>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </tbody>
-          </table>
-        </div>
+            </table>
+          </div>
 
         <a href="#MonitoringOutcomesIA2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#MonitoringOutcomesIA2" aria-expanded="false">
           <h4 class="titulocatplan" id="oc">Improvements Area 2 </h4>
@@ -1781,6 +1772,7 @@
 
 
 </fieldset>
+</div>
 </metal:block>
 </metal:content-core>
 

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import datetime
 from five import grok
 from plone.supermodel import model
 from zope import schema
@@ -10,10 +9,6 @@ from plone.directives import form
 from plone import api
 
 grok.templatedir("templates")
-
-
-def todayValue():
-    return datetime.date.today()
 
 
 class IOutcomeccvalues(model.Schema):

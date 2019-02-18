@@ -116,13 +116,19 @@ class IActivity(model.Schema):
 
 @form.default_value(field=IActivity['gwopa_year'])
 def codeDefaultValue(data):
-    return int(data.request.form['year'])
+    if 'year' in data.request.form:
+        return int(data.request.form['year'])
+    else:
+        return datetime.datetime.now().year
 
 
 @form.default_value(field=IActivity['gwopa_code_hash'])
 def hashValue(data):
     """ ACT-M-2019"""
-    return 'ACT-M-' + data.request.form['year']
+    if 'year' in data.request.form:
+        return 'ACT-M-' + data.request.form['year']
+    else:
+        return 'ACT-M-' + str(datetime.datetime.now().year)
 
     @invariant
     def validate_start_end(data):

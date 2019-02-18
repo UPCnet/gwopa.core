@@ -70,7 +70,10 @@ class IOutput(model.Schema):
 
 @form.default_value(field=IOutput['gwopa_year'])
 def codeDefaultValue(data):
-    return int(data.request.form['year'])
+    if 'year' in data.request.form:
+        return int(data.request.form['year'])
+    else:
+        return datetime.datetime.now().year
 
 
 class View(grok.View):
