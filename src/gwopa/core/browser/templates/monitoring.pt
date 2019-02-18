@@ -32,127 +32,32 @@
               <thead>
                   <tr>
                     <th class="thname">Indicator</th>
-                    <th>Baseline</th>
-                    <th>Past</th>
-                    <th>Current</th>
-                    <th>Target</th>
-                    <th>Final target</th>
                     <th>Next update</th>
                   </tr>
               </thead>
               <tbody>
                 <tr href="#IA5" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA5" aria-expanded="true" class="">
-                  <th scope="row" class="name">
+                  <td scope="row" class="name">
                     <div class="status-w"></div>
                     <div class="activity-planning">Activity</div>
                     <h4 class="titulocatplan" id="activity">Ejemplo 1 de activity</h4>
-                  </th>
-                  <td>2</td>
-                  <td>6</td>
-                  <td class="current">2</td>
-                  <td class="last">6</td>
-                  <td>6</td>
-                  <td class="date-w">31/1/2025</td>
+                  </td>
+                  <td></td>
                 </tr>
                 <tr class="descripcion">
-                  <td colspan="7">
+                  <td>
                     <div class="col-md-12 text-item-planning collapse" id="IA5" role="tabpanel" aria-expanded="true" style="">
-                      <div class="col-md-6" id="mainobstacle">
-                        <div class="form-group">
-                          <h3>Name:</h3>
-                          <form action="#">
-                            <select name="Name">
-                              <option value="#">Activity 1 Lorem Ipsum Name 1</option>
-                              <option value="#">Activity 2 Lorem Ipsum Name 2</option>
-                            </select>
-                          </form>
-                        </div>
-                        <div class="form-group">
-                          <h3>Description:</h3>
-                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                        </div>
-                        <div class="form-group">
-                            <h3>Initial situation description:</h3>
-                            <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                        </div>
-                        <div class="form-group">
-                          <h3>Starting time</h3>
-                          <input type="date" name="bday">
-                        </div>
-                        <div class="form-group">
-                          <h3>Completion time</h3>
-                          <input type="date" name="bday">
-                        </div>
-                      </div>
-                      <div class="col-md-6" id="mainsupfac">
-                        <div class="form-group">
-                          <h3>Description:</h3>
-                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                        </div>
-                        <div class="form-group">
-                          <h3>Description:</h3>
-                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                        </div>
-                        <div class="form-group">
-                          <h3>Name:</h3>
-                          <form action="#">
-                            <select name="Name">
-                              <option value="#">Activity 1 Lorem Ipsum Name 1</option>
-                              <option value="#">Activity 2 Lorem Ipsum Name 2</option>
-                            </select>
-                          </form>
-                        </div>
-                        <div class="form-group">
-                          <h3>Degree of relevance / things to consider for future planning</h3>
-                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                        </div>
-                      </div>
-                      <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr href="#Monitoring-Output" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="true">
-                  <th scope="row" class="name">
                     <div class="output-planning" i18n:translate="">Output</div>
                     <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
-                  </th>
-                  <td>2</td>
-                  <td>6</td>
-                  <td class="current">2</td>
-                  <td class="last">6</td>
-                  <td>6</td>
-                  <td>31/1/2025</td>
-                </tr>
-                <tr class="descripcion">
-                  <td colspan="7">
-                   <div class="row text-item-planning collapse Output-Monitoring" id="Monitoring-Output">
-                      <div class="col-sm-12" id="kpi">
-                        <h3> Progress Degree</h3>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="col-sm-6" id="mainobstacle">
-                          <h3> Main Obstacles </h3>
-                          <select name="Name">
-                            <option value="#">Ejemplo 1</option>
-                          </select>
-                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                        </div>
-                        <div class="col-sm-6" id="mainsupfac">
-                          <h3> Main Supporting factors </h3>
-                          <select name="Name">
-                            <option value="#">Ejemplo 1</option>
-                          </select>
-                          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                        </div>
-                      </div>
-                      <div class="col-sm-12" id="furexp">
-                        <h3>Degree of relevance / things to consider for future planning</h3>
-                        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                      </div>
-                      <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
-                    </div>
                   </td>
+                  <td class="date-w">31/1/2025</td>
+                </tr>
+                <tr href="#Monitoring-Output" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="true">
+                  <td scope="row" class="name">
+                    <div class="output-planning" i18n:translate="">Output</div>
+                    <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
+                  </td>
+                  <td>31/1/2025</td>
                 </tr>
               </tbody>
             </table>
