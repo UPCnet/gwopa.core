@@ -67,6 +67,12 @@
         bottom: 0px;
         left: 0px;
     }
+
+   .sidenav2 i {
+        width: 40px;
+        text-align: center;
+    }
+
 </style>
 
 <div class="sidenav2"
@@ -85,8 +91,8 @@
         </tal:omit-tag>
         <tal:omit-tag tal:condition="isRootFolder">
             <ul id="sidenav-vertical-overview">
-                <a class="plone-btn plone-btn-info active" tal:attributes="href string:${projectPath}" href="#">
-                    <i class="fas fa-home"></i><tal:omit-tag i18n:translate=""> Overview </tal:omit-tag></a>
+                <a class="plone-btn plone-btn-info active" tal:attributes="href string:${projectPath}">
+                    <i class="fas fa-home"></i><span i18n:translate=""> Overview </span></a>
                 <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectareas" href="#">
                     <i class="fas fa-chart-area"></i><tal:omit-tag i18n:translate=""> Areas </tal:omit-tag></a>
                 <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectteams" href="#">
