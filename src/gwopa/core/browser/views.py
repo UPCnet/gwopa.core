@@ -65,6 +65,7 @@ class listAreas(BrowserView):
             results.append(dict(
                 title=item.Title,
                 image=image,
+                project=obj.aq_parent.Title(),
                 url='/'.join(obj.getPhysicalPath()),
                 description=item.description))
         return results

@@ -14,21 +14,29 @@
     <h1 class="documentFirstHeading" i18n:translate="">Improvement Areas</h1>
     <div class="documentDescription description" tal:content="isRootFolder"> List of the Areas </div>
 
-      <tal:areas repeat="item view/all_areas">
-        <div class="col-lg-3 col-md-6">
-          <a tal:attributes="href item/url;
-                             title item/title;
-                             alt item/title">
-            <div class="box">
-              <img class="box-img" style="width:100%"
-                   tal:attributes="src string:${item/image};"/>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                </h4>
-              </div>
+      <tal:areas tal:define="items view/all_areas">
+        <div class="has-table">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <tal:items repeat="item items">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="box">
+                    <a tal:attributes="href item/url;
+                                       title item/title;
+                                       alt item/title">
+                      <img class="img200" tal:attributes="src string:${item/image};"/>
+                      <div class="card-body">
+                        <h4 class="card-title top" tal:content="item/title"> Area Title </h4>
+                        <p class="card-text bottom">
+                          <span tal:content="item/project"></span>
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </tal:items>
             </div>
-          </a>
+          </div>
         </div>
       </tal:areas>
 
