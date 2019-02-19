@@ -22,11 +22,12 @@ class listFiles(BrowserView):
             return _(u'Here are all files of the Site.')
 
     def all_files(self):
-
         if self.context.portal_type == 'Project':
-            items = api.content.find(portal_type=['Page', 'Document'], path='/'.join(self.context.getPhysicalPath()))
+            items = api.content.find(
+                portal_type=['File'],
+                context='/'.join(self.context.getPhysicalPath()))
         else:
-            items = api.content.find(portal_type=['Page', 'Document'])
+            items = api.content.find(portal_type=['File'])
         results = []
         for item in items:
             results.append(dict(
@@ -51,7 +52,9 @@ class listAreas(BrowserView):
 
     def all_areas(self):
         if self.context.portal_type == 'Project':
-            items = api.content.find(portal_type=['ImprovementArea'], path='/'.join(self.context.getPhysicalPath()))
+            items = api.content.find(
+                portal_type=['ImprovementArea'],
+                path='/'.join(self.context.getPhysicalPath()))
         else:
             items = api.content.find(portal_type=['ImprovementArea'])
         results = []
