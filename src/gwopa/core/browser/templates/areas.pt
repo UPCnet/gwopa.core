@@ -9,24 +9,23 @@
 
 <metal:content-core fill-slot="main">
 
+
   <metal:block define-macro="content-core" tal:define="isRootFolder view/isRootFolder">
 
-    <h1 class="documentFirstHeading" i18n:translate="">Improvement Areas</h1>
+    <h1 class="documentFirstHeading" i18n:translate=""> Improvement Areas </h1>
     <div class="documentDescription description" tal:content="isRootFolder"> List of the Areas </div>
 
-      <tal:areas tal:define="items view/all_areas">
-        <div class="has-table">
+      <tal:block tal:define="items view/all_areas">
+      <div class="has-table" tal:condition="items" tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime;">
           <div class="row">
             <div class="col-xs-12 col-sm-12">
               <tal:items repeat="item items">
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="box">
-                    <a tal:attributes="href item/url;
-                                       title item/title;
-                                       alt item/title">
+                    <a tal:attributes="href item/url">
                       <img class="img200" tal:attributes="src string:${item/image};"/>
                       <div class="card-body">
-                        <h4 class="card-title top" tal:content="item/title"> Area Title </h4>
+                        <h4 class="card-title top" tal:content="item/title"> Area Title</h4>
                         <p class="card-text bottom">
                           <span tal:content="item/project"></span>
                         </p>
@@ -37,8 +36,7 @@
               </tal:items>
             </div>
           </div>
-        </div>
-      </tal:areas>
+      </tal:block>
 
   </metal:block>
 

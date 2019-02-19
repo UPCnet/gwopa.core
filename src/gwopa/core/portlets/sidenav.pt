@@ -81,12 +81,14 @@
                 isRootFolder view/isRootFolder;
                 projectPath view/projectPath">
     <ul id="sidenav-vertical">
-        <a href="#" tal:attributes="href string:${portal_url}"><img tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"/>
-            <ul id="sidenav-vertical-overview" tal:condition="not:isRootFolder">
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/areas"><i class="fas fa-chart-area" aria-hidden="true"></i> Areas </a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/teams"><i class="fas fa-users" aria-hidden="true"></i> Teams </a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/files"><i class="fas fa-file" aria-hidden="true"></i> Files </a>
-            </ul>
+        <a href="#" tal:attributes="href string:${portal_url}">
+            <img tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"/>
+        </a>
+        <ul id="sidenav-vertical-overview" tal:condition="not:isRootFolder" class="indentMenu">
+            <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/areas"><i class="fas fa-chart-area" aria-hidden="true"></i> Areas </a>
+            <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/teams"><i class="fas fa-users" aria-hidden="true"></i> Teams </a>
+            <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/files"><i class="fas fa-file" aria-hidden="true"></i> Files </a>
+        </ul>
         <tal:omit-tag tal:condition="isRootFolder">
             <a class="plone-btn plone-btn-info active" tal:attributes="href string:${projectPath}">
                 <i class="fas fa-home"></i><span i18n:translate=""> Overview </span></a>
@@ -106,9 +108,7 @@
                 <i class="fas fa-file-alt"></i><tal:omit-tag i18n:translate=""> Reporting </tal:omit-tag></a>
             <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/visualizating" href="#">
                 <i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></a>
-
         </tal:omit-tag>
-         <a class="logout plone-btn plone-btn-default" tal:attributes="href string:${portal_url}/logout"><i class="fas fa-power-off"></i><tal:omit-tag i18n:translate=""> Log out </tal:omit-tag></a>
     </ul>
 </div>
 
