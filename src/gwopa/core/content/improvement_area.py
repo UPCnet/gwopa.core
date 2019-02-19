@@ -88,7 +88,7 @@ class View(grok.View):
         portal_catalog = getToolByName(self, 'portal_catalog')
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['File'],
-            path={'query': self.context.absolute_url_path() + '/files',
+            path={'query': '/'.join(self.context.getPhysicalPath()) + '/files',
                   'depth': 1})
         results = []
         lang = api.portal.get_current_language()
@@ -109,7 +109,7 @@ class View(grok.View):
         portal_catalog = getToolByName(self, 'portal_catalog')
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['Topic'],
-            path={'query': self.context.absolute_url_path() + '/topics',
+            path={'query': '/'.join(self.context.getPhysicalPath()) + '/topics',
                   'depth': 1})
         results = []
         for item in items:

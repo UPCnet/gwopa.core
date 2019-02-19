@@ -56,6 +56,7 @@ setup(
         'geojson',
         'plone.restapi',
         'collective.ploneboard',
+        'collective.fieldedit'
     ],
     extras_require={
         'test': [

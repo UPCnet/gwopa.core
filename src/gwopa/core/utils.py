@@ -124,7 +124,7 @@ def settings_capacity_changes(context):
     for item in items:
         value = item.Title
         flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
     return SimpleVocabulary(terms)
 
 

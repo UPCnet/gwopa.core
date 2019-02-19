@@ -16,6 +16,10 @@ from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from collective.geolocationbehavior.geolocation import IGeolocatable
+from plone.app.dexterity.behaviors.metadata import ICategorization
+from plone.autoform.interfaces import OMITTED_KEY
+from zope.interface import Interface
+# from plone.supermodel.directives import fieldset
 
 grok.templatedir("templates")
 
@@ -36,9 +40,18 @@ def default_tomorrow(context):
     return datetime.date.today() + datetime.timedelta(1)
 
 
+ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
+
+
 class IProject(model.Schema):
     """  Project type
     """
+
+    # fieldset('project',
+    #          label=_(u'Project'),
+    #          fields=['title', 'description', 'image', 'start', 'end', 'wop_platform', 'country', 'wop_program']
+    #          )
+
     title = schema.TextLine(
         title=_(u"Title"),
         description=_(u"Project title"),
@@ -196,7 +209,7 @@ class View(grok.View):
     def getImprovementAreas(self):
         items = api.content.find(
             portal_type='ImprovementArea',
-            path=self.context.absolute_url_path(),
+            path='/'.join(self.context.getPhysicalPath()),
             depth=1)
         results = []
         for item in items:

@@ -20,12 +20,12 @@ def projectAdded(content, event):
     # if content.geolocation:
     #     content.latitude = content.geolocation.latitude
     #     content.longitude = content.geolocation.longitude
-    year = datetime.datetime.now().year
-    api.content.create(
-        type='WorkPlan',
-        id=str(year),
-        container=content)
-    return
+    # year = datetime.datetime.now().year
+    # api.content.create(
+    #     type='WorkPlan',
+    #     id=str(year),
+    #     container=content)
+    # return
 
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
@@ -81,7 +81,6 @@ def improvementAreaAdded(content, event):
         title='OutcomeCC',
         container=content)
     transaction.commit()
-    return
 
     # events.reindexObject()
     # files.reindexObject()

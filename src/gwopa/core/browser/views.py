@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
 from plone import api
 from geojson import Feature, Point, FeatureCollection
 from gwopa.core import _
@@ -25,7 +24,7 @@ class listFiles(BrowserView):
     def all_files(self):
 
         if self.context.portal_type == 'Project':
-            items = api.content.find(portal_type=['Page', 'Document'], path=self.context.absolute_url_path())
+            items = api.content.find(portal_type=['Page', 'Document'], path='/'.join(self.context.getPhysicalPath()))
         else:
             items = api.content.find(portal_type=['Page', 'Document'])
         results = []
@@ -52,7 +51,7 @@ class listAreas(BrowserView):
 
     def all_areas(self):
         if self.context.portal_type == 'Project':
-            items = api.content.find(portal_type=['ImprovementArea'], path=self.context.absolute_url_path())
+            items = api.content.find(portal_type=['ImprovementArea'], path='/'.join(self.context.getPhysicalPath()))
         else:
             items = api.content.find(portal_type=['ImprovementArea'])
         results = []
@@ -125,7 +124,7 @@ class Delete(BrowserView):
             transaction.commit()
         message = _(u"Workplan deleted from year: ") + str(year)
         messages.addStatusMessage(message, type="info")
-        self.request.response.redirect(self.context.absolute_url_path() + '/planning')
+        self.request.response.redirect('/'.join(self.context.getPhysicalPath()) + '/planning')
 
 
 class Copy(BrowserView):
@@ -144,4 +143,4 @@ class Copy(BrowserView):
             transaction.commit()
         message = _(u"Workplan duplicated.")
         messages.addStatusMessage(message, type="info")
-        self.request.response.redirect(self.context.absolute_url_path() + '/planning')
+        self.request.response.redirect('/'.join(self.context.getPhysicalPath()) + '/planning')

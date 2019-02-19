@@ -11,10 +11,24 @@
     tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;">
 
+  <metal:javascript fill-slot="javascript_head_slot">
+    <script>
+      require = undefined;
+      define = undefined;
+    </script>
+    <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </metal:javascript>
+
+
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
 
     <h1 class="documentFirstHeading">Planning - Annual <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
     <div class="documentDescription description"> Annual Work Plan for year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
+
+
 
     <div class="wp-buttons">
       <a tal:attributes="href string:${context/absolute_url}/duplicateYear?id=${currentYear}">
@@ -102,7 +116,13 @@
       </fieldset>
     </div>
 
+<div id="app">
+        <demo></demo>
+      </div>
+
   </metal:block>
+
+  <script src="/++theme++gwopa.theme/assets/javascripts/gwopa.umd.min.js"></script>
 
 </metal:content-core>
 
