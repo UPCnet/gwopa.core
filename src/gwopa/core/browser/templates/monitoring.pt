@@ -28,39 +28,140 @@
             <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
           </a>
           <div id="MonitoringProjects" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-            <table class="table table-hover">
-              <thead>
-                  <tr>
-                    <th class="thname">Indicator</th>
-                    <th>Next update</th>
-                  </tr>
-              </thead>
-              <tbody>
-                <tr href="#IA5" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA5" aria-expanded="true" class="">
-                  <td scope="row" class="name">
-                    <div class="status-w"></div>
-                    <div class="activity-planning">Activity</div>
-                    <h4 class="titulocatplan" id="activity">Ejemplo 1 de activity</h4>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr class="descripcion">
-                  <td>
-                    <div class="col-md-12 text-item-planning collapse" id="IA5" role="tabpanel" aria-expanded="true" style="">
-                    <div class="output-planning" i18n:translate="">Output</div>
-                    <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
-                  </td>
-                  <td class="date-w">31/1/2025</td>
-                </tr>
-                <tr href="#Monitoring-Output" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="true">
-                  <td scope="row" class="name">
-                    <div class="output-planning" i18n:translate="">Output</div>
-                    <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
-                  </td>
-                  <td>31/1/2025</td>
-                </tr>
-              </tbody>
-            </table>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="thname">Indicator</th>
+      <th>Next update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr href="#Monitoring-Output" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="true">
+      <td scope="row" class="name">
+        <div class="output-planning">Output</div>
+        <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
+      </td>
+      <td>31/1/2025</td>
+    </tr>
+    <tr href="#IA5" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="IA5" aria-expanded="true" class="">
+      <td scope="row" class="name">
+        <div class="status-w"></div>
+        <div class="activity-planning">Activity</div>
+        <h4 class="titulocatplan" id="activity">Ejemplo 1 de activity</h4>
+      </td>
+      <td></td>
+    </tr>
+    <div>
+      <tr class="descripcion">
+        <td>
+          <div class="col-md-12 text-item-planning collapse in" role="tabpanel" aria-expanded="true" style="">
+            <a href="#OutputActivity1" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OutputActivity1" aria-expanded="true" class="">
+              <div class="output-planning">Output</div>
+              <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
+            </a>
+          </div>
+        </td>
+        <td class="date-w">31/1/2025</td>
+      </tr>
+      <tr class="descripcion" id="contenido">
+        <td colspan="2">
+          <div class="col-md-12 text-item-planning collapse in" id="OutputActivity1" role="tabpanel" aria-expanded="true" style="">
+            <div class="col-sm-12">
+              <h3> Progress Degree</h3>
+              <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+            </div>
+            <div class="col-sm-6">
+              <h3> Main Obstacles </h3>
+              <span data-option="Ejemplo 1">
+                <span data-option="Ejemplo 1" data-option-value="#">
+                  <select name="Name">
+                    <option value="#">Ejemplo 1</option>
+                  </select>
+                </span>
+              </span>
+              <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+            </div>
+            <div class="col-sm-6">
+              <h3> Main Supporting factors </h3>
+              <span data-option="Ejemplo 1">
+                <span data-option="Ejemplo 1" data-option-value="#">
+                  <select name="Name">
+                    <option value="#">Ejemplo 1</option>
+                  </select>
+                </span>
+              </span>
+              <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+            </div>
+            <div class="col-sm-12">
+              <h3>Degree of relevance / things to consider for future planning</h3>
+              <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
+          </div>
+        </td>
+      </tr>
+    </div>
+    <div>
+      <tr class="descripcion">
+        <td>
+          <div class="col-md-12 text-item-planning collapse in" role="tabpanel" aria-expanded="true" style="">
+            <a href="#OutputActivity2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OutputActivity2" aria-expanded="true" class="">
+              <div class="output-planning">Output</div>
+              <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
+            </a>
+          </div>
+        </td>
+        <td class="date-w">31/1/2025</td>
+      </tr>
+      <tr class="descripcion" id="contenido">
+        <td colspan="2">
+          <div class="col-md-12 text-item-planning collapse in" id="OutputActivity2" role="tabpanel" aria-expanded="true" style="">
+            <div class="col-sm-12">
+              <h3> Progress Degree</h3>
+              <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+            </div>
+            <div class="col-sm-6">
+              <h3> Main Obstacles </h3>
+              <span data-option="Ejemplo 1">
+                <span data-option="Ejemplo 1" data-option-value="#">
+                  <select name="Name">
+                    <option value="#">Ejemplo 1</option>
+                  </select>
+                </span>
+              </span>
+              <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+            </div>
+            <div class="col-sm-6">
+              <h3> Main Supporting factors </h3>
+              <span data-option="Ejemplo 1">
+                <span data-option="Ejemplo 1" data-option-value="#">
+                  <select name="Name">
+                    <option value="#">Ejemplo 1</option>
+                  </select>
+                </span>
+              </span>
+              <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+            </div>
+            <div class="col-sm-12">
+              <h3>Degree of relevance / things to consider for future planning</h3>
+              <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="3">Create</button>
+          </div>
+        </td>
+      </tr>
+    </div>
+    <tr href="#Monitoring-Output" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="true">
+      <td scope="row" class="name">
+        <div class="output-planning">Output</div>
+        <h4 class="titulocatplan" id="output">Ejemplo 1 de Output</h4>
+      </td>
+      <td>31/1/2025</td>
+    </tr>
+  </tbody>
+</table>
+
+
           </div>
         </div>
       </fieldset>
