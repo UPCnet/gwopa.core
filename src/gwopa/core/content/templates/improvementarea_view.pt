@@ -36,9 +36,10 @@
       <div class="col-xs-6 col-md-3">
         <div id="membersBlock" tal:define="recent_items view/getMembers">
           <h2><tal:block i18n:translate="">Members</tal:block>
-            <a class="pat-plone-modal right" id="add-new-member">
+        <!--     <a class="pat-plone-modal right" id="add-new-member">
               <button id="add-new-member" class="context focus" i18n:translate=""> + New Member </button>
-          </a></h2>
+          </a> -->
+        </h2>
           <table class="table">
             <tbody>
               <tal:items tal:repeat="obj recent_items">

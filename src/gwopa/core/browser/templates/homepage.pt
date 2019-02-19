@@ -74,8 +74,7 @@
           <metal:slot define-slot="body">
             <article id="content">
               <metal:bodytext define-slot="main">
-                <a class="context right" href="#"
-                   tal:attributes="href string:${context/absolute_url}/projects/++add++Project" i18n:translate="">+ New Project</a>
+                <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a>
                 <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My Projects</tal:omit-tag> <span style="color:red" tal:condition="view/isManager" i18n:translate="">(Manager: 1 random element)</span></h1>
                 <div class="has-table" tal:define="items view/myProjects;" >
                   <h4 tal:condition="not:items" i18n:translate="">
