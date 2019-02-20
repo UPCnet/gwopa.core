@@ -87,7 +87,6 @@
         <ul id="sidenav-vertical-overview" tal:condition="not:isRootFolder" class="indentMenu">
             <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/areas"><i class="fas fa-chart-area" aria-hidden="true"></i> Areas </a>
             <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/teams"><i class="fas fa-users" aria-hidden="true"></i> Teams </a>
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/files"><i class="fas fa-file" aria-hidden="true"></i> Files </a>
         </ul>
         <tal:omit-tag tal:condition="isRootFolder">
             <a class="plone-btn plone-btn-info active" tal:attributes="href string:${projectPath}">

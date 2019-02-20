@@ -13,19 +13,17 @@
 
     <h1 class="documentFirstHeading" i18n:translate=""> Files</h1>
     <div class="documentDescription description" tal:content="isRootFolder"> List of the files </div>
-
-      <tal:files repeat="item view/all_files">
-        <div class="col-lg-12 col-md-12">
-          <a tal:attributes="href item/url;
-                             title item/title;
-                             alt item/title">
-            <div class="box">
-                <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-            </div>
-          </a>
-        </div>
-      </tal:files>
-
+    <tal:files repeat="item view/all_files">
+      <div class="col-lg-12 col-md-12">
+        <a tal:attributes="href item/url;
+                           title item/title;
+                           alt item/title">
+          <div class="box">
+              <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+          </div>
+        </a>
+      </div>
+    </tal:files>
   </metal:block>
 
 </metal:content-core>

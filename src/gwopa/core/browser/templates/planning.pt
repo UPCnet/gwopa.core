@@ -83,8 +83,8 @@
       <fieldset style="min-width: 100%">
         <legend>Outcomes</legend>
         <div>
-          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI" href="#"><button class="context focus"><i class="fas fa-plus"></i> New OutcomeKPI</button></a>
-          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE" href="#"><button class="context focus"><i class="fas fa-plus"></i> New OutcomeZONE</button></a>
+          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI" href="#"><button class="context focus"> + New OutcomeKPI</button></a>
+          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE" href="#"><button class="context focus"> + New OutcomeZONE</button></a>
           <tal:block-ouctomeskpi tal:define="outcomes view/listOutcomesKPI" tal:condition="outcomes">
             <h3><i class="fa fa-plus-circle"></i> Outcomes </h3>
             <tal:objects repeat="outcome outcomes">

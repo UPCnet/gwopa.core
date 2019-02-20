@@ -12,9 +12,7 @@
         <img alt="Plone Toolbar" tal:attributes="src view/get_toolbar_logo" />
       </a>
       <a class="plone-toolbar-switcher" tal:condition="view/show_switcher"><span>Left-Top switcher</span></a>
-<!--       <a href="#" tal:attributes="href string:${portal_url}"><img  class="logo_img" tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"></a> -->
       <nav>
-
         <ul id="personal-bar-container">
           <li id="portal-personaltools" class="plone-toolbar-separator"
               tal:condition="personal_bar/user_actions">
@@ -43,37 +41,21 @@
           </li>
         </ul>
 
-
-        <ul class="plone-toolbar-main">
+<!--         <ul class="plone-toolbar-main">
           <div tal:replace="structure view/base_render">
           </div>
         </ul>
+ -->
 
-<!--
         <ul class="plone-toolbar-main">
           <li id="contentview-folderContents" class="">
-              <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/folder_contents?_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" class="">
-                <span class="icon-folderContents  toolbar-menu-icon" aria-hidden="true">
-                </span>
+              <a tal:attributes="href string:${context/absolute_url}/folder_contents">
+                <span class="icon-folderContents toolbar-menu-icon" aria-hidden="true"></span>
                 <span>Contents</span>
               </a>
           </li>
-          <li id="contentview-edit" class="">
-              <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/edit?_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" class="">
-                <span class="icon-edit  toolbar-menu-icon" aria-hidden="true">
-                </span>
-                <span>Edit</span>
-              </a>
-          </li>
-          <li id="contentview-view" class="">
-              <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019?_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" class="">
-                <span class="icon-view  toolbar-menu-icon" aria-hidden="true">
-                </span>
-                <span>View</span>
-              </a>
-          </li>
-          <li id="plone-contentmenu-workflow">
-            <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/content_status_history" title="Change the state of this item" class="label-state-private">
+<!--           <li id="plone-contentmenu-workflow">
+            <a href="/projects/proyecto/2019/content_status_history" title="Change the state of this item" class="label-state-private">
               <span aria-hidden="true" class="icon-plone-contentmenu-workflow state-private toolbar-menu-icon"></span>
               <span>
                 <span class="plone-toolbar-title">State:</span>
@@ -88,61 +70,31 @@
                   <span class="state-private">Private</span>
                 </span>
               </li>
-              <li class="plonetoolbar-workfow-transition ">
-                <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/content_status_modify?workflow_action=publish&amp;_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" title="Publishing the item makes it visible to other users." id="workflow-transition-publish" class="">
+              <li class="plonetoolbar-workfow-transition">
+                <a href="/projects/proyecto/2019/content_status_modify?workflow_action=publish" title="Publishing the item makes it visible to other users." id="workflow-transition-publish" class="">
                   Publish
                 </a>
               </li>
-              <li class="plonetoolbar-workfow-transition ">
-                <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/content_status_modify?workflow_action=submit&amp;_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" title="Puts your item in a review queue, so it can be published on the site." id="workflow-transition-submit" class="">
+              <li class="plonetoolbar-workfow-transition">
+                <a href="/projects/proyecto/2019/content_status_modify?workflow_action=submit" title="Puts your item in a review queue, so it can be published on the site." id="workflow-transition-submit" class="">
                   Submit for publication
                 </a>
               </li>
               <li class="plonetoolbar-workfow-transition actionSeparator">
-                <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/content_status_history" title="" id="workflow-transition-advanced" class="pat-plone-modal">
+                <a href="/projects/proyecto/2019/content_status_history" title="" id="workflow-transition-advanced" class="pat-plone-modal">
                   Advanced...
                 </a>
               </li>
             </ul>
-          </li>
-          <li id="plone-contentmenu-actions">
-            <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/folder_contents" title="Actions for the current content item" class="label-">
-              <span aria-hidden="true" class="icon-plone-contentmenu-actions toolbar-menu-icon"></span>
-                <span class="plone-toolbar-title">Actions</span>
-              <span class="plone-toolbar-short-title">Actions</span>
-              <span class="plone-toolbar-caret"></span>
-            </a>
-            <ul aria-hidden="true">
-              <li class="plonetoolbar-content-action ">
-                <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/object_cut?_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" title="" id="plone-contentmenu-actions-cut" class="actionicon-object_buttons-cut">
-                  Cut
-                </a>
-              </li>
-              <li class="plonetoolbar-content-action ">
-                <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/object_copy?_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" title="" id="plone-contentmenu-actions-copy" class="actionicon-object_buttons-copy">
-                  Copy
-                </a>
-              </li>
-              <li class="plonetoolbar-content-action ">
-                <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/delete_confirmation?_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;disableAjaxFormSubmit&quot;:true, &quot;redirectOnResponse&quot;:true}}">
-                  Delete
-                </a>
-              </li>
-              <li class="plonetoolbar-content-action ">
-                <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/object_rename?_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" title="" id="plone-contentmenu-actions-rename" class="actionicon-object_buttons-rename pat-plone-modal" data-pat-plone-modal="{}">
-                  Rename
-                </a>
-              </li>
-            </ul>
-          </li>
+          </li> -->
           <li id="contentview-local_roles" class="">
-              <a href="http://gwopapmp.beta.upcnet.es/projects/proyecto/2019/@@sharing?_authenticator=90e0c06165d4ed9acb19bcc2e28c741cb3c136b0" class="">
+              <a tal:attributes="href string:${context/absolute_url}/sharing">
                 <span class="icon-local_roles  toolbar-menu-icon" aria-hidden="true">
                 </span>
                 <span>Sharing</span>
               </a>
           </li>
-        </ul> -->
+        </ul>
 
       </nav>
     </div>

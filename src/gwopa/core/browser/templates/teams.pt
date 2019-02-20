@@ -19,14 +19,13 @@
     <div class="documentDescription description" i18n:translate="" tal:condition="not:project"> List of members of the Site</div>
 
     <a tal:condition="not:project" class="pat-plone-modal" id="add-new-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/new-user" href="#">
-      <button id="add-new-user" class="context focus" i18n:translate=""> + New User</button>
+      <button id="add-new-user" class="context focus"> <i class="fas fa-plus"></i> New User in Platform </button>
     </a>
 
-    <a tal:condition="project" class="pat-plone-modal" id="add-new-member" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/new-user" href="#">
-      <button id="add-new-member" class="context focus" i18n:translate=""> + New Member</button>
+    <a tal:condition="project" class="pat-plone-modal" id="add-new-member" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/sharing" href="#">
+      <button id="add-new-member" class="context focus"> <i class="fas fa-plus"></i> Assign a new Member</button>
     </a>
 
-    <h2> Members </h2>
     <tal:block tal:define="users view/all_users" >
       <table class="sortable" tal:condition="not:users">
         No users found in the Platform

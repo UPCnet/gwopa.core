@@ -72,13 +72,13 @@ class IEnhancedUserDataSchema(model.Schema):
         ),
     )
 
-    arees_exp = schema.List(
-        title=_(u'TODO: Improvement Areas?'),
-        required=False,
-        value_type=schema.Choice(
-            source=utils.listPartners,
-        ),
-    )
+    # arees_exp = schema.List(
+    #     title=_(u'TODO: Improvement Areas?'),
+    #     required=False,
+    #     value_type=schema.Choice(
+    #         source=utils.listPartners,
+    #     ),
+    # )
 
 
 class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):

@@ -19,13 +19,13 @@ class listFiles(BrowserView):
         if (self.context.portal_type != 'Plone Site'):
             return _(u'Here are the files of the Project.')
         else:
-            return _(u'Here are all files of the Site.')
+            return _(u'Here are all files of the Platform.')
 
     def all_files(self):
         if self.context.portal_type == 'Project':
             items = api.content.find(
                 portal_type=['File'],
-                context='/'.join(self.context.getPhysicalPath()))
+                path='/'.join(self.context.getPhysicalPath()))
         else:
             items = api.content.find(portal_type=['File'])
         results = []
@@ -48,7 +48,7 @@ class listAreas(BrowserView):
         if (self.context.portal_type != 'Plone Site'):
             return _(u'Here are the Improvement Areas of the Project.')
         else:
-            return _(u'Here are all the Improvement Areas of the Site.')
+            return _(u'Here are all the Improvement Areas of the Platform.')
 
     def all_areas(self):
         if self.context.portal_type == 'Project':
