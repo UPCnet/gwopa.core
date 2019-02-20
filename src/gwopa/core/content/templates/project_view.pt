@@ -22,17 +22,17 @@
                   categories context/Subject|nothing;
                   url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
 
-    <h1 class="documentFirstHeading" tal:content="context/title"> Project Title </h1>
-<a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> + Edit Project</button></a>
+    <h1 class="documentFirstHeading"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
+<a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
+</h1>
 
 <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
 
           <tal:block tal:condition="categories">
             <h3 i18n:translate=""> Project Tags </h3>
-            <ul aria-labelledby="categories-filed-under">
-              <li tal:repeat="category categories">
+              <span tal:repeat="category categories">
                 <a href=""
                    class="link-category"
                    rel="tag"
@@ -41,35 +41,37 @@
                    tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
                   Category
                   </a>
-              </li>
-            </ul>
+              </span>
+<div class="clearfix"></div>
           </tal:block>
+          <div>
+            <h3>Country</h3>
+            <h4 tal:condition="context/end"><i class="fas fa-globe-americas"></i> <tal:block tal:content="context/country"></tal:block></h4>
+            <h3>Project start date:</h3>
+            <h4 tal:condition="context/start"><i class="far fa-calendar-alt"></i> <tal:block tal:content="context/start"></tal:block></h4>
+            <h3>Project end date:</h3>
+            <h4 tal:condition="context/end"><i class="far fa-calendar-alt"></i> <tal:block tal:content="context/end"></tal:block> </h4>
+            <h3>Total budget:</h3>
+            <h4 tal:condition="budget" ><i class="fas fa-money-bill"></i> <span tal:content="budget" /> <span tal:content="view/get_currency" /></h4>
+          </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
+
           <div class="row">
             <div class="col-md-12">
               <h3 i18n:translate=""> Description </h3>
               <tal:omit-tag i18n:translate="" tal:content="context/description"> Project description </tal:omit-tag>
+              <hr/>
             </div>
           </div>
+
           <div class="row">
-            <div class="col-md-4">
-              <h3 i18n:translate=""> Country </h3>
-              <tal:block tal:content="context/country"></tal:block>
-            </div>
-            <div class="col-md-4">
-              <h3 i18n:translate=""> Project Start </h3>
-              <tal:block tal:content="context/start"></tal:block>
-            </div>
-            <div class="col-md-4">
-              <h3 i18n:translate=""> Project End </h3>
-              <tal:block tal:content="context/end"></tal:block>
-            </div>
-          </div>
-          <div class="row">
+             <div class="col-md-12">
             <div tal:condition="wop_platform" class="col-md-6">
+
               <h3 i18n:translate="">WOP Platform </h3>
               <li tal:content="wop_platform"></li>
+              <hr/>
             </div>
             <div tal:condition="wop_program" class="col-md-6">
               <h3 i18n:translate="">WOP Programs</h3>
@@ -78,10 +80,11 @@
                   <tal:block tal:content="wop"></tal:block>
                 </li>
               </ul>
+              <hr/>
             </div>
           </div>
+          </div>
           <div class="row">
-            <h2 i18n:translate=""> Participants </h2>
             <div tal:condition="partners" class="col-md-12">
               <h3 i18n:translate="">Partners</h3>
               <ul>
@@ -89,27 +92,32 @@
                   <tal:block tal:content="partner"></tal:block>
                 </li>
               </ul>
+              <hr/>
             </div>
             <div class="col-md-12">
               <div tal:condition="project_manager" class="col-md-6">
                   <h3 i18n:translate="">Project Manager</h3>
                   <span tal:content="project_manager" />
+                  <hr/>
               </div>
               <div tal:condition="project_manager_admin" class="col-md-6">
                   <h3 i18n:translate=""> Main Contact </h3>
                   <span tal:content="project_manager_admin" />
+                  <hr/>
               </div>
             </div>
-            <div tal:condition="budget" class="col-md-12">
-              <h3 i18n:translate=""> Total budget</h3>
-              <span tal:content="budget" /> <span tal:content="view/get_currency" />
-            </div>
 
-            <div tal:condition="contribution"  class="col-md-12">
+            <div tal:condition="contribution" class="col-md-12">
               <h3 i18n:translate="">Contribution by partners and donors</h3>
               <span tal:replace="structure contribution/output" />
+              <hr/>
             </div>
+
+          <div tal:condition="objectives" class="col-md-12">
+            <h3 i18n:translate=""> Objectives </h3>
+            <span tal:replace="structure objectives/output" />
           </div>
+        </div>
 
 
         </div>
@@ -122,10 +130,7 @@
               </li>
             </ul>
           </div>
-          <div tal:condition="objectives">
-            <h3 i18n:translate=""> Objectives </h3>
-            <span tal:replace="structure objectives/output" />
-          </div>
+
           <tal:map tal:condition="google_maps_link">
             <div tal:define="latitude context/geolocation/latitude;
                          longitude context/geolocation/longitude;"
@@ -158,8 +163,10 @@
                ]
               }'>
             </div>
-            <i class="fas fa-external-link-square-alt"></i>
-            <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
+            <div class="right">
+              <i class="fas fa-external-link-square-alt"></i>
+              <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
+            </div>
           </tal:map>
         </div>
     </div>
@@ -171,35 +178,39 @@
                                 "buttons": ".formControls > button",
                                 "fullscreen": true,
                                 "content": "#content-core"}'>
-          <button id="add-new-improvementarea" class="context focus" i18n:translate=""> + New Improvement Area </button>
+          <button id="add-new-improvementarea" class="context focus"><i class="fas fa-plus"></i> New Improvement Area </button>
       </a>
     </h2>
 
-    <h3 tal:condition="not:getImprovementAreas" i18n:translate="">
-      No Improvement Areas found
-    </h3>
+    <div class="row-fluid has-table" tal:condition="not:getImprovementAreas" >
+      <div class="col-lg-3 col-md-6">
+        <h3 i18n:translate="">
+          No Improvement Areas found
+        </h3>
+      </div>
+    </div>
 
-  <div class="row-fluid has-table">
-    <tal:block tal:condition="getImprovementAreas">
-      <tal:areas repeat="item getImprovementAreas">
-        <div class="col-lg-3 col-md-6">
-          <a tal:attributes="href item/url;
-                             title item/title;
-                             alt item/title">
-            <div class="box">
-              <img class="box-img" style="width:100%"
-                   tal:attributes="src string:${item/image};"/>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                </h4>
+    <div class="row-fluid has-table">
+      <tal:block tal:condition="getImprovementAreas">
+        <tal:areas repeat="item getImprovementAreas">
+          <div class="col-lg-3 col-md-6">
+            <a tal:attributes="href item/url;
+                               title item/title;
+                               alt item/title">
+              <div class="box">
+                <img class="box-img" style="width:100%"
+                     tal:attributes="src string:${item/image};"/>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+                  </h4>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
-      </tal:areas>
-    </tal:block>
-  </div>
+            </a>
+          </div>
+        </tal:areas>
+      </tal:block>
+    </div>
 
 </metal:content-core>
 
