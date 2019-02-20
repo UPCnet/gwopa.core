@@ -23,12 +23,12 @@ class IOutcomezone(model.Schema):
         required=True,
     )
 
-    wop_program = schema.Choice(
-        title=_(u"Capacity Items"),
-        description=_(u"Improved specific capacity"),
-        source=utils.settings_capacity_changes,
-        required=True,
-    )
+    # wop_program = schema.Choice(
+    #     title=_(u"Capacity Items"),
+    #     description=_(u"Improved specific capacity"),
+    #     source=utils.settings_capacity_changes,
+    #     required=True,
+    # )
 
     description = schema.Text(
         title=_(u'Summary'),
