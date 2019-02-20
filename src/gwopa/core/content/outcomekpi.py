@@ -36,15 +36,27 @@ class IOutcomekpi(model.Schema):
         missing_value=u'',
     )
 
-    baseline = schema.Text(
-        title=_(u"Baseline description"),
+    baseline = schema.TextLine(
+        title=_(u"Baseline value"),
         required=True,
     )
 
     baseline_date = schema.Date(
-        title=_(u'Date of the Baseline'),
+        title=_(u'Baseline date'),
         required=True,
         defaultFactory=todayValue
+    )
+
+    measuring_unit = schema.Choice(
+        title=_(u"Measuring Unit"),
+        source=utils.settings_measuring_unit,
+        required=True,
+    )
+
+    measuring_frequency = schema.Choice(
+        title=_(u"Measuring Frequency"),
+        source=utils.settings_measuring_frequency,
+        required=True,
     )
 
     means = schema.Text(

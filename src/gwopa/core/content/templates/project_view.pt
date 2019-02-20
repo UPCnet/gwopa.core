@@ -169,6 +169,7 @@
          class="pat-plone-modal"  id="add-new-improvementarea"
          data-pat-plone-modal='{"actionOptions": {"reloadWindowOnClose": true, "redirectOnResponse": true},
                                 "buttons": ".formControls > button",
+                                "fullscreen": true,
                                 "content": "#content-core"}'>
           <button id="add-new-improvementarea" class="context focus" i18n:translate=""> + New Improvement Area </button>
       </a>
