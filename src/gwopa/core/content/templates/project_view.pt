@@ -23,8 +23,9 @@
                   url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
 
     <h1 class="documentFirstHeading" tal:content="context/title"> Project Title </h1>
+<a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> + Edit Project</button></a>
 
-    <div class="row">
+<div class="row">
         <div class="col-md-2">
           <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
 
