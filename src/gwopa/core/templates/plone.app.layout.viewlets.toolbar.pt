@@ -44,8 +44,8 @@
 <!--         <ul class="plone-toolbar-main">
           <div tal:replace="structure view/base_render">
           </div>
-        </ul>
- -->
+        </ul> -->
+
 
         <ul class="plone-toolbar-main">
           <li id="contentview-folderContents" class="">
@@ -53,6 +53,18 @@
                 <span class="icon-folderContents toolbar-menu-icon" aria-hidden="true"></span>
                 <span>Contents</span>
               </a>
+          </li>
+          <li id="contentview-edit" class="">
+            <a tal:attributes="href string:${context/absolute_url}/edit">
+              <span class="icon-edit toolbar-menu-icon" aria-hidden="true"></span>
+              <span>Edit</span>
+            </a>
+          </li>
+          <li id="contentview-view" class="">
+            <a tal:attributes="href string:${context/absolute_url}/">
+              <span class="icon-view toolbar-menu-icon" aria-hidden="true"></span>
+              <span>View</span>
+            </a>
           </li>
 <!--           <li id="plone-contentmenu-workflow">
             <a href="/projects/proyecto/2019/content_status_history" title="Change the state of this item" class="label-state-private">
