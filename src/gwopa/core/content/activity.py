@@ -65,7 +65,7 @@ class IActivity(model.Schema):
         missing_value=u'',
     )
 
-    bidget = schema.Text(
+    budget = schema.Text(
         title=_(u'Assigned budget'),
         required=False,
         missing_value=u'',

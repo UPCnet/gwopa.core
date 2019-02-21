@@ -22,13 +22,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </metal:javascript>
 
-
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
 
     <h1 class="documentFirstHeading">Planning - Annual <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
     <div class="documentDescription description"> Annual Work Plan for year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
-
-
 
     <div class="wp-buttons">
       <a tal:attributes="href string:${context/absolute_url}/duplicateYear?id=${currentYear}">
@@ -46,13 +43,12 @@
             <tal:objects repeat="item areas">
               <ul class="item" style="list-style-type: none;">
                 <li>
-                  <h4>
-                    <i class="fa fa-plus-circle"></i>
-                    <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Activity?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"><i class="fas fa-plus"></i> New Activity </button></a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"><i class="fas fa-plus"></i> New Output </button></a>
+                  <h3>
+                    <i class="fa fa-plus-circle"></i><a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
+                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Activity?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Activity </button></a>
+                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
                     <span style="padding-left:20px;" tal:content="item/description"></span>
-                  </h4>
+                  </h3>
                   <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
                     <ul tal:repeat="item files" class="block_sub_indicators">
                       <li class="indicator_item">
@@ -60,17 +56,16 @@
                               tal:content="item/portal_type"> ACTIVITY </span>
                         <a tal:attributes="href item/url;title item/description" data-toggle="tooltip" class="pat-tooltip" tal:content="item/title"> Item Title </a>
                         <tal:omit.tag tal:condition="python:item['portal_type'] == 'Activity'">
-                          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"><i class="fas fa-plus"></i> New Output </button></a>
+                          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
                           <tal:block-subitems2 tal:define="outputs python:view.indicatorsInside(item);">
                             <ol tal:repeat="output outputs" class="block_sub_indicators">
                               <span tal:attributes="class string:label ${output/portal_type}" tal:content="output/portal_type"> ACTIVITY </span>
                               <span tal:content="output/title"> TItle </span>
-                              <a tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"><i class="fas fa-plus"></i> Target Value </button></a>
+                              <a tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
                             </ol>
                           </tal:block-subitems2>
                         </tal:omit.tag>
                         <a tal:condition="python:item['portal_type'] == 'Output'" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
-
                       </li>
                     </ul>
                   </tal:block-subitems>
@@ -103,11 +98,10 @@
             <tal:objects repeat="outcome outcomes">
               <ul class="item">
                 <li style="padding-left: 20px; list-style: none;">
-                  <span tal:content="outcome/area"></span>
                   <span tal:attributes="class string:label ${outcome/portal_type}"
                               tal:content="outcome/portal_type"> ACTIVITY </span>
-                  <a tal:attributes="href outcome/url; title outcome/description" data-toggle="tooltip" class="pat-tooltip">
-                    <tal:block tal:content="outcome/title"> Outcome Title </tal:block></a>
+                  <span tal:content="outcome/area"></span>
+                  <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}"><tal:block tal:content="outcome/title"> Outcome Title </tal:block></a>
                 </li>
               </ul>
             </tal:objects>

@@ -7,9 +7,65 @@
       i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="content-core">
+<metal:content-core fill-slot="content-core"
+    tal:define="portal_state context/@@plone_portal_state;
+                portal_url portal_state/portal_url;
+                initial_situation context/initial_situation;
+                start context/start;
+                end context/end;
+                inputs context/inputs;
+                budget context/budget;
+                milestones context/milestones;
+                outputs context/outputs;
+                members context/members;
+                area context/area;
 
+                ">
 
+    <p tal:condition="initial_situation">
+      <h3> Initial Situation </h3>
+      <span tal:content="initial_situation"> Initial Situation </span>
+    </p>
+
+    <p tal:condition="start">
+      <h3> start </h3>
+      <span tal:content="start"> start </span>
+    </p>
+
+    <p tal:condition="end">
+      <h3> end </h3>
+      <span tal:content="end"> end </span>
+    </p>
+
+    <p tal:condition="inputs">
+      <h3> inputs </h3>
+      <span tal:content="inputs"> inputs </span>
+    </p>
+
+    <p tal:condition="budget">
+      <h3> Budget </h3>
+      <span tal:content="budget"> budget </span>
+    </p>
+
+    <p tal:condition="milestones">
+      <h3> milestones </h3>
+      <span tal:content="milestones"> milestones </span>
+    </p>
+
+    <p tal:condition="outputs">
+      <h3> outputs </h3>
+      <span tal:content="outputs"> outputs </span>
+    </p>
+
+    <p tal:condition="members">
+      <h3> members </h3>
+      <span tal:content="members"> members </span>
+    </p>
+
+    <p  tal:condition="area">
+      <h3> area </h3>
+      <span tal:content="area"> area </span>
+    </p>
 
 </metal:content-core>
 

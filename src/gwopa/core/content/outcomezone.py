@@ -36,6 +36,11 @@ class IOutcomezone(model.Schema):
         missing_value=u'',
     )
 
+    zone = schema.TextLine(
+        title=_(u'Zone'),
+        required=True,
+    )
+
     baseline = schema.TextLine(
         title=_(u"Baseline value"),
         required=True,

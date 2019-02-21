@@ -81,16 +81,19 @@ class setup(grok.View):
         if getattr(portal, 'events', False):
             api.content.delete(obj=portal['events'], check_linkintegrity=False)
 
-        properties = dict(
-            fullname='Test',
-            location='USer1',
-        )
-        api.user.create(
-            username='user1',
-            email='user1@test.com',
-            password='user1',
-            properties=properties,
-        )
+        try:
+            properties = dict(
+                fullname='Test',
+                location='USer1',
+            )
+            api.user.create(
+                username='user1',
+                email='user1@test.com',
+                password='user1',
+                properties=properties,
+            )
+        except:
+            pass
 
         # Set the default pages to the homepage view
         portal.setLayout('homepage')
@@ -329,28 +332,28 @@ class setup(grok.View):
         api.content.create(
             type='OutcomeCCItem',
             title='Mission & Strategy',
-            icon='fas fa-microscope',
+            icon='fas fa-university',
             category='Organizational transformational dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Leadership',
-            icon='fas fa-hiking',
+            icon='fas fa-university',
             category='Organizational transformational dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Organizational culture',
-            icon='fas fa-people-carry',
+            icon='fas fa-university',
             category='Organizational transformational dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Others',
-            icon='fab fa-ethereum',
+            icon='fab fa-industry',
             category='Organizational transformational dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
@@ -378,21 +381,21 @@ class setup(grok.View):
         api.content.create(
             type='OutcomeCCItem',
             title='Infrastructure',
-            icon='fas fa-folder-tree',
+            icon='fas fa-tree',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Equipment',
-            icon='fas fa-hiking',
+            icon='fas fa-university',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Updated knowledge on conditions of systems & infrastructure',
-            icon='fas fa-folder-tree',
+            icon='fas fa-tree',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
@@ -406,7 +409,7 @@ class setup(grok.View):
         api.content.create(
             type='OutcomeCCItem',
             title='Others',
-            icon='fab fa-ethereum',
+            icon='fab fa-industry',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
@@ -420,7 +423,7 @@ class setup(grok.View):
         api.content.create(
             type='OutcomeCCItem',
             title='Fit between skill & Knowledge and tasks to perform',
-            icon='fas fa-head-side-brain',
+            icon='fas fa-building',
             category='Individual dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
@@ -434,7 +437,7 @@ class setup(grok.View):
         api.content.create(
             type='OutcomeCCItem',
             title='Others',
-            icon='fab fa-ethereum',
+            icon='fab fa-industry',
             category='Individual dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
