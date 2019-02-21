@@ -26,23 +26,22 @@
 <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
 </h1>
 
-<div class="row">
+      <div class="row">
         <div class="col-md-3">
           <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
-
           <tal:block tal:condition="categories">
             <h3 i18n:translate=""> Project Tags </h3>
-              <span tal:repeat="category categories">
-                <a href=""
-                   class="link-category"
-                   rel="tag"
-                   tal:content="category"
-                   tal:define="quotedCat python:url_quote(category)"
-                   tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
-                  Category
-                  </a>
-              </span>
-<div class="clearfix"></div>
+            <span tal:repeat="category categories">
+              <a href=""
+                 class="link-category"
+                 rel="tag"
+                 tal:content="category"
+                 tal:define="quotedCat python:url_quote(category)"
+                 tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
+                Category
+                </a>
+            </span>
+            <div class="clearfix"></div>
           </tal:block>
           <div>
             <h3>Country</h3>
@@ -56,21 +55,16 @@
           </div>
         </div>
         <div class="col-md-6">
-
-          <div class="row">
+          <div class="row" tal:condition="context/description">
               <h3 i18n:translate=""> Description </h3>
               <tal:omit-tag i18n:translate="" tal:content="context/description"> Project description </tal:omit-tag>
               <hr/>
           </div>
-
           <div class="row" tal:condition="wop_platform">
             <h3 i18n:translate="">WOP Platform </h3>
             <li tal:content="wop_platform"></li>
           </div>
-
           <div class="row">
-            <hr/>
-
             <div tal:condition="wop_program" class="col-md-6">
               <h3 i18n:translate="">WOP Programs</h3>
               <ul>
@@ -90,7 +84,6 @@
             <hr/>
           </div>
           <div class="row">
-
             <div class="col-md-12">
               <div tal:condition="project_manager" class="col-md-6">
                   <h3 i18n:translate="">Project Manager</h3>
@@ -103,69 +96,65 @@
                   <hr/>
               </div>
             </div>
-
             <div tal:condition="contribution" class="col-md-12">
               <h3 i18n:translate="">Contribution by partners and donors</h3>
               <span tal:replace="structure contribution/output" />
               <hr/>
             </div>
-
           <div tal:condition="objectives" class="col-md-12">
             <h3 i18n:translate=""> Objectives </h3>
             <span tal:replace="structure objectives/output" />
           </div>
         </div>
-
-
+      </div>
+      <div class="col-md-3">
+        <div tal:condition="team">
+          <h3 i18n:translate=""> Team </h3>
+          <ul>
+            <li tal:repeat="user team">
+              <i class="fas fa-user"></i>&nbsp;<a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/profile/${user}"><tal:block tal:content="user"></tal:block></a>
+            </li>
+          </ul>
         </div>
-        <div class="col-md-3">
-          <div tal:condition="team">
-            <h3 i18n:translate=""> Team </h3>
-            <ul>
-              <li tal:repeat="user team">
-                <i class="fas fa-user"></i>&nbsp;<a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/profile/${user}"><tal:block tal:content="user"></tal:block></a>
-              </li>
-            </ul>
-          </div>
 
-          <tal:map tal:condition="google_maps_link">
-            <div tal:define="latitude context/geolocation/latitude;
-                         longitude context/geolocation/longitude;"
-                  class="pat-leaflet map"
-             data-geojson='{
-              "type": "FeatureCollection",
-              "features": [
+        <tal:map tal:condition="google_maps_link">
+          <div tal:define="latitude context/geolocation/latitude;
+                       longitude context/geolocation/longitude;"
+                class="pat-leaflet map"
+           data-geojson='{
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "id": 1,
+                "properties":
                 {
-                  "type": "Feature",
-                  "id": 1,
-                  "properties":
-                  {
-                    "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
-                  },
-                  "geometry":
-                  {
-                    "type": "Point",
-                    "coordinates": [ ${longitude}, ${latitude} ]
-                  }
+                  "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
+                },
+                "geometry":
+                {
+                  "type": "Point",
+                  "coordinates": [ ${longitude}, ${latitude} ]
                 }
-              ]}' data-pat-leaflet='{
-               "fullscreencontrol": true,
-               "locatecontrol": false,
-               "zoomcontrol": true,
-               "minimap": false,
-               "addmarker": false,
-               "zoom": 17,
-               "map_layers": [
-                {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-               ]
-              }'>
-            </div>
-            <div class="right">
-              <i class="fas fa-external-link-square-alt"></i>
-              <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
-            </div>
-          </tal:map>
-        </div>
+              }
+            ]}' data-pat-leaflet='{
+             "fullscreencontrol": true,
+             "locatecontrol": false,
+             "zoomcontrol": true,
+             "minimap": false,
+             "addmarker": false,
+             "zoom": 17,
+             "map_layers": [
+              {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+             ]
+            }'>
+          </div>
+          <div class="right">
+            <i class="fas fa-external-link-square-alt"></i>
+            <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
+          </div>
+        </tal:map>
+      </div>
     </div>
     <hr/>
     <h2><tal:omit-tag i18n:translate="">Improvement Areas</tal:omit-tag>
