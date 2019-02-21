@@ -329,112 +329,112 @@ class setup(grok.View):
         api.content.create(
             type='OutcomeCCItem',
             title='Mission & Strategy',
-            icon='fa-eye',
+            icon='fas fa-microscope',
             category='Organizational transformational dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Leadership',
-            icon='fa-eye',
+            icon='fas fa-hiking',
             category='Organizational transformational dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Organizational culture',
-            icon='fa-eye',
+            icon='fas fa-people-carry',
             category='Organizational transformational dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Others',
-            icon='fa-eye',
+            icon='fab fa-ethereum',
             category='Organizational transformational dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Organizational structure',
-            icon='fa-eye',
+            icon='fas fa-sitemap',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Managemenet practices',
-            icon='fa-eye',
+            title='Management practices',
+            icon='fas fa-comments',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Systems',
-            icon='fa-eye',
+            icon='fas fa-map',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Infrastructure',
-            icon='fa-eye',
+            icon='fas fa-folder-tree',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Equipment',
-            icon='fa-eye',
+            icon='fas fa-hiking',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Updated knowledge on conditions of systems & infrastructure',
-            icon='fa-eye',
+            icon='fas fa-folder-tree',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Working routines',
-            icon='fa-eye',
+            icon='fas fa-cogs',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Others',
-            icon='fa-eye',
+            icon='fab fa-ethereum',
             category='Organizational transactional dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Motivation',
-            icon='fa-eye',
+            icon='fas fa-users',
             category='Individual dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Fit between skill & Knowledge and tasks to perform',
-            icon='fa-eye',
+            icon='fas fa-head-side-brain',
             category='Individual dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Applied new skills & knowledge',
-            icon='fa-eye',
+            icon='fas fa-search',
             category='Individual dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
             title='Others',
-            icon='fa-eye',
+            icon='fab fa-ethereum',
             category='Individual dimensions',
             container=portal.config.capacitychanges,
             safe_id=True)
