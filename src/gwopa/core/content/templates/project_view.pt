@@ -158,14 +158,6 @@
     </div>
     <hr/>
     <h2><tal:omit-tag i18n:translate="">Improvement Areas</tal:omit-tag>
-      <a tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea"
-         class="pat-plone-modal"  id="add-new-improvementarea"
-         data-pat-plone-modal='{"actionOptions": {"reloadWindowOnClose": true, "redirectOnResponse": true},
-                                "buttons": ".formControls > button",
-                                "fullscreen": true,
-                                "content": "#content-core"}'>
-          <button id="add-new-improvementarea" class="context focus"><i class="fas fa-plus"></i> New Improvement Area </button>
-      </a>
     </h2>
 
     <div class="row-fluid has-table" tal:condition="not:getImprovementAreas" >

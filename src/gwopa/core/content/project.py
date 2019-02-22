@@ -19,8 +19,7 @@ from collective.geolocationbehavior.geolocation import IGeolocatable
 from plone.app.dexterity.behaviors.metadata import ICategorization
 from plone.autoform.interfaces import OMITTED_KEY
 from zope.interface import Interface
-# from plone.supermodel.directives import fieldset
-
+from plone.supermodel.directives import fieldset
 grok.templatedir("templates")
 
 
@@ -49,18 +48,18 @@ class IProject(model.Schema):
 
     # fieldset('project',
     #          label=_(u'Project'),
-    #          fields=['title', 'description', 'image', 'start', 'end', 'wop_platform', 'country', 'wop_program']
+    #          fields=['title', 'image', 'objectives', 'start', 'end', 'wop_platform', 'country', 'wop_program']
+    #          )
+
+    # fieldset('members',
+    #          label=_(u'Members'),
+    #          fields=['partners', 'project_manager_admin', 'project_manager', 'members', 'budget', 'currency', 'contribution']
     #          )
 
     title = schema.TextLine(
         title=_(u"Title"),
         description=_(u"Project title"),
         required=True,
-    )
-
-    description = schema.Text(
-        title=_(u'Summary'),
-        required=False,
     )
 
     image = namedfile.NamedBlobImage(
@@ -81,6 +80,11 @@ class IProject(model.Schema):
         description=_(u'Date when the project ends.'),
         required=True,
         defaultFactory=default_tomorrow
+    )
+
+    objectives = RichText(
+        title=_(u'Project Description and Objectives'),
+        required=False,
     )
 
     wop_platform = schema.Choice(
@@ -170,11 +174,17 @@ class IProject(model.Schema):
         title=_(u"Contribution by partners and donors"),
         description=_(u""),
         required=False,
+        max_length=200
     )
 
-    objectives = RichText(
-        title=_(u'Objectives'),
+    directives.widget('areas', SelectWidget)
+    areas = schema.List(
+        title=_(u"Working Areas"),
+        description=_(u"Select one or more associated Working Area"),
         required=False,
+        value_type=schema.Choice(
+            source=utils.area_title,
+        )
     )
 
     form.mode(gwopa_code_project='hidden')
