@@ -20,7 +20,9 @@
                   team context/members;
                   getImprovementAreas view/getImprovementAreas;
                   categories context/Subject|nothing;
-                  url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
+                  url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;
+                  latitude context/geolocation/latitude;
+                  longitude context/geolocation/longitude;">
 
     <h1 class="documentFirstHeading"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
 <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
@@ -117,10 +119,8 @@
           </ul>
         </div>
 
-        <tal:map tal:condition="google_maps_link">
-          <div tal:define="latitude context/geolocation/latitude;
-                       longitude context/geolocation/longitude;"
-                class="pat-leaflet map"
+<!--         <tal:map tal:condition="google_maps_link">
+          <div class="pat-leaflet map"
            data-geojson='{
             "type": "FeatureCollection",
             "features": [
@@ -153,7 +153,7 @@
             <i class="fas fa-external-link-square-alt"></i>
             <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
           </div>
-        </tal:map>
+        </tal:map> -->
       </div>
     </div>
     <hr/>
