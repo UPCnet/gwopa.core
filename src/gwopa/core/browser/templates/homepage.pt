@@ -103,7 +103,7 @@
                                       </tal:block>
                                     </span>
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
-                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&bsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
+                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&nbsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
                                   </p>
                                 </div>
                               </a>
@@ -143,7 +143,7 @@
                                       </tal:block>
                                     </span>
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
-                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&bsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
+                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&nbsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
                                   </p>
                                 </div>
                               </a>
@@ -190,7 +190,7 @@
                                       </tal:block>
                                     </span>
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
-                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&bsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
+                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&nbsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
                                   </p>
                                 </div>
                               </a>
