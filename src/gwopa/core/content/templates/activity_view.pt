@@ -7,8 +7,9 @@
       i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="content-core"
-    tal:define="portal_state context/@@plone_portal_state;
+<metal:content-core fill-slot="content-core">
+
+<tal:block tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;
                 initial_situation context/initial_situation;
                 start context/start;
@@ -18,55 +19,54 @@
                 milestones context/milestones;
                 outputs context/outputs;
                 members context/members;
-                area context/area;
+                area context/area;">
 
-                ">
-
-    <p tal:condition="initial_situation">
-      <h3> Initial Situation </h3>
+    <div tal:condition="initial_situation">
+      <h3 i18n:translate=""> Initial Situation </h3>
       <span tal:content="initial_situation"> Initial Situation </span>
-    </p>
+    </div>
 
-    <p tal:condition="start">
-      <h3> start </h3>
+    <div tal:condition="start">
+      <h3 i18n:translate=""> Start </h3>
       <span tal:content="start"> start </span>
-    </p>
+    </div>
 
-    <p tal:condition="end">
-      <h3> end </h3>
+    <div tal:condition="end">
+      <h3 i18n:translate=""> End </h3>
       <span tal:content="end"> end </span>
-    </p>
+    </div>
 
-    <p tal:condition="inputs">
-      <h3> inputs </h3>
+    <div tal:condition="inputs">
+      <h3 i18n:translate=""> Inputs </h3>
       <span tal:content="inputs"> inputs </span>
-    </p>
+    </div>
 
-    <p tal:condition="budget">
-      <h3> Budget </h3>
+    <div tal:condition="budget">
+      <h3 i18n:translate=""> Budget </h3>
       <span tal:content="budget"> budget </span>
-    </p>
+    </div>
 
-    <p tal:condition="milestones">
-      <h3> milestones </h3>
+    <div tal:condition="milestones">
+      <h3 i18n:translate=""> Milestones </h3>
       <span tal:content="milestones"> milestones </span>
-    </p>
+    </div>
 
-    <p tal:condition="outputs">
-      <h3> outputs </h3>
+    <div tal:condition="outputs">
+      <h3 i18n:translate=""> Outputs </h3>
       <span tal:content="outputs"> outputs </span>
-    </p>
+    </div>
 
-    <p tal:condition="members">
-      <h3> members </h3>
+    <div tal:condition="members">
+      <h3 i18n:translate=""> Members </h3>
       <span tal:content="members"> members </span>
-    </p>
+    </div>
 
-    <p  tal:condition="area">
-      <h3> area </h3>
+    <div tal:condition="area">
+      <h3 i18n:translate=""> Area </h3>
       <span tal:content="area"> area </span>
-    </p>
+    </div>
 
+</tal:block>
 </metal:content-core>
 
 </body>

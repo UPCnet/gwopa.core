@@ -154,9 +154,6 @@ def outputs(context):
     return SimpleVocabulary(terms)
 
 
-directlyProvides(listWOPPrograms, IContextSourceBinder)
-
-
 directlyProvides(outputs, IContextSourceBinder)
 
 

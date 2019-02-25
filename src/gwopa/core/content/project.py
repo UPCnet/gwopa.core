@@ -19,7 +19,13 @@ from collective.geolocationbehavior.geolocation import IGeolocatable
 from plone.app.dexterity.behaviors.metadata import ICategorization
 from plone.autoform.interfaces import OMITTED_KEY
 from zope.interface import Interface
-from plone.supermodel.directives import fieldset
+# from plone.supermodel.directives import fieldset
+from zope.schema.interfaces import IContextSourceBinder
+from zope.schema.vocabulary import SimpleVocabulary
+import unicodedata
+from zope.interface import directlyProvides
+
+
 grok.templatedir("templates")
 
 
@@ -40,6 +46,24 @@ def default_tomorrow(context):
 
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
+
+
+def area_not_used(context):
+    """ Titles of Improvement Areas not created in this Project """
+    terms = []
+    literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
+    current_areas = api.content.find(portal_type="ImprovementArea", context=context, depth=1)
+    areas = []
+    for obj in current_areas:
+        areas.append(obj.Title)
+    for item in literals:
+        if item.Title not in areas:
+            flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+            terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+    return SimpleVocabulary(terms)
+
+
+directlyProvides(area_not_used, IContextSourceBinder)
 
 
 class IProject(model.Schema):
@@ -83,7 +107,7 @@ class IProject(model.Schema):
     )
 
     objectives = RichText(
-        title=_(u'Project Description and Objectives'),
+        title=_(u'Project description and main objectives'),
         required=False,
     )
 
@@ -110,14 +134,14 @@ class IProject(model.Schema):
         required=False,
     )
 
-    form.mode(latitude='hidden')
+    # form.mode(latitude='hidden')
     latitude = schema.Float(
         title=_(u"Latitude"),
         required=False,
         default=0.0
     )
 
-    form.mode(longitude='hidden')
+    # form.mode(longitude='hidden')
     longitude = schema.Float(
         title=_(u"Longitude"),
         required=False,
@@ -174,7 +198,6 @@ class IProject(model.Schema):
         title=_(u"Contribution by partners and donors"),
         description=_(u""),
         required=False,
-        max_length=200
     )
 
     directives.widget('areas', SelectWidget)
@@ -183,7 +206,7 @@ class IProject(model.Schema):
         description=_(u"Select one or more associated Working Area"),
         required=False,
         value_type=schema.Choice(
-            source=utils.area_title,
+            source=area_not_used,
         )
     )
 
