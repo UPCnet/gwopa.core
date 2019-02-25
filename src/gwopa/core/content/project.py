@@ -107,7 +107,7 @@ class IProject(model.Schema):
     )
 
     objectives = RichText(
-        title=_(u'Project Description and Objectives'),
+        title=_(u'Project description and main objectives'),
         required=False,
     )
 
