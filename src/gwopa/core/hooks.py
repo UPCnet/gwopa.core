@@ -18,21 +18,12 @@ def projectAdded(content, event):
         current year workplan
     """
     areas = content.areas
-    for area in areas:
-        api.content.create(
-            type='ImprovementArea',
-            title=area,
-            container=content)
-
-    # if content.geolocation:
-    #     content.latitude = content.geolocation.latitude
-    #     content.longitude = content.geolocation.longitude
-    # year = datetime.datetime.now().year
-    # api.content.create(
-    #     type='WorkPlan',
-    #     id=str(year),
-    #     container=content)
-    # return
+    if areas:
+        for area in areas:
+            api.content.create(
+                type='ImprovementArea',
+                title=area,
+                container=content)
 
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
@@ -76,7 +67,6 @@ def improvementAreaAdded(content, event):
         id='events',
         title='Events',
         container=content)
-    transaction.commit()
 
     api.content.create(
         type='Folder',
@@ -108,4 +98,3 @@ def OutcomeCCAdded(content, event):
             id=item.id,
             title=item.Title,
             container=content)
-    return

@@ -24,171 +24,124 @@
                   latitude context/geolocation/latitude;
                   longitude context/geolocation/longitude;">
 
-    <h1 class="documentFirstHeading"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
-<a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
-</h1>
+  <h1 class="documentFirstHeading">
+    <tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
+    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
+  </h1>
 
-      <div class="row">
-        <div class="col-md-3">
-          <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
-          <tal:block tal:condition="categories">
-            <h3 i18n:translate=""> Project Tags </h3>
-            <span tal:repeat="category categories">
-              <a href=""
-                 class="link-category"
-                 rel="tag"
-                 tal:content="category"
-                 tal:define="quotedCat python:url_quote(category)"
-                 tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
-                Category
-                </a>
-            </span>
-            <div class="clearfix"></div>
-          </tal:block>
-          <div>
-            <h3>Country</h3>
-            <h4 tal:condition="context/end"><i class="fas fa-globe-americas"></i> <tal:block tal:content="context/country"></tal:block></h4>
-            <h3>Project start date:</h3>
-            <h4 tal:condition="context/start"><i class="far fa-calendar-alt"></i> <tal:block tal:content="context/start"></tal:block></h4>
-            <h3>Project end date:</h3>
-            <h4 tal:condition="context/end"><i class="far fa-calendar-alt"></i> <tal:block tal:content="context/end"></tal:block> </h4>
-            <h3>Total budget:</h3>
-            <h4 tal:condition="budget" ><i class="fas fa-money-bill"></i> <span tal:content="budget" /> <span tal:content="view/get_currency" /></h4>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="row" tal:condition="context/description">
-              <h3 i18n:translate=""> Description </h3>
-              <tal:omit-tag i18n:translate="" tal:content="context/description"> Project description </tal:omit-tag>
-              <hr/>
-          </div>
-          <div class="row" tal:condition="wop_platform">
-            <h3 i18n:translate="">WOP Platform </h3>
-            <li tal:content="wop_platform"></li>
-          </div>
-          <div class="row">
-            <div tal:condition="wop_program" class="col-md-6">
-              <h3 i18n:translate="">WOP Programs</h3>
-              <ul>
-                <li tal:repeat="wop wop_program">
-                  <tal:block tal:content="wop"></tal:block>
-                </li>
-              </ul>
-            </div>
-            <div tal:condition="partners" class="col-md-6">
-              <h3 i18n:translate="">Partners</h3>
-              <ul>
-                <li tal:repeat="partner partners">
-                  <tal:block tal:content="partner"></tal:block>
-                </li>
-              </ul>
-            </div>
-            <hr/>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div tal:condition="project_manager" class="col-md-6">
-                  <h3 i18n:translate="">Project Manager</h3>
-                  <i class="fas fa-user"></i>&nbsp;<span tal:content="project_manager" />
-                  <hr/>
-              </div>
-              <div tal:condition="project_manager_admin" class="col-md-6">
-                  <h3 i18n:translate=""> Main Contact </h3>
-                  <i class="fas fa-user"></i>&nbsp;<span tal:content="project_manager_admin" />
-                  <hr/>
-              </div>
-            </div>
-            <div tal:condition="contribution" class="col-md-12">
-              <h3 i18n:translate="">Contribution by partners and donors</h3>
-              <span tal:replace="structure contribution/output" />
-              <hr/>
-            </div>
-          <div tal:condition="objectives" class="col-md-12">
-            <h3 i18n:translate=""> Objectives </h3>
-            <span tal:replace="structure objectives/output" />
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-md-3">
+      <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
+      <tal:block tal:condition="categories">
+        <h3 i18n:translate=""> Project Tags </h3>
+        <span tal:repeat="category categories">
+          <a href=""
+             class="link-category"
+             rel="tag"
+             tal:content="category"
+             tal:define="quotedCat python:url_quote(category)"
+             tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
+            Category
+            </a>
+        </span>
+        <div class="clearfix"></div>
+      </tal:block>
+      <div>
+        <h3>Country</h3>
+        <h4 tal:condition="context/end"><i class="fas fa-globe-americas"></i> <tal:block tal:content="context/country"></tal:block></h4>
+        <h3>Project start date:</h3>
+        <h4 tal:condition="context/start"><i class="far fa-calendar-alt"></i> <tal:block tal:content="context/start"></tal:block></h4>
+        <h3>Project end date:</h3>
+        <h4 tal:condition="context/end"><i class="far fa-calendar-alt"></i> <tal:block tal:content="context/end"></tal:block> </h4>
+        <h3>Total budget:</h3>
+        <h4 tal:condition="budget" ><i class="fas fa-money-bill"></i> <span tal:content="budget" /> <span tal:content="view/get_currency" /></h4>
       </div>
-      <div class="col-md-3">
-        <div tal:condition="team">
-          <h3 i18n:translate=""> Team </h3>
+    </div>
+    <div class="col-md-6">
+      <div class="row" tal:condition="context/description">
+          <h3 i18n:translate=""> Description </h3>
+          <tal:omit-tag i18n:translate="" tal:content="context/description"> Project description </tal:omit-tag>
+          <hr/>
+      </div>
+      <div class="row" tal:condition="wop_platform">
+        <h3 i18n:translate="">WOP Platform </h3>
+        <li tal:content="wop_platform"></li>
+      </div>
+      <div class="row">
+        <div tal:condition="wop_program" class="col-md-6">
+          <h3 i18n:translate="">WOP Programs</h3>
           <ul>
-            <li tal:repeat="user team">
-              <i class="fas fa-user"></i>&nbsp;<a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/profile/${user}"><tal:block tal:content="user"></tal:block></a>
+            <li tal:repeat="wop wop_program">
+              <tal:block tal:content="wop"></tal:block>
             </li>
           </ul>
         </div>
-
-<!--         <tal:map tal:condition="google_maps_link">
-          <div class="pat-leaflet map"
-           data-geojson='{
-            "type": "FeatureCollection",
-            "features": [
-              {
-                "type": "Feature",
-                "id": 1,
-                "properties":
-                {
-                  "popup": "<h4><a href=>${context/Title}</a></h4><p>Start: ${context/start}</p><p>End: ${context/end}</p>"
-                },
-                "geometry":
-                {
-                  "type": "Point",
-                  "coordinates": [ ${longitude}, ${latitude} ]
-                }
-              }
-            ]}' data-pat-leaflet='{
-             "fullscreencontrol": true,
-             "locatecontrol": false,
-             "zoomcontrol": true,
-             "minimap": false,
-             "addmarker": false,
-             "zoom": 17,
-             "map_layers": [
-              {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-             ]
-            }'>
+        <div tal:condition="partners" class="col-md-6">
+          <h3 i18n:translate="">Partners</h3>
+          <ul>
+            <li tal:repeat="partner partners">
+              <tal:block tal:content="partner"></tal:block>
+            </li>
+          </ul>
+        </div>
+        <hr/>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div tal:condition="project_manager" class="col-md-6">
+              <h3 i18n:translate="">Project Manager</h3>
+              <i class="fas fa-user"></i>&nbsp;<span tal:content="project_manager" />
+              <hr/>
           </div>
-          <div class="right">
-            <i class="fas fa-external-link-square-alt"></i>
-            <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
+          <div tal:condition="project_manager_admin" class="col-md-6">
+              <h3 i18n:translate=""> Main Contact </h3>
+              <i class="fas fa-user"></i>&nbsp;<span tal:content="project_manager_admin" />
+              <hr/>
           </div>
-        </tal:map> -->
+        </div>
+        <div tal:condition="contribution" class="col-md-12">
+          <h3 i18n:translate="">Contribution by partners and donors</h3>
+          <span tal:replace="structure contribution/output" />
+          <hr/>
+        </div>
+        <div tal:condition="objectives" class="col-md-12">
+          <h3 i18n:translate=""> Objectives </h3>
+          <span tal:replace="structure objectives/output" />
+        </div>
       </div>
     </div>
-    <hr/>
-    <h2><tal:omit-tag i18n:translate="">Improvement Areas</tal:omit-tag>
-    </h2>
-
-    <div class="row-fluid has-table" tal:condition="not:getImprovementAreas" >
-      <div class="col-lg-3 col-md-6">
-        <h3 i18n:translate="">
-          No Improvement Areas found
-        </h3>
+    <div class="col-md-3">
+      <div tal:condition="team">
+        <h3 i18n:translate=""> Team </h3>
+        <ul>
+          <li tal:repeat="user team">
+            <i class="fas fa-user"></i>&nbsp;<a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/profile/${user}"><tal:block tal:content="user"></tal:block></a>
+          </li>
+        </ul>
       </div>
-    </div>
-
-    <div class="row-fluid has-table">
-      <tal:block tal:condition="getImprovementAreas">
-        <tal:areas repeat="item getImprovementAreas">
-          <div class="col-lg-3 col-md-6">
-            <a tal:attributes="href item/url;
-                               title item/title;
-                               alt item/title">
-              <div class="box">
-                <img class="box-img" style="width:100%"
-                     tal:attributes="src string:${item/image};"/>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                  </h4>
+      <div class="row-fluid has-table">
+        <tal:block tal:condition="getImprovementAreas">
+          <tal:areas repeat="item getImprovementAreas">
+            <div class="col-lg-12 col-md-12">
+              <a tal:attributes="href item/url;
+                                 title item/title;
+                                 alt item/title">
+                <div class="box">
+                  <img class="box-img" style="width:100%"
+                       tal:attributes="src string:${item/image};"/>
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </div>
-        </tal:areas>
-      </tal:block>
+              </a>
+            </div>
+          </tal:areas>
+        </tal:block>
+      </div>
     </div>
+  </div>
 
 </metal:content-core>
 
