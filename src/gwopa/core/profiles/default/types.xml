@@ -22,5 +22,6 @@
   <object name="File" meta_type="Dexterity FTI"/>
   <object name="Folder" meta_type="Dexterity FTI"/>
   <object name="Event" meta_type="Dexterity FTI"/>
+  <object name="Topic" meta_type="Dexterity FTI"/>
 
 </object>
