@@ -138,8 +138,8 @@ class setup(grok.View):
             areas = api.content.create(
                 type='Folder',
                 id='areas',
-                title='Improvement Areas Items',
-                description='Improvement Areas used in the projects',
+                title='Working Areas Items',
+                description='Working Areas used in the projects',
                 container=config_folder,
                 safe_id=False)
             allowed_types = ['ItemArea', ]
@@ -447,31 +447,31 @@ class setup(grok.View):
         api.content.create(
             type='ItemArea',
             id='area1',
-            title='Improvement Area 1',
+            title='Working Area 1',
             container=portal.config.areas,
             safe_id=True)
         api.content.create(
             type='ItemArea',
             id='area2',
-            title='Improvement Area 2',
+            title='Working Area 2',
             container=portal.config.areas,
             safe_id=True)
         api.content.create(
             type='ItemArea',
             id='area3',
-            title='Improvement Area 3',
+            title='Working Area 3',
             container=portal.config.areas,
             safe_id=True)
         api.content.create(
             type='ItemArea',
             id='area4',
-            title='Improvement Area 4',
+            title='Working Area 4',
             container=portal.config.areas,
             safe_id=True)
         api.content.create(
             type='ItemArea',
             id='area5',
-            title='Improvement Area 5',
+            title='Working Area 5',
             container=portal.config.areas,
             safe_id=True)
 
