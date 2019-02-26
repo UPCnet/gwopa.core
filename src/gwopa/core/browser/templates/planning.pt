@@ -38,7 +38,6 @@
       <fieldset style="min-width:100%">
         <legend>Project</legend>
         <div>
-          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++ImprovementArea" href="#"><button class="context focus"><i class="fas fa-plus"></i> New Improvement Area</button></a>
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
             <tal:objects repeat="item areas">
               <ul class="item" style="list-style-type: none;">

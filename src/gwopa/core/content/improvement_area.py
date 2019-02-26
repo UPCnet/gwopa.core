@@ -28,6 +28,7 @@ grok.templatedir("templates")
 class IImprovementArea(form.Schema):
     """  Improvement Area type
     """
+    form.mode(title='hidden')
     title = schema.Choice(
         title=_(u"Title"),
         description=_(u"Improved specific capacity"),
@@ -35,6 +36,7 @@ class IImprovementArea(form.Schema):
         required=True,
     )
 
+    form.mode(description='hidden')
     description = schema.Text(
         title=_(u'Summary'),
         required=False,

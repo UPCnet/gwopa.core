@@ -8,34 +8,34 @@ import transaction
 from Products.statusmessages.interfaces import IStatusMessage
 
 
-class listFiles(BrowserView):
-    """ View all the files associated to the project.
-        Separated by area.
-        If this is a root call, shows all site files
-    """
-    __call__ = ViewPageTemplateFile('templates/files.pt')
+# class listFiles(BrowserView):
+#     """ View all the files associated to the project.
+#         Separated by area.
+#         If this is a root call, shows all site files
+#     """
+#     __call__ = ViewPageTemplateFile('templates/files.pt')
 
-    def isRootFolder(self):
-        if (self.context.portal_type != 'Plone Site'):
-            return _(u'Here are the files of the Project.')
-        else:
-            return _(u'Here are all files of the Platform.')
+#     def isRootFolder(self):
+#         if (self.context.portal_type != 'Plone Site'):
+#             return _(u'Here are the files of the Project.')
+#         else:
+#             return _(u'Here are all files of the Platform.')
 
-    def all_files(self):
-        if self.context.portal_type == 'Project':
-            items = api.content.find(
-                portal_type=['File'],
-                path='/'.join(self.context.getPhysicalPath()))
-        else:
-            items = api.content.find(portal_type=['File'])
-        results = []
-        for item in items:
-            results.append(dict(
-                title=item.Title,
-                description=item.Description,
-                portal_type=item.portal_type,
-                url='/'.join(item.getPhysicalPath())))
-        return results
+#     def all_files(self):
+#         if self.context.portal_type == 'Project':
+#             items = api.content.find(
+#                 portal_type=['File'],
+#                 path='/'.join(self.context.getPhysicalPath()))
+#         else:
+#             items = api.content.find(portal_type=['File'])
+#         results = []
+#         for item in items:
+#             results.append(dict(
+#                 title=item.Title,
+#                 description=item.Description,
+#                 portal_type=item.portal_type,
+#                 url='/'.join(item.getPhysicalPath())))
+#         return results
 
 
 class listAreas(BrowserView):

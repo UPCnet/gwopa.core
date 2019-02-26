@@ -448,30 +448,35 @@ class setup(grok.View):
             type='ItemArea',
             id='area1',
             title='Working Area 1',
+            description="Description from this area",
             container=portal.config.areas,
             safe_id=True)
         api.content.create(
             type='ItemArea',
             id='area2',
             title='Working Area 2',
+            description="Description from this area",
             container=portal.config.areas,
             safe_id=True)
         api.content.create(
             type='ItemArea',
             id='area3',
             title='Working Area 3',
+            description="",
             container=portal.config.areas,
             safe_id=True)
         api.content.create(
             type='ItemArea',
             id='area4',
             title='Working Area 4',
+            description="Description from this area",
             container=portal.config.areas,
             safe_id=True)
         api.content.create(
             type='ItemArea',
             id='area5',
             title='Working Area 5',
+            description="Description from this area",
             container=portal.config.areas,
             safe_id=True)
 

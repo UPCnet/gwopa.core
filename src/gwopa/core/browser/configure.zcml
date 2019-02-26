@@ -64,23 +64,6 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- FILES VIEW -->
-  <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      name="files"
-      class=".views.listFiles"
-      permission="zope2.View"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-  />
-
-  <browser:page
-      for="gwopa.core.content.project.IProject"
-      name="projectfiles"
-      class=".views.listFiles"
-      permission="zope2.View"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-  />
-
   <!-- Areas VIEW -->
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"

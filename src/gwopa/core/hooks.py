@@ -7,8 +7,8 @@ from gwopa.core.content.improvement_area import IImprovementArea
 from gwopa.core.content.outcomecc import IOutcomecc
 from gwopa.core.content.outcomeccs import IOutcomeccs
 from plone import api
-import datetime
-import transaction
+# import datetime
+# import transaction
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
@@ -17,6 +17,12 @@ def projectAdded(content, event):
         Copy value from behaviour fields to project fields.projectAnd create
         current year workplan
     """
+    api.content.create(
+        type='Folder',
+        id='files',
+        title='Files',
+        container=content)
+
     areas = content.areas
     if areas:
         for area in areas:
@@ -38,12 +44,14 @@ def projectModified(content, event):
     for item in current_areas:
         current.append(item.Title)
 
-    for area in new_areas:
-        if area not in current:
-            api.content.create(
-                type='ImprovementArea',
-                title=area,
-                container=content)
+    areas = content.areas
+    if areas:
+        for area in new_areas:
+            if area not in current:
+                api.content.create(
+                    type='ImprovementArea',
+                    title=area,
+                    container=content)
 
 
 @grok.subscribe(IPartner, IObjectAddedEvent)

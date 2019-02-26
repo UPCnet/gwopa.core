@@ -15,7 +15,6 @@
                   contribution context/contribution;
                   wop_program context/wop_program;
                   wop_platform context/wop_platform;
-                  google_maps_link view/google_maps_link;
                   objectives context/objectives;
                   team context/members;
                   getImprovementAreas view/getImprovementAreas;
@@ -24,7 +23,7 @@
 
   <h1 class="documentFirstHeading">
     <tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
-    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
+    <a tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
   </h1>
 
   <div class="row">

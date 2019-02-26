@@ -83,7 +83,7 @@
 <div class="sidenav2">
     <ul id="sidenav-vertical">
         <div class="logo">
-        <a href="#" tal:attributes="href string:${portal_url}">
+        <a href="#" tal:attributes="href string:${portal_url}" title="PMP Home" alt="PMP Home">
             <img tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"/>
         </a>
     </div>
