@@ -20,9 +20,7 @@
                   team context/members;
                   getImprovementAreas view/getImprovementAreas;
                   categories context/Subject|nothing;
-                  url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;
-                  latitude context/geolocation/latitude;
-                  longitude context/geolocation/longitude;">
+                  url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
 
   <h1 class="documentFirstHeading">
     <tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
