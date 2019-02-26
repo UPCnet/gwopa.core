@@ -282,8 +282,8 @@ class setup(grok.View):
             safe_id=False)
         p1.contact = 'userpartner1@test.com'
         p1.country = ['Spain']
-        geo = IGeolocatable(p1, None)
-        geo.geolocation = Geolocation(41.3828939, 2.1774322)
+        # geo = IGeolocatable(p1, None)
+        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
         p2 = api.content.create(
             type='Partner',
             id='partner2',
@@ -293,8 +293,8 @@ class setup(grok.View):
             safe_id=False)
         p2.contact = 'userpartner2@test.com'
         p2.country = ['Spain']
-        geo = IGeolocatable(p2, None)
-        geo.geolocation = Geolocation(41.3828939, 2.1774322)
+        # geo = IGeolocatable(p2, None)
+        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
         p3 = api.content.create(
             type='Partner',
             id='partner3',
@@ -304,8 +304,8 @@ class setup(grok.View):
             safe_id=False)
         p3.contact = 'userpartner3@test.com'
         p3.country = ['Spain']
-        geo = IGeolocatable(p3, None)
-        geo.geolocation = Geolocation(41.3828939, 2.1774322)
+        # geo = IGeolocatable(p3, None)
+        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
         p4 = api.content.create(
             type='Partner',
             id='partner4',
@@ -315,8 +315,8 @@ class setup(grok.View):
             safe_id=False)
         p4.contact = 'userpartner4@test.com'
         p4.country = ['Spain']
-        geo = IGeolocatable(p4, None)
-        geo.geolocation = Geolocation(41.3828939, 2.1774322)
+        # geo = IGeolocatable(p4, None)
+        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
         p5 = api.content.create(
             type='Partner',
             id='partner5',
@@ -326,8 +326,8 @@ class setup(grok.View):
             safe_id=False)
         p5.contact = 'userpartner5@test.com'
         p5.country = ['Spain']
-        geo = IGeolocatable(p5, None)
-        geo.geolocation = Geolocation(41.3828939, 2.1774322)
+        # geo = IGeolocatable(p5, None)
+        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
         # Create base Outcome CC selectable Values
         api.content.create(
             type='OutcomeCCItem',
@@ -518,8 +518,8 @@ class setup(grok.View):
                 'text/html', 'text/html')
             new_value = []
             project.partners = new_value
-            geo = IGeolocatable(project, None)
-            geo.geolocation = Geolocation(41.3828939, 2.1774322)
+            # geo = IGeolocatable(project, None)
+            # geo.geolocation = Geolocation(41.3828939, 2.1774322)
             project.assumptions = project.contribution
             project.objectives = project.contribution
             project.country = 'Spain'
