@@ -116,8 +116,16 @@ class IProject(model.Schema):
 
     wop_platform = schema.Choice(
         title=_(u'Regional WOP Platform'),
+        description=_(u"Platform/platforms associated to this project"),
         required=False,
         source=utils.listWOPPlatforms
+    )
+
+    wop_program = schema.Choice(
+        title=_(u'WOP Program'),
+        description=_(u"Program/programs associated to this project"),
+        required=False,
+        source=utils.listWOPPrograms
     )
 
     directives.widget('country', SelectWidget)
@@ -126,15 +134,6 @@ class IProject(model.Schema):
         description=_(u"Select country"),
         source=utils.countries,
         required=True,
-    )
-
-    directives.widget('wop_program', SelectWidget)
-    wop_program = schema.List(
-        title=_(u"WOP Program"),
-        description=_(u"Program/programs associated to this project"),
-        value_type=schema.Choice(
-            source=utils.listWOPPrograms),
-        required=False,
     )
 
     # form.mode(latitude='hidden')
