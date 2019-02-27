@@ -78,6 +78,7 @@ class IOutcomezone(model.Schema):
 class View(grok.View):
     grok.context(IOutcomezone)
     grok.template('outcomezone_view')
+    grok.require('zope2.View')
 
 
 class Edit(form.SchemaEditForm):

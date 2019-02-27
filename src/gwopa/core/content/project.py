@@ -19,12 +19,22 @@ from collective.geolocationbehavior.geolocation import IGeolocatable
 from plone.app.dexterity.behaviors.metadata import ICategorization
 from plone.autoform.interfaces import OMITTED_KEY
 from zope.interface import Interface
-# from plone.supermodel.directives import fieldset
+from plone.supermodel.directives import fieldset
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
 import unicodedata
 from zope.interface import directlyProvides
+from zope.schema.vocabulary import SimpleTerm
 
+items = [(_(u'inactive'), _(u'Inactive')),
+         (_(u'inception'), _(u'Inception')),
+         (_(u'implementation'), _(u'Implementation')),
+         (_(u'completed'), _(u'Completed')),
+         ]
+
+terms = [SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items]
+
+projectStatus = SimpleVocabulary(terms)
 
 grok.templatedir("templates")
 
@@ -73,15 +83,20 @@ class IProject(model.Schema):
     """  Project type
     """
 
-    # fieldset('project',
-    #          label=_(u'Project'),
-    #          fields=['title', 'image', 'objectives', 'start', 'end', 'wop_platform', 'country', 'wop_program']
-    #          )
+    fieldset('project',
+             label=_(u'Project'),
+             fields=['title', 'image', 'status', 'objectives', 'start', 'end', 'areas', 'wop_platform', 'wop_program', 'budget', 'currency']
+             )
 
-    # fieldset('members',
-    #          label=_(u'Members'),
-    #          fields=['partners', 'project_manager_admin', 'project_manager', 'members', 'budget', 'currency', 'contribution']
-    #          )
+    fieldset('geo',
+             label=_(u'Geolocation'),
+             fields=['country', 'latitude', 'longitude', 'gwopa_code_project']
+             )
+
+    fieldset('members',
+             label=_(u'Partners'),
+             fields=['partners', 'project_manager_admin', 'project_manager', 'members', 'contribution']
+             )
 
     title = schema.TextLine(
         title=_(u"Title"),
@@ -93,6 +108,12 @@ class IProject(model.Schema):
         title=_(u'Image'),
         description=_(u'Project image'),
         required=False,
+    )
+
+    status = schema.Choice(
+        title=_(u'Project Status'),
+        description=_(u'Indicate the current status of the project'),
+        vocabulary=projectStatus,
     )
 
     start = schema.Date(
@@ -111,6 +132,7 @@ class IProject(model.Schema):
 
     objectives = RichText(
         title=_(u'Project description and main objectives'),
+        description=_(u'Use this area to add all the objectives and description of the project'),
         required=False,
     )
 
@@ -128,7 +150,7 @@ class IProject(model.Schema):
         source=utils.listWOPPrograms
     )
 
-    directives.widget('country', SelectWidget)
+    # directives.widget('country', SelectWidget)
     country = schema.Choice(
         title=_(u"Country"),
         description=_(u"Select country"),
@@ -139,6 +161,7 @@ class IProject(model.Schema):
     # form.mode(latitude='hidden')
     latitude = schema.Float(
         title=_(u"Latitude"),
+        description=_(u"Latitude of this project. Used in the map view"),
         required=False,
         default=0.0
     )
@@ -146,11 +169,12 @@ class IProject(model.Schema):
     # form.mode(longitude='hidden')
     longitude = schema.Float(
         title=_(u"Longitude"),
+        description=_(u"Longitude of this project. Used in the map view"),
         required=False,
         default=0.0
     )
 
-    directives.widget('partners', SelectWidget)
+    # directives.widget('partners', SelectWidget)
     partners = schema.List(
         title=_(u"Partners"),
         description=_(u"Partner/partners of the project"),
@@ -167,7 +191,7 @@ class IProject(model.Schema):
         vocabulary=u'plone.app.vocabularies.Users',
     )
 
-    directives.widget('project_manager', SelectWidget)
+    # directives.widget('project_manager', SelectWidget)
     project_manager = schema.Choice(
         title=_(u"Project Manager"),
         description=_(u"The responsible of this project"),
@@ -175,7 +199,7 @@ class IProject(model.Schema):
         vocabulary=u'plone.app.vocabularies.Users',
     )
 
-    directives.widget('members', SelectWidget)
+    # directives.widget('members', SelectWidget)
     members = schema.List(
         title=_(u"Members"),
         description=_(u"Improvement track team and members"),
@@ -187,18 +211,20 @@ class IProject(model.Schema):
 
     budget = schema.Int(
         title=_(u"Total budget"),
+        description=_(u"Indicate the total budget of the project"),
         required=False,
     )
 
     currency = schema.Choice(
         title=_(u"Currency"),
+        description=_(u"The currency used into the project"),
         source=utils.settings_currency,
         required=True,
     )
 
     contribution = RichText(
         title=_(u"Contribution by partners and donors"),
-        description=_(u""),
+        description=_(u"Field to indicate all the needed info about contribution by partners and donors"),
         required=False,
     )
 
@@ -216,7 +242,7 @@ class IProject(model.Schema):
     # form.mode(IEditForm, gwopa_code_project='display')
     gwopa_code_project = schema.ASCIILine(
         title=_(u'CODE'),
-        description=_(u'Internal CODE for administrators'),
+        description=_(u'Project CODE for administrators'),
         required=False
     )
 
@@ -240,6 +266,7 @@ def codeDefaultValue(data):
 class View(grok.View):
     grok.context(IProject)
     grok.template('project_view')
+    grok.require('zope2.View')
 
     def getImprovementAreas(self):
         items = api.content.find(
@@ -271,15 +298,15 @@ class View(grok.View):
         else:
             return value
 
-    def google_maps_link(self):
-        geo = IGeolocatable(self.context, None)
-        if geo:
-            coordinates = [geo.geolocation.latitude, geo.geolocation.longitude]
-            if geo.geolocation.latitude != 0.0 and geo.geolocation.longitude != 0.0:
-                maps_link = "//www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
-                    coordinates[0],
-                    coordinates[1]
-                )
-                return maps_link
+    # def google_maps_link(self):
+    #     geo = IGeolocatable(self.context, None)
+    #     if geo:
+    #         coordinates = [geo.geolocation.latitude, geo.geolocation.longitude]
+    #         if geo.geolocation.latitude != 0.0 and geo.geolocation.longitude != 0.0:
+    #             maps_link = "//www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
+    #                 coordinates[0],
+    #                 coordinates[1]
+    #             )
+    #             return maps_link
 
-        return None
+    #     return None

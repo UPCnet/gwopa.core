@@ -48,6 +48,7 @@ class IPartner(model.Schema):
 class View(grok.View):
     grok.context(IPartner)
     grok.template('partner_view')
+    grok.require('zope2.View')
 
     def usersinthisPartner(self):
         members = api.user.get_users()

@@ -97,7 +97,7 @@
           </div>
         </div>
         <div tal:condition="contribution" class="col-md-12">
-          <h3 i18n:translate="">Contribution by partners and donors</h3>
+          <h3 i18n:translate="">Participants and contributions (in cash and in kind)</h3>
           <span tal:replace="structure contribution/output" />
           <hr/>
         </div>

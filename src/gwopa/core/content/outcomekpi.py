@@ -73,6 +73,7 @@ class IOutcomekpi(model.Schema):
 class View(grok.View):
     grok.context(IOutcomekpi)
     grok.template('outcomekpi_view')
+    grok.require('zope2.View')
 
 
 class Edit(form.SchemaEditForm):

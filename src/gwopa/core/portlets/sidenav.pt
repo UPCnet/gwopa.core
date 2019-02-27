@@ -94,11 +94,11 @@
         <tal:omit-tag tal:condition="isRootFolder">
             <a class="plone-btn plone-btn-info active" tal:attributes="href string:${projectPath}">
                 <i class="fas fa-home"></i><span i18n:translate=""> Project Overview </span></a>
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectareas" href="#">
+            <a class="paddingleft20 plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectareas" href="#">
                 <i class="fas fa-chart-area"></i><tal:omit-tag i18n:translate=""> Areas </tal:omit-tag></a>
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectteams" href="#">
+            <a class="paddingleft20 plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectteams" href="#">
                 <i class="fas fa-users"></i><tal:omit-tag i18n:translate=""> Team </tal:omit-tag></a>
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectfiles" href="#">
+            <a class="paddingleft20 plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectfiles" href="#">
                 <i class="fas fa-file"></i><tal:omit-tag i18n:translate=""> Files </tal:omit-tag></a>
             <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/planning" href="#">
                 <i class="fas fa-calendar-check"></i><tal:omit-tag i18n:translate=""> Planning </tal:omit-tag></a>

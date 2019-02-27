@@ -27,6 +27,7 @@ class IOutcomecc(model.Schema):
 class View(grok.View):
     grok.context(IOutcomecc)
     grok.template('outcomecc_view')
+    grok.require('zope2.View')
 
     def getItems(self):
 

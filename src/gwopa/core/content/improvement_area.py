@@ -18,7 +18,6 @@ from plone.indexer import indexer
 #from z3c.form.interfaces import IAddForm, IEditForm
 from gwopa.core import utils
 
-
 PLMF = MessageFactory('plonelocales')
 
 
@@ -28,7 +27,7 @@ grok.templatedir("templates")
 class IImprovementArea(form.Schema):
     """  Improvement Area type
     """
-    form.mode(title='hidden')
+    form.mode(title='input')
     title = schema.Choice(
         title=_(u"Title"),
         description=_(u"Improved specific capacity"),
@@ -36,7 +35,7 @@ class IImprovementArea(form.Schema):
         required=True,
     )
 
-    form.mode(description='hidden')
+    form.mode(description='input')
     description = schema.Text(
         title=_(u'Summary'),
         required=False,
@@ -84,6 +83,7 @@ class Edit(form.SchemaEditForm):
 class View(grok.View):
     grok.context(IImprovementArea)
     grok.template('improvementarea_view')
+    grok.require('zope2.View')
 
     def getFiles(self):
         """ Return files of the Area """

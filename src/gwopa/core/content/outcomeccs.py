@@ -20,6 +20,7 @@ class IOutcomeccs(model.Schema):
 class View(grok.View):
     grok.context(IOutcomeccs)
     grok.template('outcomeccs_view')
+    grok.require('zope2.View')
 
 
 class Edit(form.SchemaEditForm):

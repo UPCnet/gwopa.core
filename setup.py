@@ -56,6 +56,8 @@ setup(
         'geojson',
         'plone.restapi',
         'collective.ploneboard',
+        'collective.vdexvocabulary',
+        'collective.taxonomy'
     ],
     extras_require={
         'test': [

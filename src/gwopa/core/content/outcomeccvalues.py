@@ -75,6 +75,7 @@ class IOutcomeccvalues(model.Schema):
 class View(grok.View):
     grok.context(IOutcomeccvalues)
     grok.template('outcomeccvalues_view')
+    grok.require('zope2.View')
 
     def getData(self):
         results = []

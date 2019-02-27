@@ -37,3 +37,4 @@ class ITargetvalue(model.Schema):
 class View(grok.View):
     grok.context(ITargetvalue)
     grok.template('targetvalue_view')
+    grok.require('zope2.View')

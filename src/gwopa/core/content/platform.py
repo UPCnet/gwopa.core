@@ -37,10 +37,19 @@ class IPlatform(model.Schema):
         required=True,
     )
 
+    region = schema.List(
+        title=_(u"Region"),
+        description=_(u"Choose region based on selected country."),
+        value_type=schema.Choice(
+            source=utils.countries),
+        required=True,
+    )
+
 
 class View(grok.View):
     grok.context(IPlatform)
     grok.template('platform_view')
+    grok.require('zope2.View')
 
     def listMembers(self):
         """ Returns users registerd on this Region """
@@ -48,7 +57,8 @@ class View(grok.View):
         results = []
 
         for item in members:
-            if item.getProperty('wop_platform') == self.context.Title():
+            value = getattr(item, 'wop_platform', None)
+            if value == self.context.Title():
                 results += [{
                     'id': item.id,
                     'country': item.getProperty('country'),

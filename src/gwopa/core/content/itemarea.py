@@ -34,6 +34,7 @@ class IItemArea(model.Schema):
 class View(grok.View):
     grok.context(IItemArea)
     grok.template('itemarea_view')
+    grok.require('zope2.View')
 
 
 class Edit(form.SchemaEditForm):

@@ -61,3 +61,4 @@ class IProgram(model.Schema):
 class View(grok.View):
     grok.context(IProgram)
     grok.template('program_view')
+    grok.require('zope2.View')

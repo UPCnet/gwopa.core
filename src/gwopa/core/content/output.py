@@ -79,3 +79,4 @@ def codeDefaultValue(data):
 class View(grok.View):
     grok.context(IOutput)
     grok.template('output_view')
+    grok.require('zope2.View')

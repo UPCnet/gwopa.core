@@ -139,3 +139,4 @@ def hashValue(data):
 class View(grok.View):
     grok.context(IActivity)
     grok.template('activity_view')
+    grok.require('zope2.View')

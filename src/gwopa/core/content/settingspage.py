@@ -47,6 +47,7 @@ class ISettingspage(model.Schema):
 class View(grok.View):
     grok.context(ISettingspage)
     grok.template('settings_view')
+    grok.require('zope2.View')
 
 
 class Edit(form.SchemaEditForm):

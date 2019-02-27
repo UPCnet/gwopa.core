@@ -37,3 +37,4 @@ class ILogframe(model.Schema):
 class View(grok.View):
     grok.context(ILogframe)
     grok.template('logframe_view')
+    grok.require('zope2.View')
