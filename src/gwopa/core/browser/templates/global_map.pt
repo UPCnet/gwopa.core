@@ -17,6 +17,8 @@
 
   pycountry.subdivisions.get(country_code=pycountry.countries.get(name='Spain').alpha_2)
 
+  spain / location / 'map'
+
   <div class="geolocation_wrapper" >
     <div class="pat-leaflet map" tal:attributes="data-geojson view/getPoints" data-pat-leaflet='{
       "fullscreencontrol": true,
