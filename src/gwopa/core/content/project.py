@@ -303,8 +303,6 @@ class IProject(model.Schema):
         required=False
     )
 
-    directives.omitted('subjects', 'language')
-
 
 @form.default_value(field=IProject['gwopa_code_project'])
 def codeDefaultValue(data):
