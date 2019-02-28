@@ -12,7 +12,6 @@
                   project_manager context/project_manager;
                   project_manager_admin context/project_manager_admin;
                   budget context/budget;
-                  contribution context/contribution;
                   wop_program context/wop_program;
                   wop_platform context/wop_platform;
                   objectives context/objectives;
@@ -22,7 +21,10 @@
                   country context/country;
                   location context/location;
                   url_quote nocall:modules/Products.PythonScripts.standard/url_quote;
-                  canEdit not:view/canEdit">
+                  canEdit not:view/canEdit;
+                  wateroperators context/wateroperators;
+                  donors context/donors;
+                  others context/others">
 
   <h1 class="documentFirstHeading">
     <tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
@@ -38,9 +40,10 @@
           <i class="fas fa-map-marker-alt"></i>&nbsp;<span tal:content="location"></span>, <span tal:content="country"></span>
         </div>
         <div class="col-md-10">
-         <h2 i18n:translate=""> Description and main objectives </h2>
-          <span tal:replace="structure objectives/output"> Project Objectives </span>
-
+          <tal:objectives tal:condition="objectives">
+            <h2 i18n:translate=""> Description and main objectives </h2>
+            <span tal:replace="structure objectives/output"> Project Objectives </span>
+          </tal:objectives>
           <span tal:condition="categories" tal:repeat="category categories">
             <a href=""
                class="link-category"
@@ -98,16 +101,22 @@
         <hr/>
         <h2> Contribution by partners and donors</h2>
         <div class="col-md-4">
-          <h3> Partner Water Operators </h3>
-          <span tal:replace="structure context/wateroperators/output"> Project Objectives </span>
+          <tal:objectives tal:condition="wateroperators">
+            <h3> Partner Water Operators </h3>
+            <span tal:replace="structure wateroperators/output"> Partner Water Operators </span>
+          </tal:objectives>
         </div>
         <div class="col-md-4">
-          <h3> Donors </h3>
-          <span tal:replace="structure context/donors/output"> Project Objectives </span>
+          <tal:objectives tal:condition="donors">
+            <h3> Donors </h3>
+            <span tal:replace="structure donors/output"> Donors </span>
+          </tal:objectives>
         </div>
         <div class="col-md-4">
-          <h3> Other Organizations </h3>
-          <span tal:replace="structure context/others/output"> Project Objectives </span>
+          <tal:objectives tal:condition="others">
+            <h3> Other Organizations </h3>
+            <span tal:replace="structure others/output"> Other Organizations </span>
+          </tal:objectives>
         </div>
       </div>
     </div>

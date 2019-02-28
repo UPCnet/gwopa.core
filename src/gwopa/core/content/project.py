@@ -197,7 +197,7 @@ class IProject(model.Schema):
     location = schema.TextLine(
         title=_(u"Location"),
         description=_(u"Write the project location"),
-        required=True,
+        required=False,
     )
 
     # form.mode(latitude='hidden')
