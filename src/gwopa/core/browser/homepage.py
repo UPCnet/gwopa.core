@@ -48,8 +48,8 @@ class MainTemplate(BrowserView):
                     image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 results.append(dict(title=self.abreviaText(item.title),
                                     url=item.absolute_url_path(),
-                                    start=item.start,
-                                    end=item.end,
+                                    start=item.startplanned,
+                                    end=item.startactual,
                                     country=item.country,
                                     project_manager=item.project_manager,
                                     image=image
@@ -73,8 +73,8 @@ class MainTemplate(BrowserView):
                             image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         results.append(dict(title=self.abreviaText(item.title),
                                             url=item.absolute_url_path(),
-                                            start=item.start,
-                                            end=item.end,
+                                            start=item.startplanned,
+                                            end=item.startactual,
                                             country=item.country,
                                             project_manager=item.project_manager,
                                             image=image
@@ -98,8 +98,8 @@ class MainTemplate(BrowserView):
                 if len(results) < 4:
                     results.append(dict(title=self.abreviaText(item.title),
                                         url=item.absolute_url_path(),
-                                        start=item.start,
-                                        end=item.end,
+                                        start=item.startplanned,
+                                        end=item.startactual,
                                         country=item.country,
                                         project_manager=item.project_manager,
                                         image=image
@@ -124,8 +124,8 @@ class MainTemplate(BrowserView):
                         if len(results) < 4:
                             results.append(dict(title=self.abreviaText(item.title),
                                                 url=item.absolute_url_path(),
-                                                start=item.start,
-                                                end=item.end,
+                                                start=item.startplanned,
+                                                end=item.startactual,
                                                 country=item.country,
                                                 project_manager=item.project_manager,
                                                 image=image
@@ -147,8 +147,8 @@ class MainTemplate(BrowserView):
                 image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
             results.append(dict(title=self.abreviaText(item.title),
                                 url=item.absolute_url_path(),
-                                start=item.start,
-                                end=item.end,
+                                start=item.startplanned,
+                                end=item.startactual,
                                 country=item.country,
                                 project_manager=item.project_manager,
                                 image=image

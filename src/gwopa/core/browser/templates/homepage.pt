@@ -92,18 +92,7 @@
                                 <div class="card-body">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
-                                    <span>
-                                      <i class="fas fa-calendar-alt"></i>
-                                      <tal:block tal:condition="date_start" tal:define="date_start item/start">
-                                        <tal:omit-tag tal:content="python:date_start.strftime('%m/%d/%Y')"></tal:omit-tag>
-                                      </tal:block>
-                                      <tal:block tal:condition="date_end" tal:define="date_end item/end">
-                                       -
-                                        <tal:omit-tag tal:content="python:date_end.strftime('%m/%d/%Y')"></tal:omit-tag>
-                                      </tal:block>
-                                    </span>
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
-                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&nbsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
                                   </p>
                                 </div>
                               </a>
@@ -132,18 +121,7 @@
                                 <div class="card-body">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
-                                    <span>
-                                      <i class="fas fa-calendar-alt"></i>
-                                      <tal:block tal:condition="date_start" tal:define="date_start item/start">
-                                        <tal:omit-tag tal:content="python:date_start.strftime('%m/%d/%Y')"></tal:omit-tag>
-                                      </tal:block>
-                                      <tal:block tal:condition="date_end" tal:define="date_end item/end">
-                                       -
-                                        <tal:omit-tag tal:content="python:date_end.strftime('%m/%d/%Y')"></tal:omit-tag>
-                                      </tal:block>
-                                    </span>
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
-                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&nbsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
                                   </p>
                                 </div>
                               </a>
@@ -179,18 +157,7 @@
                                 <div class="card-body">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
-                                    <span>
-                                      <i class="fas fa-calendar-alt"></i>
-                                      <tal:block tal:condition="date_start" tal:define="date_start item/start">
-                                        <tal:omit-tag tal:content="python:date_start.strftime('%m/%d/%Y')"></tal:omit-tag>
-                                      </tal:block>
-                                      <tal:block tal:condition="date_end" tal:define="date_end item/end">
-                                       -
-                                        <tal:omit-tag tal:content="python:date_end.strftime('%m/%d/%Y')"></tal:omit-tag>
-                                      </tal:block>
-                                    </span>
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
-                                    <span tal:condition="project_manager"><i class="fas fa-user-tie"></i>&nbsp;<tal:omit-tag tal:content="project_manager"> User </tal:omit-tag></span>
                                   </p>
                                 </div>
                               </a>

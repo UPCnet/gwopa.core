@@ -59,11 +59,11 @@ class IActivity(model.Schema):
         defaultFactory=endDefaultValue
     )
 
-    inputs = schema.Text(
-        title=_(u'Related inputs'),
-        required=False,
-        missing_value=u'',
-    )
+    # inputs = schema.Text(
+    #     title=_(u'Related inputs'),
+    #     required=False,
+    #     missing_value=u'',
+    # )
 
     budget = schema.Text(
         title=_(u'Assigned budget'),

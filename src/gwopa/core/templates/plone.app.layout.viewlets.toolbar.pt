@@ -6,11 +6,9 @@
          tal:condition="context_state/is_toolbar_visible"
          i18n:domain="plone">
 
-  <div id="edit-zone" role="toolbar" class="pat-toolbar" data-pat-toolbar="${view/get_options}">
+  <div id="edit-zone" role="toolbar" class="pat-toolbar" data-pat-toolbar="plone-toolbar-expanded plone-toolbar-top-expanded">
     <div class="plone-toolbar-container">
-      <a class="plone-toolbar-logo">
-        <img alt="Plone Toolbar" tal:attributes="src view/get_toolbar_logo" />
-      </a>
+        <img title="Partnership Management Platform" alt="Partnership Management Platform" class="logo_img" tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"/>
       <a class="plone-toolbar-switcher" tal:condition="view/show_switcher"><span>Left-Top switcher</span></a>
       <nav>
         <ul id="personal-bar-container">
@@ -41,11 +39,11 @@
           </li>
         </ul>
 
-        <ul class="plone-toolbar-main">
+<!--         <ul class="plone-toolbar-main">
           <div tal:replace="structure view/base_render">
           </div>
         </ul>
-
+ -->
 
         <ul class="plone-toolbar-main">
           <li id="contentview-folderContents" class="">
@@ -99,6 +97,7 @@
               </li>
             </ul>
           </li> -->
+
           <li id="contentview-local_roles" class="">
               <a tal:attributes="href string:${context/absolute_url}/sharing">
                 <span class="icon-local_roles  toolbar-menu-icon" aria-hidden="true">

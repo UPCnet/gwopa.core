@@ -18,19 +18,21 @@ def projectAdded(content, event):
         current year workplan
     """
 
-    # api.content.create(
-    #     type='Folder',
-    #     id='files',
-    #     title='Files',
-    #     container=content)
+    api.content.create(
+        type='Folder',
+        id='files',
+        title='Files',
+        container=content)
 
-    # areas = content.areas
-    # if areas:
-    #     for area in areas:
-    #         api.content.create(
-    #             type='ImprovementArea',
-    #             title=area,
-    #             container=content)
+    areas = content.areas
+    if areas is None:
+        return
+    else:
+        for area in areas:
+            api.content.create(
+                type='ImprovementArea',
+                title=area,
+                container=content)
 
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
@@ -38,16 +40,15 @@ def projectModified(content, event):
     """ Project modified handler.
         Create new areas
     """
+    # import ipdb; ipdb.set_trace()
 
     # new_areas = content.areas
-    # current_areas = api.content.find(portal_type="ImprovementArea", context=content, depth=1)
-    # current = []
+    # current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]
 
-    # for item in current_areas:
-    #     current.append(item.Title)
-
-    # areas = content.areas
-    # if areas:
+    # new_areas = content.areas
+    # if new_areas is None:
+    #     return
+    # else:
     #     for area in new_areas:
     #         if area not in current:
     #             api.content.create(

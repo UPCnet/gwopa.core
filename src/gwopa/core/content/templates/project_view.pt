@@ -12,111 +12,116 @@
                   project_manager context/project_manager;
                   project_manager_admin context/project_manager_admin;
                   budget context/budget;
-                  contribution context/contribution;
                   wop_program context/wop_program;
                   wop_platform context/wop_platform;
                   objectives context/objectives;
                   team context/members;
                   getImprovementAreas view/getImprovementAreas;
                   categories context/Subject|nothing;
-                  url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
+                  country context/country;
+                  location context/location;
+                  url_quote nocall:modules/Products.PythonScripts.standard/url_quote;
+                  canEdit not:view/canEdit;
+                  wateroperators context/wateroperators;
+                  donors context/donors;
+                  others context/others">
 
   <h1 class="documentFirstHeading">
     <tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
-    <a tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
+    <button class="context focus"><tal:block tal:content="context/status"></tal:block></button>
+    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
   </h1>
 
   <div class="row">
-    <div class="col-md-3">
-      <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
-      <tal:block tal:condition="categories">
-        <h3 i18n:translate=""> Project Tags </h3>
-        <span tal:repeat="category categories">
-          <a href=""
-             class="link-category"
-             rel="tag"
-             tal:content="category"
-             tal:define="quotedCat python:url_quote(category)"
-             tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
-            Category
-            </a>
-        </span>
-        <div class="clearfix"></div>
-      </tal:block>
-      <div>
-        <h3>Country</h3>
-        <h4 tal:condition="context/end"><i class="fas fa-globe-americas"></i> <tal:block tal:content="context/country"></tal:block></h4>
-        <h3>Project start date:</h3>
-        <h4 tal:condition="context/start"><i class="far fa-calendar-alt"></i> <tal:block tal:content="context/start"></tal:block></h4>
-        <h3>Project end date:</h3>
-        <h4 tal:condition="context/end"><i class="far fa-calendar-alt"></i> <tal:block tal:content="context/end"></tal:block> </h4>
-        <h3>Total budget:</h3>
-        <h4 tal:condition="budget" ><i class="fas fa-money-bill"></i> <span tal:content="budget" /> <span tal:content="view/get_currency" /></h4>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="row" tal:condition="context/description">
-          <h3 i18n:translate=""> Description </h3>
-          <tal:omit-tag i18n:translate="" tal:content="context/description"> Project description </tal:omit-tag>
-          <hr/>
-      </div>
-      <div class="row" tal:condition="wop_platform">
-        <h3 i18n:translate="">WOP Platform </h3>
-        <li tal:content="wop_platform"></li>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-2">
+          <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
+          <i class="fas fa-map-marker-alt"></i>&nbsp;<span tal:content="location"></span>, <span tal:content="country"></span>
+        </div>
+        <div class="col-md-10">
+          <tal:objectives tal:condition="objectives">
+            <h2 i18n:translate=""> Description and main objectives </h2>
+            <span tal:replace="structure objectives/output"> Project Objectives </span>
+          </tal:objectives>
+          <span tal:condition="categories" tal:repeat="category categories">
+            <a href=""
+               class="link-category"
+               rel="tag"
+               tal:content="category"
+               tal:define="quotedCat python:url_quote(category)"
+               tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
+              Category
+              </a>
+          </span>
+        </div>
       </div>
       <div class="row">
-        <div tal:condition="wop_program" class="col-md-6">
-          <h3 i18n:translate="">WOP Programs</h3>
-          <ul>
-            <li tal:repeat="wop wop_program">
-              <tal:block tal:content="wop"></tal:block>
-            </li>
-          </ul>
+        <hr/>
+        <div class="col-md-6">
+          <h2> Starting Date</h2>
+          Planned: <tal:block tal:content="context/startplanned"> &nbsp; | Actual: <tal:block tal:content="context/startactual"> 
         </div>
-        <div tal:condition="partners" class="col-md-6">
-          <h3 i18n:translate="">Partners</h3>
+        <div class="col-md-6">
+          <h2> Completion Date</h2>
+          Planned: <tal:block tal:content="context/completionplanned"> &nbsp; | Actual: <tal:block tal:content="context/completionactual"> 
+        </div>
+      </div>
+      <div class="row">
+        <hr/>
+        <div class="col-md-4">
+          <h2> Regional WOP Platform</h2>
+          <tal:block tal:content="wop_platform"></tal:block>
+        </div>
+        <div class="col-md-4">
+          <h2> WOP Programs </h2>
+          <tal:block tal:content="wop_program"></tal:block>
+        </div>
+        <div class="col-md-4">
+          <h2> Partners </h2>
           <ul>
             <li tal:repeat="partner partners">
               <tal:block tal:content="partner"></tal:block>
             </li>
           </ul>
         </div>
-        <hr/>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          <div tal:condition="project_manager" class="col-md-6">
-              <h3 i18n:translate="">Project Manager</h3>
-              <i class="fas fa-user"></i>&nbsp;<span tal:content="project_manager" />
-              <hr/>
-          </div>
-          <div tal:condition="project_manager_admin" class="col-md-6">
-              <h3 i18n:translate=""> Main Contact </h3>
-              <i class="fas fa-user"></i>&nbsp;<span tal:content="project_manager_admin" />
-              <hr/>
-          </div>
+        <hr/>
+        <div class="col-md-6">
+          <h2> Project Manager </h2>
+          <span tal:content="project_manager" />
         </div>
-        <div tal:condition="contribution" class="col-md-12">
-          <h3 i18n:translate="">Participants and contributions (in cash and in kind)</h3>
-          <span tal:replace="structure contribution/output" />
-          <hr/>
+        <div class="col-md-6">
+          <h2> Main contact </h2>
+          <span tal:content="project_manager_admin" />
         </div>
-        <div tal:condition="objectives" class="col-md-12">
-          <h3 i18n:translate=""> Objectives </h3>
-          <span tal:replace="structure objectives/output" />
+      </div>
+      <div class="row">
+        <hr/>
+        <h2> Contribution by partners and donors</h2>
+        <div class="col-md-4">
+          <tal:objectives tal:condition="wateroperators">
+            <h3> Partner Water Operators </h3>
+            <span tal:replace="structure wateroperators/output"> Partner Water Operators </span>
+          </tal:objectives>
+        </div>
+        <div class="col-md-4">
+          <tal:objectives tal:condition="donors">
+            <h3> Donors </h3>
+            <span tal:replace="structure donors/output"> Donors </span>
+          </tal:objectives>
+        </div>
+        <div class="col-md-4">
+          <tal:objectives tal:condition="others">
+            <h3> Other Organizations </h3>
+            <span tal:replace="structure others/output"> Other Organizations </span>
+          </tal:objectives>
         </div>
       </div>
     </div>
     <div class="col-md-3">
-      <div tal:condition="team">
-        <h3 i18n:translate=""> Team </h3>
-        <ul>
-          <li tal:repeat="user team">
-            <i class="fas fa-user"></i>&nbsp;<a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/profile/${user}"><tal:block tal:content="user"></tal:block></a>
-          </li>
-        </ul>
-      </div>
-      <div class="row-fluid has-table">
+        <h2> Working Areas</h2>
         <tal:block tal:condition="getImprovementAreas">
           <tal:areas repeat="item getImprovementAreas">
             <div class="col-lg-12 col-md-12">
@@ -124,7 +129,7 @@
                                  title item/title;
                                  alt item/title">
                 <div class="box">
-                  <img class="box-img" style="width:100%"
+                  <img class="box-img"
                        tal:attributes="src string:${item/image};"/>
                   <div class="card-body">
                     <h4 class="card-title">
@@ -136,7 +141,11 @@
             </div>
           </tal:areas>
         </tal:block>
-      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 documentFirstHeading focus context left">
+    Total budget: <span tal:condition="budget"><span tal:content="budget" /> <span tal:content="view/get_currency" /></span>
     </div>
   </div>
 

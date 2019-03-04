@@ -82,11 +82,8 @@
 
 <div class="sidenav2">
     <ul id="sidenav-vertical">
-        <div class="logo">
-        <a href="#" tal:attributes="href string:${portal_url}" title="PMP Home" alt="PMP Home">
-            <img tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png"/>
+        <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" title="PMP Home" alt="PMP Home"><i class="fas fa-map-marker"></i><span i18n:translate=""> Home </span>
         </a>
-    </div>
         <ul id="sidenav-vertical-overview" tal:condition="not:isRootFolder" class="indentMenu">
             <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/areas"><i class="fas fa-chart-area" aria-hidden="true"></i> My Areas </a>
             <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/teams"><i class="fas fa-users" aria-hidden="true"></i> My Team </a>

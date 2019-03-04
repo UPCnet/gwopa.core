@@ -15,7 +15,6 @@ from plone.directives import form
 from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
-from collective.geolocationbehavior.geolocation import IGeolocatable
 from plone.app.dexterity.behaviors.metadata import ICategorization
 from plone.autoform.interfaces import OMITTED_KEY
 from zope.interface import Interface
@@ -25,6 +24,9 @@ from zope.schema.vocabulary import SimpleVocabulary
 import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
+
+ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
+
 
 items = [(_(u'inactive'), _(u'Inactive')),
          (_(u'inception'), _(u'Inception')),
@@ -55,9 +57,6 @@ def default_tomorrow(context):
     return datetime.date.today() + datetime.timedelta(1)
 
 
-ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
-
-
 def area_not_used(context):
     """ Titles of Improvement Areas not created in this Project """
     terms = []
@@ -85,17 +84,32 @@ class IProject(model.Schema):
 
     fieldset('project',
              label=_(u'Project'),
-             fields=['title', 'image', 'status', 'objectives', 'start', 'end', 'areas', 'wop_platform', 'wop_program', 'budget', 'currency']
+             fields=['title', 'status', 'objectives', 'areas', 'wop_platform', 'wop_program', 'budget', 'currency']
+             )
+
+    fieldset('image',
+             label=_(u'Image'),
+             fields=['image']
+             )
+
+    fieldset('dates',
+             label=_(u'Dates'),
+             fields=['startdate', 'startplanned', 'startactual', 'completiondate', 'completionplanned', 'completionactual']
              )
 
     fieldset('geo',
              label=_(u'Geolocation'),
-             fields=['country', 'latitude', 'longitude', 'gwopa_code_project']
+             fields=['country', 'location', 'latitude', 'longitude', 'gwopa_code_project']
              )
 
     fieldset('members',
              label=_(u'Partners'),
-             fields=['partners', 'project_manager_admin', 'project_manager', 'members', 'contribution']
+             fields=['partners', 'project_manager_admin', 'project_manager', 'members']
+             )
+
+    fieldset('contrib',
+             label=_(u'Contributions'),
+             fields=['contributorslabel', 'wateroperators', 'donors', 'others']
              )
 
     title = schema.TextLine(
@@ -116,16 +130,38 @@ class IProject(model.Schema):
         vocabulary=projectStatus,
     )
 
-    start = schema.Date(
-        title=_(u'Start date'),
-        description=_(u'Date when the project begins.'),
+    directives.mode(startdate='display')
+    startdate = schema.Text(
+        title=_(u"Starting date"),
+        description=_(u"The dates when the project has started. Planned date and current date.")
+    )
+
+    startplanned = schema.Date(
+        title=_(u'Planned'),
         required=True,
         defaultFactory=default_today
     )
 
-    end = schema.Date(
-        title=_(u'End date'),
-        description=_(u'Date when the project ends.'),
+    startactual = schema.Date(
+        title=_(u'Actual'),
+        required=True,
+        defaultFactory=default_tomorrow
+    )
+
+    directives.mode(completiondate='display')
+    completiondate = schema.Text(
+        title=_(u"Completion date"),
+        description=_(u"The dates when the project has been completed. Planned date and current date.")
+    )
+
+    completionplanned = schema.Date(
+        title=_(u'Planned'),
+        required=True,
+        defaultFactory=default_today
+    )
+
+    completionactual = schema.Date(
+        title=_(u'Actual'),
         required=True,
         defaultFactory=default_tomorrow
     )
@@ -153,9 +189,15 @@ class IProject(model.Schema):
     # directives.widget('country', SelectWidget)
     country = schema.Choice(
         title=_(u"Country"),
-        description=_(u"Select country"),
+        description=_(u"Select a country from the list"),
         source=utils.countries,
         required=True,
+    )
+
+    location = schema.TextLine(
+        title=_(u"Location"),
+        description=_(u"Write the project location"),
+        required=False,
     )
 
     # form.mode(latitude='hidden')
@@ -222,9 +264,24 @@ class IProject(model.Schema):
         required=True,
     )
 
-    contribution = RichText(
+    directives.mode(contributorslabel='display')
+    contributorslabel = schema.Text(
         title=_(u"Contribution by partners and donors"),
-        description=_(u"Field to indicate all the needed info about contribution by partners and donors"),
+        description=_(u"Fill in the fields of the contributors. Partner water operators, Donors or other contributors.")
+    )
+
+    wateroperators = RichText(
+        title=_(u"Partner Water Operators"),
+        required=False,
+    )
+
+    donors = RichText(
+        title=_(u"Donors"),
+        required=False,
+    )
+
+    others = RichText(
+        title=_(u"Others"),
         required=False,
     )
 
@@ -287,6 +344,9 @@ class View(grok.View):
                 description=item.description))
         return results
 
+    def canEdit(self):
+        return False
+
     def get_currency(self):
         value = getattr(self.context, 'currency', None)
         if value == 'Dollars':
@@ -297,16 +357,3 @@ class View(grok.View):
             return "€"
         else:
             return value
-
-    # def google_maps_link(self):
-    #     geo = IGeolocatable(self.context, None)
-    #     if geo:
-    #         coordinates = [geo.geolocation.latitude, geo.geolocation.longitude]
-    #         if geo.geolocation.latitude != 0.0 and geo.geolocation.longitude != 0.0:
-    #             maps_link = "//www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
-    #                 coordinates[0],
-    #                 coordinates[1]
-    #             )
-    #             return maps_link
-
-    #     return None
