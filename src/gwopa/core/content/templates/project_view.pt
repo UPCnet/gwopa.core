@@ -60,11 +60,11 @@
         <hr/>
         <div class="col-md-6">
           <h2> Starting Date</h2>
-          Planned: <tal:block tal:content="context/startplanned"> &nbsp; | Actual: <tal:block tal:content="context/startactual"> 
+          Planned: <tal:block tal:content="context/startplanned"> &nbsp; | Actual: <tal:block tal:content="context/startactual">
         </div>
         <div class="col-md-6">
           <h2> Completion Date</h2>
-          Planned: <tal:block tal:content="context/completionplanned"> &nbsp; | Actual: <tal:block tal:content="context/completionactual"> 
+          Planned: <tal:block tal:content="context/completionplanned"> &nbsp; | Actual: <tal:block tal:content="context/completionactual">
         </div>
       </div>
       <div class="row">
@@ -144,7 +144,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-2 documentFirstHeading focus context left">
+    <div class="col-md-2 documentFirstHeading focus context" style="float:left; min-width: 200px;">
     Total budget: <span tal:condition="budget"><span tal:content="budget" /> <span tal:content="view/get_currency" /></span>
     </div>
   </div>
