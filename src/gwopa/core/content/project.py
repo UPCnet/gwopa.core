@@ -21,6 +21,7 @@ from zope.interface import Interface
 from plone.supermodel.directives import fieldset
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
 import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
@@ -84,7 +85,7 @@ class IProject(model.Schema):
 
     fieldset('project',
              label=_(u'Project'),
-             fields=['title', 'status', 'objectives', 'areas', 'wop_platform', 'wop_program', 'budget', 'currency']
+             fields=['title', 'status', 'objectives', 'areas', 'wop_platform', 'wop_program', 'budget', 'currency', 'category']
              )
 
     fieldset('image',
@@ -111,6 +112,23 @@ class IProject(model.Schema):
              label=_(u'Contributions'),
              fields=['contributorslabel', 'wateroperators', 'donors', 'others']
              )
+
+    category = schema.Tuple(
+        title=_(u'label_tags', default=u'Tags'),
+        description=_(
+            u'help_tags',
+            default=u'Tags are commonly used for ad-hoc organization of ' +
+                    u'content.'
+        ),
+        value_type=schema.TextLine(),
+        required=False,
+        missing_value=(),
+    )
+    directives.widget(
+        'category',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.app.vocabularies.Keywords'
+    )
 
     title = schema.TextLine(
         title=_(u"Title"),
