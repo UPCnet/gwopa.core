@@ -59,47 +59,30 @@
       <div class="row">
         <hr/>
         <div class="col-md-6">
-          <h2> Starting Date</h2>
-          Planned: <tal:block tal:content="context/startplanned"> &nbsp; | Actual: <tal:block tal:content="context/startactual">
+          <h2> Project Plan</h2>
+        <div class="col-md-6">
+
+          Starting Planned: <tal:block tal:content="context/startplanned"> </tal:block> <br/>Starting Actual: <tal:block tal:content="context/startactual">
+        </tal:block></div>
+        <div class="col-md-6">
+          Completion Planned: <tal:block tal:content="context/completionplanned"> </tal:block><br/> Completion Actual: <tal:block tal:content="context/completionactual">
+        </tal:block></div>
+
         </div>
         <div class="col-md-6">
-          <h2> Completion Date</h2>
-          Planned: <tal:block tal:content="context/completionplanned"> &nbsp; | Actual: <tal:block tal:content="context/completionactual">
-        </div>
-      </div>
-      <div class="row">
-        <hr/>
-        <div class="col-md-4">
-          <h2> Regional WOP Platform</h2>
+          <h2> Association to platforms or programmes</h2>
           <tal:block tal:content="wop_platform"></tal:block>
         </div>
-        <div class="col-md-4">
-          <h2> WOP Programs </h2>
-          <tal:block tal:content="wop_program"></tal:block>
-        </div>
-        <div class="col-md-4">
-          <h2> Partners </h2>
-          <ul>
-            <li tal:repeat="partner partners">
-              <tal:block tal:content="partner"></tal:block>
-            </li>
-          </ul>
-        </div>
       </div>
-      <div class="row">
+
+            <div class="row">
         <hr/>
-        <div class="col-md-6">
-          <h2> Project Manager </h2>
-          <span tal:content="project_manager" />
-        </div>
-        <div class="col-md-6">
-          <h2> Main contact </h2>
-          <span tal:content="project_manager_admin" />
-        </div>
-      </div>
-      <div class="row">
-        <hr/>
-        <h2> Contribution by partners and donors</h2>
+        <h2> Main organizations and their contributions </h2>
+
+        <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribOther" href="#">+ Other</a>
+        <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribPartner" href="#">+ Partner</a>
+        <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribDonor" href="#">+ Donor</a>
+
         <div class="col-md-4">
           <tal:objectives tal:condition="wateroperators">
             <h3> Partner Water Operators </h3>
@@ -118,7 +101,35 @@
             <span tal:replace="structure others/output"> Other Organizations </span>
           </tal:objectives>
         </div>
+        <div class="col-md-2 documentFirstHeading focus context">
+    Total budget: <span tal:condition="budget"><span tal:content="budget" /> <span tal:content="view/get_currency" /></span>
+    </div>
       </div>
+<!--       <div class="row">
+        <hr/>
+        <div class="col-md-4">
+          <h2> WOP Programs </h2>
+          <tal:block tal:content="wop_program"></tal:block>
+        </div>
+        <div class="col-md-4">
+          <ul>
+            <li tal:repeat="partner partners">
+              <tal:block tal:content="partner"></tal:block>
+            </li>
+          </ul>
+        </div>
+      </div> -->
+      <div class="row">
+        <hr/>
+        <div class="col-md-6">
+          <h2> Focal point partner </h2>
+          <span tal:content="project_manager" />
+        </div>
+        <div class="col-md-6">
+          <span tal:content="project_manager_admin" />
+        </div>
+      </div>
+
     </div>
     <div class="col-md-3">
         <h2> Working Areas</h2>
@@ -141,11 +152,6 @@
             </div>
           </tal:areas>
         </tal:block>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2 documentFirstHeading focus context" style="float:left; min-width: 200px;">
-    Total budget: <span tal:condition="budget"><span tal:content="budget" /> <span tal:content="view/get_currency" /></span>
     </div>
   </div>
 

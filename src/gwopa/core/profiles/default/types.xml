@@ -18,6 +18,9 @@
   <object meta_type="Dexterity FTI" name="SettingsPage" />
   <object meta_type="Dexterity FTI" name="TargetValue" />
   <object meta_type="Dexterity FTI" name="WorkPlan" />
+  <object meta_type="Dexterity FTI" name="ContribOther" />
+  <object meta_type="Dexterity FTI" name="ContribDonor" />
+  <object meta_type="Dexterity FTI" name="ContribPartner" />
 
   <object name="File" meta_type="Dexterity FTI"/>
   <object name="Folder" meta_type="Dexterity FTI"/>

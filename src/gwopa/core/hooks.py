@@ -24,6 +24,12 @@ def projectAdded(content, event):
         title='Files',
         container=content)
 
+    api.content.create(
+        type='Folder',
+        id='contribs',
+        title='Contributors',
+        container=content)
+
     areas = content.areas
     if areas is None:
         return
