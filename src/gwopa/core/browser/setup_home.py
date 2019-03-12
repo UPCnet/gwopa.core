@@ -516,7 +516,7 @@ class setup(grok.View):
                 container=portal['projects'],
                 safe_id=True)
             project.image = self.getRandomImage(200, 200)
-            project.budget = random.randint(100000, 200000)
+            # project.budget = random.randint(100000, 200000)
             project.contribution = RichTextValue(
                 self.getLoremIpsum(2, 'long', 'html'),
                 'text/html', 'text/html')

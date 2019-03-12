@@ -6,12 +6,10 @@
     i18n:domain="gwopa">
 <body>
 
-
 <metal:content-core fill-slot="main"
       tal:define="partners context/partners;
                   project_manager context/project_manager;
                   project_manager_admin context/project_manager_admin;
-                  budget context/budget;
                   wop_program context/wop_program;
                   wop_platform context/wop_platform;
                   objectives context/objectives;
@@ -22,9 +20,9 @@
                   location context/location;
                   url_quote nocall:modules/Products.PythonScripts.standard/url_quote;
                   canEdit not:view/canEdit;
-                  wateroperators context/wateroperators;
-                  donors context/donors;
-                  others context/others">
+                  wateroperators view/wateroperators;
+                  donors view/donors;
+                  others view/others">
 
   <h1 class="documentFirstHeading">
     <tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
@@ -60,58 +58,111 @@
         <hr/>
         <div class="col-md-6">
           <h2> Project Plan</h2>
-        <div class="col-md-6">
-
-          Starting Planned: <tal:block tal:content="context/startplanned"> </tal:block> <br/>Starting Actual: <tal:block tal:content="context/startactual">
-        </tal:block></div>
-        <div class="col-md-6">
-          Completion Planned: <tal:block tal:content="context/completionplanned"> </tal:block><br/> Completion Actual: <tal:block tal:content="context/completionactual">
-        </tal:block></div>
-
+          <div class="col-md-6">
+            <tal:omit-tag i18n:translate="">Starting Planned:</tal:omit-tag><tal:block tal:content="context/startplanned"></tal:block><br/>
+            <tal:omit-tag i18n:translate="">Starting Actual:</tal:omit-tag><tal:block tal:content="context/startactual"></tal:block>
+          </div>
+          <div class="col-md-6">
+            <tal:omit-tag i18n:translate="">Completion Planned:</tal:omit-tag><tal:block tal:content="context/completionplanned"></tal:block><br/>
+            <tal:omit-tag i18n:translate="">Completion Actual:</tal:omit-tag><tal:block tal:content="context/completionactual"></tal:block>
+          </div>
         </div>
         <div class="col-md-6">
-          <h2> Association to platforms or programmes</h2>
-          <tal:block tal:content="wop_platform"></tal:block>
+          <h2 i18n:translate=""> Association to platforms or programmes</h2>
+          <ul>
+            <li tal:content="wop_platform"></li>
+            <li tal:content="wop_program"></li>
+          </ul>
         </div>
       </div>
 
-            <div class="row">
+      <div class="row">
         <hr/>
-        <h2> Main organizations and their contributions </h2>
-
+        <h2 i18n:translate=""> Main organizations and their contributions </h2>
         <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribOther" href="#">+ Other</a>
         <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribPartner" href="#">+ Partner</a>
         <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribDonor" href="#">+ Donor</a>
+        <div class="col-md-12">
+          <tal:objectives tal:condition="wateroperators" >
+            <h3 i18n:translate=""> Partner Water Operators </h3>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th i18n:translate="">Name</th>
+                    <th class="contibutioncentered" i18n:translate="">In-cash</th>
+                    <th class="contibutioncentered" i18n:translate="">In-kind</th>
+                  </tr>
+                </thead>
+                <tr tal:repeat="partner wateroperators">
+                  <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
+                  <td class="contibutioncentered"><tal:block tal:content="partner/incash"></tal:block></td>
+                  <td class="contibutioncentered"><tal:block tal:content="partner/inkind"></tal:block></td>
+                </tr>
+              </table>
+            </div>
+          </tal:objectives>
+        </div>
 
-        <div class="col-md-4">
-          <tal:objectives tal:condition="wateroperators">
-            <h3> Partner Water Operators </h3>
-            <span tal:replace="structure wateroperators/output"> Partner Water Operators </span>
+        <div class="col-md-12">
+          <tal:objectives tal:condition="donors" >
+            <h3 i18n:translate=""> Donors </h3>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th i18n:translate="">Name</th>
+                    <th class="contibutioncentered" i18n:translate="">In-cash</th>
+                    <th class="contibutioncentered" i18n:translate="">In-kind</th>
+                  </tr>
+                </thead>
+                <tr tal:repeat="partner donors">
+                  <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
+                  <td class="contibutioncentered"><tal:block tal:content="partner/incash"></tal:block></td>
+                  <td class="contibutioncentered"><tal:block tal:content="partner/inkind"></tal:block></td>
+                </tr>
+              </table>
+            </div>
           </tal:objectives>
         </div>
-        <div class="col-md-4">
-          <tal:objectives tal:condition="donors">
-            <h3> Donors </h3>
-            <span tal:replace="structure donors/output"> Donors </span>
+
+        <div class="col-md-12">
+          <tal:objectives tal:condition="others" >
+            <h3 i18n:translate=""> Other Organizations </h3>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th i18n:translate="">Name</th>
+                    <th class="contibutioncentered" i18n:translate="">In-cash</th>
+                    <th class="contibutioncentered" i18n:translate="">In-kind</th>
+                  </tr>
+                </thead>
+                <tr tal:repeat="partner others">
+                  <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
+                  <td class="contibutioncentered"><tal:block tal:content="partner/incash"></tal:block></td>
+                  <td class="contibutioncentered"><tal:block tal:content="partner/inkind"></tal:block></td>
+                </tr>
+              </table>
+            </div>
           </tal:objectives>
         </div>
-        <div class="col-md-4">
-          <tal:objectives tal:condition="others">
-            <h3> Other Organizations </h3>
-            <span tal:replace="structure others/output"> Other Organizations </span>
-          </tal:objectives>
+
+        <div class="buttonbudget">
+          <tal:omit-tag i18n:translate="">Total budget: </tal:omit-tag>&nbsp;<span tal:content="view/get_currency"></span>
         </div>
-        <div class="col-md-2 documentFirstHeading focus context">
-    Total budget: <span tal:condition="budget"><span tal:content="budget" /> <span tal:content="view/get_currency" /></span>
-    </div>
       </div>
-<!--       <div class="row">
+
+      <div class="row">
         <hr/>
-        <div class="col-md-4">
-          <h2> WOP Programs </h2>
-          <tal:block tal:content="wop_program"></tal:block>
+        <div class="col-md-6">
+          <h2 i18n:translate=""> Focal point partner </h2>
+          <span tal:content="project_manager" />
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
+          <span tal:content="project_manager_admin" />
+        </div>
+        <!-- <div class="col-md-4">
           <ul>
             <li tal:repeat="partner partners">
               <tal:block tal:content="partner"></tal:block>
@@ -119,20 +170,11 @@
           </ul>
         </div>
       </div> -->
-      <div class="row">
-        <hr/>
-        <div class="col-md-6">
-          <h2> Focal point partner </h2>
-          <span tal:content="project_manager" />
-        </div>
-        <div class="col-md-6">
-          <span tal:content="project_manager_admin" />
-        </div>
       </div>
 
     </div>
     <div class="col-md-3">
-        <h2> Working Areas</h2>
+        <h2 i18n:translate=""> Working Areas</h2>
         <tal:block tal:condition="getImprovementAreas">
           <tal:areas repeat="item getImprovementAreas">
             <div class="col-lg-12 col-md-12">

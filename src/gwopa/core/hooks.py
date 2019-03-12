@@ -31,14 +31,22 @@ def projectAdded(content, event):
         container=content)
 
     areas = content.areas
-    if areas is None:
-        return
-    else:
+    if areas:
         for area in areas:
             api.content.create(
                 type='ImprovementArea',
                 title=area,
                 container=content)
+
+    partners = content.partners
+    if partners:
+        for partner in partners:
+            obj = api.content.create(
+                type='ContribPartner',
+                title=partner,
+                container=content.contribs)
+            obj.incash = 0
+            obj.inkind = 0
 
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
@@ -47,6 +55,7 @@ def projectModified(content, event):
         Create new areas
     """
     # import ipdb; ipdb.set_trace()
+    print "project modified...."
 
     # new_areas = content.areas
     # current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]

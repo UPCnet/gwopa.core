@@ -13,7 +13,7 @@ from gwopa.core import utils
 import datetime
 from plone.directives import form
 from plone import api
-from plone.app.z3cform.widget import SelectWidget
+# from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from plone.app.dexterity.behaviors.metadata import ICategorization
 from plone.autoform.interfaces import OMITTED_KEY
@@ -62,17 +62,11 @@ def area_not_used(context):
     """ Titles of Improvement Areas not created in this Project """
     terms = []
     literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
-    current_areas = api.content.find(portal_type="ImprovementArea", context=context, depth=1)
-    areas = []
-    for obj in current_areas:
-        areas.append(obj.Title)
+    terms = []
+    literals = api.content.find(portal_type="Platform")
     for item in literals:
-        if item.Title not in areas:
-            flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-            if item.Description:
-                terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title + ' - (' + item.Description + ')'))
-            else:
-                terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
     return SimpleVocabulary(terms)
 
 
@@ -85,7 +79,7 @@ class IProject(model.Schema):
 
     fieldset('project',
              label=_(u'Project'),
-             fields=['title', 'status', 'objectives', 'areas', 'wop_platform', 'wop_program', 'budget', 'currency', 'category']
+             fields=['title', 'status', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'category']
              )
 
     fieldset('image',
@@ -106,11 +100,6 @@ class IProject(model.Schema):
     fieldset('members',
              label=_(u'Partners'),
              fields=['partners', 'project_manager_admin', 'project_manager', 'members']
-             )
-
-    fieldset('contrib',
-             label=_(u'Contributions'),
-             fields=['contributorslabel', 'wateroperators', 'donors', 'others']
              )
 
     category = schema.Tuple(
@@ -269,12 +258,6 @@ class IProject(model.Schema):
         )
     )
 
-    budget = schema.Int(
-        title=_(u"Total budget"),
-        description=_(u"Indicate the total budget of the project"),
-        required=False,
-    )
-
     currency = schema.Choice(
         title=_(u"Currency"),
         description=_(u"The currency used into the project"),
@@ -282,28 +265,7 @@ class IProject(model.Schema):
         required=True,
     )
 
-    directives.mode(contributorslabel='display')
-    contributorslabel = schema.Text(
-        title=_(u"Contribution by partners and donors"),
-        description=_(u"Fill in the fields of the contributors. Partner water operators, Donors or other contributors.")
-    )
-
-    wateroperators = RichText(
-        title=_(u"Partner Water Operators"),
-        required=False,
-    )
-
-    donors = RichText(
-        title=_(u"Donors"),
-        required=False,
-    )
-
-    others = RichText(
-        title=_(u"Others"),
-        required=False,
-    )
-
-    directives.widget('areas', SelectWidget)
+    # directives.widget('areas', SelectWidget)
     areas = schema.List(
         title=_(u"Working Areas"),
         description=_(u"Select one or more associated Working Area"),
@@ -365,13 +327,103 @@ class View(grok.View):
     def canEdit(self):
         return False
 
-    def get_currency(self):
-        value = getattr(self.context, 'currency', None)
-        if value == 'Dollars':
-            return "$"
-        elif value == 'Pounds':
-            return "£"
-        elif value == 'Euros':
-            return "€"
+    def wateroperators(self):
+        other = api.content.find(
+            portal_type=['ContribPartner'],
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        results = []
+        currency = getattr(self.context, 'currency', None)
+        if currency == 'Dollars':
+            key = "$"
+        elif currency == 'Pounds':
+            key = "£"
+        elif currency == 'Euros':
+            key = "€"
         else:
-            return value
+            key = "$"
+
+        for item in other:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                edit=item.getURL() + '/edit',
+                incash=str(obj.incash) + key,
+                inkind=str(obj.inkind) + key,
+            ))
+        return results
+
+    def donors(self):
+        other = api.content.find(
+            portal_type=['ContribDonor'],
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        results = []
+        currency = getattr(self.context, 'currency', None)
+        if currency == 'Dollars':
+            key = "$"
+        elif currency == 'Pounds':
+            key = "£"
+        elif currency == 'Euros':
+            key = "€"
+        else:
+            key = "$"
+
+        for item in other:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                edit=item.getURL() + '/edit',
+                incash=str(obj.incash) + key,
+                inkind=str(obj.inkind) + key,
+            ))
+        return results
+
+    def others(self):
+        other = api.content.find(
+            portal_type=['ContribOther'],
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        results = []
+        currency = getattr(self.context, 'currency', None)
+        if currency == 'Dollars':
+            key = "$"
+        elif currency == 'Pounds':
+            key = "£"
+        elif currency == 'Euros':
+            key = "€"
+        else:
+            key = "$"
+
+        for item in other:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                edit=item.getURL() + '/edit',
+                incash=str(obj.incash) + key,
+                inkind=str(obj.inkind) + key,
+            ))
+        return results
+
+    def get_currency(self):
+        items = api.content.find(
+            portal_type=['ContribOther', 'ContribPartner', 'ContribDonor'],
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        total = 0
+        for item in items:
+            obj = item.getObject()
+            if obj.incash:
+                total = total + obj.incash
+            if obj.inkind:
+                total = total + obj.inkind
+
+        currency = getattr(self.context, 'currency', None)
+        if currency == 'Dollars':
+            return str(total) + "$"
+        elif currency == 'Pounds':
+            return str(total) + "£"
+        elif currency == 'Euros':
+            return str(total) + "€"
+        else:
+            return str(total) + "€"
