@@ -54,8 +54,8 @@ def projectModified(content, event):
     """ Project modified handler.
         Create new areas
     """
-    # import ipdb; ipdb.set_trace()
-    print "project modified...."
+    # zope.lifecycleevent.ObjectModifiedEvent
+    print "project modified.... " + str(event)
 
     # new_areas = content.areas
     # current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]
