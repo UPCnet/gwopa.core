@@ -25,6 +25,8 @@ from plone.app.z3cform.widget import AjaxSelectFieldWidget
 import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
+from operator import itemgetter
+
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
 
@@ -324,10 +326,36 @@ class View(grok.View):
                 description=item.description))
         return results
 
+    def getProject_manager(self):
+        users = self.context.members
+        project_manager_admin = self.context.project_manager_admin
+        project_manager = self.context.project_manager
+        users.append(project_manager_admin)
+        users.append(project_manager)
+        results = []
+
+        users = list(set(users))  # Retunrs unique values in list
+        for user in users:
+            obj = api.user.get(username=user)
+            manager = False
+            project = False
+            if user in project_manager_admin:
+                manager = True
+            if user in project_manager:
+                project = True
+            results.append(dict(
+                partners=obj.getProperty('wop_partners'),
+                name=obj.getProperty('fullname'),
+                manager=manager,
+                project=project,
+            ))
+
+        return sorted(results, key=itemgetter('name'), reverse=False)
+
     def canEdit(self):
         return False
 
-    def wateroperators(self):
+    def partners(self):
         other = api.content.find(
             portal_type=['ContribPartner'],
             path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
