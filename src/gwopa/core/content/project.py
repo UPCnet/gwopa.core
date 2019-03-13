@@ -13,7 +13,7 @@ from gwopa.core import utils
 import datetime
 from plone.directives import form
 from plone import api
-# from plone.app.z3cform.widget import SelectWidget
+from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from plone.app.dexterity.behaviors.metadata import ICategorization
 from plone.autoform.interfaces import OMITTED_KEY
@@ -250,7 +250,7 @@ class IProject(model.Schema):
         vocabulary=u'plone.app.vocabularies.Users',
     )
 
-    # directives.widget('members', SelectWidget)
+    directives.widget('members', SelectWidget)
     members = schema.List(
         title=_(u"Members"),
         description=_(u"Improvement track team and members"),
@@ -327,7 +327,7 @@ class View(grok.View):
         return results
 
     def getProject_manager(self):
-        users = self.context.members
+        users = []
         project_manager_admin = self.context.project_manager_admin
         project_manager = self.context.project_manager
         users.append(project_manager_admin)

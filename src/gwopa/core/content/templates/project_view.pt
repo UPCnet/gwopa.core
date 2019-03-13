@@ -167,10 +167,21 @@
                 </thead>
                 <tr tal:repeat="partner getProject_manager">
                   <td>
-                    <tal:block tal:condition="partner/manager"><i class="fa fa-eye"></i></tal:block>
+                    <tal:block tal:condition="partner/manager"></tal:block>
                     <tal:block tal:condition="partner/project"><i class="fa fa-star"></i></tal:block>
                     <tal:block tal:content="partner/name"></tal:block></td>
-                  <td tal:content="partner/partners"></td>
+<!--                   <td tal:content="partner/partners"></td> -->
+                    <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
+                    <ul>
+                      <td tal:condition="python:isinstance(value, basestring)">
+                        <span tal:replace="field/value"></span>
+                      </td>
+                      <td tal:condition="not:python:isinstance(value, basestring)">
+                        <span tal:replace="structure python:'<li>'+'</li><li>'.join(str(s) for s in value)" />
+                      </td>
+                    </ul>
+                    </tal:block>
+
                 </tr>
               </table>
             </div>

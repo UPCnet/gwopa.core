@@ -572,7 +572,7 @@ msgstr ""
 
 #: ../content/project.py:240
 msgid "Partner/partners of the project"
-msgstr "You can indicate more than one Partner"
+msgstr "You can select more than one Partner"
 
 #: ../content/project.py:107
 msgid "Partners"
@@ -760,11 +760,11 @@ msgstr "The default config has been applied."
 
 #: ../content/project.py:249
 msgid "The responsible manager of the project"
-msgstr "The responsible manager of the project"
+msgstr "The responsible of the project"
 
 #: ../content/project.py:257
 msgid "The responsible of this project"
-msgstr "The responsible of this project"
+msgstr "The manager of this project. Main contact user."
 
 #: ../content/settingspage.py:17
 msgid "The system will use the settings id. Change for testing purposes only."
