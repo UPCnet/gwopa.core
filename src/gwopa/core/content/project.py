@@ -108,8 +108,7 @@ class IProject(model.Schema):
         title=_(u'label_tags', default=u'Tags'),
         description=_(
             u'help_tags',
-            default=u'Tags are commonly used for ad-hoc organization of ' +
-                    u'content.'
+            default=u'Tags are commonly used for ad-hoc organization of content.'
         ),
         value_type=schema.TextLine(),
         required=False,
