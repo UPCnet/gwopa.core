@@ -29,7 +29,7 @@ def listWOPPlatforms(context):
     literals = api.content.find(portal_type="Platform")
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
     return SimpleVocabulary(terms)
 
 
@@ -42,7 +42,7 @@ def listPartners(context):
     literals = api.content.find(portal_type="Partner")
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
     return SimpleVocabulary(terms)
 
 
@@ -55,7 +55,7 @@ def listWOPPrograms(context):
     literals = api.content.find(portal_type="Program")
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
     return SimpleVocabulary(terms)
 
 
@@ -71,7 +71,7 @@ def settings_currency(context):
         for value in values.split('\n'):
             if value != '':
                 flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+                terms.append(SimpleVocabulary.createTerm(value, value, flattened))
         return SimpleVocabulary(terms)
     else:
         return None
@@ -89,7 +89,7 @@ def settings_measuring_unit(context):
         for value in values.split('\n'):
             if value != '':
                 flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+                terms.append(SimpleVocabulary.createTerm(value, value, flattened))
         return SimpleVocabulary(terms)
     else:
         return None
@@ -107,7 +107,7 @@ def settings_measuring_frequency(context):
         for value in values.split('\n'):
             if value != '':
                 flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(value, flattened, value))
+                terms.append(SimpleVocabulary.createTerm(value, value, flattened))
         return SimpleVocabulary(terms)
     else:
         return None
@@ -137,7 +137,7 @@ def contextAreas(context):
     literals = api.content.find(portal_type="ImprovementArea", context=context)
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
     return SimpleVocabulary(terms)
 
 
@@ -150,7 +150,7 @@ def outputs(context):
     literals = api.content.find(portal_type="Output", context=context, depth=1)
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
     return SimpleVocabulary(terms)
 
 
@@ -163,7 +163,7 @@ def area_title(context):
     literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
     return SimpleVocabulary(terms)
 
 
