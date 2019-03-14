@@ -26,9 +26,10 @@
                   getProject_manager view/getProject_manager;">
 
   <h1 class="documentFirstHeading">
+    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit" href="#"><i class="far fa-edit"></i></a>
     <tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
     <button class="context focus"><tal:block tal:content="context/status"></tal:block></button>
-    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a>
+<!--     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a> -->
   </h1>
 
   <div class="row">
@@ -56,7 +57,7 @@
       <div class="row">
         <hr/>
         <div class="col-md-6">
-          <h2> Project Plan</h2>
+          <h2> Project Dates </h2>
           <div class="col-md-6">
             <tal:omit-tag i18n:translate="">Starting Planned:</tal:omit-tag>&nbsp;<tal:block tal:content="context/startplanned"></tal:block><br/>
             <tal:omit-tag i18n:translate="">Starting Actual:</tal:omit-tag>&nbsp;<tal:block tal:content="context/startactual"></tal:block>
@@ -86,20 +87,20 @@
         </h2>
         <div class="col-md-12">
           <tal:objectives tal:condition="partners" >
-            <h3><a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribPartner" href="#"><i class="fa fa-plus-circle"></i></a> Partner Water Operators </h3>
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th i18n:translate="">Name</th>
+                    <th style="padding-left:0px;">
+                      <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribPartner" href="#"><i class="fa fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Partner Water Operators </span></th>
                     <th class="contibutioncentered" i18n:translate="">In-cash</th>
                     <th class="contibutioncentered" i18n:translate="">In-kind</th>
                   </tr>
                 </thead>
                 <tr tal:repeat="partner partners">
                   <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
-                  <td class="contibutioncentered"><tal:block tal:content="partner/incash"></tal:block></td>
-                  <td class="contibutioncentered"><tal:block tal:content="partner/inkind"></tal:block></td>
+                  <td class="contibutioncentered" tal:content="partner/incash"></td>
+                  <td class="contibutioncentered" tal:content="partner/inkind"></td>
                 </tr>
               </table>
             </div>
@@ -108,20 +109,20 @@
 
         <div class="col-md-12">
           <tal:objectives tal:condition="donors" >
-            <h3><a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribDonor" href="#"><i class="fa fa-plus-circle"></i></a> Donors </h3>
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th i18n:translate="">Name</th>
+                    <th style="padding-left:0px;">
+                      <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribDonor" href="#"><i class="fa fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Donors </span></th>
                     <th class="contibutioncentered" i18n:translate="">In-cash</th>
                     <th class="contibutioncentered" i18n:translate="">In-kind</th>
                   </tr>
                 </thead>
                 <tr tal:repeat="partner donors">
                   <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
-                  <td class="contibutioncentered"><tal:block tal:content="partner/incash"></tal:block></td>
-                  <td class="contibutioncentered"><tal:block tal:content="partner/inkind"></tal:block></td>
+                  <td class="contibutioncentered" tal:content="partner/incash"></td>
+                  <td class="contibutioncentered" tal:content="partner/inkind"></td>
                 </tr>
               </table>
             </div>
@@ -130,20 +131,20 @@
 
         <div class="col-md-12">
           <tal:objectives tal:condition="others" >
-            <h3><a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribOther" href="#"><i class="fa fa-plus-circle"></i></a> Other Organizations </h3>
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th i18n:translate="">Name</th>
+                    <th style="padding-left:0px;">
+                      <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribOther" href="#"><i class="fa fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Other Organizations </span></th>
                     <th class="contibutioncentered" i18n:translate="">In-cash</th>
                     <th class="contibutioncentered" i18n:translate="">In-kind</th>
                   </tr>
                 </thead>
                 <tr tal:repeat="partner others">
                   <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
-                  <td class="contibutioncentered"><tal:block tal:content="partner/incash"></tal:block></td>
-                  <td class="contibutioncentered"><tal:block tal:content="partner/inkind"></tal:block></td>
+                  <td class="contibutioncentered" tal:content="partner/incash"></td>
+                  <td class="contibutioncentered" tal:content="partner/inkind"></td>
                 </tr>
               </table>
             </div>

@@ -323,6 +323,7 @@ class View(grok.View):
                 image=image,
                 url='/'.join(obj.getPhysicalPath()),
                 description=item.description))
+        results.sort(key=lambda x: x['title'], reverse=False)
         return results
 
     def getProject_manager(self):
