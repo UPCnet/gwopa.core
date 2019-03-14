@@ -8,7 +8,7 @@ from gwopa.core.content.outcomecc import IOutcomecc
 from gwopa.core.content.outcomeccs import IOutcomeccs
 from plone import api
 # import datetime
-# import transaction
+import transaction
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
@@ -52,24 +52,28 @@ def projectAdded(content, event):
 @grok.subscribe(IProject, IObjectModifiedEvent)
 def projectModified(content, event):
     """ Project modified handler.
-        Create new areas
+        Create new areas.newSometimes this code is executed and the project is not edited.
+        In example, changing permissions, this hook is executed.
+        We check the transition when edit, and seems to be:
+             zope.lifecycleevent.ObjectModifiedEvent
+
     """
-    # zope.lifecycleevent.ObjectModifiedEvent
-    print "project modified.... " + str(event)
 
-    # new_areas = content.areas
-    # current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]
+    if 'zope.lifecycleevent.ObjectModifiedEvent' in str(event):
+        new_areas = content.areas
+        current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]
 
-    # new_areas = content.areas
-    # if new_areas is None:
-    #     return
-    # else:
-    #     for area in new_areas:
-    #         if area not in current:
-    #             api.content.create(
-    #                 type='ImprovementArea',
-    #                 title=area,
-    #                 container=content)
+        new_areas = content.areas
+        if new_areas is None:
+            return
+        else:
+            for area in new_areas:
+                if area not in current:
+                    print "Created Improvement Area: " + area
+                    api.content.create(
+                        type='ImprovementArea',
+                        title=area,
+                        container=content)
 
 
 @grok.subscribe(IPartner, IObjectAddedEvent)
@@ -124,3 +128,4 @@ def OutcomeCCAdded(content, event):
             id=item.id,
             title=item.Title,
             container=content)
+        transaction.commit()
