@@ -14,10 +14,6 @@ def todayValue():
     return datetime.date.today()
 
 
-def endDefaultValue():
-    return datetime.datetime.today() + datetime.timedelta(10)
-
-
 class IOutput(model.Schema):
     """  Output
     """
@@ -27,7 +23,7 @@ class IOutput(model.Schema):
     )
 
     description = schema.Text(
-        title=_(u'Summary'),
+        title=_(u'Description'),
         required=False,
         missing_value=u'',
     )
@@ -38,10 +34,10 @@ class IOutput(model.Schema):
         missing_value=u'',
     )
 
-    end = schema.Datetime(
-        title=_(u'Completion time'),
+    end = schema.Date(
+        title=_(u'Completion date'),
         required=True,
-        defaultFactory=endDefaultValue
+        defaultFactory=todayValue
     )
 
     target = schema.Text(
@@ -60,7 +56,7 @@ class IOutput(model.Schema):
     )
 
     form.mode(gwopa_year='hidden')
-    form.mode(IEditForm, gwopa_year='display')
+    form.mode(IEditForm, gwopa_year='hidden')
     form.mode(IAddForm, gwopa_year='hidden')
     gwopa_year = schema.Int(
         title=_(u'Internal code (YEAR)'),

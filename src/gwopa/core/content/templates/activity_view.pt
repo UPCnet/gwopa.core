@@ -14,12 +14,9 @@
                 initial_situation context/initial_situation;
                 start context/start;
                 end context/end;
-                inputs context/inputs;
                 budget context/budget;
-                milestones context/milestones;
                 outputs context/outputs;
-                members context/members;
-                area context/area;">
+                members context/members;">
 
     <div tal:condition="initial_situation">
       <h3 i18n:translate=""> Initial Situation </h3>
@@ -36,20 +33,15 @@
       <span tal:content="end"> end </span>
     </div>
 
-    <div tal:condition="inputs">
-      <h3 i18n:translate=""> Inputs </h3>
-      <span tal:content="inputs"> inputs </span>
-    </div>
-
     <div tal:condition="budget">
       <h3 i18n:translate=""> Budget </h3>
       <span tal:content="budget"> budget </span>
     </div>
 
-    <div tal:condition="milestones">
+<!--     <div tal:condition="milestones">
       <h3 i18n:translate=""> Milestones </h3>
       <span tal:content="milestones"> milestones </span>
-    </div>
+    </div> -->
 
     <div tal:condition="outputs">
       <h3 i18n:translate=""> Outputs </h3>
@@ -59,11 +51,6 @@
     <div tal:condition="members">
       <h3 i18n:translate=""> Members </h3>
       <span tal:content="members"> members </span>
-    </div>
-
-    <div tal:condition="area">
-      <h3 i18n:translate=""> Area </h3>
-      <span tal:content="area"> area </span>
     </div>
 
 </tal:block>

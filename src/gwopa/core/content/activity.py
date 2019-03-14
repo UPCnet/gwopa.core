@@ -4,8 +4,8 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
-from zope.interface import Invalid
-from zope.interface import invariant
+# from zope.interface import Invalid
+# from zope.interface import invariant
 from gwopa.core import utils
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
@@ -15,28 +15,20 @@ from z3c.form.interfaces import IAddForm, IEditForm
 grok.templatedir("templates")
 
 
-class StartBeforeEnd(Invalid):
-    __doc__ = _(u"Invalid start or end date")
-
-
-def startDefaultValue():
-    return datetime.datetime.today() + datetime.timedelta(7)
-
-
-def endDefaultValue():
-    return datetime.datetime.today() + datetime.timedelta(10)
+def todayValue():
+    return datetime.date.today()
 
 
 class IActivity(model.Schema):
     """  Activity """
 
     title = schema.TextLine(
-        title=_(u"Name"),
+        title=_(u"Title"),
         required=True,
     )
 
     description = schema.Text(
-        title=_(u'Summary'),
+        title=_(u'Description'),
         required=False,
         missing_value=u'',
     )
@@ -47,16 +39,16 @@ class IActivity(model.Schema):
         missing_value=u'',
     )
 
-    start = schema.Datetime(
-        title=_(u'Starting time'),
+    start = schema.Date(
+        title=_(u'Starting date'),
         required=True,
-        defaultFactory=startDefaultValue
+        defaultFactory=todayValue
     )
 
-    end = schema.Datetime(
-        title=_(u'Completion time'),
+    end = schema.Date(
+        title=_(u'Completion date'),
         required=True,
-        defaultFactory=endDefaultValue
+        defaultFactory=todayValue
     )
 
     # inputs = schema.Text(
@@ -71,11 +63,11 @@ class IActivity(model.Schema):
         missing_value=u'',
     )
 
-    milestones = schema.Text(
-        title=_(u'Milestones'),
-        required=False,
-        missing_value=u'',
-    )
+    # milestones = schema.Text(
+    #     title=_(u'Milestones'),
+    #     required=False,
+    #     missing_value=u'',
+    # )
 
     directives.widget('outputs', SelectWidget)
     outputs = schema.List(
@@ -85,30 +77,31 @@ class IActivity(model.Schema):
         required=False,
     )
 
-    members = schema.Choice(
-        title=_(u"Members"),
-        description=_(u"Members of this activity"),
+    directives.widget('members', SelectWidget)
+    members = schema.List(
+        title=_(u"Responsible people"),
+        value_type=schema.Choice(
+            source=u'plone.app.vocabularies.Users'),
         required=False,
-        vocabulary=u'plone.app.vocabularies.Users',
     )
 
-    area = schema.Choice(
-        title=_(u"Related Improvement Areas"),
-        required=False,
-        source=utils.contextAreas
-    )
+    # area = schema.Choice(
+    #     title=_(u"Related Improvement Areas"),
+    #     required=False,
+    #     source=utils.contextAreas
+    # )
 
     form.mode(gwopa_year='hidden')
-    form.mode(IEditForm, gwopa_year='display')
+    form.mode(IEditForm, gwopa_year='hidden')
     form.mode(IAddForm, gwopa_year='hidden')
     gwopa_year = schema.Int(
         title=_(u'Internal code (YEAR)'),
         description=_(u'Internal code used only by administrators.'),
         required=False)
 
-    # form.mode(gwopa_code_hash='hidden')
-    # form.mode(IEditForm, gwopa_code_hash='display')
-    # form.mode(IAddForm, gwopa_code_hash='hidden')
+    form.mode(gwopa_code_hash='hidden')
+    form.mode(IEditForm, gwopa_code_hash='hidden')
+    form.mode(IAddForm, gwopa_code_hash='hidden')
     gwopa_code_hash = schema.TextLine(
         title=_(u'GWOPA CODE HASH'),
         required=False)
@@ -129,11 +122,6 @@ def hashValue(data):
         return 'ACT-M-' + data.request.form['year']
     else:
         return 'ACT-M-' + str(datetime.datetime.now().year)
-
-    @invariant
-    def validate_start_end(data):
-        if (data.start and data.end and data.start > data.end):
-            raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):
