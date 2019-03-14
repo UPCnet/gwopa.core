@@ -79,9 +79,9 @@
         <hr/>
         <h2><tal:omit-tag i18n:translate=""> Main organizations and their contributions </tal:omit-tag>
           <span style="float: right;">
-            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribOther" href="#">+ Other</a>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribPartner" href="#">+ Partner</a>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribDonor" href="#">+ Donor</a>
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribOther" href="#">+ Other</a>
           </span>
         </h2>
         <div class="col-md-12">
@@ -158,7 +158,7 @@
       <div class="row">
         <hr/>
         <div class="col-md-12">
-          <tal:objectives tal:condition="getProject_manager" >
+          <tal:objectives tal:condition="getProject_manager">
             <h2 i18n:translate=""> Focal point partner </h2>
             <div class="table-responsive">
               <table class="table table-hover">
@@ -173,7 +173,6 @@
                     <tal:block tal:condition="partner/manager"></tal:block>
                     <tal:block tal:condition="partner/project"><i class="fa fa-star"></i></tal:block>
                     <tal:block tal:content="partner/name"></tal:block></td>
-<!--                   <td tal:content="partner/partners"></td> -->
                     <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
                     <ul>
                       <td tal:condition="python:isinstance(value, basestring)">
