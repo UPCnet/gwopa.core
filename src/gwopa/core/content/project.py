@@ -327,20 +327,20 @@ class View(grok.View):
 
     def getProject_manager(self):
         users = []
-        project_manager_admin = self.context.project_manager_admin
-        project_manager = self.context.project_manager
-        users.append(project_manager_admin)
-        users.append(project_manager)
+        if self.context.project_manager_admin:
+            users.append(self.context.project_manager_admin)
+        if self.context.project_manager:
+            users.append(self.context.project_manager)
         results = []
 
-        users = list(set(users))  # Retunrs unique values in list
+        users = list(set(users))  # Returns unique values in list
         for user in users:
             obj = api.user.get(username=user)
             manager = False
             project = False
-            if user in project_manager_admin:
+            if user in self.context.project_manager_admin:
                 manager = True
-            if user in project_manager:
+            if user in self.context.project_manager:
                 project = True
             results.append(dict(
                 partners=obj.getProperty('wop_partners'),
@@ -348,7 +348,6 @@ class View(grok.View):
                 manager=manager,
                 project=project,
             ))
-
         return sorted(results, key=itemgetter('name'), reverse=False)
 
     def canEdit(self):
