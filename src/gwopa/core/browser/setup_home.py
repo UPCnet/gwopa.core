@@ -180,7 +180,7 @@ class setup(grok.View):
             safe_id=False)
         settingspage.currency = 'Dollars\nEuros\nPounds'
         settingspage.measuring_unit = 'liters\nm3\npeople\nothers'
-        settingspage.measuring_frequency = 'quarterly\nbiannually\nannually'
+        settingspage.measuring_frequency = 'annually\nbiannually\nquarterly'
         # Create demo Platforms
         p1 = api.content.create(
             type='Platform',

@@ -69,13 +69,13 @@ class IActivity(model.Schema):
     #     missing_value=u'',
     # )
 
-    directives.widget('outputs', SelectWidget)
-    outputs = schema.List(
-        title=_(u"Related outputs"),
-        value_type=schema.Choice(
-            source=utils.outputs),
-        required=False,
-    )
+    # directives.widget('outputs', SelectWidget)
+    # outputs = schema.List(
+    #     title=_(u"Related outputs"),
+    #     value_type=schema.Choice(
+    #         source=utils.outputs),
+    #     required=False,
+    # )
 
     directives.widget('members', SelectWidget)
     members = schema.List(

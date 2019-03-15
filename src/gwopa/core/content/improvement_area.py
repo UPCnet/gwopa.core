@@ -30,14 +30,13 @@ class IImprovementArea(form.Schema):
     form.mode(title='input')
     title = schema.Choice(
         title=_(u"Title"),
-        description=_(u"Improved specific capacity"),
         source=utils.area_title,
         required=True,
     )
 
     form.mode(description='input')
     description = schema.Text(
-        title=_(u'Summary'),
+        title=_(u'Description'),
         required=False,
         missing_value=u'',
     )

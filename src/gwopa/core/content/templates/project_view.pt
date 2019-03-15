@@ -26,8 +26,10 @@
                   getProject_manager view/getProject_manager;">
 
   <h1 class="documentFirstHeading">
-    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit" href="#"><i class="fas fa-pencil-alt"></i></a>
-    <tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>
+    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}" href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
+    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" title="Edit project" alt="Edit project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
+
+    
     <button class="context focus"><tal:block tal:content="context/status"></tal:block></button>
 <!--     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit" href="#"><button class="context focus"> <i class="far fa-edit"></i> Edit Project</button></a> -->
   </h1>

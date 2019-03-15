@@ -6,6 +6,8 @@ from gwopa.core import _
 import datetime
 from plone.directives import form
 from z3c.form.interfaces import IAddForm, IEditForm
+from plone.autoform import directives
+from plone.app.z3cform.widget import SelectWidget
 
 grok.templatedir("templates")
 
@@ -29,7 +31,7 @@ class IOutput(model.Schema):
     )
 
     initial_situation = schema.Text(
-        title=_(u'Initial situation description'),
+        title=_(u'Baseline description'),
         required=False,
         missing_value=u'',
     )
@@ -52,6 +54,14 @@ class IOutput(model.Schema):
 
     risks = schema.Text(
         title=_(u"Risks / Assumptions"),
+        required=False,
+    )
+
+    directives.widget('members', SelectWidget)
+    members = schema.List(
+        title=_(u"Responsible people"),
+        value_type=schema.Choice(
+            source=u'plone.app.vocabularies.Users'),
         required=False,
     )
 

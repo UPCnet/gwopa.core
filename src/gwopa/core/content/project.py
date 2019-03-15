@@ -65,7 +65,7 @@ def area_not_used(context):
     terms = []
     literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
     terms = []
-    literals = api.content.find(portal_type="Platform")
+    literals = api.content.find(portal_type="ItemArea")
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
         terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
