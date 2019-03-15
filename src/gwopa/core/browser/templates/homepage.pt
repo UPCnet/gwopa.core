@@ -89,9 +89,9 @@
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box" tal:define="country item/country; project_manager item/project_manager">
                               <a tal:attributes="href item/url">
+                                <p class="card-text-top" tal:content="item/title">Event Title</p>
                                 <img class="img200" tal:attributes="src string:${item/image};"/>
                                 <div class="card-body">
-                                  <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
                                   </p>
@@ -118,8 +118,8 @@
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box" tal:define="country item/country; project_manager item/project_manager">
                               <a tal:attributes="href item/url">
-                                <img class="img200" tal:attributes="src string:${item/image};"/>
-                                <div class="card-body">
+                                <!-- <img class="img200" tal:attributes="src string:${item/image};"/> -->
+                                <div class="card-body2">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
@@ -135,7 +135,7 @@
                 </div>
                 <br/>
 
-                <h1 class="documentFirstHeading" i18n:translate="">Related Projects</h1>
+                <h1 class="documentFirstHeading" i18n:translate="">Search Projects</h1>
                 <form id="search_projects" class="filter-block filter-press">
                   <fieldset>
                     <legend class="sr-only" i18n:translate="">Search</legend>
@@ -154,8 +154,8 @@
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box" tal:define="country item/country; project_manager item/project_manager">
                               <a tal:attributes="href item/url">
-                                <img class="img200" tal:attributes="src string:${item/image};"/>
-                                <div class="card-body">
+<!--                                 <img class="img200" tal:attributes="src string:${item/image};"/> -->
+                                <div class="card-body2">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
                                     <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
