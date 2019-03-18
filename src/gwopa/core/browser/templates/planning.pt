@@ -43,9 +43,20 @@
               <ul class="item" style="list-style-type: none;">
                 <li>
                   <h3>
-                    <i class="fa fa-plus-circle"></i><a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Activity?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Activity </button></a>
-                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
+                    <div class="btn-group" role="group" aria-label="Add element">
+                      <div data-toggle="dropdown"><i class="fas fa-plus-square"></i></div>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                        <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity?year=${currentYear}"><span><i class="fas fa-plus-circle"></i> Add Activity </span></a></li>
+                        <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}"><span><i class="fas fa-plus-circle"></i> Add Output </span></a></li>
+                      </ul>
+                    </div>
+                    <a tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
+                    <a tal:attributes="href string:${item/url}/edit;"><i class="fa fa-remove" style="color:red"></i></a>
+
+                    <!-- <i class="fa fa-plus-circle"></i> -->
+                    <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
+                    <!-- <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Activity?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Activity </button></a>
+                    <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a> -->
                     <span style="padding-left:20px;" tal:content="item/description"></span>
                   </h3>
                   <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
@@ -53,8 +64,7 @@
                       <li class="indicator_item">
                         <span class="label label-default" tal:attributes="class string:label ${item/portal_type}"
                               tal:content="item/portal_type"> ACTIVITY </span>
-                        <a tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
-                        <i class="fa fa-remove" style="color:red"></i>
+
                         <a tal:attributes="href item/url;title item/description" data-toggle="tooltip" class="pat-tooltip" tal:content="item/title"> Item Title </a>
                         <tal:omit.tag tal:condition="python:item['portal_type'] == 'Activity'">
                           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output?year=${currentYear}" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
