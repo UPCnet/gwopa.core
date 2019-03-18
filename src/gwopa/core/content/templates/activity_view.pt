@@ -15,7 +15,6 @@
                 start context/start;
                 end context/end;
                 budget context/budget;
-                outputs context/outputs;
                 members context/members;">
 
     <div tal:condition="initial_situation">
@@ -36,16 +35,6 @@
     <div tal:condition="budget">
       <h3 i18n:translate=""> Budget </h3>
       <span tal:content="budget"> budget </span>
-    </div>
-
-<!--     <div tal:condition="milestones">
-      <h3 i18n:translate=""> Milestones </h3>
-      <span tal:content="milestones"> milestones </span>
-    </div> -->
-
-    <div tal:condition="outputs">
-      <h3 i18n:translate=""> Outputs </h3>
-      <span tal:content="outputs"> outputs </span>
     </div>
 
     <div tal:condition="members">
