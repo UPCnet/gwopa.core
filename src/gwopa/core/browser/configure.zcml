@@ -116,44 +116,44 @@
   />
 
   <!-- New Workplan -->
-  <browser:page
+<!--   <browser:page
     for="gwopa.core.content.project.IProject"
     name="addWorkPlan"
     class=".actions.AddWorkPlan"
     layer="..interfaces.IGwopaCoreLayer"
-    permission="cmf.ModifyPortalContent" />
+    permission="cmf.ModifyPortalContent" /> -->
 
   <!-- Copy Workplan -->
-  <browser:page
+<!--   <browser:page
     for="gwopa.core.content.workplan.IWorkplan"
     name="copyWorkPlan"
     class=".actions.CopyWorkPlan"
     layer="..interfaces.IGwopaCoreLayer"
-    permission="cmf.ModifyPortalContent" />
+    permission="cmf.ModifyPortalContent" /> -->
 
   <!-- Delete Workplan -->
-  <browser:page
+<!--   <browser:page
     for="gwopa.core.content.workplan.IWorkplan"
     name="deleteWorkPlan"
     class=".actions.DeleteWorkPlan"
     layer="..interfaces.IGwopaCoreLayer"
-    permission="cmf.ModifyPortalContent" />
+    permission="cmf.ModifyPortalContent" /> -->
 
   <!-- DELETE -->
-  <browser:page
+<!--   <browser:page
     for="*"
     name="deleteYear"
     class=".views.Delete"
     layer="..interfaces.IGwopaCoreLayer"
-    permission="cmf.ModifyPortalContent" />
+    permission="cmf.ModifyPortalContent" /> -->
 
   <!-- COPY -->
-  <browser:page
+  <!-- <browser:page
     for="*"
     name="duplicateYear"
     class=".views.Copy"
     layer="..interfaces.IGwopaCoreLayer"
-    permission="cmf.ModifyPortalContent" />
+    permission="cmf.ModifyPortalContent" /> -->
 
 </configure>
 

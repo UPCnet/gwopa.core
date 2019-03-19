@@ -64,8 +64,8 @@ def area_not_used(context):
     """ Titles of Improvement Areas not created in this Project """
     terms = []
     literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
-    terms = []
-    literals = api.content.find(portal_type="ItemArea")
+    # terms = []
+    # literals = api.content.find(portal_type="ItemArea")
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
         terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
@@ -91,12 +91,12 @@ class IProject(model.Schema):
 
     fieldset('dates',
              label=_(u'Dates'),
-             fields=['startdate', 'startplanned', 'startactual', 'completiondate', 'completionplanned', 'completionactual']
+             fields=['startdate', 'startactual', 'startplanned', 'completiondate', 'completionactual', 'completionplanned', 'gwopa_fases']
              )
 
     fieldset('geo',
              label=_(u'Geolocation'),
-             fields=['country', 'location', 'latitude', 'longitude', 'gwopa_code_project']
+             fields=['country', 'location', 'latitude', 'longitude']
              )
 
     fieldset('members',
@@ -144,16 +144,15 @@ class IProject(model.Schema):
         description=_(u"The dates when the project has started. Planned date and current date.")
     )
 
-    startplanned = schema.Date(
-        title=_(u'Planned'),
-        required=True,
-        defaultFactory=default_today
-    )
-
     startactual = schema.Date(
         title=_(u'Actual'),
         required=True,
         defaultFactory=default_tomorrow
+    )
+
+    startplanned = schema.Date(
+        title=_(u'Planned'),
+        required=False,
     )
 
     directives.mode(completiondate='display')
@@ -162,16 +161,15 @@ class IProject(model.Schema):
         description=_(u"The dates when the project has been completed. Planned date and current date.")
     )
 
-    completionplanned = schema.Date(
-        title=_(u'Planned'),
-        required=True,
-        defaultFactory=default_today
-    )
-
     completionactual = schema.Date(
         title=_(u'Actual'),
         required=True,
         defaultFactory=default_tomorrow
+    )
+
+    completionplanned = schema.Date(
+        title=_(u'Planned'),
+        required=False,
     )
 
     objectives = RichText(
@@ -276,29 +274,28 @@ class IProject(model.Schema):
         )
     )
 
-    form.mode(gwopa_code_project='hidden')
+    # form.mode(gwopa_code_project='hidden')
     # form.mode(IEditForm, gwopa_code_project='display')
-    gwopa_code_project = schema.ASCIILine(
-        title=_(u'CODE'),
-        description=_(u'Project CODE for administrators'),
+    gwopa_fases = schema.ASCIILine(
+        title=_(u'Fases'),
         required=False
     )
 
 
-@form.default_value(field=IProject['gwopa_code_project'])
-def codeDefaultValue(data):
-    # TODO: Sort ids to assign the next one, to bypass
-    # empty/missing values on delete
-    items = len(api.content.find(
-        portal_type='Project',
-        context=data.context))
+# @form.default_value(field=IProject['gwopa_fases'])
+# def calculatedFases(data):
+#     # TODO: Sort ids to assign the next one, to bypass
+#     # empty/missing values on delete
+#     items = len(api.content.find(
+#         portal_type='Project',
+#         context=data.context))
 
-    return 'PR-{0}'.format(str(items + 1).zfill(3))
+#     return 'PR-{0}'.format(str(items + 1).zfill(3))
 
-    @invariant
-    def validate_start_end(data):
-        if (data.start and data.end and data.start > data.end):
-            raise StartBeforeEnd(u"End date must be after start date.")
+#     @invariant
+#     def validate_start_end(data):
+#         if (data.start and data.end and data.start > data.end):
+#             raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):

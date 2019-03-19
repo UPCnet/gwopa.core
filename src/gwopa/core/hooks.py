@@ -9,7 +9,9 @@ from gwopa.core.content.outcomeccs import IOutcomeccs
 from plone import api
 # import datetime
 import transaction
-
+import math
+from dateutil.relativedelta import *
+import datetime
 
 @grok.subscribe(IProject, IObjectAddedEvent)
 def projectAdded(content, event):
@@ -17,7 +19,9 @@ def projectAdded(content, event):
         Copy value from behaviour fields to project fields.projectAnd create
         current year workplan
     """
-
+    # start_date = content.startactual
+    # end_date = content.completionactual
+    content.gwopa_fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
     api.content.create(
         type='Folder',
         id='files',
@@ -58,6 +62,29 @@ def projectModified(content, event):
              zope.lifecycleevent.ObjectModifiedEvent
 
     """
+    # fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
+    date1 = content.startactual
+    date2 = content.completionactual
+    datas = [(date1 + relativedelta(years=i)).strftime("%Y/%m/%d") for i in range(date2.year - date1.year + 1)]
+    datas.append(content.completionactual.strftime("%Y/%m/%d"))
+    results = []
+    if fases > 1:
+        count = 0
+        while count != fases:
+            results.append(dict(
+                start=datas[0 + count],
+                end=datas[1 + count],
+                fase=count + 1
+            ))
+            count = count + 1
+    else:
+        count = 0
+        results.append(dict(
+            start=datas[0],
+            end=datas[1],
+            fase=1
+        ))
+    content.gwopa_fases = results
 
     if 'zope.lifecycleevent.ObjectModifiedEvent' in str(event):
         new_areas = content.areas

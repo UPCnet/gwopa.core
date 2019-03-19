@@ -24,15 +24,9 @@
 
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
 
-    <h1 class="documentFirstHeading">Planning - Annual <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
-    <div class="documentDescription description"> Annual Work Plan for year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
-
-<!--     <div class="wp-buttons">
-      <a tal:attributes="href string:${context/absolute_url}/duplicateYear?id=${currentYear}">
-        <button class="plone-btn-warning"><i class="fa fa-copy"></i> Duplicate Work Plan</button></a>
-      <a tal:attributes="href string:${context/absolute_url}/deleteYear?id=${currentYear};">
-        <button class="plone-btn-danger"><i class="fa fa-remove"></i> Delete Work Plan</button></a>
-    </div> -->
+    <h1 class="documentFirstHeading">Planning - Fase <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
+    <h2 >Start : <tal:omit-tag tal:content="view/getFaseStart"></tal:omit-tag></h2>
+    <h2 >End : <tal:omit-tag tal:content="view/getFaseEnd"></tal:omit-tag></h2>
 
     <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset style="min-width:100%">

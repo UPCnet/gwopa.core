@@ -5,8 +5,8 @@
     <indexed_attr value="gwopa_code_ia"/>
   </index>
 
-  <index name="gwopa_code_project" meta_type="FieldIndex">
-    <indexed_attr value="gwopa_code_project"/>
+  <index name="gwopa_fases" meta_type="FieldIndex">
+    <indexed_attr value="gwopa_fases"/>
   </index>
 
 
@@ -15,7 +15,7 @@
   </index>
 
   <column value="gwopa_code_ia" />
-  <column value="gwopa_code_project" />
+  <column value="gwopa_fases" />
   <column value="gwopa_year" />
 
 </object>

@@ -34,13 +34,23 @@ class planningView(BrowserView):
     def getYear(self):
         return self.year
 
+    def getFaseStart(self):
+        return self.fase_start
+
+    def getFaseEnd(self):
+        return self.fase_end
+
     def __call__(self):
         if not self.year:
             # Empty query returns default template
-            self.year = datetime.datetime.now().year
+            self.year = '1'
+            self.fase_start = self.context.gwopa_fases[int(self.year) - 1]['start']
+            self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
             return self.index()
         else:
             self.year = int(self.year)
+            self.fase_start = self.context.gwopa_fases[int(self.year) - 1]['start']
+            self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
             return self.index()
         # TODO: if copy or delete make action!
 
@@ -61,9 +71,9 @@ class planningView(BrowserView):
                     classe=classe))
         return sorted(results, key=itemgetter('title'), reverse=False)
 
-    def currentYear(self):
-        """ Returns current year to show in the title """
-        return ' ' + self.context.absolute_url_path().split('/')[-1:][0]
+    # def currentYear(self):
+    #     """ Returns current year to show in the title """
+    #     return ' ' + self.context.absolute_url_path().split('/')[-1:][0]
 
     def getAreas(self):
         """ Returns all the Improvement Areas in a Project """
