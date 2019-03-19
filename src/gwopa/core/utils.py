@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from plone import api
 from zope.schema.interfaces import IContextSourceBinder
+from plone.app.vocabularies.terms import safe_simplevocabulary_from_values
 from zope.schema.vocabulary import SimpleVocabulary
 import unicodedata
 from zope.schema.vocabulary import SimpleTerm
@@ -28,9 +29,8 @@ def listWOPPlatforms(context):
     terms = []
     literals = api.content.find(portal_type="Platform")
     for item in literals:
-        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
-    return SimpleVocabulary(terms)
+        terms.append(item.Title)
+    return safe_simplevocabulary_from_values(terms)
 
 
 directlyProvides(listWOPPlatforms, IContextSourceBinder)
@@ -41,9 +41,8 @@ def listPartners(context):
     terms = []
     literals = api.content.find(portal_type="Partner")
     for item in literals:
-        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
-    return SimpleVocabulary(terms)
+        terms.append(item.Title)
+    return safe_simplevocabulary_from_values(terms)
 
 
 directlyProvides(listPartners, IContextSourceBinder)
@@ -54,9 +53,8 @@ def listWOPPrograms(context):
     terms = []
     literals = api.content.find(portal_type="Program")
     for item in literals:
-        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
-    return SimpleVocabulary(terms)
+        terms.append(item.Title)
+    return safe_simplevocabulary_from_values(terms)
 
 
 directlyProvides(listWOPPrograms, IContextSourceBinder)
@@ -70,9 +68,8 @@ def settings_currency(context):
         terms = []
         for value in values.split('\n'):
             if value != '':
-                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(value, value, flattened))
-        return SimpleVocabulary(terms)
+                terms.append(value)
+        return safe_simplevocabulary_from_values(terms)
     else:
         return None
 
@@ -88,9 +85,8 @@ def settings_measuring_unit(context):
         terms = []
         for value in values.split('\n'):
             if value != '':
-                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(value, value, flattened))
-        return SimpleVocabulary(terms)
+                terms.append(value)
+        return safe_simplevocabulary_from_values(terms)
     else:
         return None
 
@@ -106,9 +102,8 @@ def settings_measuring_frequency(context):
         terms = []
         for value in values.split('\n'):
             if value != '':
-                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-                terms.append(SimpleVocabulary.createTerm(value, value, flattened))
-        return SimpleVocabulary(terms)
+                terms.append(value)
+        return safe_simplevocabulary_from_values(terms)
     else:
         return None
 
@@ -120,12 +115,9 @@ def settings_capacity_changes(context):
     """ Capacity changes settings """
     items = api.content.find(portal_type="OutcomeCCItem")
     terms = []
-
     for item in items:
-        value = item.Title
-        flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
-    return SimpleVocabulary(terms)
+        terms.append(item.Title)
+    return safe_simplevocabulary_from_values(terms)
 
 
 directlyProvides(settings_capacity_changes, IContextSourceBinder)
@@ -136,9 +128,8 @@ def contextAreas(context):
     terms = []
     literals = api.content.find(portal_type="ImprovementArea", context=context)
     for item in literals:
-        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
-    return SimpleVocabulary(terms)
+        terms.append(item.Title)
+    return safe_simplevocabulary_from_values(terms)
 
 
 directlyProvides(contextAreas, IContextSourceBinder)
@@ -149,9 +140,8 @@ def outputs(context):
     terms = []
     literals = api.content.find(portal_type="Output", context=context, depth=1)
     for item in literals:
-        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
-    return SimpleVocabulary(terms)
+        terms.append(item.Title)
+    return safe_simplevocabulary_from_values(terms)
 
 
 directlyProvides(outputs, IContextSourceBinder)
@@ -162,9 +152,8 @@ def area_title(context):
     terms = []
     literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
     for item in literals:
-        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.id, item.id, flattened))
-    return SimpleVocabulary(terms)
+        terms.append(item.Title)
+    return safe_simplevocabulary_from_values(terms)
 
 
 directlyProvides(area_title, IContextSourceBinder)
