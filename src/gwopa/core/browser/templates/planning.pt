@@ -24,9 +24,8 @@
 
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
 
-    <h1 class="documentFirstHeading">Planning - Fase <tal:omit-tag tal:content="currentYear"></tal:omit-tag></h1>
-    <h2 >Start : <tal:omit-tag tal:content="view/getFaseStart"></tal:omit-tag></h2>
-    <h2 >End : <tal:omit-tag tal:content="view/getFaseEnd"></tal:omit-tag></h2>
+    <h1 class="documentFirstHeading">Planning - Project Year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
+    (Start Date <tal:omit-tag tal:content="view/getFaseStart"></tal:omit-tag> End Date <tal:omit-tag tal:content="view/getFaseEnd"></tal:omit-tag>)</h1>
 
     <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset style="min-width:100%">

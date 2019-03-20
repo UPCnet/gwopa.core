@@ -7,6 +7,9 @@ from gwopa.core import utils
 from gwopa.core import _
 from z3c.form.interfaces import HIDDEN_MODE  # INPUT_MODE, DISPLAY_MODE
 from plone.directives import form
+from plone.autoform import directives
+from plone.app.z3cform.widget import SelectWidget
+from plone.directives import form
 
 grok.templatedir("templates")
 
@@ -22,13 +25,6 @@ class IOutcomezone(model.Schema):
         title=_(u"Title"),
         required=True,
     )
-
-    # wop_program = schema.Choice(
-    #     title=_(u"Capacity Items"),
-    #     description=_(u"Improved specific capacity"),
-    #     source=utils.settings_capacity_changes,
-    #     required=True,
-    # )
 
     description = schema.Text(
         title=_(u'Summary'),
@@ -74,6 +70,13 @@ class IOutcomezone(model.Schema):
         required=False,
     )
 
+    directives.widget('members', SelectWidget)
+    members = schema.List(
+        title=_(u"Responsible people"),
+        value_type=schema.Choice(
+            source=u'plone.app.vocabularies.Users'),
+        required=False,
+    )
 
 class View(grok.View):
     grok.context(IOutcomezone)

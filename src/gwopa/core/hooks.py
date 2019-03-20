@@ -62,7 +62,7 @@ def projectModified(content, event):
              zope.lifecycleevent.ObjectModifiedEvent
 
     """
-    # fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
+    fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
     date1 = content.startactual
     date2 = content.completionactual
     datas = [(date1 + relativedelta(years=i)).strftime("%Y/%m/%d") for i in range(date2.year - date1.year + 1)]
