@@ -67,6 +67,8 @@
                         <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
                         <i class="fa fa-remove" style="color:red"></i>
                         <a tal:attributes="href item/url;" class="pat-plone-modal" tal:content="item/title"> Item Title </a>
+                        <span tal:content="item/start"> Start </span> //
+                        <span tal:content="item/end"> End </span>
                         <tal:omit.tag tal:condition="python:item['portal_type'] == 'Activity'">
                           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
                           <tal:block-subitems2 tal:define="outputs python:view.indicatorsInside(item);">
@@ -75,6 +77,8 @@
                               <a class="pat-plone-modal" tal:attributes="href string:${output/url}/edit;"><i class="fas fa-edit"></i></a>
                               <i class="fa fa-remove" style="color:red"></i>
                               <a class="pat-plone-modal" tal:attributes="href output/url" tal:content="output/title"> Item Title </a>
+                              <span tal:content="item/start"> Start </span> //
+                              <span tal:content="item/end"> End </span>
                               <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${output/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
                             </ol>
                           </tal:block-subitems2>

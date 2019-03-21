@@ -44,9 +44,8 @@ class IActivity(model.Schema):
         title=_(u'Starting date'),
         required=True,
         defaultFactory=todayValue,
-        min=date(2017, 1, 1),
-        max=date(2021, 1, 1)
     )
+
     # directives.widget(
     #     'start',
     #     DatetimeFieldWidget,

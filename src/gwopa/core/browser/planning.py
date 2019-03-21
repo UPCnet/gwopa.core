@@ -126,6 +126,8 @@ class planningView(BrowserView):
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
+                start=item.start,
+                end=item.end,
                 url='/'.join(item.getObject().getPhysicalPath())))
         return results
 
