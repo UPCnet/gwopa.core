@@ -11,18 +11,14 @@ from plone import api
 import transaction
 import math
 from dateutil.relativedelta import *
-import datetime
-from DateTime import DateTime
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
 def projectAdded(content, event):
     """ Project created handler to assign geolocation.
         Copy value from behaviour fields to project fields.projectAnd create
-        current year workplan
+        current year
     """
-    # start_date = content.startactual
-    # end_date = content.completionactual
     content.gwopa_fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
     api.content.create(
         type='Folder',
@@ -124,7 +120,7 @@ def partnerModified(content, event):
 def improvementAreaAdded(content, event):
     """ Project created handler to assign geolocation.
         Copy value from behaviour fields to project fields.projectAnd create
-        current year workplan
+        current year
     """
     api.content.create(
         type='Folder',

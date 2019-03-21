@@ -58,7 +58,7 @@
                     <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
                     <a tal:attributes="href string:${item/url}/edit;"><i class="fa fa-remove" style="color:red"></i></a>
                     <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
-                    <span style="padding-left:20px;" tal:content="item/description"></span>
+                    <span tal:content="item/description"></span>
                   </h3>
                   <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
                     <ul tal:repeat="item files" class="block_sub_indicators">

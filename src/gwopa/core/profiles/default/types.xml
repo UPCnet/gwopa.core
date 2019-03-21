@@ -3,7 +3,6 @@
   <object meta_type="Dexterity FTI" name="Activity" />
   <object meta_type="Dexterity FTI" name="ImprovementArea" />
   <object meta_type="Dexterity FTI" name="ItemArea" />
-  <object meta_type="Dexterity FTI" name="LogFrame" />
   <object meta_type="Dexterity FTI" name="OutcomeCC" />
   <object meta_type="Dexterity FTI" name="OutcomeCCItem" />
   <object meta_type="Dexterity FTI" name="OutcomeCCS" />
@@ -17,7 +16,6 @@
   <object meta_type="Dexterity FTI" name="Project" />
   <object meta_type="Dexterity FTI" name="SettingsPage" />
   <object meta_type="Dexterity FTI" name="TargetValue" />
-  <object meta_type="Dexterity FTI" name="WorkPlan" />
   <object meta_type="Dexterity FTI" name="ContribOther" />
   <object meta_type="Dexterity FTI" name="ContribDonor" />
   <object meta_type="Dexterity FTI" name="ContribPartner" />
