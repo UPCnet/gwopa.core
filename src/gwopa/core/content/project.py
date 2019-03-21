@@ -274,7 +274,7 @@ class IProject(model.Schema):
         )
     )
 
-    form.mode(gwopa_fases='hidden')
+    # form.mode(gwopa_fases='hidden')
     # form.mode(IEditForm, gwopa_code_project='display')
     gwopa_fases = schema.ASCIILine(
         title=_(u'Fases'),

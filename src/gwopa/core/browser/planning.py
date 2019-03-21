@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
 from plone import api
-import datetime
+import DateTime
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -109,8 +109,16 @@ class planningView(BrowserView):
         """ returns objects from first level (elements inside ImprovementArea) """
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
+        data_year = self.context.gwopa_fases[int(self.year) - 1]
+        start = data_year['start_iso']
+        end = data_year['end_iso']
+        import ipdb; ipdb.set_trace()
+        date_range_query = {'query': (DateTime(start), DateTime(end)), 'range': 'min:max'}
+        print date_range_query
+
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity', 'Output'],
+            start=date_range_query,
             path={'query': folder_path,
                   'depth': 1})
         results = []

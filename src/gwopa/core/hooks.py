@@ -12,6 +12,8 @@ import transaction
 import math
 from dateutil.relativedelta import *
 import datetime
+from DateTime import DateTime
+
 
 @grok.subscribe(IProject, IObjectAddedEvent)
 def projectAdded(content, event):
@@ -67,6 +69,9 @@ def projectModified(content, event):
     date2 = content.completionactual
     datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)]
     datas.append(content.completionactual.strftime("%B %d, %Y"))
+    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m 00:00:00") for i in range(date2.year - date1.year + 1)]
+    isodate.append(content.completionactual.strftime("%Y-%d-%m 23:59:59"))
+
     results = []
     if fases > 1:
         count = 0
@@ -74,6 +79,8 @@ def projectModified(content, event):
             results.append(dict(
                 start=datas[0 + count],
                 end=datas[1 + count],
+                start_iso=isodate[0 + count],
+                end_iso=isodate[1 + count],
                 fase=count + 1
             ))
             count = count + 1
