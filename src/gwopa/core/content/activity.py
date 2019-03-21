@@ -4,14 +4,15 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
-# from zope.interface import Invalid
-# from zope.interface import invariant
-from gwopa.core import utils
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from plone.directives import form
-from z3c.form.interfaces import IAddForm, IEditForm
-
+# from z3c.form.interfaces import IAddForm, IEditForm
+from datetime import date
+# from plone.app.z3cform.widget import DatetimeFieldWidget
+# from z3c.form.interfaces import IFieldWidget
+# from z3c.form.widget import FieldWidget
+# from zope.interface import implementer
 grok.templatedir("templates")
 
 
@@ -42,13 +43,24 @@ class IActivity(model.Schema):
     start = schema.Date(
         title=_(u'Starting date'),
         required=True,
-        defaultFactory=todayValue
+        defaultFactory=todayValue,
+        min=date(2017, 1, 1),
+        max=date(2021, 1, 1)
     )
+    # directives.widget(
+    #     'start',
+    #     DatetimeFieldWidget,
+    #     pattern_options={
+    #         "date": {
+    #             "selectYears": 10},
+    #         "time": False
+    #     },
+    # )
 
     end = schema.Date(
         title=_(u'Completion date'),
         required=True,
-        defaultFactory=todayValue
+        defaultFactory=todayValue,
     )
 
     budget = schema.Text(
@@ -74,6 +86,15 @@ class IActivity(model.Schema):
 @form.default_value(field=IActivity['currency'])
 def projectCurrency(data):
     return data.context.aq_parent.currency
+
+
+class Edit(form.SchemaEditForm):
+    grok.context(IActivity)
+
+    # def updateWidgets(self):
+    #     super(Edit, self).updateWidgets()
+    #     self.widgets['start'].config['disabledWeekDays'] = [5, 6]
+    #     self.widgets['start'].config['selectYears'] = 10
 
 
 class View(grok.View):
