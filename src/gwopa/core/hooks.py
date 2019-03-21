@@ -65,8 +65,8 @@ def projectModified(content, event):
     fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
     date1 = content.startactual
     date2 = content.completionactual
-    datas = [(date1 + relativedelta(years=i)).strftime("%Y/%m/%d") for i in range(date2.year - date1.year + 1)]
-    datas.append(content.completionactual.strftime("%Y/%m/%d"))
+    datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)]
+    datas.append(content.completionactual.strftime("%B %d, %Y"))
     results = []
     if fases > 1:
         count = 0

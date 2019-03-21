@@ -23,11 +23,23 @@
   </metal:javascript>
 
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
+    <ul class="pagination pagination-lg" style="float:right; margin: 0px;" tal:define="items view/getItems">
+      <tal:block tal:repeat="item items">
+        <li tal:attributes="class item/classe">
+          <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>
+          </a>
+        </li>
+      </tal:block>
+    </ul>
 
     <h1 class="documentFirstHeading">Planning - Project Year <tal:omit-tag tal:content="currentYear"></tal:omit-tag>
-    (Start Date <tal:omit-tag tal:content="view/getFaseStart"></tal:omit-tag> End Date <tal:omit-tag tal:content="view/getFaseEnd"></tal:omit-tag>)</h1>
+    </h1>
+      <div class="documentDescription description">
+   Start date: <tal:omit-tag tal:content="view/getFaseStart"></tal:omit-tag> -- End date: <tal:omit-tag tal:content="view/getFaseEnd"></tal:omit-tag>
+ </div>
 
-    <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
+
+   <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset style="min-width:100%">
         <legend>Project</legend>
         <div>

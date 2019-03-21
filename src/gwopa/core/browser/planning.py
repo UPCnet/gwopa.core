@@ -48,27 +48,42 @@ class planningView(BrowserView):
             self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
             return self.index()
         else:
-            self.year = int(self.year)
-            self.fase_start = self.context.gwopa_fases[int(self.year) - 1]['start']
-            self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
+            try:
+                self.year = int(self.year)
+            except:
+                self.year = 1
+            if self.year > len(self.context.gwopa_fases):
+                self.year = 1
+                self.fase_start = self.context.gwopa_fases[int(self.year) - 1]['start']
+                self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
+            else:
+                self.fase_start = self.context.gwopa_fases[int(self.year) - 1]['start']
+                self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
             return self.index()
         # TODO: if copy or delete make action!
 
     def getItems(self):
         """ Returns all the workplans inside the planning """
-        items = self.context.aq_parent.items()
-
+        items = len(self.context.gwopa_fases)
         results = []
-        for item in items:
-            if item[1].portal_type == 'WorkPlan':
-                if self.context.id == item[0]:
-                    classe = 'disabled'
-                else:
-                    classe = 'visible'
-                results.append(dict(
-                    title=item[0],
-                    url=item[1].absolute_url_path(),
-                    classe=classe))
+        total = 0
+
+        while total != items:
+            if (total == 0) and (self.request.steps[-1] == 'planning'):
+                classe = 'disabled'
+            elif self.request.steps[-1] == str(total + 1):
+                classe = 'disabled'
+            else:
+                classe = 'visible'
+            if total == 0:
+                url = self.context.absolute_url_path() + '/planning/'
+            else:
+                url = self.context.absolute_url_path() + '/planning/' + str(total + 1)
+            results.append(dict(
+                title='Project Year ' + str(total + 1),
+                url=url,
+                classe=classe))
+            total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     # def currentYear(self):
