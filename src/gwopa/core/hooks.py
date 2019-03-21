@@ -69,8 +69,8 @@ def projectModified(content, event):
     date2 = content.completionactual
     datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)]
     datas.append(content.completionactual.strftime("%B %d, %Y"))
-    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m 00:00:00") for i in range(date2.year - date1.year + 1)]
-    isodate.append(content.completionactual.strftime("%Y-%d-%m 23:59:59"))
+    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
+    isodate.append(content.completionactual.strftime("%Y-%d-%m"))
 
     results = []
     if fases > 1:

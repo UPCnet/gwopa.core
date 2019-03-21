@@ -7,7 +7,7 @@ from zope.publisher.interfaces import IPublishTraverse
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
-
+import datetime
 
 @implementer(IPublishTraverse)
 class planningView(BrowserView):
@@ -110,10 +110,9 @@ class planningView(BrowserView):
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
         data_year = self.context.gwopa_fases[int(self.year) - 1]
-        start = data_year['start_iso']
-        end = data_year['end_iso']
-        import ipdb; ipdb.set_trace()
-        date_range_query = {'query': (DateTime(start), DateTime(end)), 'range': 'min:max'}
+        start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%d-%m')
+        end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
+        date_range_query = {'query': (start, end), 'range': 'min:max'}
         print date_range_query
 
         items = portal_catalog.unrestrictedSearchResults(
