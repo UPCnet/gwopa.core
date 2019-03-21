@@ -111,7 +111,6 @@ class planningView(BrowserView):
         folder_path = item['url']
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity', 'Output'],
-            gwopa_year=self.year,
             path={'query': folder_path,
                   'depth': 1})
         results = []

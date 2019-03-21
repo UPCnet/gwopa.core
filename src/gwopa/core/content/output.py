@@ -65,21 +65,21 @@ class IOutput(model.Schema):
         required=False,
     )
 
-    form.mode(gwopa_year='hidden')
-    form.mode(IEditForm, gwopa_year='hidden')
-    form.mode(IAddForm, gwopa_year='hidden')
-    gwopa_year = schema.Int(
-        title=_(u'Internal code (YEAR)'),
-        description=_(u'Internal code used only by administrators.'),
-        required=False)
+    # form.mode(gwopa_year='hidden')
+    # form.mode(IEditForm, gwopa_year='hidden')
+    # form.mode(IAddForm, gwopa_year='hidden')
+    # gwopa_year = schema.Int(
+    #     title=_(u'Internal code (YEAR)'),
+    #     description=_(u'Internal code used only by administrators.'),
+    #     required=False)
 
 
-@form.default_value(field=IOutput['gwopa_year'])
-def codeDefaultValue(data):
-    if 'year' in data.request.form:
-        return int(data.request.form['year'])
-    else:
-        return datetime.datetime.now().year
+# @form.default_value(field=IOutput['gwopa_year'])
+# def codeDefaultValue(data):
+#     if 'year' in data.request.form:
+#         return int(data.request.form['year'])
+#     else:
+#         return datetime.datetime.now().year
 
 
 class View(grok.View):
