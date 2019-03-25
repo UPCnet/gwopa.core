@@ -205,6 +205,7 @@
         </div>
       </th>
       <th>Next update</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -214,7 +215,12 @@
         <div class="activity-planning">Activity</div>
         <h4 class="titulocatplan" id="activity">Ejemplo 1 de activity</h4>
       </td>
-      <td></td>
+      <td>
+      </td>
+      <td>
+          <a title="Edit project" alt="Edit project" href="#"><i class="far fa-edit"></i></a>
+          <a href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
+      </td>
     </tr>
     <tr class="descripcion collapse in" id="IA5" aria-expanded="true" style="">
       <td>
@@ -235,15 +241,12 @@
         </div>
       </td>
       <td class="date-w">31/1/2025</td>
-    </tr>
-    <tr class="descripcion" id="contenido">
-      <td colspan="2">
-        <div class="col-md-12 text-item-planning collapse" id="OutputActivity1" role="tabpanel" aria-expanded="false" style="height: 398px;">
-          This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-        </div>
+      <td>
+          <a title="Edit project" alt="Edit project" href="#"><i class="far fa-edit"></i></a>
+          <a href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
       </td>
     </tr>
-    <tr class="descripcion" id="IA5">
+    <tr id="IA5">
       <td>
         <div class="col-md-12 text-item-planning collapse in" role="tabpanel" aria-expanded="true" style="">
           <a href="#OutputActivity2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OutputActivity2" aria-expanded="false" class="collapsed">
@@ -261,13 +264,9 @@
           </a>
         </div>
       </td>
-      <td class="date-w">31/1/2025</td>
-    </tr>
-    <tr class="descripcion" id="contenido">
-      <td colspan="2">
-        <div class="col-md-12 text-item-planning collapse" id="OutputActivity2" role="tabpanel" aria-expanded="false" style="height: 378px;">
-        This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-        </div>
+      <td class="date-w">31/1/2025</td><td>
+        <a title="Edit project" alt="Edit project" href="#"><i class="far fa-edit"></i></a>
+        <a href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
       </td>
     </tr>
     <tr href="#Monitoring-Output-2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="false" class="collapsed">
@@ -285,15 +284,12 @@
         </div>
       </td>
       <td>31/1/2025</td>
-    </tr>
-
-    <tr class="descripcion" id="contenido">
-      <td colspan="2">
-        <div class="col-md-12 text-item-planning collapse" id="Monitoring-Output-2" role="tabpanel" aria-expanded="false" style="height: 385px;">
-        This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-        </div>
+      <td>
+        <a title="Edit project" alt="Edit project" href="#"><i class="far fa-edit"></i></a>
+        <a href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
       </td>
-    </tr>
+
+   </tr>
   </tbody>
 </table>
 
