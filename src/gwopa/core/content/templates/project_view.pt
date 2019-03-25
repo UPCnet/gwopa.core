@@ -25,11 +25,11 @@
                   others view/others;
                   getProject_manager view/getProject_manager;">
 
+  <button class="context focus">Completed</button>
   <h1 class="documentFirstHeading">
     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" title="Edit project" alt="Edit project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
-    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}" href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
+    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}" href="#"><i class="far fa-trash-alt red"></i></a>
     <tal:omit-tag tal:condition="not:canEdit" tal:content="context/title"> Project Title</tal:omit-tag>
-    <button class="context focus" tal:content="context/status"> Status </button>
   </h1>
 
   <div class="row">

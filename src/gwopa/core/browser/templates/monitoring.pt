@@ -195,12 +195,12 @@
     <tr>
       <th class="thname">
         <div class="information object" id="header">
-         <div class="contentt" id="bl">Baseline</div>
+         <div class="contentt" id="bl">Baseline</div> 
          <div class="separator">|</div>
-         <div class="contentt" id="value">Value</div>
+         <div class="contentt" id="value">Value</div> 
          <div class="separator">|</div>
          <div class="contentt" id="target">Target</div>
-         <div class="separator">|</div>
+         <div class="separator">|</div> 
          <div class="contentt" id="mu">Measuring Unit</div>
         </div>
       </th>
@@ -215,7 +215,7 @@
         <div class="activity-planning">Activity</div>
         <h4 class="titulocatplan" id="activity">Ejemplo 1 de activity</h4>
       </td>
-      <td>
+      <td>        
       </td>
       <td>
           <a title="Edit project" alt="Edit project" href="#"><i class="far fa-edit"></i></a>
@@ -266,7 +266,7 @@
       </td>
       <td class="date-w">31/1/2025</td><td>
         <a title="Edit project" alt="Edit project" href="#"><i class="far fa-edit"></i></a>
-        <a href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
+        <a href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>  
       </td>
     </tr>
     <tr href="#Monitoring-Output-2" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="Monitoring-Output" aria-expanded="false" class="collapsed">
@@ -288,7 +288,7 @@
         <a title="Edit project" alt="Edit project" href="#"><i class="far fa-edit"></i></a>
         <a href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
       </td>
-
+    
    </tr>
   </tbody>
 </table>
