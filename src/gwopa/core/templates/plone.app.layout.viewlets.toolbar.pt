@@ -41,11 +41,11 @@
           </li>
         </ul>
 
-<!--         <ul class="plone-toolbar-main">
+        <ul class="plone-toolbar-main">
           <div tal:replace="structure view/base_render">
           </div>
         </ul>
- -->
+
 
         <ul class="plone-toolbar-main">
           <li id="contentview-folderContents" class="">
