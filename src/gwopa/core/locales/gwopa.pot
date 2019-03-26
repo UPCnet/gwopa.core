@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-03-21 22:56+0000\n"
+"POT-Creation-Date: 2019-03-26 10:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -465,11 +465,11 @@ msgstr ""
 msgid "Members with this region"
 msgstr ""
 
-#: ../browser/templates/homepage.pt:79
+#: ../browser/templates/homepage.pt:80
 msgid "My Projects"
 msgstr ""
 
-#: ../browser/templates/homepage.pt:108
+#: ../browser/templates/homepage.pt:109
 msgid "My company Projects"
 msgstr ""
 
@@ -607,11 +607,11 @@ msgstr ""
 msgid "Risks / Assumptions"
 msgstr ""
 
-#: ../browser/templates/homepage.pt:141
+#: ../browser/templates/homepage.pt:147
 msgid "Search"
 msgstr ""
 
-#: ../browser/templates/homepage.pt:138
+#: ../browser/templates/homepage.pt:144
 msgid "Search Projects"
 msgstr ""
 
@@ -800,7 +800,7 @@ msgstr ""
 msgid "Write the project location"
 msgstr ""
 
-#: ../browser/templates/homepage.pt:81
+#: ../browser/templates/homepage.pt:82
 msgid "You don't have assigned projects."
 msgstr ""
 
@@ -808,7 +808,7 @@ msgstr ""
 msgid "Your Twitter username. Could include the @. Example: @unhabitat"
 msgstr ""
 
-#: ../browser/templates/homepage.pt:111
+#: ../browser/templates/homepage.pt:112
 msgid "Your company has no projects."
 msgstr ""
 
@@ -818,10 +818,6 @@ msgstr ""
 
 #: ../content/outcomezone.py:36
 msgid "Zone"
-msgstr ""
-
-#: ../browser/user_profile.py:48
-msgid "arees_exp"
 msgstr ""
 
 #: ../content/project.py:37

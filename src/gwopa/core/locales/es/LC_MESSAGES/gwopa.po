@@ -458,11 +458,11 @@ msgstr "Miembros"
 msgid "Members with this region"
 msgstr "Miembros en esta región"
 
-#: ../browser/templates/homepage.pt:79
+#: ../browser/templates/homepage.pt:80
 msgid "My Projects"
 msgstr "Mis proyectos"
 
-#: ../browser/templates/homepage.pt:108
+#: ../browser/templates/homepage.pt:109
 msgid "My company Projects"
 msgstr "Los proyectos de mi compañía"
 
@@ -600,11 +600,11 @@ msgstr ""
 msgid "Risks / Assumptions"
 msgstr "Riesgos / Suposiciones"
 
-#: ../browser/templates/homepage.pt:141
+#: ../browser/templates/homepage.pt:147
 msgid "Search"
 msgstr "Buscar..."
 
-#: ../browser/templates/homepage.pt:138
+#: ../browser/templates/homepage.pt:144
 msgid "Search Projects"
 msgstr ""
 
@@ -793,7 +793,7 @@ msgstr ""
 msgid "Write the project location"
 msgstr ""
 
-#: ../browser/templates/homepage.pt:81
+#: ../browser/templates/homepage.pt:82
 msgid "You don't have assigned projects."
 msgstr "No tienes proyectos asignados."
 
@@ -801,7 +801,7 @@ msgstr "No tienes proyectos asignados."
 msgid "Your Twitter username. Could include the @. Example: @unhabitat"
 msgstr "La cuenta de Twitter, puede incluir el @. Por ejemplo: @unhabitat"
 
-#: ../browser/templates/homepage.pt:111
+#: ../browser/templates/homepage.pt:112
 msgid "Your company has no projects."
 msgstr "Tu compañía no tiene proyectos asignados (o no perteneces a ninguna compañía)."
 
@@ -812,10 +812,6 @@ msgstr "Tu número de teléfono"
 #: ../content/outcomezone.py:36
 msgid "Zone"
 msgstr ""
-
-#: ../browser/user_profile.py:48
-msgid "arees_exp"
-msgstr "Áreas de experiencia"
 
 #: ../content/project.py:37
 msgid "completed"

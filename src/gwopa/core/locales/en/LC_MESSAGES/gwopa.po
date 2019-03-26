@@ -216,7 +216,7 @@ msgstr "Describing visualizating module."
 #: ../content/improvement_area.py:39
 #: ../content/output.py:28
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: ../content/templates/project_view.pt:44
 msgid "Description and main objectives"
@@ -228,11 +228,11 @@ msgstr "End"
 
 #: ../content/templates/project_view.pt:66
 msgid "End (Actual):"
-msgstr ""
+msgstr "End (Actual):"
 
 #: ../content/templates/project_view.pt:67
 msgid "End (Planned):"
-msgstr ""
+msgstr "End (Planned):"
 
 #: ../browser/templates/manage_portal.pt:37
 msgid "End Date"
@@ -240,7 +240,7 @@ msgstr "End Date"
 
 #: ../content/project.py:280
 msgid "Fases"
-msgstr ""
+msgstr "Phases"
 
 #: ../browser/templates/files.pt:14
 msgid "Files"
@@ -458,11 +458,11 @@ msgstr "Members"
 msgid "Members with this region"
 msgstr "Members with this region"
 
-#: ../browser/templates/homepage.pt:79
+#: ../browser/templates/homepage.pt:80
 msgid "My Projects"
 msgstr "My Projects"
 
-#: ../browser/templates/homepage.pt:108
+#: ../browser/templates/homepage.pt:109
 msgid "My company Projects"
 msgstr "My company Projects"
 
@@ -592,7 +592,7 @@ msgstr "Reporting Module"
 #: ../content/outcomekpi.py:69
 #: ../content/outcomezone.py:75
 msgid "Responsible people"
-msgstr ""
+msgstr "Responsible people"
 
 #: ../content/outcomekpi.py:63
 #: ../content/outcomezone.py:69
@@ -600,13 +600,13 @@ msgstr ""
 msgid "Risks / Assumptions"
 msgstr "Risks / Assumptions"
 
-#: ../browser/templates/homepage.pt:141
+#: ../browser/templates/homepage.pt:147
 msgid "Search"
 msgstr "Search..."
 
-#: ../browser/templates/homepage.pt:138
+#: ../browser/templates/homepage.pt:144
 msgid "Search Projects"
-msgstr ""
+msgstr "Search Projects"
 
 #: ../content/project.py:198
 msgid "Select a country from the list"
@@ -646,11 +646,11 @@ msgstr "Start"
 
 #: ../content/templates/project_view.pt:62
 msgid "Start (Actual):"
-msgstr ""
+msgstr "Start (Actual):"
 
 #: ../content/templates/project_view.pt:63
 msgid "Start (Planned):"
-msgstr ""
+msgstr "Start (Planned):"
 
 #: ../browser/templates/manage_portal.pt:36
 msgid "Start Date"
@@ -793,7 +793,7 @@ msgstr "Working Areas"
 msgid "Write the project location"
 msgstr "Write the project location"
 
-#: ../browser/templates/homepage.pt:81
+#: ../browser/templates/homepage.pt:82
 msgid "You don't have assigned projects."
 msgstr "You don't have assigned projects."
 
@@ -801,7 +801,7 @@ msgstr "You don't have assigned projects."
 msgid "Your Twitter username. Could include the @. Example: @unhabitat"
 msgstr "Your Twitter username. Could include the @. Example: @unhabitat"
 
-#: ../browser/templates/homepage.pt:111
+#: ../browser/templates/homepage.pt:112
 msgid "Your company has no projects."
 msgstr "Your company has no projects (or you don't have any assigned)."
 
@@ -812,10 +812,6 @@ msgstr "Your telephone number."
 #: ../content/outcomezone.py:36
 msgid "Zone"
 msgstr "Zone"
-
-#: ../browser/user_profile.py:48
-msgid "arees_exp"
-msgstr "Experimental Areas"
 
 #: ../content/project.py:37
 msgid "completed"
