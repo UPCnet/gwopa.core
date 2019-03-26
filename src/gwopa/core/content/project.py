@@ -6,12 +6,10 @@ from zope.schema.interfaces import IContextAwareDefaultFactory
 from zope.interface import provider
 from plone.app.textfield import RichText
 from zope.interface import Invalid
-from zope.interface import invariant
 from plone.namedfile import field as namedfile
 from gwopa.core import _
 from gwopa.core import utils
 import datetime
-from plone.directives import form
 from plone import api
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
@@ -26,7 +24,6 @@ import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
 from operator import itemgetter
-from plone.app.dexterity import _ as _PMF
 
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])

@@ -26,11 +26,6 @@
   <!-- Include configuration for dependencies listed in setup.py -->
   <includeDependencies package="." />
 
-<!--   <browser:jbot
-      directory="templates"
-      layer=".interfaces.IGwopaCoreLayer"
-  /> -->
-
   <genericsetup:registerProfile
       name="default"
       title="GWOPA Core package (gwopa.core)"
@@ -47,22 +42,24 @@
       description="Uninstalls the gwopa.core add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.uninstall"
-      />
+  />
 
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="gwopa.core-hiddenprofiles"
-      />
+  />
 
-   <adapter
-        factory=".patches.NegotiateLanguage"
-        for="* gwopa.core.interfaces.IGwopaCoreLayer"
-    />
+  <adapter
+      factory=".patches.NegotiateLanguage"
+      for="* gwopa.core.interfaces.IGwopaCoreLayer"
+  />
 
-    <include package="z3c.jbot" file="meta.zcml" />
-    <browser:jbot
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+
+  <browser:jbot
       directory="templates"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
-    />
+  />
 
 </configure>
