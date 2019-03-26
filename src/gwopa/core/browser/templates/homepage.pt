@@ -89,7 +89,7 @@
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box" tal:define="country item/country; project_manager item/project_manager">
-                              <a tal:attributes="href item/url">
+                              <a tal:attributes="href item/url; title item/alt; alt item/alt" >
                                 <p class="card-text-top" tal:content="item/title">Event Title</p>
                                 <img class="img200" tal:attributes="src string:${item/image};"/>
                                 <div class="card-body">

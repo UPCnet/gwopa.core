@@ -3,6 +3,7 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFPlone.browser.interfaces import IMainTemplate
 from plone import api
+from bs4 import BeautifulSoup
 
 
 class MainTemplate(BrowserView):
@@ -47,6 +48,7 @@ class MainTemplate(BrowserView):
                 else:
                     image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 results.append(dict(title=self.abreviaText(item.title),
+                                    alt=self.abreviaText(item.objectives.raw),
                                     url=item.absolute_url_path(),
                                     start=item.startplanned,
                                     end=item.startactual,
@@ -72,6 +74,7 @@ class MainTemplate(BrowserView):
                         else:
                             image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         results.append(dict(title=self.abreviaText(item.title),
+                                            alt=self.abreviaText(item.objectives.raw),
                                             url=item.absolute_url_path(),
                                             start=item.startplanned,
                                             end=item.startactual,
@@ -97,6 +100,7 @@ class MainTemplate(BrowserView):
                     image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 if len(results) < 4:
                     results.append(dict(title=self.abreviaText(item.title),
+                                        alt=self.abreviaText(item.objectives.raw),
                                         url=item.absolute_url_path(),
                                         start=item.startplanned,
                                         end=item.startactual,
@@ -123,6 +127,7 @@ class MainTemplate(BrowserView):
                             image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         if len(results) < 4:
                             results.append(dict(title=self.abreviaText(item.title),
+                                                alt=self.abreviaText(item.objectives.raw),
                                                 url=item.absolute_url_path(),
                                                 start=item.startplanned,
                                                 end=item.startactual,
@@ -146,6 +151,7 @@ class MainTemplate(BrowserView):
             else:
                 image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
             results.append(dict(title=self.abreviaText(item.title),
+                                alt=self.abreviaText(item.objectives.raw),
                                 url=item.absolute_url_path(),
                                 start=item.startplanned,
                                 end=item.startactual,
@@ -156,6 +162,7 @@ class MainTemplate(BrowserView):
         return results
 
     def abreviaText(self, text):
+        text = BeautifulSoup(text, 'lxml').text
         if len(text) > 100:
             return text[0:90] + '...'
         else:
