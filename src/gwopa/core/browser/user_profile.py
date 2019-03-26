@@ -45,7 +45,6 @@ class userProfile(BrowserView):
             _(u'wop_programs'),
             _(u'wop_platforms'),
             _(u'wop_partners'),
-            _(u'arees_exp')
         ]
 
         rendered_properties = []
