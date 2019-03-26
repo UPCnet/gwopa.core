@@ -16,6 +16,7 @@
           checkPermission nocall: context/portal_membership/checkPermission;
           site_properties context/portal_properties/site_properties;
           ajax_include_head request/ajax_include_head | nothing;
+          navigation_root_url context/@@plone_portal_state/navigation_root_url;
           ajax_load python:False;"
       i18n:domain="gwopa"
       tal:attributes="lang lang;">
@@ -135,7 +136,12 @@
                 </div>
                 <br/>
 
+
+
                 <h1 class="documentFirstHeading" i18n:translate="">Search Projects</h1>
+   <form action="search" class="pat-livesearch" data-pat-livesearch="string:ajaxUrl:${navigation_root_url}/@@search;">
+     <input type="text" />
+   </form>
                 <form id="search_projects" class="filter-block filter-press">
                   <fieldset>
                     <legend class="sr-only" i18n:translate="">Search</legend>
