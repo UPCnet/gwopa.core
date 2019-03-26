@@ -178,7 +178,7 @@ class setup(grok.View):
             description='GWOPA default values used in Site',
             container=portal.config,
             safe_id=False)
-        settingspage.currency = 'Dollars\nEuros\nPounds'
+        settingspage.currency = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
         settingspage.measuring_unit = 'liters\nm3\npeople\nothers'
         settingspage.measuring_frequency = 'annually\nbiannually\nquarterly'
         # Create demo Platforms

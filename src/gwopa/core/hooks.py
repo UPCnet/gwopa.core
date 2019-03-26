@@ -85,6 +85,8 @@ def projectModified(content, event):
         results.append(dict(
             start=datas[0],
             end=datas[1],
+            start_iso=isodate[0],
+            end_iso=isodate[1],
             fase=1
         ))
     content.gwopa_fases = results

@@ -33,7 +33,7 @@
   </h1>
 
   <div class="row">
-    <div class="col-md-9">
+    <div tal:attributes="class python:getImprovementAreas and 'col-md-9' or 'col-md-12';">
       <div class="row">
         <div class="col-md-2">
           <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
@@ -193,24 +193,22 @@
       </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" tal:condition="getImprovementAreas">
       <h2 i18n:translate=""> Working Areas</h2>
-      <tal:block tal:condition="getImprovementAreas">
-        <tal:areas repeat="item getImprovementAreas">
-          <div class="col-lg-12 col-md-12">
-            <a tal:attributes="href item/url; title item/title; alt item/title">
-              <div class="box">
-                <img class="box-img" tal:attributes="src string:${item/image};"/>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                  </h4>
-                </div>
+      <tal:areas repeat="item getImprovementAreas">
+        <div class="col-lg-12 col-md-12">
+          <a tal:attributes="href item/url; title item/title; alt item/title">
+            <div class="box">
+              <img class="box-img" tal:attributes="src string:${item/image};"/>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+                </h4>
               </div>
-            </a>
-          </div>
-        </tal:areas>
-      </tal:block>
+            </div>
+          </a>
+        </div>
+      </tal:areas>
     </div>
   </div>
 

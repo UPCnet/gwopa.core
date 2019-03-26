@@ -66,7 +66,7 @@ def settings_currency(context):
     if item:
         values = item[0].getObject().currency
         terms = []
-        for value in values.split('\n'):
+        for value in values.split('\r\n'):
             if value != '':
                 terms.append(value)
         return safe_simplevocabulary_from_values(terms)

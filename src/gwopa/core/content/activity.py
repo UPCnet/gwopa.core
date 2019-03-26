@@ -84,6 +84,7 @@ class IActivity(model.Schema):
 
 @form.default_value(field=IActivity['currency'])
 def projectCurrency(data):
+    #return data.context.aq_parent.currency.split('-')[-1].lstrip(' ').rstrip(' ')
     return data.context.aq_parent.currency
 
 

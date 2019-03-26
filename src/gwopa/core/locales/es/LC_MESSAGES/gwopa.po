@@ -604,7 +604,7 @@ msgstr "Riesgos / Suposiciones"
 msgid "Search"
 msgstr "Buscar..."
 
-#: ../browser/templates/homepage.pt:144
+#: ../browser/templates/homepage.pt:141
 msgid "Search Projects"
 msgstr ""
 

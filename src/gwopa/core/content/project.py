@@ -26,10 +26,10 @@ import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
 from operator import itemgetter
+from plone.app.dexterity import _ as _PMF
 
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
-
 
 items = [(_(u'inactive'), _(u'Inactive')),
          (_(u'inception'), _(u'Inception')),
@@ -358,22 +358,15 @@ class View(grok.View):
             depth=2)
         results = []
         currency = getattr(self.context, 'currency', None)
-        if currency == 'Dollars':
-            key = "$"
-        elif currency == 'Pounds':
-            key = "£"
-        elif currency == 'Euros':
-            key = "€"
-        else:
-            key = "$"
+        letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
 
         for item in other:
             obj = item.getObject()
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                incash=str(obj.incash) + key,
-                inkind=str(obj.inkind) + key,
+                incash=str(obj.incash) + letter,
+                inkind=str(obj.inkind) + letter,
             ))
         return results
 
@@ -384,22 +377,15 @@ class View(grok.View):
             depth=2)
         results = []
         currency = getattr(self.context, 'currency', None)
-        if currency == 'Dollars':
-            key = "$"
-        elif currency == 'Pounds':
-            key = "£"
-        elif currency == 'Euros':
-            key = "€"
-        else:
-            key = "$"
+        letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
 
         for item in other:
             obj = item.getObject()
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                incash=str(obj.incash) + key,
-                inkind=str(obj.inkind) + key,
+                incash=str(obj.incash) + letter,
+                inkind=str(obj.inkind) + letter,
             ))
         return results
 
@@ -410,22 +396,15 @@ class View(grok.View):
             depth=2)
         results = []
         currency = getattr(self.context, 'currency', None)
-        if currency == 'Dollars':
-            key = "$"
-        elif currency == 'Pounds':
-            key = "£"
-        elif currency == 'Euros':
-            key = "€"
-        else:
-            key = "$"
+        letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
 
         for item in other:
             obj = item.getObject()
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                incash=str(obj.incash) + key,
-                inkind=str(obj.inkind) + key,
+                incash=str(obj.incash) + letter,
+                inkind=str(obj.inkind) + letter,
             ))
         return results
 
@@ -443,11 +422,6 @@ class View(grok.View):
                 total = total + obj.inkind
 
         currency = getattr(self.context, 'currency', None)
-        if currency == 'Dollars':
-            return str(total) + "$"
-        elif currency == 'Pounds':
-            return str(total) + "£"
-        elif currency == 'Euros':
-            return str(total) + "€"
-        else:
-            return str(total) + "€"
+        letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
+
+        return str(total) + letter
