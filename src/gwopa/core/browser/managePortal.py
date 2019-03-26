@@ -23,8 +23,8 @@ class managePortal(grok.View):
             project = item.getObject()
             results.append(dict(
                 title=item.Title,
-                start=item.start,
-                end=item.end,
+                start=project.startactual.strftime('%Y-%m-%d'),
+                end=project.completionactual.strftime('%Y-%m-%d'),
                 manager=project.project_manager_admin,
                 country=project.country,
                 url='/'.join(project.getPhysicalPath())))
