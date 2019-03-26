@@ -46,14 +46,16 @@
           <tal:objects repeat="item areas">
             <ul class="item" style="list-style-type: none;">
               <li>
-                <h3>
-                  <div class="btn-group" role="group" aria-label="Add element">
-                    <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                <span class="btn-group" role="group" aria-label="Add element">
+                  <span data-toggle="dropdown"><i class="fas fa-plus-circle"></i></span>
+                  <tal:block>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                       <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity"><span><i class="fas fa-plus-circle"></i> Add Activity </span></a></li>
                       <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><span><i class="fas fa-plus-circle"></i> Add Output </span></a></li>
                     </ul>
-                  </div>
+                  </tal:block>
+                </span>
+                <h3>
                   <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
                   <a tal:attributes="href string:${item/url}/edit;"><i class="fa fa-remove" style="color:red"></i></a>
                   <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
@@ -100,14 +102,14 @@
               <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE" href="#"><button class="context focus"> + New OutcomeZONE</button></a>
             </tal:block>
             <tal:block tal:condition="outcomes">
+              <div class="btn-group" role="group" aria-label="Add element">
+                <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                  <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New OutcomeKPI </span></a></li>
+                  <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New OutcomeZONE </span></a></li>
+                </ul>
+              </div>
               <h3>
-                <div class="btn-group" role="group" aria-label="Add element">
-                  <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                    <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New OutcomeKPI </span></a></li>
-                    <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New OutcomeZONE </span></a></li>
-                  </ul>
-                </div>
                 Utility Performance
               </h3>
               <tal:objects repeat="outcome outcomes">
