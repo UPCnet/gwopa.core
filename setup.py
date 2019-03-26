@@ -56,6 +56,7 @@ setup(
         'geojson',
         'plone.restapi',
         'collective.ploneboard',
+        'eea.facetednavigation'
     ],
     extras_require={
         'test': [
