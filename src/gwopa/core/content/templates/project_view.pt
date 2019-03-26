@@ -15,7 +15,7 @@
                   objectives context/objectives;
                   team context/members;
                   getImprovementAreas view/getImprovementAreas;
-                  categories context/Subject|nothing;
+                  categories context/category|nothing;
                   country context/country;
                   location context/location;
                   url_quote nocall:modules/Products.PythonScripts.standard/url_quote;
