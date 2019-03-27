@@ -56,7 +56,8 @@ setup(
         'geojson',
         'plone.restapi',
         'collective.ploneboard',
-        'eea.facetednavigation'
+        'eea.facetednavigation',
+        'beautifulsoup4'
     ],
     extras_require={
         'test': [

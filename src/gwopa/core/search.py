@@ -5,7 +5,7 @@ from zope.publisher.browser import BrowserView
 class Search(BrowserView):
 
     def __call__(self):
-        search = api.content.get('/config').absolute_url()
+        search = api.content.get('/projects').absolute_url()
         searchable_text = self.request.form.get('SearchableText', None)
         query = ''
         if searchable_text:
