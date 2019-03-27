@@ -8,7 +8,7 @@ from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from plone.directives import form
 # from z3c.form.interfaces import IAddForm, IEditForm
-from datetime import date
+# from datetime import date
 # from plone.app.z3cform.widget import DatetimeFieldWidget
 # from z3c.form.interfaces import IFieldWidget
 # from z3c.form.widget import FieldWidget
@@ -84,7 +84,7 @@ class IActivity(model.Schema):
 
 @form.default_value(field=IActivity['currency'])
 def projectCurrency(data):
-    #return data.context.aq_parent.currency.split('-')[-1].lstrip(' ').rstrip(' ')
+    # return data.context.aq_parent.currency.split('-')[-1].lstrip(' ').rstrip(' ')
     return data.context.aq_parent.currency
 
 

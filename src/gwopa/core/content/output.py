@@ -4,7 +4,7 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
-from plone.directives import form
+# from plone.directives import form
 from z3c.form.interfaces import IAddForm, IEditForm
 from plone.autoform import directives
 from plone.app.z3cform.widget import SelectWidget
