@@ -39,58 +39,58 @@
     </div>
 
 
-    <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
+ <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset style="min-width:100%">
         <legend>Project</legend>
-        <div tal:define="areas view/getAreas" tal:condition="areas">
-          <tal:objects repeat="item areas">
-            <ul class="item" style="list-style-type: none;">
-              <li>
-                <span class="btn-group" role="group" aria-label="Add element">
-                  <span data-toggle="dropdown"><i class="fas fa-plus-circle"></i></span>
-                  <tal:block>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                      <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity"><span><i class="fas fa-plus-circle"></i> Add Activity </span></a></li>
-                      <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><span><i class="fas fa-plus-circle"></i> Add Output </span></a></li>
+        <div>
+          <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
+            <tal:objects repeat="item areas">
+              <ul class="item" style="list-style-type: none;">
+                <li>
+                  <h3>
+                    <div class="btn-group" role="group" aria-label="Add element">
+                      <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                        <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity"><span><i class="fas fa-plus-circle"></i> Add Activity </span></a></li>
+                        <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><span><i class="fas fa-plus-circle"></i> Add Output </span></a></li>
+                      </ul>
+                    </div>
+                    <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
+                    <a tal:attributes="href string:${item/url}/edit;"><i class="fa fa-remove" style="color:red"></i></a>
+                    <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
+                    <span tal:content="item/description"></span>
+                  </h3>
+                  <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
+                    <ul tal:repeat="item files" class="block_sub_indicators">
+                      <li class="indicator_item">
+                        <span class="label label-default" tal:attributes="class string:label ${item/portal_type}" tal:content="item/portal_type"> ACTIVITY </span>
+                        <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
+                        <i class="fa fa-remove" style="color:red"></i>
+                        <a tal:attributes="href item/url;" class="pat-plone-modal" tal:content="item/title"> Item Title </a>
+                        <span tal:content="item/start"> Start </span> //
+                        <span tal:content="item/end"> End </span>
+                        <tal:omit.tag tal:condition="python:item['portal_type'] == 'Activity'">
+                          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
+                          <tal:block-subitems2 tal:define="outputs python:view.indicatorsInside(item);">
+                            <ol tal:repeat="output outputs" class="block_sub_indicators">
+                              <span tal:attributes="class string:label ${output/portal_type}" tal:content="output/portal_type"> ACTIVITY </span>
+                              <a class="pat-plone-modal" tal:attributes="href string:${output/url}/edit;"><i class="fas fa-edit"></i></a>
+                              <i class="fa fa-remove" style="color:red"></i>
+                              <a class="pat-plone-modal" tal:attributes="href output/url" tal:content="output/title"> Item Title </a>
+                              <span tal:content="item/start"> Start </span> //
+                              <span tal:content="item/end"> End </span>
+                              <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${output/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
+                            </ol>
+                          </tal:block-subitems2>
+                        </tal:omit.tag>
+                        <a tal:condition="python:item['portal_type'] == 'Output'" class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
+                      </li>
                     </ul>
-                  </tal:block>
-                </span>
-                <h3>
-                  <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
-                  <a tal:attributes="href string:${item/url}/edit;"><i class="fa fa-remove" style="color:red"></i></a>
-                  <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
-                  <span tal:content="item/description"></span>
-                </h3>
-                <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
-                  <ul tal:repeat="item files" class="block_sub_indicators">
-                    <li class="indicator_item">
-                      <span class="label label-default" tal:attributes="class string:label ${item/portal_type}" tal:content="item/portal_type"> ACTIVITY </span>
-                      <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
-                      <i class="fa fa-remove" style="color:red"></i>
-                      <a tal:attributes="href item/url;" class="pat-plone-modal" tal:content="item/title"> Item Title </a>
-                      <span tal:content="item/start"> Start </span> //
-                      <span tal:content="item/end"> End </span>
-                      <tal:omit.tag tal:condition="python:item['portal_type'] == 'Activity'">
-                        <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
-                        <tal:block-subitems2 tal:define="outputs python:view.indicatorsInside(item);">
-                          <ol tal:repeat="output outputs" class="block_sub_indicators">
-                            <span tal:attributes="class string:label ${output/portal_type}" tal:content="output/portal_type"> ACTIVITY </span>
-                            <a class="pat-plone-modal" tal:attributes="href string:${output/url}/edit;"><i class="fas fa-edit"></i></a>
-                            <i class="fa fa-remove" style="color:red"></i>
-                            <a class="pat-plone-modal" tal:attributes="href output/url" tal:content="output/title"> Item Title </a>
-                            <span tal:content="item/start"> Start </span> //
-                            <span tal:content="item/end"> End </span>
-                            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${output/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
-                          </ol>
-                        </tal:block-subitems2>
-                      </tal:omit.tag>
-                      <a tal:condition="python:item['portal_type'] == 'Output'" class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
-                    </li>
-                  </ul>
-                </tal:block-subitems>
-              </li>
-            </ul>
-          </tal:objects>
+                  </tal:block-subitems>
+                </li>
+              </ul>
+            </tal:objects>
+          </tal:block-activities>
         </div>
       </fieldset>
       <fieldset style="min-width: 100%">
@@ -102,14 +102,14 @@
               <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE" href="#"><button class="context focus"> + New OutcomeZONE</button></a>
             </tal:block>
             <tal:block tal:condition="outcomes">
-              <div class="btn-group" role="group" aria-label="Add element">
-                <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                  <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New OutcomeKPI </span></a></li>
-                  <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New OutcomeZONE </span></a></li>
-                </ul>
-              </div>
               <h3>
+                <div class="btn-group" role="group" aria-label="Add element">
+                  <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                    <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New OutcomeKPI </span></a></li>
+                    <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New OutcomeZONE </span></a></li>
+                  </ul>
+                </div>
                 Utility Performance
               </h3>
               <tal:objects repeat="outcome outcomes">
@@ -141,7 +141,6 @@
           </tal:block-ouctomes>
         </div>
       </fieldset>
-    </div>
 
     <div id="app">
       <demo></demo>
