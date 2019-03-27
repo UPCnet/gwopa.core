@@ -136,20 +136,32 @@
                 </div>
                 <br/>
 
-
-
                 <h1 class="documentFirstHeading" i18n:translate="">Search Projects</h1>
-   <form action="search" class="pat-livesearch" data-pat-livesearch="string:ajaxUrl:${navigation_root_url}/@@search;">
-     <input type="text" />
-   </form>
-                <form id="search_projects" class="filter-block filter-press">
+
+                <form tal:attributes="action string:${navigation_root_url}/search;
+                                     data-pat-livesearch string:ajaxUrl:${navigation_root_url}/ajax-search" role="search" class="pat-livesearch">
+                  <div class="LSBox">
+                    <input class="searchField"
+                        name="SearchableText"
+                        type="text"
+                        size="15"
+                        title="Search Site"
+                        placeholder="Search Site"
+                        i18n:attributes="title title_search_title;
+                                         placeholder title_search_site"
+                        tal:attributes="value request/SearchableText|nothing;"
+                        />
+                  </div>
+               </form>
+
+<!--                 <form id="search_projects" class="filter-block filter-press">
                   <fieldset>
                     <legend class="sr-only" i18n:translate="">Search</legend>
                     <label for="id_label_multiple">
                       <input type="hidden" style="width:20em;" i18n:attributes="title Search" class="custom-select2 js-custom-data-ajax show-more-projects"/>
                     </label>
                   </fieldset>
-                </form>
+                </form> -->
                 <script src="/++theme++gwopa.theme/assets/javascripts/search-select2.js"/>
                 <div class="has-table">
                   <div class="row">

@@ -17,4 +17,12 @@
       factory=".userdataschema.EnhancedUserDataSchemaAdapter"
       />
 
+  <browser:page
+      name="search2"
+      class=".search.Search"
+      permission="zope2.View"
+      for="*"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+      />
+
 </configure>

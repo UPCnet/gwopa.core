@@ -115,14 +115,6 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <browser:page
-      name="search2"
-      class=".search.Search"
-      permission="zope2.View"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-      for="*"
-  />
-
 </configure>
 
 
