@@ -57,7 +57,10 @@ setup(
         'plone.restapi',
         'collective.ploneboard',
         'eea.facetednavigation',
-        'beautifulsoup4'
+        'beautifulsoup4',
+        # 'ftw.calendarwidget',
+        # 'ftw.keywordwidget',
+        'ftw.datepicker'
     ],
     extras_require={
         'test': [

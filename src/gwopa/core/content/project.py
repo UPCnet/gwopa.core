@@ -41,6 +41,27 @@ projectStatus = SimpleVocabulary(terms)
 grok.templatedir("templates")
 
 
+def theDefaultValue():
+    return datetime.date.today() - datetime.timedelta(1)
+
+
+def maxValue():
+    return datetime.date(2015, 5, 12)
+
+
+# def minDate():
+    # return datetime.date(2015, 2, 2)
+
+
+class IDate(schema.Date):
+    """ Data field for tuple. min and max are not working inside the tuple
+    they need to be set in the tuple instead"""
+    date = schema.Date(
+        title=_(u"Fecha"),
+        defaultFactory=theDefaultValue,
+    )
+
+
 class StartBeforeEnd(Invalid):
     __doc__ = _(u"Invalid start or end date")
 
@@ -271,13 +292,24 @@ class IProject(model.Schema):
         )
     )
 
-    # form.mode(gwopa_fases='hidden')
+    form.mode(gwopa_fases='hidden')
     # form.mode(IEditForm, gwopa_code_project='display')
     gwopa_fases = schema.ASCIILine(
         title=_(u'Fases'),
         required=False
     )
 
+    dates = schema.Tuple(
+        title=_(u"Conjunto de fechas"),
+        required=True,
+        default=(theDefaultValue(),),
+        value_type=IDate(
+            title=_(u"Fecha"),
+            min=datetime.date(2017, 12, 31),
+            max=datetime.date(2019, 12, 31),
+            defaultFactory=theDefaultValue,
+        )
+    )
 
 # @form.default_value(field=IProject['gwopa_fases'])
 # def calculatedFases(data):

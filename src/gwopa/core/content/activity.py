@@ -9,10 +9,16 @@ from plone.autoform import directives
 from plone.directives import form
 # from z3c.form.interfaces import IAddForm, IEditForm
 # from datetime import date
-# from plone.app.z3cform.widget import DatetimeFieldWidget
+from plone.app.z3cform.widget import DatetimeFieldWidget
 # from z3c.form.interfaces import IFieldWidget
 # from z3c.form.widget import FieldWidget
 # from zope.interface import implementer
+
+# from zope.formlib.widgets import DateI18nWidget
+# from zope.i18n.format import DateTimeParseError
+# from zope.app.form.interfaces import ConversionError
+from ftw.datepicker.widget import DateTimePickerWidgetFactory
+
 grok.templatedir("templates")
 
 
@@ -20,8 +26,16 @@ def todayValue():
     return datetime.date.today()
 
 
+current_year = datetime.date.today().year
+
+
 class IActivity(model.Schema):
     """  Activity """
+
+    form.widget(due_date=DateTimePickerWidgetFactory)
+    due_date = schema.Date(
+        title=_(u"Other Date picker only works with no modals"),
+    )
 
     title = schema.TextLine(
         title=_(u"Title"),
@@ -46,15 +60,19 @@ class IActivity(model.Schema):
         defaultFactory=todayValue,
     )
 
-    # directives.widget(
-    #     'start',
-    #     DatetimeFieldWidget,
-    #     pattern_options={
-    #         "date": {
-    #             "selectYears": 10},
-    #         "time": False
-    #     },
-    # )
+    directives.widget(
+        'start',
+        DatetimeFieldWidget,
+        pattern_options={
+            "date": {
+                'min': [current_year - 2, 1, 1],
+                'max': [current_year + 20, 1, 1],
+                'selectYears': 12,
+            },
+            'time': False,
+            'format': 'M/d/yy',
+        },
+    )
 
     end = schema.Date(
         title=_(u'Completion date'),
@@ -91,9 +109,10 @@ def projectCurrency(data):
 class Edit(form.SchemaEditForm):
     grok.context(IActivity)
 
-    # def updateWidgets(self):
-    #     super(Edit, self).updateWidgets()
-    #     self.widgets['start'].config['disabledWeekDays'] = [5, 6]
+    def updateWidgets(self):
+        # form_fields['start_date'].custom_widget = MyDateI18nWidget
+        super(Edit, self).updateWidgets()
+        # self.widgets['start'].custom_widget = MyDateI18nWidget
     #     self.widgets['start'].config['selectYears'] = 10
 
 

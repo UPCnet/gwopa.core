@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:faceted="http://namespaces.zope.org/faceted"
     i18n_domain="gwopa">
 
   <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
@@ -115,6 +116,22 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <!-- A faceted view with custom python logic -->
+  <faceted:view
+    name="faceted-summary-view"
+    class=".summary.SummaryView"
+    template="templates/summary.pt"
+    title="Faceted summary view"
+    permission="zope2.View"
+  />
+
+  <!-- A faceted view with no python logic -->
+  <faceted:view
+    name="faceted-listing-view"
+    template="templates/summary.pt"
+    title="Faceted listing view"
+    permission="zope2.View"
+  />
 </configure>
 
 
