@@ -686,11 +686,11 @@ msgstr "The currency used into the project"
 
 #: ../content/project.py:161
 msgid "The dates when the project has been completed. Planned date and current date."
-msgstr "The dates when the project has been completed. Planned date and current date."
+msgstr "The dates when the project has been completed. Actual date and planned date."
 
 #: ../content/project.py:144
 msgid "The dates when the project has started. Planned date and current date."
-msgstr "The dates when the project has started. Planned date and current date."
+msgstr "The dates when the project has started. Actual date and planned date."
 
 #: ../browser/setup_home.py:165
 msgid "The default config has been applied."
