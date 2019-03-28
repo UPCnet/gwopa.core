@@ -25,17 +25,6 @@
                   others view/others;
                   getProject_manager view/getProject_manager;">
 
-  <metal:javascript fill-slot="javascript_head_slot">
-    <script>
-      require = undefined;
-      define = undefined;
-    </script>
-<!--     <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script> -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </metal:javascript>
-
   <button class="context focus">Completed</button>
   <h1 class="documentFirstHeading">
     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" title="Edit project" alt="Edit project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
@@ -113,7 +102,7 @@
           </div>
         </h2>
 
-          <tal:objectives tal:condition="partners" >
+          <tal:objectives tal:condition="partners">
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
@@ -173,7 +162,7 @@
             </div>
           </tal:objectives>
 
-        <div class="buttonbudget">
+        <div class="buttonbudget" tal:condition="view/get_currency">
           <tal:omit-tag i18n:translate="">Total budget: </tal:omit-tag>&nbsp;<span tal:content="view/get_currency"></span>
         </div>
       </div>

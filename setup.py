@@ -60,7 +60,8 @@ setup(
         'beautifulsoup4',
         # 'ftw.calendarwidget',
         # 'ftw.keywordwidget',
-        'ftw.datepicker'
+        'ftw.datepicker',
+        'plone.app.workflowmanager'
     ],
     extras_require={
         'test': [

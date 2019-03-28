@@ -12,6 +12,15 @@ from repoze.catalog.query import Eq
 from zope.interface import directlyProvides
 
 
+def project_currency(self):
+    currency = getattr(self.context, 'currency', None)
+    if currency:
+        letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
+    else:
+        letter = '$'
+    return letter
+
+
 def generate_vocabulary(value):
     """ Generates Dropdown with the countries """
     vocabulary_list = []

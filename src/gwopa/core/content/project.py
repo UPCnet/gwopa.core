@@ -311,20 +311,20 @@ class IProject(model.Schema):
         )
     )
 
-# @form.default_value(field=IProject['gwopa_fases'])
-# def calculatedFases(data):
-#     # TODO: Sort ids to assign the next one, to bypass
-#     # empty/missing values on delete
-#     items = len(api.content.find(
-#         portal_type='Project',
-#         context=data.context))
+    # @form.default_value(field=IProject['gwopa_fases'])
+    # def calculatedFases(data):
+    #     # TODO: Sort ids to assign the next one, to bypass
+    #     # empty/missing values on delete
+    #     items = len(api.content.find(
+    #         portal_type='Project',
+    #         context=data.context))
 
-#     return 'PR-{0}'.format(str(items + 1).zfill(3))
+    #     return 'PR-{0}'.format(str(items + 1).zfill(3))
 
-#     @invariant
-#     def validate_start_end(data):
-#         if (data.start and data.end and data.start > data.end):
-#             raise StartBeforeEnd(u"End date must be after start date.")
+    #     @invariant
+    #     def validate_start_end(data):
+    #         if (data.start and data.end and data.start > data.end):
+    #             raise StartBeforeEnd(u"End date must be after start date.")
 
 
 class View(grok.View):
@@ -381,80 +381,69 @@ class View(grok.View):
         return False
 
     def partners(self):
-        currency = getattr(self.context, 'currency', None)
-        if currency:
-            other = api.content.find(
-                portal_type=['ContribPartner'],
-                path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
-                depth=2)
-            results = []
-            letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
-
-            for item in other:
-                obj = item.getObject()
-                results.append(dict(
-                    title=item.Title,
-                    edit=item.getURL() + '/edit',
-                    incash=str(obj.incash) + letter,
-                    inkind=str(obj.inkind) + letter,
-                ))
-            return results
+        other = api.content.find(
+            portal_type=['ContribPartner'],
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        results = []
+        letter = utils.project_currency(self)
+        for item in other:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                edit=item.getURL() + '/edit',
+                incash=str(obj.incash) + letter,
+                inkind=str(obj.inkind) + letter,
+            ))
+        return results
 
     def donors(self):
-        currency = getattr(self.context, 'currency', None)
-        if currency:
-            other = api.content.find(
-                portal_type=['ContribDonor'],
-                path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
-                depth=2)
-            results = []
-            letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
-
-            for item in other:
-                obj = item.getObject()
-                results.append(dict(
-                    title=item.Title,
-                    edit=item.getURL() + '/edit',
-                    incash=str(obj.incash) + letter,
-                    inkind=str(obj.inkind) + letter,
-                ))
-            return results
+        other = api.content.find(
+            portal_type=['ContribDonor'],
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        results = []
+        letter = utils.project_currency(self)
+        for item in other:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                edit=item.getURL() + '/edit',
+                incash=str(obj.incash) + letter,
+                inkind=str(obj.inkind) + letter,
+            ))
+        return results
 
     def others(self):
-        currency = getattr(self.context, 'currency', None)
-        if currency:
-            other = api.content.find(
-                portal_type=['ContribOther'],
-                path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
-                depth=2)
-            results = []
-            letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
-
-            for item in other:
-                obj = item.getObject()
-                results.append(dict(
-                    title=item.Title,
-                    edit=item.getURL() + '/edit',
-                    incash=str(obj.incash) + letter,
-                    inkind=str(obj.inkind) + letter,
-                ))
-            return results
+        other = api.content.find(
+            portal_type=['ContribOther'],
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        results = []
+        letter = utils.project_currency(self)
+        for item in other:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                edit=item.getURL() + '/edit',
+                incash=str(obj.incash) + letter,
+                inkind=str(obj.inkind) + letter,
+            ))
+        return results
 
     def get_currency(self):
-        currency = getattr(self.context, 'currency', None)
-        if currency:
+
             items = api.content.find(
                 portal_type=['ContribOther', 'ContribPartner', 'ContribDonor'],
                 path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
                 depth=2)
             total = 0
+            letter = utils.project_currency(self)
             for item in items:
                 obj = item.getObject()
                 if obj.incash:
                     total = total + obj.incash
                 if obj.inkind:
                     total = total + obj.inkind
-
-            letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
 
             return str(total) + letter

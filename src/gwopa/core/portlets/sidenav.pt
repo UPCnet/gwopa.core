@@ -4,6 +4,7 @@
       i18n:domain="plone">
 
 <link rel="stylesheet" tal:attributes="href string:/++theme++gwopa.theme/fontawesome/css/all.css" >
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <tal:block tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;
