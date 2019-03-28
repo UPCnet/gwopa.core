@@ -444,41 +444,46 @@ class setup(grok.View):
 
         # Create demo programs
         portal = api.portal.get()
-        api.content.create(
+        area1 = api.content.create(
             type='ItemArea',
             id='area1',
             title='Working Area 1',
-            description="Description from this area",
+            description="Description from area 1",
             container=portal.config.areas,
             safe_id=True)
-        api.content.create(
+        area1.image = self.getRandomImage(200, 200)
+        area2 = api.content.create(
             type='ItemArea',
             id='area2',
             title='Working Area 2',
-            description="Description from this area",
+            description="Description from area 2",
             container=portal.config.areas,
             safe_id=True)
-        api.content.create(
+        area2.image = self.getRandomImage(200, 200)
+        area3 = api.content.create(
             type='ItemArea',
             id='area3',
             title='Working Area 3',
-            description="",
+            description="Description from area 3",
             container=portal.config.areas,
             safe_id=True)
-        api.content.create(
+        area3.image = self.getRandomImage(200, 200)
+        area4 = api.content.create(
             type='ItemArea',
             id='area4',
             title='Working Area 4',
-            description="Description from this area",
+            description="Description from area 4",
             container=portal.config.areas,
             safe_id=True)
-        api.content.create(
+        area4.image = self.getRandomImage(200, 200)
+        area5 = api.content.create(
             type='ItemArea',
             id='area5',
             title='Working Area 5',
-            description="Description from this area",
+            description="Description from area 5",
             container=portal.config.areas,
             safe_id=True)
+        area5.image = self.getRandomImage(200, 200)
 
         self.createProjects(5)
         return "Demo content created"
