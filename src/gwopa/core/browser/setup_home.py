@@ -497,7 +497,11 @@ class setup(grok.View):
                     http://lorempixel.com/
 
         """
-        data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
+        try:
+            # data = requests.get('http://dummyimage.com/{0}x{1}/aeaeae/ffffff'.format(w, h), verify=False, timeout=10).content
+            data = requests.get('http://placeimg.com/{0}/{1}/tech'.format(w, h), verify=False, timeout=10).content
+        except:
+            data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
         image = NamedBlobImage(data=data,
                                filename=u'image.jpg',
                                contentType='image/jpeg')

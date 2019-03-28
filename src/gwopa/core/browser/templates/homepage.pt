@@ -154,15 +154,6 @@
                   </div>
                </form>
 
-<!--                 <form id="search_projects" class="filter-block filter-press">
-                  <fieldset>
-                    <legend class="sr-only" i18n:translate="">Search</legend>
-                    <label for="id_label_multiple">
-                      <input type="hidden" style="width:20em;" i18n:attributes="title Search" class="custom-select2 js-custom-data-ajax show-more-projects"/>
-                    </label>
-                  </fieldset>
-                </form> -->
-                <script src="/++theme++gwopa.theme/assets/javascripts/search-select2.js"/>
                 <div class="has-table">
                   <div class="row">
                     <div class="col-xs-12 col-sm-12">
@@ -172,7 +163,6 @@
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box" tal:define="country item/country; project_manager item/project_manager">
                               <a tal:attributes="href item/url">
-<!--                                 <img class="img200" tal:attributes="src string:${item/image};"/> -->
                                 <div class="card-body2">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">

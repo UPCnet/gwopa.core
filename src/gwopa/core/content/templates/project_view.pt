@@ -25,10 +25,20 @@
                   others view/others;
                   getProject_manager view/getProject_manager;">
 
+  <metal:javascript fill-slot="javascript_head_slot">
+    <script>
+      require = undefined;
+      define = undefined;
+    </script>
+<!--     <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script> -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </metal:javascript>
+
   <button class="context focus">Completed</button>
   <h1 class="documentFirstHeading">
     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" title="Edit project" alt="Edit project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
-    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}" href="#"><i class="far fa-trash-alt red"></i></a>
     <tal:omit-tag tal:condition="not:canEdit" tal:content="context/title"> Project Title</tal:omit-tag>
   </h1>
 
@@ -54,6 +64,7 @@
           </span>
         </div>
       </div>
+
       <div class="row">
         <hr/>
         <div class="col-md-6">
@@ -71,11 +82,11 @@
             <span style="float:right; margin-right: 10px;" tal:content="context/completionplanned"></span>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" tal:condition="python: wop_platform or wop_program">
           <h2 i18n:translate=""> Association to platforms or programmes</h2>
           <ul>
-            <li tal:content="wop_platform"></li>
-            <li tal:content="wop_program"></li>
+            <li tal:content="wop_platform" tal:condition="wop_platform"></li>
+            <li tal:content="wop_program" tal:condition="wop_program"></li>
           </ul>
         </div>
       </div>
@@ -83,13 +94,25 @@
       <div class="row">
         <hr/>
         <h2>
-          <tal:block  i18n:translate=""> Main organizations and their contributions</tal:block>
-<!--           <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribPartner" href="#"> + New Partner</a>
-          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribDonor" href="#"> + New Donor</a>
-          <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribOther" href="#"> + New Other</a> -->
+
+
+          <tal:block i18n:translate=""> Main organizations and their contributions</tal:block>
+                  <div class="btn-group" role="group" aria-label="Add element">
+            <div data-toggle="dropdown"><i class="fal fa-plus-circle"></i></div>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+              <li>
+                <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribPartner" href="#"> <i class="fal fa-plus"></i> Add Partner</a>
+              </li>
+              <li>
+                <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribDonor" href="#"><i class="fal fa-plus"></i> Add Donor</a>
+              </li>
+              <li>
+                 <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/contribs/++add++ContribOther" href="#"> <i class="fal fa-plus"></i> Add Other Contributor</a>
+              </li>
+            </ul>
+          </div>
         </h2>
 
-        <div class="col-md-12">
           <tal:objectives tal:condition="partners" >
             <div class="table-responsive">
               <table class="table table-hover">
@@ -109,9 +132,7 @@
               </table>
             </div>
           </tal:objectives>
-        </div>
 
-        <div class="col-md-12">
           <tal:objectives tal:condition="donors" >
             <div class="table-responsive">
               <table class="table table-hover">
@@ -131,9 +152,7 @@
               </table>
             </div>
           </tal:objectives>
-        </div>
 
-        <div class="col-md-12">
           <tal:objectives tal:condition="others" >
             <div class="table-responsive">
               <table class="table table-hover">
@@ -153,46 +172,43 @@
               </table>
             </div>
           </tal:objectives>
-        </div>
 
         <div class="buttonbudget">
           <tal:omit-tag i18n:translate="">Total budget: </tal:omit-tag>&nbsp;<span tal:content="view/get_currency"></span>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" tal:condition="getProject_manager">
         <hr/>
         <div class="col-md-12">
-          <tal:objectives tal:condition="getProject_manager">
-            <h2 i18n:translate=""> Focal point partner </h2>
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th i18n:translate="">Name</th>
-                    <th i18n:translate="">Partner</th>
-                  </tr>
-                </thead>
-                <tr tal:repeat="partner getProject_manager">
-                  <td>
-                    <tal:block tal:condition="partner/manager"></tal:block>
-                    <tal:block tal:condition="partner/project"><i class="fa fa-star"></i></tal:block>
-                    <tal:block tal:content="partner/name"></tal:block>
-                  </td>
-                  <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
-                    <ul>
-                      <td tal:condition="python:isinstance(value, basestring)">
-                        <span tal:replace="field/value"></span>
-                      </td>
-                      <td tal:condition="not:python:isinstance(value, basestring)">
-                        <span tal:replace="structure python:'<li>'+'</li><li>'.join(str(s) for s in value)" />
-                      </td>
-                    </ul>
-                  </tal:block>
+          <h2 i18n:translate=""> Focal point partner </h2>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th i18n:translate="">Name</th>
+                  <th i18n:translate="">Partner</th>
                 </tr>
-              </table>
-            </div>
-          </tal:objectives>
+              </thead>
+              <tr tal:repeat="partner getProject_manager">
+                <td>
+                  <tal:block tal:condition="partner/manager"></tal:block>
+                  <tal:block tal:condition="partner/project"><i class="fa fa-star"></i></tal:block>
+                  <tal:block tal:content="partner/name"></tal:block>
+                </td>
+                <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
+                  <ul>
+                    <td tal:condition="python:isinstance(value, basestring)">
+                      <span tal:replace="field/value"></span>
+                    </td>
+                    <td tal:condition="not:python:isinstance(value, basestring)">
+                      <span tal:replace="structure python:'<li>'+'</li><li>'.join(str(s) for s in value)" />
+                    </td>
+                  </ul>
+                </tal:block>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -201,12 +217,11 @@
       <h2 i18n:translate=""> Working Areas</h2>
       <tal:areas repeat="item getImprovementAreas">
         <div class="col-lg-12 col-md-12">
-          <a tal:attributes="href item/url; title item/title; alt item/title">
+          <a tal:attributes="href item/url; title item/description; alt item/description">
             <div class="box">
               <img class="box-img" tal:attributes="src string:${item/image};"/>
               <div class="card-body">
-                <h4 class="card-title">
-                  <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
+                <h4 class="card-title" tal:content="item/title">Event Title
                 </h4>
               </div>
             </div>
