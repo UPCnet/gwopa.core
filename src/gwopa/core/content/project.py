@@ -348,7 +348,7 @@ class View(grok.View):
                 title=item.Title,
                 image=image,
                 url='/'.join(obj.getPhysicalPath()),
-                description=item.description))
+                description=item.Description))
         results.sort(key=lambda x: x['title'], reverse=False)
         return results
 
