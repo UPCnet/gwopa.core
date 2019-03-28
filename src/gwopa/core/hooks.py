@@ -19,7 +19,11 @@ def projectAdded(content, event):
         Copy value from behaviour fields to project fields.projectAnd create
         current year
     """
+
+    # Assign fases to internal field
     content.gwopa_fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
+
+    # Create default needed folders in the new project
     api.content.create(
         type='Folder',
         id='files',
@@ -35,9 +39,12 @@ def projectAdded(content, event):
     areas = content.areas
     if areas:
         for area in areas:
-            api.content.create(
+            data = api.content.find(portal_type="ItemArea", Title=area)[0]
+            obj = api.content.create(
                 type='ImprovementArea',
-                title=area,
+                title=data.Title,
+                description=data.Description,
+                image=data.getObject().image,
                 container=content)
 
     partners = content.partners
@@ -102,9 +109,12 @@ def projectModified(content, event):
             for area in new_areas:
                 if area not in current:
                     print "Created Improvement Area: " + area
+                    data = api.content.find(portal_type="ItemArea", Title=area)[0]
                     api.content.create(
                         type='ImprovementArea',
-                        title=area,
+                        title=data.Title,
+                        description=data.Description,
+                        image=data.getObject().image,
                         container=content)
 
 
