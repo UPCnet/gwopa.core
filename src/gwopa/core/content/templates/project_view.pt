@@ -83,8 +83,6 @@
       <div class="row">
         <hr/>
         <h2>
-
-
           <tal:block i18n:translate=""> Main organizations and their contributions</tal:block>
                   <div class="btn-group" role="group" aria-label="Add element">
             <div data-toggle="dropdown"><i class="fal fa-plus-circle"></i></div>
@@ -210,8 +208,7 @@
             <div class="box">
               <img class="box-img" tal:attributes="src string:${item/image};"/>
               <div class="card-body">
-                <h4 class="card-title" tal:content="item/title">Event Title
-                </h4>
+                <span class="card-title" tal:content="item/title">Event Title </span>
               </div>
             </div>
           </a>

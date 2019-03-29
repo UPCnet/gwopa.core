@@ -17,7 +17,7 @@ from plone.app.z3cform.widget import DatetimeFieldWidget
 # from zope.formlib.widgets import DateI18nWidget
 # from zope.i18n.format import DateTimeParseError
 # from zope.app.form.interfaces import ConversionError
-from ftw.datepicker.widget import DateTimePickerWidgetFactory
+# from ftw.datepicker.widget import DateTimePickerWidgetFactory
 
 grok.templatedir("templates")
 
@@ -32,10 +32,10 @@ current_year = datetime.date.today().year
 class IActivity(model.Schema):
     """  Activity """
 
-    form.widget(due_date=DateTimePickerWidgetFactory)
-    due_date = schema.Date(
-        title=_(u"Other Date picker only works with no modals"),
-    )
+    #form.widget(due_date=DateTimePickerWidgetFactory)
+    # due_date = schema.Date(
+    #     title=_(u"Other Date picker only works with no modals"),
+    # )
 
     title = schema.TextLine(
         title=_(u"Title"),
@@ -60,19 +60,19 @@ class IActivity(model.Schema):
         defaultFactory=todayValue,
     )
 
-    directives.widget(
-        'start',
-        DatetimeFieldWidget,
-        pattern_options={
-            "date": {
-                'min': [current_year - 2, 1, 1],
-                'max': [current_year + 20, 1, 1],
-                'selectYears': 12,
-            },
-            'time': False,
-            'format': 'M/d/yy',
-        },
-    )
+    # directives.widget(
+    #     'start',
+    #     DatetimeFieldWidget,
+    #     pattern_options={
+    #         "date": {
+    #             'min': [current_year - 2, 1, 1],
+    #             'max': [current_year + 20, 1, 1],
+    #             'selectYears': 12,
+    #         },
+    #         'time': False,
+    #         'format': 'M/d/yy',
+    #     },
+    # )
 
     end = schema.Date(
         title=_(u'Completion date'),

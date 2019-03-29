@@ -20,6 +20,10 @@ def projectAdded(content, event):
         current year
     """
 
+    # Grant Editor/Reader role to members in project
+    for user in content.members:
+        api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
+
     # Assign fases to internal field
     content.gwopa_fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
 
@@ -36,6 +40,7 @@ def projectAdded(content, event):
         title='Contributors',
         container=content)
 
+    # Create Working Areas
     areas = content.areas
     if areas:
         for area in areas:
@@ -67,6 +72,11 @@ def projectModified(content, event):
              zope.lifecycleevent.ObjectModifiedEvent
 
     """
+    # Grant Editor/Reader role to members in project
+    for user in content.members:
+        api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
+
+    # Assign values to fases
     fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
     date1 = content.startactual
     date2 = content.completionactual
@@ -98,6 +108,7 @@ def projectModified(content, event):
         ))
     content.gwopa_fases = results
 
+    # Really check if project is modified
     if 'zope.lifecycleevent.ObjectModifiedEvent' in str(event):
         new_areas = content.areas
         current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]

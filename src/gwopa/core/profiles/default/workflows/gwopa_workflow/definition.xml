@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="gwopa_workflow" title="GWOPA Workflow" description=" - An intranet workflow where content is only accessible if you are logged in. - Basic states are: Internal Draft, Internally Published and Private." state_variable="review_state"         initial_state="internally_published" manager_bypass="False" >
- 
+
  <permission>Access contents information</permission>
  <permission>Modify portal content</permission>
  <permission>View</permission>
@@ -33,8 +33,8 @@
    <permission-role>Member</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
-  
-  
+
+
  </state>
  <state state_id="internally_published" title="Internally published" >
   <description>Published and visible to intranet users, not editable by the owner.</description>
@@ -50,6 +50,8 @@
    <permission-role>Site Administrator</permission-role>
   </permission-map>
   <permission-map name="Modify portal content" acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Owner</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
@@ -62,8 +64,8 @@
    <permission-role>Reader</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
-  
-  
+
+
  </state>
  <state state_id="private" title="Private" >
   <description>Can only be seen and edited by the owner.</description>
@@ -91,8 +93,7 @@
    <permission-role>Contributor</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
-  
-  
+
  </state>
  <transition transition_id="hide" title="Member makes content private" new_state="private" trigger="USER" before_script="" after_script="" >
   <description>Making an item private means that it will not be visible to anyone but the owner and the site administrator.</description>
@@ -100,7 +101,7 @@
   <guard >
    <guard-permission>Modify portal content</guard-permission>
   </guard>
-  
+
  </transition>
  <transition transition_id="publish_internally" title="Reviewer publishes content to internal users" new_state="internally_published" trigger="USER" before_script="" after_script="" >
   <description>Publishing the item makes it visible to other users.</description>
@@ -108,7 +109,7 @@
   <guard >
    <guard-permission>Review portal content</guard-permission>
   </guard>
-  
+
  </transition>
  <transition transition_id="reject" title="Send back" new_state="internal" trigger="USER" before_script="" after_script="" >
   <description>Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published.</description>
@@ -116,7 +117,7 @@
   <guard >
    <guard-permission>Review portal content</guard-permission>
   </guard>
-  
+
  </transition>
  <worklist worklist_id="reviewer_queue" title="" >
   <description>Reviewer tasks</description>
@@ -129,7 +130,7 @@
  <variable variable_id="action" for_catalog="False" for_status="True" update_always="True" >
   <description>Previous transition</description>
   <default>
-   
+
    <expression>transition/getId|nothing</expression>
   </default>
   <guard >
@@ -138,7 +139,7 @@
  <variable variable_id="actor" for_catalog="False" for_status="True" update_always="True" >
   <description>The ID of the user who performed the last transition</description>
   <default>
-   
+
    <expression>user/getId</expression>
   </default>
   <guard >
@@ -147,7 +148,7 @@
  <variable variable_id="comments" for_catalog="False" for_status="True" update_always="True" >
   <description>Comment about the last transition</description>
   <default>
-   
+
    <expression>python:state_change.kwargs.get('comment', '')</expression>
   </default>
   <guard >
@@ -156,7 +157,7 @@
  <variable variable_id="review_history" for_catalog="False" for_status="False" update_always="False" >
   <description>Provides access to workflow history</description>
   <default>
-   
+
    <expression>state_change/getHistory</expression>
   </default>
   <guard >
@@ -167,11 +168,11 @@
  <variable variable_id="time" for_catalog="False" for_status="True" update_always="True" >
   <description>When the previous transition was performed</description>
   <default>
-   
+
    <expression>state_change/getDateTime</expression>
   </default>
   <guard >
   </guard>
  </variable>
- 
+
 </dc-workflow>

@@ -56,9 +56,11 @@ def maxValue():
 class IDate(schema.Date):
     """ Data field for tuple. min and max are not working inside the tuple
     they need to be set in the tuple instead"""
-    date = schema.Date(
-        title=_(u"Fecha"),
-        defaultFactory=theDefaultValue,
+    text = schema.Text(
+        title=_(u"Target Value Year"),
+    )
+    text = schema.Text(
+        title=_(u"Target Date Year"),
     )
 
 
@@ -300,14 +302,11 @@ class IProject(model.Schema):
     )
 
     dates = schema.Tuple(
-        title=_(u"Conjunto de fechas"),
+        title=_(u""),
         required=True,
         default=(theDefaultValue(),),
         value_type=IDate(
-            title=_(u"Fecha"),
-            min=datetime.date(2017, 12, 31),
-            max=datetime.date(2019, 12, 31),
-            defaultFactory=theDefaultValue,
+            title=_(u"Target Value Year"),
         )
     )
 

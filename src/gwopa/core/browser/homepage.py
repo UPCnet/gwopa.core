@@ -4,6 +4,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFPlone.browser.interfaces import IMainTemplate
 from plone import api
 from bs4 import BeautifulSoup
+from operator import itemgetter
 
 
 class MainTemplate(BrowserView):
@@ -48,7 +49,7 @@ class MainTemplate(BrowserView):
                 else:
                     image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 if item.objectives:
-                    alt = item.objectives.raw
+                    alt = self.abreviaText(item.objectives.raw, 400)
                 else:
                     alt = False
                 results.append(dict(title=self.abreviaText(item.title),
@@ -57,6 +58,7 @@ class MainTemplate(BrowserView):
                                     start=item.startplanned,
                                     end=item.startactual,
                                     country=item.country,
+                                    location=item.location,
                                     project_manager=item.project_manager,
                                     image=image
                                     ))
@@ -68,7 +70,7 @@ class MainTemplate(BrowserView):
                 sort_order='reverse',
                 sort_on='modified',
                 sort_limit=limit,
-                review_state='published')
+                review_state='internally_published')
             for project in projects:
                 item = project._unrestrictedGetObject()
                 if item.members:
@@ -78,7 +80,7 @@ class MainTemplate(BrowserView):
                         else:
                             image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         if item.objectives:
-                            alt = item.objectives.raw
+                            alt = self.abreviaText(item.objectives.raw, 400)
                         else:
                             alt = False
                         results.append(dict(title=self.abreviaText(item.title),
@@ -87,10 +89,11 @@ class MainTemplate(BrowserView):
                                             start=item.startplanned,
                                             end=item.startactual,
                                             country=item.country,
+                                            location=item.location,
                                             project_manager=item.project_manager,
                                             image=image
                                             ))
-        return results
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def companyProjects(self):
         catalog = api.portal.get_tool('portal_catalog')
@@ -107,7 +110,7 @@ class MainTemplate(BrowserView):
                 else:
                     image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 if item.objectives:
-                    alt = item.objectives.raw
+                    alt = self.abreviaText(item.objectives.raw, 400)
                 else:
                     alt = False
                 if len(results) < 4:
@@ -117,11 +120,10 @@ class MainTemplate(BrowserView):
                                         start=item.startplanned,
                                         end=item.startactual,
                                         country=item.country,
+                                        location=item.location,
                                         project_manager=item.project_manager,
                                         image=image
                                         ))
-                else:
-                    return results
         else:
             projects = catalog.unrestrictedSearchResults(
                 portal_type='Project',
@@ -138,7 +140,7 @@ class MainTemplate(BrowserView):
                         else:
                             image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         if item.objectives:
-                            alt = item.objectives.raw
+                            alt = self.abreviaText(item.objectives.raw, 400)
                         else:
                             alt = False
                         if len(results) < 4:
@@ -148,12 +150,12 @@ class MainTemplate(BrowserView):
                                                 start=item.startplanned,
                                                 end=item.startactual,
                                                 country=item.country,
+                                                location=item.location,
                                                 project_manager=item.project_manager,
                                                 image=image
                                                 ))
-                        else:
-                            return results
-        return results
+
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def allProjects(self):
         catalog = api.portal.get_tool('portal_catalog')
@@ -167,7 +169,7 @@ class MainTemplate(BrowserView):
             else:
                 image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
             if item.objectives:
-                alt = item.objectives.raw
+                alt = self.abreviaText(item.objectives.raw, 400)
             else:
                 alt = False
             results.append(dict(title=self.abreviaText(item.title),
@@ -176,14 +178,15 @@ class MainTemplate(BrowserView):
                                 start=item.startplanned,
                                 end=item.startactual,
                                 country=item.country,
+                                location=item.location,
                                 project_manager=item.project_manager,
                                 image=image
                                 ))
         return results
 
-    def abreviaText(self, text):
+    def abreviaText(self, text, count=100):
         text = BeautifulSoup(text, 'lxml').text
-        if len(text) > 100:
-            return text[0:90] + '...'
+        if len(text) > count:
+            return text[0:count - 10] + '...'
         else:
             return text

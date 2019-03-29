@@ -50,7 +50,7 @@
         <ul class="plone-toolbar-main">
 
           <li id="contentview-folderContents" class="">
-              <a tal:attributes="href string:${context/absolute_url}/config">
+              <a tal:attributes="href string:${portal_url}/config">
                 <span class="icon-folderContents toolbar-menu-icon" aria-hidden="true"></span>
                 <span>Config Folder</span>
               </a>
@@ -75,7 +75,7 @@
               </a>
           </li>
           <li id="contentview-settings" class="">
-              <a tal:attributes="href string:${context/absolute_url}/managePortal">
+              <a tal:attributes="href string:${portal_url}/managePortal">
                 <span class="icon-siteSettings toolbar-menu-icon" aria-hidden="true"></span>
                 <span>Settings</span>
               </a>

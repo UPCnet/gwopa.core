@@ -124,7 +124,7 @@ class planningView(BrowserView):
         results = []
         for item in items:
             if not item.start:
-                item.start = 'XXXX-XX-XX'
+                item.start = ''
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
