@@ -29,12 +29,6 @@ class IEnhancedUserDataSchema(model.Schema):
         vocabulary=u"plone.app.vocabularies.SupportedContentLanguages",
     )
 
-    twitter_username = schema.TextLine(
-        title=_(u'Twitter username'),
-        description=_(u'Your Twitter username. Could include the @. Example: @unhabitat'),
-        required=False,
-    )
-
     phone = schema.TextLine(
         title=_(u'Phone'),
         description=_(u'Your telephone number.'),

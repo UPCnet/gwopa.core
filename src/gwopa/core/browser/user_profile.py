@@ -39,7 +39,6 @@ class userProfile(BrowserView):
         profile__properties = [
             _(u'fullname'),
             _(u'email'),
-            _(u'twitter_username'),
             _(u'phone'),
             _(u'country'),
             _(u'wop_programs'),

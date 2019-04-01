@@ -27,7 +27,6 @@ class UserPropertiesSoupCatalogFactory(object):
         _(u'wop_partners'),
         _(u'country'),
         _(u'phone'),
-        _(u'twitter_username'),
         _(u'home_page')]
 
     profile_properties = [
@@ -38,7 +37,6 @@ class UserPropertiesSoupCatalogFactory(object):
         'wop_partners',
         'country',
         'phone',
-        'twitter_username',
         'home_page']
 
     directory_properties = ['email', 'phone', 'wop_platforms', 'wop_programs', 'wop_partners']
@@ -76,8 +74,6 @@ class UserPropertiesSoupCatalogFactory(object):
         country = NodeAttributeIndexer('country')
         catalog['country'] = CatalogTextIndex(country)
 
-        twitter_username = NodeAttributeIndexer('twitter_username')
-        catalog['twitter_username'] = CatalogTextIndex(twitter_username)
         return catalog
 
 
