@@ -46,7 +46,7 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: ../content/project.py:148
+#: ../content/project.py:157
 msgid "Actual"
 msgstr ""
 
@@ -62,11 +62,11 @@ msgstr ""
 msgid "Area"
 msgstr ""
 
-#: ../content/activity.py:66
+#: ../content/activity.py:84
 msgid "Assigned budget"
 msgstr ""
 
-#: ../content/templates/project_view.pt:71
+#: ../content/templates/project_view.pt:83
 msgid "Association to platforms or programmes"
 msgstr ""
 
@@ -119,13 +119,13 @@ msgstr ""
 msgid "Collaborating module"
 msgstr ""
 
-#: ../content/project.py:37
+#: ../content/project.py:34
 msgid "Completed"
 msgstr ""
 
-#: ../content/activity.py:60
+#: ../content/activity.py:78
 #: ../content/output.py:40
-#: ../content/project.py:160
+#: ../content/project.py:169
 msgid "Completion date"
 msgstr ""
 
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Country/Countries"
 msgstr ""
 
-#: ../content/project.py:261
+#: ../content/project.py:270
 msgid "Currency"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr ""
 msgid "Current projects map"
 msgstr ""
 
-#: ../content/project.py:93
+#: ../content/project.py:102
 msgid "Dates"
 msgstr ""
 
@@ -212,13 +212,13 @@ msgstr ""
 msgid "Describing visualizating module."
 msgstr ""
 
-#: ../content/activity.py:32
+#: ../content/activity.py:46
 #: ../content/improvement_area.py:39
 #: ../content/output.py:28
 msgid "Description"
 msgstr ""
 
-#: ../content/templates/project_view.pt:44
+#: ../content/templates/project_view.pt:43
 msgid "Description and main objectives"
 msgstr ""
 
@@ -226,11 +226,11 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: ../content/templates/project_view.pt:66
+#: ../content/templates/project_view.pt:73
 msgid "End (Actual):"
 msgstr ""
 
-#: ../content/templates/project_view.pt:67
+#: ../content/templates/project_view.pt:77
 msgid "End (Planned):"
 msgstr ""
 
@@ -238,7 +238,15 @@ msgstr ""
 msgid "End Date"
 msgstr ""
 
-#: ../content/project.py:280
+#: ../browser/configure.zcml:134
+msgid "Faceted listing view"
+msgstr ""
+
+#: ../browser/configure.zcml:126
+msgid "Faceted summary view"
+msgstr ""
+
+#: ../content/project.py:289
 msgid "Fases"
 msgstr ""
 
@@ -246,11 +254,11 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: ../content/templates/project_view.pt:163
+#: ../content/templates/project_view.pt:157
 msgid "Focal point partner"
 msgstr ""
 
-#: ../configure.zcml:41
+#: ../configure.zcml:38
 msgid "GWOPA Core package (gwopa.core)"
 msgstr ""
 
@@ -258,11 +266,11 @@ msgstr ""
 msgid "GWOPA administration page"
 msgstr ""
 
-#: ../content/project.py:98
+#: ../content/project.py:107
 msgid "Geolocation"
 msgstr ""
 
-#: ../browser/views.py:51
+#: ../browser/views.py:52
 msgid "Here are all the Improvement Areas of the Platform."
 msgstr ""
 
@@ -270,7 +278,7 @@ msgstr ""
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
 msgstr ""
 
-#: ../browser/views.py:49
+#: ../browser/views.py:50
 msgid "Here are the Improvement Areas of the Project."
 msgstr ""
 
@@ -292,7 +300,7 @@ msgstr ""
 msgid "Image used to describe the Working Area"
 msgstr ""
 
-#: ../content/project.py:36
+#: ../content/project.py:33
 msgid "Implementation"
 msgstr ""
 
@@ -312,31 +320,31 @@ msgstr ""
 msgid "Improvement areas"
 msgstr ""
 
-#: ../content/project.py:253
+#: ../content/project.py:262
 msgid "Improvement track team and members"
 msgstr ""
 
 #: ../content/contributordonor.py:19
-#: ../content/contributorother.py:19
+#: ../content/contributorother.py:23
 #: ../content/contributorpartner.py:19
 msgid "In-cash"
 msgstr ""
 
 #: ../content/contributordonor.py:24
-#: ../content/contributorother.py:24
+#: ../content/contributorother.py:33
 #: ../content/contributorpartner.py:24
 msgid "In-kind"
 msgstr ""
 
-#: ../content/project.py:34
+#: ../content/project.py:31
 msgid "Inactive"
 msgstr ""
 
-#: ../content/project.py:35
+#: ../content/project.py:32
 msgid "Inception"
 msgstr ""
 
-#: ../content/project.py:137
+#: ../content/project.py:146
 msgid "Indicate the current status of the project"
 msgstr ""
 
@@ -348,7 +356,7 @@ msgstr ""
 msgid "Initial Situation"
 msgstr ""
 
-#: ../content/activity.py:38
+#: ../content/activity.py:52
 msgid "Initial situation description"
 msgstr ""
 
@@ -360,7 +368,7 @@ msgstr ""
 msgid "Insert the used category to group this element"
 msgstr ""
 
-#: ../configure.zcml:41
+#: ../configure.zcml:38
 msgid "Installs the gwopa.core add-on."
 msgstr ""
 
@@ -368,7 +376,7 @@ msgstr ""
 msgid "Internal CODE for administrators"
 msgstr ""
 
-#: ../content/project.py:48
+#: ../content/project.py:57
 msgid "Invalid start or end date"
 msgstr ""
 
@@ -384,11 +392,11 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: ../content/project.py:211
+#: ../content/project.py:220
 msgid "Latitude"
 msgstr ""
 
-#: ../content/project.py:212
+#: ../content/project.py:221
 msgid "Latitude of this project. Used in the map view"
 msgstr ""
 
@@ -400,19 +408,19 @@ msgstr ""
 msgid "List of members of the project"
 msgstr ""
 
-#: ../content/project.py:204
+#: ../content/project.py:213
 msgid "Location"
 msgstr ""
 
-#: ../content/project.py:219
+#: ../content/project.py:228
 msgid "Longitude"
 msgstr ""
 
-#: ../content/project.py:220
+#: ../content/project.py:229
 msgid "Longitude of this project. Used in the map view"
 msgstr ""
 
-#: ../content/templates/project_view.pt:82
+#: ../content/templates/project_view.pt:93
 msgid "Main organizations and their contributions"
 msgstr ""
 
@@ -448,7 +456,7 @@ msgstr ""
 msgid "Measuring unit"
 msgstr ""
 
-#: ../content/project.py:252
+#: ../content/project.py:261
 #: ../content/templates/activity_view.pt:41
 #: ../content/templates/improvementarea_view.pt:38
 msgid "Members"
@@ -467,7 +475,7 @@ msgid "My company Projects"
 msgstr ""
 
 #: ../content/contributordonor.py:14
-#: ../content/contributorother.py:14
+#: ../content/contributorother.py:18
 #: ../content/contributorpartner.py:14
 msgid "Name"
 msgstr ""
@@ -500,32 +508,32 @@ msgstr ""
 msgid "Output"
 msgstr ""
 
-#: ../browser/configure.zcml:20
+#: ../browser/configure.zcml:21
 msgid "PMP Projects View"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:195
-#: ../content/templates/project_view.pt:169
+#: ../content/templates/project_view.pt:163
 msgid "Partner"
 msgstr ""
 
-#: ../content/project.py:228
+#: ../content/project.py:237
 msgid "Partner/partners of the project"
 msgstr ""
 
-#: ../content/project.py:103
+#: ../content/project.py:112
 msgid "Partners"
 msgstr ""
 
-#: ../userdataschema.py:39
+#: ../userdataschema.py:33
 msgid "Phone"
 msgstr ""
 
-#: ../content/project.py:154
+#: ../content/project.py:163
 msgid "Planned"
 msgstr ""
 
-#: ../content/project.py:183
+#: ../content/project.py:192
 msgid "Platform/platforms associated to this project"
 msgstr ""
 
@@ -533,37 +541,37 @@ msgstr ""
 msgid "Program"
 msgstr ""
 
-#: ../content/project.py:190
+#: ../content/project.py:199
 msgid "Program/programs associated to this project"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:35
-#: ../content/project.py:83
+#: ../content/project.py:92
 #: ../profiles/default/types/Project.xml
 msgid "Project"
 msgstr ""
 
-#: ../content/project.py:244
+#: ../content/project.py:253
 msgid "Project Manager"
 msgstr ""
 
-#: ../content/project.py:236
+#: ../content/project.py:245
 msgid "Project Manager Admin"
 msgstr ""
 
-#: ../content/project.py:136
+#: ../content/project.py:145
 msgid "Project Status"
 msgstr ""
 
-#: ../content/project.py:176
+#: ../content/project.py:185
 msgid "Project description and main objectives"
 msgstr ""
 
-#: ../content/project.py:131
+#: ../content/project.py:140
 msgid "Project image"
 msgstr ""
 
-#: ../content/project.py:125
+#: ../content/project.py:134
 msgid "Project title"
 msgstr ""
 
@@ -579,8 +587,8 @@ msgstr ""
 msgid "Region"
 msgstr ""
 
-#: ../content/project.py:182
-#: ../userdataschema.py:60
+#: ../content/project.py:191
+#: ../userdataschema.py:54
 msgid "Regional WOP Platform"
 msgstr ""
 
@@ -588,7 +596,7 @@ msgstr ""
 msgid "Reporting Module"
 msgstr ""
 
-#: ../content/activity.py:78
+#: ../content/activity.py:96
 #: ../content/outcomekpi.py:69
 #: ../content/outcomezone.py:75
 msgid "Responsible people"
@@ -600,23 +608,19 @@ msgstr ""
 msgid "Risks / Assumptions"
 msgstr ""
 
-#: ../browser/templates/homepage.pt:147
-msgid "Search"
-msgstr ""
-
-#: ../browser/templates/homepage.pt:141
+#: ../browser/templates/homepage.pt:138
 msgid "Search Projects"
 msgstr ""
 
-#: ../content/project.py:198
+#: ../content/project.py:207
 msgid "Select a country from the list"
 msgstr ""
 
-#: ../userdataschema.py:46
+#: ../userdataschema.py:40
 msgid "Select country"
 msgstr ""
 
-#: ../content/project.py:270
+#: ../content/project.py:279
 msgid "Select one or more associated Working Area"
 msgstr ""
 
@@ -644,11 +648,11 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: ../content/templates/project_view.pt:62
+#: ../content/templates/project_view.pt:63
 msgid "Start (Actual):"
 msgstr ""
 
-#: ../content/templates/project_view.pt:63
+#: ../content/templates/project_view.pt:67
 msgid "Start (Planned):"
 msgstr ""
 
@@ -656,8 +660,8 @@ msgstr ""
 msgid "Start Date"
 msgstr ""
 
-#: ../content/activity.py:44
-#: ../content/project.py:143
+#: ../content/activity.py:58
+#: ../content/project.py:152
 msgid "Starting date"
 msgstr ""
 
@@ -680,15 +684,15 @@ msgstr ""
 msgid "Team Members"
 msgstr ""
 
-#: ../content/project.py:262
+#: ../content/project.py:271
 msgid "The currency used into the project"
 msgstr ""
 
-#: ../content/project.py:161
+#: ../content/project.py:170
 msgid "The dates when the project has been completed. Planned date and current date."
 msgstr ""
 
-#: ../content/project.py:144
+#: ../content/project.py:153
 msgid "The dates when the project has started. Planned date and current date."
 msgstr ""
 
@@ -696,11 +700,11 @@ msgstr ""
 msgid "The default config has been applied."
 msgstr ""
 
-#: ../content/project.py:237
+#: ../content/project.py:246
 msgid "The responsible manager of the project"
 msgstr ""
 
-#: ../content/project.py:245
+#: ../content/project.py:254
 msgid "The responsible of this project"
 msgstr ""
 
@@ -712,29 +716,25 @@ msgstr ""
 msgid "This values are necessary for create elements on the Platform"
 msgstr ""
 
-#: ../content/activity.py:27
+#: ../content/activity.py:41
 #: ../content/improvement_area.py:32
 #: ../content/itemarea.py:17
 msgid "Title"
 msgstr ""
 
-#: ../content/templates/project_view.pt:155
+#: ../content/templates/project_view.pt:150
 msgid "Total budget:"
 msgstr ""
 
-#: ../userdataschema.py:33
-msgid "Twitter username"
-msgstr ""
-
-#: ../configure.zcml:50
+#: ../configure.zcml:47
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr ""
 
-#: ../configure.zcml:50
+#: ../configure.zcml:47
 msgid "Uninstalls the gwopa.core add-on."
 msgstr ""
 
-#: ../content/project.py:177
+#: ../content/project.py:186
 msgid "Use this area to add all the objectives and description of the project"
 msgstr ""
 
@@ -758,6 +758,14 @@ msgstr ""
 msgid "Users in this Partner"
 msgstr ""
 
+#: ../browser/templates/planning.pt:166
+msgid "Utility Capacity"
+msgstr ""
+
+#: ../browser/templates/planning.pt:151
+msgid "Utility Performance"
+msgstr ""
+
 #: ../browser/templates/visualizating.pt:14
 msgid "Visualizating Module"
 msgstr ""
@@ -766,7 +774,7 @@ msgstr ""
 msgid "WOP Partner"
 msgstr ""
 
-#: ../userdataschema.py:68
+#: ../userdataschema.py:62
 msgid "WOP Partners"
 msgstr ""
 
@@ -774,9 +782,9 @@ msgstr ""
 msgid "WOP Platform"
 msgstr ""
 
-#: ../content/project.py:189
+#: ../content/project.py:198
 #: ../profiles/default/types/Program.xml
-#: ../userdataschema.py:52
+#: ../userdataschema.py:46
 msgid "WOP Program"
 msgstr ""
 
@@ -784,12 +792,12 @@ msgstr ""
 msgid "Wall"
 msgstr ""
 
-#: ../content/project.py:269
-#: ../content/templates/project_view.pt:197
+#: ../content/project.py:278
+#: ../content/templates/project_view.pt:190
 msgid "Working Areas"
 msgstr ""
 
-#: ../content/project.py:205
+#: ../content/project.py:214
 msgid "Write the project location"
 msgstr ""
 
@@ -797,15 +805,11 @@ msgstr ""
 msgid "You don't have assigned projects."
 msgstr ""
 
-#: ../userdataschema.py:34
-msgid "Your Twitter username. Could include the @. Example: @unhabitat"
-msgstr ""
-
 #: ../browser/templates/homepage.pt:112
 msgid "Your company has no projects."
 msgstr ""
 
-#: ../userdataschema.py:40
+#: ../userdataschema.py:34
 msgid "Your telephone number."
 msgstr ""
 
@@ -813,11 +817,11 @@ msgstr ""
 msgid "Zone"
 msgstr ""
 
-#: ../content/project.py:37
+#: ../content/project.py:34
 msgid "completed"
 msgstr ""
 
-#: ../browser/user_profile.py:44
+#: ../browser/user_profile.py:43
 #: ../indexers.py:28
 msgid "country"
 msgstr ""
@@ -842,23 +846,23 @@ msgid "gwopa_menu"
 msgstr ""
 
 #. Default: "Tags are commonly used for ad-hoc organization of content."
-#: ../content/project.py:109
+#: ../content/project.py:118
 msgid "help_tags"
 msgstr ""
 
-#: ../indexers.py:31
+#: ../indexers.py:30
 msgid "home_page"
 msgstr ""
 
-#: ../content/project.py:36
+#: ../content/project.py:33
 msgid "implementation"
 msgstr ""
 
-#: ../content/project.py:34
+#: ../content/project.py:31
 msgid "inactive"
 msgstr ""
 
-#: ../content/project.py:35
+#: ../content/project.py:32
 msgid "inception"
 msgstr ""
 
@@ -868,11 +872,11 @@ msgid "label_google_maps_link"
 msgstr ""
 
 #. Default: "Tags"
-#: ../content/project.py:108
+#: ../content/project.py:117
 msgid "label_tags"
 msgstr ""
 
-#: ../browser/user_profile.py:43
+#: ../browser/user_profile.py:42
 #: ../indexers.py:29
 msgid "phone"
 msgstr ""
@@ -896,26 +900,31 @@ msgstr ""
 msgid "title_previous_month"
 msgstr ""
 
-#: ../browser/user_profile.py:42
-#: ../indexers.py:30
-msgid "twitter_username"
+#. Default: "Search Site"
+#: ../browser/templates/homepage.pt:143
+msgid "title_search_site"
+msgstr ""
+
+#. Default: "Search Site"
+#: ../browser/templates/homepage.pt:143
+msgid "title_search_title"
 msgstr ""
 
 #: ../indexers.py:21
 msgid "username"
 msgstr ""
 
-#: ../browser/user_profile.py:47
+#: ../browser/user_profile.py:46
 #: ../indexers.py:27
 msgid "wop_partners"
 msgstr ""
 
-#: ../browser/user_profile.py:46
+#: ../browser/user_profile.py:45
 #: ../indexers.py:25
 msgid "wop_platforms"
 msgstr ""
 
-#: ../browser/user_profile.py:45
+#: ../browser/user_profile.py:44
 #: ../indexers.py:26
 msgid "wop_programs"
 msgstr ""
