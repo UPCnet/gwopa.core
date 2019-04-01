@@ -14,24 +14,19 @@
     <h1 class="documentFirstHeading" i18n:translate=""> Current projects map </h1>
     <div class="documentDescription description" i18n:translate=""> All the projects in one map.</div>
 
-
-  pycountry.subdivisions.get(country_code=pycountry.countries.get(name='Spain').alpha_2)
-
-  spain / location / 'map'
-
-  <div class="geolocation_wrapper" >
-    <div class="pat-leaflet map" tal:attributes="data-geojson view/getPoints" data-pat-leaflet='{
-      "fullscreencontrol": true,
-      "locatecontrol": false,
-      "zoomcontrol": true,
-      "minimap": true,
-      "geosearch": false,
-      "addmarker": false,
-      "map_layers": [
-            {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-      ]
-    }'></div>
-  </div>
+    <div class="geolocation_wrapper" >
+      <div class="pat-leaflet map" tal:attributes="data-geojson view/getPoints" data-pat-leaflet='{
+        "fullscreencontrol": true,
+        "locatecontrol": false,
+        "zoomcontrol": true,
+        "minimap": true,
+        "geosearch": false,
+        "addmarker": false,
+        "map_layers": [
+              {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+        ]
+      }'></div>
+    </div>
 
   </metal:block>
 

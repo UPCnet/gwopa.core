@@ -216,19 +216,19 @@ class IProject(model.Schema):
     )
 
     # form.mode(latitude='hidden')
-    latitude = schema.Float(
+    latitude = schema.Text(
         title=_(u"Latitude"),
         description=_(u"Latitude of this project. Used in the map view"),
         required=False,
-        default=0.0
+        default=_(u'0.0')
     )
 
     # form.mode(longitude='hidden')
-    longitude = schema.Float(
+    longitude = schema.Text(
         title=_(u"Longitude"),
         description=_(u"Longitude of this project. Used in the map view"),
         required=False,
-        default=0.0
+        default=_(u'0.0')
     )
 
     # directives.widget('partners', SelectWidget)
@@ -283,7 +283,7 @@ class IProject(model.Schema):
         )
     )
 
-    form.mode(gwopa_fases='hidden')
+    #form.mode(gwopa_fases='hidden')
     # form.mode(IEditForm, gwopa_code_project='display')
     gwopa_fases = schema.ASCIILine(
         title=_(u'Fases'),

@@ -6,6 +6,7 @@ from geojson import Feature, Point, FeatureCollection
 from gwopa.core import _
 import transaction
 from Products.statusmessages.interfaces import IStatusMessage
+from Products.CMFCore.utils import getToolByName
 
 
 # class listFiles(BrowserView):
@@ -106,6 +107,6 @@ class mapView(BrowserView):
         for item in items:
             obj = item.getObject()
             if obj.longitude and obj.latitude:
-                poi = Feature(geometry=Point((obj.longitude, obj.latitude)), properties={'popup': obj.title})
+                poi = Feature(geometry=Point((float(obj.longitude), float(obj.latitude))), properties={'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>Status:'})
                 results.append(poi)
         return FeatureCollection(results)

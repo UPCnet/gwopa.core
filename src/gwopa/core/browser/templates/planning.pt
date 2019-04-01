@@ -37,105 +37,118 @@
       Start date: <tal:omit-tag tal:content="view/getFaseStart">2019-02-02</tal:omit-tag> -- End date: <tal:omit-tag tal:content="view/getFaseEnd">2019-03-03</tal:omit-tag>
     </div>
 
-
     <div id="exTab1" class="container">
       <ul  class="nav nav-pills">
         <li class="active">
-          <a  href="#1a" data-toggle="tab">Project</a>
+          <a  href="#project" data-toggle="tab">Project</a>
         </li>
-        <li><a href="#2a" data-toggle="tab">Outcomes</a>
+        <li><a href="#outcomes" data-toggle="tab">Outcomes</a>
         </li>
       </ul>
 
       <div class="tab-content clearfix">
-        <div class="tab-pane active" id="1a">
+        <div class="tab-pane active" id="project">
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
             <tal:objects repeat="item areas">
-              <ul class="item" style="list-style-type: none;">
-                <li>
-                  <h3>
-                    <div class="btn-group" role="group" aria-label="Add element">
-                      <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                        <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity"><span><i class="fas fa-plus-circle"></i> Add Activity </span></a></li>
-                        <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><span><i class="fas fa-plus-circle"></i> Add Output </span></a></li>
-                      </ul>
-                    </div>
-                    <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="fas fa-edit"></i></a>
-                    <a tal:attributes="href string:${item/url}/edit;"><i class="fa fa-remove" style="color:red"></i></a>
-                    <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
-                    <span tal:content="item/description"></span>
-                  </h3>
-                </li>
-              </ul>
-            </tal:objects>
-          </tal:block-activities>
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th class="thname">
-                  <div class="information object" id="header">
-                   <div class="contentt" id="bl">Start</div>
-                   <div class="separator">|</div>
-                   <div class="contentt" id="value">End</div>
-                   <div class="separator">|</div>
-                   <div class="contentt" id="target">Target</div>
-                   <div class="separator">|</div>
-                   <div class="contentt" id="mu">Measuring Unit</div>
-                  </div>
-                </th>
-                <th>Next update</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
-                <tal:objects repeat="item areas">
-                  <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
-                    <tr tal:repeat="item files" class="block_sub_indicators" class="descripcion collapse in" id="IA5" aria-expanded="true" style="">
-                      <td>
-                        <div class="col-md-12 text-item-planning collapse in" role="tabpanel" aria-expanded="true" style="">
-                          <a href="#OutputActivity1" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OutputActivity1" aria-expanded="false" class="collapsed">
-                            <div class="output-planning" tal:content="item/portal_type">Type Output</div>
-                            <h4 class="titulocatplan" id="output" tal:content="item/title">Output/Activity title</h4>
-                            <a tal:condition="python:item['portal_type'] == 'Output'" class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
-                    <div class="information object">
-                             <div class="contentt" id="bl" tal:content="item/start">2019-02-02</div>
-                             <div class="separator">|</div>
-                             <div class="contentt" id="value" tal:content="item/end">2019-03-03</div>
-                             <div class="separator">|</div>
-                             <div class="contentt" id="target">XX4</div>
-                             <div class="separator">|</div>
-                             <div class="contentt" id="mu">XXCentimeters</div>
-                            </div>
+              <div class="tabla_contenido_items">
+                <div class="tabla_cabecera">
+                  <div class="tabla_hilera">
+                    <div class="tabla_info">
+                      <h3>
+                        <div class="btn-group" role="group" aria-label="Add element">
+                          <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                            <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity"><span><i class="fas fa-plus-circle"></i> Add Activity </span></a></li>
+                            <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><span><i class="fas fa-plus-circle"></i> Add Output </span></a></li>
+                          </ul>
+                        </div>
+                        <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
+                        <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="far fa-edit"></i></a>
+                        <span tal:content="item/description"></span>
+                      </h3>
+                      <div class="information object" id="header">
+                        <div class="contentt" id="bl">Start</div>
+                        <div class="separator">|</div>
+                        <div class="contentt" id="value">End</div>
+                        <div class="separator">|</div>
+                        <div class="contentt" id="target">Target</div>
+                        <div class="separator">|</div>
+                        <div class="contentt" id="mu">Measuring Unit</div>
+                        <div class="separator">|</div>
+                        <div class="contentt" id="actions">Action</div>
+                      </div>
 
-                            <tal:omit.tag tal:condition="python:item['portal_type'] == 'Activity'">
-                              <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
+                    </div>
+
+                  </div>
+                </div>
+                <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
+                  <div class="tabla_cuerpo" tal:repeat="item files">
+                    <div class="tabla_hilera">
+                      <div class="block_content">
+                        <div class="col-md-12 text-item-planning">
+                          <a href="">
+                              <div class="output-planning" tal:content="item/portal_type">Activity/output label</div>
+                              <h4 class="titulocatplan" id="output" tal:content="item/title"> Activity/Output Title </h4>
+                              <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
+                                <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a>
+                              </tal:block>
+                              <tal:block tal:condition="python:item['portal_type'] == 'Output'">
+                                <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
+                              </tal:block>
+                          </a>
+                          <div class="information object">
+                            <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
+                            <div class="separator">|</div>
+                            <div class="contentt" id="value" tal:content="item/end">2019-03-30</div>
+                            <div class="separator">|</div>
+                            <div class="contentt" id="target">XX4</div>
+                            <div class="separator">|</div>
+                            <div class="contentt" id="mu">XXCentimeters</div>
+                            <div class="separator">|</div>
+                            <div class="contentt" id="actions">
+                                <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit; title string:Edit ${item/title}...; alt string:Edit ${item/title}..."><i class="far fa-edit"></i></a>
+                                <a href="#"> <i class="far fa-trash-alt"></i></a>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                           <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
+                             <!--  <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++Output" href="#"><button class="plone-btn plone-btn-sm plone-btn-success"> + New Output </button></a> -->
                               <tal:block-subitems2 tal:define="outputs python:view.indicatorsInside(item);">
                                 <div tal:repeat="output outputs" class="block_sub_indicators">
                                   <div class="output-planning" style="margin-left:20px"  tal:content="output/portal_type">Type Output</div>
                                   <a class="pat-plone-modal" tal:attributes="href output/url" tal:content="output/title"> Item Title </a>
                                   <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${output/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + Target Value </button></a>
+                          <div class="information object">
+                            <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
+                            <div class="separator">|</div>
+                            <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
+                            <div class="separator">|</div>
+                            <div class="contentt" id="target">XX4</div>
+                            <div class="separator">|</div>
+                            <div class="contentt" id="mu">XXCentimeters</div>
+                            <div class="separator">|</div>
+                            <div class="contentt" id="actions">
+                                <a class="pat-plone-modal" tal:attributes="href string:${output/url}/edit; title string:Edit ${output/title}...; alt string:Edit ${output/title}..."><i class="far fa-edit"></i></a>
+                                <a href="#"> <i class="far fa-trash-alt"></i></a>
+                            </div>
+                          </div>
                                 </div>
                               </tal:block-subitems2>
-                            </tal:omit.tag>
+                            </tal:block>
+                    </div>
+                  </div>
 
-                          </a>
-                        </div>
-                      </td>
-                      <td class="date-w">31/1/2025</td>
-                      <td>
-                          <a title="Edit" alt="Edit" class="pat-plone-modal" tal:attributes="href string:${item/url}/edit;"><i class="far fa-edit"></i></a>
-                          <a href="#"><i style="color:red;" class="far fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
-                  </tal:block-subitems>
-                </tal:objects>
-              </tal:block-activities>
-            </tbody>
-          </table>
+                </tal:block-subitems>
+
+              </div>
+              <hr/>
+            </tal:objects>
+          </tal:block-activities>
         </div>
-        <div class="tab-pane" id="2a">
+        <div class="tab-pane" id="outcomes">
           <tal:block-ouctomeskpi tal:define="outcomes view/listOutcomesKPI">
             <tal:block tal:condition="not:outcomes">
               <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI" href="#"><button class="context focus"> + New OutcomeKPI</button></a>
