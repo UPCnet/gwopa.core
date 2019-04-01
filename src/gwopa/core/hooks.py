@@ -21,8 +21,9 @@ def projectAdded(content, event):
     """
 
     # Grant Editor/Reader role to members in project
-    for user in content.members:
-        api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
+    if content.members:
+        for user in content.members:
+            api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
 
     # Assign fases to internal field
     content.gwopa_fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
@@ -72,44 +73,46 @@ def projectModified(content, event):
              zope.lifecycleevent.ObjectModifiedEvent
 
     """
-    # Grant Editor/Reader role to members in project
-    for user in content.members:
-        api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
-
-    # Assign values to fases
-    fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
-    date1 = content.startactual
-    date2 = content.completionactual
-    datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)]
-    datas.append(content.completionactual.strftime("%B %d, %Y"))
-    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
-    isodate.append(content.completionactual.strftime("%Y-%d-%m"))
-
-    results = []
-    if fases > 1:
-        count = 0
-        while count != fases:
-            results.append(dict(
-                start=datas[0 + count],
-                end=datas[1 + count],
-                start_iso=isodate[0 + count],
-                end_iso=isodate[1 + count],
-                fase=count + 1
-            ))
-            count = count + 1
-    else:
-        count = 0
-        results.append(dict(
-            start=datas[0],
-            end=datas[1],
-            start_iso=isodate[0],
-            end_iso=isodate[1],
-            fase=1
-        ))
-    content.gwopa_fases = results
-
     # Really check if project is modified
     if 'zope.lifecycleevent.ObjectModifiedEvent' in str(event):
+
+        # Grant Editor/Reader role to members in project
+        if content.members:
+            for user in content.members:
+                api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
+
+        # Assign values to fases
+        fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
+        date1 = content.startactual
+        date2 = content.completionactual
+        datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)]
+        datas.append(content.completionactual.strftime("%B %d, %Y"))
+        isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
+        isodate.append(content.completionactual.strftime("%Y-%d-%m"))
+
+        results = []
+        if fases > 1:
+            count = 0
+            while count != fases:
+                results.append(dict(
+                    start=datas[0 + count],
+                    end=datas[1 + count],
+                    start_iso=isodate[0 + count],
+                    end_iso=isodate[1 + count],
+                    fase=count + 1
+                ))
+                count = count + 1
+        else:
+            count = 0
+            results.append(dict(
+                start=datas[0],
+                end=datas[1],
+                start_iso=isodate[0],
+                end_iso=isodate[1],
+                fase=1
+            ))
+        content.gwopa_fases = results
+
         new_areas = content.areas
         current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]
 
