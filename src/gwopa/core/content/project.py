@@ -53,17 +53,6 @@ def maxValue():
     # return datetime.date(2015, 2, 2)
 
 
-class IDate(schema.Date):
-    """ Data field for tuple. min and max are not working inside the tuple
-    they need to be set in the tuple instead"""
-    text = schema.Text(
-        title=_(u"Target Value Year"),
-    )
-    text = schema.Text(
-        title=_(u"Target Date Year"),
-    )
-
-
 class StartBeforeEnd(Invalid):
     __doc__ = _(u"Invalid start or end date")
 
@@ -299,15 +288,6 @@ class IProject(model.Schema):
     gwopa_fases = schema.ASCIILine(
         title=_(u'Fases'),
         required=False
-    )
-
-    dates = schema.Tuple(
-        title=_(u""),
-        required=True,
-        default=(theDefaultValue(),),
-        value_type=IDate(
-            title=_(u"Target Value Year"),
-        )
     )
 
     # @form.default_value(field=IProject['gwopa_fases'])
