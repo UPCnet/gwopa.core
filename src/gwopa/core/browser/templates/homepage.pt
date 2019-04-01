@@ -118,7 +118,7 @@
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
-                              <a tal:attributes="href item/url">
+                              <a tal:attributes="href item/url; title item/alt; alt item/alt">
                                 <div class="card-body2">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
@@ -161,7 +161,7 @@
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
-                              <a tal:attributes="href item/url">
+                              <a tal:attributes="href item/url; title item/alt; alt item/alt">
                                 <div class="card-body2">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
@@ -176,6 +176,7 @@
                      </div>
                   </div>
                 </div>
+
               </metal:bodytext>
             </article>
           </metal:slot>
