@@ -3,9 +3,6 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="plone">
 
-<link rel="stylesheet" tal:attributes="href string:/++theme++gwopa.theme/fontawesome/css/all.css" >
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 <tal:block tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;
                 isRootFolder view/isRootFolder;
@@ -82,6 +79,9 @@
 </style>
 
 <div class="sidenav2">
+    <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css" />
+
     <ul id="sidenav-vertical">
         <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}" title="PMP Home" alt="PMP Home"><i class="fas fa-map-marker"></i><span i18n:translate=""> Home </span>
         </a>
