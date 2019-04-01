@@ -76,7 +76,7 @@
             <article id="content">
               <metal:bodytext define-slot="main">
                 <a tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a>
-<!--                 <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a>                 -->
+                <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a>
                 <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My Projects</tal:omit-tag></h1>
                 <div class="has-table" tal:define="items view/myProjects;" >
                   <h4 tal:condition="not:items" i18n:translate="">
@@ -88,13 +88,13 @@
                       <div class="col-xs-12 col-sm-12">
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="box" tal:define="country item/country; project_manager item/project_manager">
+                            <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
                               <a tal:attributes="href item/url; title item/alt; alt item/alt" >
                                 <p class="card-text-top" tal:content="item/title">Event Title</p>
                                 <img class="img200" tal:attributes="src string:${item/image};"/>
                                 <div class="card-body">
                                   <p class="card-text bottom">
-                                    <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
+                                    <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>
                                   </p>
                                 </div>
                               </a>
@@ -117,13 +117,12 @@
                       <div class="col-xs-12 col-sm-12">
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="box" tal:define="country item/country; project_manager item/project_manager">
+                            <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
                               <a tal:attributes="href item/url">
-                                <!-- <img class="img200" tal:attributes="src string:${item/image};"/> -->
                                 <div class="card-body2">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
-                                    <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
+                                    <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>
                                   </p>
                                 </div>
                               </a>
@@ -161,12 +160,12 @@
                               toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="box" tal:define="country item/country; project_manager item/project_manager">
+                            <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
                               <a tal:attributes="href item/url">
                                 <div class="card-body2">
                                   <h4 class="card-title top" tal:content="item/title">Event Title</h4>
                                   <p class="card-text bottom">
-                                    <span tal:condition="country"><i class="fas fa-globe-americas"></i>&nbsp;<tal:omit-tag tal:content="country"> Country </tal:omit-tag></span>
+                                    <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>
                                   </p>
                                 </div>
                               </a>
