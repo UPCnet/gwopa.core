@@ -76,7 +76,7 @@
             <article id="content">
               <metal:bodytext define-slot="main">
                 <a tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a>
-                <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a>
+<!--                 <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a> -->
                 <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My Projects</tal:omit-tag></h1>
                 <div class="has-table" tal:define="items view/myProjects;" >
                   <h4 tal:condition="not:items" i18n:translate="">
@@ -91,7 +91,7 @@
                             <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
                               <a tal:attributes="href item/url; title item/alt; alt item/alt" >
                                 <p class="card-text-top" tal:content="item/title">Event Title</p>
-                                <img class="img200" tal:attributes="src string:${item/image};"/>
+                                <img class="img200" tal:attributes="src item/image;"/>
                                 <div class="card-body">
                                   <p class="card-text bottom">
                                     <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>

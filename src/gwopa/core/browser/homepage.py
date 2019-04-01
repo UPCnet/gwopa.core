@@ -45,16 +45,16 @@ class MainTemplate(BrowserView):
             for project in projects:
                 item = project._unrestrictedGetObject()
                 if item.image:
-                    image = item.absolute_url_path() + '/@@images/image/preview'
+                    image = item.absolute_url() + '/@@images/image/preview'
                 else:
-                    image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
+                    image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 if item.objectives:
                     alt = self.abreviaText(item.objectives.raw, 400)
                 else:
                     alt = False
                 results.append(dict(title=self.abreviaText(item.title),
                                     alt=alt,
-                                    url=item.absolute_url_path(),
+                                    url=item.absolute_url(),
                                     start=item.startplanned,
                                     end=item.startactual,
                                     country=item.country,
@@ -76,16 +76,16 @@ class MainTemplate(BrowserView):
                 if item.members:
                     if currentuser in item.members:
                         if item.image:
-                            image = item.absolute_url_path() + '/@@images/image/preview'
+                            image = item.absolute_url() + '/@@images/image/preview'
                         else:
-                            image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
+                            image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         if item.objectives:
                             alt = self.abreviaText(item.objectives.raw, 400)
                         else:
                             alt = False
                         results.append(dict(title=self.abreviaText(item.title),
                                             alt=alt,
-                                            url=item.absolute_url_path(),
+                                            url=item.absolute_url(),
                                             start=item.startplanned,
                                             end=item.startactual,
                                             country=item.country,
@@ -106,9 +106,9 @@ class MainTemplate(BrowserView):
             for project in projects:
                 item = project._unrestrictedGetObject()
                 if item.image:
-                    image = item.absolute_url_path() + '/@@images/image/preview'
+                    image = item.absolute_url() + '/@@images/image/preview'
                 else:
-                    image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
+                    image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                 if item.objectives:
                     alt = self.abreviaText(item.objectives.raw, 400)
                 else:
@@ -116,7 +116,7 @@ class MainTemplate(BrowserView):
                 if len(results) < 4:
                     results.append(dict(title=self.abreviaText(item.title),
                                         alt=alt,
-                                        url=item.absolute_url_path(),
+                                        url=item.absolute_url(),
                                         start=item.startplanned,
                                         end=item.startactual,
                                         country=item.country,
@@ -136,9 +136,9 @@ class MainTemplate(BrowserView):
                 for a in userPartners:
                     if a in item.partners:
                         if item.image:
-                            image = item.absolute_url_path() + '/@@images/image/preview'
+                            image = item.absolute_url() + '/@@images/image/preview'
                         else:
-                            image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
+                            image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
                         if item.objectives:
                             alt = self.abreviaText(item.objectives.raw, 400)
                         else:
@@ -146,7 +146,7 @@ class MainTemplate(BrowserView):
                         if len(results) < 4:
                             results.append(dict(title=self.abreviaText(item.title),
                                                 alt=alt,
-                                                url=item.absolute_url_path(),
+                                                url=item.absolute_url(),
                                                 start=item.startplanned,
                                                 end=item.startactual,
                                                 country=item.country,
@@ -165,16 +165,16 @@ class MainTemplate(BrowserView):
         for project in projects:
             item = project._unrestrictedGetObject()
             if item.image:
-                image = item.absolute_url_path() + '/@@images/image/preview'
+                image = item.absolute_url() + '/@@images/image/preview'
             else:
-                image = item.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
+                image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
             if item.objectives:
                 alt = self.abreviaText(item.objectives.raw, 400)
             else:
                 alt = False
             results.append(dict(title=self.abreviaText(item.title),
                                 alt=alt,
-                                url=item.absolute_url_path(),
+                                url=item.absolute_url(),
                                 start=item.startplanned,
                                 end=item.startactual,
                                 country=item.country,
