@@ -88,7 +88,7 @@ class IActivity(model.Schema):
 
     directives.mode(currency='display')
     currency = schema.Text(
-        title=_(u''),
+        title=_(u'Project Currency'),
     )
 
     directives.widget('members', SelectWidget)

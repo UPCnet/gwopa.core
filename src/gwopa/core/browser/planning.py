@@ -110,7 +110,6 @@ class planningView(BrowserView):
         end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
         date_range_query = {'query': (start, end), 'range': 'min:max'}
         #     start=date_range_query,
-        print folder_path
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity'],
             path={'query': folder_path,

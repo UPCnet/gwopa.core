@@ -122,7 +122,6 @@ def projectModified(content, event):
         else:
             for area in new_areas:
                 if area not in current:
-                    print "Created Improvement Area: " + area
                     data = api.content.find(portal_type="ItemArea", Title=area)[0]
                     api.content.create(
                         type='ImprovementArea',

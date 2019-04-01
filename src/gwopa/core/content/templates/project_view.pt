@@ -65,17 +65,17 @@
             </tal:omit-tag>
             <tal:omit-tag tal:condition="context/startplanned">
               <span i18n:translate="">Start (Planned):</span>
-              <span style="float:right; margin-right: 10px;" tal:content="context/startplanned">
+              <span style="float:right; margin-right: 10px;" tal:content="context/startplanned">2019-02-02</span>
             </tal:omit-tag>
           </div>
           <div class="col-md-6">
             <tal:omit-tag tal:condition="context/completionactual">
               <span i18n:translate="">End (Actual):</span>
-              <span style="float:right; margin-right: 10px;" tal:content="context/completionactual"></span>
+              <span style="float:right; margin-right: 10px;" tal:content="context/completionactual">2019-02-02</span>
             </tal:omit-tag>
             <tal:omit-tag tal:condition="context/completionplanned">
               <span i18n:translate="">End (Planned):</span>
-              <span style="float:right; margin-right: 10px;" tal:content="context/completionplanned"></span>
+              <span style="float:right; margin-right: 10px;" tal:content="context/completionplanned">2019-02-02</span>
             </tal:omit-tag>
           </div>
         </div>
