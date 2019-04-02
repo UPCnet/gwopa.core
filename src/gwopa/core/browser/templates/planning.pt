@@ -48,8 +48,33 @@
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="project">
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
+
+            <!-- Delete Modal HTML -->
+            <div id="myModal" class="modal fade">
+              <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="icon-box">
+                      <i class="fas fa-times"></i>
+                    </div>        
+                    <h4 class="modal-title">Are you sure?</h4>  
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Do you really want to delete these records? This process cannot be undone.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick=deleteElement(portal_type)>Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+
             <tal:objects repeat="item areas">
               <div class="tabla_contenido_items">
+                <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
+
                 <div class="tabla_cabecera">
                   <div class="tabla_hilera">
                     <div class="tabla_info">
@@ -64,14 +89,14 @@
                         <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
                         <span tal:content="item/description"></span>
                       </div>
-                      <div class="information object" id="header">
-                        <div class="contentt" id="bl">Start</div>
+                      <div class="information object" id="header" tal:condition="files">
+                        <div class="contentt" id="bl">Starting Date</div>
                         <div class="separator">|</div>
-                        <div class="contentt" id="value">End</div>
+                        <div class="contentt" id="value">Completion Date</div>
                         <div class="separator">|</div>
-                        <div class="contentt" id="target">Target</div>
+                        <div class="contentt" id="target">Target Value</div>
                         <div class="separator">|</div>
-                        <div class="contentt" id="mu">Measuring Unit</div>
+                        <div class="contentt" id="mu">Responsible</div>
                         <div class="separator">|</div>
                         <div class="contentt" id="actions">Action</div>
                       </div>
@@ -80,7 +105,6 @@
 
                   </div>
                 </div>
-                <tal:block-subitems tal:define="files python:view.indicatorsInside(item);">
                   <div class="tabla_cuerpo" tal:repeat="item files">
                     <div class="tabla_hilera">
                       <div class="block_content">
@@ -100,11 +124,11 @@
                             <div class="separator">|</div>
                             <div class="contentt" id="target">XX4</div>
                             <div class="separator">|</div>
-                            <div class="contentt" id="mu">XXCentimeters</div>
+                            <div class="contentt" id="mu" tal:content="item/responsible"> Members </div>
                             <div class="separator">|</div>
                             <div class="contentt" id="actions">
-                                <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit; title string:Edit ${item/title}...; alt string:Edit ${item/title}..."><i class="far fa-edit"></i></a>
-                                <a href="#"> <i class="far fa-trash-alt"></i></a>
+                              <a class="pat-plone-modal" tal:attributes="href string:${item/url}/edit; title string:Edit ${item/title}...; alt string:Edit ${item/title}..."><i class="far fa-edit"></i></a>
+                              <a href="#myModal" data-toggle="modal" tal:attributes="data-item item/url; data-type item/portal_type"><i class="far fa-trash-alt"></i></a>
                             </div>
                           </div>
                         </div>
@@ -122,11 +146,11 @@
                               <div class="separator">|</div>
                               <div class="contentt" id="target">XX4</div>
                               <div class="separator">|</div>
-                              <div class="contentt" id="mu">XXCentimeters</div>
+                              <div class="contentt" id="mu" tal:content="output/responsible"> Responsible </div>
                               <div class="separator">|</div>
                               <div class="contentt" id="actions">
                                 <a class="pat-plone-modal" tal:attributes="href string:${output/url}/edit; title string:Edit ${output/title}...; alt string:Edit ${output/title}..."><i class="far fa-edit"></i></a>
-                                <a href="#"> <i class="far fa-trash-alt"></i></a>
+                                 <a href="#myModal" data-toggle="modal"> <i class="far fa-trash-alt"></i></a>
                               </div>
                             </div>
                           </div>
@@ -186,6 +210,28 @@
   </metal:block>
 
 <!--   <script src="/++theme++gwopa.theme/assets/javascripts/gwopa.umd.min.js"></script> -->
+
+<script type="text/javascript">
+  function deleteElement(item){
+    var params = {};
+    values = item.split(',')
+    params.item = values[0]
+    params.portal_type = values[1]
+    $.ajax({
+        type: 'POST',
+        url: '@@removeElement',
+        data: params,
+        success: function(){
+                refreshNeeded = true;
+              },
+    });
+    $(document).ajaxStop(function(){
+       if(refreshNeeded){
+          window.location.reload();
+      }
+    });
+    }
+</script>
 
 </metal:content-core>
 

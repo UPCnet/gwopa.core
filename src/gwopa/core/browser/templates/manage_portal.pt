@@ -7,13 +7,11 @@
       i18n:domain="gwopa">
 
 <body>
-  <metal:block fill-slot="top_slot"
-        tal:define="dummy python:request.set('disable_border',1)" />
+
 
   <div metal:fill-slot="main" tal:define="portal_state context/@@plone_portal_state;
                                           portal_url portal_state/portal_url;">
     <metal:main-macro define-macro="main">
-      <!-- <script src="https://kryogenix.org/code/browser/sorttable/sorttable.js"></script> -->
       <div>
         <h1 class="documentFirstHeading" i18n:translate="">GWOPA administration page</h1>
         <p class="documentDescription" i18n:translate="">Control panel to configure and view all the important system parameters</p>
@@ -42,8 +40,8 @@
           </thead>
           <tbody>
             <tr tal:repeat="project elements">
-              <td class="paddingleft20">
-                <i class="fa fa-caret-right"></i>
+              <td>
+                <i class="fas fa-chevron-circle-right"></i>
                 <a href="" tal:attributes="href string:${project/url}/" target="_blank" tal:content="project/title">Title</a>
               </td>
               <td tal:content="project/start"> Start </td>
@@ -51,9 +49,9 @@
               <td tal:content="project/manager"> Admin </td>
               <td tal:content="project/country"> Country </td>
               <td style="text-align: center;">
-                <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:green"></i></a>
-                <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
-                  <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
+                <a href="" tal:attributes="href string:${project/url}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                 <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
+                  <i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i>
                 </a>
               </td>
             </tr>
@@ -63,6 +61,7 @@
 
       <h2> Areas </h2>
       <tal:block tal:define="elements view/getAreas">
+
         <table class="sortable" tal:condition="not:elements">
           No Areas found in the Platform. A Project must be created to create an Area inside it.
         </table>
@@ -214,7 +213,6 @@
         </a>
       </h2>
       <p> Shows the current values for: Exchange Currency / Measuring Unit / Measuring Frequency / Capacity Changes</p>
-    </metal:main-macro>
   </div>
 
 </body>

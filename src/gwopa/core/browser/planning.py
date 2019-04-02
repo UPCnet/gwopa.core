@@ -127,12 +127,18 @@ class planningView(BrowserView):
                 item.start = '---'
             if not item.end:
                 item.end = '---'
+            if not item.getObject().members:
+                members = 'None'
+            else:
+                members = item.getObject().members
+
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
                 start=item.start,
                 end=item.end,
+                responsible=members,
                 url='/'.join(item.getObject().getPhysicalPath())))
         return results
 
