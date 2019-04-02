@@ -46,11 +46,6 @@
                   <div class="col-md-3">
                     <div class="row" tal:define="portrait python:view.getPortrait(username)">
                         <div class="photo col-md-12">
-        
-<!--                           <a tal:omit-tag="not: isOwner"
-                             tal:attributes="href string:${view/portal_url}/@@personal-information">
-                              <img tal:attributes="src string:/++theme++gwopa.theme/assets/images/default_image.jpg" alt="admin user">
-                          </a> -->
                           <img src=""
                                 alt="User portrait picture"
                                 i18n:attributes="alt"
