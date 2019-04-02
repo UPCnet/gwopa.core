@@ -13,34 +13,29 @@
     <h1 class="documentFirstHeading" i18n:translate="">Collaborating module</h1>
     <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below.</div>
 
-    <tal:MyProjects define="items view/getAreas;" condition="items">
-      <div class="has-table">
-        <h2 i18n:translate=""> Improvement areas</h2>
-        <table class="listing" summary="Content listing">
-          <tbody>
-            <div class="row">
-              <tal:repeatProjects repeat="item items">
-                <div class="col-lg-3 col-md-6">
-                  <div class="card-body">
-                    <h4 class="card-title">
-                      <a tal:attributes="href item/url" tal:content="item/title">Event Title</a>
-                    </h4>
-                  </div>
-                  <a tal:attributes="href item/url; title item/description; alt item/description">
-                    <div class="box">
+    <tal:block tal:define="items view/getAreas">
+      <div class="has-table" tal:condition="items">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12">
+            <tal:items repeat="item items">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="box">
+                  <a tal:attributes="href item/url">
                     <img class="img200" tal:condition="item/image"
                          tal:attributes="src string:${item/url}/@@images/image/preview;"/>
                     <img class="img200" tal:condition="not:item/image"
                          tal:attributes="src string:++theme++gwopa.theme/assets/images/default_image.jpg;"/>
-                  </div>
-                </a>
+                    <div class="card-body">
+                      <h4 class="card-title top" tal:content="item/title"> Area Title</h4>
+                    </div>
+                  </a>
                 </div>
-              </tal:repeatProjects>
-            </div>
-          </tbody>
-        </table>
+              </div>
+            </tal:items>
+          </div>
+        </div>
       </div>
-    </tal:MyProjects>
+    </tal:block>
 
   </metal:block>
 

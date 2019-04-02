@@ -44,17 +44,10 @@
 <!--         <ul class="plone-toolbar-main">
           <div tal:replace="structure view/base_render">
           </div>
-        </ul>
- -->
+        </ul> -->
+
 
         <ul class="plone-toolbar-main">
-
-          <li id="contentview-folderContents" class="">
-              <a tal:attributes="href string:${portal_url}/config">
-                <span class="icon-folderContents toolbar-menu-icon" aria-hidden="true"></span>
-                <span>Config Folder</span>
-              </a>
-          </li>
           <li id="contentview-edit" class="">
             <a tal:attributes="href string:${context/absolute_url}/edit">
               <span class="icon-edit toolbar-menu-icon" aria-hidden="true"></span>
@@ -72,12 +65,6 @@
                 <span class="icon-local_roles  toolbar-menu-icon" aria-hidden="true">
                 </span>
                 <span>Sharing</span>
-              </a>
-          </li>
-          <li id="contentview-settings" class="">
-              <a tal:attributes="href string:${portal_url}/managePortal">
-                <span class="icon-siteSettings toolbar-menu-icon" aria-hidden="true"></span>
-                <span>Settings</span>
               </a>
           </li>
         </ul>

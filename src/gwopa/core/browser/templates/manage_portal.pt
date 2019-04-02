@@ -13,15 +13,17 @@
                                           portal_url portal_state/portal_url;">
     <metal:main-macro define-macro="main">
       <div>
-        <h1 class="documentFirstHeading" i18n:translate="">GWOPA administration page</h1>
+        <h1 class="documentFirstHeading" i18n:translate="">Admin Settings Zone</h1>
         <p class="documentDescription" i18n:translate="">Control panel to configure and view all the important system parameters</p>
         <div class="visualClear"></div>
       </div>
 
-      <h2><tal:omit-tag i18n:translate=""> Projects </tal:omit-tag>
+      <h2>
         <a class="pat-plone-modal" id="add-new-project" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
-          <button id="add-new-project" class="context focus" i18n:translate=""> + New Project</button>
+           <i class="fas fa-plus-circle"></i> 
         </a>
+        <tal:omit-tag i18n:translate=""> Projects </tal:omit-tag>
+
       </h2>
       <tal:block tal:define="elements view/getProjects">
         <table class="sortable" tal:condition="not:elements">

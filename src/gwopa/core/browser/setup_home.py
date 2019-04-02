@@ -106,6 +106,7 @@ class setup(grok.View):
                 Description='This folder contains configuration folders used in the Site and managed by the administrators',
                 container=portal,
                 safe_id=False)
+            config_folder.setLayout('tabular_view')
             allowed_types = ['Folder', ]
             _setup_constrains(config_folder, allowed_types)
             programs = api.content.create(

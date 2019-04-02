@@ -37,7 +37,6 @@
               <h1 class="documentFirstHeading" tal:condition="view/fullname" tal:content="view/fullname">
                   Author name
               </h1>
-
               <h1 class="documentFirstHeading" tal:condition="not: view/fullname" tal:content="username">
                   Author ID
               </h1>
@@ -45,17 +44,18 @@
               <div id="content-core">
                 <div class="row">
                   <div class="col-md-3">
-                    <div class="row">
+                    <div class="row" tal:define="portrait python:view.getPortrait(username)">
                         <div class="photo col-md-12">
-                          <p>
-                            <span class="dades currentactivity">
-                              <max-activities-count object="user" tal:attributes="username username"></max-activities-count>
-                            </span>
-                          </p>
-                          <a tal:omit-tag="not: isOwner"
+        
+<!--                           <a tal:omit-tag="not: isOwner"
                              tal:attributes="href string:${view/portal_url}/@@personal-information">
                               <img tal:attributes="src string:/++theme++gwopa.theme/assets/images/default_image.jpg" alt="admin user">
-                          </a>
+                          </a> -->
+                          <img src=""
+                                alt="User portrait picture"
+                                i18n:attributes="alt"
+                                class="portraitPhoto"
+                                tal:attributes="src portrait/absolute_url" />
                         </div>
                     </div>
                   </div>

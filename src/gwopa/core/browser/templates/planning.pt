@@ -166,18 +166,17 @@
         </div>
         <div class="tab-pane" id="outcomes">
           <div tal:define="outcomes view/listOutcomesKPI" class="clearfix">
-            <div>
-              <div class="btn-group" role="group" aria-label="Add KPI">
-                <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
-                  <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New Overall KPI </span></a></li>
-                  <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New KPI Zone </span></a></li>
-                </ul>
-              </div>
-              <div class="titleRowPlanning">
-                <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag> 
-              </div>
+            <div class="btn-group" role="group" aria-label="Add KPI">
+              <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
+                <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New Overall KPI </span></a></li>
+                <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New KPI Zone </span></a></li>
+              </ul>
             </div>
+            <div class="titleRowPlanning">
+              <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag> 
+            </div>
+            <hr/>
             <tal:objects repeat="outcome outcomes">
               <ul class="item">
                 <li>
@@ -189,9 +188,9 @@
               </ul>
             </tal:objects>
           </div>
-          <hr/>
           <tal:block-ouctomes tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
             <h4 i18n:translate=""> Utility Capacity </h4>
+            <hr/
             <ul class="item">
               <li tal:repeat="outcome outcomes">
                 <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}">
