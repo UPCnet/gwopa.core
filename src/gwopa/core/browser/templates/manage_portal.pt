@@ -23,7 +23,6 @@
            <i class="fas fa-plus-circle"></i> 
         </a>
         <tal:omit-tag i18n:translate=""> Projects </tal:omit-tag>
-
       </h2>
       <tal:block tal:define="elements view/getProjects">
         <table class="sortable" tal:condition="not:elements">
@@ -63,7 +62,6 @@
 
       <h2> Areas </h2>
       <tal:block tal:define="elements view/getAreas">
-
         <table class="sortable" tal:condition="not:elements">
           No Areas found in the Platform. A Project must be created to create an Area inside it.
         </table>
@@ -215,6 +213,7 @@
         </a>
       </h2>
       <p> Shows the current values for: Exchange Currency / Measuring Unit / Measuring Frequency / Capacity Changes</p>
+    </metal:main-macro>
   </div>
 
 </body>

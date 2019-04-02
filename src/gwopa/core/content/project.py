@@ -24,7 +24,8 @@ import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
 from operator import itemgetter
-from plone.directives import form
+# from plone.directives import form
+
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
 
@@ -73,8 +74,6 @@ def area_not_used(context):
     """ Titles of Improvement Areas not created in this Project """
     terms = []
     literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
-    # terms = []
-    # literals = api.content.find(portal_type="ItemArea")
     for item in literals:
         flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
         terms.append(SimpleVocabulary.createTerm(item.Title, flattened, item.Title))
@@ -355,6 +354,7 @@ class View(grok.View):
         return sorted(results, key=itemgetter('name'), reverse=False)
 
     def canEdit(self):
+        # TODO: Create app role system
         return False
 
     def partners(self):
@@ -409,18 +409,17 @@ class View(grok.View):
         return results
 
     def get_currency(self):
+        items = api.content.find(
+            portal_type=['ContribOther', 'ContribPartner', 'ContribDonor'],
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        total = 0
+        letter = utils.project_currency(self)
+        for item in items:
+            obj = item.getObject()
+            if obj.incash:
+                total = total + obj.incash
+            if obj.inkind:
+                total = total + obj.inkind
 
-            items = api.content.find(
-                portal_type=['ContribOther', 'ContribPartner', 'ContribDonor'],
-                path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
-                depth=2)
-            total = 0
-            letter = utils.project_currency(self)
-            for item in items:
-                obj = item.getObject()
-                if obj.incash:
-                    total = total + obj.incash
-                if obj.inkind:
-                    total = total + obj.inkind
-
-            return str(total) + letter
+        return str(total) + letter

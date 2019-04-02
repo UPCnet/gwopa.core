@@ -50,7 +50,7 @@
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
 
             <!-- Delete Modal HTML -->
-            <div id="myModal" class="modal fade">
+            <div id="deleteModal" class="modal fade">
               <div class="modal-dialog modal-confirm">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -61,11 +61,12 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                   </div>
                   <div class="modal-body">
-                    <p>Do you really want to delete these records? This process cannot be undone.</p>
+                    <p>Do you really want to delete these record? This process cannot be undone.</p>
                   </div>
+                  <p class="debug-url"></p>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger" data-target="#confirm-delete">Delete</button>
+                    <button id="delete" type="button" class="btn btn-danger" onclick="deleteElement(data)">Delete</button>
                   </div>
                 </div>
               </div>
@@ -121,7 +122,7 @@
                                   href string:${item/url}/edit;
                                   title string:Edit ${item/title};
                                   alt string:Edit ${item/title}"><i class="far fa-edit"></i></a>
-                              <a href="#myModal" data-toggle="modal" 
+                              <a href="#deleteModal" data-toggle="modal"
                                 tal:attributes="
                                   data-item item/url;
                                   data-type item/portal_type;
@@ -148,7 +149,7 @@
                                     href string:${output/url}/edit;
                                     title string:Edit ${output/title};
                                     alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
-                                <a href="#myModal" data-toggle="modal"
+                                <a href="#deleteModal" data-toggle="modal"
                                   tal:attributes="
                                     data-item item/url;
                                     data-type item/portal_type;
@@ -193,7 +194,7 @@
           </div>
           <tal:block-ouctomes tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
             <h4 i18n:translate=""> Utility Capacity </h4>
-            <hr/
+            <hr/>
             <ul class="item">
               <li tal:repeat="outcome outcomes">
                 <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}">
@@ -204,42 +205,19 @@
         </div>
       </div>
     </div>
-
 <!--     <div id="app">
       <demo></demo>
     </div>
  -->
   </metal:block>
-
 <!--   <script src="/++theme++gwopa.theme/assets/javascripts/gwopa.umd.min.js"></script> -->
-
   <script>
-      $('#confirm-delete').on('show.bs.modal', function(e) {
-        alert('ok');
-      });
+      $('#delete').click(function() {
+        debugger;
+      $select_value = $("#exampleSelect").value();
+      $('#deleteModal').modal('hide');
+});
   </script>
-
-<script type="text/javascript">
-  function deleteElement(item){
-    var params = {};
-    values = item.split(',')
-    params.item = values[0]
-    params.portal_type = values[1]
-    $.ajax({
-        type: 'POST',
-        url: '@@removeElement',
-        data: params,
-        success: function(){
-                refreshNeeded = true;
-              },
-    });
-    $(document).ajaxStop(function(){
-       if(refreshNeeded){
-          window.location.reload();
-      }
-    });
-    }
-</script>
 
 </metal:content-core>
 

@@ -7,19 +7,19 @@ import datetime
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from plone.directives import form
-# from z3c.form.interfaces import IAddForm, IEditForm
-# from datetime import date
-from plone.app.z3cform.widget import DatetimeFieldWidget
-# from z3c.form.interfaces import IFieldWidget
-# from z3c.form.widget import FieldWidget
-# from zope.interface import implementer
+from zope.interface import invariant, Invalid
+from zope.globalrequest import getRequest
 
-# from zope.formlib.widgets import DateI18nWidget
-# from zope.i18n.format import DateTimeParseError
-# from zope.app.form.interfaces import ConversionError
-# from ftw.datepicker.widget import DateTimePickerWidgetFactory
 
 grok.templatedir("templates")
+
+
+class StartBeforeEnd(Invalid):
+    __doc__ = _(u"The starting date must be before the completion date")
+
+
+class Outofproject(Invalid):
+    __doc__ = _(u"This date must be between the dates of the project.")
 
 
 def todayValue():
@@ -29,13 +29,26 @@ def todayValue():
 current_year = datetime.date.today().year
 
 
+def checkDate(value):
+    if value:
+        req = getRequest()
+        context = req.PARENTS[0]
+        start_project = context.aq_parent.startactual.toordinal()
+        end_project = context.aq_parent.completionactual.toordinal()
+        # portal = getUtility(ISiteRoot)
+        date = value.toordinal()
+        if not (date <= end_project and date >= start_project):
+            raise Invalid(_(u'This date must be between the dates of the project.'))
+    return True
+
+
 class IActivity(model.Schema):
     """  Activity """
 
-    #form.widget(due_date=DateTimePickerWidgetFactory)
-    # due_date = schema.Date(
-    #     title=_(u"Other Date picker only works with no modals"),
-    # )
+    directives.mode(project_dates='display')
+    project_dates = schema.Text(
+        title=_(u'Project dates'),
+    )
 
     title = schema.TextLine(
         title=_(u"Title"),
@@ -57,33 +70,18 @@ class IActivity(model.Schema):
     start = schema.Date(
         title=_(u'Starting date'),
         required=True,
-        defaultFactory=todayValue,
+        constraint=checkDate
     )
-
-    # directives.widget(
-    #     'start',
-    #     DatetimeFieldWidget,
-    #     pattern_options={
-    #         "date": {
-    #             'min': [current_year - 2, 1, 1],
-    #             'max': [current_year + 20, 1, 1],
-    #             'selectYears': 12,
-    #         },
-    #         'time': False,
-    #         'format': 'M/d/yy',
-    #     },
-    # )
 
     end = schema.Date(
         title=_(u'Completion date'),
         required=True,
-        defaultFactory=todayValue,
+        constraint=checkDate
     )
 
     budget = schema.Text(
         title=_(u'Assigned budget'),
         required=False,
-        missing_value=u'',
     )
 
     directives.mode(currency='display')
@@ -99,21 +97,28 @@ class IActivity(model.Schema):
         required=False,
     )
 
+    @invariant
+    def validateStartEnd(data):
+        if data.start is not None and data.end is not None:
+            if data.start > data.end:
+                raise StartBeforeEnd(_(u"The starting date must be before the completion date."))
+
 
 @form.default_value(field=IActivity['currency'])
 def projectCurrency(data):
-    # return data.context.aq_parent.currency.split('-')[-1].lstrip(' ').rstrip(' ')
     return data.context.aq_parent.currency
+
+
+@form.default_value(field=IActivity['project_dates'])
+def projectDates(data):
+    return "Start: " + str(data.context.aq_parent.startactual) + " - End: " + str(data.context.aq_parent.completionactual)
 
 
 class Edit(form.SchemaEditForm):
     grok.context(IActivity)
 
     def updateWidgets(self):
-        # form_fields['start_date'].custom_widget = MyDateI18nWidget
         super(Edit, self).updateWidgets()
-        # self.widgets['start'].custom_widget = MyDateI18nWidget
-    #     self.widgets['start'].config['selectYears'] = 10
 
 
 class View(grok.View):

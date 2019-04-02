@@ -135,7 +135,9 @@
                 </div>
                 <br/>
 
-                <h1 class="documentFirstHeading" i18n:translate="">Search Projects</h1>
+                <h1 class="documentFirstHeading"><tal:search i18n:translate="">Search Projects</tal:search>
+
+                </h1>
 
                 <form tal:attributes="action string:${navigation_root_url}/search;
                                      data-pat-livesearch string:ajaxUrl:${navigation_root_url}/ajax-search" role="search" class="pat-livesearch">
@@ -152,7 +154,8 @@
                         />
                   </div>
                </form>
-
+                <a href="" tal:attributes="href string:${portal_url}/showMap">
+                  <button class="center-btn focus"><i class="fas fa-globe"></i> Show on Map </button></a>
                 <div class="has-table">
                   <div class="row">
                     <div class="col-xs-12 col-sm-12">
