@@ -65,7 +65,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger" onclick=deleteElement(portal_type)>Delete</button>
+                    <button type="button" class="btn btn-danger" data-target="#confirm-delete">Delete</button>
                   </div>
                 </div>
               </div>
@@ -105,7 +105,7 @@
                           <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
                             <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><i class="fa fa-plus-circle"></i></a>
                           </tal:block>
-                          <div tal:attributes="class string:${item/portal_type}-planning indent-item" tal:content="item/portal_type">Activity/output label</div>
+                          <div tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type">Activity/output label</div>
                           <h4 class="titulocatplan" id="output" tal:content="item/title"> Activity/Output Title </h4>
                           <tal:block tal:condition="python:item['portal_type'] == 'Output'">
                             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + </button></a>
@@ -121,7 +121,7 @@
                                   href string:${item/url}/edit;
                                   title string:Edit ${item/title};
                                   alt string:Edit ${item/title}"><i class="far fa-edit"></i></a>
-                              <a href="#myModal" data-toggle="modal"
+                              <a href="#myModal" data-toggle="modal" 
                                 tal:attributes="
                                   data-item item/url;
                                   data-type item/portal_type;
@@ -212,6 +212,12 @@
   </metal:block>
 
 <!--   <script src="/++theme++gwopa.theme/assets/javascripts/gwopa.umd.min.js"></script> -->
+
+  <script>
+      $('#confirm-delete').on('show.bs.modal', function(e) {
+        alert('ok');
+      });
+  </script>
 
 <script type="text/javascript">
   function deleteElement(item){
