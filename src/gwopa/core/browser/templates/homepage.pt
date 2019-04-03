@@ -75,7 +75,7 @@
           <metal:slot define-slot="body">
             <article id="content">
               <metal:bodytext define-slot="main">
-                <a tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a>
+                <a tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"><tal:omit-tag i18n:translate=""> + New Project </tal:omit-tag></button></a>
 <!--                 <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a> -->
                 <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My Projects</tal:omit-tag></h1>
                 <div class="has-table" tal:define="items view/myProjects;" >
@@ -148,8 +148,6 @@
                             name="SearchableText"
                             type="text"
                             size="15"
-                            title="Search Site"
-                            placeholder="Search Site"
                             i18n:attributes="title title_search_title;
                                              placeholder title_search_site"
                             tal:attributes="value request/SearchableText|nothing;"
@@ -161,14 +159,15 @@
                       <a tal:attributes="href string:${portal_url}/search">
                           <button class="searchbtn">
                             <i class="fas fa-search"></i>
-                            Advanced search
+                            <tal:omit-tag i18n:translate="">Advanced search</tal:omit-tag>
                           </button>
                         </a>
                   </div>
                   <div class="col-md-2">
                     <a tal:attributes="href string:${portal_url}/showMap">
                         <button class="center-btn">
-                          <i class="fas fa-globe"></i> Show on Map
+                          <i class="fas fa-globe"></i>
+                          <tal:omit-tag i18n:translate="">Map of projects</tal:omit-tag>
                         </button>
                       </a>
                   </div>

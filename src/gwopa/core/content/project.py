@@ -65,9 +65,9 @@ def default_today(context):
 
 
 @provider(IContextAwareDefaultFactory)
-def default_tomorrow(context):
+def default_plus_one_year(context):
     """ Provide default end for the form. """
-    return datetime.date.today() + datetime.timedelta(1)
+    return datetime.date.today() + datetime.timedelta(365)
 
 
 def area_not_used(context):
@@ -155,12 +155,13 @@ class IProject(model.Schema):
     startactual = schema.Date(
         title=_(u'Actual'),
         required=True,
-        defaultFactory=default_tomorrow
+        defaultFactory=default_today
     )
 
     startplanned = schema.Date(
         title=_(u'Planned'),
         required=False,
+        defaultFactory=default_today
     )
 
     directives.mode(completiondate='display')
@@ -172,12 +173,13 @@ class IProject(model.Schema):
     completionactual = schema.Date(
         title=_(u'Actual'),
         required=True,
-        defaultFactory=default_tomorrow
+        defaultFactory=default_plus_one_year
     )
 
     completionplanned = schema.Date(
         title=_(u'Planned'),
         required=False,
+        defaultFactory=default_plus_one_year
     )
 
     objectives = RichText(
@@ -327,6 +329,12 @@ class View(grok.View):
                 description=item.Description))
         results.sort(key=lambda x: x['title'], reverse=False)
         return results
+
+    def planneddates(self):
+        if (self.context.startplanned == self.context.startactual) and (self.context.completionactual == self.context.completionplanned):
+            return False
+        else:
+            return True
 
     def getProject_manager(self):
         users = []

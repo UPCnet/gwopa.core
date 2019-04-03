@@ -79,7 +79,7 @@
                         <div class="btn-group" role="group" aria-label="Add element">
                           <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                           <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                            <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity"><span><i class="fas fa-plus-circle"></i> Add Activity </span></a></li>
+                            <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity"><span><i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></span></a></li>
                             <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><span><i class="fas fa-plus-circle"></i> Add Output </span></a></li>
                           </ul>
                         </div>

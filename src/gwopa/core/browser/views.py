@@ -109,4 +109,7 @@ class mapView(BrowserView):
             if obj.longitude and obj.latitude:
                 poi = Feature(geometry=Point((float(obj.longitude), float(obj.latitude))), properties={'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>Status:'})
                 results.append(poi)
-        return FeatureCollection(results)
+        if results:
+            return FeatureCollection(results)
+        else:
+            return None
