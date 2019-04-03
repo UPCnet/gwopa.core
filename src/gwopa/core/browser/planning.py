@@ -96,6 +96,7 @@ class planningView(BrowserView):
             item = project.getObject()
             results.append(dict(title=item.title,
                                 url='/'.join(item.getPhysicalPath()),
+                                id=item.id,
                                 description=item.description,
                                 portal_type=item.portal_type
                                 ))

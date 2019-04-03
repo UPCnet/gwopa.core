@@ -42,6 +42,12 @@ def checkDate(value):
     return True
 
 
+class IDate(schema.Date):
+    text = schema.Text(
+        title=_(u"Target Value Year"),
+    )
+
+
 class IActivity(model.Schema):
     """  Activity """
 
