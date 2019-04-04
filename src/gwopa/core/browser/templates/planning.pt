@@ -139,7 +139,7 @@
                             <div class="information object">
                               <div class="contentt" id="total">
                               <div tal:attributes="class string:${output/portal_type}-planning indent-item" tal:content="output/portal_type">Type Output</div>
-                              <h4 class="pat-plone-modal" tal:content="output/title"> Item Title </h4>
+                              <h4 class="titulocatplan" tal:content="output/title"> Item Title </h4>
                             </div>
 <!--                             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${output/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + </button></a> -->
                               <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
