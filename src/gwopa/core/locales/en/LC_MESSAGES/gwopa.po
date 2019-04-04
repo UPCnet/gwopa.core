@@ -50,7 +50,7 @@ msgstr "Activity"
 msgid "Actual"
 msgstr "Actual"
 
-#: ../browser/templates/planning.pt:82
+#: ../browser/templates/planning.pt:84
 msgid "Add Activity"
 msgstr ""
 
@@ -740,7 +740,7 @@ msgstr ""
 msgid "The system will use the settings id. Change for testing purposes only."
 msgstr "The system will use the settings id. Change for testing purposes only."
 
-#: ../content/activity.py:22
+#: ../content/activity.py:41
 msgid "This date must be between the dates of the project."
 msgstr ""
 
@@ -790,11 +790,11 @@ msgstr "Username"
 msgid "Users in this Partner"
 msgstr "Users in this Partner"
 
-#: ../browser/templates/planning.pt:191
+#: ../browser/templates/planning.pt:197
 msgid "Utility Capacity"
 msgstr "Utility Capacity"
 
-#: ../browser/templates/planning.pt:176
+#: ../browser/templates/planning.pt:182
 msgid "Utility Performance"
 msgstr "Utility Performance"
 

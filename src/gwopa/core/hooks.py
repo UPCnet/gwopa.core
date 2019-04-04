@@ -6,6 +6,8 @@ from gwopa.core.content.partner import IPartner
 from gwopa.core.content.improvement_area import IImprovementArea
 from gwopa.core.content.outcomecc import IOutcomecc
 from gwopa.core.content.outcomeccs import IOutcomeccs
+from Products.CMFPlone.interfaces import IConfigurationChangedEvent
+from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
 from plone import api
 # import datetime
 import transaction
@@ -184,3 +186,30 @@ def OutcomeCCAdded(content, event):
             title=item.Title,
             container=content)
         transaction.commit()
+
+
+@grok.subscribe(IConfigurationChangedEvent)
+def updateCustomLangCookie(event):
+    """ This subscriber will trigger when a user change his/her profile data. It
+        sets a cookie for the 'language' user profile setting. After this, due
+        to the custom Language Negotiator  the site language is forced to
+        the one in the cookie.
+    """
+    if 'language' in event.data:
+        if event.data['language']:
+            event.context.request.response.setCookie('I18N_LANGUAGE', event.data['language'], path='/')
+            event.context.request.response.redirect(event.context.context.absolute_url() + '/@@personal-information')
+
+
+@grok.subscribe(IUserLoggedInEvent)
+def updateCustomLangCookieLogginIn(event):
+    """ This subscriber will trigger when a user change his/her profile data. It
+        sets a cookie for the 'language' user profile setting. After this, due
+        to the custom Language Negotiator the site language is forced to
+        the one in the cookie.
+    """
+    request = getRequest()
+    current = api.user.get_current()
+    lang = current.getProperty('language')
+    if lang and request is not None:
+        request.response.setCookie('I18N_LANGUAGE', lang, path='/')

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-03 16:49+0000\n"
+"POT-Creation-Date: 2019-04-04 15:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Actual"
 msgstr ""
 
-#: ../browser/templates/planning.pt:82
+#: ../browser/templates/planning.pt:84
 msgid "Add Activity"
 msgstr ""
 
@@ -747,7 +747,7 @@ msgstr ""
 msgid "The system will use the settings id. Change for testing purposes only."
 msgstr ""
 
-#: ../content/activity.py:22
+#: ../content/activity.py:41
 msgid "This date must be between the dates of the project."
 msgstr ""
 
@@ -797,11 +797,11 @@ msgstr ""
 msgid "Users in this Partner"
 msgstr ""
 
-#: ../browser/templates/planning.pt:191
+#: ../browser/templates/planning.pt:197
 msgid "Utility Capacity"
 msgstr ""
 
-#: ../browser/templates/planning.pt:176
+#: ../browser/templates/planning.pt:182
 msgid "Utility Performance"
 msgstr ""
 
