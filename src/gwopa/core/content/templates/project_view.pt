@@ -25,7 +25,7 @@
                   others view/others;
                   getProject_manager view/getProject_manager;">
 
-  <span class="label_status">Completed</span>
+  <button class="context focus">Completed</button>
   <h1 class="documentFirstHeading">
     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" title="Edit project" alt="Edit project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
     <tal:omit-tag tal:condition="not:canEdit" tal:content="context/title"> Project Title</tal:omit-tag>

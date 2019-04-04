@@ -18,8 +18,8 @@ class StartBeforeEnd(Invalid):
     __doc__ = _(u"The starting date must be before the completion date")
 
 
-class Outofproject(Invalid):
-    __doc__ = _(u"This date must be between the dates of the project.")
+# class Outofproject(Invalid):
+#     __doc__ = _(u"This date must be between the dates of the project.")
 
 
 def todayValue():
