@@ -60,6 +60,12 @@
               <span>View</span>
             </a>
           </li>
+          <li id="contentview-folderContents" class="">
+            <a tal:attributes="href string:${context/absolute_url}/folder_contents">
+              <span class="icon-folderContents toolbar-menu-icon" aria-hidden="true"></span>
+              <span>Contents</span>
+            </a>
+          </li>
           <li id="contentview-local_roles" class="">
               <a tal:attributes="href string:${context/absolute_url}/sharing">
                 <span class="icon-local_roles  toolbar-menu-icon" aria-hidden="true">

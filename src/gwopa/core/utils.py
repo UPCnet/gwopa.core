@@ -9,6 +9,7 @@ import pycountry
 from gwopa.core import _
 from souper.soup import get_soup
 from repoze.catalog.query import Eq
+from Products.CMFCore.utils import getToolByName
 from zope.interface import directlyProvides
 
 
@@ -19,6 +20,13 @@ def project_currency(self):
     else:
         letter = '$'
     return letter
+
+
+def getPortrait(self, user):
+    membership_tool = getToolByName(
+        self.context, 'portal_membership'
+    )
+    return membership_tool.getPersonalPortrait(user)
 
 
 def generate_vocabulary(value):

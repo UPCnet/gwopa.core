@@ -7,17 +7,22 @@
     i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="main">
+<metal:content-core fill-slot="main"
+    tal:define="portal_state context/@@plone_portal_state;
+                portal_url portal_state/portal_url;">
 
-<metal:javascript fill-slot="javascript_head_slot">
-  <link rel="stylesheet" href="/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css"/>
-</metal:javascript>
-
+  <metal:javascript fill-slot="javascript_head_slot">
+    <script>
+      require = undefined;
+      define = undefined;
+    </script>
+    <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </metal:javascript>
 
   <metal:block define-macro="content-core">
 
     <h1 class="documentFirstHeading">Monitoring Module</h1>
-    <div class="documentDescription description">Introduction text of monitoring module.</div>
     <div class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset class="autotoc-section active">
         <legend>Project</legend>
@@ -28,8 +33,7 @@
             <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
           </a>
           <div id="MonitoringProjects" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
-            <div></div>
-            <div></div>
+
 
             <table class="table table-hover">
               <thead>
@@ -2081,14 +2085,10 @@
                   </tr>
                 </tbody>
               </table>
-<button type="button" class="btn btn-default focus" data-dismiss="3">Update</button>
+            <button type="button" class="btn btn-default focus" data-dismiss="3">Update</button>
             </div>
           </div>
         </div>
-        <!--                 <metal:sub define-slot="sub" tal:content="nothing">
-                   This slot is here for backwards compatibility only.
-                   Don't use it in your custom templates.
-                </metal:sub> -->
       </fieldset>
     </div>
 

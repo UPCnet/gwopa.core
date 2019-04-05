@@ -109,38 +109,46 @@ class planningView(BrowserView):
         data_year = self.context.gwopa_fases[int(self.year) - 1]
         start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%d-%m')
         end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
-        date_range_query = {'query': (start, end), 'range': 'min:max'}
-        #     start=date_range_query,
+        date_range_query = {'query': (start, end), 'range': 'min:max'},
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity'],
+            start=date_range_query,
             path={'query': folder_path,
                   'depth': 1})
-        # date_range_query = {'query': (end, end), 'range': 'max'}
-            # end=date_range_query,
+        date_range_query = {'query': (end, end), 'range': 'max'}
         outputs = portal_catalog.unrestrictedSearchResults(
             portal_type=['Output'],
+            end=date_range_query,
             path={'query': folder_path,
                   'depth': 1})
         items = items + outputs
         results = []
         for item in items:
+            obj = item.getObject()
             if not item.start:
-                item.start = '---'
+                item.start = '-----'
             if not item.end:
-                item.end = '---'
-            if not item.getObject().members:
-                members = 'None'
+                item.end = '-----'
+            if not obj.members:
+                members = '-----'
             else:
-                members = item.getObject().members
-
+                members = obj.members
+            if item.portal_type == 'Output':
+                unit = obj.measuring_unit
+                value = obj.target
+            else:
+                unit = '-----'
+                value = '-----'
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
                 start=item.start,
                 end=item.end,
+                unit=unit,
+                value=value,
                 responsible=members,
-                url='/'.join(item.getObject().getPhysicalPath())))
+                url='/'.join(obj.getPhysicalPath())))
         return results
 
     def listOutcomesKPI(self):

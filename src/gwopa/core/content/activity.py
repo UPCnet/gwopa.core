@@ -85,13 +85,13 @@ class IActivity(model.Schema):
         constraint=checkDate
     )
 
-    budget = schema.Text(
+    budget = schema.TextLine(
         title=_(u'Assigned budget'),
         required=False,
     )
 
     directives.mode(currency='display')
-    currency = schema.Text(
+    currency = schema.TextLine(
         title=_(u'Project Currency'),
     )
 

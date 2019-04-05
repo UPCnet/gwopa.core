@@ -24,7 +24,7 @@ import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
 from operator import itemgetter
-# from plone.directives import form
+from plone.directives import form
 
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
@@ -282,7 +282,7 @@ class IProject(model.Schema):
         )
     )
 
-    # form.mode(gwopa_fases='hidden')
+    form.mode(gwopa_fases='hidden')
     # form.mode(IEditForm, gwopa_code_project='display')
     gwopa_fases = schema.ASCIILine(
         title=_(u'Fases'),
@@ -350,13 +350,15 @@ class View(grok.View):
             manager = False
             project = False
             if user in self.context.project_manager_admin:
-                manager = True
+                manager = 'admin-partner'
             if user in self.context.project_manager:
                 project = True
             results.append(dict(
                 partners=obj.getProperty('wop_partners'),
                 name=obj.getProperty('fullname'),
-                manager=manager,
+                email=obj.getProperty('email'),
+                image=utils.getPortrait(self, user),
+                managerClass=manager,
                 project=project,
             ))
         return sorted(results, key=itemgetter('name'), reverse=False)

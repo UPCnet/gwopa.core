@@ -8,7 +8,7 @@ import datetime
 from z3c.form.interfaces import IAddForm, IEditForm
 from plone.autoform import directives
 from plone.app.z3cform.widget import SelectWidget
-
+from gwopa.core import utils
 grok.templatedir("templates")
 
 
@@ -44,6 +44,12 @@ class IOutput(model.Schema):
 
     target = schema.Text(
         title=_(u"Measurable Target"),
+        required=True,
+    )
+
+    measuring_unit = schema.Choice(
+        title=_(u"Measuring Unit"),
+        source=utils.settings_measuring_unit,
         required=True,
     )
 
