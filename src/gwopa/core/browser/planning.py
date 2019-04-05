@@ -109,16 +109,16 @@ class planningView(BrowserView):
         data_year = self.context.gwopa_fases[int(self.year) - 1]
         start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%d-%m')
         end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
-        date_range_query = {'query': (start, end), 'range': 'min:max'}
-        #     start=date_range_query,
+        date_range_query = {'query': (start, end), 'range': 'min:max'},
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity'],
+            start=date_range_query,
             path={'query': folder_path,
                   'depth': 1})
-        # date_range_query = {'query': (end, end), 'range': 'max'}
-            # end=date_range_query,
+        date_range_query = {'query': (end, end), 'range': 'max'}
         outputs = portal_catalog.unrestrictedSearchResults(
             portal_type=['Output'],
+            end=date_range_query,
             path={'query': folder_path,
                   'depth': 1})
         items = items + outputs
