@@ -64,7 +64,7 @@
               <span tal:content="context/startactual">2019-02-02</span>
             </tal:omit-tag>
             <tal:omit-tag tal:condition="view/planneddates">
-              <span class="actualDate" i18n:translate="">Start (Planned):</span>
+              <span class="plannedDate" i18n:translate="">Start (Planned):</span>
               <span tal:content="context/startplanned">2019-02-02</span>
             </tal:omit-tag>
           </div>
@@ -74,7 +74,7 @@
               <span tal:content="context/completionactual">2019-02-02</span>
             </tal:omit-tag>
             <tal:omit-tag tal:condition="view/planneddates">
-              <span class="actualDate" i18n:translate="">End (Planned):</span>
+              <span class="plannedDate" i18n:translate="">End (Planned):</span>
               <span tal:content="context/completionplanned">2019-02-02</span>
             </tal:omit-tag>
           </div>
@@ -164,24 +164,32 @@
                 <tr>
                   <th i18n:translate="">Name</th>
                   <th i18n:translate="">Partner</th>
+                  <th i18n:translate="">Contact</th>
+                  <th i18n:translate="">Project Manager</th>
                 </tr>
               </thead>
               <tr tal:repeat="partner getProject_manager">
                 <td>
+                  <tal:block tal:replace="structure partner/image"></tal:block>
                   <tal:block tal:condition="partner/manager"></tal:block>
-                  <tal:block tal:condition="partner/project"><i class="fa fa-star"></i></tal:block>
+
                   <tal:block tal:content="partner/name"></tal:block>
                 </td>
                 <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
-                  <ul>
                     <td tal:condition="python:isinstance(value, basestring)">
                       <span tal:replace="field/value"></span>
                     </td>
                     <td tal:condition="not:python:isinstance(value, basestring)">
-                      <span tal:replace="structure python:'<li>'+'</li><li>'.join(str(s) for s in value)" />
+                      <span tal:replace="structure python:'<span>'+'</span><span>'.join(str(s)+str(', ') for s in value)" />
                     </td>
-                  </ul>
                 </tal:block>
+                <td>
+                  <tal:block tal:condition="partner/email"><a tal:attributes="href string:mailto:${partner/email}"><i class="far fa-envelope"></i></a></tal:block>
+                  <tal:block tal:content="partner/email"></tal:block>
+                </td>
+                <td>
+                  <tal:block tal:condition="partner/project"><i class="fas fa-check"></i></tal:block>
+                </td>
               </tr>
             </table>
           </div>
@@ -197,7 +205,7 @@
             <div class="box">
               <img class="box-img" tal:attributes="src string:${item/image};"/>
               <div class="card-body">
-                <span class="card-title" tal:content="item/title">Event Title </span>
+                <span class="card-title" tal:content="item/title">Working area Title </span>
               </div>
             </div>
           </a>

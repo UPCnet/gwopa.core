@@ -24,6 +24,7 @@ import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
 from operator import itemgetter
+from gwopa.core import utils
 # from plone.directives import form
 
 
@@ -356,6 +357,8 @@ class View(grok.View):
             results.append(dict(
                 partners=obj.getProperty('wop_partners'),
                 name=obj.getProperty('fullname'),
+                email=obj.getProperty('email'),
+                image=utils.getPortrait(self, user),
                 manager=manager,
                 project=project,
             ))

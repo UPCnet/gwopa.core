@@ -5,7 +5,7 @@ from gwopa.core.utils import get_safe_member_by_id
 from zope.publisher.interfaces import IPublishTraverse, NotFound
 from zope.interface import implements
 from gwopa.core import _
-from Products.CMFCore.utils import getToolByName
+from gwopa.core import utils
 
 
 class userProfile(BrowserView):
@@ -25,10 +25,7 @@ class userProfile(BrowserView):
         return self.index()
 
     def getPortrait(self, user):
-        membership_tool = getToolByName(
-            self.context, 'portal_membership'
-        )
-        return membership_tool.getPersonalPortrait(user)
+        return utils.getPortrait(self, user)
 
     def publishTraverse(self, request, name):
         if self.username is None:  # ../profile/username
