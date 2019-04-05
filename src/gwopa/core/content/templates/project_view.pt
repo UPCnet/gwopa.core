@@ -168,10 +168,10 @@
                 </tr>
               </thead>
               <tal:block-partners tal:repeat="partner getProject_manager">
-                <tr tal:attributes="class string:admin-partner">
+                <tr tal:attributes="class partner/managerClass">
                   <td>
                     <tal:block tal:replace="structure partner/image"></tal:block>
-                    <tal:block tal:condition="partner/manager"></tal:block>
+<!--                     <tal:block tal:condition="partner/manager"></tal:block> -->
 
                     <tal:block tal:content="partner/name"></tal:block>
                   </td>

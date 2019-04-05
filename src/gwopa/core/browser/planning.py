@@ -124,23 +124,31 @@ class planningView(BrowserView):
         items = items + outputs
         results = []
         for item in items:
+            obj = item.getObject()
             if not item.start:
-                item.start = '---'
+                item.start = '-----'
             if not item.end:
-                item.end = '---'
-            if not item.getObject().members:
-                members = 'None'
+                item.end = '-----'
+            if not obj.members:
+                members = '-----'
             else:
-                members = item.getObject().members
-
+                members = obj.members
+            if item.portal_type == 'Output':
+                unit = obj.measuring_unit
+                value = obj.target
+            else:
+                unit = '-----'
+                value = '-----'
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
                 start=item.start,
                 end=item.end,
+                unit=unit,
+                value=value,
                 responsible=members,
-                url='/'.join(item.getObject().getPhysicalPath())))
+                url='/'.join(obj.getPhysicalPath())))
         return results
 
     def listOutcomesKPI(self):

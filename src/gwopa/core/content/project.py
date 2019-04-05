@@ -351,7 +351,7 @@ class View(grok.View):
             manager = False
             project = False
             if user in self.context.project_manager_admin:
-                manager = True
+                manager = 'admin-partner'
             if user in self.context.project_manager:
                 project = True
             results.append(dict(
@@ -359,7 +359,7 @@ class View(grok.View):
                 name=obj.getProperty('fullname'),
                 email=obj.getProperty('email'),
                 image=utils.getPortrait(self, user),
-                manager=manager,
+                managerClass=manager,
                 project=project,
             ))
         return sorted(results, key=itemgetter('name'), reverse=False)
