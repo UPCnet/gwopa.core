@@ -1,1 +1,4 @@
-FOOTER
+<div class="footer">
+      <img class="footer_img"
+        tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logos_footer.png "/>
+</div>

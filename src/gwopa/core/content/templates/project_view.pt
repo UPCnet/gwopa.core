@@ -34,16 +34,16 @@
   <div class="row">
     <div tal:attributes="class python:getImprovementAreas and 'col-md-9' or 'col-md-12';">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
           <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <span tal:content="location"></span>, </tal:block><span tal:content="country"></span>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <tal:objectives tal:condition="objectives">
             <h2 i18n:translate=""> Description and main objectives </h2>
             <span tal:replace="structure objectives/output"> Project Objectives </span>
           </tal:objectives>
-          <span tal:condition="categories" tal:repeat="category categories">
+          <span tal:condition="categories" tal:repeat="category categories" class="tags">
             <a href="" class="link-category" rel="tag"
                tal:content="category"
                tal:define="quotedCat python:url_quote(category)"
@@ -59,24 +59,24 @@
         <div class="col-md-6">
           <h2> Project Dates </h2>
           <div class="col-md-6">
-            <tal:omit-tag tal:condition="context/startactual">
-              <span class="actualDate" i18n:translate="">Start:</span>
+            <div tal:condition="context/startactual" class="actualDate" >
+              <span i18n:translate="">Start:</span>
               <span tal:content="context/startactual">2019-02-02</span>
-            </tal:omit-tag>
-            <tal:omit-tag tal:condition="view/planneddates">
-              <span class="plannedDate" i18n:translate="">Start (Planned):</span>
+            </div>
+            <div class="plannedDate" tal:condition="view/planneddates">
+              <span i18n:translate="">Start (Planned):</span>
               <span tal:content="context/startplanned">2019-02-02</span>
-            </tal:omit-tag>
+            </div>
           </div>
           <div class="col-md-6">
-            <tal:omit-tag tal:condition="context/completionactual">
-              <span class="actualDate" i18n:translate="">End:</span>
+            <div class="actualDate" tal:condition="context/completionactual">
+              <span i18n:translate="">End:</span>
               <span tal:content="context/completionactual">2019-02-02</span>
-            </tal:omit-tag>
-            <tal:omit-tag tal:condition="view/planneddates">
-              <span class="plannedDate" i18n:translate="">End (Planned):</span>
+            </div>
+            <div class="plannedDate" tal:condition="view/planneddates">
+              <span i18n:translate="">End (Planned):</span>
               <span tal:content="context/completionplanned">2019-02-02</span>
-            </tal:omit-tag>
+            </div>
           </div>
         </div>
         <div class="col-md-6" tal:condition="python: wop_platform or wop_program">
@@ -165,32 +165,30 @@
                   <th i18n:translate="">Name</th>
                   <th i18n:translate="">Partner</th>
                   <th i18n:translate="">Contact</th>
-                  <th i18n:translate="">Project Manager</th>
                 </tr>
               </thead>
-              <tr tal:repeat="partner getProject_manager">
-                <td>
-                  <tal:block tal:replace="structure partner/image"></tal:block>
-                  <tal:block tal:condition="partner/manager"></tal:block>
+              <tal:block-partners tal:repeat="partner getProject_manager">
+                <tr tal:attributes="class string:admin-partner">
+                  <td>
+                    <tal:block tal:replace="structure partner/image"></tal:block>
+                    <tal:block tal:condition="partner/manager"></tal:block>
 
-                  <tal:block tal:content="partner/name"></tal:block>
-                </td>
-                <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
+                    <tal:block tal:content="partner/name"></tal:block>
+                  </td>
+                  <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
                     <td tal:condition="python:isinstance(value, basestring)">
                       <span tal:replace="field/value"></span>
                     </td>
                     <td tal:condition="not:python:isinstance(value, basestring)">
                       <span tal:replace="structure python:'<span>'+'</span><span>'.join(str(s)+str(', ') for s in value)" />
                     </td>
-                </tal:block>
-                <td>
-                  <tal:block tal:condition="partner/email"><a tal:attributes="href string:mailto:${partner/email}"><i class="far fa-envelope"></i></a></tal:block>
-                  <tal:block tal:content="partner/email"></tal:block>
-                </td>
-                <td>
-                  <tal:block tal:condition="partner/project"><i class="fas fa-check"></i></tal:block>
-                </td>
-              </tr>
+                    <td>
+                      <tal:block tal:condition="partner/email"><a tal:attributes="href string:mailto:${partner/email}"><i class="far fa-envelope"></i></a></tal:block>
+                      <tal:block tal:content="partner/email"></tal:block>
+                    </td>
+                  </tal:block>
+                </tr>
+              </tal:block-partners>
             </table>
           </div>
         </div>
