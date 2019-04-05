@@ -223,11 +223,11 @@
 
   </metal:block>
 
-  <script>
+<!--   <script>
   $('#delete').click(function() {
       $('#deleteModal').modal('hide');
   });
-  </script>
+  </script> -->
 
 </metal:content-core>
 
