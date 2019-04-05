@@ -13,6 +13,7 @@ from plone import api
 import transaction
 import math
 from dateutil.relativedelta import *
+from zope.globalrequest import getRequest
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
