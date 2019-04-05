@@ -22,19 +22,20 @@
   </metal:javascript>
 
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
-    <ul class="pagination pagination-lg" style="float:right; margin: 0px;" tal:define="items view/getItems">
-      <tal:block tal:repeat="item items">
-        <li tal:attributes="class item/classe">
-          <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>
-          </a>
-        </li>
-      </tal:block>
-    </ul>
 
     <h1 class="documentFirstHeading">Planning - Project Year <tal:omit-tag tal:content="currentYear">2019</tal:omit-tag></h1>
-
-    <div class="documentDescription description">
-      Start date: <tal:omit-tag tal:content="view/getFaseStart">2019-02-02</tal:omit-tag> -- End date: <tal:omit-tag tal:content="view/getFaseEnd">2019-03-03</tal:omit-tag>
+    <div class="documentDescription description projectDates">
+      Start date: <tal:omit-tag tal:content="view/getFaseStart">2019-02-02</tal:omit-tag> - End date: <tal:omit-tag tal:content="view/getFaseEnd">2019-03-03</tal:omit-tag>
+    </div>
+    <div class="block-nav">
+      <ul class="pagination pagination-lg" tal:define="items view/getItems">
+        <tal:block tal:repeat="item items">
+          <li tal:attributes="class item/classe">
+            <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>
+            </a>
+          </li>
+        </tal:block>
+      </ul>
     </div>
 
     <div id="exTab1" class="container">
@@ -81,8 +82,16 @@
                             <div class="btn-group" role="group" aria-label="Add element">
                               <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                               <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                                <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity"><span><i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></span></a></li>
-                                <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><span><i class="fas fa-plus-circle"></i> Add Output </span></a></li>
+                                <li>
+                                  <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity">
+                                    <span><i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output">
+                                    <span><i class="fas fa-plus-circle"></i> Add Output </span>
+                                  </a>
+                                </li>
                               </ul>
                             </div>
                             <div class="titleRowPlanning">
@@ -92,6 +101,7 @@
                           <div class="contentt" id="bl">Starting Date</div>
                           <div class="contentt" id="value">Completion Date</div>
                           <div class="contentt" id="target">Target Value</div>
+                          <div class="contentt" id="target">Measuring Unit</div>
                           <div class="contentt" id="mu">Responsible</div>
                           <div class="contentt" id="actions">Action</div>
                         </div>
@@ -117,6 +127,7 @@
                             <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
                             <div class="contentt" id="value" tal:content="item/end">2019-03-30</div>
                             <div class="contentt" id="target">XXXX</div>
+                            <div class="contentt" id="unit">XXXX</div>
                             <div class="contentt" id="mu" tal:content="item/responsible"> Members </div>
                             <div class="contentt" id="actions">
                               <a class="pat-plone-modal"
@@ -145,6 +156,7 @@
                               <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                               <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                               <div class="contentt" id="target">XXXX</div>
+                              <div class="contentt" id="unit">XXXX</div>
                               <div class="contentt" id="mu" tal:content="output/responsible"> Responsible </div>
                               <div class="contentt" id="actions">
                                 <a class="pat-plone-modal"
