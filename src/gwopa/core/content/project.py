@@ -24,8 +24,7 @@ import unicodedata
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
 from operator import itemgetter
-from gwopa.core import utils
-# from plone.directives import form
+from plone.directives import form
 
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
@@ -283,7 +282,7 @@ class IProject(model.Schema):
         )
     )
 
-    # form.mode(gwopa_fases='hidden')
+    form.mode(gwopa_fases='hidden')
     # form.mode(IEditForm, gwopa_code_project='display')
     gwopa_fases = schema.ASCIILine(
         title=_(u'Fases'),

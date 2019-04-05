@@ -101,10 +101,12 @@
                           <div class="contentt" id="bl">Starting Date</div>
                           <div class="contentt" id="value">Completion Date</div>
                           <div class="contentt" id="target">Target Value</div>
-                          <div class="contentt" id="target">Measuring Unit</div>
-                          <div class="contentt" id="mu">Responsible</div>
+                          <div class="contentt" id="mu">Measuring Unit</div>
+                          <div class="contentt" id="resp">Responsible</div>
                           <div class="contentt" id="actions">Action</div>
+                          <div class="contentt" id="down"><i class="fas fa-chevron-down"></i></div>
                         </div>
+
                       </div>
                     </div>
                   </div>
