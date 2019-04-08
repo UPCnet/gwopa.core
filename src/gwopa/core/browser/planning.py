@@ -161,11 +161,23 @@ class planningView(BrowserView):
             context=self.context)
         results = []
         for item in items:
+            members = []
+            obj = item.getObject()
+            if obj.members:
+                users = obj.members
+                for member in users:
+                    members.append(api.user.get(username=member).getProperty('fullname'))
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
+                base_date=obj.baseline_date,
+                base_value='baseline_value',
+                target_value='target_value',
+                measuring_unit=obj.measuring_unit,
+                measuring_frequency=obj.measuring_frequency,
                 portal_type=item.portal_type,
-                url='/'.join(item.getObject().getPhysicalPath())))
+                responsible=members,
+                url='/'.join(obj.getPhysicalPath())))
         return results
 
     def listOutcomesCC(self):
@@ -174,14 +186,15 @@ class planningView(BrowserView):
             context=self.context)
         results = []
         for item in items:
-            if item.getObject().aq_parent.portal_type == 'ImprovementArea':
-                area = item.getObject().aq_parent.title
+            obj = item.getObject()
+            if obj.aq_parent.portal_type == 'ImprovementArea':
+                area = obj.aq_parent.title
             else:
-                area = item.getObject().aq_parent.aq_parent.title
+                area = obj.aq_parent.aq_parent.title
             results.append(dict(
                 area=area,
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                url='/'.join(item.getObject().getPhysicalPath())))
+                url='/'.join(obj.getPhysicalPath())))
         return results

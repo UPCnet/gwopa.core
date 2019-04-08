@@ -3,6 +3,8 @@ msgstr ""
 "Project-Id-Version: GWOPA\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "PO-Revision-Date: 2019-04-04 20:23+0200\n"
+"Last-Translator: \n"
+"Language-Team: plonetam@upcnet.es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,8 +13,6 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-"Last-Translator: \n"
-"Language-Team: plonetam@upcnet.es\n"
 "Language: en\n"
 "X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -53,9 +53,17 @@ msgstr "Activity"
 msgid "Actual"
 msgstr "Actual"
 
-#: ../browser/templates/planning.pt:84
+#: ../browser/templates/planning.pt:93
 msgid "Add Activity"
 msgstr "Add Activity"
+
+#: ../browser/templates/planning.pt:103
+msgid "Add Output JS"
+msgstr ""
+
+#: ../browser/templates/planning.pt:98
+msgid "Add Output Plone"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:16
 msgid "Admin Settings Zone"
@@ -65,7 +73,7 @@ msgstr "Admin settings zone"
 msgid "Admin role"
 msgstr "Admin role"
 
-#: ../browser/templates/homepage.pt:162
+#: ../browser/templates/homepage.pt:190
 msgid "Advanced search"
 msgstr "Advanced search"
 
@@ -77,6 +85,10 @@ msgstr "Map with all the projects."
 msgid "Area"
 msgstr "Area"
 
+#: ../portlets/sidenav.pt:96
+msgid "Areas"
+msgstr ""
+
 #: ../content/activity.py:89
 msgid "Assigned budget"
 msgstr "Assigned budget"
@@ -85,15 +97,18 @@ msgstr "Assigned budget"
 msgid "Association to platforms or programmes"
 msgstr "Association to platforms or programs"
 
-#: ../content/outcomekpi.py:40 ../content/outcomezone.py:46
+#: ../content/outcomekpi.py:40
+#: ../content/outcomezone.py:46
 msgid "Baseline date"
 msgstr "Baseline date"
 
-#: ../content/outcomeccvalues.py:30 ../content/output.py:34
+#: ../content/outcomeccvalues.py:30
+#: ../content/output.py:34
 msgid "Baseline description"
 msgstr "Baseline description"
 
-#: ../content/outcomekpi.py:35 ../content/outcomezone.py:41
+#: ../content/outcomekpi.py:35
+#: ../content/outcomezone.py:41
 msgid "Baseline value"
 msgstr "Baseline value"
 
@@ -117,7 +132,9 @@ msgstr "Capacity Items"
 msgid "Category"
 msgstr "Category"
 
-#: ../content/partner.py:35 ../content/platform.py:34 ../content/program.py:47
+#: ../content/partner.py:35
+#: ../content/platform.py:34
+#: ../content/program.py:47
 msgid "Choose countries from list that represents this country."
 msgstr "Choose countries from the list."
 
@@ -129,19 +146,31 @@ msgstr "Choose region based on selected country."
 msgid "Collaborating module"
 msgstr "Collaborating module"
 
+#: ../portlets/sidenav.pt:104
+msgid "Collaboration"
+msgstr ""
+
 #: ../content/project.py:35
 msgid "Completed"
 msgstr "Completed"
 
-#: ../content/activity.py:83 ../content/output.py:40 ../content/project.py:169
+#: ../content/activity.py:83
+#: ../content/output.py:40
+#: ../content/project.py:169
 msgid "Completion date"
 msgstr "Completion date"
 
+#: ../portlets/sidenav.pt:114
+msgid "Configuration"
+msgstr ""
+
 #: ../browser/templates/manage_portal.pt:166
+#: ../content/templates/project_view.pt:167
 msgid "Contact"
 msgstr "Contact"
 
-#: ../content/partner.py:42 ../content/program.py:54
+#: ../content/partner.py:42
+#: ../content/program.py:54
 msgid "Contact email"
 msgstr "Contact email"
 
@@ -165,7 +194,8 @@ msgstr "Partner contributor"
 msgid "Control panel to configure and view all the important system parameters"
 msgstr "Control panel to configure and view all the important system parameters"
 
-#: ../browser/templates/manage_portal.pt:38 ../content/partner.py:34
+#: ../browser/templates/manage_portal.pt:38
+#: ../content/partner.py:34
 #: ../content/platform.py:33
 msgid "Country"
 msgstr "Country"
@@ -185,6 +215,10 @@ msgstr "Exchange currency"
 #: ../browser/templates/global_map.pt:14
 msgid "Current projects map"
 msgstr "Current projects"
+
+#: ../portlets/sidenav.pt:108
+msgid "Dashboard"
+msgstr ""
 
 #: ../content/project.py:101
 msgid "Dates"
@@ -218,7 +252,8 @@ msgstr "Describing reporting module."
 msgid "Describing visualizating module."
 msgstr "Describing visualizating module."
 
-#: ../content/activity.py:65 ../content/improvement_area.py:39
+#: ../content/activity.py:65
+#: ../content/improvement_area.py:39
 #: ../content/output.py:28
 msgid "Description"
 msgstr "Description"
@@ -256,6 +291,7 @@ msgid "Fases"
 msgstr "Phases"
 
 #: ../browser/templates/files.pt:14
+#: ../portlets/sidenav.pt:100
 msgid "Files"
 msgstr "Files"
 
@@ -283,11 +319,16 @@ msgstr "Here are shown all the Working Areas of this project. You can view them 
 msgid "Here are the Improvement Areas of the Project."
 msgstr "Here are the Working Areas of the Project."
 
+#: ../portlets/sidenav.pt:86
+msgid "Home"
+msgstr ""
+
 #: ../content/outcomeccitem.py:25
 msgid "Icon"
 msgstr "Icon"
 
-#: ../content/improvement_area.py:45 ../content/itemarea.py:28
+#: ../content/improvement_area.py:45
+#: ../content/itemarea.py:28
 #: ../content/partner.py:29
 msgid "Image"
 msgstr "Image"
@@ -303,6 +344,14 @@ msgstr "Image used to describe the Working Area"
 #: ../content/project.py:34
 msgid "Implementation"
 msgstr "Implementation"
+
+#: ../browser/templates/planning.pt:311
+msgid "Improve generic Capacity Change"
+msgstr ""
+
+#: ../browser/templates/planning.pt:315
+msgid "Improve specific Capacity Change"
+msgstr ""
 
 #: ../content/outcomeccvalues.py:24
 msgid "Improved specific capacity"
@@ -320,12 +369,14 @@ msgstr "Working Areas"
 msgid "Improvement track team and members"
 msgstr "Improvement track team and members"
 
-#: ../content/contributordonor.py:19 ../content/contributorother.py:23
+#: ../content/contributordonor.py:19
+#: ../content/contributorother.py:23
 #: ../content/contributorpartner.py:19
 msgid "In-cash"
 msgstr "In-cash"
 
-#: ../content/contributordonor.py:24 ../content/contributorother.py:33
+#: ../content/contributordonor.py:24
+#: ../content/contributorother.py:33
 #: ../content/contributorpartner.py:24
 msgid "In-kind"
 msgstr "In-kind"
@@ -418,12 +469,13 @@ msgstr "Longitude of this project. Used in the map view"
 msgid "Main organizations and their contributions"
 msgstr "Main organizations and their contributions"
 
-#: ../browser/templates/homepage.pt:170
+#: ../browser/templates/homepage.pt:198
 msgid "Map of projects"
 msgstr "Map of the projects"
 
-#: ../content/outcomekpi.py:58 ../content/outcomezone.py:64
-#: ../content/output.py:51
+#: ../content/outcomekpi.py:58
+#: ../content/outcomezone.py:64
+#: ../content/output.py:57
 msgid "Means of verification"
 msgstr "Means of verification"
 
@@ -435,11 +487,14 @@ msgstr "Means of verification used to assess capacity change in this dimension"
 msgid "Measurable Target"
 msgstr "Measurable Target"
 
-#: ../content/outcomekpi.py:52 ../content/outcomezone.py:58
+#: ../content/outcomekpi.py:52
+#: ../content/outcomezone.py:58
 msgid "Measuring Frequency"
 msgstr "Measuring frequency"
 
-#: ../content/outcomekpi.py:46 ../content/outcomezone.py:52
+#: ../content/outcomekpi.py:46
+#: ../content/outcomezone.py:52
+#: ../content/output.py:51
 msgid "Measuring Unit"
 msgstr "Measuring unit"
 
@@ -451,7 +506,8 @@ msgstr "Measuring frequency"
 msgid "Measuring unit"
 msgstr "Measuring unit"
 
-#: ../content/project.py:260 ../content/templates/activity_view.pt:41
+#: ../content/project.py:260
+#: ../content/templates/activity_view.pt:41
 #: ../content/templates/improvementarea_view.pt:38
 msgid "Members"
 msgstr "Members"
@@ -460,18 +516,35 @@ msgstr "Members"
 msgid "Members with this region"
 msgstr "Members in this region"
 
+#: ../portlets/sidenav.pt:106
+msgid "Monitoring"
+msgstr ""
+
+#: ../portlets/sidenav.pt:89
+msgid "My Areas"
+msgstr ""
+
 #: ../browser/templates/homepage.pt:80
 msgid "My Projects"
 msgstr "My Projects"
 
-#: ../browser/templates/homepage.pt:109
+#: ../portlets/sidenav.pt:90
+msgid "My Team"
+msgstr ""
+
+#: ../browser/templates/homepage.pt:137
 msgid "My company Projects"
 msgstr "My company Projects"
 
-#: ../content/contributordonor.py:14 ../content/contributorother.py:18
+#: ../content/contributordonor.py:14
+#: ../content/contributorother.py:18
 #: ../content/contributorpartner.py:14
 msgid "Name"
 msgstr "Name"
+
+#: ../browser/templates/planning.pt:146
+msgid "Not assigned"
+msgstr ""
 
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
@@ -526,6 +599,10 @@ msgstr "Phone"
 msgid "Planned"
 msgstr "Planned"
 
+#: ../portlets/sidenav.pt:102
+msgid "Planning"
+msgstr ""
+
 #: ../content/project.py:193
 msgid "Platform/platforms associated to this project"
 msgstr "Platform related to this project"
@@ -538,7 +615,8 @@ msgstr "Program"
 msgid "Program/programs associated to this project"
 msgstr "Program related to this project"
 
-#: ../browser/templates/manage_portal.pt:34 ../content/project.py:91
+#: ../browser/templates/manage_portal.pt:34
+#: ../content/project.py:91
 #: ../profiles/default/types/Project.xml
 msgid "Project"
 msgstr "Project"
@@ -554,6 +632,10 @@ msgstr "Project Manager"
 #: ../content/project.py:244
 msgid "Project Manager Admin"
 msgstr "Project Manager (Administrator role)"
+
+#: ../portlets/sidenav.pt:94
+msgid "Project Overview"
+msgstr ""
 
 #: ../content/project.py:144
 msgid "Project Status"
@@ -587,25 +669,32 @@ msgstr "Recent files"
 msgid "Region"
 msgstr "Region"
 
-#: ../content/project.py:192 ../userdataschema.py:54
+#: ../content/project.py:192
+#: ../userdataschema.py:54
 msgid "Regional WOP Platform"
 msgstr "Regional WOP Platform"
+
+#: ../portlets/sidenav.pt:110
+msgid "Reporting"
+msgstr ""
 
 #: ../browser/templates/reporting.pt:14
 msgid "Reporting Module"
 msgstr "Reporting Module"
 
-#: ../content/activity.py:100 ../content/outcomekpi.py:69
+#: ../content/activity.py:100
+#: ../content/outcomekpi.py:69
 #: ../content/outcomezone.py:75
 msgid "Responsible people"
 msgstr "Responsible people"
 
-#: ../content/outcomekpi.py:63 ../content/outcomezone.py:69
-#: ../content/output.py:56
+#: ../content/outcomekpi.py:63
+#: ../content/outcomezone.py:69
+#: ../content/output.py:62
 msgid "Risks / Assumptions"
 msgstr "Risks / Assumptions"
 
-#: ../browser/templates/homepage.pt:138
+#: ../browser/templates/homepage.pt:166
 msgid "Search Projects"
 msgstr "Search Projects"
 
@@ -633,6 +722,10 @@ msgstr "Select the limiting factors to the perceived change"
 msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr "Select what best represents the perceived degree of change with respect to the last reporting period"
 
+#: ../portlets/sidenav.pt:116
+msgid "Settings"
+msgstr ""
+
 #: ../profiles/default/types/SettingsPage.xml
 msgid "SettingsPage"
 msgstr "Settings Page"
@@ -657,16 +750,19 @@ msgstr "Start Date"
 msgid "Start:"
 msgstr "Start:"
 
-#: ../content/activity.py:77 ../content/project.py:151
+#: ../content/activity.py:77
+#: ../content/project.py:151
 msgid "Starting date"
 msgstr "Starting date"
 
-#: ../content/itemarea.py:22 ../content/outcomekpi.py:29
+#: ../content/itemarea.py:22
+#: ../content/outcomekpi.py:29
 #: ../content/outcomezone.py:30
 msgid "Summary"
 msgstr "Summary"
 
-#: ../content/targetvalue.py:20 ../profiles/default/types/TargetValue.xml
+#: ../content/targetvalue.py:20
+#: ../profiles/default/types/TargetValue.xml
 msgid "Target Value"
 msgstr "Target Value"
 
@@ -677,6 +773,10 @@ msgstr "Target Value Date"
 #: ../content/activity.py:47
 msgid "Target Value Year"
 msgstr "Target Value Year"
+
+#: ../portlets/sidenav.pt:98
+msgid "Team"
+msgstr ""
 
 #: ../browser/templates/teams.pt:16
 msgid "Team Members"
@@ -726,7 +826,8 @@ msgstr "This date must be between the dates of the project."
 msgid "This values are necessary for create elements on the Platform"
 msgstr "This values are necessary for create elements on the Platform"
 
-#: ../content/activity.py:60 ../content/improvement_area.py:32
+#: ../content/activity.py:60
+#: ../content/improvement_area.py:32
 #: ../content/itemarea.py:17
 msgid "Title"
 msgstr "Title"
@@ -767,11 +868,11 @@ msgstr "Username"
 msgid "Users in this Partner"
 msgstr "Users in this Partner"
 
-#: ../browser/templates/planning.pt:197
+#: ../browser/templates/planning.pt:280
 msgid "Utility Capacity"
 msgstr "Utility Capacity"
 
-#: ../browser/templates/planning.pt:182
+#: ../browser/templates/planning.pt:221
 msgid "Utility Performance"
 msgstr "Utility Performance"
 
@@ -791,7 +892,8 @@ msgstr "WOP Partners"
 msgid "WOP Platform"
 msgstr "Regional WOP Platform"
 
-#: ../content/project.py:199 ../profiles/default/types/Program.xml
+#: ../content/project.py:199
+#: ../profiles/default/types/Program.xml
 #: ../userdataschema.py:46
 msgid "WOP Program"
 msgstr "WOP Program"
@@ -800,7 +902,8 @@ msgstr "WOP Program"
 msgid "Wall"
 msgstr "Wall"
 
-#: ../content/project.py:277 ../content/templates/project_view.pt:193
+#: ../content/project.py:277
+#: ../content/templates/project_view.pt:199
 msgid "Working Areas"
 msgstr "Working Areas"
 
@@ -812,7 +915,7 @@ msgstr "Write the project location"
 msgid "You don't have assigned projects."
 msgstr "You don't have assigned projects."
 
-#: ../browser/templates/homepage.pt:112
+#: ../browser/templates/homepage.pt:140
 msgid "Your company has no projects."
 msgstr "Your company has no projects (or you don't have any assigned)."
 
@@ -828,7 +931,8 @@ msgstr "Zone"
 msgid "completed"
 msgstr "Completed"
 
-#: ../browser/user_profile.py:50 ../indexers.py:28
+#: ../browser/user_profile.py:47
+#: ../indexers.py:28
 msgid "country"
 msgstr "Country"
 
@@ -836,11 +940,13 @@ msgstr "Country"
 msgid "description"
 msgstr "Description"
 
-#: ../browser/user_profile.py:48 ../indexers.py:23
+#: ../browser/user_profile.py:45
+#: ../indexers.py:23
 msgid "email"
 msgstr "Mail account"
 
-#: ../browser/user_profile.py:47 ../indexers.py:22
+#: ../browser/user_profile.py:44
+#: ../indexers.py:22
 msgid "fullname"
 msgstr "Fullname"
 
@@ -880,7 +986,8 @@ msgstr "Show in Google Maps"
 msgid "label_tags"
 msgstr "Tags"
 
-#: ../browser/user_profile.py:49 ../indexers.py:29
+#: ../browser/user_profile.py:46
+#: ../indexers.py:29
 msgid "phone"
 msgstr "Telephone number"
 
@@ -904,12 +1011,12 @@ msgid "title_previous_month"
 msgstr "Previous month"
 
 #. Default: "Search Site"
-#: ../browser/templates/homepage.pt:147
+#: ../browser/templates/homepage.pt:175
 msgid "title_search_site"
 msgstr "Search projects on Site"
 
 #. Default: "Search Site"
-#: ../browser/templates/homepage.pt:147
+#: ../browser/templates/homepage.pt:175
 msgid "title_search_title"
 msgstr "Search projects on Site"
 
@@ -917,14 +1024,17 @@ msgstr "Search projects on Site"
 msgid "username"
 msgstr "Username"
 
-#: ../browser/user_profile.py:53 ../indexers.py:27
+#: ../browser/user_profile.py:50
+#: ../indexers.py:27
 msgid "wop_partners"
 msgstr "WOP Partners"
 
-#: ../browser/user_profile.py:52 ../indexers.py:25
+#: ../browser/user_profile.py:49
+#: ../indexers.py:25
 msgid "wop_platforms"
 msgstr "WOP Platforms"
 
-#: ../browser/user_profile.py:51 ../indexers.py:26
+#: ../browser/user_profile.py:48
+#: ../indexers.py:26
 msgid "wop_programs"
 msgstr "WOP Programs"

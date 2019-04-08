@@ -51,26 +51,26 @@
           <li id="contentview-edit" class="">
             <a tal:attributes="href string:${context/absolute_url}/edit">
               <span class="icon-edit toolbar-menu-icon" aria-hidden="true"></span>
-              <span>Edit</span>
+              <span i18n:translate="">Edit</span>
             </a>
           </li>
           <li id="contentview-view" class="">
             <a tal:attributes="href string:${context/absolute_url}/">
               <span class="icon-view toolbar-menu-icon" aria-hidden="true"></span>
-              <span>View</span>
+              <span i18n:translate="">View</span>
             </a>
           </li>
           <li id="contentview-folderContents" class="">
             <a tal:attributes="href string:${context/absolute_url}/folder_contents">
               <span class="icon-folderContents toolbar-menu-icon" aria-hidden="true"></span>
-              <span>Contents</span>
+              <span i18n:translate="">Contents</span>
             </a>
           </li>
           <li id="contentview-local_roles" class="">
               <a tal:attributes="href string:${context/absolute_url}/sharing">
                 <span class="icon-local_roles  toolbar-menu-icon" aria-hidden="true">
                 </span>
-                <span>Sharing</span>
+                <span i18n:translate="">Sharing</span>
               </a>
           </li>
         </ul>
