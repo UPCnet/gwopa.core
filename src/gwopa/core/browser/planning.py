@@ -62,6 +62,9 @@ class planningView(BrowserView):
             return self.index()
         # TODO: if copy or delete make action!
 
+    def getPhases(self):
+        return len(self.context.gwopa_fases)
+
     def getItems(self):
         """ Returns all the project years of the planning """
         items = len(self.context.gwopa_fases)
@@ -130,9 +133,7 @@ class planningView(BrowserView):
                 item.start = '-----'
             if not item.end:
                 item.end = '-----'
-            if not obj.members:
-                members = '---'
-            else:
+            if obj.members:
                 users = obj.members
                 for member in users:
                     members.append(api.user.get(username=member).getProperty('fullname'))

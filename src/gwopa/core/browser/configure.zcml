@@ -132,6 +132,17 @@
     title="Faceted listing view"
     permission="zope2.View"
   />
+
+  <!-- API values returned to show output modal -->
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="api-ws"
+      class=".views.API"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+
 </configure>
 
 

@@ -17,8 +17,12 @@
       define = undefined;
     </script>
     <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Datepicker -->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+
   </metal:javascript>
 
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
@@ -37,6 +41,8 @@
         </tal:block>
       </ul>
     </div>
+
+    <span tal:content="view/getPhases" id="totalPhases"></span>
 
     <div id="exTab1" class="container">
       <ul class="nav nav-pills">
@@ -72,7 +78,7 @@
               </div>
             </div>
             <tal:objects repeat="item areas">
-              <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);" data-toggle="collapse" aria-expanded="false"
+              <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);" aria-expanded="false"
                   tal:attributes="href string:#collapse-${item/id}; aria-controls string:collapse-${item/id};">
                   <div class="tabla_cabecera">
                     <div class="tabla_hilera">
@@ -84,12 +90,17 @@
                               <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                                 <li>
                                   <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity">
-                                    <span><i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></span>
+                                    <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Activity</tal:omit-tag>
                                   </a>
                                 </li>
                                 <li>
                                   <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output">
-                                    <span><i class="fas fa-plus-circle"></i> Add Output </span>
+                                    <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output Plone</tal:omit-tag>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a data-toggle="modal" data-target="#modalOutput">
+                                    <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output JS</tal:omit-tag>
                                   </a>
                                 </li>
                               </ul>
@@ -129,8 +140,11 @@
                             <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
                             <div class="contentt" id="value" tal:content="item/end">2019-03-30</div>
                             <div class="contentt" id="target" tal:content="item/value"> 223 </div>
-                            <div class="contentt" id="unit" tal:content="item/unit"> Meters </div>
-                            <div class="contentt" id="mu" tal:define="members item/responsible"><ul><li tal:repeat="member members" tal:content="member"> Member Name </li></ul></div>
+                            <div class="contentt" id="mu" tal:content="item/unit"> Meters </div>
+                            <div class="contentt" id="resp" tal:define="members item/responsible">
+                              <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
+                              <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
+                            </div>
                             <div class="contentt" id="actions">
                               <a class="pat-plone-modal"
                                 tal:attributes="
@@ -158,8 +172,11 @@
                               <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                               <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                               <div class="contentt" id="target" tal:content="output/value"> 223 </div>
-                              <div class="contentt" id="unit" tal:content="output/unit"> Meters </div>
-                              <div class="contentt" id="mu" tal:define="members output/responsible"><ul><li tal:repeat="member members" tal:content="member"> Member Name </li></ul></div>
+                              <div class="contentt" id="mu" tal:content="output/unit"> Meters </div>
+                              <div class="contentt" id="resp" tal:define="members output/responsible">
+                                <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
+                                <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
+                              </div>
                               <div class="contentt" id="actions">
                                 <a class="pat-plone-modal"
                                   tal:attributes="
@@ -183,43 +200,239 @@
             </tal:objects>
           </tal:block-activities>
         </div>
+
+
         <div class="tab-pane" id="outcomes">
-          <div tal:define="outcomes view/listOutcomesKPI" class="clearfix">
-            <div class="btn-group" role="group" aria-label="Add KPI">
-              <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
-                <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New Overall KPI </span></a></li>
-                <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New KPI Zone </span></a></li>
-              </ul>
+          <div class="tab-pane active" id="project">
+            <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesKPI">
+              <div class="tabla_cabecera">
+                <div class="tabla_hilera">
+                  <div class="tabla_info">
+                    <div class="information object" id="header">
+                      <div class="contentt" id="total">
+                        <div class="btn-group" role="group" aria-label="Add KPI">
+                          <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
+                            <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New Overall KPI </span></a></li>
+                            <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New KPI Zone </span></a></li>
+                          </ul>
+                        </div>
+                        <div class="titleRowPlanning">
+                          <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag>
+                        </div>
+                      </div>
+                      <div class="contentt" id="bl">Starting Date</div>
+                      <div class="contentt" id="value">Completion Date</div>
+                      <div class="contentt" id="target">Target Value</div>
+                      <div class="contentt" id="mu">Measuring Unit</div>
+                      <div class="contentt" id="resp">Responsible</div>
+                      <div class="contentt" id="actions">Action</div>
+                      <div class="contentt" id="down">
+                        <i class="fas fa-chevron-down"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tabla_cuerpo">
+                <div class="tabla_hilera">
+                  <div class="block_content">
+                    <tal:objects repeat="outcome outcomes">
+                      <div class="col-md-12 text-item-planning">
+                        <div class="information object">
+                          <div class="contentt" id="total">
+                            <div class="kpi-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
+                            <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
+                          </div>
+                          <div class="contentt" id="bl">2019-03-30</div>
+                          <div class="contentt" id="value">2019-06-22</div>
+                          <div class="contentt" id="target">-----</div>
+                          <div class="contentt" id="mu">-----</div>
+                          <div class="contentt" id="resp">
+                            <ul>
+                              <li>testuser3</li>
+                            </ul>
+                          </div>
+                          <div class="contentt" id="actions">
+                            <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit">
+                              <i class="far fa-edit"></i>
+                            </a>
+                            <a href="#deleteModal" data-toggle="modal" tal:attributes="data-item string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
+                              <i class="far fa-trash-alt"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </tal:objects>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="titleRowPlanning">
-              <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag>
-            </div>
-            <hr/>
-            <tal:objects repeat="outcome outcomes">
-              <ul class="item">
-                <li>
-                  <span tal:attributes="class string:label ${outcome/portal_type}"
-                              tal:content="outcome/portal_type"> ACTIVITY </span>
-                  <a tal:attributes="href outcome/url; title outcome/description" data-toggle="tooltip" class="pat-tooltip">
-                    <tal:block tal:content="outcome/title"> Outcome Title </tal:block></a>
-                </li>
-              </ul>
-            </tal:objects>
+            <tal:block-capacity tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
+              <div class="tabla_cabecera">
+                <div class="tabla_hilera">
+                  <div class="tabla_info">
+                    <div class="information object" id="header">
+                      <div class="contentt" id="total">
+                        <div class="titleRowPlanning">
+                          <tal:omit-tag i18n:translate=""> Utility Capacity </tal:omit-tag>
+                        </div>
+                      </div>
+                      <div class="contentt" id="bl">Starting Date</div>
+                      <div class="contentt" id="value">Completion Date</div>
+                      <div class="contentt" id="target">Target Value</div>
+                      <div class="contentt" id="mu">Measuring Unit</div>
+                      <div class="contentt" id="resp">Responsible</div>
+                      <div class="contentt" id="actions">Action</div>
+                      <div class="contentt" id="down">
+                        <i class="fas fa-chevron-down"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="tabla_cuerpo">
+                  <div class="tabla_hilera">
+                    <div class="block_content">
+                      <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
+                        <div class="information object">
+                          <div class="contentt" id="total">
+                            <div class="btn-group" role="group" aria-label="Add element">
+                              <div data-toggle="dropdown">
+                                <i class="fas fa-plus-circle"></i>
+                              </div>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                                <li>
+                                  <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCC">
+                                      <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve generic Capacity Change</tal:omit-tag></a>
+                                </li>
+                                <li>
+                                  <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCCS">
+                                      <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve specific Capacity Change</tal:omit-tag></a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="CC-planning">Improve capacity in</div>
+                            <h4 class="titulocatplan" id="output" tal:content="outcome/area"> Working Area 1 </h4>
+                          </div>
+                          <div class="contentt" id="bl">2019-03-30</div>
+                          <div class="contentt" id="value">2019-06-22</div>
+                          <div class="contentt" id="target">-----</div>
+                          <div class="contentt" id="unit">-----</div>
+                          <div class="contentt" id="resp">
+                            <ul>
+                              <li>testuser3</li>
+                            </ul>
+                          </div>
+                          <div class="contentt" id="actions">
+                            <a class="pat-plone-modal"  href="string:${outcome/url}/edit" title="Edit" alt="Edit">
+                              <i class="far fa-edit"></i>
+                            </a>
+                            <a tal:attributes="data-item string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
+                              <i class="far fa-trash-alt"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tal:block-capacity>
           </div>
-          <tal:block-ouctomes tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
-            <h4 i18n:translate=""> Utility Capacity </h4>
-            <hr/>
-            <ul class="item">
-              <li tal:repeat="outcome outcomes">
-                <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}">
-                  Improve capacity in <tal:block tal:content="outcome/area"> Outcome Title </tal:block></a>
-              </li>
-            </ul>
-          </tal:block-ouctomes>
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="modalOutput" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="exampleModalLabel"> Add Output </h4>
+            </div>
+            <div class="modal-body" id="NewKPI">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Title</label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <input type="text" class="form-control" name="Name" required="True">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Description</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Baseline description</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Completion date</label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <input type="date" name="bday" required="True">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Measuring unit:</label>
+                  <select id="measuring" name="measuring" class="form-control">
+                    <option value="2">Liters</option>
+                    <option value="1">%</option>
+                    <option value="3">m3</option>
+                    <option value="4">People</option>
+                    <option value="5">Others</option>
+                  </select>
+                </div>
+
+                <div class="input-group date" id="example">
+                  <input type="text" class="form-control" />
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Measuring frequency:</label>
+                  <select id="measuring" name="measuring" class="form-control">
+                      <option value="1">Quarterly</option>
+                      <option value="2">Biannually</option>
+                      <option value="3">Annually</option>
+                  </select>
+                </div>
+                  <div class="row" id="targetagrupados">
+                        <div class="col-md-6">
+                              <label for="message-text" class="control-label"> Target value </label>
+                              <input class="form-control" id="message-text" />
+                        </div>
+                        <div class="col-md-6">
+                              <label for="message-text" class="control-label"> Target date</label>
+                              <input type="date" name="bday" />
+                        </div>
+                    <button type="button" class="btn ADDNEW" >
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                      Add target
+                    </button>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="control-label">Means of verification</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="control-label">Risks / Assumptions</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                  <div class="form-group">
+                        <label for="message-text" class="control-label">Responsible people</label>
+                        <textarea class="form-control" id="message-text" placeholder="TODO: WS"></textarea>
+                  </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Create</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
 
   </metal:block>
 
@@ -228,6 +441,46 @@
       $('#deleteModal').modal('hide');
   });
   </script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          let counter = 1;
+          let numPhases = $('#totalPhases').text();
+          let idnum = counter + 1;
+          $("#addButton").click(function () {
+          if(counter>=numPhases){
+                alert("Only" + numPhases + " Phases are valid");
+                return false;
+          }
+          var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
+                    newTextBoxDiv.after().html('<label>Textbox #'+ idnum + ' : </label>' +
+            '<input type="text" name="textbox' + idnum +
+            '" id="textbox' + idnum + '" value="" >');
+          newTextBoxDiv.appendTo("#TextBoxesGroup");
+            counter++;
+          });
+          $("#removeButton").click(function () {
+            if(counter==1){
+                alert("No more textbox to remove");
+                return false;
+            }
+            counter--;
+            $("#TextBoxDiv" + counter).remove();
+          });
+          $("#getButtonValue").click(function () {
+            var msg = '';
+            for(i=1; i<counter; i++){
+              msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
+            }
+            alert(msg);
+          });
+        });
+
+        $(function () {
+            $('#example').datetimepicker();
+        });
+
+    </script>
 
 </metal:content-core>
 
