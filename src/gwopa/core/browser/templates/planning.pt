@@ -130,7 +130,7 @@
                             <div class="contentt" id="value" tal:content="item/end">2019-03-30</div>
                             <div class="contentt" id="target" tal:content="item/value"> 223 </div>
                             <div class="contentt" id="unit" tal:content="item/unit"> Meters </div>
-                            <div class="contentt" id="mu" tal:content="item/responsible"> Members </div>
+                            <div class="contentt" id="mu" tal:define="members item/responsible"><ul><li tal:repeat="member members" tal:content="member"> Member Name </li></ul></div>
                             <div class="contentt" id="actions">
                               <a class="pat-plone-modal"
                                 tal:attributes="
