@@ -157,9 +157,9 @@
 <!--                             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${output/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + </button></a> -->
                               <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                               <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
-                              <div class="contentt" id="target" tal:content="item/value"> 223 </div>
-                              <div class="contentt" id="unit" tal:content="item/unit"> Meters </div>
-                              <div class="contentt" id="mu" tal:content="output/responsible"> Responsible </div>
+                              <div class="contentt" id="target" tal:content="output/value"> 223 </div>
+                              <div class="contentt" id="unit" tal:content="output/unit"> Meters </div>
+                              <div class="contentt" id="mu" tal:define="members output/responsible"><ul><li tal:repeat="member members" tal:content="member"> Member Name </li></ul></div>
                               <div class="contentt" id="actions">
                                 <a class="pat-plone-modal"
                                   tal:attributes="
