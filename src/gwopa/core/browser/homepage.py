@@ -51,7 +51,7 @@ class MainTemplate(BrowserView):
                 if item.objectives:
                     alt = self.abreviaText(item.objectives.raw, 400)
                 else:
-                    alt = False
+                    alt = self.abreviaText(item.title)
                 results.append(dict(title=self.abreviaText(item.title),
                                     alt=alt,
                                     url=item.absolute_url(),
@@ -82,7 +82,7 @@ class MainTemplate(BrowserView):
                         if item.objectives:
                             alt = self.abreviaText(item.objectives.raw, 400)
                         else:
-                            alt = False
+                            alt = self.abreviaText(item.title)
                         results.append(dict(title=self.abreviaText(item.title),
                                             alt=alt,
                                             url=item.absolute_url(),
@@ -112,7 +112,7 @@ class MainTemplate(BrowserView):
                 if item.objectives:
                     alt = self.abreviaText(item.objectives.raw, 400)
                 else:
-                    alt = False
+                    alt = self.abreviaText(item.title)
                 if len(results) < 4:
                     results.append(dict(title=self.abreviaText(item.title),
                                         alt=alt,
@@ -142,7 +142,7 @@ class MainTemplate(BrowserView):
                         if item.objectives:
                             alt = self.abreviaText(item.objectives.raw, 400)
                         else:
-                            alt = False
+                            alt = self.abreviaText(item.title)
                         if len(results) < 4:
                             results.append(dict(title=self.abreviaText(item.title),
                                                 alt=alt,
@@ -171,7 +171,7 @@ class MainTemplate(BrowserView):
             if item.objectives:
                 alt = self.abreviaText(item.objectives.raw, 400)
             else:
-                alt = False
+                alt = self.abreviaText(item.title)
             results.append(dict(title=self.abreviaText(item.title),
                                 alt=alt,
                                 url=item.absolute_url(),

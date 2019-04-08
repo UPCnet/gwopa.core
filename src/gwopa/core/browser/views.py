@@ -113,3 +113,17 @@ class mapView(BrowserView):
             return FeatureCollection(results)
         else:
             return None
+
+
+class API(BrowserView):
+    """ Return needed values in json format """
+
+    def __call__(self):
+        members = api.user.get_users()
+        results = []
+
+        for item in members:
+            results += [{'id': item.id,
+                         'project': item.getProperty('wop_programs')
+                         }]
+        return results
