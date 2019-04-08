@@ -7,7 +7,7 @@ from gwopa.core import _
 import transaction
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.CMFCore.utils import getToolByName
-
+import json
 
 # class listFiles(BrowserView):
 #     """ View all the files associated to the project.
@@ -119,11 +119,24 @@ class API(BrowserView):
     """ Return needed values in json format """
 
     def __call__(self):
-        members = api.user.get_users()
+        project = self.context
         results = []
 
-        for item in members:
-            results += [{'id': item.id,
-                         'project': item.getProperty('wop_programs')
-                         }]
-        return results
+        results = [{'id': project.id,
+                    'title': project.title,
+                    'description': project.description,
+                    'status': project.status,
+                    'country': project.country,
+                    'category': project.category,
+                    'areas': project.areas,
+                    'assumptions': 'project.assumptions.output()',
+                    'contribution': 'project.contribution.output()',
+                    'creation_date': 'project.creation_date.strfmt()',
+                    'creatorts': project.creators,
+                    'currency': project.currency,
+                    'phases': len(project.gwopa_fases),
+                    'gwopa_fases': project.gwopa_fases,
+                    'modification_date': 'project.modification_date.strfmt()',
+                    'objectives': 'project.objectives.output()',
+                    }]
+        return json.dumps(results)

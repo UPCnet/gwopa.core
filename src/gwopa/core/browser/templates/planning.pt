@@ -17,11 +17,15 @@
       define = undefined;
     </script>
     <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Datepicker -->
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
   </metal:javascript>
 
@@ -42,7 +46,9 @@
       </ul>
     </div>
 
-    <span tal:content="view/getPhases" id="totalPhases"></span>
+
+
+    <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
 
     <div id="exTab1" class="container">
       <ul class="nav nav-pills">
@@ -77,6 +83,7 @@
                 </div>
               </div>
             </div>
+
             <tal:objects repeat="item areas">
               <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);" aria-expanded="false"
                   tal:attributes="href string:#collapse-${item/id}; aria-controls string:collapse-${item/id};">
@@ -133,9 +140,6 @@
                               </tal:block>
                               <div tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type">Activity/output label</div>
                               <h4 class="titulocatplan" id="output" tal:content="item/title"> Activity/Output Title </h4>
-<!--                               <tal:block tal:condition="python:item['portal_type'] == 'Output'">
-                                <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${item/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + </button></a>
-                              </tal:block> -->
                             </div>
                             <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
                             <div class="contentt" id="value" tal:content="item/end">2019-03-30</div>
@@ -168,7 +172,6 @@
                               <div tal:attributes="class string:${output/portal_type}-planning indent-item" tal:content="output/portal_type">Type Output</div>
                               <h4 class="titulocatplan" tal:content="output/title"> Item Title </h4>
                             </div>
-<!--                             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${output/url}/++add++TargetValue" href="#"><button class="plone-btn plone-btn-sm"> + </button></a> -->
                               <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                               <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                               <div class="contentt" id="target" tal:content="output/value"> 223 </div>
@@ -200,7 +203,6 @@
             </tal:objects>
           </tal:block-activities>
         </div>
-
 
         <div class="tab-pane" id="outcomes">
           <div class="tab-pane active" id="project">
@@ -348,6 +350,49 @@
     </div>
 
     <div class="modal fade" id="modalOutput" tabindex="-1" role="dialog">
+
+<!-- <div class="container"> -->
+<!--    <div class="panel panel-primary">
+      <div class="panel-heading">Add Target</div>
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">First Name</label>
+                  <input type="text" class="form-control" name="fname" id="fname">
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">Last Name</label>
+                  <input type="text" class="form-control" name="lname" id="lname">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">Email</label>
+                  <input type="text" class="form-control" name="email" id="email">
+               </div>
+            </div>
+            <div class='col-md-6'>
+               <div class="form-group">
+                  <label class="control-label">Target Date</label>
+                  <div class='input-group date' id='datetimepicker1'>
+                     <input type='text' class="form-control" />
+                     <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-calendar"></span>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <input type="submit" class="btn btn-primary" value="Submit">
+      </div>
+   </div> -->
+<!-- </div> -->
+
       <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -369,11 +414,21 @@
                   <label for="message-text" class="control-label">Baseline description</label>
                   <textarea class="form-control" id="message-text"></textarea>
                 </div>
-                <div class="form-group">
+      <!--           <div class="form-group">
                   <label for="message-text" class="control-label">Completion date</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input type="date" name="bday" required="True">
-                </div>
+                </div> -->
+                <div class="form-group">
+                  <label class="control-label">Completion Date</label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <div class='input-group date' id='datetimepicker1'>
+                     <input type='text' class="form-control" />
+                     <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-calendar"></span>
+                     </span>
+                  </div>
+                </div>  
                 <div class="form-group">
                   <label for="message-text" class="control-label">Measuring unit:</label>
                   <select id="measuring" name="measuring" class="form-control">
@@ -383,13 +438,6 @@
                     <option value="4">People</option>
                     <option value="5">Others</option>
                   </select>
-                </div>
-
-                <div class="input-group date" id="example">
-                  <input type="text" class="form-control" />
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
                 </div>
 
                 <div class="form-group">
@@ -406,8 +454,8 @@
                               <input class="form-control" id="message-text" />
                         </div>
                         <div class="col-md-6">
-                              <label for="message-text" class="control-label"> Target date</label>
-                              <input type="date" name="bday" />
+                              <label for="message-text" class="control-label"> Target date </label>
+                              <input class="form-control" id="target-date" readonly/>
                         </div>
                     <button type="button" class="btn ADDNEW" >
                       <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -436,7 +484,6 @@
     </div>
 
 
-  </metal:block>
 
 <!--   <script>
   $('#delete').click(function() {
@@ -461,6 +508,7 @@
           newTextBoxDiv.appendTo("#TextBoxesGroup");
             counter++;
           });
+
           $("#removeButton").click(function () {
             if(counter==1){
                 alert("No more textbox to remove");
@@ -469,6 +517,7 @@
             counter--;
             $("#TextBoxDiv" + counter).remove();
           });
+          
           $("#getButtonValue").click(function () {
             var msg = '';
             for(i=1; i<counter; i++){
@@ -476,13 +525,39 @@
             }
             alert(msg);
           });
+
+  $('#date').datetimepicker({
+   todayHighlight: true,
+   format: 'dd/mm/yyyy',
+   startDate: new Date()   
+  });
+  $("#datetime").datetimepicker({
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+    pickTime: false
+ });
+
+   $('#datetimepicker1').datetimepicker({
+   });
+
+        fetch('./api-ws')
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            // Work with JSON data here
+           alert(data[0].title);
+          })
+          .catch(err => {
+            // Do something for an error here
+          })
+
         });
 
-        $(function () {
-            $('#example').datetimepicker();
-        });
 
     </script>
+
+  </metal:block>
 
 </metal:content-core>
 
