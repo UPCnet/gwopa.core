@@ -58,7 +58,6 @@
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="project">
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
-
             <div id="deleteModal" class="modal fade">
               <div class="modal-dialog modal-confirm">
                 <div class="modal-content">
@@ -80,7 +79,6 @@
                 </div>
               </div>
             </div>
-
             <tal:objects repeat="item areas">
               <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);" aria-expanded="false"
                   tal:attributes="href string:#collapse-${item/id}; aria-controls string:collapse-${item/id};">
@@ -205,122 +203,117 @@
         </div>
 
         <div class="tab-pane" id="outcomes">
-          <div class="tab-pane active" id="project">
-            <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesKPI">
-              <div class="tabla_cabecera">
-                <div class="tabla_hilera">
-                  <div class="tabla_info">
-                    <div class="information object" id="header">
-                      <div class="contentt" id="total">
-                        <div class="btn-group" role="group" aria-label="Add KPI">
-                          <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
-                            <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New Overall KPI </span></a></li>
-                            <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New KPI Zone </span></a></li>
-                          </ul>
-                        </div>
-                        <div class="titleRowPlanning">
-                          <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag>
-                        </div>
+          <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesKPI">
+            <div class="tabla_cabecera">
+              <div class="tabla_hilera">
+                <div class="tabla_info">
+                  <div class="information object" id="header">
+                    <div class="contentt" id="total">
+                      <div class="btn-group" role="group" aria-label="Add KPI">
+                        <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
+                          <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New Overall KPI </span></a></li>
+                          <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New KPI Zone </span></a></li>
+                        </ul>
                       </div>
-                      <div class="contentt" id="bl">Baseline Date</div>
-                      <div class="contentt" id="value">Baseline Value</div>
-                      <div class="contentt" id="target">Target Value</div>
-                      <div class="contentt" id="mu">Frequency</div>
-                      <div class="contentt" id="resp">Responsible</div>
-                      <div class="contentt" id="actions">Action</div>
-                      <div class="contentt" id="down">
-                        <i class="fas fa-chevron-down"></i>
+                      <div class="titleRowPlanning">
+                        <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tabla_cuerpo">
-                <div class="tabla_hilera">
-                  <div class="block_content">
-                    <tal:objects repeat="outcome outcomes">
-                      <div class="col-md-12 text-item-planning">
-                        <div class="information object">
-                          <div class="contentt" id="total">
-                            <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
-                            <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
-                          </div>
-                          <div class="contentt" id="bl" tal:content="outcome/base_date">2019-03-30</div>
-                          <div class="contentt" id="value" tal:content="outcome/base_value">2019-06-22</div>
-                          <div class="contentt" id="target">
-                            <tal:omit-tag  tal:content="outcome/target_value"> Value </tal:omit-tag>
-                            <tal:omit-tag  tal:content="outcome/measuring_unit"> Unit </tal:omit-tag>
-                          </div>
-                          <div class="contentt" id="freq" tal:content="outcome/measuring_frequency"> Frequency </div>
-                            <div class="contentt" id="resp" tal:define="members outcome/responsible">
-                              <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
-                              <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
-                            </div>
-                          <div class="contentt" id="actions">
-                            <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit">
-                              <i class="far fa-edit"></i>
-                            </a>
-                            <a href="#deleteModal" data-toggle="modal" tal:attributes="data-item string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
-                              <i class="far fa-trash-alt"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </tal:objects>
+                    <div class="contentt" id="bl">Baseline Date</div>
+                    <div class="contentt" id="value">Baseline Value</div>
+                    <div class="contentt" id="target">Target Value</div>
+                    <div class="contentt" id="mu">Frequency</div>
+                    <div class="contentt" id="resp">Responsible</div>
+                    <div class="contentt" id="actions">Action</div>
+                    <div class="contentt" id="down">
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <tal:block-capacity tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
-              <div class="tabla_cabecera">
-                <div class="tabla_hilera">
-                  <div class="tabla_info">
-                    <div class="information object" id="header">
-                      <div class="contentt" id="total">
-                        <div class="titleRowPlanning">
-                          <tal:omit-tag i18n:translate=""> Utility Capacity </tal:omit-tag>
+            <div class="tabla_cuerpo">
+              <div class="tabla_hilera">
+                <div class="block_content">
+                  <tal:objects repeat="outcome outcomes">
+                    <div class="col-md-12 text-item-planning">
+                      <div class="information object">
+                        <div class="contentt" id="total">
+                          <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
+                          <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
                         </div>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="tabla_cuerpo">
-                  <div class="tabla_hilera">
-                    <div class="block_content">
-                      <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
-                        <div class="information object">
-                          <div class="contentt" id="total">
-                            <div class="btn-group" role="group" aria-label="Add element">
-                              <div data-toggle="dropdown">
-                                <i class="fas fa-plus-circle"></i>
-                              </div>
-                              <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                                <li>
-                                  <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCC">
-                                      <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve generic Capacity Change</tal:omit-tag></a>
-                                </li>
-                                <li>
-                                  <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCCS">
-                                      <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve specific Capacity Change</tal:omit-tag></a>
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="CC-planning">Improve capacity in</div>
-                            <h4 class="titulocatplan" id="output" tal:content="outcome/area"> Working Area 1 </h4>
+                        <div class="contentt" id="bl" tal:content="outcome/base_date">2019-03-30</div>
+                        <div class="contentt" id="value" tal:content="outcome/base_value">2019-06-22</div>
+                        <div class="contentt" id="target">
+                          <tal:omit-tag  tal:content="outcome/target_value"> Value </tal:omit-tag>
+                          <tal:omit-tag  tal:content="outcome/measuring_unit"> Unit </tal:omit-tag>
+                        </div>
+                        <div class="contentt" id="freq" tal:content="outcome/measuring_frequency"> Frequency </div>
+                          <div class="contentt" id="resp" tal:define="members outcome/responsible">
+                            <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
+                            <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
                           </div>
-
+                        <div class="contentt" id="actions">
+                          <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit">
+                            <i class="far fa-edit"></i>
+                          </a>
+                          <a href="#deleteModal" data-toggle="modal" tal:attributes="data-item string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
+                            <i class="far fa-trash-alt"></i>
+                          </a>
                         </div>
+                      </div>
+                    </div>
+                  </tal:objects>
+                </div>
+              </div>
+            </div>
+          </div>
+          <tal:block-capacity tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
+            <div class="tabla_cabecera">
+              <div class="tabla_hilera">
+                <div class="tabla_info">
+                  <div class="information object" id="header">
+                    <div class="contentt" id="total">
+                      <div class="titleRowPlanning">
+                        <tal:omit-tag i18n:translate=""> Utility Capacity </tal:omit-tag>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tabla_cuerpo">
+              <div class="tabla_hilera">
+                <div class="block_content">
+                  <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
+                    <div class="information object">
+                      <div class="contentt" id="total">
+                        <div class="btn-group" role="group" aria-label="Add element">
+                          <div data-toggle="dropdown">
+                            <i class="fas fa-plus-circle"></i>
+                          </div>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                            <li>
+                              <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCC">
+                                  <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve generic Capacity Change</tal:omit-tag></a>
+                            </li>
+                            <li>
+                              <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCCS">
+                                  <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve specific Capacity Change</tal:omit-tag></a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="CC-planning">Improve capacity in</div>
+                        <h4 class="titulocatplan" id="output" tal:content="outcome/area"> Working Area 1 </h4>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </tal:block-capacity>
-          </div>
+            </div>
+          </tal:block-capacity>
         </div>
       </div>
     </div>
