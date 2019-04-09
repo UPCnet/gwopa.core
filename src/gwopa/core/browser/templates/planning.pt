@@ -24,7 +24,7 @@
     <script src="//cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
   </metal:javascript>
 
@@ -116,7 +116,6 @@
                           <div class="contentt" id="bl">Starting Date</div>
                           <div class="contentt" id="value">Completion Date</div>
                           <div class="contentt" id="target">Target Value</div>
-                          <div class="contentt" id="mu">Measuring Unit</div>
                           <div class="contentt" id="resp">Responsible</div>
                           <div class="contentt" id="actions">Action</div>
                           <div class="contentt" id="down"><i class="fas fa-chevron-down"></i></div>
@@ -140,8 +139,10 @@
                             </div>
                             <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
                             <div class="contentt" id="value" tal:content="item/end">2019-03-30</div>
-                            <div class="contentt" id="target" tal:content="item/value"> 223 </div>
-                            <div class="contentt" id="mu" tal:content="item/unit"> Meters </div>
+                            <div class="contentt" id="target">
+                              <tal:omit-tag tal:content="item/value"> 223 </tal:omit-tag>
+                              <tal:omit-tag tal:content="item/unit"> Meters </tal:omit-tag>
+                            </div>
                             <div class="contentt" id="resp" tal:define="members item/responsible">
                               <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
                               <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
@@ -171,8 +172,10 @@
                             </div>
                               <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                               <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
-                              <div class="contentt" id="target" tal:content="output/value"> 223 </div>
-                              <div class="contentt" id="mu" tal:content="output/unit"> Meters </div>
+                              <div class="contentt" id="target">
+                                <tal:omit-tag tal:content="output/value"> 223 </tal:omit-tag>
+                                <tal:omit-tag tal:content="output/unit"> 223 </tal:omit-tag>
+                              </div>
                               <div class="contentt" id="resp" tal:define="members output/responsible">
                                 <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
                                 <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
@@ -223,7 +226,6 @@
                       <div class="contentt" id="bl">Baseline Date</div>
                       <div class="contentt" id="value">Baseline Value</div>
                       <div class="contentt" id="target">Target Value</div>
-                      <div class="contentt" id="mu">Measuring Unit</div>
                       <div class="contentt" id="mu">Frequency</div>
                       <div class="contentt" id="resp">Responsible</div>
                       <div class="contentt" id="actions">Action</div>
@@ -241,13 +243,15 @@
                       <div class="col-md-12 text-item-planning">
                         <div class="information object">
                           <div class="contentt" id="total">
-                            <div class="kpi-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
+                            <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
                             <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
                           </div>
                           <div class="contentt" id="bl" tal:content="outcome/base_date">2019-03-30</div>
                           <div class="contentt" id="value" tal:content="outcome/base_value">2019-06-22</div>
-                          <div class="contentt" id="target" tal:content="outcome/target_value"> VALUE </div>
-                          <div class="contentt" id="mu" tal:content="outcome/measuring_unit"> Units </div>
+                          <div class="contentt" id="target">
+                            <tal:omit-tag  tal:content="outcome/target_value"> Value </tal:omit-tag>
+                            <tal:omit-tag  tal:content="outcome/measuring_unit"> Unit </tal:omit-tag>
+                          </div>
                           <div class="contentt" id="freq" tal:content="outcome/measuring_frequency"> Frequency </div>
                             <div class="contentt" id="resp" tal:define="members outcome/responsible">
                               <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
@@ -278,16 +282,7 @@
                           <tal:omit-tag i18n:translate=""> Utility Capacity </tal:omit-tag>
                         </div>
                       </div>
-                      <div class="contentt" id="bl">Baseline Date</div>
-                      <div class="contentt" id="value">Baseline Value</div>
-                      <div class="contentt" id="target">Target Value</div>
-                      <div class="contentt" id="mu">Measuring Unit</div>
-                      <div class="contentt" id="mu">Frequency</div>
-                      <div class="contentt" id="resp">Responsible</div>
-                      <div class="contentt" id="actions">Action</div>
-                      <div class="contentt" id="down">
-                        <i class="fas fa-chevron-down"></i>
-                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -317,23 +312,7 @@
                             <div class="CC-planning">Improve capacity in</div>
                             <h4 class="titulocatplan" id="output" tal:content="outcome/area"> Working Area 1 </h4>
                           </div>
-                          <div class="contentt" id="bl">2019-03-30</div>
-                          <div class="contentt" id="value">2019-06-22</div>
-                          <div class="contentt" id="target">-----</div>
-                          <div class="contentt" id="unit">-----</div>
-                          <div class="contentt" id="resp">
-                            <ul>
-                              <li>testuser3</li>
-                            </ul>
-                          </div>
-                          <div class="contentt" id="actions">
-                            <a class="pat-plone-modal"  href="string:${outcome/url}/edit" title="Edit" alt="Edit">
-                              <i class="far fa-edit"></i>
-                            </a>
-                            <a tal:attributes="data-item string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
-                              <i class="far fa-trash-alt"></i>
-                            </a>
-                          </div>
+
                         </div>
                       </div>
                     </div>

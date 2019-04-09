@@ -78,6 +78,7 @@ class IOutcomezone(model.Schema):
         required=False,
     )
 
+
 class View(grok.View):
     grok.context(IOutcomezone)
     grok.template('outcomezone_view')
@@ -87,7 +88,7 @@ class View(grok.View):
 class Edit(form.SchemaEditForm):
     grok.context(IOutcomezone)
 
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        self.widgets["title"].mode = HIDDEN_MODE
-        self.widgets["description"].mode = HIDDEN_MODE
+    # def updateWidgets(self):
+    #     super(Edit, self).updateWidgets()
+    #     self.widgets["title"].mode = HIDDEN_MODE
+    #     self.widgets["description"].mode = HIDDEN_MODE

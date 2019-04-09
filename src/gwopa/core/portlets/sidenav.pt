@@ -7,7 +7,7 @@
                 portal_url portal_state/portal_url;
                 isRootFolder view/isRootFolder;
                 projectPath view/projectPath">
-
+<!--
 <style type="text/css">
     #sidebar.col-sm-1.sidebar-offcanvas {
         height: 100%;
@@ -76,7 +76,7 @@
         text-align: center;
     }
 
-</style>
+</style> -->
 
 <div class="sidenav2">
     <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/fontawesome/css/all.min.css" />

@@ -82,7 +82,7 @@ class View(grok.View):
 class Edit(form.SchemaEditForm):
     grok.context(IOutcomekpi)
 
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        self.widgets["title"].mode = HIDDEN_MODE
-        self.widgets["description"].mode = HIDDEN_MODE
+    # def updateWidgets(self):
+    #     super(Edit, self).updateWidgets()
+    #     self.widgets["title"].mode = HIDDEN_MODE
+    #     self.widgets["description"].mode = HIDDEN_MODE
