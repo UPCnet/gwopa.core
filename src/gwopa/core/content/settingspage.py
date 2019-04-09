@@ -3,7 +3,9 @@ from five import grok
 from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
-from z3c.form.interfaces import HIDDEN_MODE  # INPUT_MODE, DISPLAY_MODE
+from z3c.form.interfaces import HIDDEN_MODE
+# from z3c.form.interfaces import INPUT_MODE
+from z3c.form.interfaces import DISPLAY_MODE
 from plone.directives import form
 
 grok.templatedir("templates")
@@ -56,4 +58,4 @@ class Edit(form.SchemaEditForm):
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].mode = HIDDEN_MODE
-        self.widgets["description"].mode = HIDDEN_MODE
+        self.widgets["description"].mode = DISPLAY_MODE

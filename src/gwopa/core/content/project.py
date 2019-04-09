@@ -217,14 +217,14 @@ class IProject(model.Schema):
     )
 
     # form.mode(latitude='hidden')
-    latitude = schema.Text(
+    latitude = schema.TextLine(
         title=_(u"Latitude"),
         description=_(u"Latitude of this project. Used in the map view"),
         required=False,
     )
 
     # form.mode(longitude='hidden')
-    longitude = schema.Text(
+    longitude = schema.TextLine(
         title=_(u"Longitude"),
         description=_(u"Longitude of this project. Used in the map view"),
         required=False,
