@@ -19,13 +19,12 @@
     <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 
   </metal:javascript>
 
@@ -348,49 +347,6 @@
     </div>
 
     <div class="modal fade" id="modalOutput" tabindex="-1" role="dialog">
-
-<!-- <div class="container"> -->
-<!--    <div class="panel panel-primary">
-      <div class="panel-heading">Add Target</div>
-      <div class="panel-body">
-         <div class="row">
-            <div class="col-md-6">
-               <div class="form-group">
-                  <label class="control-label">First Name</label>
-                  <input type="text" class="form-control" name="fname" id="fname">
-               </div>
-            </div>
-            <div class="col-md-6">
-               <div class="form-group">
-                  <label class="control-label">Last Name</label>
-                  <input type="text" class="form-control" name="lname" id="lname">
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6">
-               <div class="form-group">
-                  <label class="control-label">Email</label>
-                  <input type="text" class="form-control" name="email" id="email">
-               </div>
-            </div>
-            <div class='col-md-6'>
-               <div class="form-group">
-                  <label class="control-label">Target Date</label>
-                  <div class='input-group date' id='datetimepicker1'>
-                     <input type='text' class="form-control" />
-                     <span class="input-group-addon">
-                     <span class="glyphicon glyphicon-calendar"></span>
-                     </span>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <input type="submit" class="btn btn-primary" value="Submit">
-      </div>
-   </div> -->
-<!-- </div> -->
-
       <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -412,11 +368,6 @@
                   <label for="message-text" class="control-label">Baseline description</label>
                   <textarea class="form-control" id="message-text"></textarea>
                 </div>
-      <!--           <div class="form-group">
-                  <label for="message-text" class="control-label">Completion date</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                  <input type="date" name="bday" required="True">
-                </div> -->
                 <div class="form-group">
                   <label class="control-label">Completion Date</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
@@ -427,7 +378,6 @@
                      </span>
                   </div>
                 </div>
-
                 <div class="form-group">
                   <label for="message-text" class="control-label">Measuring unit:</label>
                   <select id="measuring" name="measuring" class="form-control">
@@ -438,7 +388,6 @@
                     <option value="5">Others</option>
                   </select>
                 </div>
-
                 <div class="form-group">
                   <label for="message-text" class="control-label">Measuring frequency:</label>
                   <select id="measuring" name="measuring" class="form-control">
@@ -447,7 +396,6 @@
                       <option value="3">Annually</option>
                   </select>
                 </div>
-
                 <div id='TextBoxesGroup'>
                   <div id="TextBoxDiv1">
                     <div class="col-md-6">
@@ -473,8 +421,10 @@
                   <textarea class="form-control" id="message-text"></textarea>
                 </div>
                 <div class="form-group">
-                      <label for="message-text" class="control-label">Responsible people</label>
-                      <textarea class="form-control" id="message-text" placeholder="TODO: WS"></textarea>
+                  <label for="message-text" class="control-label">Responsible people</label>
+                  <input type="hidden" class="pat-select2"
+                              data-pat-select2="placeholder:Search users;
+                                                vocabularyUrl:select2-users.json;"/>
                 </div>
               </div>
             </div>
@@ -485,31 +435,25 @@
       </div>
     </div>
 
-<!--   <script>
-  $('#delete').click(function() {
-      $('#deleteModal').modal('hide');
-  });
-  </script> -->
-
     <script type="text/javascript">
         $(document).ready(function(){
           let counter = 1;
           let numPhases = $('#totalPhases').text();
 
-          fetch('./api-ws')
-            .then(response => {
-              return response.json()
-            })
-            .then(data => {
-                let end_date = data[0].gwopa_fases[0].end_iso;
-                $('#target-date-1').val(end_date);
-          });
+          fetch('./api-getphases')
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+              let end_date = data[0].gwopa_fases[0].end_iso;
+              $('#target-date-1').val(end_date);
+          })
 
           $("#addButton").click(function () {
 
           let idnum = counter + 1;
           if(counter>=numPhases){
-                alert("Only" + numPhases + " Phases are valid");
+                swal("No more targets allowed!", "This output only accept " + numPhases + " target values.", "warning");
                 return false;
           }
           let newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
@@ -521,34 +465,21 @@
 
           newTextBoxDiv.appendTo("#TextBoxesGroup");
 
-          fetch('./api-ws')
-            .then(response => {
-              return response.json()
-            })
-            .then(data => {
-                let end_date = data[0].gwopa_fases[idnum-1].end_iso;
-                $('#target-date-' + (idnum) + '').val(end_date);
-            })
+          fetch('./api-getphases')
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+              let end_date = data[0].gwopa_fases[idnum-1].end_iso;
+              $('#target-date-' + (idnum) + '').val(end_date);
+          })
 
           counter++;
           });
 
-
-  $('#date').datetimepicker({
-   todayHighlight: true,
-   format: 'dd/mm/yyyy',
-   startDate: new Date()
-  });
-  $("#datetime").datetimepicker({
-    format: 'yyyy-mm-dd',
-    autoclose: true,
-    pickTime: false
- });
-
-   $('#datetimepicker1').datetimepicker({
-   });
-
-
+          $('#datetimepicker1').datetimepicker({
+            format: 'LL'
+          });
 
         });
 

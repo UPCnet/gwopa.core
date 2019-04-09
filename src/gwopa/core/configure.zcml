@@ -20,6 +20,7 @@
   <include package=".portlets" />
 
   <include file="permissions.zcml" />
+  <include file="api.zcml" />
   <!-- Trying to include overrides views -->
   <include file="overrides.zcml" />
 

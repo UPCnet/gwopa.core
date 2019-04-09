@@ -4,39 +4,36 @@ from Products.Five.browser import BrowserView
 from plone import api
 from geojson import Feature, Point, FeatureCollection
 from gwopa.core import _
-import transaction
-from Products.statusmessages.interfaces import IStatusMessage
-from Products.CMFCore.utils import getToolByName
-import json
 
-# class listFiles(BrowserView):
-#     """ View all the files associated to the project.
-#         Separated by area.
-#         If this is a root call, shows all site files
-#     """
-#     __call__ = ViewPageTemplateFile('templates/files.pt')
 
-#     def isRootFolder(self):
-#         if (self.context.portal_type != 'Plone Site'):
-#             return _(u'Here are the files of the Project.')
-#         else:
-#             return _(u'Here are all files of the Platform.')
+class listFiles(BrowserView):
+    """ View all the files associated to the project.
+        Separated by area.
+        If this is a root call, shows all site files
+    """
+    __call__ = ViewPageTemplateFile('templates/files.pt')
 
-#     def all_files(self):
-#         if self.context.portal_type == 'Project':
-#             items = api.content.find(
-#                 portal_type=['File'],
-#                 path='/'.join(self.context.getPhysicalPath()))
-#         else:
-#             items = api.content.find(portal_type=['File'])
-#         results = []
-#         for item in items:
-#             results.append(dict(
-#                 title=item.Title,
-#                 description=item.Description,
-#                 portal_type=item.portal_type,
-#                 url='/'.join(item.getPhysicalPath())))
-#         return results
+    def isRootFolder(self):
+        if (self.context.portal_type != 'Plone Site'):
+            return _(u'Here are the files of the Project.')
+        else:
+            return _(u'Here are all files of the Platform.')
+
+    def all_files(self):
+        if self.context.portal_type == 'Project':
+            items = api.content.find(
+                portal_type=['File'],
+                path='/'.join(self.context.getPhysicalPath()))
+        else:
+            items = api.content.find(portal_type=['File'])
+        results = []
+        for item in items:
+            results.append(dict(
+                title=item.Title,
+                description=item.Description,
+                portal_type=item.portal_type,
+                url='/'.join(item.getPhysicalPath())))
+        return results
 
 
 class listAreas(BrowserView):
@@ -113,30 +110,3 @@ class mapView(BrowserView):
             return FeatureCollection(results)
         else:
             return None
-
-
-class API(BrowserView):
-    """ Return needed values in json format """
-
-    def __call__(self):
-        project = self.context
-        results = []
-
-        results = [{'id': project.id,
-                    'title': project.title,
-                    'description': project.description,
-                    'status': project.status,
-                    'country': project.country,
-                    'category': project.category,
-                    'areas': project.areas,
-                    'assumptions': 'project.assumptions.output()',
-                    'contribution': 'project.contribution.output()',
-                    'creation_date': 'project.creation_date.strfmt()',
-                    'creatorts': project.creators,
-                    'currency': project.currency,
-                    'phases': len(project.gwopa_fases),
-                    'gwopa_fases': project.gwopa_fases,
-                    'modification_date': 'project.modification_date.strfmt()',
-                    'objectives': 'project.objectives.output()',
-                    }]
-        return json.dumps(results)

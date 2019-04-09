@@ -50,15 +50,15 @@ msgstr "Actividad"
 msgid "Actual"
 msgstr ""
 
-#: ../browser/templates/planning.pt:93
+#: ../browser/templates/planning.pt:97
 msgid "Add Activity"
 msgstr ""
 
-#: ../browser/templates/planning.pt:103
+#: ../browser/templates/planning.pt:107
 msgid "Add Output JS"
 msgstr ""
 
-#: ../browser/templates/planning.pt:98
+#: ../browser/templates/planning.pt:102
 msgid "Add Output Plone"
 msgstr ""
 
@@ -275,11 +275,11 @@ msgstr "Fecha de fin"
 msgid "End:"
 msgstr ""
 
-#: ../browser/configure.zcml:134
+#: ../browser/configure.zcml:145
 msgid "Faceted listing view"
 msgstr ""
 
-#: ../browser/configure.zcml:126
+#: ../browser/configure.zcml:137
 msgid "Faceted summary view"
 msgstr ""
 
@@ -296,7 +296,7 @@ msgstr "Ficheros"
 msgid "Focal point partner"
 msgstr ""
 
-#: ../configure.zcml:38
+#: ../configure.zcml:39
 msgid "GWOPA Core package (gwopa.core)"
 msgstr "GWOPA Core package (gwopa.core)"
 
@@ -304,7 +304,11 @@ msgstr "GWOPA Core package (gwopa.core)"
 msgid "Geolocation"
 msgstr ""
 
-#: ../browser/views.py:52
+#: ../browser/views.py:20
+msgid "Here are all files of the Platform."
+msgstr ""
+
+#: ../browser/views.py:49
 msgid "Here are all the Improvement Areas of the Platform."
 msgstr ""
 
@@ -312,8 +316,12 @@ msgstr ""
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
 msgstr "Aquí se muestran todas las Áreas de Mejora de este proyecto. Puede acceder a ellos pinchando en las imágenes de abajo."
 
-#: ../browser/views.py:50
+#: ../browser/views.py:47
 msgid "Here are the Improvement Areas of the Project."
+msgstr ""
+
+#: ../browser/views.py:18
+msgid "Here are the files of the Project."
 msgstr ""
 
 #: ../portlets/sidenav.pt:86
@@ -342,11 +350,11 @@ msgstr ""
 msgid "Implementation"
 msgstr ""
 
-#: ../browser/templates/planning.pt:311
+#: ../browser/templates/planning.pt:309
 msgid "Improve generic Capacity Change"
 msgstr ""
 
-#: ../browser/templates/planning.pt:315
+#: ../browser/templates/planning.pt:313
 msgid "Improve specific Capacity Change"
 msgstr ""
 
@@ -410,7 +418,7 @@ msgstr ""
 msgid "Insert the used category to group this element"
 msgstr ""
 
-#: ../configure.zcml:38
+#: ../configure.zcml:39
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
@@ -539,7 +547,7 @@ msgstr "Los proyectos de mi compañía"
 msgid "Name"
 msgstr "Nombre"
 
-#: ../browser/templates/planning.pt:146
+#: ../browser/templates/planning.pt:147
 msgid "Not assigned"
 msgstr ""
 
@@ -833,11 +841,11 @@ msgstr "Título"
 msgid "Total budget:"
 msgstr ""
 
-#: ../configure.zcml:47
+#: ../configure.zcml:48
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr "Uninstall: GWOPA Core package (gwopa.core)"
 
-#: ../configure.zcml:47
+#: ../configure.zcml:48
 msgid "Uninstalls the gwopa.core add-on."
 msgstr "Uninstalls the gwopa.core add-on."
 
@@ -865,11 +873,11 @@ msgstr ""
 msgid "Users in this Partner"
 msgstr "Usuarios asignados a este Socio"
 
-#: ../browser/templates/planning.pt:280
+#: ../browser/templates/planning.pt:278
 msgid "Utility Capacity"
 msgstr ""
 
-#: ../browser/templates/planning.pt:221
+#: ../browser/templates/planning.pt:220
 msgid "Utility Performance"
 msgstr ""
 

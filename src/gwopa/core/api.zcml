@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:faceted="http://namespaces.zope.org/faceted"
+    i18n_domain="gwopa">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="api-getphases"
+      class=".api.code.getPhases"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <!-- API values returned to show output modal -->
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="select2-users.json"
+      class=".api.code.getUsers"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+</configure>
+
+

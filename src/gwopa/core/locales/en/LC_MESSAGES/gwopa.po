@@ -53,15 +53,15 @@ msgstr "Activity"
 msgid "Actual"
 msgstr "Actual"
 
-#: ../browser/templates/planning.pt:93
+#: ../browser/templates/planning.pt:97
 msgid "Add Activity"
 msgstr "Add Activity"
 
-#: ../browser/templates/planning.pt:103
+#: ../browser/templates/planning.pt:107
 msgid "Add Output JS"
 msgstr ""
 
-#: ../browser/templates/planning.pt:98
+#: ../browser/templates/planning.pt:102
 msgid "Add Output Plone"
 msgstr ""
 
@@ -278,11 +278,11 @@ msgstr "End Date"
 msgid "End:"
 msgstr "End:"
 
-#: ../browser/configure.zcml:134
+#: ../browser/configure.zcml:145
 msgid "Faceted listing view"
 msgstr "Faceted listing view"
 
-#: ../browser/configure.zcml:126
+#: ../browser/configure.zcml:137
 msgid "Faceted summary view"
 msgstr "Faceted summary view"
 
@@ -299,7 +299,7 @@ msgstr "Files"
 msgid "Focal point partner"
 msgstr "Focal point Partner"
 
-#: ../configure.zcml:38
+#: ../configure.zcml:39
 msgid "GWOPA Core package (gwopa.core)"
 msgstr "GWOPA Core package (gwopa.core)"
 
@@ -307,7 +307,11 @@ msgstr "GWOPA Core package (gwopa.core)"
 msgid "Geolocation"
 msgstr "Geolocation"
 
-#: ../browser/views.py:52
+#: ../browser/views.py:20
+msgid "Here are all files of the Platform."
+msgstr ""
+
+#: ../browser/views.py:49
 msgid "Here are all the Improvement Areas of the Platform."
 msgstr "Here are all the Working Areas of the Platform."
 
@@ -315,9 +319,13 @@ msgstr "Here are all the Working Areas of the Platform."
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
 msgstr "Here are shown all the Working Areas of this project. You can view them clicking in the images below."
 
-#: ../browser/views.py:50
+#: ../browser/views.py:47
 msgid "Here are the Improvement Areas of the Project."
 msgstr "Here are the Working Areas of the Project."
+
+#: ../browser/views.py:18
+msgid "Here are the files of the Project."
+msgstr ""
 
 #: ../portlets/sidenav.pt:86
 msgid "Home"
@@ -345,11 +353,11 @@ msgstr "Image used to describe the Working Area"
 msgid "Implementation"
 msgstr "Implementation"
 
-#: ../browser/templates/planning.pt:311
+#: ../browser/templates/planning.pt:309
 msgid "Improve generic Capacity Change"
 msgstr ""
 
-#: ../browser/templates/planning.pt:315
+#: ../browser/templates/planning.pt:313
 msgid "Improve specific Capacity Change"
 msgstr ""
 
@@ -413,7 +421,7 @@ msgstr "Insert the Font Awesome icon to describe this Outcome. Ex: fa-globe"
 msgid "Insert the used category to group this element"
 msgstr "Insert the used category to group this element"
 
-#: ../configure.zcml:38
+#: ../configure.zcml:39
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
 
@@ -542,7 +550,7 @@ msgstr "My company Projects"
 msgid "Name"
 msgstr "Name"
 
-#: ../browser/templates/planning.pt:146
+#: ../browser/templates/planning.pt:147
 msgid "Not assigned"
 msgstr ""
 
@@ -836,11 +844,11 @@ msgstr "Title"
 msgid "Total budget:"
 msgstr "Total budget:"
 
-#: ../configure.zcml:47
+#: ../configure.zcml:48
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr "Uninstall: GWOPA Core package (gwopa.core)"
 
-#: ../configure.zcml:47
+#: ../configure.zcml:48
 msgid "Uninstalls the gwopa.core add-on."
 msgstr "Uninstalls the gwopa.core add-on."
 
@@ -868,11 +876,11 @@ msgstr "Username"
 msgid "Users in this Partner"
 msgstr "Users in this Partner"
 
-#: ../browser/templates/planning.pt:280
+#: ../browser/templates/planning.pt:278
 msgid "Utility Capacity"
 msgstr "Utility Capacity"
 
-#: ../browser/templates/planning.pt:221
+#: ../browser/templates/planning.pt:220
 msgid "Utility Performance"
 msgstr "Utility Performance"
 
