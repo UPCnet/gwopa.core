@@ -46,8 +46,6 @@
       </ul>
     </div>
 
-
-
     <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
 
     <div id="exTab1" class="container">
@@ -61,7 +59,7 @@
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="project">
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
-            <!-- Delete Modal HTML -->
+
             <div id="deleteModal" class="modal fade">
               <div class="modal-dialog modal-confirm">
                 <div class="modal-content">
@@ -428,7 +426,8 @@
                      <span class="glyphicon glyphicon-calendar"></span>
                      </span>
                   </div>
-                </div>  
+                </div>
+
                 <div class="form-group">
                   <label for="message-text" class="control-label">Measuring unit:</label>
                   <select id="measuring" name="measuring" class="form-control">
@@ -448,32 +447,35 @@
                       <option value="3">Annually</option>
                   </select>
                 </div>
-                  <div class="row" id="targetagrupados">
-                        <div class="col-md-6">
-                              <label for="message-text" class="control-label"> Target value </label>
-                              <input class="form-control" id="message-text" />
-                        </div>
-                        <div class="col-md-6">
-                              <label for="message-text" class="control-label"> Target date </label>
-                              <input class="form-control" id="target-date" readonly/>
-                        </div>
-                    <button type="button" class="btn ADDNEW" >
-                      <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                      Add target
-                    </button>
+
+                <div id='TextBoxesGroup'>
+                  <div id="TextBoxDiv1">
+                    <div class="col-md-6">
+                      <label for="message-text" class="control-label"> Target value </label>
+                      <input class="form-control" id="target-value-1" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="message-text" class="control-label"> Target date </label>
+                      <input class="form-control" id="target-date-1"  readonly/>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="message-text" class="control-label">Means of verification</label>
-                    <textarea class="form-control" id="message-text"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="message-text" class="control-label">Risks / Assumptions</label>
-                    <textarea class="form-control" id="message-text"></textarea>
-                  </div>
-                  <div class="form-group">
-                        <label for="message-text" class="control-label">Responsible people</label>
-                        <textarea class="form-control" id="message-text" placeholder="TODO: WS"></textarea>
-                  </div>
+                </div>
+                <button type="button" id='addButton'>
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  Add target
+                </button>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Means of verification</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Risks / Assumptions</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                <div class="form-group">
+                      <label for="message-text" class="control-label">Responsible people</label>
+                      <textarea class="form-control" id="message-text" placeholder="TODO: WS"></textarea>
+                </div>
               </div>
             </div>
             <div class="modal-footer">
@@ -482,8 +484,6 @@
         </div>
       </div>
     </div>
-
-
 
 <!--   <script>
   $('#delete').click(function() {
@@ -495,41 +495,49 @@
         $(document).ready(function(){
           let counter = 1;
           let numPhases = $('#totalPhases').text();
-          let idnum = counter + 1;
+
+          fetch('./api-ws')
+            .then(response => {
+              return response.json()
+            })
+            .then(data => {
+                let end_date = data[0].gwopa_fases[0].end_iso;
+                $('#target-date-1').val(end_date);
+          });
+
           $("#addButton").click(function () {
+
+          let idnum = counter + 1;
           if(counter>=numPhases){
                 alert("Only" + numPhases + " Phases are valid");
                 return false;
           }
-          var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
-                    newTextBoxDiv.after().html('<label>Textbox #'+ idnum + ' : </label>' +
-            '<input type="text" name="textbox' + idnum +
-            '" id="textbox' + idnum + '" value="" >');
+          let newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
+          newTextBoxDiv.after().html(
+          '<div class="col-md-6">' +
+          '<input class="form-control" id="target-value-' + idnum + '" /></div>' +
+          '<div class="col-md-6">' +
+          '<input class="form-control" id="target-date-' + idnum + '" readonly/></div>');
+
           newTextBoxDiv.appendTo("#TextBoxesGroup");
-            counter++;
+
+          fetch('./api-ws')
+            .then(response => {
+              return response.json()
+            })
+            .then(data => {
+                let end_date = data[0].gwopa_fases[idnum-1].end_iso;
+                $('#target-date-' + (idnum) + '').val(end_date);
+            })
+
+          counter++;
           });
 
-          $("#removeButton").click(function () {
-            if(counter==1){
-                alert("No more textbox to remove");
-                return false;
-            }
-            counter--;
-            $("#TextBoxDiv" + counter).remove();
-          });
-          
-          $("#getButtonValue").click(function () {
-            var msg = '';
-            for(i=1; i<counter; i++){
-              msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
-            }
-            alert(msg);
-          });
 
   $('#date').datetimepicker({
    todayHighlight: true,
    format: 'dd/mm/yyyy',
-   startDate: new Date()   
+   startDate: new Date()
   });
   $("#datetime").datetimepicker({
     format: 'yyyy-mm-dd',
@@ -540,17 +548,7 @@
    $('#datetimepicker1').datetimepicker({
    });
 
-        fetch('./api-ws')
-          .then(response => {
-            return response.json()
-          })
-          .then(data => {
-            // Work with JSON data here
-           alert(data[0].title);
-          })
-          .catch(err => {
-            // Do something for an error here
-          })
+
 
         });
 
