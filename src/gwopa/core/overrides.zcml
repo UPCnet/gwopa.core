@@ -17,11 +17,12 @@
       factory=".userdataschema.EnhancedUserDataSchemaAdapter"
       />
 
+  <!-- Override Search to redirect at faceted search -->
   <browser:page
-      name="search2"
+      name="search"
       class=".search.Search"
       permission="zope2.View"
-      for="*"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
       />
 

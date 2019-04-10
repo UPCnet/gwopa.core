@@ -1,5 +1,6 @@
-from plone import api
+# -*- coding: utf-8 -*-
 from zope.publisher.browser import BrowserView
+from plone import api
 
 
 class Search(BrowserView):
