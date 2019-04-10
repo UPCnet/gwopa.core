@@ -190,7 +190,6 @@
                 </a> </div>
                 <i class="fas fa-chevron-down"></i></div>
               <div class="contentt" id="down">
-                <i class="fas fa-chevron-down"></i>
               </div>
             </div>
           </div>
@@ -284,7 +283,7 @@
             <div class="information object">
               <div class="contentt" id="total">
                   <div class="status-w"></div>
-                  <div class="Activity-planning">Activity</div>
+                  <div class="CC-planning">Improve capacity in</div>
                   <h4 class="titulocatplan" id="activity">Ejemplo 1 de Activity</h4>
               </div>
               <div class="contentt" id="bl">2019-03-30</div>
@@ -416,7 +415,6 @@
                 </a> </div>
                 <i class="fas fa-chevron-down"></i></div>
               <div class="contentt" id="down">
-                <i class="fas fa-chevron-down"></i>
               </div>
             </div>
           </div>
