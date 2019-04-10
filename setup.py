@@ -58,7 +58,8 @@ setup(
         'collective.ploneboard',
         'eea.facetednavigation',
         'beautifulsoup4',
-        'plone.formwidget.autocomplete'
+        'plone.formwidget.autocomplete',
+        'collective.dexteritytextindexer'
         # 'ftw.calendarwidget',
         # 'ftw.keywordwidget',
         # 'ftw.datepicker',

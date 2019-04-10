@@ -22,22 +22,23 @@ from zope.schema.vocabulary import SimpleVocabulary
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 import unicodedata
 from zope.interface import directlyProvides
-from zope.schema.vocabulary import SimpleTerm
+# from zope.schema.vocabulary import SimpleTerm
 from operator import itemgetter
 from plone.directives import form
+from collective import dexteritytextindexer
 
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
 
-items = [(_(u'inactive'), _(u'Inactive')),
-         (_(u'inception'), _(u'Inception')),
-         (_(u'implementation'), _(u'Implementation')),
-         (_(u'completed'), _(u'Completed')),
-         ]
+# items = [(_(u'inactive'), _(u'Inactive')),
+#          (_(u'inception'), _(u'Inception')),
+#          (_(u'implementation'), _(u'Implementation')),
+#          (_(u'completed'), _(u'Completed')),
+#          ]
 
-terms = [SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items]
+# terms = [SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items]
 
-projectStatus = SimpleVocabulary(terms)
+# projectStatus = SimpleVocabulary(terms)
 
 grok.templatedir("templates")
 
@@ -89,7 +90,7 @@ class IProject(model.Schema):
 
     fieldset('project',
              label=_(u'Project'),
-             fields=['title', 'status', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'category']
+             fields=['title', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'category']
              )
 
     fieldset('image',
@@ -128,6 +129,7 @@ class IProject(model.Schema):
         vocabulary='plone.app.vocabularies.Keywords'
     )
 
+    dexteritytextindexer.searchable('title')
     title = schema.TextLine(
         title=_(u"Title"),
         description=_(u"Project title"),
@@ -140,11 +142,11 @@ class IProject(model.Schema):
         required=False,
     )
 
-    status = schema.Choice(
-        title=_(u'Project Status'),
-        description=_(u'Indicate the current status of the project'),
-        vocabulary=projectStatus,
-    )
+    # status = schema.Choice(
+    #     title=_(u'Project Status'),
+    #     description=_(u'Indicate the current status of the project'),
+    #     vocabulary=projectStatus,
+    # )
 
     directives.mode(startdate='display')
     startdate = schema.Text(
@@ -182,12 +184,14 @@ class IProject(model.Schema):
         defaultFactory=default_plus_one_year
     )
 
+    dexteritytextindexer.searchable('objectives')
     objectives = RichText(
         title=_(u'Project description and main objectives'),
         description=_(u'Use this area to add all the objectives and description of the project'),
         required=False,
     )
 
+    dexteritytextindexer.searchable('wop_platform')
     wop_platform = schema.Choice(
         title=_(u'Regional WOP Platform'),
         description=_(u"Platform/platforms associated to this project"),
@@ -195,6 +199,7 @@ class IProject(model.Schema):
         source=utils.listWOPPlatforms
     )
 
+    dexteritytextindexer.searchable('wop_program')
     wop_program = schema.Choice(
         title=_(u'WOP Program'),
         description=_(u"Program/programs associated to this project"),
@@ -203,6 +208,7 @@ class IProject(model.Schema):
     )
 
     # directives.widget('country', SelectWidget)
+    dexteritytextindexer.searchable('country')
     country = schema.Choice(
         title=_(u"Country"),
         description=_(u"Select a country from the list"),
@@ -210,6 +216,7 @@ class IProject(model.Schema):
         required=True,
     )
 
+    dexteritytextindexer.searchable('location')
     location = schema.TextLine(
         title=_(u"Location"),
         description=_(u"Write the project location"),
@@ -230,6 +237,7 @@ class IProject(model.Schema):
         required=False,
     )
 
+    dexteritytextindexer.searchable('partners')
     # directives.widget('partners', SelectWidget)
     partners = schema.List(
         title=_(u"Partners"),
