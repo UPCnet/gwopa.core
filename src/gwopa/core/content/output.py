@@ -42,7 +42,7 @@ class IOutput(model.Schema):
         defaultFactory=todayValue
     )
 
-    target = schema.Text(
+    target = schema.TextLine(
         title=_(u"Measurable Target"),
         required=True,
     )
