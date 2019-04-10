@@ -9,6 +9,8 @@ from gwopa.core.content.outcomeccs import IOutcomeccs
 from Products.CMFPlone.interfaces import IConfigurationChangedEvent
 from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
 from plone import api
+import requests
+from plone.namedfile.file import NamedBlobImage
 # import datetime
 import transaction
 import math
@@ -30,6 +32,14 @@ def projectAdded(content, event):
 
     # Assign fases to internal field
     content.gwopa_fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
+
+    # Asign default image if not set
+    if content.image is None:
+        data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
+        default_image = NamedBlobImage(data=data,
+                                       filename=u'image.jpg',
+                                       contentType='image/jpeg')
+        content.image = default_image
 
     # Create default needed folders in the new project
     api.content.create(
@@ -92,6 +102,14 @@ def projectModified(content, event):
         datas.append(content.completionactual.strftime("%B %d, %Y"))
         isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
         isodate.append(content.completionactual.strftime("%Y-%d-%m"))
+
+        # Asign default image if not set
+        if content.image is None:
+            data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
+            default_image = NamedBlobImage(data=data,
+                                           filename=u'image.jpg',
+                                           contentType='image/jpeg')
+            content.image = default_image
 
         results = []
         if fases > 1:
