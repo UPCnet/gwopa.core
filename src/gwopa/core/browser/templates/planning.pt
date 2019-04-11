@@ -26,7 +26,8 @@
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
   <!-- CSS -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -212,7 +213,7 @@
                                   title string:Edit ${item/title};
                                   alt string:Edit ${item/title}"><i class="far fa-edit"></i></a>
                               <a href="#confirm-delete" data-toggle="modal"  class="btn-dos"
-                                tal:attributes="data-href item/url; data-type item/portal_type;" title="Delete" alt="Delete">
+                                tal:attributes="data-url item/url; data-type item/portal_type;" title="Delete" alt="Delete">
                                 <i class="far fa-trash-alt"></i></a>
                             </div>
                           </div>
@@ -242,7 +243,7 @@
                                     title string:Edit ${output/title};
                                     alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
                                 <a href="#confirm-delete" data-toggle="modal"  class="btn-dos"
-                                  tal:attributes=" data-href item/url; data-type item/portal_type;" title="Delete" alt="Delete">
+                                  tal:attributes=" data-url item/url; data-type item/portal_type;" title="Delete" alt="Delete">
                                   <i class="far fa-trash-alt"></i></a>
                               </div>
                             </div>
@@ -313,7 +314,7 @@
                             <i class="far fa-edit"></i>
                           </a>
                           <a href="#confirm-delete" data-toggle="modal" class="btn-dos"
-                            tal:attributes="data-href string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
+                            tal:attributes="data-url string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
                             <i class="far fa-trash-alt"></i>
                           </a>
                         </div>
@@ -463,13 +464,6 @@
     </div>
 
     <script type="text/javascript">
-/*$('#confirm-delete').on('shown.bs.modal', function (e) {
-    setTimeout(function(){
-        //Do something if necessary
-        alert("HOLA");
-    }, 300);
-})
-*/
         $(document).ready(function(){
 
           let counter = 1;
@@ -518,75 +512,38 @@
             format: 'LL'
           });*/
 
-/*        $('#confirm-delete').on('click', '.btn-ok', function(e) {
-          debugger;
-            var $modalDiv = $(e.delegateTarget);
-            var id = $(this).data('recordId');
-            // $.ajax({url: '/api/record/' + id, type: 'DELETE'})
-            // $.post('/api/record/' + id).then()
-            $modalDiv.addClass('loading');
-            setTimeout(function() {
-                $modalDiv.modal('hide').removeClass('loading');
-                alert("deleted");
-            }, 1000)
-        });*/
-/*        $('#confirm-delete').on('click', '.btn-ok', function(e) {
-            var $modalDiv = $(e.delegateTarget);
-            var id = $(this).data('recordId');
-            // $.ajax({url: '/api/record/' + id, type: 'DELETE'})
-            // $.post('/api/record/' + id).then()
-            $modalDiv.addClass('loading');
-            setTimeout(function() {
-                $modalDiv.modal('hide').removeClass('loading');
-                alert("deleted");
-            }, 1000)
-        });
-*/
-/*        $('#confirm-delete').modal('show', function(e) {
-          debugger;
-            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+        $('.btn-dos').on('click', function(e) {
 
-            $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
-        });*/
-
-/*        $('#confirm-delete').on('click', '.btn-dos', function(e) {
-            $(this).find('.btn-dos').attr('href', $(e.relatedTarget).data('href'));
-            itme = $(this).find('.btn-dos').attr('href')
-                swal(
-                  'Are you sure?',
-                  'You are going to delete item: <br/>'  +itme,
-                  'warning',
-                  );
-        //    $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');*/
-/*        });*/
-
-var $editButton = $('.btn-dos');
-
-$editButton.on('click', function(e) {
-
-  e.preventDefault();
-
-  swal({
-      title: 'Are you sure?',
-      text: 'By clicking \'OK\' you will be redirected to the link.',
-      icon: 'warning',
-      buttons: {
-          cancel: true,
-          confirm: true
-      }
-  }).then(function(value) {
-      if (value) {
-          //  Either true or null
-          window.location.href = "https://www.stackoverflow.com";
-      }
-  });
-
-});
-
-
+          e.preventDefault();
+          item = $(this).attr('data-url')
+          var params = {};
+          params.item = item;
+          swal({
+            title: "Are you sure ??",
+            text: 'Delete item: ' + item, 
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              $.ajax({
+                url: '@@removeElement',
+                method: 'POST',
+                data: params,
+                success: function(resp)
+                      {
+                        if(resp) return "ok"
+                      }
+              })
+          } else {
+            swal("Cancelled", "Your file is safe :)", "error");
+          }
         });
 
+      });
 
+    });
     </script>
 
 

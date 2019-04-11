@@ -25,6 +25,13 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+    for="*"
+    name="removeElement"
+    class=".api.code.Delete"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
 </configure>
 
 

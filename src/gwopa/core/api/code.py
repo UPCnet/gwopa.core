@@ -30,3 +30,10 @@ class getUsers(BrowserView):
                 'results': results,
             }
         )
+
+
+class Delete(BrowserView):
+
+    def __call__(self):
+        item = self.request.form.get('item')
+        return item
