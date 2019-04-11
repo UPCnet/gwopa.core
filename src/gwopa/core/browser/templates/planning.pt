@@ -16,13 +16,18 @@
       require = undefined;
       define = undefined;
     </script>
-    <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script>
+
+    <!-- JS -->
+    <!-- <script src="//unpkg.com/vue@2.5.21/dist/vue.js"></script> -->
+<!--     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="//cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+<!-- <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script> -->
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+  <!-- CSS -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -45,8 +50,84 @@
       </ul>
     </div>
 
-    <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
 
+<!--  <div class="modal fade" id="confirm-delete2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You are about to delete <b><i class="title"></i></b> record, this procedure is irreversible.</p>
+                    <p>Do you want to proceed?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger btn-ok">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-default" data-record-id="54" data-record-title="Something cool" data-toggle="modal" data-target="#confirm-delete2">
+        2 Delete "Something cool", #54
+    </button>
+ -->
+
+<!-- <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>You are about to delete one track, this procedure is irreversible.</p>
+                    <p>Do you want to proceed?</p>
+                    <p class="debug-url"></p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-default" data-href="/delete.php?id=54" data-toggle="modal" data-target="#confirm-delete">
+        Delete record #54
+    </button> -->
+
+
+    <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
+<!--
+    <div id="confirm-delete" class="modal"  tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="icon-box">
+              <i class="fas fa-times"></i>
+            </div>
+            <h4 class="modal-title">Are you sure?</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Do you really want to delete these record? This process cannot be undone.</p>
+          </div>
+          <p class="debug-url"></p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+            <button id="delete" type="button" class="btn btn-danger btn-ok">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+ -->
     <div id="exTab1" class="container">
       <ul class="nav nav-pills">
         <li class="active">
@@ -58,27 +139,6 @@
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="project">
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
-            <div id="deleteModal" class="modal fade">
-              <div class="modal-dialog modal-confirm">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <div class="icon-box">
-                      <i class="fas fa-times"></i>
-                    </div>
-                    <h4 class="modal-title">Are you sure?</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Do you really want to delete these record? This process cannot be undone.</p>
-                  </div>
-                  <p class="debug-url"></p>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                    <button id="delete" type="button" class="btn btn-danger" onclick="deleteElement(data)">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
             <tal:objects repeat="item areas">
               <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);" aria-expanded="false"
                   tal:attributes="href string:#collapse-${item/id}; aria-controls string:collapse-${item/id};">
@@ -151,12 +211,9 @@
                                   href string:${item/url}/edit;
                                   title string:Edit ${item/title};
                                   alt string:Edit ${item/title}"><i class="far fa-edit"></i></a>
-                              <a href="#deleteModal" data-toggle="modal"
-                                tal:attributes="
-                                  data-item item/url;
-                                  data-type item/portal_type;
-                                  title string:Delete ${item/title};
-                                  alt string:Delete ${item/title}"><i class="far fa-trash-alt"></i></a>
+                              <a href="#confirm-delete" data-toggle="modal"  class="btn-dos"
+                                tal:attributes="data-href item/url; data-type item/portal_type;" title="Delete" alt="Delete">
+                                <i class="far fa-trash-alt"></i></a>
                             </div>
                           </div>
                         </div>
@@ -184,12 +241,9 @@
                                     href string:${output/url}/edit;
                                     title string:Edit ${output/title};
                                     alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
-                                <a href="#deleteModal" data-toggle="modal"
-                                  tal:attributes="
-                                    data-item item/url;
-                                    data-type item/portal_type;
-                                    title string:Delete ${item/title};
-                                    alt string:Delete ${item/title}"><i class="far fa-trash-alt"></i></a>
+                                <a href="#confirm-delete" data-toggle="modal"  class="btn-dos"
+                                  tal:attributes=" data-href item/url; data-type item/portal_type;" title="Delete" alt="Delete">
+                                  <i class="far fa-trash-alt"></i></a>
                               </div>
                             </div>
                           </div>
@@ -258,7 +312,8 @@
                           <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit">
                             <i class="far fa-edit"></i>
                           </a>
-                          <a href="#deleteModal" data-toggle="modal" tal:attributes="data-item string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
+                          <a href="#confirm-delete" data-toggle="modal" class="btn-dos"
+                            tal:attributes="data-href string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
                             <i class="far fa-trash-alt"></i>
                           </a>
                         </div>
@@ -408,7 +463,15 @@
     </div>
 
     <script type="text/javascript">
+/*$('#confirm-delete').on('shown.bs.modal', function (e) {
+    setTimeout(function(){
+        //Do something if necessary
+        alert("HOLA");
+    }, 300);
+})
+*/
         $(document).ready(function(){
+
           let counter = 1;
           let numPhases = $('#totalPhases').text();
 
@@ -425,8 +488,10 @@
 
           let idnum = counter + 1;
           if(counter>=numPhases){
-                swal("No more targets allowed!", "This output only accept " + numPhases + " target values.", "warning");
-                return false;
+                swal(
+                  'No more targets allowed!',
+                  'This output only accept ' + numPhases + ' target values.',
+                  'warning');
           }
           let newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
           newTextBoxDiv.after().html(
@@ -449,14 +514,81 @@
           counter++;
           });
 
-          $('#datetimepicker1').datetimepicker({
+/*          $('#datetimepicker1').datetimepicker({
             format: 'LL'
-          });
+          });*/
+
+/*        $('#confirm-delete').on('click', '.btn-ok', function(e) {
+          debugger;
+            var $modalDiv = $(e.delegateTarget);
+            var id = $(this).data('recordId');
+            // $.ajax({url: '/api/record/' + id, type: 'DELETE'})
+            // $.post('/api/record/' + id).then()
+            $modalDiv.addClass('loading');
+            setTimeout(function() {
+                $modalDiv.modal('hide').removeClass('loading');
+                alert("deleted");
+            }, 1000)
+        });*/
+/*        $('#confirm-delete').on('click', '.btn-ok', function(e) {
+            var $modalDiv = $(e.delegateTarget);
+            var id = $(this).data('recordId');
+            // $.ajax({url: '/api/record/' + id, type: 'DELETE'})
+            // $.post('/api/record/' + id).then()
+            $modalDiv.addClass('loading');
+            setTimeout(function() {
+                $modalDiv.modal('hide').removeClass('loading');
+                alert("deleted");
+            }, 1000)
+        });
+*/
+/*        $('#confirm-delete').modal('show', function(e) {
+          debugger;
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+
+            $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+        });*/
+
+/*        $('#confirm-delete').on('click', '.btn-dos', function(e) {
+            $(this).find('.btn-dos').attr('href', $(e.relatedTarget).data('href'));
+            itme = $(this).find('.btn-dos').attr('href')
+                swal(
+                  'Are you sure?',
+                  'You are going to delete item: <br/>'  +itme,
+                  'warning',
+                  );
+        //    $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');*/
+/*        });*/
+
+var $editButton = $('.btn-dos');
+
+$editButton.on('click', function(e) {
+
+  e.preventDefault();
+
+  swal({
+      title: 'Are you sure?',
+      text: 'By clicking \'OK\' you will be redirected to the link.',
+      icon: 'warning',
+      buttons: {
+          cancel: true,
+          confirm: true
+      }
+  }).then(function(value) {
+      if (value) {
+          //  Either true or null
+          window.location.href = "https://www.stackoverflow.com";
+      }
+  });
+
+});
+
 
         });
 
 
     </script>
+
 
   </metal:block>
 
