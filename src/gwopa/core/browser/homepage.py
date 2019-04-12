@@ -5,6 +5,7 @@ from Products.CMFPlone.browser.interfaces import IMainTemplate
 from plone import api
 from bs4 import BeautifulSoup
 from operator import itemgetter
+import random
 
 
 class MainTemplate(BrowserView):
@@ -182,7 +183,12 @@ class MainTemplate(BrowserView):
                                 project_manager=item.project_manager,
                                 image=image
                                 ))
-        return results
+        limit = 8
+        if len(results) > limit:
+            items_to_show = limit
+        else:
+            items_to_show = len(results)
+        return random.sample(results, items_to_show)
 
     def abreviaText(self, text, count=100):
         text = BeautifulSoup(text, 'lxml').text
