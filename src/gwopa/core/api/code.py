@@ -36,4 +36,6 @@ class Delete(BrowserView):
 
     def __call__(self):
         item = self.request.form.get('item')
-        return item
+        obj = api.content.get(path=item)
+        api.content.delete(obj=obj, check_linkintegrity=False)
+        return 'Ok, item deleted'

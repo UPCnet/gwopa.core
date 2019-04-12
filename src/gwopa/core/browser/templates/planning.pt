@@ -212,8 +212,11 @@
                                   href string:${item/url}/edit;
                                   title string:Edit ${item/title};
                                   alt string:Edit ${item/title}"><i class="far fa-edit"></i></a>
-                              <a href="#confirm-delete" data-toggle="modal"  class="btn-dos"
-                                tal:attributes="data-url item/url; data-type item/portal_type;" title="Delete" alt="Delete">
+                              <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
+                                tal:attributes="
+                                  data-url item/url;
+                                  data-type item/portal_type;
+                                  data-id item/title;" title="Delete" alt="Delete">
                                 <i class="far fa-trash-alt"></i></a>
                             </div>
                           </div>
@@ -242,8 +245,11 @@
                                     href string:${output/url}/edit;
                                     title string:Edit ${output/title};
                                     alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
-                                <a href="#confirm-delete" data-toggle="modal"  class="btn-dos"
-                                  tal:attributes=" data-url item/url; data-type item/portal_type;" title="Delete" alt="Delete">
+                                <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
+                                  tal:attributes="
+                                    data-url item/url;
+                                    data-type item/portal_type;
+                                    data-id item/title;" title="Delete" alt="Delete">
                                   <i class="far fa-trash-alt"></i></a>
                               </div>
                             </div>
@@ -313,8 +319,11 @@
                           <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit">
                             <i class="far fa-edit"></i>
                           </a>
-                          <a href="#confirm-delete" data-toggle="modal" class="btn-dos"
-                            tal:attributes="data-url string:${outcome/url}; data-type string:${outcome/portal_type}" title="Delete" alt="Delete">
+                          <a href="#confirm-delete" data-toggle="modal" class="btn-delete"
+                            tal:attributes="
+                                  data-url outcome/url;
+                                  data-type outcome/portal_type;
+                                  data-id outcome/title;" title="Delete" alt="Delete">
                             <i class="far fa-trash-alt"></i>
                           </a>
                         </div>
@@ -512,15 +521,17 @@
             format: 'LL'
           });*/
 
-        $('.btn-dos').on('click', function(e) {
+        $('.btn-delete').on('click', function(e) {
 
           e.preventDefault();
           item = $(this).attr('data-url')
+          item_type = $(this).attr('data-type')
+          item_title = $(this).attr('data-id')
           var params = {};
           params.item = item;
           swal({
-            title: "Are you sure ??",
-            text: 'Delete item: ' + item, 
+            title: "Are you sure?",
+            text: 'Remove ' + item_type + ': ' + item_title,
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -533,11 +544,19 @@
                 data: params,
                 success: function(resp)
                       {
-                        if(resp) return "ok"
+                        if(resp) {
+                          swal("Deleted", "The item has been deleted", "error", {
+                            buttons: false,
+                            timer: 1200,
+                          })
+                        }
                       }
               })
           } else {
-            swal("Cancelled", "Your file is safe :)", "error");
+            swal("Cancelled", "The item has not been deleted", "info", {
+              buttons: false,
+              timer: 1000,
+            })
           }
         });
 
