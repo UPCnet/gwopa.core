@@ -31,7 +31,7 @@ def projectAdded(content, event):
             api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
 
     # Assign fases to internal field
-    content.gwopa_fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
+    content.gwopa_year_phases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
 
     # Asign default image if not set
     if content.image is None:
@@ -132,7 +132,7 @@ def projectModified(content, event):
                 end_iso=isodate[1],
                 fase=1
             ))
-        content.gwopa_fases = results
+        content.gwopa_year_phases = results
 
         new_areas = content.areas
         current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]

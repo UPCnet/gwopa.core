@@ -477,16 +477,14 @@
 
           let counter = 1;
           let numPhases = $('#totalPhases').text();
-
           fetch('./api-getphases')
           .then(response => {
             return response.json()
           })
           .then(data => {
-              let end_date = data[0].gwopa_fases[0].end_iso;
+              let end_date = data[0].gwopa_year_phases[0].end_iso;
               $('#target-date-1').val(end_date);
           })
-
           $("#addButton").click(function () {
 
           let idnum = counter + 1;
@@ -502,18 +500,15 @@
           '<input class="form-control" id="target-value-' + idnum + '" /></div>' +
           '<div class="col-md-6">' +
           '<input class="form-control" id="target-date-' + idnum + '" readonly/></div>');
-
           newTextBoxDiv.appendTo("#TextBoxesGroup");
-
           fetch('./api-getphases')
           .then(response => {
             return response.json()
           })
           .then(data => {
-              let end_date = data[0].gwopa_fases[idnum-1].end_iso;
+              let end_date = data[0].gwopa_year_phases[idnum-1].end_iso;
               $('#target-date-' + (idnum) + '').val(end_date);
           })
-
           counter++;
           });
 
@@ -521,51 +516,48 @@
             format: 'LL'
           });*/
 
-        $('.btn-delete').on('click', function(e) {
-
-          e.preventDefault();
-          item = $(this).attr('data-url')
-          item_type = $(this).attr('data-type')
-          item_title = $(this).attr('data-id')
-          var params = {};
-          params.item = item;
-          swal({
-            title: "Are you sure?",
-            text: 'Remove ' + item_type + ': ' + item_title,
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              $.ajax({
-                url: '@@removeElement',
-                method: 'POST',
-                data: params,
-                success: function(resp)
-                      {
-                        if(resp) {
-                          swal("Deleted", "The item has been deleted", "error", {
-                            buttons: false,
-                            timer: 1200,
-                          })
-                          location.reload();
-                        }
-                      }
+          $('.btn-delete').on('click', function(e) {
+            e.preventDefault();
+            item = $(this).attr('data-url')
+            item_type = $(this).attr('data-type')
+            item_title = $(this).attr('data-id')
+            var params = {};
+            params.item = item;
+            swal({
+              title: "Confirm Delete?",
+              text: 'You are about to delete ' + item_type + ': ' + item_title,
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
             })
-            } else {
-              swal("Cancelled", "The item has not been deleted", "info", {
-                buttons: false,
-                timer: 1000,
+            .then((willDelete) => {
+              if (willDelete) {
+                $.ajax({
+                  url: '@@removeElement',
+                  method: 'POST',
+                  data: params,
+                  success: function(resp)
+                        {
+                          if(resp) {
+                            location.reload();
+                            swal("Deleted", "The item has been deleted", "success", {
+                              buttons: false,
+                              timer: 2000,
+                            })
+                          }
+                        }
               })
-            }
+              } else {
+                swal("Cancelled", "The item has not been deleted", "error", {
+                  buttons: false,
+                  timer: 1200,
+                })
+              }
+            });
           });
 
-      });
-
-    });
+        });
     </script>
-
 
   </metal:block>
 

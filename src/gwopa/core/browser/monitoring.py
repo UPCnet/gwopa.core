@@ -44,30 +44,30 @@ class monitoringView(BrowserView):
         if not self.year or self.year == '0':
             # Empty query or 0 returns default template
             self.year = '1'
-            self.fase_start = self.context.gwopa_fases[int(self.year) - 1]['start']
-            self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
+            self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
+            self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
             return self.index()
         else:
             try:
                 self.year = int(self.year)
             except:
                 self.year = 1
-            if self.year > len(self.context.gwopa_fases):
+            if self.year > len(self.context.gwopa_year_phases):
                 self.year = 1
-                self.fase_start = self.context.gwopa_fases[int(self.year) - 1]['start']
-                self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
+                self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
+                self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
             else:
-                self.fase_start = self.context.gwopa_fases[int(self.year) - 1]['start']
-                self.fase_end = self.context.gwopa_fases[int(self.year) - 1]['end']
+                self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
+                self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
             return self.index()
         # TODO: if copy or delete make action!
 
     def getPhases(self):
-        return len(self.context.gwopa_fases)
+        return len(self.context.gwopa_year_phases)
 
     def getItems(self):
         """ Returns all the project years of the monitoring """
-        items = len(self.context.gwopa_fases)
+        items = len(self.context.gwopa_year_phases)
         results = []
         total = 0
 
@@ -109,7 +109,7 @@ class monitoringView(BrowserView):
         """ returns objects from first level (elements inside ImprovementArea) """
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
-        data_year = self.context.gwopa_fases[int(self.year) - 1]
+        data_year = self.context.gwopa_year_phases[int(self.year) - 1]
         # start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%d-%m')
         # end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
         # date_range_query = {'query': (start, end), 'range': 'min:max'},

@@ -290,14 +290,14 @@ class IProject(model.Schema):
         )
     )
 
-    form.mode(gwopa_fases='hidden')
+    form.mode(gwopa_year_phases='hidden')
     # form.mode(IEditForm, gwopa_code_project='display')
-    gwopa_fases = schema.ASCIILine(
+    gwopa_year_phases = schema.ASCIILine(
         title=_(u'Fases'),
         required=False
     )
 
-    # @form.default_value(field=IProject['gwopa_fases'])
+    # @form.default_value(field=IProject['gwopa_year_phases'])
     # def calculatedFases(data):
     #     # TODO: Sort ids to assign the next one, to bypass
     #     # empty/missing values on delete
