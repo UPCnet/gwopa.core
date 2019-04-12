@@ -549,16 +549,17 @@
                             buttons: false,
                             timer: 1200,
                           })
+                          location.reload();
                         }
                       }
-              })
-          } else {
-            swal("Cancelled", "The item has not been deleted", "info", {
-              buttons: false,
-              timer: 1000,
             })
-          }
-        });
+            } else {
+              swal("Cancelled", "The item has not been deleted", "info", {
+                buttons: false,
+                timer: 1000,
+              })
+            }
+          });
 
       });
 
