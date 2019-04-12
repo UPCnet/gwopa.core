@@ -5,7 +5,7 @@ from plone import api
 
 
 class getPhases(BrowserView):
-
+     # /api-getphases
     def __call__(self):
         project = self.context
         results = []
