@@ -100,7 +100,7 @@ class IProject(model.Schema):
 
     fieldset('dates',
              label=_(u'Dates'),
-             fields=['startdate', 'startactual', 'startplanned', 'completiondate', 'completionactual', 'completionplanned', 'gwopa_fases']
+             fields=['startdate', 'startactual', 'startplanned', 'completiondate', 'completionactual', 'completionplanned', 'gwopa_year_phases']
              )
 
     fieldset('geo',

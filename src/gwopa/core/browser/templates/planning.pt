@@ -199,8 +199,8 @@
                             <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
                             <div class="contentt" id="value" tal:content="item/end">2019-03-30</div>
                             <div class="contentt" id="target">
-                              <tal:omit-tag tal:content="item/value"> 223 </tal:omit-tag>
-                              <tal:omit-tag tal:content="item/unit"> Meters </tal:omit-tag>
+                              <tal:omit-tag tal:content="item/value"> Value </tal:omit-tag>
+                              <tal:omit-tag tal:content="item/unit"> Unit </tal:omit-tag>
                             </div>
                             <div class="contentt" id="resp" tal:define="members item/responsible">
                               <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
@@ -232,8 +232,8 @@
                               <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                               <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                               <div class="contentt" id="target">
-                                <tal:omit-tag tal:content="output/value"> 223 </tal:omit-tag>
-                                <tal:omit-tag tal:content="output/unit"> 223 </tal:omit-tag>
+                                <tal:omit-tag tal:content="output/value"> Value </tal:omit-tag>
+                                <tal:omit-tag tal:content="output/unit"> Unit </tal:omit-tag>
                               </div>
                               <div class="contentt" id="resp" tal:define="members output/responsible">
                                 <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
