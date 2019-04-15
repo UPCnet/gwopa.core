@@ -103,7 +103,7 @@ class planningView(BrowserView):
                                 description=item.description,
                                 portal_type=item.portal_type
                                 ))
-        return results
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def indicatorsInside(self, item):
         """ returns objects from first level (elements inside ImprovementArea) """
