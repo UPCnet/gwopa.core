@@ -79,36 +79,40 @@
 <!--                 <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a> -->
                 <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My Projects</tal:omit-tag></h1>
                 <div class="has-table" tal:define="items view/myProjects;" >
-                  <h4 tal:condition="not:items" i18n:translate="">
-                    You don't have assigned projects.
-                  </h4>
+                  <div class="row" tal:condition="not:items">
+                    <div class="col-xs-12 col-sm-12">
+                      <h4  i18n:translate="">
+                        Your company has no projects.
+                      </h4>
+                    </div>
+                  </div>
 
-<div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-            <div id='TextBoxesGroup'>
-            <div id="TextBoxDiv1">
-            <label>Target Value Year 1</label><input type='text' id='textbox1'>
-            </div>
-            </div>
-            <input type='button' value='Add Button' id='addButton'>
-            <input type='button' value='Remove Button' id='removeButton'>
-            <input type='button' value='Get TextBox Value' id='getButtonValue'>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+                  <div class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                              <div id='TextBoxesGroup'>
+                              <div id="TextBoxDiv1">
+                              <label>Target Value Year 1</label><input type='text' id='textbox1'>
+                              </div>
+                              </div>
+                              <input type='button' value='Add Button' id='addButton'>
+                              <input type='button' value='Remove Button' id='removeButton'>
+                              <input type='button' value='Get TextBox Value' id='getButtonValue'>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                   <tal:projects tal:condition="items"
                                 tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime;">
@@ -137,9 +141,13 @@
                 <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My company Projects </tal:omit-tag>
                 </h1>
                 <div class="has-table" tal:define="items view/companyProjects">
-                  <h4 tal:condition="not:items" i18n:translate="">
-                    Your company has no projects.
-                  </h4>
+                  <div class="row" tal:condition="not:items">
+                    <div class="col-xs-12 col-sm-12">
+                      <h4  i18n:translate="">
+                        Your company has no projects.
+                      </h4>
+                    </div>
+                  </div>
                   <tal:CompanyProjects tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
                     <div class="row">
                       <div class="col-xs-12 col-sm-12">

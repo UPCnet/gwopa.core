@@ -57,7 +57,7 @@
       <div class="row">
         <hr/>
         <div class="col-md-6">
-          <h2> Project Dates </h2>
+          <h2 i18n:translate=""> Project Dates </h2>
           <div class="col-md-6">
             <div tal:condition="context/startactual" class="actualDate" >
               <span i18n:translate="">Start:</span>

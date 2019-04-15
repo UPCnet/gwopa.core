@@ -49,7 +49,7 @@
       <span id="collapseAll" i18n:translate="">Collapse all <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
     </div>
 
-    <div id="exTab1" class="container">
+    <div id="tabsplanning" class="container">
       <ul class="nav nav-pills">
         <li class="active">
           <a href="#project" data-toggle="tab">Project</a>
@@ -504,31 +504,25 @@
     </script>
     <script type="text/javascript">
         $("#collapseAll").hide()
-  $("#expandAll").click(function(){
-    $(".expand").parent().parent().parent().slideDown();
-    $(".expand").hide();
-    $(".notexpand").show();
-    $(".expand").parent().parent().parent().find('.sortable2').slideDown();
-    $(".expand").parent().parent().parent().find('.listFiles').slideDown();
-    $("#expandAll").hide();
-    $("#collapseAll").show();
-  })
+        $("#expandAll").click(function(){
+          $(".expand").parent().parent().parent().slideDown();
+          $(".expand").hide();
+          $(".notexpand").show();
+          $(".expand").parent().parent().parent().find('.sortable2').slideDown();
+          $(".expand").parent().parent().parent().find('.listFiles').slideDown();
+          $("#expandAll").hide();
+          $("#collapseAll").show();
+        })
 
-  $("#collapseAll").click(function(){
-    $(".notexpand").slideUp();
-    $(".notexpand").hide();
-    $(".expand").show();
-
-    $(".expand").parent().parent().parent().find('.sortable2').slideUp();
-    $(".expand").parent().parent().parent().find('.listFiles').slideUp();
-    $("#expandAll").show();
-    $("#collapseAll").hide();
-
-  $(".expand").click(function(){
-    debugger;
-  })
-
-  })
+        $("#collapseAll").click(function(){
+          $(".notexpand").slideUp();
+          $(".notexpand").hide();
+          $(".expand").show();
+          $(".expand").parent().parent().parent().find('.sortable2').slideUp();
+          $(".expand").parent().parent().parent().find('.listFiles').slideUp();
+          $("#expandAll").show();
+          $("#collapseAll").hide();
+        })
 
     </script>
 
