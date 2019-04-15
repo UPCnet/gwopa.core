@@ -45,9 +45,12 @@
       </ul>
     </div>
 
-    <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
+    <div style="float:right; padding-top: 10px;" class="documentDescription">
+      <span id="expandAll" i18n:translate="">Show all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+      <span id="collapseAll" i18n:translate="">Collapse all <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
+    </div>
 
-    <div id="exTab1" class="container">
+    <div id="tabsmonitoring" class="container">
       <ul class="nav nav-pills">
         <li class="active">
           <a href="#project" data-toggle="tab">Project</a>
@@ -58,51 +61,50 @@
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="project">
 
-<div id="MonitoringProjects" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
-  <div class="tabla_contenido_items" aria-expanded="true" href="#collapse-working-area-1" aria-controls="collapse-working-area-1">
-  <div class="tabla_cabecera">
-      <div class="tabla_hilera">
-        <div class="tabla_info">
-          <div class="information object" id="header">
-            <div class="contentt" id="total">
-              <div class="btn-group" role="group" aria-label="Add element">
-                <div data-toggle="dropdown">
-                  <i class="fas fa-plus-circle"></i>
+          <div class="tabla_contenido_items" aria-expanded="true" href="#collapse-working-area-1" aria-controls="collapse-working-area-1">
+            <div class="tabla_cabecera">
+              <div class="tabla_hilera">
+                <div class="tabla_info">
+                  <div class="information object" id="header">
+                    <div class="contentt" id="total">
+                      <div class="btn-group" role="group" aria-label="Add element">
+                        <div data-toggle="dropdown">
+                          <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="types"><li>
+                            <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/++add++Activity">
+                              <span>
+                                <i class="fas fa-plus-circle"></i>Add Activity
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/++add++Output">
+                              <span>
+                                <i class="fas fa-plus-circle"></i> Add Output
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="titleRowPlanning">
+                        <a href="/Plone/projects/project1/working-area-1">Working area 1</a>
+                      </div>
+                    </div>
+                    <div class="contentt" id="comple">Completion Date</div>
+                    <div class="contentt" id="pyv">Project year Value</div>
+                    <div class="contentt" id="pyt">Project year Target</div>
+                    <div class="contentt" id="mu">Measuring Unit</div>
+                    <div class="contentt" id="nexupd">Next update</div>
+                    <div class="contentt" id="actions">Action</div>
+                    <div class="contentt" id="down">
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                  </div>
                 </div>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                  <li>
-                    <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/++add++Activity">
-                      <span>
-                        <i class="fas fa-plus-circle"></i>Add Activity
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/++add++Output">
-                      <span>
-                        <i class="fas fa-plus-circle"></i> Add Output
-                      </span>
-                    </a>
-                  </li>
-                </ul>
               </div>
-              <div class="titleRowPlanning">
-                <a href="/Plone/projects/project1/working-area-1">Utility Performance</a>
-              </div></div>
-            <div class="contentt" id="bl">Starting Date</div>
-            <div class="contentt" id="value">Completion Date</div>
-            <div class="contentt" id="target">Target Value</div>
-            <div class="contentt" id="mu">Measuring Unit</div>
-            <div class="contentt" id="resp">Responsible</div>
-            <div class="contentt" id="actions">Action</div>
-            <div class="contentt" id="down">
-              <i class="fas fa-chevron-down"></i>
             </div>
-          </div>
-        </div>
-      </div>
-  </div>
-  <div id="collapse-working-area-1" aria-expanded="true" style="">
+  <div id="collapse-working-area-1" aria-expanded="true" style="" class="collapse in">
     <!-- Activity -->
     <div class="tabla_cuerpo">
       <div class="tabla_hilera">
@@ -114,24 +116,27 @@
                   <div class="Activity-planning">Activity</div>
                   <h4 class="titulocatplan" id="activity">Ejemplo 1 de Activity</h4>
               </div>
-              <div class="contentt" id="bl">2019-03-30</div>
-              <div class="contentt" id="value">2019-06-22</div>
-              <div class="contentt" id="target">-----</div>
-              <div class="contentt" id="mu">-----</div>
-              <div class="contentt" id="resp">
-                <ul>
-                  <li>testuser3</li>
-                </ul></div>
+              <div class="contentt" id="comple">28-02-2020</div>
+              <div class="contentt" id="pyv">28-12-2022</div>
+              <div class="contentt" id="pyt">08-05-2021</div>
+              <div class="contentt" id="mu">Centimeters</div>
+              <div class="contentt" id="nexupd">28-12-2022</div>
               <div class="contentt" id="actions">
-                <a class="pat-plone-modal" href="/Plone/projects/project1/working-area-1/activity-example/edit" title="Edit activity example" alt="Edit activity example">
+                <a class="pat-plone-modal" title="calendar" alt="calendar" href="#">
+                  <i class="far fa-calendar"></i>
+                </a>
+                <a class="pat-plone-modal" title="warning" alt="warning" href="#">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </a>
+                <a class="pat-plone-modal" title="Edit" alt="Edit" href="/Plone/projects/project1/zone/edit">
                   <i class="far fa-edit"></i>
                 </a>
-                <a href="#deleteModal" data-toggle="modal" data-item="/Plone/projects/project1/working-area-1/activity-example" data-type="Activity" title="Delete activity example" alt="Delete activity example">
+                <a href="#deleteModal" data-toggle="modal" title="Delete" alt="Delete" data-item="/Plone/projects/project1/zone" data-type="OutcomeZONE">
                   <i class="far fa-trash-alt"></i>
                 </a></div>
               <div class="contentt" id="down">
-                <i class="fas fa-chevron-down"></i>
-              </div>
+                  <i class="fas fa-chevron-down">
+                  </i></div>
             </div>
           </div>
         </div>
@@ -147,14 +152,14 @@
             <h3> Main Obstacles </h3>
             <span data-option="Ejemplo 1">
               <span data-option="Ejemplo 1" data-option-value="#">
-                <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span>
+                <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span></span></span></span></span></span></span>
             </span>
             <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
           <div class="col-sm-6">
             <h3> Main Supporting factors </h3>
             <span data-option="Ejemplo 1">
               <span data-option="Ejemplo 1" data-option-value="#">
-                <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span>
+                <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span></span></span></span></span></span></span>
             </span>
             <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
           <div class="col-sm-12">
@@ -171,25 +176,29 @@
             <div class="information object">
               <div class="contentt" id="total">
                 <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/prova2/++add++Output"></a>
-                <div class="zone-planning">Outcome - Zone</div>
+                <div class="Output-planning">Output</div>
                 <h4 class="titulocatplan" id="output">Prova 2</h4></div>
-              <div class="contentt" id="bl">2019-03-30</div>
-              <div class="contentt" id="value">2019-06-22</div>
-              <div class="contentt" id="target">-----</div>
-              <div class="contentt" id="mu">-----</div>
-              <div class="contentt" id="resp">
-                <ul>
-                  <li>testuser3</li>
-                </ul></div>
+              <div class="contentt" id="comple">28-02-2020</div>
+              <div class="contentt" id="pyv">28-12-2022</div>
+              <div class="contentt" id="pyt">08-05-2021</div>
+              <div class="contentt" id="mu">Centimeters</div>
+              <div class="contentt" id="nexupd">28-12-2022</div>
               <div class="contentt" id="actions">
-                <a class="pat-plone-modal" href="#" title="Edit activity example" alt="Edit activity example">
+                <a class="pat-plone-modal" title="calendar" alt="calendar" href="#">
+                  <i class="far fa-calendar"></i>
+                </a>
+                <a class="pat-plone-modal" title="warning" alt="warning" href="#">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </a>
+                <a class="pat-plone-modal" title="Edit" alt="Edit" href="/Plone/projects/project1/zone/edit">
                   <i class="far fa-edit"></i>
                 </a>
-                <a href="#" data-toggle="modal" data-item="/Plone/projects/project1/working-area-1/activity-example" data-type="Activity" title="Delete activity example" alt="Delete activity example">
+                <a href="#deleteModal" data-toggle="modal" title="Delete" alt="Delete" data-item="/Plone/projects/project1/zone" data-type="OutcomeZONE">
                   <i class="far fa-trash-alt"></i>
-                </a> </div>
-                <i class="fas fa-chevron-down"></i></div>
+                </a></div>
               <div class="contentt" id="down">
+                  <i class="fas fa-chevron-down">
+                  </i></div>
               </div>
             </div>
           </div>
@@ -206,47 +215,42 @@
           <h3> Main Obstacles </h3>
           <span data-option="Ejemplo 1">
             <span data-option="Ejemplo 1" data-option-value="#">
-              <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span>
+              <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span></span></span></span></span></span></span>
           </span>
           <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
         <div class="col-sm-6">
           <h3> Main Supporting factors </h3>
           <span data-option="Ejemplo 1">
             <span data-option="Ejemplo 1" data-option-value="#">
-              <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span>
+              <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span></span></span></span></span></span></span>
           </span>
           <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
         <div class="col-sm-12">
           <h3>Degree of relevance / things to consider for future planning</h3>
-          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-        </div>
+          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
         <button type="button" class="btn btn-default" data-dismiss="3">Send</button>
       </div>
     </div>
 </div>
 </div>
 
-        </div>
-
         <div class="tab-pane" id="outcomes">
 
-<div id="MonitoringProjects" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
   <div class="tabla_contenido_items" data-toggle="collapse" aria-expanded="true" href="#collapse-working-area-1" aria-controls="collapse-working-area-1">
     <div class="tabla_cabecera">
       <div class="tabla_hilera">
         <div class="tabla_info">
-          <div class="information object" id="header">
+<div class="information object" id="header">
             <div class="contentt" id="total">
               <div class="btn-group" role="group" aria-label="Add element">
                 <div data-toggle="dropdown">
                   <i class="fas fa-plus-circle"></i>
                 </div>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                  <li>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="types"><li>
                     <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/++add++Activity">
                       <span>
                         <i class="fas fa-plus-circle"></i>Add Activity
-                      
+
                       </span>
                     </a>
                   </li>
@@ -254,21 +258,22 @@
                     <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/++add++Output">
                       <span>
                         <i class="fas fa-plus-circle"></i> Add Output
-                      
+
                       </span>
                     </a>
                   </li>
-                </ul>
-              </div>
+                </ul></div>
               <div class="titleRowPlanning">
                 <a href="/Plone/projects/project1/working-area-1">Utility Performance</a>
               </div>
             </div>
-            <div class="contentt" id="bl">Starting Date</div>
-            <div class="contentt" id="value">Completion Date</div>
-            <div class="contentt" id="target">Target Value</div>
-            <div class="contentt" id="mu">Measuring Unit</div>
-            <div class="contentt" id="resp">Responsible</div>
+            <div class="contentt" id="comple">Completion date</div>
+
+
+                        <div class="contentt" id="pyv">Project year Value</div>
+            <div class="contentt" id="pyt">Project year Target</div>
+<div class="contentt" id="mu">Measuring Unit</div>
+            <div class="contentt" id="freq">Frequency</div><div class="contentt" id="nexupd">Next update</div>
             <div class="contentt" id="actions">Action</div>
             <div class="contentt" id="down">
               <i class="fas fa-chevron-down"></i>
@@ -287,25 +292,28 @@
                 <div class="OutcomeKPI-planning">OutcomeKPI</div>
                 <h4 class="titulocatplan">KPI1</h4>
               </div>
-              <div class="contentt" id="bl">2019-04-10</div>
-              <div class="contentt" id="value">baseline_value</div>
-              <div class="contentt" id="target">
-                            target_value
-                            
-                          </div>
-              <div class="contentt" id="freq"></div>
-              <div class="contentt" id="resp">
-                <ul>
-                  <li>Not assigned</li>
-                </ul>
-              </div>
+              <div class="contentt" id="comple">28-02-2020</div>
+              <div class="contentt" id="pyv">28-12-2022</div>
+              <div class="contentt" id="pyt">08-05-2021</div>
+              <div class="contentt" id="mu">Centimeters</div>
+              <div class="contentt" id="freq">Frequency</div>
+              <div class="contentt" id="nexupd">28-12-2022</div>
               <div class="contentt" id="actions">
-                <a class="pat-plone-modal" title="Edit" alt="Edit" href="/Plone/projects/project1/kpi1/edit">
+                <a class="pat-plone-modal" title="calendar" alt="calendar" href="#">
+                  <i class="far fa-calendar"></i>
+                </a>
+                <a class="pat-plone-modal" title="warning" alt="warning" href="#">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </a>
+                <a class="pat-plone-modal" title="Edit" alt="Edit" href="/Plone/projects/project1/zone/edit">
                   <i class="far fa-edit"></i>
                 </a>
-                <a href="#deleteModal" data-toggle="modal" title="Delete" alt="Delete" data-item="/Plone/projects/project1/kpi1" data-type="OutcomeKPI">
+                <a href="#deleteModal" data-toggle="modal" title="Delete" alt="Delete" data-item="/Plone/projects/project1/zone" data-type="OutcomeZONE">
                   <i class="far fa-trash-alt"></i>
-                </a>
+                </a></div>
+              <div class="contentt" id="down">
+                  <i class="fas fa-chevron-down">
+                  </i>
               </div>
             </div>
           </div>
@@ -315,25 +323,28 @@
                 <div class="OutcomeZONE-planning">OutcomeZONE</div>
                 <h4 class="titulocatplan">ZONE</h4>
               </div>
-              <div class="contentt" id="bl">2019-04-10</div>
-              <div class="contentt" id="value">baseline_value</div>
-              <div class="contentt" id="target">
-                            target_value
-                            
-                          </div>
-              <div class="contentt" id="freq"></div>
-              <div class="contentt" id="resp">
-                <ul>
-                  <li>Not assigned</li>
-                </ul>
-              </div>
+              <div class="contentt" id="comple">28-02-2020</div>
+              <div class="contentt" id="pyv">28-12-2022</div>
+              <div class="contentt" id="pyt">08-05-2021</div>
+              <div class="contentt" id="mu">Centimeters</div>
+              <div class="contentt" id="freq">Frequency</div>
+              <div class="contentt" id="nexupd">28-12-2022</div>
               <div class="contentt" id="actions">
+                <a class="pat-plone-modal" title="calendar" alt="calendar" href="#">
+                  <i class="far fa-calendar"></i>
+                </a>
+                <a class="pat-plone-modal" title="warning" alt="warning" href="#">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </a>
                 <a class="pat-plone-modal" title="Edit" alt="Edit" href="/Plone/projects/project1/zone/edit">
                   <i class="far fa-edit"></i>
                 </a>
                 <a href="#deleteModal" data-toggle="modal" title="Delete" alt="Delete" data-item="/Plone/projects/project1/zone" data-type="OutcomeZONE">
                   <i class="far fa-trash-alt"></i>
-                </a>
+                </a></div>
+              <div class="contentt" id="down">
+                  <i class="fas fa-chevron-down">
+                  </i>
               </div>
             </div>
           </div>
@@ -352,12 +363,11 @@
                 <div data-toggle="dropdown">
                   <i class="fas fa-plus-circle"></i>
                 </div>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                  <li>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="types"><li>
                     <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/++add++Activity">
                       <span>
                         <i class="fas fa-plus-circle"></i>Add Activity
-                      
+
                       </span>
                     </a>
                   </li>
@@ -365,21 +375,20 @@
                     <a class="pat-plone-modal" tabindex="-1" href="/Plone/projects/project1/working-area-1/++add++Output">
                       <span>
                         <i class="fas fa-plus-circle"></i> Add Output
-                      
+
                       </span>
                     </a>
                   </li>
-                </ul>
-              </div>
+                </ul></div>
               <div class="titleRowPlanning">
-                <a href="/Plone/projects/project1/working-area-1">Utility Performance</a>
+                <a href="/Plone/projects/project1/working-area-1">Utility Capacity</a>
               </div>
             </div>
-            <div class="contentt" id="bl">Starting Date</div>
-            <div class="contentt" id="value">Completion Date</div>
-            <div class="contentt" id="target">Target Value</div>
+            <div class="contentt" id="comple">Completion date</div>
+            <div class="contentt" id="pyv">Project year Value</div>
+            <div class="contentt" id="pyt">Project year Target</div>
             <div class="contentt" id="mu">Measuring Unit</div>
-            <div class="contentt" id="resp">Responsible</div>
+            <div class="contentt" id="freq">Frequency</div><div class="contentt" id="nexupd">Next update</div>
             <div class="contentt" id="actions">Action</div>
             <div class="contentt" id="down">
               <i class="fas fa-chevron-down"></i>
@@ -400,26 +409,29 @@
                   <div class="CC-planning">Improve capacity in</div>
                   <h4 class="titulocatplan" id="activity">Ejemplo 1 de Activity</h4>
                 </div>
-                <div class="contentt" id="bl">2019-03-30</div>
-                <div class="contentt" id="value">2019-06-22</div>
-                <div class="contentt" id="target">-----</div>
-                <div class="contentt" id="mu">-----</div>
-                <div class="contentt" id="resp">
-                  <ul>
-                    <li>testuser3</li>
-                  </ul>
-                </div>
-                <div class="contentt" id="actions">
-                  <a class="pat-plone-modal" href="/Plone/projects/project1/working-area-1/activity-example/edit" title="Edit activity example" alt="Edit activity example">
-                    <i class="far fa-edit"></i>
-                  </a>
-                  <a href="#deleteModal" data-toggle="modal" data-item="/Plone/projects/project1/working-area-1/activity-example" data-type="Activity" title="Delete activity example" alt="Delete activity example">
-                    <i class="far fa-thrash-alt"></i>
-                  </a>
-                </div>
-                <div class="contentt" id="down">
-                  <i class="fas fa-chevron-down"></i>
-                </div>
+                 <div class="contentt" id="comple">28-02-2020</div>
+              <div class="contentt" id="pyv">28-12-2022</div>
+              <div class="contentt" id="pyt">08-05-2021</div>
+              <div class="contentt" id="mu">Centimeters</div>
+              <div class="contentt" id="freq">Frequency</div>
+              <div class="contentt" id="nexupd">28-12-2022</div>
+              <div class="contentt" id="actions">
+                <a class="pat-plone-modal" title="calendar" alt="calendar" href="#">
+                  <i class="far fa-calendar"></i>
+                </a>
+                <a class="pat-plone-modal" title="warning" alt="warning" href="#">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </a>
+                <a class="pat-plone-modal" title="Edit" alt="Edit" href="/Plone/projects/project1/zone/edit">
+                  <i class="far fa-edit"></i>
+                </a>
+                <a href="#deleteModal" data-toggle="modal" title="Delete" alt="Delete" data-item="/Plone/projects/project1/zone" data-type="OutcomeZONE">
+                  <i class="far fa-trash-alt"></i>
+                </a></div>
+              <div class="contentt" id="down">
+                  <i class="fas fa-chevron-down">
+                  </i>
+              </div>
               </div>
             </div>
           </div>
@@ -438,8 +450,7 @@
               <div class="row">
                 <div class="col-sm-6">
                   <h3>Describe perceived changes in the selected dimension</h3>
-                  <textarea class="form-condivol" id="message-text" placeholder="Narrative... "></textarea>
-                </div>
+                  <textarea class="form-condivol" id="message-text" placeholder="Narrative... "></textarea></div>
                 <div class="col-sm-6">
                   <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                   <span data-option="PerceivedChanges">
@@ -458,14 +469,7 @@
                                             <span data-option="-2 (Very negative change)" data-option-value="#">
                                               <span data-option="-2 (Very negative change)">
                                                 <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                  <select name="Name">
-                                                    <option value="#">-2 (Very negative change)</option>
-                                                    <option value="#">-1 (Very negative change)</option>
-                                                    <option value="#"> 0 (No perceived change)</option>
-                                                    <option value="#">+1 (Positive change)</option>
-                                                    <option value="#">+2 (Very positive change)</option>
-                                                  </select>
-                                                </span>
+                                                  <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                               </span>
                                             </span>
                                           </span>
@@ -502,12 +506,7 @@
                                             <span data-option="External enviroment" data-option-value="#">
                                               <span data-option="External enviroment">
                                                 <span data-option="External enviroment" data-option-value="#">
-                                                  <select name="Name">
-                                                    <option value="#">External enviroment</option>
-                                                    <option value="#">WOP Activities </option>
-                                                    <option value="#">Others </option>
-                                                  </select>
-                                                </span>
+                                                  <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                               </span>
                                             </span>
                                           </span>
@@ -526,8 +525,7 @@
                 </div>
                 <div class="col-sm-6">
                   <h3>Describe the condivibuting factors to the perceived changes</h3>
-                  <textarea class="form-condivol" id="message-text" placeholder="Narrative... "></textarea>
-                </div>
+                  <textarea class="form-condivol" id="message-text" placeholder="Narrative... "></textarea></div>
               </div>
               <div class="row">
                 <div class="col-sm-6">
@@ -548,12 +546,7 @@
                                             <span data-option="External enviroment" data-option-value="#">
                                               <span data-option="External enviroment">
                                                 <span data-option="External enviroment" data-option-value="#">
-                                                  <select name="Name">
-                                                    <option value="#">External enviroment</option>
-                                                    <option value="#">WOP Activities </option>
-                                                    <option value="#">Others </option>
-                                                  </select>
-                                                </span>
+                                                  <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                               </span>
                                             </span>
                                           </span>
@@ -572,14 +565,12 @@
                 </div>
                 <div class="col-sm-6">
                   <h3>Describe the limiting factors to the perceived changes</h3>
-                  <textarea class="form-condivol" id="message-text" placeholder="Narrative... "></textarea>
-                </div>
+                  <textarea class="form-condivol" id="message-text" placeholder="Narrative... "></textarea></div>
               </div>
               <div class="row">
                 <div class="col-sm-6">
                   <h3>Describe the limiting factors to the perceived changes</h3>
-                  <textarea class="form-condivol" id="message-text" placeholder="Narrative... "></textarea>
-                </div>
+                  <textarea class="form-condivol" id="message-text" placeholder="Narrative... "></textarea></div>
                 <div class="col-sm-6">
                   <h3>Select the limiting factors to the perceived change</h3>
                   <span data-option="Factors">
@@ -598,11 +589,7 @@
                                             <span data-option="Unilaterial" data-option-value="#">
                                               <span data-option="Unilaterial">
                                                 <span data-option="Unilaterial" data-option-value="#">
-                                                  <select name="Name">
-                                                    <option value="#">Unilaterial</option>
-                                                    <option value="#">Consensuated</option>
-                                                  </select>
-                                                </span>
+                                                  <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                               </span>
                                             </span>
                                           </span>
@@ -635,24 +622,29 @@
                   <div class="CCS-planning">CCS</div>
                   <h4 class="titulocatplan" id="output">Prova 2</h4>
                 </div>
-                <div class="contentt" id="bl">2019-03-30</div>
-                <div class="contentt" id="value">2019-06-22</div>
-                <div class="contentt" id="target">-----</div>
-                <div class="contentt" id="mu">-----</div>
-                <div class="contentt" id="resp">
-                  <ul>
-                    <li>testuser3</li>
-                  </ul>
-                </div>
+                <div class="contentt" id="comple">28-02-2020</div>
+                <div class="contentt" id="pyv">28-12-2022</div>
+                <div class="contentt" id="pyt">08-05-2021</div>
+                <div class="contentt" id="mu">Centimeters</div>
+                <div class="contentt" id="freq">Frequency</div>
+                <div class="contentt" id="nexupd">28-12-2022</div>
                 <div class="contentt" id="actions">
-                  <a class="pat-plone-modal" href="#" title="Edit activity example" alt="Edit activity example">
+                  <a class="pat-plone-modal" title="calendar" alt="calendar" href="#">
+                    <i class="far fa-calendar"></i>
+                  </a>
+                  <a class="pat-plone-modal" title="warning" alt="warning" href="#">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </a>
+                  <a class="pat-plone-modal" title="Edit" alt="Edit" href="/Plone/projects/project1/zone/edit">
                     <i class="far fa-edit"></i>
                   </a>
-                  <a href="#" data-toggle="modal" data-item="/Plone/projects/project1/working-area-1/activity-example" data-type="Activity" title="Delete activity example" alt="Delete activity example">
-                    <i class="far fa-thrash-alt"></i>
-                  </a>
+                  <a href="#deleteModal" data-toggle="modal" title="Delete" alt="Delete" data-item="/Plone/projects/project1/zone" data-type="OutcomeZONE">
+                    <i class="far fa-trash-alt"></i>
+                  </a></div>
+                <div class="contentt" id="down">
+                    <i class="fas fa-chevron-down">
+                    </i>
                 </div>
-                <i class="fas fa-chevron-down"></i>
               </div>
               <div class="contentt" id="down"></div>
             </div>
@@ -664,12 +656,12 @@
         <div class="col-md-12 text-item-planning " id="#" role="tabpanel" aria-expanded="false">
           <div class="descripcion" id="CC">
             <!-- OTFDMissionStrategy  -->
-            <a href="#OTFD" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTFD" aria-expanded="false" class="collapsed">
+            <a href="#OTFD" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTFD" aria-expanded="true" class="">
               <h3 class="titulocatplan">Organizational transformational dimensions</h3>
               <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
               <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
             </a>
-            <div id="OTFD" class="panel-collapse secundario collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 72px;">
+            <div id="OTFD" class="panel-collapse secundario collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
               <!-- Mission & Strategy OTFDMissionStrategy -->
               <a href="#OTFDMissionStrategy" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#OTFDMissionStrategy" aria-expanded="false" class="collapsed">
                 <h4 class="titulocatplan">Mission &amp; Strategy</h4>
@@ -680,8 +672,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -700,14 +691,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -744,12 +728,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -768,8 +747,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -790,12 +768,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -814,14 +787,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -840,11 +811,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -873,8 +840,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -893,14 +859,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -937,12 +896,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -961,8 +915,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -983,12 +936,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1007,14 +955,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -1033,11 +979,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1066,8 +1008,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -1086,14 +1027,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1130,12 +1064,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1154,8 +1083,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -1176,12 +1104,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1200,14 +1123,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -1226,11 +1147,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1259,8 +1176,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -1279,14 +1195,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1323,12 +1232,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1347,8 +1251,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -1369,12 +1272,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1393,14 +1291,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -1419,11 +1315,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1460,8 +1352,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Organizational structure others</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -1480,14 +1371,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1524,12 +1408,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1548,8 +1427,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -1570,12 +1448,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1594,14 +1467,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -1620,11 +1491,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1653,8 +1520,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -1673,14 +1539,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1717,12 +1576,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1741,8 +1595,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -1763,12 +1616,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1787,14 +1635,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -1813,11 +1659,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1846,8 +1688,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -1866,14 +1707,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1910,12 +1744,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1934,8 +1763,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -1956,12 +1784,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -1980,14 +1803,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -2006,11 +1827,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2039,8 +1856,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -2059,14 +1875,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2103,12 +1912,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2127,8 +1931,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -2149,12 +1952,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2173,14 +1971,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -2199,11 +1995,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2232,8 +2024,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -2252,14 +2043,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2296,12 +2080,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2320,8 +2099,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -2342,12 +2120,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2366,14 +2139,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -2392,11 +2163,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2425,8 +2192,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -2445,14 +2211,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2489,12 +2248,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2513,8 +2267,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -2535,12 +2288,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2559,14 +2307,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -2585,11 +2331,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2618,8 +2360,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -2638,14 +2379,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2682,12 +2416,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2706,8 +2435,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -2728,12 +2456,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2752,14 +2475,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -2778,11 +2499,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2811,8 +2528,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -2831,14 +2547,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2875,12 +2584,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2899,8 +2603,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -2921,12 +2624,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2945,14 +2643,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -2971,11 +2667,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -2996,12 +2688,12 @@
               </div>
             </div>
             <!-- Individual dimensions IndDim  -->
-            <a href="#IndDim" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#IndDim" aria-expanded="false" class="collapsed">
+            <a href="#IndDim" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#IndDim" aria-expanded="true" class="">
               <h3 class="titulocatplan">Individual dimensions</h3>
               <i class="fa fa-chevron-circle-down" aria-hidden="true" id="expandir"></i>
               <i class="fa fa-chevron-circle-up" aria-hidden="false" id="expandir"></i>
             </a>
-            <div id="IndDim" class="panel-collapse secundario collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 176px;">
+            <div id="IndDim" class="panel-collapse secundario collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
               <!-- Motivation IDMotivation -->
               <a href="#IDMotivation" role="button" data-toggle="collapse" data-parent="#accordion" aria-controls="#IDMotivation" aria-expanded="true">
                 <h4 class="titulocatplan">Motivation</h4>
@@ -3012,8 +2704,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -3032,14 +2723,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3076,12 +2760,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3100,8 +2779,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -3122,12 +2800,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3146,14 +2819,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -3172,11 +2843,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3205,8 +2872,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -3225,14 +2891,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3269,12 +2928,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3293,8 +2947,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -3315,12 +2968,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3339,14 +2987,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -3365,11 +3011,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3398,8 +3040,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -3418,14 +3059,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3462,12 +3096,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3486,8 +3115,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -3508,12 +3136,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3532,14 +3155,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -3558,11 +3179,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3591,8 +3208,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe perceived changes in the selected dimension</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select what best represents the perceived degree of change with respect to the last reporting period</h3>
                     <span data-option="PerceivedChanges">
@@ -3611,14 +3227,7 @@
                                               <span data-option="-2 (Very negative change)" data-option-value="#">
                                                 <span data-option="-2 (Very negative change)">
                                                   <span data-option="-2 (Very negative change)" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">-2 (Very negative change)</option>
-                                                      <option value="#">-1 (Very negative change)</option>
-                                                      <option value="#"> 0 (No perceived change)</option>
-                                                      <option value="#">+1 (Positive change)</option>
-                                                      <option value="#">+2 (Very positive change)</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><span data-option="-2 (Very negative change)"><span data-option="-2 (Very negative change)" data-option-value="#"><select name="Name"><option value="#">-2 (Very negative change)</option><option value="#">-1 (Very negative change)</option><option value="#"> 0 (No perceived change)</option><option value="#">+1 (Positive change)</option><option value="#">+2 (Very positive change)</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3655,12 +3264,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3679,8 +3283,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the contributing factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -3701,12 +3304,7 @@
                                               <span data-option="External enviroment" data-option-value="#">
                                                 <span data-option="External enviroment">
                                                   <span data-option="External enviroment" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">External enviroment</option>
-                                                      <option value="#">WOP Activities </option>
-                                                      <option value="#">Others </option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><span data-option="External enviroment"><span data-option="External enviroment" data-option-value="#"><select name="Name"><option value="#">External enviroment</option><option value="#">WOP Activities </option><option value="#">Others </option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3725,14 +3323,12 @@
                   </div>
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Describe the limiting factors to the perceived changes</h3>
-                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
-                  </div>
+                    <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
                   <div class="col-sm-6">
                     <h3>Select the limiting factors to the perceived change</h3>
                     <span data-option="Factors">
@@ -3751,11 +3347,7 @@
                                               <span data-option="Unilaterial" data-option-value="#">
                                                 <span data-option="Unilaterial">
                                                   <span data-option="Unilaterial" data-option-value="#">
-                                                    <select name="Name">
-                                                      <option value="#">Unilaterial</option>
-                                                      <option value="#">Consensuated</option>
-                                                    </select>
-                                                  </span>
+                                                    <span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><span data-option="Unilaterial"><span data-option="Unilaterial" data-option-value="#"><select name="Name"><option value="#">Unilaterial</option><option value="#">Consensuated</option></select></span></span></span></span></span></span></span>
                                                 </span>
                                               </span>
                                             </span>
@@ -3783,8 +3375,32 @@
 </div>
 </div>
 </div>
-</metal:block>
 
+    <script type="text/javascript">
+        $("#collapseAll").hide()
+        $("#expandAll").click(function(){
+          $(".expand").parent().parent().parent().slideDown();
+          $(".expand").hide();
+          $(".notexpand").show();
+          $(".expand").parent().parent().parent().find('.sortable2').slideDown();
+          $(".expand").parent().parent().parent().find('.listFiles').slideDown();
+          $("#expandAll").hide();
+          $("#collapseAll").show();
+        })
+
+        $("#collapseAll").click(function(){
+          $(".notexpand").slideUp();
+          $(".notexpand").hide();
+          $(".expand").show();
+          $(".expand").parent().parent().parent().find('.sortable2').slideUp();
+          $(".expand").parent().parent().parent().find('.listFiles').slideUp();
+          $("#expandAll").show();
+          $("#collapseAll").hide();
+        })
+
+    </script>
+
+</metal:block>
 
 </metal:content-core>
 
