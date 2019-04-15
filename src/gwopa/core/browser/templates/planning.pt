@@ -16,11 +16,11 @@
       require = undefined;
       define = undefined;
     </script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="//code.jquery.com/jquery-3.4.0.min.js"></script>
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/flatpickr"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </metal:javascript>
 
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
@@ -42,8 +42,8 @@
 
     <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     <div style="float:right; padding-top: 10px;" class="documentDescription">
-      <span id="collapseAll" i18n:translate="">Collapse all <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
-      <span id="expandAll" i18n:translate="">Show all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+      <span id="collapseAll" i18n:translate="">Collapse <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
+      <span id="expandAll" i18n:translate="">Expand <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
     </div>
 
     <div id="tabsplanning" class="container">
@@ -105,7 +105,10 @@
                         <div class="col-md-12 text-item-planning">
                           <div class="information object">
                             <div class="contentt" id="total" tal:condition="python:item['portal_type'] == 'Activity'">
-                              <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><i class="fa fa-plus-circle"></i></a>
+                              <a data-toggle="modal" data-target="#modalOutput" tal:attributes="data-href item/url" style="float:left;">
+                                <i class="fas fa-plus-circle"></i>
+                              </a>
+                              <!-- <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><i class="fa fa-plus-circle"></i></a> -->
                               <div tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type">Activity/output label</div>
                               <h4 class="titulocatplan" id="output" tal:content="item/title"> Activity/Output Title </h4>
                             </div>
@@ -311,7 +314,7 @@
                 <div class="form-group">
                   <label for="recipient-name" class="control-label">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                  <input type="text" class="form-control" name="Name" required="True" id="out-title">
+                  <input type="text" class="form-control" name="Name" required id="out-title">
                 </div>
                 <div class="form-group">
                   <label for="message-text" class="control-label">Description</label>
@@ -348,7 +351,7 @@
                   <div id="TextBoxDiv1">
                     <div class="col-md-6">
                       <label for="message-text" class="control-label"> Target value </label>
-                      <input class="form-control" id="target-value-1" />
+                      <input class="form-control" id="target-value-1" placeholder="Indicate the target value..."/>
                     </div>
                     <div class="col-md-6">
                       <label for="message-text" class="control-label"> Target date </label>
@@ -377,26 +380,41 @@
               </div>
             </div>
             <div class="modal-footer">
+              <button type="button" class="btn form-buttons-cancel" data-dismiss="modal">Cancel</button>
               <button type="button" id="createOutputFromModal" class="btn btn-default" data-dismiss="modal">Create</button>
             </div>
         </div>
       </div>
     </div>
 
-<script type="text/javascript">
-  $('#createOutputFromModal').click(function(e){
-      e.preventDefault();
-      alert($('#out-title').val());
-      /*
-      $.post('http://path/to/post',
-         $('#myForm').serialize(),
-         function(data, status, xhr){
-           // do something here with response;
-         });
-      */
-});
+    <script type="text/javascript">
+      $('#createOutputFromModal').click(function(e){
+          e.preventDefault();
+          item_title = $('#out-title').val()
+          item_type = $('#out-title').val()
+          item_path = $('#out-title').val()
+          var params = {};
+          params.item_title = item_title;
+          params.item_type = item_type;
+          params.item_path = item_path;
+          $.ajax({
+            url: '@@createElement',
+            method: 'POST',
+            data: params,
+            success: function(resp)
+                  {
+                    if(resp) {
+                      location.reload();
+                      swal("Created", "The item has been created", "success", {
+                        buttons: false,
+                        timer: 2000,
+                      })
+                    }
+                  }
+          });
+        });
+    </script>
 
-</script>
     <script type="text/javascript">
         $(document).ready(function(){
 
@@ -412,6 +430,7 @@
           })
 
           $("#addTargetValueButton").click(function () {
+
               let idnum = counter + 1;
               if(counter>=numPhases){
                   swal(
@@ -439,7 +458,7 @@
               counter++;
           });
 
-          $('#datetimepicker').flatpickr({
+          $('#out-datetimepicker').flatpickr({
               altInput: true,
               altFormat: "F j, Y",
               dateFormat: "Y-m-d",
@@ -495,7 +514,6 @@
 
         $("#expandAll").click(function(){
           $(".tabla_cuerpo").slideDown()
-
           $(".expand").parent().parent().parent().slideDown();
           $(".expand").hide();
           $(".notexpand").show();
@@ -515,7 +533,6 @@
       $(".expand").click(function () {
         $(".expand").hide();
         $(".notexpand").show();
-
         $header = $(this);
         $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
       });
@@ -528,8 +545,6 @@
       });
 
     </script>
-
-
 
   </metal:block>
 

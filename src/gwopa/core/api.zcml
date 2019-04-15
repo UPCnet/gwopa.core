@@ -32,6 +32,13 @@
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 
+  <browser:page
+    for="*"
+    name="createElement"
+    class=".api.code.Create"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
 </configure>
 
 

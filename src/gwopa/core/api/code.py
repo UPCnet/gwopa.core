@@ -5,7 +5,7 @@ from plone import api
 
 
 class getPhases(BrowserView):
-     # /api-getphases
+    # /api-getphases
     def __call__(self):
         project = self.context
         results = []
@@ -38,5 +38,14 @@ class Delete(BrowserView):
         # TODO: check permissions. now cmf.ModifyPortalContent
         item = self.request.form.get('item')
         obj = api.content.get(path=item)
-        # api.content.delete(obj=obj, check_linkintegrity=False)
+        api.content.delete(obj=obj, check_linkintegrity=False)
         return 'Ok, item deleted'
+
+
+class Create(BrowserView):
+
+    def __call__(self):
+        # TODO: check permissions. now cmf.ModifyPortalContent
+        item = self.request.form.get('item')
+        # import ipdb; ipdb.set_trace()
+        return 'Ok, item created'
