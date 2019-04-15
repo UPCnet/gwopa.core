@@ -16,11 +16,11 @@ msgstr ""
 
 #: ../content/templates/improvementarea_view.pt:70
 msgid "${monthname}"
-msgstr ""
+msgstr "${monthname}"
 
 #: ../content/templates/improvementarea_view.pt:73
 msgid "${year}"
-msgstr ""
+msgstr "${year}"
 
 #: ../content/templates/improvementarea_view.pt:58
 msgid "+ New Event"
@@ -78,7 +78,7 @@ msgstr "Todos los proyectos en un único mapa."
 msgid "Area"
 msgstr "Área"
 
-#: ../portlets/sidenav.pt:96
+#: ../portlets/sidenav.pt:26
 msgid "Areas"
 msgstr "Áreas"
 
@@ -115,7 +115,7 @@ msgstr ""
 
 #: ../content/templates/improvementarea_view.pt:56
 msgid "Calendar"
-msgstr ""
+msgstr "Calendario"
 
 #: ../content/outcomeccvalues.py:23
 msgid "Capacity Items"
@@ -123,7 +123,7 @@ msgstr "Elementos de cambio"
 
 #: ../content/outcomeccitem.py:31
 msgid "Category"
-msgstr ""
+msgstr "Categoría"
 
 #: ../content/partner.py:35
 #: ../content/platform.py:34
@@ -139,9 +139,9 @@ msgstr ""
 msgid "Collaborating module"
 msgstr "Módulo de colaboración"
 
-#: ../portlets/sidenav.pt:104
+#: ../portlets/sidenav.pt:34
 msgid "Collaboration"
-msgstr ""
+msgstr "Colaboración"
 
 #: ../browser/templates/monitoring.pt:50
 #: ../browser/templates/planning.pt:49
@@ -154,7 +154,7 @@ msgstr ""
 msgid "Completion date"
 msgstr ""
 
-#: ../portlets/sidenav.pt:114
+#: ../portlets/sidenav.pt:44
 msgid "Configuration"
 msgstr "Configuración"
 
@@ -210,7 +210,7 @@ msgstr "Cambio de moneda"
 msgid "Current projects map"
 msgstr "Mapa con los proyectos actuales"
 
-#: ../portlets/sidenav.pt:108
+#: ../portlets/sidenav.pt:38
 msgid "Dashboard"
 msgstr "Panel"
 
@@ -285,7 +285,7 @@ msgid "Fases"
 msgstr "Fases"
 
 #: ../browser/templates/files.pt:14
-#: ../portlets/sidenav.pt:100
+#: ../portlets/sidenav.pt:30
 msgid "Files"
 msgstr "Ficheros"
 
@@ -321,7 +321,7 @@ msgstr ""
 msgid "Here are the files of the Project."
 msgstr ""
 
-#: ../portlets/sidenav.pt:86
+#: ../portlets/sidenav.pt:16
 msgid "Home"
 msgstr "Inicio"
 
@@ -502,11 +502,11 @@ msgstr "Miembros"
 msgid "Members with this region"
 msgstr "Miembros en esta región"
 
-#: ../portlets/sidenav.pt:106
+#: ../portlets/sidenav.pt:36
 msgid "Monitoring"
-msgstr ""
+msgstr "Monitorización"
 
-#: ../portlets/sidenav.pt:89
+#: ../portlets/sidenav.pt:19
 msgid "My Areas"
 msgstr "Mis Áreas"
 
@@ -514,7 +514,7 @@ msgstr "Mis Áreas"
 msgid "My Projects"
 msgstr "Mis proyectos"
 
-#: ../portlets/sidenav.pt:90
+#: ../portlets/sidenav.pt:20
 msgid "My Team"
 msgstr "Mis equipos"
 
@@ -585,9 +585,9 @@ msgstr "Teléfono"
 msgid "Planned"
 msgstr ""
 
-#: ../portlets/sidenav.pt:102
+#: ../portlets/sidenav.pt:32
 msgid "Planning"
-msgstr ""
+msgstr "Planificación"
 
 #: ../content/project.py:197
 msgid "Platform/platforms associated to this project"
@@ -611,6 +611,10 @@ msgstr "Proyecto"
 msgid "Project Currency"
 msgstr ""
 
+#: ../content/templates/project_view.pt:60
+msgid "Project Dates"
+msgstr ""
+
 #: ../content/project.py:260
 msgid "Project Manager"
 msgstr "Gerente del proyecto"
@@ -619,13 +623,13 @@ msgstr "Gerente del proyecto"
 msgid "Project Manager Admin"
 msgstr "Administrador del proyecto"
 
-#: ../portlets/sidenav.pt:94
+#: ../portlets/sidenav.pt:24
 msgid "Project Overview"
-msgstr ""
+msgstr "Visión del Proyecto"
 
 #: ../content/activity.py:56
 msgid "Project dates"
-msgstr ""
+msgstr "Fechas del proyecto"
 
 #: ../content/project.py:189
 msgid "Project description and main objectives"
@@ -641,24 +645,24 @@ msgstr "Título del proyecto"
 
 #: ../browser/templates/manage_portal.pt:25
 msgid "Projects"
-msgstr ""
+msgstr "Proyectos"
 
 #: ../content/templates/improvementarea_view.pt:121
 msgid "Recent files"
-msgstr ""
+msgstr "Ficheros recientes"
 
 #: ../content/platform.py:41
 msgid "Region"
-msgstr ""
+msgstr "Region"
 
 #: ../content/project.py:196
 #: ../userdataschema.py:54
 msgid "Regional WOP Platform"
 msgstr "Regional WOP Platform"
 
-#: ../portlets/sidenav.pt:110
+#: ../portlets/sidenav.pt:40
 msgid "Reporting"
-msgstr ""
+msgstr "Informes"
 
 #: ../browser/templates/reporting.pt:14
 msgid "Reporting Module"
@@ -668,7 +672,7 @@ msgstr "Mòdulo de informes"
 #: ../content/outcomekpi.py:69
 #: ../content/outcomezone.py:75
 msgid "Responsible people"
-msgstr ""
+msgstr "Persona responsable"
 
 #: ../content/outcomekpi.py:63
 #: ../content/outcomezone.py:69
@@ -704,7 +708,7 @@ msgstr ""
 msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr ""
 
-#: ../portlets/sidenav.pt:116
+#: ../portlets/sidenav.pt:46
 msgid "Settings"
 msgstr "Ajustes"
 
@@ -761,13 +765,13 @@ msgstr "Fecha del valor de objetivo"
 msgid "Target Value Year"
 msgstr ""
 
-#: ../portlets/sidenav.pt:98
+#: ../portlets/sidenav.pt:28
 msgid "Team"
-msgstr ""
+msgstr "Equipo"
 
 #: ../browser/templates/teams.pt:16
 msgid "Team Members"
-msgstr ""
+msgstr "Miembros del equipo"
 
 #: ../content/project.py:278
 msgid "The currency used into the project"
@@ -821,7 +825,7 @@ msgstr "Título"
 
 #: ../content/templates/project_view.pt:153
 msgid "Total budget:"
-msgstr ""
+msgstr "Presupuesto total:"
 
 #: ../configure.zcml:48
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
@@ -845,11 +849,11 @@ msgstr "Utilizado en los proyectos, uno por línea."
 
 #: ../browser/templates/manage_portal.pt:106
 msgid "UserID"
-msgstr ""
+msgstr "Id Usuario"
 
 #: ../browser/templates/teams.pt:36
 msgid "Username"
-msgstr ""
+msgstr "Nombre de usuario"
 
 #: ../content/templates/partner_view.pt:62
 msgid "Users in this Partner"
@@ -887,16 +891,16 @@ msgstr "WOP Program"
 
 #: ../content/templates/improvementarea_view.pt:17
 msgid "Wall"
-msgstr ""
+msgstr "Muro"
 
 #: ../content/project.py:285
 #: ../content/templates/project_view.pt:199
 msgid "Working Areas"
-msgstr ""
+msgstr "Working Areas"
 
 #: ../content/project.py:222
 msgid "Write the project location"
-msgstr ""
+msgstr "Indica la localización del proyecto"
 
 #: ../browser/templates/homepage.pt:84
 msgid "Your company has no projects."
@@ -908,7 +912,7 @@ msgstr "Tu número de teléfono"
 
 #: ../content/outcomezone.py:36
 msgid "Zone"
-msgstr ""
+msgstr "Zona"
 
 #: ../browser/user_profile.py:47
 #: ../indexers.py:28
@@ -932,12 +936,12 @@ msgstr "Nombre completo"
 #. Default: "GWOPA Menu"
 #: ../portlets/sidenav.py:19
 msgid "gwopa_menu"
-msgstr ""
+msgstr "Menú GWOPA"
 
 #. Default: "Tags are commonly used for ad-hoc organization of content."
 #: ../content/project.py:118
 msgid "help_tags"
-msgstr ""
+msgstr "Las etiquetas se utilizan para buscar y localizar elementos."
 
 #: ../indexers.py:30
 msgid "home_page"
@@ -951,7 +955,7 @@ msgstr "Ver en Google Maps"
 #. Default: "Tags"
 #: ../content/project.py:117
 msgid "label_tags"
-msgstr ""
+msgstr "Etiquetas"
 
 #: ../browser/user_profile.py:46
 #: ../indexers.py:29
@@ -965,17 +969,17 @@ msgstr "Ajustes"
 #. Default: "Calendar"
 #: ../content/templates/improvementarea_view.pt:84
 msgid "summary_calendar"
-msgstr ""
+msgstr "Calendario"
 
 #. Default: "Next month"
 #: ../content/templates/improvementarea_view.pt:75
 msgid "title_next_month"
-msgstr ""
+msgstr "Mes siguiente"
 
 #. Default: "Previous month"
 #: ../content/templates/improvementarea_view.pt:65
 msgid "title_previous_month"
-msgstr ""
+msgstr "Mes anterior"
 
 #. Default: "Search Site"
 #: ../browser/templates/homepage.pt:183

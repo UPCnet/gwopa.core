@@ -9,6 +9,20 @@
 
 <metal:content-core fill-slot="main">
 
+  <metal:javascript fill-slot="javascript_head_slot">
+    <script>
+      require = undefined;
+      define = undefined;
+    </script>
+    <script src="//code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  </metal:javascript>
+
   <metal:block define-macro="content-core">
     <h1 class="documentFirstHeading" i18n:translate="">Collaborating module</h1>
     <div class="documentDescription description" i18n:translate=""> Here are shown all the Improvement Areas of this project. You can view them clicking in the images below.</div>
@@ -36,6 +50,29 @@
         </div>
       </div>
     </tal:block>
+
+    <div class="container">
+      <div class="header"><span>Expand</span></div>
+      <div class="content">
+        <ul>
+          <li>This is just some random content.</li>
+          <li>This is just some random content.</li>
+          <li>This is just some random content.</li>
+          <li>This is just some random content.</li>
+          <li>This is just some random content.</li>
+          <li>This is just some random content.</li>
+          <li>This is just some random content.</li>
+        </ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(".header").click(function () {
+        $header = $(this);
+        $content = $header.next();
+        $content.slideToggle(500);
+      });
+    </script>
 
   </metal:block>
 

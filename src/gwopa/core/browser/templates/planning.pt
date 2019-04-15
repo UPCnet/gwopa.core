@@ -16,13 +16,12 @@
       require = undefined;
       define = undefined;
     </script>
-    <!-- JS -->
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.4.0.min.js"></script>
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/flatpickr"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </metal:javascript>
 
@@ -45,8 +44,8 @@
 
     <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     <div style="float:right; padding-top: 10px;" class="documentDescription">
-      <span id="expandAll" i18n:translate="">Show all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
       <span id="collapseAll" i18n:translate="">Collapse all <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
+      <span id="expandAll" i18n:translate="">Show all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
     </div>
 
     <div id="tabsplanning" class="container">
@@ -61,8 +60,7 @@
         <div class="tab-pane active" id="project">
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
             <tal:objects repeat="item areas">
-              <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);" aria-expanded="false"
-                  tal:attributes="href string:#collapse-${item/id}; aria-controls string:collapse-${item/id};">
+              <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);">
                   <div class="tabla_cabecera">
                     <div class="tabla_hilera">
                       <div class="tabla_info">
@@ -76,11 +74,6 @@
                                     <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Activity</tal:omit-tag>
                                   </a>
                                 </li>
-<!--                                 <li>
-                                  <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output">
-                                    <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output Plone</tal:omit-tag>
-                                  </a>
-                                </li> -->
                                 <li>
                                   <a data-toggle="modal" data-target="#modalOutput">
                                     <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output</tal:omit-tag>
@@ -97,32 +90,24 @@
                           <div class="contentt" id="target">Target Value</div>
                           <div class="contentt" id="resp">Responsible</div>
                           <div class="contentt" id="actions">Action</div>
-                          <div class="contentt" id="down"><a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            <a type="button" class="expand"
-                              data-original-title="Expand">
-                              <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i>
-                              </a>
-                            <a type="button" class="notexpand"
-                              data-original-title="Collapse">
-                              <i  style="color: #557c95" class="fas fa-chevron-up" aria-hidden="true"></i>
-                              </a>
-                            </a></div>
+                          <a type="button" class="expand" data-original-title="Expand">
+                            <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i>
+                          </a>
+                          <a type="button" class="notexpand" data-original-title="Collapse">
+                            <i style="color: #557c95" class="fas fa-chevron-up" aria-hidden="true"></i>
+                          </a>
                         </div>
-
                       </div>
                     </div>
                   </div>
 
-                  <div class="collapse in" tal:attributes="id string:collapse-${item/id}">
                   <div class="tabla_cuerpo" tal:repeat="item files">
                     <div class="tabla_hilera">
                       <div class="block_content">
                         <div class="col-md-12 text-item-planning">
                           <div class="information object">
-                            <div class="contentt" id="total">
-                              <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
-                                <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><i class="fa fa-plus-circle"></i></a>
-                              </tal:block>
+                            <div class="contentt" id="total" tal:condition="python:item['portal_type'] == 'Activity'">
+                              <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><i class="fa fa-plus-circle"></i></a>
                               <div tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type">Activity/output label</div>
                               <h4 class="titulocatplan" id="output" tal:content="item/title"> Activity/Output Title </h4>
                             </div>
@@ -134,7 +119,7 @@
                             </div>
                             <div class="contentt" id="resp" tal:define="members item/responsible">
                               <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
-                              <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
+                              <tal:block tal:condition="not:members" i18n:translate=""> Not assigned </tal:block>
                             </div>
                             <div class="contentt" id="actions">
                               <a class="pat-plone-modal"
@@ -153,40 +138,39 @@
                         </div>
                       </div>
                       <tal:block tal:condition="python:item['portal_type'] == 'Activity'" tal:define="outputs python:view.indicatorsInside(item);">
-                          <div tal:repeat="output outputs" class="block_sub_indicators">
-                            <div class="information object">
-                              <div class="contentt" id="total">
-                              <div tal:attributes="class string:${output/portal_type}-planning indent-item" tal:content="output/portal_type">Type Output</div>
-                              <h4 class="titulocatplan" tal:content="output/title"> Item Title </h4>
+                        <div tal:repeat="output outputs" class="block_sub_indicators">
+                          <div class="information object">
+                            <div class="contentt" id="total">
+                            <div tal:attributes="class string:${output/portal_type}-planning indent-item" tal:content="output/portal_type">Type Output</div>
+                            <h4 class="titulocatplan" tal:content="output/title"> Item Title </h4>
+                          </div>
+                            <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
+                            <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
+                            <div class="contentt" id="target">
+                              <tal:omit-tag tal:content="output/value"> Value </tal:omit-tag>
+                              <tal:omit-tag tal:content="output/unit"> Unit </tal:omit-tag>
                             </div>
-                              <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
-                              <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
-                              <div class="contentt" id="target">
-                                <tal:omit-tag tal:content="output/value"> Value </tal:omit-tag>
-                                <tal:omit-tag tal:content="output/unit"> Unit </tal:omit-tag>
-                              </div>
-                              <div class="contentt" id="resp" tal:define="members output/responsible">
-                                <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
-                                <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
-                              </div>
-                              <div class="contentt" id="actions">
-                                <a class="pat-plone-modal"
-                                  tal:attributes="
-                                    href string:${output/url}/edit;
-                                    title string:Edit ${output/title};
-                                    alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
-                                <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
-                                  tal:attributes="
-                                    data-url item/url;
-                                    data-type item/portal_type;
-                                    data-id item/title;" title="Delete" alt="Delete">
-                                  <i class="far fa-trash-alt"></i></a>
-                              </div>
+                            <div class="contentt" id="resp" tal:define="members output/responsible">
+                              <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
+                              <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
+                            </div>
+                            <div class="contentt" id="actions">
+                              <a class="pat-plone-modal"
+                                tal:attributes="
+                                  href string:${output/url}/edit;
+                                  title string:Edit ${output/title};
+                                  alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
+                              <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
+                                tal:attributes="
+                                  data-url item/url;
+                                  data-type item/portal_type;
+                                  data-id item/title;" title="Delete" alt="Delete">
+                                <i class="far fa-trash-alt"></i></a>
                             </div>
                           </div>
+                        </div>
                       </tal:block>
                     </div>
-                  </div>
                   </div>
               </div>
             </tal:objects>
@@ -237,8 +221,8 @@
                         <div class="contentt" id="bl" tal:content="outcome/base_date">2019-03-30</div>
                         <div class="contentt" id="value" tal:content="outcome/base_value">2019-06-22</div>
                         <div class="contentt" id="target">
-                          <tal:omit-tag  tal:content="outcome/target_value"> Value </tal:omit-tag>
-                          <tal:omit-tag  tal:content="outcome/measuring_unit"> Unit </tal:omit-tag>
+                          <tal:omit-tag tal:content="outcome/target_value"> Value </tal:omit-tag>
+                          <tal:omit-tag tal:content="outcome/measuring_unit"> Unit </tal:omit-tag>
                         </div>
                         <div class="contentt" id="freq" tal:content="outcome/measuring_frequency"> Frequency </div>
                           <div class="contentt" id="resp" tal:define="members outcome/responsible">
@@ -503,26 +487,42 @@
         });
     </script>
     <script type="text/javascript">
-        $("#collapseAll").hide()
+        $(".notexpand").hide();
+        $("#expandAll").hide()
+        $(".block_content").slideDown()
+
         $("#expandAll").click(function(){
+          $(".block_content").slideDown()
+
           $(".expand").parent().parent().parent().slideDown();
           $(".expand").hide();
           $(".notexpand").show();
-          $(".expand").parent().parent().parent().find('.sortable2').slideDown();
-          $(".expand").parent().parent().parent().find('.listFiles').slideDown();
           $("#expandAll").hide();
           $("#collapseAll").show();
         })
 
         $("#collapseAll").click(function(){
+          $(".block_content").slideUp()
           $(".notexpand").slideUp();
           $(".notexpand").hide();
           $(".expand").show();
-          $(".expand").parent().parent().parent().find('.sortable2').slideUp();
-          $(".expand").parent().parent().parent().find('.listFiles').slideUp();
           $("#expandAll").show();
           $("#collapseAll").hide();
         })
+
+      $(".expand").click(function () {
+        $(".expand").hide();
+        $(".notexpand").show();
+        $header = $(this);
+        $header.parent().parent().parent().parent().next().slideToggle(500);
+      });
+
+      $(".notexpand").click(function () {
+        $(".notexpand").hide();
+        $(".expand").show();
+        $header = $(this);
+        $header.parent().parent().parent().parent().next().slideToggle(500);
+      });
 
     </script>
 

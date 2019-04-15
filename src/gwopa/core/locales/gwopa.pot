@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-15 06:53+0000\n"
+"POT-Creation-Date: 2019-04-15 07:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,7 +85,7 @@ msgstr ""
 msgid "Area"
 msgstr ""
 
-#: ../portlets/sidenav.pt:96
+#: ../portlets/sidenav.pt:26
 msgid "Areas"
 msgstr ""
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Collaborating module"
 msgstr ""
 
-#: ../portlets/sidenav.pt:104
+#: ../portlets/sidenav.pt:34
 msgid "Collaboration"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Completion date"
 msgstr ""
 
-#: ../portlets/sidenav.pt:114
+#: ../portlets/sidenav.pt:44
 msgid "Configuration"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Current projects map"
 msgstr ""
 
-#: ../portlets/sidenav.pt:108
+#: ../portlets/sidenav.pt:38
 msgid "Dashboard"
 msgstr ""
 
@@ -292,7 +292,7 @@ msgid "Fases"
 msgstr ""
 
 #: ../browser/templates/files.pt:14
-#: ../portlets/sidenav.pt:100
+#: ../portlets/sidenav.pt:30
 msgid "Files"
 msgstr ""
 
@@ -328,7 +328,7 @@ msgstr ""
 msgid "Here are the files of the Project."
 msgstr ""
 
-#: ../portlets/sidenav.pt:86
+#: ../portlets/sidenav.pt:16
 msgid "Home"
 msgstr ""
 
@@ -509,11 +509,11 @@ msgstr ""
 msgid "Members with this region"
 msgstr ""
 
-#: ../portlets/sidenav.pt:106
+#: ../portlets/sidenav.pt:36
 msgid "Monitoring"
 msgstr ""
 
-#: ../portlets/sidenav.pt:89
+#: ../portlets/sidenav.pt:19
 msgid "My Areas"
 msgstr ""
 
@@ -521,7 +521,7 @@ msgstr ""
 msgid "My Projects"
 msgstr ""
 
-#: ../portlets/sidenav.pt:90
+#: ../portlets/sidenav.pt:20
 msgid "My Team"
 msgstr ""
 
@@ -592,7 +592,7 @@ msgstr ""
 msgid "Planned"
 msgstr ""
 
-#: ../portlets/sidenav.pt:102
+#: ../portlets/sidenav.pt:32
 msgid "Planning"
 msgstr ""
 
@@ -618,6 +618,10 @@ msgstr ""
 msgid "Project Currency"
 msgstr ""
 
+#: ../content/templates/project_view.pt:60
+msgid "Project Dates"
+msgstr ""
+
 #: ../content/project.py:260
 msgid "Project Manager"
 msgstr ""
@@ -626,7 +630,7 @@ msgstr ""
 msgid "Project Manager Admin"
 msgstr ""
 
-#: ../portlets/sidenav.pt:94
+#: ../portlets/sidenav.pt:24
 msgid "Project Overview"
 msgstr ""
 
@@ -663,7 +667,7 @@ msgstr ""
 msgid "Regional WOP Platform"
 msgstr ""
 
-#: ../portlets/sidenav.pt:110
+#: ../portlets/sidenav.pt:40
 msgid "Reporting"
 msgstr ""
 
@@ -711,7 +715,7 @@ msgstr ""
 msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr ""
 
-#: ../portlets/sidenav.pt:116
+#: ../portlets/sidenav.pt:46
 msgid "Settings"
 msgstr ""
 
@@ -768,7 +772,7 @@ msgstr ""
 msgid "Target Value Year"
 msgstr ""
 
-#: ../portlets/sidenav.pt:98
+#: ../portlets/sidenav.pt:28
 msgid "Team"
 msgstr ""
 
