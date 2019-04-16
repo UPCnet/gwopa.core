@@ -8,13 +8,12 @@ from gwopa.core.interfaces import IGwopaCoreLayer
 import requests
 from plone.namedfile.file import NamedBlobImage
 from plone.app.textfield.value import RichTextValue
-import random
 from Products.statusmessages.interfaces import IStatusMessage
 from gwopa.core import _
-from collective.geolocationbehavior.geolocation import IGeolocatable
-from plone.formwidget.geolocation.geolocation import Geolocation
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from plone.app.dexterity.behaviors import constrains
+from random import random
+import math
 
 from requests.exceptions import ConnectionError
 requests.packages.urllib3.disable_warnings()
@@ -81,20 +80,6 @@ class setup(grok.View):
         if getattr(portal, 'events', False):
             api.content.delete(obj=portal['events'], check_linkintegrity=False)
 
-        try:
-            properties = dict(
-                fullname='Test',
-                location='USer1',
-            )
-            api.user.create(
-                username='user1',
-                email='user1@test.com',
-                password='user1',
-                properties=properties,
-            )
-        except:
-            pass
-
         # Set the default pages to the homepage view
         portal.setLayout('homepage')
         messages = IStatusMessage(self.request)
@@ -109,6 +94,7 @@ class setup(grok.View):
             config_folder.setLayout('tabular_view')
             allowed_types = ['Folder', ]
             _setup_constrains(config_folder, allowed_types)
+
             programs = api.content.create(
                 type='Folder',
                 id='programs',
@@ -118,6 +104,7 @@ class setup(grok.View):
                 safe_id=False)
             allowed_types = ['Program', ]
             _setup_constrains(programs, allowed_types)
+
             platforms = api.content.create(
                 type='Folder',
                 id='platforms',
@@ -127,6 +114,7 @@ class setup(grok.View):
                 safe_id=False)
             allowed_types = ['Platform', ]
             _setup_constrains(platforms, allowed_types)
+
             partners = api.content.create(
                 type='Folder',
                 id='partners',
@@ -136,6 +124,7 @@ class setup(grok.View):
                 safe_id=False)
             allowed_types = ['Partner', ]
             _setup_constrains(partners, allowed_types)
+
             areas = api.content.create(
                 type='Folder',
                 id='areas',
@@ -145,6 +134,7 @@ class setup(grok.View):
                 safe_id=False)
             allowed_types = ['ItemArea', ]
             _setup_constrains(areas, allowed_types)
+
             outcomes = api.content.create(
                 type='Folder',
                 id='capacitychanges',
@@ -154,6 +144,17 @@ class setup(grok.View):
                 safe_id=False)
             allowed_types = ['OutcomeCCItem', ]
             _setup_constrains(outcomes, allowed_types)
+
+            outputs = api.content.create(
+                type='Folder',
+                id='outputs',
+                title='Defaults Outputs Items',
+                description='Default title outputs used in projects',
+                container=config_folder,
+                safe_id=False)
+            allowed_types = ['Outputdefaults', ]
+            _setup_constrains(outputs, allowed_types)
+
             projects = api.content.create(
                 type='Folder',
                 id='projects',
@@ -163,6 +164,7 @@ class setup(grok.View):
                 safe_id=False)
             allowed_types = ['Project', ]
             _setup_constrains(projects, allowed_types)
+
             message = _(u"The default config has been applied.")
             messages.addStatusMessage(message, type="info")
         except Exception, e:
@@ -171,6 +173,21 @@ class setup(grok.View):
 
     def createDemoContent(self):
         """ Assign default values to panel control options """
+        for i in xrange(1, 6):
+            try:
+                properties = dict(
+                    fullname='Test User' + str(i),
+                    location='Barcelona',
+                )
+                api.user.create(
+                    username='user' + str(i),
+                    email='user' + str(i) + '@test.com',
+                    password='user' + str(i),
+                    properties=properties,
+                )
+            except:
+                pass
+
         portal = api.portal.get()
         settingspage = api.content.create(
             type='SettingsPage',
@@ -182,163 +199,45 @@ class setup(grok.View):
         settingspage.currency = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
         settingspage.measuring_unit = 'liters\nm3\npeople\nothers'
         settingspage.measuring_frequency = 'annually\nbiannually\nquarterly'
+
+        portal = api.portal.get()
         # Create demo Platforms
-        p1 = api.content.create(
-            type='Platform',
-            id='platform1',
-            title='WOP Platform 1',
-            description='WOP Platform 1',
-            container=portal.config.platforms,
-            safe_id=False)
-        p1.country = ['Spain']
-        p2 = api.content.create(
-            type='Platform',
-            id='platform2',
-            title='WOP Platform 2',
-            description='WOP Platform 2',
-            container=portal.config.platforms,
-            safe_id=False)
-        p2.country = ['Spain']
-        p3 = api.content.create(
-            type='Platform',
-            id='platform3',
-            title='WOP Platform 3',
-            description='WOP Platform 3',
-            container=portal.config.platforms,
-            safe_id=False)
-        p3.country = ['Spain']
-        p4 = api.content.create(
-            type='Platform',
-            id='platform4',
-            title='WOP Platform 4',
-            description='WOP Platform 4',
-            container=portal.config.platforms,
-            safe_id=False)
-        p4.country = ['Spain']
-        p5 = api.content.create(
-            type='Platform',
-            id='platform5',
-            title='WOP Platform 5',
-            description='WOP Platform 5',
-            container=portal.config.platforms,
-            safe_id=False)
-        p5.country = ['Spain']
+        for i in xrange(1, 6):
+            obj = api.content.create(
+                type='Platform',
+                id='platform' + str(i),
+                title='WOP Platform ' + str(i),
+                description='WOP Platform ' + str(i),
+                container=portal.config.platforms,
+                safe_id=False)
+            obj.country = ['Spain']
 
         # Create demo programs
-        portal = api.portal.get()
-        p1 = api.content.create(
-            type='Program',
-            id='program1',
-            title='WOP Program 1',
-            description='WOP Program 1',
-            container=portal.config.programs,
-            safe_id=False)
-        p1.contact = 'userprogram1@test.com'
-        p1.country = ['Spain']
-        p2 = api.content.create(
-            type='Program',
-            id='program2',
-            title='WOP Program 2',
-            description='WOP Program 2',
-            container=portal.config.programs,
-            safe_id=False)
-        p2.contact = 'userprogram2@test.com'
-        p2.country = ['Spain']
-        p3 = api.content.create(
-            type='Program',
-            id='program3',
-            title='WOP Program 3',
-            description='WOP Program 3',
-            container=portal.config.programs,
-            safe_id=False)
-        p3.contact = 'userprogram3@test.com'
-        p3.country = ['Spain']
-        p4 = api.content.create(
-            type='Program',
-            id='program4',
-            title='WOP Program 4',
-            description='WOP Program 4',
-            container=portal.config.programs,
-            safe_id=False)
-        p4.contact = 'userprogram4@test.com'
-        p4.country = ['Spain']
-        p5 = api.content.create(
-            type='Program',
-            id='program5',
-            title='WOP Program 5',
-            description='WOP Program 5',
-            container=portal.config.programs,
-            safe_id=False)
-        p5.contact = 'userprogram5@test.com'
-        p5.country = ['Spain']
+        for i in xrange(1, 6):
+            obj = api.content.create(
+                type='Program',
+                id='program' + str(i),
+                title='WOP Program ' + str(i),
+                description='WOP Program ' + str(i),
+                container=portal.config.programs,
+                safe_id=False)
+            obj.contact = 'userprogram' + str(i) + '@test.com'
+            obj.country = ['Spain']
 
         # Create demo partners
         portal = api.portal.get()
-        p1 = api.content.create(
-            type='Partner',
-            id='partner1',
-            title='WOP Partner 1',
-            description='WOP Partner 1',
-            container=portal.config.partners,
-            safe_id=False)
-        p1.contact = 'userpartner1@test.com'
-        p1.country = ['Spain']
-        p1.latitude = '41.3828939'
-        p1.longitude = '2.1774322'
-        # geo = IGeolocatable(p1, None)
-        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
-        p2 = api.content.create(
-            type='Partner',
-            id='partner2',
-            title='WOP Partner 2',
-            description='WOP Partner 2',
-            container=portal.config.partners,
-            safe_id=False)
-        p2.contact = 'userpartner2@test.com'
-        p2.country = ['Spain']
-        p2.latitude = '41.3828939'
-        p3.longitude = '2.1774322'
-        # geo = IGeolocatable(p2, None)
-        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
-        p3 = api.content.create(
-            type='Partner',
-            id='partner3',
-            title='WOP Partner 3',
-            description='WOP Partner 3',
-            container=portal.config.partners,
-            safe_id=False)
-        p3.contact = 'userpartner3@test.com'
-        p3.country = ['Spain']
-        p3.latitude = '41.3828939'
-        p3.longitude = '2.1774322'
-        # geo = IGeolocatable(p3, None)
-        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
-        p4 = api.content.create(
-            type='Partner',
-            id='partner4',
-            title='WOP Partner 4',
-            description='WOP Partner 4',
-            container=portal.config.partners,
-            safe_id=False)
-        p4.contact = 'userpartner4@test.com'
-        p4.country = ['Spain']
-        p4.latitude = '41.3828939'
-        p4.longitude = '2.1774322'
-        # geo = IGeolocatable(p4, None)
-        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
-        p5 = api.content.create(
-            type='Partner',
-            id='partner5',
-            title='WOP Partner 5',
-            description='WOP Partner 5',
-            container=portal.config.partners,
-            safe_id=False)
-        p5.contact = 'userpartner5@test.com'
-        p5.country = ['Spain']
-        p5.latitude = '41.3828939'
-        p5.longitude = '2.1774322'
-        # geo = IGeolocatable(p5, None)
-        # geo.geolocation = Geolocation(41.3828939, 2.1774322)
+        for i in xrange(1, 6):
+            obj = api.content.create(
+                type='Partner',
+                id='partner' + str(i),
+                title='WOP Partner ' + str(i),
+                description='WOP Partner ' + str(i),
+                container=portal.config.partners,
+                safe_id=False)
+            obj.contact = 'userpartner' + str(i) + '@test.com'
+            obj.country = ['Spain']
+            obj.latitude, obj.longitude = self.randomgeo()
+
         # Create base Outcome CC selectable Values
         api.content.create(
             type='OutcomeCCItem',
@@ -453,50 +352,19 @@ class setup(grok.View):
             container=portal.config.capacitychanges,
             safe_id=True)
 
-        # Create demo programs
-        portal = api.portal.get()
-        area1 = api.content.create(
-            type='ItemArea',
-            id='area1',
-            title='Working Area 1',
-            description="Description from area 1",
-            container=portal.config.areas,
-            safe_id=True)
-        area1.image = self.getRandomImage(200, 200)
-        area2 = api.content.create(
-            type='ItemArea',
-            id='area2',
-            title='Working Area 2',
-            description="Description from area 2",
-            container=portal.config.areas,
-            safe_id=True)
-        area2.image = self.getRandomImage(200, 200)
-        area3 = api.content.create(
-            type='ItemArea',
-            id='area3',
-            title='Working Area 3',
-            description="Description from area 3",
-            container=portal.config.areas,
-            safe_id=True)
-        area3.image = self.getRandomImage(200, 200)
-        area4 = api.content.create(
-            type='ItemArea',
-            id='area4',
-            title='Working Area 4',
-            description="Description from area 4",
-            container=portal.config.areas,
-            safe_id=True)
-        area4.image = self.getRandomImage(200, 200)
-        area5 = api.content.create(
-            type='ItemArea',
-            id='area5',
-            title='Working Area 5',
-            description="Description from area 5",
-            container=portal.config.areas,
-            safe_id=True)
-        area5.image = self.getRandomImage(200, 200)
+        # Create item areas
+        for i in xrange(1, 6):
+            obj = api.content.create(
+                type='ItemArea',
+                id='area' + str(i),
+                title='Working Area ' + str(i),
+                description="Description from area " + str(i),
+                container=portal.config.areas,
+                safe_id=True)
+            obj.image = self.getRandomImage(200, 200)
 
         self.createProjects(5)
+        self.createDefaultOutputs()
         return "Demo content created"
 
     def getRandomImage(self, w, h):
@@ -536,14 +404,56 @@ class setup(grok.View):
                 container=portal['projects'],
                 safe_id=True)
             project.image = self.getRandomImage(200, 200)
-            # project.budget = random.randint(100000, 200000)
             project.contribution = RichTextValue(
                 self.getLoremIpsum(2, 'long', 'html'),
                 'text/html', 'text/html')
             new_value = []
             project.partners = new_value
-            # geo = IGeolocatable(project, None)
-            # geo.geolocation = Geolocation(41.3828939, 2.1774322)
             project.assumptions = project.contribution
             project.objectives = project.contribution
             project.country = 'Spain'
+            project.latitude, project.longitude = self.randomgeo()
+
+    def randomgeo(self):
+        # Random lat and long to geopositioning Projects
+        t = 2 * math.pi * random.random()
+        u = random.random() + random.random()
+        radius = int(random.random() * 100)
+        if u > 1:
+            r = 2 - u
+        else:
+            r = u
+        return radius * r * math.cos(t), radius * r * math.sin(t)
+
+    def createDefaultOutputs(self):
+        titles = [
+            'Leadership development program prepared',
+            'Business plan developed/improved',
+            'Management information system introduced/improved',
+            'Internal audit performed on transparency and integrity',
+            'Improvement plan drawn up based on internal audit',
+            'Yearly benchmark report prepared',
+            'Organisation improvement plan developed',
+            'Capacity development program prepared',
+            'NRW reduction plan developed',
+            'Number of people trained in NRW reduction approach',
+            'Maintenance and management program developed',
+            'Number of people trained in maintenance and management',
+            'Development of an improvement plan for sanitation, sewage and waste water treatment',
+            'Pro-poor coordinators appointed and trained',
+            'Pro-poor vision, strategy and objectives developed',
+            'Proposals developed for providing people with direct acces to improved water and/ or sanitation facilities',
+            'Coordination of the implementation of the proposals',
+            'Climate resistant water supply program 2050 developed',
+            'Energy saving program developed',
+            'Gender analysis and approach developed'
+        ]
+        portal = api.portal.get()
+        for item in titles:
+            api.content.create(
+                type='Outputdefaults',
+                title=item,
+                title_es=item,
+                title_fr=item,
+                container=portal.config.outputs,
+                safe_id=True)

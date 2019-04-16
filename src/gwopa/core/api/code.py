@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 import json
 from plone import api
 
@@ -12,6 +14,27 @@ class getPhases(BrowserView):
         results = [{'phases': len(project.gwopa_year_phases),
                     'gwopa_year_phases': project.gwopa_year_phases,
                     }]
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
+class getOutputs(BrowserView):
+    # /api-getoutputs
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        results = []
+        catalog = api.portal.get_tool('portal_catalog')
+        literals = catalog.unrestrictedSearchResults(
+            portal_type='Outputdefaults')
+
+        cont = 1
+        for item in literals:
+            results.append(dict(
+                id=cont,
+                name=item.Title))
+            cont = cont + 1
+        self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(results)
 
 
@@ -24,6 +47,7 @@ class getUsers(BrowserView):
             results.append(dict(
                 id=user.id,
                 text=user.getProperty('fullname')))
+        self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(
             {
                 'placeholder': "Select users...",
@@ -46,6 +70,6 @@ class Create(BrowserView):
 
     def __call__(self):
         # TODO: check permissions. now cmf.ModifyPortalContent
-        item = self.request.form.get('item')
+        # item = self.request.form.get('item')
         # import ipdb; ipdb.set_trace()
         return 'Ok, item created'

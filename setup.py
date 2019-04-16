@@ -41,6 +41,7 @@ setup(
     install_requires=[
         # -*- Extra requirements: -*-
         'plone.api>=1.8.4',
+        'plone.restapi',
         'Products.GenericSetup>=1.8.2',
         'plone.app.dexterity [grok]',
         'setuptools',
@@ -54,7 +55,6 @@ setup(
         'souper',
         'Products.PloneKeywordManager',
         'geojson',
-        'plone.restapi',
         'collective.ploneboard',
         'eea.facetednavigation',
         'beautifulsoup4',

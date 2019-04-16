@@ -142,32 +142,48 @@
         </div>
       </div>
     </div>
-    <!-- Activity desplegable -->
-    <div class="tabla_cuerpo" id="contenido">
-      <div class="col-md-12 text-item-planning" id="#" role="tabpanel" aria-expanded="true">
-          <div class="col-sm-12">
-            <h3> Progress Degree</h3>
-            <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
-          <div class="col-sm-6">
-            <h3> Main Obstacles </h3>
-            <span data-option="Ejemplo 1">
-              <span data-option="Ejemplo 1" data-option-value="#">
-                <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span></span></span></span></span></span></span>
-            </span>
-            <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
-          <div class="col-sm-6">
-            <h3> Main Supporting factors </h3>
-            <span data-option="Ejemplo 1">
-              <span data-option="Ejemplo 1" data-option-value="#">
-                <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span></span></span></span></span></span></span>
-            </span>
-            <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
-          <div class="col-sm-12">
-            <h3>Degree of relevance / things to consider for future planning</h3>
-            <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
-          <button type="button" class="btn btn-default" data-dismiss="3">Send</button>
-        </div>
+<!-- Activity desplegable -->
+<div class="tabla_cuerpo" id="contenido">
+  <div class="col-md-12 text-item-planning" id="#" role="tabpanel" aria-expanded="true">
+    <div class="filacontenido">
+      <div class="col-sm-2" id="value">
+        <h3>Progress Degree</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-4" id="explprog">
+        <h3>Explanation Progress</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-3" id="mainobst">
+        <h3>Main Obstacles</h3>
+        <select name="Name" class="focus"><option value="#">Ejemplo 1</option></select>
+      </div>
+      <div class="col-sm-3" id="maincontrfact">
+        <h3>Main Contributing factors</h3>
+        <select name="Name" class="focus"><option value="#">Ejemplo 1</option></select>
+      </div>
     </div>
+    <div class="filacontenido">
+      <div class="col-sm-6" id="conforfurplan">
+        <h3>Consideration for further planning</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6" id="explcontrlimfac">
+        <h3>Explain contributed and limiting factors</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <button type="button" class="btn btn-default focus" data-dismiss="3">Update</button>
+  </div>
+</div>
     <!-- Outcome -->
     <div class="tabla_cuerpo">
       <div class="tabla_hilera">
@@ -205,32 +221,48 @@
         </div>
       </div>
     </div>
-    <!-- Outcome desplegable -->
-    <div class="tabla_cuerpo" id="contenido">
-     <div class="col-md-12 text-item-planning" id="#" role="tabpanel" aria-expanded="false">
-        <div class="col-sm-12">
-          <h3> Progress Degree</h3>
-          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
-        <div class="col-sm-6">
-          <h3> Main Obstacles </h3>
-          <span data-option="Ejemplo 1">
-            <span data-option="Ejemplo 1" data-option-value="#">
-              <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span></span></span></span></span></span></span>
-          </span>
-          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
-        <div class="col-sm-6">
-          <h3> Main Supporting factors </h3>
-          <span data-option="Ejemplo 1">
-            <span data-option="Ejemplo 1" data-option-value="#">
-              <span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><span data-option="Ejemplo 1"><span data-option="Ejemplo 1" data-option-value="#"><select name="Name"><option value="#">Ejemplo 1</option></select></span></span></span></span></span></span></span></span></span></span></span></span></span>
-          </span>
-          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
-        <div class="col-sm-12">
-          <h3>Degree of relevance / things to consider for future planning</h3>
-          <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea></div>
-        <button type="button" class="btn btn-default" data-dismiss="3">Send</button>
+<!-- Outcome desplegable -->
+<div class="tabla_cuerpo" id="contenido">
+  <div class="col-md-12 text-item-planning" id="#" role="tabpanel" aria-expanded="true">
+    <div class="filacontenido">
+      <div class="col-sm-2" id="value">
+        <h3>Value</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-4" id="explprog">
+        <h3>Explanation</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-3" id="mainobst">
+        <h3>Main Obstacles</h3>
+        <select name="Name" class="focus"><option value="#">Ejemplo 1</option></select>
+      </div>
+      <div class="col-sm-3" id="maincontrfact">
+        <h3>Main Contributing factors</h3>
+        <select name="Name" class="focus"><option value="#">Ejemplo 1</option></select>
       </div>
     </div>
+    <div class="filacontenido">
+      <div class="col-sm-6" id="conforfurplan">
+        <h3>Consideration for further planning</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6" id="explcontrlimfac">
+        <h3>Explain contributed and limiting factors</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <button type="button" class="btn btn-default focus" data-dismiss="3">Update</button>
+  </div>
+</div>
 </div>
 </div>
 
@@ -316,6 +348,49 @@
                   </i>
               </div>
             </div>
+
+  <!-- KPI desplegable -->
+<div class="tabla_cuerpo" id="contenido">
+  <div class="col-md-12 text-item-planning" id="#" role="tabpanel" aria-expanded="true">
+    <div class="filacontenido">
+      <div class="col-sm-2" id="value">
+        <h3>Current</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-4" id="explprog">
+        <h3>Explanation</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-3" id="mainobst">
+        <h3>Main Obstacles</h3>
+        <select name="Name" class="focus"><option value="#">Ejemplo 1</option></select>
+      </div>
+      <div class="col-sm-3" id="maincontrfact">
+        <h3>Main Contributing factors</h3>
+        <select name="Name" class="focus"><option value="#">Ejemplo 1</option></select>
+      </div>
+    </div>
+    <div class="filacontenido">
+      <div class="col-sm-6" id="conforfurplan">
+        <h3>Consideration for further planning</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6" id="explcontrlimfac">
+        <h3>Explain contributed and limiting factors</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <button type="button" class="btn btn-default focus" data-dismiss="3">Update</button>
+  </div>
+</div>
           </div>
           <div class="col-md-12 text-item-planning">
             <div class="information object">
@@ -347,11 +422,56 @@
                   </i>
               </div>
             </div>
+
+
+  <!-- KPI desplegable -->
+<div class="tabla_cuerpo" id="contenido">
+  <div class="col-md-12 text-item-planning" id="#" role="tabpanel" aria-expanded="true">
+    <div class="filacontenido">
+      <div class="col-sm-2" id="value">
+        <h3>Current</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-4" id="explprog">
+        <h3>Explanation</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-3" id="mainobst">
+        <h3>Main Obstacles</h3>
+        <select name="Name" class="focus"><option value="#">Ejemplo 1</option></select>
+      </div>
+      <div class="col-sm-3" id="maincontrfact">
+        <h3>Main Contributing factors</h3>
+        <select name="Name" class="focus"><option value="#">Ejemplo 1</option></select>
+      </div>
+    </div>
+    <div class="filacontenido">
+      <div class="col-sm-6" id="conforfurplan">
+        <h3>Consideration for further planning</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+      <div class="col-sm-6" id="explcontrlimfac">
+        <h3>Explain contributed and limiting factors</h3>
+        <span data-option="Ejemplo 1">
+        </span>
+        <textarea class="form-control" id="message-text" placeholder="Narrative... "></textarea>
+      </div>
+    </div>
+    <button type="button" class="btn btn-default focus" data-dismiss="3">Update</button>
+  </div>
+</div>
           </div>
         </div>
       </div>
       </div>
   </div>
+
   </div>
   <div class="tabla_contenido_items" data-toggle="collapse" aria-expanded="true" href="#collapse-working-area-1" aria-controls="collapse-working-area-1">
     <div class="tabla_cabecera">

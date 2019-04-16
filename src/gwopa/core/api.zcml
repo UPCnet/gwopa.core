@@ -10,9 +10,17 @@
 
   <browser:page
       for="gwopa.core.content.project.IProject"
-      name="api-getphases"
+      name="api-getPhases"
       class=".api.code.getPhases"
       permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="*"
+      name="api-getOutputs"
+      class=".api.code.getOutputs"
+      permission="zope.Public"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
