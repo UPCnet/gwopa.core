@@ -27,7 +27,6 @@ class getOutputs(BrowserView):
         catalog = api.portal.get_tool('portal_catalog')
         literals = catalog.unrestrictedSearchResults(
             portal_type='Outputdefaults')
-
         cont = 1
         for item in literals:
             results.append(dict(
@@ -70,6 +69,10 @@ class Create(BrowserView):
 
     def __call__(self):
         # TODO: check permissions. now cmf.ModifyPortalContent
-        # item = self.request.form.get('item')
-        # import ipdb; ipdb.set_trace()
+        print self.request.form
+        title = self.request.form.get('item_title')
+        api.content.create(
+            title=title,
+            type='Outputdefaults',
+            container=self.context)
         return 'Ok, item created'

@@ -73,7 +73,7 @@
                                   </a>
                                 </li>
                                 <li>
-                                  <a data-toggle="modal" data-target="#modalOutput">
+                                  <a data-toggle="modal" data-target="#modalOutput" tal:attributes="data-href item/url" >
                                     <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output</tal:omit-tag>
                                   </a>
                                 </li>
@@ -105,7 +105,7 @@
                         <div class="col-md-12 text-item-planning">
                           <div class="information object">
                             <div class="contentt" id="total" tal:condition="python:item['portal_type'] == 'Activity'">
-                              <a data-toggle="modal" data-target="#modalOutput" tal:attributes="data-href item/url" style="float:left;">
+                              <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-href item/url" style="float:left;">
                                 <i class="fas fa-plus-circle"></i>
                               </a>
                               <!-- <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Output"><i class="fa fa-plus-circle"></i></a> -->
@@ -316,24 +316,25 @@
                 <select
                   required
                   name="userId"
-                  id="userId"
+                  id="out-title"
                   class="form-control"
                   data-source="@@api-getOutputs"
-                  data-valueKey="id"
-                  data-displayKey="name">
+                  data-valueKey="name"
+                  data-displayKey="name"
+                  data-path="">
                 </select>
                 <div class="form-group">
-                  <label for="message-text" class="control-label">Description</label>
-                  <textarea class="form-control" id="out-description"></textarea>
+                    <label for="message-text" class="control-label">Description</label>
+                    <textarea class="form-control" id="out-description"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="control-label">Baseline description</label>
-                  <textarea class="form-control" id="out-baseline"></textarea>
+                    <label for="message-text" class="control-label">Baseline description</label>
+                    <textarea class="form-control" id="out-baseline"></textarea>
                 </div>
                 <div class="form-group">
-                  <label class="control-label">Completion Date</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                   <input type='text' class="form-control" id='out-datetimepicker'/>
+                    <label class="control-label">Completion Date</label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input type='text' class="form-control" id='out-datetimepicker'/>
                 </div>
                 <div class="form-group">
                   <label for="message-text" class="control-label">Measuring unit:</label>
@@ -416,12 +417,14 @@
     <script type="text/javascript">
       $('#createOutputFromModal').click(function(e){
           e.preventDefault();
+          debugger;
           item_title = $('#out-title').val()
-          item_type = $('#out-title').val()
-          item_path = $('#out-title').val()
+          item_date = $('#out-datetimepicker').val()
+          item_path = $('#out-path').val()
+
           var params = {};
           params.item_title = item_title;
-          params.item_type = item_type;
+          params.item_date = item_date;
           params.item_path = item_path;
           $.ajax({
             url: '@@createElement',
