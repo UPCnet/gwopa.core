@@ -20,11 +20,11 @@
             <tal:block tal:condition="isRootFolder">
                 <li class="indentMenu" tal:define="tab_id string:${portal_url}/areas">
                     <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/areas">
-                    <i class="fas fa-chart-area" aria-hidden="true"></i><tal:omit-tag i18n:translate=""> Areas </tal:omit-tag></a>
+                    <i class="fas fa-chart-area" aria-hidden="true"></i><tal:omit-tag i18n:translate=""> My Areas </tal:omit-tag></a>
                 </li>
                 <li class="indentMenu" tal:define="tab_id string:${portal_url}/teams">
                     <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/teams">
-                    <i class="fas fa-users" aria-hidden="true"></i><tal:omit-tag i18n:translate=""> Teams </tal:omit-tag></a>
+                    <i class="fas fa-users" aria-hidden="true"></i><tal:omit-tag i18n:translate=""> My Team </tal:omit-tag></a>
                 </li>
             </tal:block>
             <tal:omit-tag tal:condition="not:isRootFolder">

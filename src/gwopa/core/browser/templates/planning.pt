@@ -41,6 +41,7 @@
     </div>
 
     <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
+
     <div style="float:right; padding-top: 10px;" class="documentDescription">
       <span id="collapseAll" i18n:translate="">Collapse <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
       <span id="expandAll" i18n:translate="">Expand <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
@@ -529,7 +530,7 @@
         });
     </script>
     <script type="text/javascript">
-        $(".notexpand").hide();
+        $(".expand").hide();
         $("#expandAll").hide()
         $(".tabla_cuerpo").slideDown()
 
@@ -552,16 +553,17 @@
         })
 
       $(".expand").click(function () {
-        $(".expand").hide();
-        $(".notexpand").show();
         $header = $(this);
+        $header.find('.expand').hide()
+        $header.find('.notexpand').show()
         $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
       });
 
       $(".notexpand").click(function () {
-        $(".notexpand").hide();
-        $(".expand").show();
         $header = $(this);
+        debugger;
+        $header.find('.notexpand').hide()
+        $header.find('.expand').show()
         $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
       });
 

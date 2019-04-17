@@ -6,6 +6,7 @@ from zope.publisher.interfaces import IPublishTraverse
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
+from zope.annotation.interfaces import IAnnotations
 import datetime
 
 
@@ -62,6 +63,23 @@ class monitoringView(BrowserView):
             return self.index()
         # TODO: if copy or delete make action!
 
+    def getAnnotation(self, item):
+        KEY = "GWOPA_YEAR_" + str(self.year)
+        annotations = IAnnotations(self.context)
+        if KEY in annotations.keys():
+            data = []
+            # values = dict(
+            #     progress_degree='progress_degree',
+            #     explanation='explanation',
+            # )
+
+            # data.append(values)
+            # annotations[KEY] = data
+            #return KEY
+            return annotations[KEY]
+        else:
+            return "No existe la annotation"
+
     def getPhases(self):
         return len(self.context.gwopa_year_phases)
 
@@ -103,7 +121,7 @@ class monitoringView(BrowserView):
                                 description=item.description,
                                 portal_type=item.portal_type
                                 ))
-        return results
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def indicatorsInside(self, item):
         """ returns objects from first level (elements inside ImprovementArea) """
