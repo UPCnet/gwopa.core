@@ -55,10 +55,17 @@ class managePortal(grok.View):
         results = []
         for item in items:
             obj = item.getObject()
+            if obj.region and len(obj.region) > 1:
+                region = ', '.join(map(str, obj.region))
+            elif obj.region:
+                region = str(obj.region[0])
+            else:
+                region = ''
             results.append(dict(
                 title=item.Title,
                 url='/'.join(obj.getPhysicalPath()),
-                country=', '.join(map(str, obj.country)))
+                country=', '.join(map(str, obj.country)),
+                region=region)
             )
         return results
 
@@ -83,6 +90,7 @@ class managePortal(grok.View):
             results.append(dict(
                 title=item.Title,
                 url='/'.join(obj.getPhysicalPath()),
-                country=', '.join(map(str, obj.country)))
+                country=', '.join(map(str, obj.country)),
+                contact=obj.contact)
             )
         return results

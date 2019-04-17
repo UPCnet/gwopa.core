@@ -8,43 +8,73 @@
                 isRootFolder view/isRootFolder;
                 projectPath view/projectPath">
 
-    <div class="sidenav2">
-        <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/fontawesome/css/all.min.css" />
-        <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/fontawesome/css/all.min.css" />
+<link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css" />
 
-        <ul id="sidenav-vertical">
-            <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}"><i class="fas fa-map-marker"></i><span i18n:translate=""> Home </span>
-            </a>
-            <ul id="sidenav-vertical-overview" tal:condition="not:isRootFolder" class="indentMenu">
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/areas"><i class="fas fa-chart-area" aria-hidden="true"></i><tal:omit-tag i18n:translate=""> My Areas </tal:omit-tag></a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/teams"><i class="fas fa-users" aria-hidden="true"></i><tal:omit-tag i18n:translate=""> My Team </tal:omit-tag></a>
-            </ul>
-            <tal:omit-tag tal:condition="isRootFolder">
-                <a class="plone-btn plone-btn-info active" tal:attributes="href string:${projectPath}">
-                    <i class="fas fa-home"></i><span i18n:translate=""> Project Overview </span></a>
-                <a class="paddingleft20 plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectareas" href="#">
+    <div class="sidenav2">
+        <ul id="sidenav-vertical" tal:define="selected_tab view/selected_portal_tab; current_path view/current_path">
+            <li tal:define="tab_id string:${portal_url}/homepage">
+                <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}">
+                <i class="fas fa-map-marker"></i><tal:omit-tag i18n:translate=""> Home </tal:omit-tag></a>
+            </li>
+            <tal:block tal:condition="isRootFolder">
+                <li class="indentMenu" tal:define="tab_id string:${portal_url}/areas">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/areas">
+                    <i class="fas fa-chart-area" aria-hidden="true"></i><tal:omit-tag i18n:translate=""> Areas </tal:omit-tag></a>
+                </li>
+                <li class="indentMenu" tal:define="tab_id string:${portal_url}/teams">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/teams">
+                    <i class="fas fa-users" aria-hidden="true"></i><tal:omit-tag i18n:translate=""> Teams </tal:omit-tag></a>
+                </li>
+            </tal:block>
+            <tal:omit-tag tal:condition="not:isRootFolder">
+                <li tal:define="tab_id string:${projectPath}/view">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}">
+                    <i class="fas fa-home"></i><tal:omit-tag i18n:translate=""> Project Overview </tal:omit-tag></a>
+                </li>
+                <li tal:define="tab_id string:${projectPath}/projectareas">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft20 plone-btn plone-btn-info active' or 'paddingleft20 plone-btn plone-btn-info'; href string:${projectPath}/projectareas">
                     <i class="fas fa-chart-area"></i><tal:omit-tag i18n:translate=""> Areas </tal:omit-tag></a>
-                <a class="paddingleft20 plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectteams" href="#">
+                </li>
+                <li tal:define="tab_id string:${projectPath}/projectteams">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft20 plone-btn plone-btn-info active' or 'paddingleft20 plone-btn plone-btn-info'; href string:${projectPath}/projectteams">
                     <i class="fas fa-users"></i><tal:omit-tag i18n:translate=""> Team </tal:omit-tag></a>
-                <a class="paddingleft20 plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/projectfiles" href="#">
+                </li>
+                <li tal:define="tab_id string:${projectPath}/projectfiles">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft20 plone-btn plone-btn-info active' or 'paddingleft20 plone-btn plone-btn-info'; href string:${projectPath}/projectfiles">
                     <i class="fas fa-file"></i><tal:omit-tag i18n:translate=""> Files </tal:omit-tag></a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/planning" href="#">
+                </li>
+                <li tal:define="tab_id string:${projectPath}/planning">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/planning">
                     <i class="fas fa-calendar-check"></i><tal:omit-tag i18n:translate=""> Planning </tal:omit-tag></a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/collaborating" href="#">
+                </li>
+                <li tal:define="tab_id string:${projectPath}/collaborating">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/collaborating">
                     <i class="fas fa-users"></i><tal:omit-tag i18n:translate=""> Collaboration </tal:omit-tag></a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/monitoring" href="#">
+                </li>
+                <li tal:define="tab_id string:${projectPath}/monitoring">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/monitoring">
                     <i class="fas fa-chart-pie"></i><tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/visualizating" href="#">
+                </li>
+                <li tal:define="tab_id string:${projectPath}/visualizating">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/visualizating">
                     <i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${projectPath}/reporting" href="#">
+                </li>
+                <li tal:define="tab_id string:${projectPath}/reporting">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/reporting">
                     <i class="fas fa-file-alt"></i><tal:omit-tag i18n:translate=""> Reporting </tal:omit-tag></a>
+                </li>
             </tal:omit-tag>
-            <tal:setting tal:condition="not:isRootFolder">
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/config" href="#">
+            <tal:omit tal:condition="isRootFolder">
+                <li tal:define="tab_id string:${portal_url}/config">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/config">
                     <i class="fas fa-tools"></i><tal:omit-tag i18n:translate=""> Configuration </tal:omit-tag></a>
-                <a class="plone-btn plone-btn-info" tal:attributes="href string:${portal_url}/managePortal" href="#">
+                </li>
+                <li tal:define="tab_id string:${portal_url}/managePortal">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/managePortal">
                     <i class="fas fa-cog"></i><tal:omit-tag i18n:translate=""> Settings </tal:omit-tag></a>
-             </tal:setting>
+                </li>
+             </tal:omit>
         </ul>
     </div>
 
