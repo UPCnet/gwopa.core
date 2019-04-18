@@ -73,6 +73,6 @@ class Create(BrowserView):
         title = self.request.form.get('item_title')
         api.content.create(
             title=title,
-            type='Outputdefaults',
+            type='Output',
             container=self.context)
         return 'Ok, item created'

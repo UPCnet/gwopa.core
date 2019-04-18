@@ -416,9 +416,9 @@ class setup(grok.View):
 
     def randomgeo(self):
         # Random lat and long to geopositioning Projects
-        t = 2 * math.pi * random.random()
-        u = random.random() + random.random()
-        radius = int(random.random() * 100)
+        t = 2 * math.pi * random()
+        u = random() + random()
+        radius = int(random() * 100)
         if u > 1:
             r = 2 - u
         else:
