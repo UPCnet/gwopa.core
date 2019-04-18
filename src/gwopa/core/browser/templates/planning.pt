@@ -10,21 +10,7 @@
 <metal:content-core fill-slot="main"
     tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;">
-
-  <metal:javascript fill-slot="javascript_head_slot">
-    <script>
-      require = undefined;
-      define = undefined;
-    </script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/flatpickr"></script>
-  </metal:javascript>
-
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
-
     <div class="block-nav">
       <ul class="pagination pagination-lg" tal:define="items view/getItems">
         <tal:block tal:repeat="item items">
@@ -35,7 +21,6 @@
         </tal:block>
       </ul>
     </div>
-
     <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">Planning - Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag></h1>
     <div class="documentDescription description projectDates">
       This year starts on <span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span> and ends on <span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>
@@ -69,12 +54,12 @@
                               <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                               <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                                 <li>
-                                  <a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${item/url}/++add++Activity">
+                                  <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${item/url}/++add++Activity">
                                     <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Activity</tal:omit-tag>
                                   </a>
                                 </li>
                                 <li>
-                                  <a data-toggle="modal" data-target="#modalOutput" tal:attributes="data-href item/url" >
+                                  <a href="#" data-toggle="modal" data-target="#modalOutput">
                                     <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output</tal:omit-tag>
                                   </a>
                                 </li>
@@ -307,7 +292,7 @@
       </div>
     </div>
 
-    <div class="modal fade" id="modalOutput" tabindex="-1" role="dialog">
+    <div id="modalOutput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form>
@@ -317,17 +302,10 @@
             </div>
             <div class="modal-body" id="NewOutput">
               <div class="col-md-12">
-                <label i18n:translate="">Title</label>
-                <select
-                  required
-                  name="userId"
-                  id="out-title"
-                  class="form-control"
-                  data-source="@@api-getOutputs"
-                  data-valueKey="name"
-                  data-displayKey="name"
-                  data-path="">
-                </select>
+                <div class="form-group">
+                  <label id="label-output" i18n:translate="">Title</label>
+                  <input id="out-title" type="hidden" i18n:attributes="title Search" />
+                </div>
                 <div class="form-group">
                     <label for="message-text" class="control-label">Description</label>
                     <textarea class="form-control" id="out-description"></textarea>
@@ -339,7 +317,7 @@
                 <div class="form-group">
                     <label class="control-label">Completion Date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input type='text' class="form-control" id='out-datetimepicker'/>
+                    <input id="out-datetimepicker" class="pat-pickadate" data-pat-pickadate="time:false"/>
                 </div>
                 <div class="form-group">
                   <label for="message-text" class="control-label">Measuring unit:</label>
@@ -363,7 +341,7 @@
                   <div id="TextBoxDiv1">
                     <div class="col-md-6">
                       <label for="message-text" class="control-label"> Target value </label>
-                      <input class="form-control" id="target-value-1" placeholder="Indicate the target value..."/>
+                      <input type="text" class="form-control" id="target-value-1" placeholder="Indicate the target value..."/>
                     </div>
                     <div class="col-md-6">
                       <label for="message-text" class="control-label"> Target date </label>
@@ -371,10 +349,12 @@
                     </div>
                   </div>
                 </div>
-                <button type="button" id='addTargetValueButton'>
-                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                  Add target
-                </button>
+                <div class="form-group">
+                  <button type="button" id='addTargetValueButton'>
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    Add target
+                  </button>
+                </div>
                 <div class="form-group">
                   <label for="message-text" class="control-label">Means of verification</label>
                   <textarea class="form-control" id="out-means"></textarea>
@@ -399,197 +379,8 @@
         </div>
       </div>
     </div>
-
-    <script type="text/javascript">
-      $('select[data-source]').each(function() {
-        var $select = $(this);
-        $select.append('<option></option>');
-        $.ajax({
-          url: $select.attr('data-source'),
-          method: 'GET',
-        }).then(function(options) {
-          options.map(function(option) {
-            var $option = $('<option>');
-            $option
-              .val(option[$select.attr('data-valueKey')])
-              .text(option[$select.attr('data-displayKey')]);
-            $select.append($option);
-          });
-        });
-      });
-    </script>
-
-    <script type="text/javascript">
-      $('#createOutputFromModal').click(function(e){
-          e.preventDefault();
-          debugger;
-          item_title = $('#out-title').val()
-          item_date = $('#out-datetimepicker').val()
-          item_path = $('#out-path').val()
-
-          var params = {};
-          params.item_title = item_title;
-          params.item_date = item_date;
-          params.item_path = item_path;
-          $.ajax({
-            url: '@@createElement',
-            method: 'POST',
-            data: params,
-            success: function(resp)
-              { if(resp) {location.reload();}}
-          });
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-          let counter = 1;
-          let numPhases = $('#totalPhases').text();
-          fetch('api-getPhases')
-          .then(response => {
-              return response.json()
-          })
-          .then(data => {
-              let end_date = data[0].gwopa_year_phases[0].end;
-              $('#target-date-1').val(end_date);
-          })
-
-          $("#addTargetValueButton").click(function () {
-
-              let idnum = counter + 1;
-              if(counter>=numPhases){
-                  swal(
-                    'Not allowed!',
-                    'Sorry, but this output only accepts ' + numPhases + ' target values.',
-                    'warning');
-              }
-              else {
-                let newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
-                newTextBoxDiv.after().html(
-                '<div class="col-md-6">' +
-                '<input class="form-control" id="target-value-' + idnum + '" placeholder="Indicate the target value..."/></div>' +
-                '<div class="col-md-6">' +
-                '<input class="form-control" id="target-date-' + idnum + '" readonly/></div>');
-                newTextBoxDiv.appendTo("#TextBoxesGroup");
-              }
-              fetch('api-getPhases')
-              .then(response => {
-                return response.json()
-              })
-              .then(data => {
-                  let end_date = data[0].gwopa_year_phases[idnum-1].end;
-                  $('#target-date-' + (idnum) + '').val(end_date);
-              })
-              counter++;
-          });
-
-          $('#out-datetimepicker').flatpickr({
-              altInput: true,
-              altFormat: "F j, Y",
-              dateFormat: "Y-m-d",
-              allowInput: true,
-          });
-
-          $('.btn-delete').on('click', function(e) {
-              e.preventDefault();
-              item = $(this).attr('data-url')
-              item_type = $(this).attr('data-type')
-              item_title = $(this).attr('data-id')
-              var params = {};
-              params.item = item;
-              swal({
-                title: "Confirm Delete?",
-                text: 'You are about to delete ' + item_type + ': ' + item_title,
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-              })
-              .then((willDelete) => {
-                if (willDelete) {
-                  $.ajax({
-                    url: '@@removeElement',
-                    method: 'POST',
-                    data: params,
-                    success: function(resp)
-                          {
-                            if(resp) {
-                              location.reload();
-                              swal("Deleted", "The item has been deleted", "success", {
-                                buttons: false,
-                                timer: 2000,
-                              })
-                            }
-                          }
-                })
-                } else {
-                  swal("Cancelled", "The deleting process has been cancelled", "error", {
-                    buttons: false,
-                    timer: 1200,
-                  })
-                }
-              });
-            });
-
-        });
-    </script>
-    <script type="text/javascript">
-        $(".expand").hide();
-        $("#expandAllProjectTab").hide()
-        $("#expandAllOutcomeTab").hide()
-        $(".tabla_cuerpo").slideDown()
-
-        $("#expandAllProjectTab").click(function(){
-          $(".tabla_cuerpo").slideDown()
-          $(".expand").parent().parent().parent().slideDown();
-          $(".expand").hide();
-          $(".notexpand").show();
-          $("#expandAllProjectTab").hide();
-          $("#collapseAllProjectTab").show();
-        })
-
-        $("#collapseAllProjectTab").click(function(){
-          $(".tabla_cuerpo").slideUp()
-          $(".notexpand").slideUp();
-          $(".notexpand").hide();
-          $(".expand").show();
-          $("#expandAllProjectTab").show();
-          $("#collapseAllProjectTab").hide();
-        })
-
-        $("#expandAllOutcomeTab").click(function(){
-          $(".tabla_cuerpo").slideDown()
-          $(".expand").parent().parent().parent().slideDown();
-          $(".expand").hide();
-          $(".notexpand").show();
-          $("#expandAllOutcomeTab").hide();
-          $("#collapseAllOutcomeTab").show();
-        })
-
-        $("#collapseAllOutcomeTab").click(function(){
-          $(".tabla_cuerpo").slideUp()
-          $(".notexpand").slideUp();
-          $(".notexpand").hide();
-          $(".expand").show();
-          $("#expandAllOutcomeTab").show();
-          $("#collapseAllOutcomeTab").hide();
-        })
-
-      $(".expand").click(function () {
-        $header = $(this);
-        $header.find('.expand').hide()
-        $header.find('.notexpand').show()
-        $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
-      });
-
-      $(".notexpand").click(function () {
-        $header = $(this);
-        $header.find('.notexpand').hide()
-        $header.find('.expand').show()
-        $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
-      });
-    </script>
-
+    <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/modal-output.js"></script>
   </metal:block>
 
 </metal:content-core>
