@@ -7,6 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
 import datetime
+from gwopa.core import _
 
 
 @implementer(IPublishTraverse)
@@ -85,6 +86,7 @@ class planningView(BrowserView):
             results.append(dict(
                 title='Project Year ' + str(total + 1),
                 url=url,
+                alt=_(u'Show planning of year ') + str(total + 1),
                 classe=classe))
             total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)

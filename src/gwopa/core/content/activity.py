@@ -103,11 +103,6 @@ class IActivity(model.Schema):
         required=False,
     )
 
-    json_data = schema.Text(
-        title=_(u'Internal JSON data for every year'),
-        description=_(u'Pasted in json format'),
-    )
-
     @invariant
     def validateStartEnd(data):
         if data.start is not None and data.end is not None:

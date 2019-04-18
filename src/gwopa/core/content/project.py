@@ -375,7 +375,7 @@ class View(grok.View):
         # TODO: Create app role system
         return False
 
-    def partners(self):
+    def getPartners(self):
         other = api.content.find(
             portal_type=['ContribPartner'],
             path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
@@ -387,8 +387,8 @@ class View(grok.View):
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                incash=str(obj.incash) + letter,
-                inkind=str(obj.inkind) + letter,
+                incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
+                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),
             ))
         return results
 
@@ -404,8 +404,8 @@ class View(grok.View):
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                incash=str(obj.incash) + letter,
-                inkind=str(obj.inkind) + letter,
+                incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
+                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),
             ))
         return results
 
@@ -421,8 +421,8 @@ class View(grok.View):
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                incash=str(obj.incash) + letter,
-                inkind=str(obj.inkind) + letter,
+                incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
+                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),
             ))
         return results
 
@@ -440,4 +440,4 @@ class View(grok.View):
             if obj.inkind:
                 total = total + obj.inkind
 
-        return str(total) + letter
+        return str(total) + ' ' + letter

@@ -38,8 +38,8 @@ msgstr ""
 msgid "+ New file"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:39
-msgid "Actions"
+#: ../browser/templates/manage_portal.pt:38
+msgid "Action"
 msgstr ""
 
 #: ../profiles/default/types/Activity.xml
@@ -50,11 +50,11 @@ msgstr ""
 msgid "Actual"
 msgstr ""
 
-#: ../browser/templates/planning.pt:76
+#: ../browser/templates/planning.pt:73
 msgid "Add Activity"
 msgstr ""
 
-#: ../browser/templates/planning.pt:86
+#: ../browser/templates/planning.pt:78
 msgid "Add Output"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Admin Settings Zone"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:37
+#: ../browser/templates/manage_portal.pt:36
 msgid "Admin role"
 msgstr ""
 
@@ -74,11 +74,11 @@ msgstr ""
 msgid "All the projects in one map."
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:71
+#: ../browser/templates/manage_portal.pt:69
 msgid "Area"
 msgstr ""
 
-#: ../portlets/sidenav.pt:26
+#: ../portlets/sidenav.pt:37
 msgid "Areas"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Assigned budget"
 msgstr ""
 
-#: ../content/templates/project_view.pt:83
+#: ../content/templates/project_view.pt:79
 msgid "Association to platforms or programmes"
 msgstr ""
 
@@ -135,16 +135,17 @@ msgstr ""
 msgid "Choose region based on selected country."
 msgstr ""
 
-#: ../browser/templates/collaborating.pt:13
+#: ../browser/templates/collaborating.pt:27
 msgid "Collaborating module"
 msgstr ""
 
-#: ../portlets/sidenav.pt:34
+#: ../portlets/sidenav.pt:53
 msgid "Collaboration"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:50
-#: ../browser/templates/planning.pt:49
+#: ../browser/templates/monitoring.pt:59
+#: ../browser/templates/planning.pt:58
+#: ../browser/templates/reporting.pt:38
 msgid "Collapse all <i class=\"fa fa-chevron-up\" aria-hidden=\"true\"></i>"
 msgstr ""
 
@@ -154,22 +155,22 @@ msgstr ""
 msgid "Completion date"
 msgstr ""
 
-#: ../portlets/sidenav.pt:44
+#: ../portlets/sidenav.pt:71
 msgid "Configuration"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:166
-#: ../content/templates/project_view.pt:167
+#: ../browser/templates/monitoring.pt:146
+msgid "Consideration for further planning"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:171
+#: ../content/templates/project_view.pt:163
 msgid "Contact"
 msgstr ""
 
 #: ../content/partner.py:42
 #: ../content/program.py:54
 msgid "Contact email"
-msgstr ""
-
-#: ../browser/templates/manage_portal.pt:72
-msgid "Container"
 msgstr ""
 
 #: ../profiles/default/types/ContribDonor.xml
@@ -188,13 +189,13 @@ msgstr ""
 msgid "Control panel to configure and view all the important system parameters"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:38
+#: ../browser/templates/manage_portal.pt:37
 #: ../content/partner.py:34
 #: ../content/platform.py:33
 msgid "Country"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:137
+#: ../browser/templates/manage_portal.pt:134
 msgid "Country/Countries"
 msgstr ""
 
@@ -206,11 +207,15 @@ msgstr ""
 msgid "Currency Exchange"
 msgstr ""
 
+#: ../browser/templates/monitoring.pt:268
+msgid "Current"
+msgstr ""
+
 #: ../browser/templates/global_map.pt:14
 msgid "Current projects map"
 msgstr ""
 
-#: ../portlets/sidenav.pt:38
+#: ../portlets/sidenav.pt:61
 msgid "Dashboard"
 msgstr ""
 
@@ -222,7 +227,7 @@ msgstr ""
 msgid "Define your language"
 msgstr ""
 
-#: ../browser/setup_home.py:54
+#: ../browser/setup_home.py:53
 msgid "Demo content has been created."
 msgstr ""
 
@@ -238,10 +243,6 @@ msgstr ""
 msgid "Describe the limiting factors to the perceived changes"
 msgstr ""
 
-#: ../browser/templates/reporting.pt:15
-msgid "Describing reporting module."
-msgstr ""
-
 #: ../browser/templates/visualizating.pt:15
 msgid "Describing visualizating module."
 msgstr ""
@@ -252,7 +253,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: ../content/templates/project_view.pt:43
+#: ../content/templates/project_view.pt:39
 msgid "Description and main objectives"
 msgstr ""
 
@@ -260,16 +261,33 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: ../content/templates/project_view.pt:77
+#: ../content/templates/project_view.pt:73
 msgid "End (Planned):"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:36
+#: ../browser/templates/manage_portal.pt:35
 msgid "End Date"
 msgstr ""
 
-#: ../content/templates/project_view.pt:73
+#: ../content/templates/project_view.pt:69
 msgid "End:"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:60
+#: ../browser/templates/planning.pt:59
+msgid "Expand all <i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:150
+msgid "Explain contributed and limiting factors"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:166
+msgid "Explanation"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:124
+msgid "Explanation Progress"
 msgstr ""
 
 #: ../browser/configure.zcml:145
@@ -285,11 +303,11 @@ msgid "Fases"
 msgstr ""
 
 #: ../browser/templates/files.pt:14
-#: ../portlets/sidenav.pt:30
+#: ../portlets/sidenav.pt:45
 msgid "Files"
 msgstr ""
 
-#: ../content/templates/project_view.pt:160
+#: ../content/templates/project_view.pt:156
 msgid "Focal point partner"
 msgstr ""
 
@@ -309,7 +327,7 @@ msgstr ""
 msgid "Here are all the Improvement Areas of the Platform."
 msgstr ""
 
-#: ../browser/templates/collaborating.pt:14
+#: ../browser/templates/collaborating.pt:28
 msgid "Here are shown all the Improvement Areas of this project. You can view them clicking in the images below."
 msgstr ""
 
@@ -321,7 +339,7 @@ msgstr ""
 msgid "Here are the files of the Project."
 msgstr ""
 
-#: ../portlets/sidenav.pt:16
+#: ../portlets/sidenav.pt:18
 msgid "Home"
 msgstr ""
 
@@ -343,11 +361,15 @@ msgstr ""
 msgid "Image used to describe the Working Area"
 msgstr ""
 
-#: ../browser/templates/planning.pt:295
+#: ../browser/templates/planning.pt:297
+msgid "Improve capacity in"
+msgstr ""
+
+#: ../browser/templates/planning.pt:289
 msgid "Improve generic Capacity Change"
 msgstr ""
 
-#: ../browser/templates/planning.pt:299
+#: ../browser/templates/planning.pt:293
 msgid "Improve specific Capacity Change"
 msgstr ""
 
@@ -367,15 +389,15 @@ msgstr ""
 msgid "Improvement track team and members"
 msgstr ""
 
-#: ../content/contributordonor.py:19
+#: ../content/contributordonor.py:22
 #: ../content/contributorother.py:23
-#: ../content/contributorpartner.py:19
+#: ../content/contributorpartner.py:22
 msgid "In-cash"
 msgstr ""
 
-#: ../content/contributordonor.py:24
+#: ../content/contributordonor.py:32
 #: ../content/contributorother.py:33
-#: ../content/contributorpartner.py:24
+#: ../content/contributorpartner.py:32
 msgid "In-kind"
 msgstr ""
 
@@ -397,6 +419,10 @@ msgstr ""
 
 #: ../content/outcomeccitem.py:32
 msgid "Insert the used category to group this element"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:70
+msgid "Inside project"
 msgstr ""
 
 #: ../configure.zcml:39
@@ -451,7 +477,15 @@ msgstr ""
 msgid "Longitude of this project. Used in the map view"
 msgstr ""
 
-#: ../content/templates/project_view.pt:93
+#: ../browser/templates/monitoring.pt:136
+msgid "Main Contributing factors"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:128
+msgid "Main Obstacles"
+msgstr ""
+
+#: ../content/templates/project_view.pt:89
 msgid "Main organizations and their contributions"
 msgstr ""
 
@@ -502,11 +536,15 @@ msgstr ""
 msgid "Members with this region"
 msgstr ""
 
-#: ../portlets/sidenav.pt:36
+#: ../portlets/sidenav.pt:57
 msgid "Monitoring"
 msgstr ""
 
-#: ../portlets/sidenav.pt:19
+#: ../browser/templates/monitoring.pt:39
+msgid "Monitoring - Project year"
+msgstr ""
+
+#: ../portlets/sidenav.pt:23
 msgid "My Areas"
 msgstr ""
 
@@ -514,7 +552,7 @@ msgstr ""
 msgid "My Projects"
 msgstr ""
 
-#: ../portlets/sidenav.pt:20
+#: ../portlets/sidenav.pt:27
 msgid "My Team"
 msgstr ""
 
@@ -522,13 +560,13 @@ msgstr ""
 msgid "My company Projects"
 msgstr ""
 
-#: ../content/contributordonor.py:14
+#: ../content/contributordonor.py:17
 #: ../content/contributorother.py:18
-#: ../content/contributorpartner.py:14
+#: ../content/contributorpartner.py:17
 msgid "Name"
 msgstr ""
 
-#: ../browser/templates/planning.pt:137
+#: ../browser/templates/planning.pt:125
 msgid "Not assigned"
 msgstr ""
 
@@ -560,12 +598,16 @@ msgstr ""
 msgid "Output"
 msgstr ""
 
+#: ../profiles/default/types/Outputdefaults.xml
+msgid "Outputdefaults"
+msgstr ""
+
 #: ../browser/configure.zcml:21
 msgid "PMP Projects View"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:194
-#: ../content/templates/project_view.pt:166
+#: ../browser/templates/manage_portal.pt:205
+#: ../content/templates/project_view.pt:162
 msgid "Partner"
 msgstr ""
 
@@ -585,15 +627,19 @@ msgstr ""
 msgid "Planned"
 msgstr ""
 
-#: ../portlets/sidenav.pt:32
+#: ../portlets/sidenav.pt:49
 msgid "Planning"
+msgstr ""
+
+#: ../browser/templates/planning.pt:39
+msgid "Planning - Project year"
 msgstr ""
 
 #: ../content/project.py:197
 msgid "Platform/platforms associated to this project"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:164
+#: ../browser/templates/manage_portal.pt:169
 msgid "Program"
 msgstr ""
 
@@ -601,7 +647,11 @@ msgstr ""
 msgid "Program/programs associated to this project"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:34
+#: ../browser/templates/monitoring.pt:120
+msgid "Progress Degree"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:33
 #: ../content/project.py:92
 #: ../profiles/default/types/Project.xml
 msgid "Project"
@@ -611,7 +661,7 @@ msgstr ""
 msgid "Project Currency"
 msgstr ""
 
-#: ../content/templates/project_view.pt:60
+#: ../content/templates/project_view.pt:56
 msgid "Project Dates"
 msgstr ""
 
@@ -623,7 +673,7 @@ msgstr ""
 msgid "Project Manager Admin"
 msgstr ""
 
-#: ../portlets/sidenav.pt:24
+#: ../portlets/sidenav.pt:33
 msgid "Project Overview"
 msgstr ""
 
@@ -643,14 +693,11 @@ msgstr ""
 msgid "Project title"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:25
-msgid "Projects"
-msgstr ""
-
 #: ../content/templates/improvementarea_view.pt:121
 msgid "Recent files"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:135
 #: ../content/platform.py:41
 msgid "Region"
 msgstr ""
@@ -660,12 +707,8 @@ msgstr ""
 msgid "Regional WOP Platform"
 msgstr ""
 
-#: ../portlets/sidenav.pt:40
+#: ../portlets/sidenav.pt:65
 msgid "Reporting"
-msgstr ""
-
-#: ../browser/templates/reporting.pt:14
-msgid "Reporting Module"
 msgstr ""
 
 #: ../content/activity.py:100
@@ -708,7 +751,7 @@ msgstr ""
 msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr ""
 
-#: ../portlets/sidenav.pt:46
+#: ../portlets/sidenav.pt:75
 msgid "Settings"
 msgstr ""
 
@@ -716,9 +759,13 @@ msgstr ""
 msgid "SettingsPage"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:49
-#: ../browser/templates/planning.pt:48
+#: ../browser/templates/reporting.pt:37
 msgid "Show all <i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>"
+msgstr ""
+
+#: ../browser/monitoring.py:107
+#: ../browser/planning.py:89
+msgid "Show planning of year "
 msgstr ""
 
 #: ../browser/templates/teams.pt:17
@@ -729,15 +776,15 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: ../content/templates/project_view.pt:67
+#: ../content/templates/project_view.pt:63
 msgid "Start (Planned):"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:35
+#: ../browser/templates/manage_portal.pt:34
 msgid "Start Date"
 msgstr ""
 
-#: ../content/templates/project_view.pt:63
+#: ../content/templates/project_view.pt:59
 msgid "Start:"
 msgstr ""
 
@@ -765,7 +812,7 @@ msgstr ""
 msgid "Target Value Year"
 msgstr ""
 
-#: ../portlets/sidenav.pt:28
+#: ../portlets/sidenav.pt:41
 msgid "Team"
 msgstr ""
 
@@ -785,7 +832,7 @@ msgstr ""
 msgid "The dates when the project has started. Planned date and current date."
 msgstr ""
 
-#: ../browser/setup_home.py:166
+#: ../browser/setup_home.py:168
 msgid "The default config has been applied."
 msgstr ""
 
@@ -817,13 +864,25 @@ msgstr ""
 msgid "This values are necessary for create elements on the Platform"
 msgstr ""
 
+#: ../browser/templates/planning.pt:320
 #: ../content/activity.py:60
 #: ../content/improvement_area.py:32
-#: ../content/itemarea.py:17
 msgid "Title"
 msgstr ""
 
-#: ../content/templates/project_view.pt:153
+#: ../content/outputdefaults.py:19
+msgid "Title EN"
+msgstr ""
+
+#: ../content/outputdefaults.py:24
+msgid "Title ES"
+msgstr ""
+
+#: ../content/outputdefaults.py:29
+msgid "Title FR"
+msgstr ""
+
+#: ../content/templates/project_view.pt:149
 msgid "Total budget:"
 msgstr ""
 
@@ -847,7 +906,7 @@ msgstr ""
 msgid "Used in the projects item. One per line."
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:106
+#: ../browser/templates/manage_portal.pt:103
 msgid "UserID"
 msgstr ""
 
@@ -859,12 +918,17 @@ msgstr ""
 msgid "Users in this Partner"
 msgstr ""
 
-#: ../browser/templates/planning.pt:274
+#: ../browser/templates/planning.pt:269
 msgid "Utility Capacity"
 msgstr ""
 
-#: ../browser/templates/planning.pt:211
+#: ../browser/templates/monitoring.pt:220
+#: ../browser/templates/planning.pt:203
 msgid "Utility Performance"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:162
+msgid "Value"
 msgstr ""
 
 #: ../browser/templates/visualizating.pt:14
@@ -894,7 +958,7 @@ msgid "Wall"
 msgstr ""
 
 #: ../content/project.py:285
-#: ../content/templates/project_view.pt:199
+#: ../content/templates/project_view.pt:195
 msgid "Working Areas"
 msgstr ""
 
@@ -934,7 +998,7 @@ msgid "fullname"
 msgstr ""
 
 #. Default: "GWOPA Menu"
-#: ../portlets/sidenav.py:19
+#: ../portlets/sidenav.py:21
 msgid "gwopa_menu"
 msgstr ""
 

@@ -19,7 +19,7 @@ class IContribOther(model.Schema):
         required=True,
     )
 
-    incash = schema.Float(
+    incash = schema.Decimal(
         title=_(u'In-cash'),
         required=False,
     )
@@ -29,7 +29,7 @@ class IContribOther(model.Schema):
         title=_(u""),
     )
 
-    inkind = schema.Float(
+    inkind = schema.Decimal(
         title=_(u'In-kind'),
         required=False,
     )
@@ -43,8 +43,7 @@ class IContribOther(model.Schema):
 @form.default_value(field=IContribOther['currency_incash'])
 @form.default_value(field=IContribOther['currency_inkind'])
 def defaultCurrency(data):
-    letter = utils.project_currency(data)
-    return letter
+    return utils.project_currency(data)
 
 
 class View(grok.View):

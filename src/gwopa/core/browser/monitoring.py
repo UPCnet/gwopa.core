@@ -7,7 +7,8 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
 from zope.annotation.interfaces import IAnnotations
-import datetime
+#import datetime
+from gwopa.core import _
 
 
 @implementer(IPublishTraverse)
@@ -63,7 +64,7 @@ class monitoringView(BrowserView):
             return self.index()
         # TODO: if copy or delete make action!
 
-    def getAnnotation(self, item):
+    def getAnnotation(self):
         KEY = "GWOPA_YEAR_" + str(self.year)
         annotations = IAnnotations(self.context)
         if KEY in annotations.keys():
@@ -103,6 +104,7 @@ class monitoringView(BrowserView):
             results.append(dict(
                 title='Project Year ' + str(total + 1),
                 url=url,
+                alt=_(u'Show planning of year ') + str(total + 1),
                 classe=classe))
             total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)
@@ -145,31 +147,28 @@ class monitoringView(BrowserView):
         items = items + outputs
         results = []
         for item in items:
-            members = []
             obj = item.getObject()
             if not item.start:
                 item.start = '-----'
             if not item.end:
                 item.end = '-----'
-            if obj.members:
-                users = obj.members
-                for member in users:
-                    members.append(api.user.get(username=member).getProperty('fullname'))
             if item.portal_type == 'Output':
                 unit = obj.measuring_unit
-                value = obj.target
+                target_value = obj.target
+                target_year = '-----'
             else:
                 unit = '-----'
-                value = '-----'
+                target_value = '-----'
+                target_year = '-----'
             results.append(dict(
                 title=item.Title,
-                description=item.Description,
                 portal_type=item.portal_type,
                 start=item.start,
                 end=item.end,
                 unit=unit,
-                value=value,
-                responsible=members,
+                value=target_value,
+                year=target_year,
+                next_update=data_year['end_iso'],
                 url='/'.join(obj.getPhysicalPath())))
         return results
 

@@ -7,10 +7,7 @@
 <body>
 
 <metal:content-core fill-slot="main"
-      tal:define="partners context/partners;
-                  project_manager context/project_manager;
-                  project_manager_admin context/project_manager_admin;
-                  wop_program context/wop_program;
+      tal:define="wop_program context/wop_program;
                   wop_platform context/wop_platform;
                   objectives context/objectives;
                   team context/members;
@@ -20,12 +17,11 @@
                   location context/location;
                   url_quote nocall:modules/Products.PythonScripts.standard/url_quote;
                   canEdit not:view/canEdit;
-                  partners view/partners;
+                  partners view/getPartners;
                   donors view/donors;
                   others view/others;
                   getProject_manager view/getProject_manager;">
 
-  <!-- <button class="context focus">Completed</button> -->
   <h1 class="documentFirstHeading">
     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" title="Edit project" alt="Edit project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
     <tal:omit-tag tal:condition="not:canEdit" tal:content="context/title"> Project Title</tal:omit-tag>
@@ -196,7 +192,7 @@
     </div>
 
     <div class="col-md-3" tal:condition="getImprovementAreas">
-      <h2 i18n:translate=""> Working Areas</h2>
+      <h2 i18n:translate="" class="h2Project"> Working Areas </h2>
       <tal:areas repeat="item getImprovementAreas">
         <div class="col-lg-12 col-md-12">
           <a tal:attributes="href item/url; title item/description; alt item/description">
