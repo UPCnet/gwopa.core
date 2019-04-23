@@ -10,6 +10,7 @@
 <metal:content-core fill-slot="main"
     tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;">
+
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
     <div class="block-nav">
       <ul class="pagination pagination-lg" tal:define="items view/getItems">
@@ -127,9 +128,9 @@
                         <div tal:repeat="output outputs" class="block_sub_indicators">
                           <div class="information object">
                             <div class="contentt" id="total">
-                            <div tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</div>
-                            <h4 class="titulocatplan" tal:content="output/title"> Item Title </h4>
-                          </div>
+                              <div tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</div>
+                              <h4 class="titulocatplan" tal:attributes="id output/portal_type" tal:content="output/title"> Item Title </h4>
+                            </div>
                             <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                             <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                             <div class="contentt" id="target">
@@ -148,9 +149,9 @@
                                   alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
                               <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
                                 tal:attributes="
-                                  data-url item/url;
-                                  data-type item/portal_type;
-                                  data-id item/title;" title="Delete" alt="Delete">
+                                  data-url output/url;
+                                  data-type output/portal_type;
+                                  data-id output/title;" title="Delete" alt="Delete">
                                 <i class="far fa-trash-alt"></i></a>
                             </div>
                           </div>
