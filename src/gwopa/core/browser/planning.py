@@ -44,7 +44,7 @@ class planningView(BrowserView):
     def __call__(self):
         if not self.year or self.year == '0':
             # Empty query or 0 returns default template
-            self.year = '1'
+            self.year = 1
             self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
             self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
             return self.index()
