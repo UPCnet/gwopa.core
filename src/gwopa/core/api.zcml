@@ -24,6 +24,22 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+      for="*"
+      name="api-getUnits"
+      class=".api.code.getUnits"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="*"
+      name="api-getFrequency"
+      class=".api.code.getFrequency"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
   <!-- API values returned to show output modal -->
   <browser:page
       for="gwopa.core.content.project.IProject"

@@ -305,7 +305,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label id="label-output" i18n:translate="">Title</label>
-                  <input id="out-title" type="hidden" i18n:attributes="title Search" />
+                  <input id="out-title" type="hidden"/>
                 </div>
                 <div class="form-group">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
@@ -321,22 +321,12 @@
                     <input id="out-datetimepicker" class="pat-pickadate" data-pat-pickadate="time:false"/>
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="control-label" i18n:translate="">Measuring unit</label>
-                  <select id="out-unit" name="measuring" class="form-control">
-                    <option value="2">Liters</option>
-                    <option value="1">%</option>
-                    <option value="3">m3</option>
-                    <option value="4">People</option>
-                    <option value="5">Others</option>
-                  </select>
+                  <label id="label-unit" i18n:translate=""> Measuring unit </label>
+                  <input id="out-unit" type="hidden"/>
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="control-label" i18n:translate="">Measuring frequency</label>
-                  <select id="out-frequency" name="measuring" class="form-control">
-                      <option value="1">Quarterly</option>
-                      <option value="2">Biannually</option>
-                      <option value="3">Annually</option>
-                  </select>
+                  <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
+                  <input id="out-frequency" type="hidden"/>
                 </div>
                 <div id='TextBoxesGroup'>
                   <div id="TextBoxDiv1">

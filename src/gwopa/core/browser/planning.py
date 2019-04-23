@@ -137,8 +137,11 @@ class planningView(BrowserView):
                 item.end = '-----'
             if obj.members:
                 users = obj.members
-                for member in users:
-                    members.append(api.user.get(username=member).getProperty('fullname'))
+                if isinstance(users, (str,)):
+                    members.append(api.user.get(username=users).getProperty('fullname'))
+                else:
+                    for member in users:
+                        members.append(api.user.get(username=member).getProperty('fullname'))
             if item.portal_type == 'Output':
                 unit = obj.measuring_unit
                 value = obj.target
