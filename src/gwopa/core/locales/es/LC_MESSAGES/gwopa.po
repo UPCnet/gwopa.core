@@ -60,7 +60,7 @@ msgstr "Añadir Actividad"
 msgid "Add Output"
 msgstr "Añadir Salida"
 
-#: ../browser/templates/planning.pt:357
+#: ../browser/templates/planning.pt:347
 msgid "Add target"
 msgstr "Añadir Objetivo"
 
@@ -124,7 +124,7 @@ msgstr "Código Interno"
 msgid "Calendar"
 msgstr "Calendario"
 
-#: ../browser/templates/planning.pt:377
+#: ../browser/templates/planning.pt:367
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -214,7 +214,7 @@ msgstr "País"
 msgid "Country/Countries"
 msgstr "País/Paises"
 
-#: ../browser/templates/planning.pt:378
+#: ../browser/templates/planning.pt:368
 msgid "Create"
 msgstr "Crear"
 
@@ -516,7 +516,7 @@ msgstr ""
 msgid "Map of projects"
 msgstr "Buscar en mapa"
 
-#: ../browser/templates/planning.pt:361
+#: ../browser/templates/planning.pt:351
 #: ../content/outcomekpi.py:58
 #: ../content/outcomezone.py:64
 msgid "Means of verification"
@@ -530,7 +530,7 @@ msgstr ""
 msgid "Measurable Target"
 msgstr "Objetivo medible"
 
-#: ../browser/templates/planning.pt:334
+#: ../browser/templates/planning.pt:328
 #: ../content/outcomekpi.py:52
 #: ../content/outcomezone.py:58
 msgid "Measuring frequency"
@@ -612,7 +612,7 @@ msgstr "Outcome ZONE"
 
 #: ../browser/templates/planning.pt:36
 msgid "Outcomes"
-msgstr ""
+msgstr "Resultados"
 
 #: ../profiles/default/types/Output.xml
 msgid "Output"
@@ -653,7 +653,7 @@ msgstr "Planificación"
 
 #: ../browser/templates/planning.pt:24
 msgid "Planning - Project year"
-msgstr ""
+msgstr "Planificación de Proyecto - Año"
 
 #: ../content/project.py:197
 msgid "Platform/platforms associated to this project"
@@ -697,6 +697,10 @@ msgstr "Administrador del proyecto"
 msgid "Project Overview"
 msgstr "Visión del Proyecto"
 
+#: ../browser/planning.py:87
+msgid "Project Year "
+msgstr "Año de Proyecto "
+
 #: ../content/activity.py:56
 msgid "Project dates"
 msgstr "Fechas del proyecto"
@@ -731,21 +735,17 @@ msgstr "Regional WOP Platform"
 msgid "Reporting"
 msgstr "Informes"
 
-#: ../browser/templates/planning.pt:369
+#: ../browser/templates/planning.pt:359
 #: ../content/activity.py:100
 #: ../content/outcomekpi.py:69
 msgid "Responsible people"
 msgstr "Persona responsable"
 
-#: ../browser/templates/planning.pt:365
+#: ../browser/templates/planning.pt:355
 #: ../content/outcomekpi.py:63
 #: ../content/outcomezone.py:69
 msgid "Risks / Assumptions"
 msgstr "Riesgos / Suposiciones"
-
-#: ../browser/templates/planning.pt:308
-msgid "Search"
-msgstr ""
 
 #: ../browser/templates/homepage.pt:174
 msgid "Search Projects"
@@ -836,11 +836,11 @@ msgstr "Fecha del valor de objetivo"
 msgid "Target Value Year"
 msgstr ""
 
-#: ../browser/templates/planning.pt:349
+#: ../browser/templates/planning.pt:339
 msgid "Target date"
 msgstr ""
 
-#: ../browser/templates/planning.pt:345
+#: ../browser/templates/planning.pt:335
 msgid "Target value"
 msgstr ""
 
@@ -898,7 +898,7 @@ msgstr "Estos valores son necesarios para crear elementos en la Plataforma."
 
 #: ../browser/templates/planning.pt:26
 msgid "This year starts on"
-msgstr ""
+msgstr "Este año empieza el"
 
 #: ../browser/templates/planning.pt:307
 #: ../content/activity.py:60
@@ -1016,7 +1016,7 @@ msgstr "Zona"
 
 #: ../browser/templates/planning.pt:26
 msgid "and ends on"
-msgstr ""
+msgstr "y termina el"
 
 #: ../browser/user_profile.py:47
 #: ../indexers.py:28
@@ -1100,7 +1100,7 @@ msgid "username"
 msgstr "Nombre de usuario"
 
 #. Default: "Indicate the target value for this date"
-#: ../browser/templates/planning.pt:346
+#: ../browser/templates/planning.pt:336
 msgid "value_for_date"
 msgstr ""
 

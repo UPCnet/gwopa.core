@@ -23,21 +23,15 @@
     </div>
     <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">Planning - Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag></h1>
     <div class="documentDescription description projectDates">
-      <tal:omit-tag i18n:translate="">This year starts on </tal:omit-tag><span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span><tal:omit-tag i18n:translate=""> and ends on</tal:omit-tag><span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>
+      <tal:omit-tag i18n:translate="">This year starts on </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span>&nbsp;<tal:omit-tag i18n:translate=""> and ends on</tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>
     </div>
 
     <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
 
-    <div id="tabsplanning" class="container">
-      <ul class="nav nav-pills">
-        <li class="active">
-          <a href="#project" data-toggle="tab" i18n:translate="">Project</a>
-        </li>
-        <li><a href="#outcomes" data-toggle="tab" i18n:translate="">Outcomes</a>
-        </li>
-      </ul>
-      <div class="tab-content clearfix">
-        <div class="tab-pane active" id="project">
+
+    <div id="tabsplanning" class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
+          <fieldset>
+            <legend i18n:translate=""> Project </legend>
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
             <div class="documentDescription titleCollapse">
               <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fa fa-chevron-up" aria-hidden="true"></i></span>
@@ -163,9 +157,13 @@
               </div>
             </tal:objects>
           </tal:block-activities>
-        </div>
 
-        <div class="tab-pane" id="outcomes">
+          </fieldset>
+
+
+          <fieldset>
+            <legend i18n:translate=""> Outcomes </legend>
+
             <div class="documentDescription titleCollapse">
               <span id="collapseAllOutcomeTab" i18n:translate="">Collapse all <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
               <span id="expandAllOutcomeTab" i18n:translate="">Expand all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
@@ -288,8 +286,7 @@
               </div>
             </div>
           </tal:block-capacity>
-        </div>
-      </div>
+        </fieldset>
     </div>
 
     <div id="modalOutput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-dismiss="modal" aria-hidden="true">

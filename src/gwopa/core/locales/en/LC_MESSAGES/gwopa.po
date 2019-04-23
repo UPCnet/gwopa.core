@@ -61,7 +61,7 @@ msgstr "Add Activity"
 msgid "Add Output"
 msgstr "Add Output"
 
-#: ../browser/templates/planning.pt:357
+#: ../browser/templates/planning.pt:347
 msgid "Add target"
 msgstr "Add Target"
 
@@ -125,7 +125,7 @@ msgstr "Internal Code"
 msgid "Calendar"
 msgstr "Calendar"
 
-#: ../browser/templates/planning.pt:377
+#: ../browser/templates/planning.pt:367
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -215,7 +215,7 @@ msgstr "Country"
 msgid "Country/Countries"
 msgstr "Country/Countries"
 
-#: ../browser/templates/planning.pt:378
+#: ../browser/templates/planning.pt:368
 msgid "Create"
 msgstr "Create"
 
@@ -517,7 +517,7 @@ msgstr "Main organizations and their contributions"
 msgid "Map of projects"
 msgstr "Map of the projects"
 
-#: ../browser/templates/planning.pt:361
+#: ../browser/templates/planning.pt:351
 #: ../content/outcomekpi.py:58
 #: ../content/outcomezone.py:64
 msgid "Means of verification"
@@ -531,7 +531,7 @@ msgstr "Means of verification used to assess capacity change in this dimension"
 msgid "Measurable Target"
 msgstr "Measurable Target"
 
-#: ../browser/templates/planning.pt:334
+#: ../browser/templates/planning.pt:328
 #: ../content/outcomekpi.py:52
 #: ../content/outcomezone.py:58
 msgid "Measuring frequency"
@@ -698,6 +698,10 @@ msgstr "Project Manager (Administrator role)"
 msgid "Project Overview"
 msgstr "Project Overview"
 
+#: ../browser/planning.py:87
+msgid "Project Year "
+msgstr ""
+
 #: ../content/activity.py:56
 msgid "Project dates"
 msgstr "Project dates"
@@ -732,21 +736,17 @@ msgstr "Regional WOP Platform"
 msgid "Reporting"
 msgstr "Reporting"
 
-#: ../browser/templates/planning.pt:369
+#: ../browser/templates/planning.pt:359
 #: ../content/activity.py:100
 #: ../content/outcomekpi.py:69
 msgid "Responsible people"
 msgstr "Responsible people"
 
-#: ../browser/templates/planning.pt:365
+#: ../browser/templates/planning.pt:355
 #: ../content/outcomekpi.py:63
 #: ../content/outcomezone.py:69
 msgid "Risks / Assumptions"
 msgstr "Risks / Assumptions"
-
-#: ../browser/templates/planning.pt:308
-msgid "Search"
-msgstr "Search"
 
 #: ../browser/templates/homepage.pt:174
 msgid "Search Projects"
@@ -837,11 +837,11 @@ msgstr "Target Value Date"
 msgid "Target Value Year"
 msgstr "Target Value Year"
 
-#: ../browser/templates/planning.pt:349
+#: ../browser/templates/planning.pt:339
 msgid "Target date"
 msgstr "Target date"
 
-#: ../browser/templates/planning.pt:345
+#: ../browser/templates/planning.pt:335
 msgid "Target value"
 msgstr "Target value"
 
@@ -1101,7 +1101,7 @@ msgid "username"
 msgstr "Username"
 
 #. Default: "Indicate the target value for this date"
-#: ../browser/templates/planning.pt:346
+#: ../browser/templates/planning.pt:336
 msgid "value_for_date"
 msgstr "Indicate the target value for this date"
 

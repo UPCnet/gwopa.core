@@ -56,7 +56,7 @@ class IOutput(model.Schema):
 
     target = schema.TextLine(
         title=_(u"Measurable Target"),
-        required=True,
+        required=False,
     )
 
     means = schema.Text(
