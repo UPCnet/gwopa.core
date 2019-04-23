@@ -41,6 +41,38 @@ def projectAdded(content, event):
                                        contentType='image/jpeg')
         content.image = default_image
 
+    # Assign values to fases
+    fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
+    date1 = content.startactual
+    date2 = content.completionactual
+    datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)]
+    datas.append(content.completionactual.strftime("%B %d, %Y"))
+    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
+    isodate.append(content.completionactual.strftime("%Y-%d-%m"))
+
+    results = []
+    if fases > 1:
+        count = 0
+        while count != fases:
+            results.append(dict(
+                start=datas[0 + count],
+                end=datas[1 + count],
+                start_iso=isodate[0 + count],
+                end_iso=isodate[1 + count],
+                fase=count + 1
+            ))
+            count = count + 1
+    else:
+        count = 0
+        results.append(dict(
+            start=datas[0],
+            end=datas[1],
+            start_iso=isodate[0],
+            end_iso=isodate[1],
+            fase=1
+        ))
+    content.gwopa_year_phases = results
+
     # Create default needed folders in the new project
     api.content.create(
         type='Folder',
@@ -94,6 +126,14 @@ def projectModified(content, event):
             for user in content.members:
                 api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
 
+        # Asign default image if not set
+        if content.image is None:
+            data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
+            default_image = NamedBlobImage(data=data,
+                                           filename=u'image.jpg',
+                                           contentType='image/jpeg')
+            content.image = default_image
+
         # Assign values to fases
         fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
         date1 = content.startactual
@@ -102,14 +142,6 @@ def projectModified(content, event):
         datas.append(content.completionactual.strftime("%B %d, %Y"))
         isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
         isodate.append(content.completionactual.strftime("%Y-%d-%m"))
-
-        # Asign default image if not set
-        if content.image is None:
-            data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
-            default_image = NamedBlobImage(data=data,
-                                           filename=u'image.jpg',
-                                           contentType='image/jpeg')
-            content.image = default_image
 
         results = []
         if fases > 1:
@@ -134,6 +166,7 @@ def projectModified(content, event):
             ))
         content.gwopa_year_phases = results
 
+        # Assign Areas
         new_areas = content.areas
         current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]
 
