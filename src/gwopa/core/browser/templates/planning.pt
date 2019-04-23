@@ -23,7 +23,7 @@
     </div>
     <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">Planning - Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag></h1>
     <div class="documentDescription description projectDates">
-      This year starts on <span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span> and ends on <span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>
+      <tal:omit-tag i18n:translate="">This year starts on </tal:omit-tag><span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span><tal:omit-tag i18n:translate=""> and ends on</tal:omit-tag><span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>
     </div>
 
     <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
@@ -31,17 +31,17 @@
     <div id="tabsplanning" class="container">
       <ul class="nav nav-pills">
         <li class="active">
-          <a href="#project" data-toggle="tab">Project</a>
+          <a href="#project" data-toggle="tab" i18n:translate="">Project</a>
         </li>
-        <li><a href="#outcomes" data-toggle="tab">Outcomes</a>
+        <li><a href="#outcomes" data-toggle="tab" i18n:translate="">Outcomes</a>
         </li>
       </ul>
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="project">
           <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
             <div class="documentDescription titleCollapse">
-              <span id="collapseAllProjectTab" i18n:translate="">Collapse all <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
-              <span id="expandAllProjectTab" i18n:translate="">Expand all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+              <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fa fa-chevron-up" aria-hidden="true"></i></span>
+              <span id="expandAllProjectTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
             </div>
             <tal:objects repeat="item areas">
               <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);">
@@ -59,7 +59,7 @@
                                   </a>
                                 </li>
                                 <li>
-                                  <a href="#" data-toggle="modal" data-target="#modalOutput">
+                                  <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url">
                                     <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output</tal:omit-tag>
                                   </a>
                                 </li>
@@ -92,7 +92,7 @@
                           <div class="information object">
                             <div class="contentt" id="total">
                               <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
-                                <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-href item/url" style="float:left;">
+                                <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url" style="float: left;">
                                   <i class="fas fa-plus-circle"></i>
                                 </a>
                               </tal:block>
@@ -298,29 +298,30 @@
           <form>
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="exampleModalLabel"> Add Output </h4>
+              <h4 class="modal-title" id="exampleModalLabel" i18n:translate=""> Add Output </h4>
             </div>
             <div class="modal-body" id="NewOutput">
+              <div class="modal-url" id="modalPath" style="display: none;"></div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label id="label-output" i18n:translate="">Title</label>
                   <input id="out-title" type="hidden" i18n:attributes="title Search" />
                 </div>
                 <div class="form-group">
-                    <label for="message-text" class="control-label">Description</label>
+                    <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="out-description"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="message-text" class="control-label">Baseline description</label>
+                    <label for="message-text" class="control-label" i18n:translate="">Baseline description</label>
                     <textarea class="form-control" id="out-baseline"></textarea>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Completion Date</label>
+                    <label class="control-label" i18n:translate="">Completion date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="out-datetimepicker" class="pat-pickadate" data-pat-pickadate="time:false"/>
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="control-label">Measuring unit:</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Measuring unit</label>
                   <select id="out-unit" name="measuring" class="form-control">
                     <option value="2">Liters</option>
                     <option value="1">%</option>
@@ -330,7 +331,7 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="control-label">Measuring frequency:</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Measuring frequency</label>
                   <select id="out-frequency" name="measuring" class="form-control">
                       <option value="1">Quarterly</option>
                       <option value="2">Biannually</option>
@@ -339,32 +340,33 @@
                 </div>
                 <div id='TextBoxesGroup'>
                   <div id="TextBoxDiv1">
-                    <div class="col-md-6">
-                      <label for="message-text" class="control-label"> Target value </label>
-                      <input type="text" class="form-control" id="target-value-1" placeholder="Indicate the target value..."/>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="message-text" class="control-label"> Target date </label>
-                      <input class="form-control" id="target-date-1"  readonly/>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
+                        <input type="text" class="form-control" id="target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
+                        <input class="form-control" id="target-date-1" readonly/>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <button type="button" id='addTargetValueButton'>
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                    Add target
+                    <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate="">Add target</tal:omit-tag>
                   </button>
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="control-label">Means of verification</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
                   <textarea class="form-control" id="out-means"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="control-label">Risks / Assumptions</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="out-risks"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="control-label">Responsible people</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                   <input type="hidden" class="pat-select2" id="out-responsible"
                               data-pat-select2="placeholder:Search users;
                                                 vocabularyUrl:select2-users.json;"/>
@@ -372,8 +374,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn form-buttons-cancel" data-dismiss="modal">Cancel</button>
-              <button type="submit" id="createOutputFromModal" class="btn btn-default" data-dismiss="modal">Create</button>
+              <button type="button" class="btn form-buttons-cancel" data-dismiss="modal" i18n:translate="">Cancel</button>
+              <button type="submit" id="createOutputFromModal" class="btn btn-default" data-dismiss="modal" i18n:translate="">Create</button>
             </div>
           </form>
         </div>

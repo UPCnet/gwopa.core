@@ -53,13 +53,17 @@ msgstr "Activity"
 msgid "Actual"
 msgstr "Actual"
 
-#: ../browser/templates/planning.pt:73
+#: ../browser/templates/planning.pt:58
 msgid "Add Activity"
 msgstr "Add Activity"
 
-#: ../browser/templates/planning.pt:78
+#: ../browser/templates/planning.pt:63
 msgid "Add Output"
 msgstr "Add Output"
+
+#: ../browser/templates/planning.pt:357
+msgid "Add target"
+msgstr "Add Target"
 
 #: ../browser/templates/manage_portal.pt:16
 msgid "Admin Settings Zone"
@@ -98,6 +102,7 @@ msgstr "Association to platforms or programs"
 msgid "Baseline date"
 msgstr "Baseline date"
 
+#: ../browser/templates/planning.pt:315
 #: ../content/outcomeccvalues.py:30
 #: ../content/output.py:34
 msgid "Baseline description"
@@ -119,6 +124,10 @@ msgstr "Internal Code"
 #: ../content/templates/improvementarea_view.pt:56
 msgid "Calendar"
 msgstr "Calendar"
+
+#: ../browser/templates/planning.pt:377
+msgid "Cancel"
+msgstr "Cancel"
 
 #: ../content/outcomeccvalues.py:23
 msgid "Capacity Items"
@@ -146,15 +155,19 @@ msgstr "Collaborating module"
 msgid "Collaboration"
 msgstr "Collaboration"
 
+#: ../browser/templates/planning.pt:43
+msgid "Collapse all"
+msgstr "Collapse all"
+
 #: ../browser/templates/monitoring.pt:59
-#: ../browser/templates/planning.pt:58
+#: ../browser/templates/planning.pt:170
 #: ../browser/templates/reporting.pt:38
 msgid "Collapse all <i class=\"fa fa-chevron-up\" aria-hidden=\"true\"></i>"
 msgstr "Collapse all <i class=\"fa fa-chevron-up\" aria-hidden=\"true\"></i>"
 
+#: ../browser/templates/planning.pt:319
 #: ../content/activity.py:83
 #: ../content/output.py:40
-#: ../content/project.py:171
 msgid "Completion date"
 msgstr "Completion date"
 
@@ -201,6 +214,10 @@ msgstr "Country"
 #: ../browser/templates/manage_portal.pt:134
 msgid "Country/Countries"
 msgstr "Country/Countries"
+
+#: ../browser/templates/planning.pt:378
+msgid "Create"
+msgstr "Create"
 
 #: ../content/project.py:277
 msgid "Currency"
@@ -250,9 +267,9 @@ msgstr "Describe the limiting factors to the perceived changes"
 msgid "Describing visualizating module."
 msgstr "Describing visualizating module."
 
+#: ../browser/templates/planning.pt:311
 #: ../content/activity.py:65
 #: ../content/improvement_area.py:39
-#: ../content/output.py:28
 msgid "Description"
 msgstr "Description"
 
@@ -276,8 +293,12 @@ msgstr "End Date"
 msgid "End:"
 msgstr "End:"
 
+#: ../browser/templates/planning.pt:44
+msgid "Expand all"
+msgstr "Expand all"
+
 #: ../browser/templates/monitoring.pt:60
-#: ../browser/templates/planning.pt:59
+#: ../browser/templates/planning.pt:171
 msgid "Expand all <i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>"
 msgstr "Expand all <i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>"
 
@@ -364,15 +385,15 @@ msgstr "Image used to describe the Area. If no file chosen, a default one will b
 msgid "Image used to describe the Working Area"
 msgstr "Image used to describe the Working Area"
 
-#: ../browser/templates/planning.pt:297
+#: ../browser/templates/planning.pt:282
 msgid "Improve capacity in"
 msgstr "Improve capacity in"
 
-#: ../browser/templates/planning.pt:289
+#: ../browser/templates/planning.pt:274
 msgid "Improve generic Capacity Change"
 msgstr "Improve generic Capacity Change"
 
-#: ../browser/templates/planning.pt:293
+#: ../browser/templates/planning.pt:278
 msgid "Improve specific Capacity Change"
 msgstr "Improve specific Capacity Change"
 
@@ -496,9 +517,9 @@ msgstr "Main organizations and their contributions"
 msgid "Map of projects"
 msgstr "Map of the projects"
 
+#: ../browser/templates/planning.pt:361
 #: ../content/outcomekpi.py:58
 #: ../content/outcomezone.py:64
-#: ../content/output.py:57
 msgid "Means of verification"
 msgstr "Means of verification"
 
@@ -506,26 +527,19 @@ msgstr "Means of verification"
 msgid "Means of verification used to assess capacity change in this dimension"
 msgstr "Means of verification used to assess capacity change in this dimension"
 
-#: ../content/output.py:46
+#: ../content/output.py:58
 msgid "Measurable Target"
 msgstr "Measurable Target"
 
+#: ../browser/templates/planning.pt:334
 #: ../content/outcomekpi.py:52
 #: ../content/outcomezone.py:58
-msgid "Measuring Frequency"
-msgstr "Measuring frequency"
-
-#: ../content/outcomekpi.py:46
-#: ../content/outcomezone.py:52
-#: ../content/output.py:51
-msgid "Measuring Unit"
-msgstr "Measuring unit"
-
-#: ../content/settingspage.py:43
 msgid "Measuring frequency"
 msgstr "Measuring frequency"
 
-#: ../content/settingspage.py:37
+#: ../browser/templates/planning.pt:324
+#: ../content/outcomekpi.py:46
+#: ../content/outcomezone.py:52
 msgid "Measuring unit"
 msgstr "Measuring unit"
 
@@ -569,7 +583,7 @@ msgstr "My company Projects"
 msgid "Name"
 msgstr "Name"
 
-#: ../browser/templates/planning.pt:125
+#: ../browser/templates/planning.pt:110
 msgid "Not assigned"
 msgstr "Not assigned"
 
@@ -596,6 +610,10 @@ msgstr "Outcome KPI"
 #: ../profiles/default/types/OutcomeZONE.xml
 msgid "OutcomeZONE"
 msgstr "Outcome Zone"
+
+#: ../browser/templates/planning.pt:36
+msgid "Outcomes"
+msgstr "Outcomes"
 
 #: ../profiles/default/types/Output.xml
 msgid "Output"
@@ -634,7 +652,7 @@ msgstr "Planned"
 msgid "Planning"
 msgstr "Planning"
 
-#: ../browser/templates/planning.pt:39
+#: ../browser/templates/planning.pt:24
 msgid "Planning - Project year"
 msgstr "Planning - Project year"
 
@@ -655,8 +673,8 @@ msgid "Progress Degree"
 msgstr "Progress Degree"
 
 #: ../browser/templates/manage_portal.pt:33
+#: ../browser/templates/planning.pt:34
 #: ../content/project.py:92
-#: ../profiles/default/types/Project.xml
 msgid "Project"
 msgstr "Project"
 
@@ -714,17 +732,21 @@ msgstr "Regional WOP Platform"
 msgid "Reporting"
 msgstr "Reporting"
 
+#: ../browser/templates/planning.pt:369
 #: ../content/activity.py:100
 #: ../content/outcomekpi.py:69
-#: ../content/outcomezone.py:75
 msgid "Responsible people"
 msgstr "Responsible people"
 
+#: ../browser/templates/planning.pt:365
 #: ../content/outcomekpi.py:63
 #: ../content/outcomezone.py:69
-#: ../content/output.py:62
 msgid "Risks / Assumptions"
 msgstr "Risks / Assumptions"
+
+#: ../browser/templates/planning.pt:308
+msgid "Search"
+msgstr "Search"
 
 #: ../browser/templates/homepage.pt:174
 msgid "Search Projects"
@@ -815,6 +837,14 @@ msgstr "Target Value Date"
 msgid "Target Value Year"
 msgstr "Target Value Year"
 
+#: ../browser/templates/planning.pt:349
+msgid "Target date"
+msgstr "Target date"
+
+#: ../browser/templates/planning.pt:345
+msgid "Target value"
+msgstr "Target value"
+
 #: ../portlets/sidenav.pt:41
 msgid "Team"
 msgstr "Team"
@@ -867,7 +897,11 @@ msgstr "This date must be between the dates of the project."
 msgid "This values are necessary for create elements on the Platform"
 msgstr "This values are necessary for create elements on the Platform"
 
-#: ../browser/templates/planning.pt:320
+#: ../browser/templates/planning.pt:26
+msgid "This year starts on"
+msgstr "This year starts on"
+
+#: ../browser/templates/planning.pt:307
 #: ../content/activity.py:60
 #: ../content/improvement_area.py:32
 msgid "Title"
@@ -921,12 +955,12 @@ msgstr "Username"
 msgid "Users in this Partner"
 msgstr "Users in this Partner"
 
-#: ../browser/templates/planning.pt:269
+#: ../browser/templates/planning.pt:254
 msgid "Utility Capacity"
 msgstr "Utility Capacity"
 
 #: ../browser/templates/monitoring.pt:220
-#: ../browser/templates/planning.pt:203
+#: ../browser/templates/planning.pt:188
 msgid "Utility Performance"
 msgstr "Utility Performance"
 
@@ -980,6 +1014,10 @@ msgstr "Your telephone number."
 #: ../content/outcomezone.py:36
 msgid "Zone"
 msgstr "Zone"
+
+#: ../browser/templates/planning.pt:26
+msgid "and ends on"
+msgstr "and ends on"
 
 #: ../browser/user_profile.py:47
 #: ../indexers.py:28
@@ -1061,6 +1099,11 @@ msgstr "Search on projects"
 #: ../indexers.py:21
 msgid "username"
 msgstr "Username"
+
+#. Default: "Indicate the target value for this date"
+#: ../browser/templates/planning.pt:346
+msgid "value_for_date"
+msgstr "Indicate the target value for this date"
 
 #: ../browser/user_profile.py:50
 #: ../indexers.py:27

@@ -42,14 +42,20 @@ class IOutput(model.Schema):
         defaultFactory=todayValue
     )
 
-    target = schema.TextLine(
-        title=_(u"Measurable Target"),
+    measuring_unit = schema.Choice(
+        title=_(u"Measuring unit"),
+        source=utils.settings_measuring_unit,
         required=True,
     )
 
-    measuring_unit = schema.Choice(
-        title=_(u"Measuring Unit"),
-        source=utils.settings_measuring_unit,
+    measuring_frequency = schema.Choice(
+        title=_(u"Measuring frequency"),
+        source=utils.settings_measuring_frequency,
+        required=True,
+    )
+
+    target = schema.TextLine(
+        title=_(u"Measurable Target"),
         required=True,
     )
 

@@ -31,7 +31,7 @@ class IOutputdefaults(model.Schema):
     )
 
     measuring_unit = schema.Choice(
-        title=_(u"Measuring Unit"),
+        title=_(u"Measuring unit"),
         source=utils.settings_measuring_unit,
         required=True,
     )

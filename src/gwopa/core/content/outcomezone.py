@@ -49,13 +49,13 @@ class IOutcomezone(model.Schema):
     )
 
     measuring_unit = schema.Choice(
-        title=_(u"Measuring Unit"),
+        title=_(u"Measuring unit"),
         source=utils.settings_measuring_unit,
         required=True,
     )
 
     measuring_frequency = schema.Choice(
-        title=_(u"Measuring Frequency"),
+        title=_(u"Measuring frequency"),
         source=utils.settings_measuring_frequency,
         required=True,
     )

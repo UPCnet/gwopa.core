@@ -69,10 +69,10 @@ class Create(BrowserView):
 
     def __call__(self):
         # TODO: check permissions. now cmf.ModifyPortalContent
-        print self.request.form
+        item = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
         title = self.request.form.get('item_title')
         api.content.create(
             title=title,
             type='Output',
-            container=self.context)
+            container=item.getObject())
         return 'Ok, item created'
