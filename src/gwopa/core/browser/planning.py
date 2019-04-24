@@ -8,6 +8,7 @@ from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
 import datetime
 from gwopa.core import _
+from zope.annotation.interfaces import IAnnotations
 
 
 @implementer(IPublishTraverse)
@@ -62,6 +63,23 @@ class planningView(BrowserView):
                 self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
             return self.index()
         # TODO: if copy or delete make action!
+
+    def getAnnotation(self):
+        KEY = "GWOPA_YEAR_" + str(self.year)
+        annotations = IAnnotations(self.context)
+        if KEY in annotations.keys():
+            data = []
+            # values = dict(
+            #     progress_degree='progress_degree',
+            #     explanation='explanation',
+            # )
+
+            # data.append(values)
+            # annotations[KEY] = data
+            #return KEY
+            return annotations[KEY]
+        else:
+            return "No annotation for this year"
 
     def getPhases(self):
         return len(self.context.gwopa_year_phases)

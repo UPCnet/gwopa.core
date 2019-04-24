@@ -97,11 +97,11 @@
                       <div class="tabla_cuerpo" id="contenido" tal:condition="python:item['portal_type'] == 'Activity'">
                         <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                           <div class="filacontenido">
-                            <div class="col-sm-2" id="value">
+                            <div class="col-sm-1" id="value">
                               <h3 i18n:translate=""> Progress Degree </h3>
-                              <textarea class="form-control" id="message-text"></textarea>
+                               <input type="text" id="degree">
                             </div>
-                            <div class="col-sm-4" id="explprog">
+                            <div class="col-sm-5" id="explprog">
                               <h3 i18n:translate="">Explanation Progress</h3>
                               <textarea class="form-control" id="message-text"></textarea>
                             </div>
@@ -139,9 +139,9 @@
                       <div class="tabla_cuerpo" id="contenido" tal:condition="python:item['portal_type'] == 'Output'">
                         <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                           <div class="filacontenido">
-                            <div class="col-sm-2" id="value">
+                            <div class="col-sm-1" id="value">
                               <h3 i18n:translate="">Value</h3>
-                              <textarea class="form-control" id="message-text"></textarea>
+                               <input type="text" id="value">
                             </div>
                             <div class="col-sm-4" id="explprog">
                               <h3 i18n:translate="">Explanation</h3>
