@@ -155,7 +155,7 @@
         <div class="col-md-12">
           <h2 i18n:translate=""> Focal point partner </h2>
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table id="tableFocalPoint" class="table table-hover">
               <thead>
                 <tr>
                   <th i18n:translate="">Name</th>
