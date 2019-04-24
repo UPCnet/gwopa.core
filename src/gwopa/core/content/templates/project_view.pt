@@ -37,7 +37,7 @@
         <div class="col-md-9">
           <tal:objectives tal:condition="objectives">
             <h2 i18n:translate=""> Description and main objectives </h2>
-            <span tal:replace="structure objectives/output"> Project Objectives </span>
+            <span class="more" tal:content="structure objectives/output"> Project Objectives </span>
           </tal:objectives>
           <span tal:condition="categories" tal:repeat="category categories" class="tags">
             <a href="" class="link-category" rel="tag"
@@ -207,6 +207,8 @@
       </tal:areas>
     </div>
   </div>
+
+  <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/readmore.js"></script>
 
 </metal:content-core>
 
