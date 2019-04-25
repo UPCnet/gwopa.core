@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: 2019-04-18 14:01+0200\n"
+"PO-Revision-Date: 2019-04-25 18:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: es\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: ../content/templates/improvementarea_view.pt:70
+#: ../content/templates/improvementarea_view.pt:69
 msgid "${monthname}"
 msgstr "${monthname}"
 
-#: ../content/templates/improvementarea_view.pt:73
+#: ../content/templates/improvementarea_view.pt:72
 msgid "${year}"
 msgstr "${year}"
 
-#: ../content/templates/improvementarea_view.pt:58
+#: ../content/templates/improvementarea_view.pt:59
 msgid "+ New Event"
 msgstr "+ Nuevo Evento"
 
@@ -36,12 +36,12 @@ msgstr "+ Nuevo Proyecto"
 msgid "+ New Topic"
 msgstr "+ Nueva entrada"
 
-#: ../content/templates/improvementarea_view.pt:123
+#: ../content/templates/improvementarea_view.pt:120
 msgid "+ New file"
 msgstr "+ Nuevo fichero"
 
 #: ../browser/templates/manage_portal.pt:38
-#: ../browser/templates/planning.pt:65
+#: ../browser/templates/planning.pt:71
 msgid "Action"
 msgstr "Acción"
 
@@ -53,15 +53,15 @@ msgstr "Actividad"
 msgid "Actual"
 msgstr "Actual"
 
-#: ../browser/templates/planning.pt:51
+#: ../browser/templates/planning.pt:57
 msgid "Add Activity"
 msgstr "Añadir Actividad"
 
-#: ../browser/templates/planning.pt:55
+#: ../browser/templates/planning.pt:61
 msgid "Add Output"
 msgstr "Añadir Salida"
 
-#: ../browser/templates/planning.pt:344
+#: ../browser/templates/planning.pt:348
 msgid "Add target"
 msgstr "Añadir Objetivo"
 
@@ -102,9 +102,9 @@ msgstr ""
 msgid "Baseline date"
 msgstr ""
 
-#: ../browser/templates/planning.pt:312
+#: ../browser/templates/planning.pt:316
 #: ../content/outcomeccvalues.py:30
-#: ../content/output.py:34
+#: ../content/output.py:36
 msgid "Baseline description"
 msgstr "Descripción de referencia"
 
@@ -117,15 +117,11 @@ msgstr ""
 msgid "Budget"
 msgstr "Presupuesto"
 
-#: ../content/improvement_area.py:53
-msgid "CODE"
-msgstr "Código Interno"
-
-#: ../content/templates/improvementarea_view.pt:56
+#: ../content/templates/improvementarea_view.pt:57
 msgid "Calendar"
 msgstr "Calendario"
 
-#: ../browser/templates/planning.pt:364
+#: ../browser/templates/planning.pt:368
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -155,23 +151,18 @@ msgstr "Módulo de colaboración"
 msgid "Collaboration"
 msgstr "Colaboración"
 
-#: ../browser/templates/planning.pt:36
+#: ../browser/templates/planning.pt:42
 msgid "Collapse all"
 msgstr "Plegar todo"
 
 #: ../browser/templates/monitoring.pt:40
-#: ../browser/templates/planning.pt:168
 #: ../browser/templates/reporting.pt:38
 msgid "Collapse all <i class=\"fa fa-chevron-up\" aria-hidden=\"true\"></i>"
 msgstr ""
 
-#: ../browser/templates/planning.pt:62
-msgid "Completion Date"
-msgstr ""
-
-#: ../browser/templates/planning.pt:316
+#: ../browser/templates/planning.pt:68
 #: ../content/activity.py:83
-#: ../content/output.py:40
+#: ../content/output.py:42
 msgid "Completion date"
 msgstr "Fecha de finalización"
 
@@ -219,7 +210,7 @@ msgstr "País"
 msgid "Country/Countries"
 msgstr "País/Paises"
 
-#: ../browser/templates/planning.pt:365
+#: ../browser/templates/planning.pt:369
 msgid "Create"
 msgstr "Crear"
 
@@ -271,9 +262,9 @@ msgstr ""
 msgid "Describing visualizating module."
 msgstr "Describing reporting modulo de visualización"
 
-#: ../browser/templates/planning.pt:308
+#: ../browser/templates/planning.pt:312
 #: ../content/activity.py:65
-#: ../content/improvement_area.py:39
+#: ../content/improvement_area.py:37
 msgid "Description"
 msgstr "Descripción"
 
@@ -297,12 +288,11 @@ msgstr "Fecha de fin"
 msgid "End:"
 msgstr "Inicio:"
 
-#: ../browser/templates/planning.pt:37
+#: ../browser/templates/planning.pt:43
 msgid "Expand all"
 msgstr "Expandir todo"
 
 #: ../browser/templates/monitoring.pt:41
-#: ../browser/templates/planning.pt:169
 msgid "Expand all <i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>"
 msgstr ""
 
@@ -375,13 +365,13 @@ msgstr "Inicio"
 msgid "Icon"
 msgstr "Icono"
 
-#: ../content/improvement_area.py:45
+#: ../content/improvement_area.py:43
 #: ../content/itemarea.py:28
 #: ../content/partner.py:29
 msgid "Image"
 msgstr "Imagen"
 
-#: ../content/improvement_area.py:46
+#: ../content/improvement_area.py:44
 msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr "Imagen utilizada para describir el Área de Mejora. Si no se elige ningún archivo, se utilizará una predeterminada."
 
@@ -389,15 +379,15 @@ msgstr "Imagen utilizada para describir el Área de Mejora. Si no se elige ning�
 msgid "Image used to describe the Working Area"
 msgstr ""
 
-#: ../browser/templates/planning.pt:280
+#: ../browser/templates/planning.pt:283
 msgid "Improve capacity in"
 msgstr "Mejorar la capacidad"
 
-#: ../browser/templates/planning.pt:272
+#: ../browser/templates/planning.pt:275
 msgid "Improve generic Capacity Change"
 msgstr "Mejorar el cambio de capacidad genérico"
 
-#: ../browser/templates/planning.pt:276
+#: ../browser/templates/planning.pt:279
 msgid "Improve specific Capacity Change"
 msgstr "Mejorar el cambio de capacidad específico"
 
@@ -418,13 +408,13 @@ msgid "Improvement track team and members"
 msgstr "Equipo de mejora y miembros."
 
 #: ../content/contributordonor.py:22
-#: ../content/contributorother.py:23
+#: ../content/contributorother.py:22
 #: ../content/contributorpartner.py:22
 msgid "In-cash"
 msgstr "En efectivo"
 
 #: ../content/contributordonor.py:32
-#: ../content/contributorother.py:33
+#: ../content/contributorother.py:32
 #: ../content/contributorpartner.py:32
 msgid "In-kind"
 msgstr "En especie"
@@ -456,10 +446,6 @@ msgstr ""
 #: ../configure.zcml:39
 msgid "Installs the gwopa.core add-on."
 msgstr "Installs the gwopa.core add-on."
-
-#: ../content/improvement_area.py:54
-msgid "Internal CODE for administrators"
-msgstr "Código interno"
 
 #: ../content/project.py:59
 msgid "Invalid start or end date"
@@ -495,7 +481,7 @@ msgstr ""
 
 #: ../content/project.py:221
 msgid "Location"
-msgstr ""
+msgstr "Localización"
 
 #: ../content/project.py:235
 msgid "Longitude"
@@ -511,17 +497,17 @@ msgstr ""
 
 #: ../browser/templates/monitoring.pt:109
 msgid "Main Obstacles"
-msgstr ""
+msgstr "Principales obstáculos"
 
 #: ../content/templates/project_view.pt:89
 msgid "Main organizations and their contributions"
-msgstr ""
+msgstr "Principales organizadores y sus contribuciones"
 
 #: ../browser/templates/homepage.pt:206
 msgid "Map of projects"
 msgstr "Buscar en mapa"
 
-#: ../browser/templates/planning.pt:348
+#: ../browser/templates/planning.pt:352
 #: ../content/outcomekpi.py:58
 #: ../content/outcomezone.py:64
 msgid "Means of verification"
@@ -531,17 +517,13 @@ msgstr "Medios de verificación"
 msgid "Means of verification used to assess capacity change in this dimension"
 msgstr ""
 
-#: ../content/output.py:58
-msgid "Measurable Target"
-msgstr "Objetivo medible"
-
-#: ../browser/templates/planning.pt:325
+#: ../browser/templates/planning.pt:329
 #: ../content/outcomekpi.py:52
 #: ../content/outcomezone.py:58
 msgid "Measuring frequency"
 msgstr "Frecuencia de medición"
 
-#: ../browser/templates/planning.pt:321
+#: ../browser/templates/planning.pt:325
 #: ../content/outcomekpi.py:46
 #: ../content/outcomezone.py:52
 msgid "Measuring unit"
@@ -582,14 +564,14 @@ msgid "My company Projects"
 msgstr "Los proyectos de mi compañía"
 
 #: ../content/contributordonor.py:17
-#: ../content/contributorother.py:18
+#: ../content/contributorother.py:17
 #: ../content/contributorpartner.py:17
 msgid "Name"
 msgstr "Nombre"
 
-#: ../browser/templates/planning.pt:106
+#: ../browser/templates/planning.pt:111
 msgid "Not assigned"
-msgstr ""
+msgstr "Sin asignar"
 
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
@@ -616,9 +598,9 @@ msgid "OutcomeZONE"
 msgstr "Outcome ZONE"
 
 #: ../browser/templates/monitoring.pt:189
-#: ../browser/templates/planning.pt:166
+#: ../browser/templates/planning.pt:172
 msgid "Outcomes"
-msgstr ""
+msgstr "Outcomes"
 
 #: ../profiles/default/types/Output.xml
 msgid "Output"
@@ -651,15 +633,12 @@ msgstr "Teléfono"
 
 #: ../content/project.py:164
 msgid "Planned"
-msgstr ""
+msgstr "Planificada"
 
+#: ../browser/templates/planning.pt:26
 #: ../portlets/sidenav.pt:49
 msgid "Planning"
 msgstr "Planificación"
-
-#: ../browser/templates/planning.pt:25
-msgid "Planning - Project year"
-msgstr ""
 
 #: ../content/project.py:197
 msgid "Platform/platforms associated to this project"
@@ -675,21 +654,21 @@ msgstr "Programa/Programas asociados al proyecto"
 
 #: ../browser/templates/monitoring.pt:101
 msgid "Progress Degree"
-msgstr ""
+msgstr "Grado de progreso"
 
 #: ../browser/templates/manage_portal.pt:33
 #: ../browser/templates/monitoring.pt:37
-#: ../browser/templates/planning.pt:33
+#: ../browser/templates/planning.pt:39
 msgid "Project"
 msgstr "Proyecto"
 
 #: ../content/activity.py:95
 msgid "Project Currency"
-msgstr ""
+msgstr "Moneda del proyecto"
 
 #: ../content/templates/project_view.pt:56
 msgid "Project Dates"
-msgstr ""
+msgstr "Fechas del proyecto"
 
 #: ../content/project.py:260
 msgid "Project Manager"
@@ -701,7 +680,7 @@ msgstr "Administrador del proyecto"
 
 #: ../portlets/sidenav.pt:33
 msgid "Project Overview"
-msgstr "Visión del Proyecto"
+msgstr "Proyecto"
 
 #: ../content/activity.py:56
 msgid "Project dates"
@@ -709,7 +688,7 @@ msgstr "Fechas del proyecto"
 
 #: ../content/project.py:189
 msgid "Project description and main objectives"
-msgstr ""
+msgstr "Descripción del proyecto y principales obstáculos"
 
 #: ../content/project.py:141
 msgid "Project image"
@@ -719,7 +698,11 @@ msgstr "Imagen del proyecto"
 msgid "Project title"
 msgstr "Título del proyecto"
 
-#: ../content/templates/improvementarea_view.pt:121
+#: ../browser/templates/planning.pt:31
+msgid "Project year"
+msgstr ""
+
+#: ../content/templates/improvementarea_view.pt:118
 msgid "Recent files"
 msgstr "Ficheros recientes"
 
@@ -737,17 +720,17 @@ msgstr "Regional WOP Platform"
 msgid "Reporting"
 msgstr "Informes"
 
-#: ../browser/templates/planning.pt:64
+#: ../browser/templates/planning.pt:70
 msgid "Responsible"
 msgstr "Responsable"
 
-#: ../browser/templates/planning.pt:356
+#: ../browser/templates/planning.pt:360
 #: ../content/activity.py:100
 #: ../content/outcomekpi.py:69
 msgid "Responsible people"
 msgstr "Persona responsable"
 
-#: ../browser/templates/planning.pt:352
+#: ../browser/templates/planning.pt:356
 #: ../content/outcomekpi.py:63
 #: ../content/outcomezone.py:69
 msgid "Risks / Assumptions"
@@ -759,7 +742,7 @@ msgstr "Buscar proyectos"
 
 #: ../content/project.py:214
 msgid "Select a country from the list"
-msgstr ""
+msgstr "Seleccionar un país de la lista"
 
 #: ../userdataschema.py:40
 msgid "Select country"
@@ -794,7 +777,7 @@ msgid "Show all <i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>"
 msgstr ""
 
 #: ../browser/monitoring.py:107
-#: ../browser/planning.py:89
+#: ../browser/planning.py:93
 msgid "Show planning of year "
 msgstr ""
 
@@ -804,28 +787,25 @@ msgstr ""
 
 #: ../content/templates/activity_view.pt:26
 msgid "Start"
-msgstr ""
+msgstr "Inicio"
 
 #: ../content/templates/project_view.pt:63
 msgid "Start (Planned):"
-msgstr ""
+msgstr "Inicio (planificado):"
 
 #: ../browser/templates/manage_portal.pt:34
 msgid "Start Date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 #: ../content/templates/project_view.pt:59
 msgid "Start:"
-msgstr ""
+msgstr "Inicio:"
 
-#: ../browser/templates/planning.pt:61
-msgid "Starting Date"
-msgstr ""
-
+#: ../browser/templates/planning.pt:67
 #: ../content/activity.py:77
 #: ../content/project.py:153
 msgid "Starting date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 #: ../content/itemarea.py:22
 #: ../content/outcomekpi.py:29
@@ -846,11 +826,11 @@ msgstr "Fecha del valor de objetivo"
 msgid "Target Value Year"
 msgstr ""
 
-#: ../browser/templates/planning.pt:336
+#: ../browser/templates/planning.pt:340
 msgid "Target date"
 msgstr ""
 
-#: ../browser/templates/planning.pt:63
+#: ../browser/templates/planning.pt:69
 msgid "Target value"
 msgstr ""
 
@@ -906,26 +886,22 @@ msgstr ""
 msgid "This values are necessary for create elements on the Platform"
 msgstr "Estos valores son necesarios para crear elementos en la Plataforma."
 
-#: ../browser/templates/planning.pt:27
-msgid "This year starts on"
-msgstr ""
-
-#: ../browser/templates/planning.pt:304
+#: ../browser/templates/planning.pt:308
 #: ../content/activity.py:60
-#: ../content/improvement_area.py:32
+#: ../content/improvement_area.py:30
 msgid "Title"
 msgstr "Título"
 
 #: ../content/outputdefaults.py:19
-msgid "Title EN"
-msgstr ""
-
-#: ../content/outputdefaults.py:24
-msgid "Title ES"
+msgid "Title English"
 msgstr ""
 
 #: ../content/outputdefaults.py:29
-msgid "Title FR"
+msgid "Title French"
+msgstr ""
+
+#: ../content/outputdefaults.py:24
+msgid "Title Spanish"
 msgstr ""
 
 #: ../content/templates/project_view.pt:149
@@ -964,12 +940,12 @@ msgstr "Nombre de usuario"
 msgid "Users in this Partner"
 msgstr "Usuarios asignados a este Socio"
 
-#: ../browser/templates/planning.pt:252
+#: ../browser/templates/planning.pt:255
 msgid "Utility Capacity"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:201
-#: ../browser/templates/planning.pt:186
+#: ../browser/templates/planning.pt:192
 msgid "Utility Performance"
 msgstr "Rendimiento de Utilidad"
 
@@ -1024,10 +1000,6 @@ msgstr "Tu número de teléfono"
 msgid "Zone"
 msgstr "Zona"
 
-#: ../browser/templates/planning.pt:27
-msgid "and ends on"
-msgstr ""
-
 #: ../browser/user_profile.py:47
 #: ../indexers.py:28
 msgid "country"
@@ -1046,6 +1018,10 @@ msgstr "Correo electrónico"
 #: ../indexers.py:22
 msgid "fullname"
 msgstr "Nombre completo"
+
+#: ../browser/templates/planning.pt:33
+msgid "goes from"
+msgstr ""
 
 #. Default: "GWOPA Menu"
 #: ../portlets/sidenav.py:21
@@ -1081,17 +1057,17 @@ msgid "settings"
 msgstr "Ajustes"
 
 #. Default: "Calendar"
-#: ../content/templates/improvementarea_view.pt:84
+#: ../content/templates/improvementarea_view.pt:82
 msgid "summary_calendar"
 msgstr "Calendario"
 
 #. Default: "Next month"
-#: ../content/templates/improvementarea_view.pt:75
+#: ../content/templates/improvementarea_view.pt:74
 msgid "title_next_month"
 msgstr "Mes siguiente"
 
 #. Default: "Previous month"
-#: ../content/templates/improvementarea_view.pt:65
+#: ../content/templates/improvementarea_view.pt:64
 msgid "title_previous_month"
 msgstr "Mes anterior"
 
@@ -1105,12 +1081,16 @@ msgstr "Buscar en los proyectos"
 msgid "title_search_title"
 msgstr "Buscador de proyectos"
 
+#: ../browser/templates/planning.pt:33
+msgid "to"
+msgstr ""
+
 #: ../indexers.py:21
 msgid "username"
 msgstr "Nombre de usuario"
 
 #. Default: "Indicate the target value for this date"
-#: ../browser/templates/planning.pt:333
+#: ../browser/templates/planning.pt:337
 msgid "value_for_date"
 msgstr ""
 

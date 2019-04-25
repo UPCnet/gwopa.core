@@ -22,10 +22,17 @@
         </tal:block>
       </ul>
     </div>
-    <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">Planning - Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag></h1>
+    <h1 class="documentFirstHeading">
+      <tal:omit-tag i18n:translate="">Planning</tal:omit-tag> - 
+      <span><tal:omit-tag tal:content="view/projectTitle"></tal:omit-tag></span></h1>
     <div class="documentDescription description projectDates">
-      <tal:omit-tag i18n:translate="">This year starts on </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span>&nbsp;<tal:omit-tag i18n:translate=""> and ends on</tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
+
+    <span class="dateNumbers">
+      <tal:omit-tag i18n:translate="">Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag>
+    </span>
+      <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     </div>
+
 
     <div id="tabsplanning" class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset>
@@ -57,8 +64,8 @@
                           </div>
                           <div class="titleRowPlanning"><a tal:attributes="href item/url" tal:content="item/title"> Area Title </a></div>
                         </div>
-                        <div class="contentt" id="bl" i18n:translate="">Starting Date</div>
-                        <div class="contentt" id="value" i18n:translate="">Completion Date</div>
+                        <div class="contentt" id="bl" i18n:translate="">Starting date</div>
+                        <div class="contentt" id="value" i18n:translate="">Completion date</div>
                         <div class="contentt" id="target" i18n:translate="">Target value</div>
                         <div class="contentt" id="resp" i18n:translate="">Responsible</div>
                         <div class="contentt" id="actions" i18n:translate="">Action</div>
@@ -95,7 +102,7 @@
                           <div class="contentt center_span" id="target">
                             <span tal:condition="python:item['portal_type'] == 'Activity'">
                               <tal:omit-tag tal:content="item/value"> Value </tal:omit-tag></span>
-                            <span class="editable" tal:condition="python:item['portal_type'] == 'Output'">
+                            <span data-url="changeTarget" class="editable" tal:condition="python:item['portal_type'] == 'Output'">
                               <tal:omit-tag tal:content="item/value" > Value </tal:omit-tag></span>
                             <tal:omit-tag tal:content="item/unit"> Unit </tal:omit-tag>
                           </div>
@@ -129,7 +136,7 @@
                           <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                           <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                           <div class="contentt" id="target">
-                            <span class="editable">
+                            <span data-url="changeTarget" class="editable">
                               <tal:omit-tag tal:content="output/value"> Value </tal:omit-tag></span>
                             <tal:omit-tag tal:content="output/unit"> Unit </tal:omit-tag>
                           </div>

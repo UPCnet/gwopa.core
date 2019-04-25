@@ -142,3 +142,10 @@ class Create(BrowserView):
         if date_end:
             obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
         return 'Ok, item created'
+
+
+class ChangeTarget(BrowserView):
+    """ Change the Target Value of an element """
+
+    def __call__(self):
+        return "OK, value changed"

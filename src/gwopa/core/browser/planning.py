@@ -42,6 +42,9 @@ class planningView(BrowserView):
     def getFaseEnd(self):
         return self.fase_end
 
+    def projectTitle(self):
+        return self.context.title
+
     def __call__(self):
         if not self.year or self.year == '0':
             # Empty query or 0 returns default template
