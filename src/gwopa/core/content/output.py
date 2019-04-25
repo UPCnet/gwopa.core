@@ -54,10 +54,10 @@ class IOutput(model.Schema):
         required=True,
     )
 
-    target = schema.TextLine(
-        title=_(u"Measurable Target"),
-        required=True,
-    )
+    # target = schema.TextLine(
+    #     title=_(u"Measurable Target"),
+    #     required=True,
+    # )
 
     means = schema.Text(
         title=_(u"Means of verification"),

@@ -64,23 +64,6 @@ class planningView(BrowserView):
             return self.index()
         # TODO: if copy or delete make action!
 
-    def getAnnotation(self):
-        KEY = "GWOPA_YEAR_" + str(self.year)
-        annotations = IAnnotations(self.context)
-        if KEY in annotations.keys():
-            data = []
-            # values = dict(
-            #     progress_degree='progress_degree',
-            #     explanation='explanation',
-            # )
-
-            # data.append(values)
-            # annotations[KEY] = data
-            #return KEY
-            return annotations[KEY]
-        else:
-            return "No annotation for this year"
-
     def getPhases(self):
         return len(self.context.gwopa_year_phases)
 
@@ -146,9 +129,21 @@ class planningView(BrowserView):
                   'depth': 1})
         items = items + outputs
         results = []
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
         for item in items:
             members = []
             obj = item.getObject()
+            annotations = IAnnotations(item.getObject())
+            if KEY in annotations.keys():
+                if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
+                    target_value = 'Not defined'
+                    unit = ''
+                else:
+                    target_value = annotations[KEY]
+                    unit = obj.measuring_unit
+            else:
+                target_value = 'Not defined'
+                unit = ''
             if not item.start:
                 item.start = '-----'
             if not item.end:
@@ -160,12 +155,9 @@ class planningView(BrowserView):
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
-            if item.portal_type == 'Output':
-                unit = obj.measuring_unit
-                value = obj.target
-            else:
+            if item.portal_type == 'Activity':
                 unit = ''
-                value = '-----'
+                target_value = '-----'
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
@@ -173,7 +165,7 @@ class planningView(BrowserView):
                 start=item.start,
                 end=item.end,
                 unit=unit,
-                value=value,
+                value=target_value,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
         return results

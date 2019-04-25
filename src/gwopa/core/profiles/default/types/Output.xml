@@ -14,14 +14,11 @@
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
  <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-        <element value="TargetValue"/>
- </property>
+ <property name="allowed_content_types" />
  <property name="behaviors">
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>
- <property name="klass">plone.dexterity.content.Container</property>
  <property name="schema">gwopa.core.content.output.IOutput</property>
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>

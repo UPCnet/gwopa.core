@@ -5,6 +5,7 @@ from zope.interface import alsoProvides
 import json
 from plone import api
 from operator import itemgetter
+from zope.annotation.interfaces import IAnnotations
 
 
 class getPhases(BrowserView):
@@ -123,5 +124,18 @@ class Create(BrowserView):
         obj.means = self.request.form.get('item_means')
         obj.risks = self.request.form.get('item_risks')
         obj.members = self.request.form.get('item_responsible')
-        #obj.end = self.request.form.get('item_date')
+        target1 = self.request.form.get('item_target1')
+        target2 = self.request.form.get('item_target2')
+        target3 = self.request.form.get('item_target3')
+        target4 = self.request.form.get('item_target4')
+        KEY1 = "GWOPA_TARGET_YEAR_1"
+        KEY2 = "GWOPA_TARGET_YEAR_2"
+        KEY3 = "GWOPA_TARGET_YEAR_3"
+        KEY4 = "GWOPA_TARGET_YEAR_4"
+        annotations = IAnnotations(obj)
+        annotations[KEY1] = target1
+        annotations[KEY2] = target2
+        annotations[KEY3] = target3
+        annotations[KEY4] = target4
+        # obj.end = self.request.form.get('item_date')
         return 'Ok, item created'
