@@ -574,6 +574,10 @@ msgstr "Name"
 msgid "Not assigned"
 msgstr "Not assigned"
 
+#: ../browser/planning.py:148
+msgid "Not defined"
+msgstr ""
+
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
 msgstr "Outcome Capacity Change"
@@ -699,6 +703,7 @@ msgstr "Project image"
 msgid "Project title"
 msgstr "Project Title"
 
+#: ../browser/planning.py:91
 #: ../browser/templates/planning.pt:31
 msgid "Project year"
 msgstr "Project year"

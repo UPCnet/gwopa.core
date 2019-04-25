@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-25 16:37+0000\n"
+"POT-Creation-Date: 2019-04-25 16:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -580,6 +580,10 @@ msgstr ""
 msgid "Not assigned"
 msgstr ""
 
+#: ../browser/planning.py:148
+msgid "Not defined"
+msgstr ""
+
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
 msgstr ""
@@ -705,6 +709,7 @@ msgstr ""
 msgid "Project title"
 msgstr ""
 
+#: ../browser/planning.py:91
 #: ../browser/templates/planning.pt:31
 msgid "Project year"
 msgstr ""

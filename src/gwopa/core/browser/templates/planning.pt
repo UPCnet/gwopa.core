@@ -16,8 +16,7 @@
       <ul class="pagination pagination-lg" tal:define="items view/getItems">
         <tal:block tal:repeat="item items">
           <li tal:attributes="class item/classe; alt item/alt; title item/alt">
-            <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>
-            </a>
+            <a href="#" tal:attributes="href item/url" tal:content="item/title"> Project year XXX </a>
           </li>
         </tal:block>
       </ul>
@@ -26,14 +25,11 @@
       <tal:omit-tag i18n:translate="">Planning</tal:omit-tag> - 
       <span><tal:omit-tag tal:content="view/projectTitle"></tal:omit-tag></span></h1>
     <div class="documentDescription description projectDates">
-
-    <span class="dateNumbers">
-      <tal:omit-tag i18n:translate="">Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag>
-    </span>
+      <span class="dateNumbers">
+        <tal:omit-tag i18n:translate="">Project year</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag>
+      </span>
       <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     </div>
-
-
     <div id="tabsplanning" class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset>
         <legend i18n:translate=""> Project </legend>
@@ -100,10 +96,15 @@
                             <span tal:content="item/end">2019-03-30</span>
                           </div>
                           <div class="contentt center_span" id="target">
-                            <span tal:condition="python:item['portal_type'] == 'Activity'">
-                              <tal:omit-tag tal:content="item/value"> Value </tal:omit-tag></span>
-                            <span data-url="changeTarget" class="editable" tal:condition="python:item['portal_type'] == 'Output'">
-                              <tal:omit-tag tal:content="item/value" > Value </tal:omit-tag></span>
+                            <span tal:condition="python:item['portal_type'] == 'Activity'" tal:content="item/value"> Value</span>
+                            <span tal:attributes="
+                                data-pk currentYear;
+                                data-name item/url;
+                                data-url string:${context/absolute_url}/changeTarget"
+                                data-type="text"
+                                data-title="Change target value"
+                                class="editable" tal:condition="python:item['portal_type'] == 'Output'" tal:content="item/value"> Value 
+                            </span>
                             <tal:omit-tag tal:content="item/unit"> Unit </tal:omit-tag>
                           </div>
                           <div class="contentt center_span" id="resp" tal:define="members item/responsible">
@@ -136,8 +137,14 @@
                           <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                           <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                           <div class="contentt" id="target">
-                            <span data-url="changeTarget" class="editable">
-                              <tal:omit-tag tal:content="output/value"> Value </tal:omit-tag></span>
+                            <span tal:attributes="
+                                data-pk currentYear;
+                                data-name output/url;
+                                data-url string:${context/absolute_url}/changeTarget"
+                                data-type="text"
+                                data-title="Change target value"
+                                class="editable" tal:content="output/value"> Value 
+                            </span>
                             <tal:omit-tag tal:content="output/unit"> Unit </tal:omit-tag>
                           </div>
                           <div class="contentt" id="resp" tal:define="members output/responsible">

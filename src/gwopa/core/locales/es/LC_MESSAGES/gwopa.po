@@ -573,6 +573,10 @@ msgstr "Nombre"
 msgid "Not assigned"
 msgstr "Sin asignar"
 
+#: ../browser/planning.py:148
+msgid "Not defined"
+msgstr "Sin definir"
+
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
 msgstr "Outcome CC"
@@ -698,9 +702,10 @@ msgstr "Imagen del proyecto"
 msgid "Project title"
 msgstr "Título del proyecto"
 
+#: ../browser/planning.py:91
 #: ../browser/templates/planning.pt:31
 msgid "Project year"
-msgstr ""
+msgstr "Año de proyecto"
 
 #: ../content/templates/improvementarea_view.pt:118
 msgid "Recent files"
@@ -779,7 +784,7 @@ msgstr ""
 #: ../browser/monitoring.py:107
 #: ../browser/planning.py:93
 msgid "Show planning of year "
-msgstr ""
+msgstr "Mostrar planificación del año "
 
 #: ../browser/templates/teams.pt:17
 msgid "Site Members"
@@ -1021,7 +1026,7 @@ msgstr "Nombre completo"
 
 #: ../browser/templates/planning.pt:33
 msgid "goes from"
-msgstr ""
+msgstr "va desde el"
 
 #. Default: "GWOPA Menu"
 #: ../portlets/sidenav.py:21
@@ -1083,7 +1088,7 @@ msgstr "Buscador de proyectos"
 
 #: ../browser/templates/planning.pt:33
 msgid "to"
-msgstr ""
+msgstr "hasta el"
 
 #: ../indexers.py:21
 msgid "username"

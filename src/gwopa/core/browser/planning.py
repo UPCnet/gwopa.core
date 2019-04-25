@@ -6,7 +6,7 @@ from zope.publisher.interfaces import IPublishTraverse
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
-import datetime
+# import datetime
 from gwopa.core import _
 from zope.annotation.interfaces import IAnnotations
 
@@ -88,9 +88,9 @@ class planningView(BrowserView):
             else:
                 url = self.context.absolute_url_path() + '/planning/' + str(total + 1)
             results.append(dict(
-                title='Project Year ' + str(total + 1),
+                title=_(u"Project year") + ' ' + str(total + 1),
                 url=url,
-                alt=_(u'Show planning of year ') + str(total + 1),
+                alt=_(u"Show planning of year ") + str(total + 1),
                 classe=classe))
             total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)
@@ -139,13 +139,13 @@ class planningView(BrowserView):
             annotations = IAnnotations(item.getObject())
             if KEY in annotations.keys():
                 if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
-                    target_value = 'Not defined'
+                    target_value = _(u"Not defined")
                     unit = ''
                 else:
                     target_value = annotations[KEY]
                     unit = obj.measuring_unit
             else:
-                target_value = 'Not defined'
+                target_value = _(u'Not defined')
                 unit = ''
             if not item.start:
                 item.start = '-----'

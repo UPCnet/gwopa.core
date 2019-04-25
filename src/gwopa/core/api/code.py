@@ -145,7 +145,14 @@ class Create(BrowserView):
 
 
 class ChangeTarget(BrowserView):
-    """ Change the Target Value of an element """
+    """ /changeTarget Change the Target Value of an element """
 
     def __call__(self):
+        year = self.request.form['pk']
+        item_path = self.request.form['name']
+        new_value = self.request.form['value']
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        item = api.content.find(path=item_path, depth=0)[0]
+        annotations = IAnnotations(item.getObject())
+        annotations[KEY] = new_value
         return "OK, value changed"
