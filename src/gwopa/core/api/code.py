@@ -6,6 +6,7 @@ import json
 from plone import api
 from operator import itemgetter
 from zope.annotation.interfaces import IAnnotations
+import datetime
 
 
 class getPhases(BrowserView):
@@ -137,5 +138,7 @@ class Create(BrowserView):
         annotations[KEY2] = target2
         annotations[KEY3] = target3
         annotations[KEY4] = target4
-        # obj.end = self.request.form.get('item_date')
+        date_end = self.request.form.get('item_date')
+        if date_end:
+            obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
         return 'Ok, item created'

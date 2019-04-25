@@ -163,7 +163,7 @@ class planningView(BrowserView):
                 description=item.Description,
                 portal_type=item.portal_type,
                 start=item.start,
-                end=item.end,
+                end=item.end.strftime('%Y-%m-%d'),
                 unit=unit,
                 value=target_value,
                 responsible=members,

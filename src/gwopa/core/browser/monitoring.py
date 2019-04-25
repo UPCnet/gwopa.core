@@ -146,20 +146,24 @@ class monitoringView(BrowserView):
                   'depth': 1})
         items = items + outputs
         results = []
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
         for item in items:
             obj = item.getObject()
+            annotations = IAnnotations(item.getObject())
+            if KEY in annotations.keys():
+                if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
+                    target_value = 'Not defined'
+                    unit = ''
+                else:
+                    target_value = annotations[KEY]
+                    unit = obj.measuring_unit
+            else:
+                target_value = 'Not defined'
+                unit = ''
             if not item.start:
                 item.start = '-----'
             if not item.end:
                 item.end = '-----'
-            if item.portal_type == 'Output':
-                unit = obj.measuring_unit
-                target_value = obj.target
-                target_year = '-----'
-            else:
-                unit = '-----'
-                target_value = '-----'
-                target_year = '-----'
             results.append(dict(
                 title=item.Title,
                 portal_type=item.portal_type,
@@ -167,7 +171,7 @@ class monitoringView(BrowserView):
                 end=item.end,
                 unit=unit,
                 value=target_value,
-                year=target_year,
+                year='-----',
                 next_update=data_year['end_iso'],
                 url='/'.join(obj.getPhysicalPath())))
         return results

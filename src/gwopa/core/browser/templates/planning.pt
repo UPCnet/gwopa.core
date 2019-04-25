@@ -353,7 +353,7 @@
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                   <input type="hidden" class="pat-select2" id="out-responsible"
                               data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:select2-users.json;"/>
+                                                vocabularyUrl:../select2-users.json;"/>
                 </div>
               </div>
             </div>
