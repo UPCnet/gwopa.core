@@ -4,11 +4,13 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
-# from plone.directives import form
+from plone.directives import form
 from z3c.form.interfaces import IAddForm, IEditForm
 from plone.autoform import directives
 from plone.app.z3cform.widget import SelectWidget
 from gwopa.core import utils
+from z3c.form.interfaces import HIDDEN_MODE, DISPLAY_MODE, INPUT_MODE
+
 grok.templatedir("templates")
 
 
@@ -54,11 +56,6 @@ class IOutput(model.Schema):
         required=True,
     )
 
-    # target = schema.TextLine(
-    #     title=_(u"Measurable Target"),
-    #     required=True,
-    # )
-
     means = schema.Text(
         title=_(u"Means of verification"),
         required=False,
@@ -77,21 +74,13 @@ class IOutput(model.Schema):
         required=False,
     )
 
-    # form.mode(gwopa_year='hidden')
-    # form.mode(IEditForm, gwopa_year='hidden')
-    # form.mode(IAddForm, gwopa_year='hidden')
-    # gwopa_year = schema.Int(
-    #     title=_(u'Internal code (YEAR)'),
-    #     description=_(u'Internal code used only by administrators.'),
-    #     required=False)
 
+class Edit(form.SchemaEditForm):
+    grok.context(IOutput)
 
-# @form.default_value(field=IOutput['gwopa_year'])
-# def codeDefaultValue(data):
-#     if 'year' in data.request.form:
-#         return int(data.request.form['year'])
-#     else:
-#         return datetime.datetime.now().year
+    def updateWidgets(self):
+        super(Edit, self).updateWidgets()
+        self.widgets["title"].mode = DISPLAY_MODE
 
 
 class View(grok.View):

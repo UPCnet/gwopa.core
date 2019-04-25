@@ -7,7 +7,6 @@ from plone.autoform import directives
 from plone.directives import form
 from gwopa.core import utils
 
-
 grok.templatedir("templates")
 
 

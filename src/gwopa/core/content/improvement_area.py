@@ -14,8 +14,6 @@ from plone.app.event.portlets import get_calendar_url
 from zope.i18nmessageid import MessageFactory
 import calendar
 from plone.directives import form
-from plone.indexer import indexer
-#from z3c.form.interfaces import IAddForm, IEditForm
 from gwopa.core import utils
 
 PLMF = MessageFactory('plonelocales')
@@ -46,33 +44,6 @@ class IImprovementArea(form.Schema):
         description=_(u"Image used to describe the Area. If no file chosen, a defult one will be used."),
         required=False,
     )
-
-    form.mode(gwopa_code_ia='hidden')
-    # form.mode(IEditForm, gwopa_code_ia='display')
-    gwopa_code_ia = schema.ASCIILine(
-        title=_(u'CODE'),
-        description=_(u'Internal CODE for administrators'),
-        required=False
-    )
-
-
-@form.default_value(field=IImprovementArea['gwopa_code_ia'])
-def codeDefaultValue(data):
-    items = len(api.content.find(
-        portal_type='ImprovementArea',
-        context=data.context))
-
-    return 'IA-{0}'.format(str(items + 1).zfill(3))
-
-
-# This code assign value on every save, and when recatalog, overrides the value
-@indexer(IImprovementArea)
-def parent_project(obj):
-    value = obj.aq_parent.gwopa_code_project
-    return '{0}'.format(value).zfill(3)
-
-
-grok.global_adapter(parent_project, name="gwopa_code_project")
 
 
 class Edit(form.SchemaEditForm):

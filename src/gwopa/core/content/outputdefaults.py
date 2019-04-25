@@ -16,25 +16,25 @@ class IOutputdefaults(model.Schema):
     """  Output Default values
     """
     title = schema.TextLine(
-        title=_(u"Title EN"),
+        title=_(u"Title English"),
         required=True,
     )
 
     title_es = schema.TextLine(
-        title=_(u"Title ES"),
+        title=_(u"Title Spanish"),
         required=True,
     )
 
     title_fr = schema.TextLine(
-        title=_(u"Title FR"),
+        title=_(u"Title French"),
         required=True,
     )
 
-    measuring_unit = schema.Choice(
-        title=_(u"Measuring unit"),
-        source=utils.settings_measuring_unit,
-        required=True,
-    )
+    # measuring_unit = schema.Choice(
+    #     title=_(u"Measuring unit"),
+    #     source=utils.settings_measuring_unit,
+    #     required=True,
+    # )
 
 
 class View(grok.View):
