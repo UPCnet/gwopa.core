@@ -324,14 +324,14 @@
                   <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
                   <input id="out-frequency" type="hidden"/>
                 </div>
-                <div id='TextBoxesGroup'>
+                <div class="form-group" id='TextBoxesGroup'>
                   <div id="TextBoxDiv1">
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-6" style="margin-top: 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
                         <input type="text" class="form-control" id="target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6" style="margin:0px 0px 10px 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
                         <input class="form-control" id="target-date-1" readonly/>
                       </div>
