@@ -32,8 +32,8 @@
         <legend i18n:translate=""> Project </legend>
         <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
           <div class="documentDescription titleCollapse">
-            <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-angle-up"></i></span>
-            <span id="expandAllProjectTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-angle-down"></i></span>
+            <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
+            <span id="expandAllProjectTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
           </div>
           <tal:objects repeat="item areas">
             <div class="tabla_contenido_items" id="project" tal:define="files python:view.indicatorsInside(item);">
@@ -93,10 +93,11 @@
                             <span tal:content="item/end">2019-03-30</span>
                           </div>
                           <div class="contentt center_span" id="target">
-                            <span>
-                              <tal:omit-tag tal:content="item/value"> Value </tal:omit-tag>
-                              <tal:omit-tag tal:content="item/unit"> Unit </tal:omit-tag>
-                            </span>
+                            <span tal:condition="python:item['portal_type'] == 'Activity'">
+                              <tal:omit-tag tal:content="item/value"> Value </tal:omit-tag></span>
+                            <span class="editable" tal:condition="python:item['portal_type'] == 'Output'">
+                              <tal:omit-tag tal:content="item/value" > Value </tal:omit-tag></span>
+                            <tal:omit-tag tal:content="item/unit"> Unit </tal:omit-tag>
                           </div>
                           <div class="contentt center_span" id="resp" tal:define="members item/responsible">
                             <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
@@ -128,7 +129,8 @@
                           <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                           <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                           <div class="contentt" id="target">
-                            <tal:omit-tag tal:content="output/value"> Value </tal:omit-tag>
+                            <span class="editable">
+                              <tal:omit-tag tal:content="output/value"> Value </tal:omit-tag></span>
                             <tal:omit-tag tal:content="output/unit"> Unit </tal:omit-tag>
                           </div>
                           <div class="contentt" id="resp" tal:define="members output/responsible">
@@ -162,8 +164,8 @@
       <fieldset>
         <legend i18n:translate=""> Outcomes </legend>
         <div class="documentDescription titleCollapse">
-          <span id="collapseAllOutcomeTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-angle-up"></i></span>
-          <span id="expandAllOutcomeTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-angle-down"></i></span>
+          <span id="collapseAllOutcomeTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
+          <span id="expandAllOutcomeTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
         </div>
         <div id="outcomes">
           <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesKPI">
@@ -364,8 +366,12 @@
       </div>
     </div>
 
+    <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/modal-output.js"></script>
+
   </metal:block>
 
 </metal:content-core>
