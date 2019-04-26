@@ -288,6 +288,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label id="label-output" i18n:translate="">Title</label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="out-title" type="hidden"/>
                 </div>
                 <div class="form-group">
