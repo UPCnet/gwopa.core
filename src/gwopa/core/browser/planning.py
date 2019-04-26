@@ -139,13 +139,13 @@ class planningView(BrowserView):
             annotations = IAnnotations(item.getObject())
             if KEY in annotations.keys():
                 if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
-                    target_value = _(u"Not defined")
+                    target_value_planned = _(u"Not defined")
                     unit = ''
                 else:
-                    target_value = annotations[KEY]
+                    target_value_planned = annotations[KEY]['planned']
                     unit = obj.measuring_unit
             else:
-                target_value = _(u'Not defined')
+                target_value_planned = _(u"Not defined")
                 unit = ''
             if not item.start:
                 item.start = '-----'
@@ -160,7 +160,7 @@ class planningView(BrowserView):
                         members.append(api.user.get(username=member).getProperty('fullname'))
             if item.portal_type == 'Activity':
                 unit = ''
-                target_value = '-----'
+                target_value_planned = '-----'
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
@@ -168,7 +168,7 @@ class planningView(BrowserView):
                 start=item.start,
                 end=item.end.strftime('%Y-%m-%d'),
                 unit=unit,
-                value=target_value,
+                target_value_planned=target_value_planned,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
         return results

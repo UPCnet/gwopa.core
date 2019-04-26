@@ -22,56 +22,53 @@
       </ul>
     </div>
     <h1 class="documentFirstHeading">
-      <tal:omit-tag i18n:translate="">Planning</tal:omit-tag> - 
-      <span tal:content="view/projectTitle"></span></h1>
+      <tal:omit-tag i18n:translate="">Planning</tal:omit-tag> -
+      <span><tal:omit-tag tal:content="view/projectTitle"></tal:omit-tag></span></h1>
     <div class="documentDescription description projectDates">
       <span class="dateNumbers">
         <tal:omit-tag i18n:translate="">Project year</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag>
       </span>
       <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     </div>
-    <div id="tabsplanning" class="pat-autotoc autotabs">
+    <div id="tabsplanning" class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset>
         <legend i18n:translate=""> Project </legend>
-        <div>
-          <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
-            <div class="documentDescription titleCollapse">
-              <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
-              <span id="expandAllProjectTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
-            </div>
-            <tal:objects repeat="item areas">
-              <div class="tabla_contenido_items" id="project" tal:define="files python:view.indicatorsInside(item);">
-                <div class="tabla_cabecera">
-                  <div class="information" id="header">
-                    <div class="contentt" id="total">
-                      <div class="btn-group" role="group" aria-label="Add element">
-                        <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                          <li>
-                            <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${item/url}/++add++Activity">
-                              <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Activity</tal:omit-tag></a>
-                          </li>
-                          <li>
-                            <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url">
-                              <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output</tal:omit-tag></a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="titleRowPlanning"><a tal:attributes="href item/url" tal:content="item/title"> Area Title </a></div>
+        <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
+          <div class="documentDescription titleCollapse">
+            <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
+            <span id="expandAllProjectTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
+          </div>
+          <tal:objects repeat="item areas">
+            <div class="tabla_contenido_items" id="project" tal:define="files python:view.indicatorsInside(item);">
+              <div class="tabla_cabecera">
+                <div class="information" id="header">
+                  <div class="contentt" id="total">
+                    <div class="btn-group" role="group" aria-label="Add element">
+                      <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                        <li>
+                          <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${item/url}/++add++Activity">
+                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Activity</tal:omit-tag></a>
+                        </li>
+                        <li>
+                          <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url">
+                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output</tal:omit-tag></a>
+                        </li>
+                      </ul>
                     </div>
-                    <div class="contentt" id="bl" i18n:translate="">Starting date</div>
-                    <div class="contentt" id="value" i18n:translate="">Completion date</div>
-                    <div class="contentt" id="target" i18n:translate="">Target value</div>
-                    <div class="contentt" id="resp" i18n:translate="">Responsible</div>
-                    <div class="contentt" id="actions" i18n:translate="">Action</div>
-                    <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i>
-                    <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i>
+                    <div class="titleRowPlanning"><a tal:attributes="href item/url" tal:content="item/title"> Area Title </a></div>
                   </div>
+                  <div class="contentt" id="bl" i18n:translate="">Starting date</div>
+                  <div class="contentt" id="value" i18n:translate="">Completion date</div>
+                  <div class="contentt" id="target" i18n:translate="">Target value</div>
+                  <div class="contentt" id="resp" i18n:translate="">Responsible</div>
+                  <div class="contentt actions" i18n:translate="">Action </div>
+                  <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i>
+                  <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i>
                 </div>
-
-                <div class="tabla_cuerpo" tal:repeat="item files">
-                  <div class="block_content row">
-                    <div class="col-md-12 text-item-planning">
+              </div>
+              <div class="tabla_cuerpo" tal:repeat="item files">
+                <div class="col-md-12 text-item-planning">
                       <div class="information object">
                         <div class="contentt row" id="total">
                           <div class="part0">
@@ -82,201 +79,193 @@
                           </div>
                           <div class="part1">
                             <span tal:attributes="class string:${item/portal_type}-planning first-level" tal:content="item/portal_type" i18n:translate="">Activity/output label</span>
-                              </div>
-                              <div class="part2 titulocatplan" tal:attributes="id item/portal_type" tal:content="item/title"> Activity/Output Title </div>
-                            </div>
-                            <div class="contentt center_span" id="bl">
-                              <span tal:content="item/start">2019-03-29</span>
-                            </div>
-                            <div class="contentt center_span" id="value">
-                              <span tal:content="item/end">2019-03-30</span>
-                            </div>
-                            <div class="contentt center_span" id="target">
-                              <span tal:condition="python:item['portal_type'] == 'Activity'" tal:content="item/value"> Value</span>
-                              <span tal:attributes="
-                                  data-pk currentYear;
-                                  data-name item/url;
-                                  data-url string:${context/absolute_url}/changeTarget"
-                                  data-type="text"
-                                  data-title="Change target value"
-                                  class="editable" tal:condition="python:item['portal_type'] == 'Output'" tal:content="item/value"> Value 
-                              </span>
-                              <tal:omit-tag tal:content="item/unit"> Unit </tal:omit-tag>
-                            </div>
-                            <div class="contentt center_span" id="resp" tal:define="members item/responsible">
-                              <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
-                              <tal:block tal:condition="not:members" i18n:translate=""> Not assigned </tal:block>
-                            </div>
-                            <div class="contentt" id="actions">
-                              <a class="pat-plone-modal"
-                                tal:attributes="
-                                  href string:${item/url}/edit;
-                                  title string:Edit ${item/title};
-                                  alt string:Edit ${item/title}"><i class="far fa-edit"></i></a>
-                              <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
-                                tal:attributes="
-                                  data-url item/url;
-                                  data-type item/portal_type;
-                                  data-id item/title;" title="Delete" alt="Delete">
-                                <i class="far fa-trash-alt"></i></a>
-                            </div>
                           </div>
-                      <tal:block tal:condition="python:item['portal_type'] == 'Activity'" tal:define="outputs python:view.indicatorsInside(item);">
-                        <div tal:repeat="output outputs" class="block_sub_indicators">
-                          <div class="information object">
-                            <div class="contentt row" id="total">
-                              <div class="part1 label-2nd">
-                                <span tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</span>
-                              </div>
-                              <div class="part2 titulocatplan" tal:attributes="id output/portal_type" tal:content="output/title"> Item Title </div>
-                            </div>
-                            <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
-                            <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
-                            <div class="contentt" id="target">
-                              <span tal:attributes="
-                                  data-pk currentYear;
-                                  data-name output/url;
-                                  data-url string:${context/absolute_url}/changeTarget"
-                                  data-type="text"
-                                  data-title="Change target value"
-                                  class="editable" tal:content="output/value"> Value 
-                              </span>
-                              <tal:omit-tag tal:content="output/unit"> Unit </tal:omit-tag>
-                            </div>
-                            <div class="contentt" id="resp" tal:define="members output/responsible">
-                              <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
-                              <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
-                            </div>
-                            <div class="contentt" id="actions">
-                              <a class="pat-plone-modal"
-                                tal:attributes="
-                                  href string:${output/url}/edit;
-                                  title string:Edit ${output/title};
-                                  alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
-                              <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
-                                tal:attributes="
-                                  data-url output/url;
-                                  data-type output/portal_type;
-                                  data-id output/title;" title="Delete" alt="Delete">
-                                <i class="far fa-trash-alt"></i></a>
-                            </div>
-                          </div>
+                          <div class="part2 titulocatplan" tal:attributes="id item/portal_type" tal:content="item/title"> Activity/Output Title </div>
                         </div>
-                      </tal:block>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </tal:objects>
-          </tal:block-activities>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend i18n:translate=""> Outcomes </legend>
-        <div>
-          <div class="documentDescription titleCollapse">
-            <span id="collapseAllOutcomeTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
-            <span id="expandAllOutcomeTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
-          </div>
-          <div id="outcomes">
-            <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesKPI">
-              <div class="tabla_cabecera">
-                <div class="information object" id="header">
-                  <div class="contentt" id="total">
-                    <div class="btn-group" role="group" aria-label="Add KPI">
-                      <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
-                        <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New Overall KPI </span></a></li>
-                        <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New KPI Zone </span></a></li>
-                      </ul>
-                    </div>
-                    <div class="titleRowPlanning">
-                      <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag>
-                    </div>
-                  </div>
-                  <div class="contentt" id="bl">Baseline Date</div>
-                  <div class="contentt" id="value">Baseline Value</div>
-                  <div class="contentt" id="target">Target value</div>
-                  <div class="contentt" id="mu">Frequency</div>
-                  <div class="contentt" id="resp">Responsible</div>
-                  <div class="contentt" id="actions">Action</div>
-                  <i class="fas fa-chevron-up"></i>
-                  <!-- <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i> -->
-                  <!-- <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i> -->
-                </div>
-              </div>
-              <div class="tabla_cuerpo">
-                <div class="block_content row">
-                  <tal:objects repeat="outcome outcomes">
-                    <div class="col-md-12 text-item-planning">
-                      <div class="information object">
-                        <div class="contentt" id="total">
-                          <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type" i18n:translate=""> Outcome - KPI Type</div>
-                          <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
+                        <div class="contentt center_span" id="bl">
+                          <span tal:content="item/start">2019-03-29</span>
                         </div>
-                        <div class="contentt" id="bl" tal:content="outcome/base_date">2019-03-30</div>
-                        <div class="contentt" id="value" tal:content="outcome/base_value">2019-06-22</div>
-                        <div class="contentt" id="target">
-                          <tal:omit-tag tal:content="outcome/target_value"> Value </tal:omit-tag>
-                          <tal:omit-tag tal:content="outcome/measuring_unit"> Unit </tal:omit-tag>
+                        <div class="contentt center_span" id="value">
+                          <span tal:content="item/end">2019-03-30</span>
                         </div>
-                        <div class="contentt" id="freq" tal:content="outcome/measuring_frequency"> Frequency </div>
-                          <div class="contentt" id="resp" tal:define="members outcome/responsible">
-                            <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
-                            <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
-                          </div>
-                        <div class="contentt" id="actions">
-                          <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit">
-                            <i class="far fa-edit"></i>
-                          </a>
-                          <a href="#confirm-delete" data-toggle="modal" class="btn-delete"
+                        <div class="contentt center_span" id="target">
+                          <span tal:condition="python:item['portal_type'] == 'Activity'" tal:content="item/target_value_planned"> Value</span>
+                          <span tal:attributes="
+                              data-pk currentYear;
+                              data-name item/url;
+                              data-url string:${context/absolute_url}/changeTarget"
+                              data-type="text"
+                              data-title="Change target value"
+                              class="editable" tal:condition="python:item['portal_type'] == 'Output'" tal:content="item/target_value_planned"> Target Value Planned
+                          </span>
+                          <tal:omit-tag tal:content="item/unit"> Unit </tal:omit-tag>
+                        </div>
+                        <div class="contentt center_span" id="resp" tal:define="members item/responsible">
+                          <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
+                          <tal:block tal:condition="not:members" i18n:translate=""> Not assigned </tal:block>
+                        </div>
+                        <div class="contentt actions">
+                          <a class="pat-plone-modal"
                             tal:attributes="
-                                  data-url outcome/url;
-                                  data-type outcome/portal_type;
-                                  data-id outcome/title;" title="Delete" alt="Delete">
-                            <i class="far fa-trash-alt"></i>
-                          </a>
+                              href string:${item/url}/edit;
+                              title string:Edit ${item/title};
+                              alt string:Edit ${item/title}"><i class="far fa-edit"></i></a>
+                          <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
+                            tal:attributes="
+                              data-url item/url;
+                              data-type item/portal_type;
+                              data-id item/title;" title="Delete" alt="Delete">
+                            <i class="far fa-trash-alt"></i></a>
+                        </div>
+                      </div>
+                  <tal:block tal:condition="python:item['portal_type'] == 'Activity'" tal:define="outputs python:view.indicatorsInside(item);">
+                    <div tal:repeat="output outputs" class="block_sub_indicators">
+                      <div class="information object">
+                        <div class="contentt row" id="total">
+                          <div class="part1 label-2nd">
+                            <span tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</span>
+                          </div>
+                          <div class="part2 titulocatplan" tal:attributes="id output/portal_type" tal:content="output/title"> Item Title </div>
+                        </div>
+                        <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
+                        <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
+                        <div class="contentt" id="target">
+                          <span tal:attributes="
+                              data-pk currentYear;
+                              data-name output/url;
+                              data-url string:${context/absolute_url}/changeTarget"
+                              data-type="text"
+                              data-title="Change target value"
+                              class="editable" tal:content="output/target_value_planned"> Target Value Planned
+                          </span>
+                          <tal:omit-tag tal:content="output/unit"> Unit </tal:omit-tag>
+                        </div>
+                        <div class="contentt" id="resp" tal:define="members output/responsible">
+                          <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
+                          <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
+                        </div>
+                        <div class="contentt actions">
+                          <a class="pat-plone-modal"
+                            tal:attributes="
+                              href string:${output/url}/edit;
+                              title string:Edit ${output/title};
+                              alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
+                          <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
+                            tal:attributes="
+                              data-url output/url;
+                              data-type output/portal_type;
+                              data-id output/title;" title="Delete" alt="Delete">
+                            <i class="far fa-trash-alt"></i></a>
                         </div>
                       </div>
                     </div>
-                  </tal:objects>
+                  </tal:block>
                 </div>
               </div>
             </div>
-            <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
-              <div class="tabla_cabecera">
-                <div class="information object" id="header">
-                  <div class="contentt" id="total">
-                    <div class="titleRowPlanning">
-                      <tal:omit-tag i18n:translate=""> Utility Capacity </tal:omit-tag>
+          </tal:objects>
+        </tal:block-activities>
+      </fieldset>
+      <fieldset>
+        <legend i18n:translate=""> Outcomes </legend>
+        <div class="documentDescription titleCollapse">
+          <span id="collapseAllOutcomeTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
+          <span id="expandAllOutcomeTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div id="outcomes">
+          <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesKPI">
+            <div class="tabla_cabecera">
+              <div class="information object" id="header">
+                <div class="contentt" id="total">
+                  <div class="btn-group" role="group" aria-label="Add KPI">
+                    <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
+                      <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeKPI"><span><i class="fas fa-plus-circle"></i> New Overall KPI </span></a></li>
+                      <li><a class="pat-plone-modal" tabindex="-1" href="" tal:attributes="href string:${context/absolute_url}/++add++OutcomeZONE"><span><i class="fas fa-plus-circle"></i> New KPI Zone </span></a></li>
+                    </ul>
+                  </div>
+                  <div class="titleRowPlanning">
+                    <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag>
+                  </div>
+                </div>
+                <div class="contentt" id="bl">Baseline Date</div>
+                <div class="contentt" id="value">Baseline Value</div>
+                <div class="contentt" id="target">Target value</div>
+                <div class="contentt" id="mu">Frequency</div>
+                <div class="contentt" id="resp">Responsible</div>
+                <div class="contentt actions">Action</div>
+                <i class="fas fa-chevron-up"></i>
+                <!-- <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i> -->
+                <!-- <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i> -->
+              </div>
+            </div>
+            <div class="tabla_cuerpo">
+              <tal:objects repeat="outcome outcomes">
+                <div class="col-md-12 text-item-planning">
+                  <div class="information object">
+                    <div class="contentt" id="total">
+                      <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type" i18n:translate=""> Outcome - KPI Type</div>
+                      <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
+                    </div>
+                    <div class="contentt" id="bl" tal:content="outcome/base_date">2019-03-30</div>
+                    <div class="contentt" id="value" tal:content="outcome/base_value">2019-06-22</div>
+                    <div class="contentt" id="target">
+                      <tal:omit-tag tal:content="outcome/target_value"> Value </tal:omit-tag>
+                      <tal:omit-tag tal:content="outcome/measuring_unit"> Unit </tal:omit-tag>
+                    </div>
+                    <div class="contentt" id="freq" tal:content="outcome/measuring_frequency"> Frequency </div>
+                      <div class="contentt" id="resp" tal:define="members outcome/responsible">
+                        <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
+                        <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
+                      </div>
+                    <div class="contentt actions">
+                      <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <a href="#confirm-delete" data-toggle="modal" class="btn-delete"
+                        tal:attributes="
+                              data-url outcome/url;
+                              data-type outcome/portal_type;
+                              data-id outcome/title;" title="Delete" alt="Delete">
+                        <i class="far fa-trash-alt"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
+              </tal:objects>
+            </div>
+          </div>
+          <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
+            <div class="tabla_cabecera">
+              <div class="information object" id="header">
+                <div class="contentt" id="total">
+                  <div class="titleRowPlanning">
+                    <tal:omit-tag i18n:translate=""> Utility Capacity </tal:omit-tag>
+                  </div>
+                </div>
               </div>
-              <div class="tabla_cuerpo">
-                <div class="block_content row">
-                  <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
-                    <div class="information object">
-                      <div class="contentt addCapacity" id="total">
-                        <div class="btn-group" role="group" aria-label="Add element">
-                          <div data-toggle="dropdown">
-                            <i class="fas fa-plus-circle"></i>
-                          </div>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                            <li>
-                              <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCC">
-                                  <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve generic Capacity Change</tal:omit-tag></a>
-                            </li>
-                            <li>
-                              <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCCS">
-                                  <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve specific Capacity Change</tal:omit-tag></a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="CC-planning" i18n:translate="">Improve capacity in</div>
-                        <h4 class="titulocatplan" id="output" tal:content="outcome/area"> Working Area 1 </h4>
+            </div>
+            <div class="tabla_cuerpo">
+              <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
+                <div class="information object">
+                  <div class="contentt addCapacity" id="total">
+                    <div class="btn-group" role="group" aria-label="Add element">
+                      <div data-toggle="dropdown">
+                        <i class="fas fa-plus-circle"></i>
                       </div>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                        <li>
+                          <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCC">
+                              <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve generic Capacity Change</tal:omit-tag></a>
+                        </li>
+                        <li>
+                          <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCCS">
+                              <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve specific Capacity Change</tal:omit-tag></a>
+                        </li>
+                      </ul>
                     </div>
+                    <div class="CC-planning" i18n:translate="">Improve capacity in</div>
+                    <h4 class="titulocatplan" id="output" tal:content="outcome/area"> Working Area 1 </h4>
                   </div>
                 </div>
               </div>
@@ -293,6 +282,87 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="exampleModalLabel" i18n:translate=""> Add Output </h4>
+            </div>
+            <div class="modal-body" id="NewOutput">
+              <div class="modal-url" id="modalPath" style="display: none;"></div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label id="label-output" i18n:translate="">Title</label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <input id="out-title" type="hidden"/>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="control-label" i18n:translate="">Description</label>
+                    <textarea class="form-control" id="out-description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="control-label" i18n:translate="">Baseline description</label>
+                    <textarea class="form-control" id="out-baseline"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" i18n:translate="">Completion date</label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input id="out-datetimepicker" class="pat-pickadate" data-pat-pickadate="time:false"/>
+                </div>
+                <div class="form-group">
+                  <label id="label-unit" i18n:translate=""> Measuring unit </label>
+                  <input id="out-unit" type="hidden"/>
+                </div>
+                <div class="form-group">
+                  <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
+                  <input id="out-frequency" type="hidden"/>
+                </div>
+                <div class="form-group" id='TextBoxesGroup'>
+                  <div id="TextBoxDiv1">
+                    <div class="row">
+                      <div class="col-md-6" style="margin-top: 0px;">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
+                        <input type="text" class="form-control" id="target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
+                      </div>
+                      <div class="col-md-6" style="margin:0px 0px 10px 0px;">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
+                        <input class="form-control" id="target-date-1" readonly/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="button" id='addTargetValueButton'>
+                    <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate="">Add target</tal:omit-tag>
+                  </button>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
+                  <textarea class="form-control" id="out-means"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <textarea class="form-control" id="out-risks"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
+                  <input type="hidden" class="pat-select2" id="out-responsible"
+                              data-pat-select2="placeholder:Search users;
+                                                vocabularyUrl:select2-users.json;"/>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn form-buttons-cancel" data-dismiss="modal" i18n:translate="">Cancel</button>
+              <button type="submit" id="createOutputFromModal" class="btn btn-default" data-dismiss="modal" i18n:translate="">Create</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<!--     <div id="modalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalEditOutput" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalEditOutput" i18n:translate=""> Add Output </h4>
             </div>
             <div class="modal-body" id="NewOutput">
               <div class="modal-url" id="modalPath" style="display: none;"></div>
@@ -364,7 +434,7 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>

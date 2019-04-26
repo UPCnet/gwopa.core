@@ -12,7 +12,10 @@ import datetime
 class getPhases(BrowserView):
     # /api-getphases
     def __call__(self):
-        project = self.context
+        if self.context.portal_type == 'Project':
+            project = self.context
+        else:
+            project = self.context.aq_parent
         results = []
         results = [{'phases': len(project.gwopa_year_phases),
                     'gwopa_year_phases': project.gwopa_year_phases,
@@ -125,19 +128,14 @@ class Create(BrowserView):
         obj.means = self.request.form.get('item_means')
         obj.risks = self.request.form.get('item_risks')
         obj.members = self.request.form.get('item_responsible')
-        target1 = self.request.form.get('item_target1')
-        target2 = self.request.form.get('item_target2')
-        target3 = self.request.form.get('item_target3')
-        target4 = self.request.form.get('item_target4')
-        KEY1 = "GWOPA_TARGET_YEAR_1"
-        KEY2 = "GWOPA_TARGET_YEAR_2"
-        KEY3 = "GWOPA_TARGET_YEAR_3"
-        KEY4 = "GWOPA_TARGET_YEAR_4"
+
         annotations = IAnnotations(obj)
-        annotations[KEY1] = target1
-        annotations[KEY2] = target2
-        annotations[KEY3] = target3
-        annotations[KEY4] = target4
+        for x in range(0, 11):  # Create 10 annotations
+            target = self.request.form.get('item_target' + str(x + 1))
+            data = dict(real='', planned=target)
+            KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
+            annotations[KEY] = data
+
         date_end = self.request.form.get('item_date')
         if date_end:
             obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
@@ -154,5 +152,5 @@ class ChangeTarget(BrowserView):
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         item = api.content.find(path=item_path, depth=0)[0]
         annotations = IAnnotations(item.getObject())
-        annotations[KEY] = new_value
+        annotations[KEY]['planned'] = new_value
         return "OK, value changed"

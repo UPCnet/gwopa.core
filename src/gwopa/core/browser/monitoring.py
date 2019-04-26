@@ -64,23 +64,6 @@ class monitoringView(BrowserView):
             return self.index()
         # TODO: if copy or delete make action!
 
-    def getAnnotation(self):
-        KEY = "GWOPA_YEAR_" + str(self.year)
-        annotations = IAnnotations(self.context)
-        if KEY in annotations.keys():
-            data = []
-            # values = dict(
-            #     progress_degree='progress_degree',
-            #     explanation='explanation',
-            # )
-
-            # data.append(values)
-            # annotations[KEY] = data
-            #return KEY
-            return annotations[KEY]
-        else:
-            return "No existe la annotation"
-
     def getPhases(self):
         return len(self.context.gwopa_year_phases)
 
@@ -152,13 +135,16 @@ class monitoringView(BrowserView):
             annotations = IAnnotations(item.getObject())
             if KEY in annotations.keys():
                 if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
-                    target_value = 'Not defined'
+                    target_value_real = ''
+                    target_value_planned = _(u"Not defined")
                     unit = ''
                 else:
-                    target_value = annotations[KEY]
+                    target_value_real = annotations[KEY]['real']
+                    target_value_planned = annotations[KEY]['planned']
                     unit = obj.measuring_unit
             else:
-                target_value = 'Not defined'
+                target_value_real = ''
+                target_value_planned = _(u"Not defined")
                 unit = ''
             if not item.start:
                 item.start = '-----'
@@ -170,7 +156,8 @@ class monitoringView(BrowserView):
                 start=item.start,
                 end=item.end,
                 unit=unit,
-                value=target_value,
+                target_value_real=target_value_real,
+                target_value_planned=target_value_planned,
                 year='-----',
                 next_update=data_year['end_iso'],
                 url='/'.join(obj.getPhysicalPath())))
