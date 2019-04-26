@@ -12,7 +12,10 @@ import datetime
 class getPhases(BrowserView):
     # /api-getphases
     def __call__(self):
-        project = self.context
+        if self.context.portal_type == 'Project':
+            project = self.context
+        else:
+            project = self.context.aq_parent
         results = []
         results = [{'phases': len(project.gwopa_year_phases),
                     'gwopa_year_phases': project.gwopa_year_phases,
