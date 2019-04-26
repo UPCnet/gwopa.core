@@ -29,7 +29,6 @@
       This year starts on <span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span> and ends on <span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>
     </div>
 
-    <span tal:content="view/getAnnotation"> TEST ANNOTATIONS </span>
     <span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
 
     <div id="tabsmonitoring" class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
@@ -82,7 +81,8 @@
                         </div>
                         <div class="contentt" id="comple" tal:content="item/end">28-02-2020</div>
                         <div class="contentt" id="pyv">
-                          <span tal:content="item/value"> 200 </span>
+                          <span tal:content="item/target_value_real"> 200 </span> /
+                          <span tal:content="item/target_value_planned"> 200 </span>
                           <span tal:content="item/unit"> m3 </span>
                         </div>
                         <div class="contentt" id="nexupd" tal:content="item/next_update"> 18-12-2022</div>
