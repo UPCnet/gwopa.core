@@ -302,7 +302,16 @@
                 <div class="form-group">
                     <label class="control-label" i18n:translate="">Completion date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="out-datetimepicker" class="pat-pickadate" data-pat-pickadate="time:false"/>
+                    <input id="out-datetimepicker" class="pat-pickadate"
+                    tal:attributes="data-pat-pickadate view/custom_pattern_options" />
+           <!--            data-pat-pickadate=
+                        '{
+                            "date":{
+                              "min":[2015,1,1],
+                              "max":[2017,1,1]
+                            },
+                            "time": false
+                          }'/> -->
                 </div>
                 <div class="form-group">
                   <label id="label-unit" i18n:translate=""> Measuring unit </label>
