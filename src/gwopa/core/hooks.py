@@ -49,6 +49,8 @@ def projectAdded(content, event):
     datas.append(content.completionactual.strftime("%B %d, %Y"))
     isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
     isodate.append(content.completionactual.strftime("%Y-%d-%m"))
+    patterndate = [(date1 + relativedelta(years=i)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
+    patterndate.append(content.completionactual.strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
 
     results = []
     if fases > 1:
@@ -59,6 +61,8 @@ def projectAdded(content, event):
                 end=datas[1 + count],
                 start_iso=isodate[0 + count],
                 end_iso=isodate[1 + count],
+                pattern_start=patterndate[0 + count],
+                pattern_end=patterndate[1 + count],
                 fase=count + 1
             ))
             count = count + 1
@@ -69,6 +73,8 @@ def projectAdded(content, event):
             end=datas[1],
             start_iso=isodate[0],
             end_iso=isodate[1],
+            pattern_start=patterndate[0],
+            pattern_end=patterndate[1],
             fase=1
         ))
     content.gwopa_year_phases = results
@@ -142,6 +148,8 @@ def projectModified(content, event):
         datas.append(content.completionactual.strftime("%B %d, %Y"))
         isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
         isodate.append(content.completionactual.strftime("%Y-%d-%m"))
+        patterndate = [(date1 + relativedelta(years=i)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
+        patterndate.append(content.completionactual.strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
 
         results = []
         if fases > 1:
@@ -152,6 +160,8 @@ def projectModified(content, event):
                     end=datas[1 + count],
                     start_iso=isodate[0 + count],
                     end_iso=isodate[1 + count],
+                    pattern_start=patterndate[0 + count],
+                    pattern_end=patterndate[1 + count],
                     fase=count + 1
                 ))
                 count = count + 1
@@ -162,6 +172,8 @@ def projectModified(content, event):
                 end=datas[1],
                 start_iso=isodate[0],
                 end_iso=isodate[1],
+                pattern_start=patterndate[0],
+                pattern_end=patterndate[1],
                 fase=1
             ))
         content.gwopa_year_phases = results

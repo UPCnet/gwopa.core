@@ -218,11 +218,8 @@ class planningView(BrowserView):
         return results
 
     def custom_pattern_options(self):
-        # start = self.context.gwopa_year_phases[:][0]['start_iso'].replace('-', ',')
-        # end = self.context.gwopa_year_phases[-1:][0]['end_iso'].replace('-', ',')
-        # TODO : cambiar fechas con 04 to 4. Poner en indice ya preparadas
+        start = self.context.gwopa_year_phases[:][0]['pattern_start']
+        end = self.context.gwopa_year_phases[-1:][0]['pattern_end']
         #       pasar los limites para ponerlos en el label
-        start = '2020,25,4'
-        end = '2022,28,4'
         value = '{"date":{ "min":[' + start + '], "max":[' + end + ']}, "time": false}'
         return value
