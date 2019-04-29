@@ -16,7 +16,7 @@
       <ul class="pagination pagination-lg" tal:define="items view/getItems">
         <tal:block tal:repeat="item items">
           <li tal:attributes="class item/classe; alt item/alt; title item/alt">
-            <a href="#" tal:attributes="href item/url" tal:content="item/title"> Project year XXX </a>
+            <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag></a>
           </li>
         </tal:block>
       </ul>
@@ -73,7 +73,7 @@
                                 <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                                   <li>
-                                    <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url" style="float: left;">
+                                    <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val view/getPath" style="float: left;">
                                           <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a>
                                   </li>
                                 </ul>
@@ -200,12 +200,12 @@
                     <tal:omit-tag i18n:translate=""> Utility Performance </tal:omit-tag>
                   </div>
                 </div>
-                <div class="contentt" id="bl">Baseline Date</div>
-                <div class="contentt" id="value">Baseline Value</div>
-                <div class="contentt" id="target">Target value</div>
-                <div class="contentt" id="mu">Frequency</div>
-                <div class="contentt" id="resp">Responsible</div>
-                <div class="contentt" id="actions">Action</div>
+                <div class="contentt" id="bl" i18n:translate=""> Baseline date </div>
+                <div class="contentt" id="value" i18n:translate=""> Baseline value </div>
+                <div class="contentt" id="target" i18n:translate=""> Target value </div>
+                <div class="contentt" id="mu" i18n:translate=""> Frequency </div>
+                <div class="contentt" id="resp" i18n:translate=""> Responsible </div>
+                <div class="contentt" id="actions" i18n:translate=""> Action </div>
                 <i class="fas fa-chevron-up collapseOutcome" aria-hidden="true"></i>
                 <i class="fas fa-chevron-down expandOutcome" aria-hidden="true"></i>
               </div>
@@ -404,7 +404,7 @@
                       <div class="col-md-6" style="padding-left: 0px;">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input class="form-control" id="kpi-baseline"></input>
+                    <input class="form-control" id="kpi-baseline" />
                   </div>
                   <div class="col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>

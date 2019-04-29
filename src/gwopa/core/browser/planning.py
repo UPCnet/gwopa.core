@@ -45,6 +45,9 @@ class planningView(BrowserView):
     def projectTitle(self):
         return self.context.title
 
+    def getPath(self):
+        return '/'.join(self.context.getPhysicalPath())
+
     def __call__(self):
         if not self.year or self.year == '0':
             # Empty query or 0 returns default template
@@ -88,9 +91,10 @@ class planningView(BrowserView):
             else:
                 url = self.context.absolute_url_path() + '/planning/' + str(total + 1)
             results.append(dict(
-                title=_(u"Project year") + ' ' + str(total + 1),
+                title=_(u"Project year"),
+                year=str(total + 1),
                 url=url,
-                alt=_(u"Show planning of year ") + str(total + 1),
+                alt=_(u"Show planning of year "),
                 classe=classe))
             total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)
