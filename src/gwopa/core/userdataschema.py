@@ -58,12 +58,11 @@ class IEnhancedUserDataSchema(model.Schema):
         ),
     )
 
-    wop_partners = schema.List(
+    wop_partners = schema.Choice(
         title=_(u"WOP Partners"),
+        description=_(u""),
+        source=utils.listPartners,
         required=False,
-        value_type=schema.Choice(
-            source=utils.listPartners,
-        ),
     )
 
 
