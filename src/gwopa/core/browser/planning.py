@@ -46,7 +46,7 @@ class planningView(BrowserView):
         return self.context.title
 
     def getPath(self):
-        return '/'.join(self.context.getPhysicalPath())
+        return '/'.join(api.portal.get().getPhysicalPath())
 
     def __call__(self):
         if not self.year or self.year == '0':
