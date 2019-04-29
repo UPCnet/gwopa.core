@@ -65,4 +65,15 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <!-- override personal-preferences -->
+  <configure package="plone.app.users.browser">
+    <browser:page
+      name="personal-preferences"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      class=".userdatapanel.UserDataPanel"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+      permission="cmf.ManagePortal"
+    />
+  </configure>
+
 </configure>
