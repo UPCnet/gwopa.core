@@ -238,5 +238,5 @@ class planningView(BrowserView):
         start = self.context.gwopa_year_phases[:][0]['pattern_start']
         end = self.context.gwopa_year_phases[-1:][0]['pattern_end']
         #       pasar los limites para ponerlos en el label
-        value = '{"date":{ "min":[' + start + '], "max":[' + end + ']}, "time": false}'
+        value = '{"date":{ "min":[' + start + '], "max":[' + end + ']}, "time": false, "today": false, "clear": false}'
         return value

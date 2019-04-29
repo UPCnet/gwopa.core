@@ -50,10 +50,6 @@
                           <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${item/url}/++add++Activity">
                             <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a>
                         </li>
-                        <li>
-                          <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url">
-                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a>
-                        </li>
                       </ul>
                     </div>
                     <div class="titleRowPlanning"><a tal:attributes="href item/url" tal:content="item/title"> Area Title </a></div>
@@ -73,8 +69,15 @@
                         <div class="contentt row" id="total">
                           <div class="part0">
                             <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
-                              <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url" style="float: left;">
-                                <i class="fas fa-plus-circle"></i></a>
+                              <div class="btn-group" role="group" aria-label="Add element">
+                                <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                                  <li>
+                                    <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url" style="float: left;">
+                                          <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a>
+                                  </li>
+                                </ul>
+                              </div>
                             </tal:block>
                           </div>
                           <div class="part1">
@@ -397,14 +400,13 @@
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="kpi-description"></textarea>
                 </div>
-
                 <div class="form-group">
-                      <div class="col-md-4" style="padding-left: 0px;">
+                      <div class="col-md-6" style="padding-left: 0px;">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpi-baseline"></input>
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpi-datetimepicker" class="pat-pickadate"
