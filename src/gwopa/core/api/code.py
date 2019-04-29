@@ -117,24 +117,27 @@ class Create(BrowserView):
         # TODO: check permissions. now cmf.ModifyPortalContent
         item = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
         title = self.request.form.get('item_title')
+        portal_type = self.request.form.get('item_type')
         obj = api.content.create(
             title=title,
-            type='Output',
+            type=portal_type,
             container=item.getObject())
         obj.description = self.request.form.get('item_description')
         obj.initial_situation = self.request.form.get('item_baseline')
+        obj.baseline = self.request.form.get('item_baseline')
         obj.measuring_unit = self.request.form.get('item_unit')
         obj.measuring_frequency = self.request.form.get('item_frequency')
         obj.means = self.request.form.get('item_means')
         obj.risks = self.request.form.get('item_risks')
         members = []
-        users = self.request.form.get('item_responsible').split(',')
-        if isinstance(users, (str,)):
-            members.append(users)
-        else:
-            for member in users:
-                members.append(member)
-        obj.members = members
+        if (self.request.form.get('item_responsible') is not ''):
+            users = self.request.form.get('item_responsible').split(',')
+            if isinstance(users, (str,)):
+                members.append(users)
+            else:
+                for member in users:
+                    members.append(member)
+            obj.members = members
         annotations = IAnnotations(obj)
         for x in range(0, 11):  # Create 10 annotations
             target = self.request.form.get('item_target' + str(x + 1))

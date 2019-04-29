@@ -158,7 +158,6 @@ class planningView(BrowserView):
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
-
             if item.portal_type == 'Activity':
                 unit = ''
                 target_value_planned = '-----'
@@ -179,19 +178,35 @@ class planningView(BrowserView):
             portal_type=['OutcomeKPI', 'OutcomeZONE'],
             context=self.context)
         results = []
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
         for item in items:
             members = []
             obj = item.getObject()
+            annotations = IAnnotations(item.getObject())
+            if KEY in annotations.keys():
+                if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
+                    target_value_planned = _(u"Not defined")
+                    unit = ''
+                else:
+                    target_value_planned = annotations[KEY]['planned']
+                    unit = obj.measuring_unit
+            else:
+                target_value_planned = _(u"Not defined")
+                unit = ''
             if obj.members:
                 users = obj.members
-                for member in users:
-                    members.append(api.user.get(username=member).getProperty('fullname'))
+                if isinstance(users, (str,)):
+                    members.append(api.user.get(username=users[0]).getProperty('fullname'))
+                else:
+                    for member in users:
+                        members.append(api.user.get(username=member).getProperty('fullname'))
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
                 base_date=obj.baseline_date,
-                base_value='baseline_value',
-                target_value='target_value',
+                base_value=obj.baseline,
+                unit=unit,
+                target_value_planned=target_value_planned,
                 measuring_unit=obj.measuring_unit,
                 measuring_frequency=obj.measuring_frequency,
                 portal_type=item.portal_type,
