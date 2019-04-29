@@ -158,6 +158,7 @@ class planningView(BrowserView):
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
+
             if item.portal_type == 'Activity':
                 unit = ''
                 target_value_planned = '-----'
@@ -218,6 +219,7 @@ class planningView(BrowserView):
         return results
 
     def custom_pattern_options(self):
+        """ Pass data from project to picker date in modal """
         start = self.context.gwopa_year_phases[:][0]['pattern_start']
         end = self.context.gwopa_year_phases[-1:][0]['pattern_end']
         #       pasar los limites para ponerlos en el label

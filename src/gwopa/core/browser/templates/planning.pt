@@ -22,13 +22,13 @@
       </ul>
     </div>
     <h1 class="documentFirstHeading">
-      <tal:omit-tag i18n:translate="">Planning</tal:omit-tag> -
+      <tal:omit-tag i18n:translate=""> Planning </tal:omit-tag> -
       <span><tal:omit-tag tal:content="view/projectTitle"></tal:omit-tag></span></h1>
     <div class="documentDescription description projectDates">
       <span class="dateNumbers">
-        <tal:omit-tag i18n:translate="">Project year</tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear">2019</tal:omit-tag>
+        <tal:omit-tag i18n:translate=""> Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"> 2019 </tal:omit-tag>
       </span>
-      <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers">2019-02-02</span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers">2019-03-03</span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
+      <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     </div>
     <div id="tabsplanning" class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
       <fieldset>
@@ -36,7 +36,7 @@
         <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
           <div class="documentDescription titleCollapse">
             <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
-            <span id="expandAllProjectTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
+            <span id="expandAllProjectTab"><tal:omit-tag i18n:translate=""> Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
           </div>
           <tal:objects repeat="item areas">
             <div class="tabla_contenido_items" id="project" tal:define="files python:view.indicatorsInside(item);">
@@ -48,11 +48,11 @@
                       <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                         <li>
                           <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${item/url}/++add++Activity">
-                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Activity</tal:omit-tag></a>
+                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a>
                         </li>
                         <li>
                           <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url">
-                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate="">Add Output</tal:omit-tag></a>
+                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a>
                         </li>
                       </ul>
                     </div>
@@ -62,9 +62,9 @@
                   <div class="contentt" id="value" i18n:translate="">Completion date</div>
                   <div class="contentt" id="target" i18n:translate="">Target value</div>
                   <div class="contentt" id="resp" i18n:translate="">Responsible</div>
-                  <div class="contentt actions" i18n:translate="">Action </div>
-                  <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i>
-                  <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i>
+                  <div class="contentt" id="actions" i18n:translate="">Action </div>
+                  <i class="fas fa-chevron-up collapseItem"></i>
+                  <i class="fas fa-chevron-down expandItem"></i>
                 </div>
               </div>
               <div class="tabla_cuerpo" tal:repeat="item files">
@@ -104,7 +104,7 @@
                           <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
                           <tal:block tal:condition="not:members" i18n:translate=""> Not assigned </tal:block>
                         </div>
-                        <div class="contentt actions">
+                        <div class="contentt" id="actions">
                           <a class="pat-plone-modal"
                             tal:attributes="
                               href string:${item/url}/edit;
@@ -117,6 +117,10 @@
                               data-id item/title;" title="Delete" alt="Delete">
                             <i class="far fa-trash-alt"></i></a>
                         </div>
+                        <tal:omit-tag  tal:condition="python:item['portal_type'] == 'Activity'">
+                          <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i>
+                          <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i>
+                       </tal:omit-tag>
                       </div>
                   <tal:block tal:condition="python:item['portal_type'] == 'Activity'" tal:define="outputs python:view.indicatorsInside(item);">
                     <div tal:repeat="output outputs" class="block_sub_indicators">
@@ -144,7 +148,7 @@
                           <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
                           <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
                         </div>
-                        <div class="contentt actions">
+                        <div class="contentt" id="actions">
                           <a class="pat-plone-modal"
                             tal:attributes="
                               href string:${output/url}/edit;
@@ -193,10 +197,9 @@
                 <div class="contentt" id="target">Target value</div>
                 <div class="contentt" id="mu">Frequency</div>
                 <div class="contentt" id="resp">Responsible</div>
-                <div class="contentt actions">Action</div>
-                <i class="fas fa-chevron-up"></i>
-                <!-- <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i> -->
-                <!-- <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i> -->
+                <div class="contentt" id="actions">Action</div>
+                <i class="fas fa-chevron-up collapseOutcome" aria-hidden="true"></i>
+                <i class="fas fa-chevron-down expandOutcome" aria-hidden="true"></i>
               </div>
             </div>
             <div class="tabla_cuerpo">
@@ -218,7 +221,7 @@
                         <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
                         <ul tal:condition="not:members"><li i18n:translate=""> Not assigned </li></ul>
                       </div>
-                    <div class="contentt actions">
+                    <div class="contentt" id="actions">
                       <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit">
                         <i class="far fa-edit"></i>
                       </a>
@@ -275,13 +278,13 @@
       </fieldset>
     </div>
 
-    <div id="modalOutput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-dismiss="modal" aria-hidden="true">
+    <div id="modalOutput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalAddOutput" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form>
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="exampleModalLabel" i18n:translate=""> Add Output </h4>
+              <h4 class="modal-title" id="modalAddOutput" i18n:translate=""> Add Output </h4>
             </div>
             <div class="modal-body" id="NewOutput">
               <div class="modal-url" id="modalPath" style="display: none;"></div>
@@ -304,21 +307,15 @@
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="out-datetimepicker" class="pat-pickadate"
                     tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-           <!--            data-pat-pickadate=
-                        '{
-                            "date":{
-                              "min":[2015,1,1],
-                              "max":[2017,1,1]
-                            },
-                            "time": false
-                          }'/> -->
                 </div>
                 <div class="form-group">
                   <label id="label-unit" i18n:translate=""> Measuring unit </label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="out-unit" type="hidden"/>
                 </div>
                 <div class="form-group">
                   <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="out-frequency" type="hidden"/>
                 </div>
                 <div class="form-group" id='TextBoxesGroup'>
@@ -330,7 +327,7 @@
                       </div>
                       <div class="col-md-6" style="margin:0px 0px 10px 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
-                        <input class="form-control" id="target-date-1" readonly/>
+                        <p id="target-date-1" style="padding: 6px 12px;"></p>
                       </div>
                     </div>
                   </div>
@@ -357,8 +354,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn form-buttons-cancel" data-dismiss="modal" i18n:translate="">Cancel</button>
-              <button type="submit" id="createOutputFromModal" class="btn btn-default" data-dismiss="modal" i18n:translate="">Create</button>
+              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="createOutputFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
             </div>
           </form>
         </div>

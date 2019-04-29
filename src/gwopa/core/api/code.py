@@ -127,8 +127,14 @@ class Create(BrowserView):
         obj.measuring_frequency = self.request.form.get('item_frequency')
         obj.means = self.request.form.get('item_means')
         obj.risks = self.request.form.get('item_risks')
-        obj.members = self.request.form.get('item_responsible')
-
+        members = []
+        users = self.request.form.get('item_responsible').split(',')
+        if isinstance(users, (str,)):
+            members.append(users)
+        else:
+            for member in users:
+                members.append(member)
+        obj.members = members
         annotations = IAnnotations(obj)
         for x in range(0, 11):  # Create 10 annotations
             target = self.request.form.get('item_target' + str(x + 1))
