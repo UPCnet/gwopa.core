@@ -38,15 +38,16 @@ class Renderer(base.Renderer):
             try:
                 portal_state = self.context.restrictedTraverse('@@plone_portal_state')
                 root = getNavigationRootObject(self.context, portal_state.portal())
+                project_path = root.absolute_url()
                 physical_path = aq_inner(self.context).getPhysicalPath()
                 relative = physical_path[len(root.getPhysicalPath()):]
+                now = ""
                 for i in range(len(relative)):
-                    now = relative[:i + 1]
+                    now += relative[i] + "/"
                     obj = aq_inner(root.restrictedTraverse(now))
                     if IProject.providedBy(obj):
-                        return obj.absolute_url()
-                    else:
-                        return root.absolute_url()
+                        project_path = obj.absolute_url()
+                return project_path
             except:
                 return None
         return None
