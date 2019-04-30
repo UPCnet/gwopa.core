@@ -426,7 +426,7 @@ class View(grok.View):
             ))
         return results
 
-    def get_currency(self):
+    def get_budget(self):
         items = api.content.find(
             portal_type=['ContribOther', 'ContribPartner', 'ContribDonor'],
             path='/'.join(self.context.getPhysicalPath()) + '/contribs/',

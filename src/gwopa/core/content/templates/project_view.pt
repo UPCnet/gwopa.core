@@ -20,6 +20,7 @@
                   partners view/getPartners;
                   donors view/donors;
                   others view/others;
+                  get_budget view/get_budget;
                   getProject_manager view/getProject_manager;">
 
   <h1 class="documentFirstHeading">
@@ -140,13 +141,12 @@
                 <td class="contibutioncentered" tal:content="partner/incash"></td>
                 <td class="contibutioncentered" tal:content="partner/inkind"></td>
               </tal:block>
-
             </tr>
           </table>
         </div>
 
-        <div class="buttonbudget" tal:condition="view/get_currency">
-          <tal:omit-tag i18n:translate="">Total budget: </tal:omit-tag>&nbsp;<span tal:content="view/get_currency"></span>
+        <div class="buttonbudget" tal:condition="get_budget">
+          <tal:omit-tag i18n:translate="">Total budget: </tal:omit-tag>&nbsp;<span tal:content="get_budget"></span>
         </div>
       </div>
 
@@ -167,8 +167,6 @@
                 <tr tal:attributes="class partner/managerClass">
                   <td>
                     <tal:block tal:replace="structure partner/image"></tal:block>
-<!--                     <tal:block tal:condition="partner/manager"></tal:block> -->
-
                     <tal:block tal:content="partner/name"></tal:block>
                   </td>
                   <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
@@ -205,9 +203,56 @@
           </a>
         </div>
       </tal:areas>
+<!--
+      <a data-toggle="modal" class="afegirKPI" data-target="#modalDonor">
+        <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New Donor  </tal:omit-tag></a> -->
     </div>
   </div>
-
+<!--
+    <div id="modalDonor" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalAddDonor" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form class="form-horizontal">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalAddDonor" i18n:translate=""> New Partner Contributor </h4>
+            </div>
+            <div class="modal-body" id="NewDonor">
+              <div class="form-group" style="padding-top:15px;">
+                <label class="col-sm-2 control-label" for="exampleInputAmount"> Name </label>
+                <div class="input-group col-sm-10">
+                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group" style="padding-top:15px;">
+                <label class="col-sm-2 control-label" for="exampleInputAmount"> In-kind </label>
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">$</div>
+                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                </div>
+              </div>
+              <div class="form-group" style="padding-top:15px;">
+                <label class="col-sm-2 control-label" for="exampleInputAmount"> In-cash </label>
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">$</div>
+                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="createKPIFromModal"  data-dismiss="modal" i18n:translate="">Save</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
+    <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/modal-output.js"></script>
+ -->
   <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/readmore.js"></script>
 
 </metal:content-core>

@@ -21,6 +21,9 @@
         </tal:block>
       </ul>
     </div>
+
+
+
     <h1 class="documentFirstHeading">
       <tal:omit-tag i18n:translate=""> Planning </tal:omit-tag> -
       <span><tal:omit-tag tal:content="view/projectTitle"></tal:omit-tag></span></h1>
@@ -85,25 +88,27 @@
                           </div>
                           <div class="part2 titulocatplan" tal:attributes="id item/portal_type" tal:content="item/title"> Activity/Output Title </div>
                         </div>
-                        <div class="contentt center_span" id="bl">
+                        <div class="contentt" id="bl">
                           <span tal:content="item/start">2019-03-29</span>
                         </div>
-                        <div class="contentt center_span" id="value">
+                        <div class="contentt" id="value">
                           <span tal:content="item/end">2019-03-30</span>
                         </div>
-                        <div class="contentt center_span" id="target">
-                          <span tal:condition="python:item['portal_type'] == 'Activity'" tal:content="item/target_value_planned"> Value</span>
+                        <div class="contentt text_center" tal:condition="python:item['portal_type'] == 'Activity'" id="target">
+                             <span tal:content="item/target_value_planned"> Target Value Planned </span>
+                        </div>
+                        <div class="contentt text_left" tal:condition="python:item['portal_type'] == 'Output'" id="target">
                           <span tal:attributes="
                               data-pk currentYear;
                               data-name item/url;
                               data-url string:${context/absolute_url}/changeTarget"
                               data-type="text"
                               data-title="Change target value"
-                              class="editable" tal:condition="python:item['portal_type'] == 'Output'" tal:content="item/target_value_planned"> Target Value Planned
+                              class="editable" tal:content="item/target_value_planned"> Target Value Planned
                           </span>
-                          <tal:omit-tag tal:content="item/unit"> Unit </tal:omit-tag>
+                          <span tal:content="item/unit"> Unit </span>
                         </div>
-                        <div class="contentt center_span" id="resp" tal:define="members item/responsible">
+                        <div class="contentt" id="resp" tal:define="members item/responsible">
                           <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
                           <tal:block tal:condition="not:members" i18n:translate=""> Not assigned </tal:block>
                         </div>
@@ -304,39 +309,29 @@
             </div>
             <div class="modal-body" id="NewOutput">
               <div class="modal-url" id="OutputPath" style="display:none"></div>
-              <div class="col-md-12">
-                <div class="form-group">
+              <div class="row">
+                <div class="form-group col-md-12">
                   <label id="label-output" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="out-title" type="hidden"/>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="out-description"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="message-text" class="control-label" i18n:translate="">Baseline description</label>
-                    <textarea class="form-control" id="out-baseline"></textarea>
-                </div>
-                <div class="form-group">
+                <div class="form-group row">
+                  <div class="col-md-6">
                     <label class="control-label" i18n:translate="">Completion date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="out-datetimepicker" class="pat-pickadate"
-                    tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-                </div>
-                <div class="form-group">
-                  <div class="col-md-6" style="padding-left: 0px;">
-                    <label id="label-unit" i18n:translate=""> Measuring unit </label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="out-unit" type="hidden"/>
+                    <input id="out-datetimepicker" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
-                  <div class="col-md-6" style="padding-right: 0px;">
-                    <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="out-frequency" type="hidden"/>
+                  <div class="col-md-6">
+                      <label id="label-unit" i18n:translate=""> Measuring unit </label>
+                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <input id="out-unit" type="hidden"/>
                   </div>
                 </div>
-                <div class="form-group" id='TextBoxesGroup'>
+                <div class="form-group col-md-12" id='TextBoxesGroup'>
                   <div id="TextBoxDiv1">
                     <div class="row">
                       <div class="col-md-6" style="margin-top: 0px; padding-left: 0px;">
@@ -355,15 +350,15 @@
                     <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate="">Add target</tal:omit-tag>
                   </button>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
                   <textarea class="form-control" id="out-means"></textarea>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="out-risks"></textarea>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                   <input type="hidden" class="pat-select2" id="out-responsible"
                               data-pat-select2="placeholder:Search users;
@@ -383,25 +378,25 @@
     <div id="modalKPI" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalAddKPI" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <form class="form-horizontal">
+          <form>
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="modalAddKPI" i18n:translate=""> Add KPI </h4>
+              <h4 class="modal-title" id="modalAddKPI" i18n:translate=""> Add New Overall KPI </h4>
             </div>
             <div class="modal-body" id="NewKPI">
               <div class="modal-url" id="KPIPath" style="display:none"></div>
-              <div class="col-md-12">
-                <div class="form-group">
+              <div class="row">
+                <div class="form-group col-md-12">
                   <label id="label-kpi" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="kpi-title" type="hidden"/>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="kpi-description"></textarea>
                 </div>
-                <div class="form-group">
-                      <div class="col-md-6" style="padding-left: 0px;">
+                <div class="form-group row">
+                      <div class="col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpi-baseline" />
@@ -413,19 +408,19 @@
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
                 </div>
-                <div class="form-group">
-                  <div class="col-md-6" style="padding-left: 0px;">
+                <div class="form-group row">
+                  <div class="col-md-6">
                     <label id="label-unit" i18n:translate=""> Measuring unit </label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpi-unit" type="hidden"/>
                   </div>
-                  <div class="col-md-6" style="padding-right: 0px;">
+                  <div class="col-md-6">
                     <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpi-frequency" type="hidden"/>
                   </div>
                 </div>
-                <div class="form-group" id='KPITextBoxesGroup'>
+                <div class="form-group col-md-12" id='KPITextBoxesGroup'>
                   <div id="KPITextBoxDiv1">
                     <div class="row">
                       <div class="col-md-6" style="margin-top: 0px; padding-left:0px;">
@@ -444,15 +439,15 @@
                     <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate="">Add target</tal:omit-tag>
                   </button>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
                   <textarea class="form-control" id="kpi-means"></textarea>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="kpi-risks"></textarea>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                   <input type="hidden" class="pat-select2" id="kpi-responsible"
                               data-pat-select2="placeholder:Search users;

@@ -5,11 +5,11 @@ from zope import schema
 from gwopa.core import _
 import datetime
 from plone.directives import form
-from z3c.form.interfaces import IAddForm, IEditForm
+# from z3c.form.interfaces import IAddForm, IEditForm
 from plone.autoform import directives
 from plone.app.z3cform.widget import SelectWidget
 from gwopa.core import utils
-from z3c.form.interfaces import HIDDEN_MODE, DISPLAY_MODE, INPUT_MODE
+from z3c.form.interfaces import DISPLAY_MODE
 
 grok.templatedir("templates")
 
@@ -32,12 +32,6 @@ class IOutput(model.Schema):
         missing_value=u'',
     )
 
-    initial_situation = schema.Text(
-        title=_(u'Baseline description'),
-        required=False,
-        missing_value=u'',
-    )
-
     end = schema.Date(
         title=_(u'Completion date'),
         required=True,
@@ -47,12 +41,6 @@ class IOutput(model.Schema):
     measuring_unit = schema.Choice(
         title=_(u"Measuring unit"),
         source=utils.settings_measuring_unit,
-        required=True,
-    )
-
-    measuring_frequency = schema.Choice(
-        title=_(u"Measuring frequency"),
-        source=utils.settings_measuring_frequency,
         required=True,
     )
 

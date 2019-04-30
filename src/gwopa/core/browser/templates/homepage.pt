@@ -75,15 +75,12 @@
           <metal:slot define-slot="body">
             <article id="content">
               <metal:bodytext define-slot="main">
-                <a tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"><tal:omit-tag i18n:translate=""> + New Project </tal:omit-tag></button></a>
-<!--                 <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus"> + New Project</button></a> -->
-                <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My Projects</tal:omit-tag></h1>
+                <a tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus" i18n:translate=""> + New Project </button></a>
+                <h1 class="documentFirstHeading" i18n:translate=""> My Projects </h1>
                 <div class="has-table" tal:define="items view/myProjects;" >
                   <div class="row" tal:condition="not:items">
                     <div class="col-xs-12 col-sm-12">
-                      <h4  i18n:translate="">
-                        Your company has no projects.
-                      </h4>
+                      <h4 i18n:translate=""> Your company has no projects. </h4>
                     </div>
                   </div>
 
@@ -138,14 +135,11 @@
                   </tal:projects>
                 </div>
                 <br/>
-                <h1 class="documentFirstHeading"><tal:omit-tag i18n:translate="">My company Projects </tal:omit-tag>
-                </h1>
+                <h1 class="documentFirstHeading" i18n:translate="">My company Projects </h1>
                 <div class="has-table" tal:define="items view/companyProjects">
                   <div class="row" tal:condition="not:items">
                     <div class="col-xs-12 col-sm-12">
-                      <h4  i18n:translate="">
-                        Your company has no projects.
-                      </h4>
+                      <h4  i18n:translate=""> Your company has no projects. </h4>
                     </div>
                   </div>
                   <tal:CompanyProjects tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
@@ -171,10 +165,7 @@
                 </div>
                 <br/>
 
-                <h1 class="documentFirstHeading"><tal:search i18n:translate="">Search Projects</tal:search>
-
-                </h1>
-
+                <h1 class="documentFirstHeading" i18n:translate="">Search Projects </h1>
                 <div class="col-md-12 search global">
                   <div class="col-md-8">
                     <form tal:attributes="action string:${navigation_root_url}/search;
@@ -231,7 +222,6 @@
                      </div>
                   </div>
                 </div>
-
               </metal:bodytext>
             </article>
           </metal:slot>
@@ -241,7 +231,6 @@
         <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" />
       </footer>
     </article>
-
     <aside id="portal-column-one"
            metal:define-slot="column_one_slot"
            tal:condition="sl">
@@ -249,14 +238,11 @@
         <tal:block replace="structure provider:plone.leftcolumn" />
       </metal:portlets>
     </aside>
-
     <footer id="portal-footer-wrapper" i18n:domain="plone">
       <div tal:replace="structure provider:plone.portalfooter" />
     </footer>
 
   </body>
 </html>
-
-
 
 </metal:page>

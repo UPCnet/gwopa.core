@@ -51,10 +51,6 @@ class IDate(schema.Date):
 class IActivity(model.Schema):
     """  Activity """
 
-    directives.mode(project_dates='display')
-    project_dates = schema.Text(
-        title=_(u'Project dates'),
-    )
 
     title = schema.TextLine(
         title=_(u"Title"),
@@ -71,6 +67,11 @@ class IActivity(model.Schema):
         title=_(u'Initial situation description'),
         required=False,
         missing_value=u'',
+    )
+
+    directives.mode(project_dates='display')
+    project_dates = schema.Text(
+        title=_(u'Project dates'),
     )
 
     start = schema.Date(
@@ -117,7 +118,7 @@ def projectCurrency(data):
 
 @form.default_value(field=IActivity['project_dates'])
 def projectDates(data):
-    return "Start: " + str(data.context.aq_parent.startactual) + " - End: " + str(data.context.aq_parent.completionactual)
+    return "Start date: " + str(data.context.aq_parent.startactual) + " - End date: " + str(data.context.aq_parent.completionactual)
 
 
 class Edit(form.SchemaEditForm):
