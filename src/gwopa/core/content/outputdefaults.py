@@ -4,7 +4,7 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import _
 import datetime
-from gwopa.core import utils
+from plone.supermodel.directives import fieldset
 grok.templatedir("templates")
 
 
@@ -15,26 +15,51 @@ def todayValue():
 class IOutputdefaults(model.Schema):
     """  Output Default values
     """
+
+    fieldset('English',
+             label=_(u'Project'),
+             fields=['title', 'unit']
+             )
+
+    fieldset('Spanish',
+             label=_(u'Image'),
+             fields=['title_es', 'unit_es']
+             )
+
+    fieldset('French',
+             label=_(u'Image'),
+             fields=['title_fr', 'unit_fr']
+             )
+
     title = schema.TextLine(
         title=_(u"Title English"),
         required=True,
     )
 
+    unit = schema.TextLine(
+        title=_(u"Measuring unit"),
+        required=True,
+    )
+
     title_es = schema.TextLine(
         title=_(u"Title Spanish"),
+        required=False,
+    )
+
+    unit_es = schema.TextLine(
+        title=_(u"Measuring unit ES"),
         required=True,
     )
 
     title_fr = schema.TextLine(
         title=_(u"Title French"),
-        required=True,
+        required=False,
     )
 
-    # measuring_unit = schema.Choice(
-    #     title=_(u"Measuring unit"),
-    #     source=utils.settings_measuring_unit,
-    #     required=True,
-    # )
+    unit_fr = schema.TextLine(
+        title=_(u"Measuring unit FR"),
+        required=False,
+    )
 
 
 class View(grok.View):

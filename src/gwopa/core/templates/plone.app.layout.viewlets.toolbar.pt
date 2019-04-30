@@ -44,8 +44,8 @@
 <!--         <ul class="plone-toolbar-main">
           <div tal:replace="structure view/base_render">
           </div>
-        </ul> -->
-
+        </ul>
+ -->
 
         <ul class="plone-toolbar-main">
           <li id="contentview-edit" class="">

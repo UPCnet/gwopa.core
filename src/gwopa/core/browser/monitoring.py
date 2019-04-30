@@ -175,7 +175,6 @@ class monitoringView(BrowserView):
                 users = obj.members
                 for member in users:
                     members.append(api.user.get(username=member).getProperty('fullname'))
-            import ipdb; ipdb.set_trace()
             results.append(dict(
                 title=item.Title,
                 description=item.Description,

@@ -45,6 +45,9 @@ class planningView(BrowserView):
     def projectTitle(self):
         return self.context.title
 
+    def project_currency(self):
+        return self.context.currency.split('-')[-1:][0]
+
     def getPath(self):
         return '/'.join(api.portal.get().getPhysicalPath())
 

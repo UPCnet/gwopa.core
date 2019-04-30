@@ -51,7 +51,6 @@ class IDate(schema.Date):
 class IActivity(model.Schema):
     """  Activity """
 
-
     title = schema.TextLine(
         title=_(u"Title"),
         required=True,
