@@ -135,6 +135,7 @@ class Create(BrowserView):
                 for member in users:
                     members.append(member)
             obj.members = members
+
         if portal_type == 'Activity':
             obj.budget = self.request.form.get('item_budget')
             date_start = self.request.form.get('item_start')
@@ -144,12 +145,23 @@ class Create(BrowserView):
             if date_end:
                 obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
             obj.initial_situation = self.request.form.get('item_initialdescription')
+
         if portal_type == 'Output':
             date_end = self.request.form.get('item_date')
             if date_end:
                 obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
             obj.measuring_unit = self.request.form.get('item_unit')
 
+        if (portal_type == 'OutcomeKPI') or (portal_type == 'OutcomeZONE'):
+            obj.baseline = self.request.form.get('item_baseline')
+            itemdate = self.request.form.get('item_date')
+            if itemdate:
+                obj.baseline_date = datetime.datetime.strptime(itemdate, '%Y-%m-%d')
+            obj.measuring_frequency = self.request.form.get('item_frequency')
+            obj.measuring_unit = self.request.form.get('item_unit')
+            obj.zone = self.request.form.get('item_zone')
+
+        if (portal_type == 'Output') or (portal_type == 'OutcomeZONE') or (portal_type == 'OutcomeKPI'):
             annotations = IAnnotations(obj)
             for x in range(0, 11):  # Create 10 annotations
                 target = self.request.form.get('item_target' + str(x + 1))
