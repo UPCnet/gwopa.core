@@ -166,37 +166,39 @@
                 <br/>
 
                 <h1 class="documentFirstHeading" i18n:translate="">Search Projects </h1>
-                <div class="col-md-12 search global">
-                  <div class="col-md-8">
-                    <form tal:attributes="action string:${navigation_root_url}/search;
-                                         data-pat-livesearch string:ajaxUrl:${navigation_root_url}/ajax-search" role="search" class="pat-livesearch">
-                      <div class="LSBox">
-                        <input class="searchField"
-                            name="SearchableText"
-                            type="text"
-                            size="15"
-                            i18n:attributes="title title_search_title;
-                                             placeholder title_search_site"
-                            tal:attributes="value request/SearchableText|nothing;"
-                            />
-                      </div>
-                   </form>
-                  </div>
-                  <div class="col-md-2">
-                      <a tal:attributes="href string:${portal_url}/search">
-                          <button class="searchbtn">
-                            <i class="fas fa-search"></i>
-                            <tal:omit-tag i18n:translate="">Advanced search</tal:omit-tag>
+                <div class="row-fluid search global">
+                  <div class="col-md-12">
+                    <div class="col-md-8">
+                      <form tal:attributes="action string:${navigation_root_url}/search;
+                                           data-pat-livesearch string:ajaxUrl:${navigation_root_url}/ajax-search" role="search" class="pat-livesearch">
+                        <div class="LSBox">
+                          <input class="searchField"
+                              name="SearchableText"
+                              type="text"
+                              size="15"
+                              i18n:attributes="title title_search_title;
+                                               placeholder title_search_site"
+                              tal:attributes="value request/SearchableText|nothing;"
+                              />
+                        </div>
+                     </form>
+                    </div>
+                    <div class="col-md-2">
+                        <a tal:attributes="href string:${portal_url}/search">
+                            <button class="searchbtn">
+                              <i class="fas fa-search"></i>
+                              <tal:omit-tag i18n:translate="">Advanced search</tal:omit-tag>
+                            </button>
+                          </a>
+                    </div>
+                    <div class="col-md-2">
+                      <a tal:attributes="href string:${portal_url}/showMap">
+                          <button class="center-btn">
+                            <i class="fas fa-globe"></i>
+                            <tal:omit-tag i18n:translate="">Map of projects</tal:omit-tag>
                           </button>
                         </a>
-                  </div>
-                  <div class="col-md-2">
-                    <a tal:attributes="href string:${portal_url}/showMap">
-                        <button class="center-btn">
-                          <i class="fas fa-globe"></i>
-                          <tal:omit-tag i18n:translate="">Map of projects</tal:omit-tag>
-                        </button>
-                      </a>
+                    </div>
                   </div>
                 </div>
                 <div class="has-table">

@@ -16,18 +16,18 @@ class IOutputdefaults(model.Schema):
     """  Output Default values
     """
 
-    fieldset('English',
-             label=_(u'Project'),
+    fieldset('english',
+             label=_(u'English'),
              fields=['title', 'unit']
              )
 
-    fieldset('Spanish',
-             label=_(u'Image'),
+    fieldset('spanish',
+             label=_(u'Spanish'),
              fields=['title_es', 'unit_es']
              )
 
-    fieldset('French',
-             label=_(u'Image'),
+    fieldset('french',
+             label=_(u'French'),
              fields=['title_fr', 'unit_fr']
              )
 

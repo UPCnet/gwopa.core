@@ -30,16 +30,21 @@
       </span>
       <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     </div>
-    <div id="tabsplanning" class="pat-autotoc autotabs" data-pat-autotoc="levels: legend; section: fieldset;">
-      <fieldset>
-        <legend i18n:translate=""> Project </legend>
+
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#project" aria-controls="project" role="tab" data-toggle="tab" i18n:translate=""> Project </a></li>
+      <li role="presentation"><a href="#outcomes" aria-controls="outcomes" role="tab" data-toggle="tab" i18n:translate=""> Outcomes </a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="project"> 
         <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
-          <div class="documentDescription titleCollapse">
-            <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
-            <span id="expandAllProjectTab"><tal:omit-tag i18n:translate=""> Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
-          </div>
           <tal:objects repeat="item areas">
-            <div class="tabla_contenido_items" id="project" tal:define="files python:view.indicatorsInside(item);">
+            <div class="tabla_contenido_items" tal:define="files python:view.indicatorsInside(item);">
+<!--               <div class="documentDescription titleCollapse">
+                <span id="collapseAllProjectTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
+                <span id="expandAllProjectTab"><tal:omit-tag i18n:translate=""> Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
+              </div> -->
               <div class="tabla_cabecera">
                 <div class="information" id="header">
                   <div class="contentt" id="total">
@@ -47,12 +52,12 @@
                       <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                         <li>
-                          <a data-toggle="modal" class="afegirActivity" data-target="#modalActivity" tal:attributes="data-val view/getPath" style="float: left;">
+                          <a data-toggle="modal" class="afegirActivity" data-target="#modalActivity" tal:attributes="data-val string:${view/getPath}/${item/id}">
                             <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a>
                         </li>
                       </ul>
                     </div>
-                    <div class="titleRowPlanning"><a tal:attributes="href item/url" tal:content="item/title"> Area Title </a></div>
+                    <div class="titleRowPlanning"><a tal:attributes="href item/url" tal:content="item/title"> Working Area Title </a></div>
                   </div>
                   <div class="contentt" id="bl" i18n:translate="">Starting date</div>
                   <div class="contentt" id="value" i18n:translate="">Completion date</div>
@@ -73,7 +78,7 @@
                             <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                               <li>
-                                <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val view/getPath" style="float: left;">
+                                <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url">
                                     <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a>
                               </li>
                             </ul>
@@ -174,15 +179,14 @@
             </div>
           </tal:objects>
         </tal:block-activities>
-      </fieldset>
-      <fieldset>
-        <legend i18n:translate=""> Outcomes </legend>
-        <div class="documentDescription titleCollapse">
+      </div>
+      <div role="tabpanel" class="tab-pane" id="outcomes">  
+<!--         <div class="documentDescription titleCollapse">
           <span id="collapseAllOutcomeTab"><tal:omit-tag i18n:translate=""> Collapse all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-up"></i></span>
           <span id="expandAllOutcomeTab"><tal:omit-tag i18n:translate="">Expand all </tal:omit-tag>&nbsp;<i class="fas fa-chevron-down"></i></span>
-        </div>
-        <div id="outcomes">
-          <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesKPI">
+        </div> -->
+        <div class="tabla_contenido_items">
+          <div class="row boxUtilityPerformance" tal:define="outcomes view/listOutcomesKPI">
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
@@ -190,11 +194,11 @@
                     <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
                       <li>
-                        <a data-toggle="modal" class="afegirKPI" data-target="#modalKPI" tal:attributes="data-val context/absolute_url_path">
+                        <a data-toggle="modal" class="afegirKPI" data-target="#modalKPI" tal:attributes="data-val view/getPath">
                           <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New Overall KPI </tal:omit-tag></a>
                       </li>
                       <li>
-                        <a data-toggle="modal" class="afegirKPIZone" data-target="#modalKPIZone" tal:attributes="data-val context/absolute_url_path">
+                        <a data-toggle="modal" class="afegirKPIZone" data-target="#modalKPIZone" tal:attributes="data-val view/getPath">
                           <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New KPI Zone </tal:omit-tag></a>
                       </li>
                     </ul>
@@ -251,7 +255,7 @@
               </tal:objects>
             </div>
           </div>
-          <div class="tabla_contenido_items" tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
+          <div class="row documentDescription boxUtilityCapacity" tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
@@ -286,8 +290,9 @@
             </div>
           </div>
         </div>
-      </fieldset>
-    </div>
+     </div>
+  </div>
+
 
     <div id="modalActivity" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddActivity" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -298,7 +303,7 @@
               <h4 class="modal-title" id="modalAddActivity" i18n:translate=""> Add Activity </h4>
             </div>
             <div class="modal-body" id="NewActivity">
-              <div class="modal-url" id="OutputPath" style="display:none"></div>
+              <div class="modal-url" id="ActivityPath" style="display:none"></div>
               <div class="row">
                 <div class="form-group col-md-12" style="padding-bottom:15px;">
                   <label id="label-output" i18n:translate="">Title</label>
@@ -330,24 +335,24 @@
                     <label for="message-text" class="control-label" i18n:translate="">Assigned budget</label>
                     <div class="input-group">
                       <div class="input-group-addon" tal:content="view/project_currency"> $ </div>
-                      <input type="text" id="act-budget" class="form-control" i18n:attributes="placeholder Amount">
+                      <input type="text" id="act-budget" class="form-control">
                     </div>
                   </div>
                    <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                    <input type="hidden" class="pat-select2" id="act-responsible" i18n:attributes="placeholder search_users"
-                        data-pat-select2="vocabularyUrl:select2-users.json;"/>
+                    <input type="hidden" class="pat-select2" id="act-responsible"
+                           i18n:attributes="placeholder search_users" data-pat-select2="vocabularyUrl:select2-users.json;"/>
                   </div>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
-                  <textarea class="form-control" id="edit-risks"></textarea>
+                  <textarea class="form-control" id="act-risks"></textarea>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
               <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
-              <a type="submit" class="btn button-save" id="createOutputFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
+              <a type="submit" class="btn button-save" id="createActivityFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
             </div>
           </form>
         </div>
@@ -375,12 +380,12 @@
                     <textarea class="form-control" id="out-description"></textarea>
                 </div>
                 <div class="form-group row">
-                  <div class="col-md-6">
+                  <div class="col-xs-6 col-md-6">
                     <label class="control-label" i18n:translate="">Completion date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="out-datetimepicker" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-xs-6 col-md-6">
                       <label id="label-unit" i18n:translate=""> Measuring unit </label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="out-unit" type="hidden"/>
@@ -389,11 +394,12 @@
                 <div class="form-group col-md-12" id='TextBoxesGroup'>
                   <div id="TextBoxDiv1">
                     <div class="row">
-                      <div class="col-md-6" style="margin-top: 0px; padding-left: 0px;">
+                      <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left: 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
-                        <input type="text" class="form-control" id="target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
+                        <input type="text" class="form-control" id="target-value-1"
+                               i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
                       </div>
-                      <div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right: 0px;">
+                      <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right: 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
                         <p id="target-date-1" style="padding: 6px 12px;"></p>
                       </div>
@@ -416,8 +422,7 @@
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                   <input type="hidden" class="pat-select2" id="out-responsible"
-                              data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:select2-users.json;"/>
+                         data-pat-select2="placeholder:Search users; vocabularyUrl:select2-users.json;"/>
                 </div>
               </div>
             </div>
@@ -451,12 +456,12 @@
                     <textarea class="form-control" id="kpi-description"></textarea>
                 </div>
                 <div class="form-group row">
-                      <div class="col-md-6">
+                      <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpi-baseline" />
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpi-datetimepicker" class="pat-pickadate"
@@ -464,12 +469,12 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <div class="col-md-6">
+                  <div class="col-xs-6 col-md-6">
                     <label id="label-unit" i18n:translate=""> Measuring unit </label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpi-unit" type="hidden"/>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-xs-6 col-md-6">
                     <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpi-frequency" type="hidden"/>
@@ -478,11 +483,11 @@
                 <div class="form-group col-md-12" id='KPITextBoxesGroup'>
                   <div id="KPITextBoxDiv1">
                     <div class="row">
-                      <div class="col-md-6" style="margin-top: 0px; padding-left:0px;">
+                      <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
                         <input type="text" class="form-control" id="kpi-target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
                       </div>
-                      <div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
+                      <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
                         <p id="kpi-target-date-1" style="padding: 6px 12px;"></p>
                       </div>
@@ -540,12 +545,12 @@
                     <textarea class="form-control" id="kpizone-description"></textarea>
                 </div>
                 <div class="form-group row">
-                      <div class="col-md-6">
+                      <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpizone-baseline" />
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpizone-datetimepicker" class="pat-pickadate"
@@ -553,12 +558,12 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <div class="col-md-6">
+                  <div class="col-xs-6 col-md-6">
                     <label id="label-unit" i18n:translate=""> Measuring unit </label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpizone-unit" type="hidden"/>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-xs-6 col-md-6">
                     <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpizone-frequency" type="hidden"/>
@@ -567,11 +572,11 @@
                 <div class="form-group col-md-12" id='KPIZoneTextBoxesGroup'>
                   <div id="KPIZoneTextBoxDiv1">
                     <div class="row">
-                      <div class="col-md-6" style="margin-top: 0px; padding-left:0px;">
+                      <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
                         <input type="text" class="form-control" id="kpizone-target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
                       </div>
-                      <div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
+                      <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
                         <p id="kpizone-target-date-1" style="padding: 6px 12px;"></p>
                       </div>
@@ -591,11 +596,17 @@
                   <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="kpizone-risks"></textarea>
                 </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                  <input type="hidden" class="pat-select2" id="kpizone-responsible"
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                    <label id="label-zone" i18n:translate=""> Zone </label>
+                    <input type="text" class="form-control" id="kpizone-zone" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
+                    <input type="hidden" class="pat-select2" id="kpizone-responsible"
                               data-pat-select2="placeholder:Search users;
                                                 vocabularyUrl:select2-users.json;"/>
+                  </div>
                 </div>
               </div>
             </div>
@@ -612,6 +623,7 @@
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
+    <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/modal-output.js"></script>
 
   </metal:block>

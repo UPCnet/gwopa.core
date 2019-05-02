@@ -7,6 +7,7 @@ from plone import api
 from operator import itemgetter
 from zope.annotation.interfaces import IAnnotations
 import datetime
+from gwopa.core import _
 
 
 class getPhases(BrowserView):
@@ -53,7 +54,7 @@ class getUsers(BrowserView):
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(
             {
-                'placeholder': "Select users...",
+                'placeholder': _(u"Select users..."),
                 'results': results,
             }
         )
@@ -115,6 +116,7 @@ class Create(BrowserView):
 
     def __call__(self):
         # TODO: check permissions. now cmf.ModifyPortalContent
+        import ipdb; ipdb.set_trace()
         item = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
         title = self.request.form.get('item_title')
         portal_type = self.request.form.get('item_type')
@@ -123,10 +125,6 @@ class Create(BrowserView):
             type=portal_type,
             container=item.getObject())
         obj.description = self.request.form.get('item_description')
-        obj.initial_situation = self.request.form.get('item_baseline')
-        obj.baseline = self.request.form.get('item_baseline')
-        obj.measuring_unit = self.request.form.get('item_unit')
-        obj.measuring_frequency = self.request.form.get('item_frequency')
         obj.means = self.request.form.get('item_means')
         obj.risks = self.request.form.get('item_risks')
         members = []
@@ -138,16 +136,28 @@ class Create(BrowserView):
                 for member in users:
                     members.append(member)
             obj.members = members
-        annotations = IAnnotations(obj)
-        for x in range(0, 11):  # Create 10 annotations
-            target = self.request.form.get('item_target' + str(x + 1))
-            data = dict(real='', planned=target)
-            KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
-            annotations[KEY] = data
+        if portal_type == 'Activity':
+            obj.budget = self.request.form.get('item_budget')
+            date_start = self.request.form.get('item_start')
+            if date_start:
+                obj.start = datetime.datetime.strptime(date_start, '%Y-%m-%d')
+                date_end = self.request.form.get('item_end')
+            if date_end:
+                obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
+            obj.initial_situation = self.request.form.get('item_initialdescription')
+        if portal_type == 'Output':
+            date_end = self.request.form.get('item_date')
+            if date_end:
+                obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
+            obj.measuring_unit = self.request.form.get('item_unit')
 
-        date_end = self.request.form.get('item_date')
-        if date_end:
-            obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
+            annotations = IAnnotations(obj)
+            for x in range(0, 11):  # Create 10 annotations
+                target = self.request.form.get('item_target' + str(x + 1))
+                data = dict(real='', planned=target)
+                KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
+                annotations[KEY] = data
+
         return 'Ok, item created'
 
 

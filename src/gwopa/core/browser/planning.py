@@ -49,7 +49,7 @@ class planningView(BrowserView):
         return self.context.currency.split('-')[-1:][0]
 
     def getPath(self):
-        return '/'.join(api.portal.get().getPhysicalPath())
+        return '/'.join(self.context.getPhysicalPath())
 
     def __call__(self):
         if not self.year or self.year == '0':
@@ -168,11 +168,15 @@ class planningView(BrowserView):
             if item.portal_type == 'Activity':
                 unit = ''
                 target_value_planned = '-----'
+            if item.portal_type == 'Output':
+                start = '----'
+            else:
+                start = item.start.strftime('%Y-%m-%d')
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
-                start=item.start,
+                start=start,
                 end=item.end.strftime('%Y-%m-%d'),
                 unit=unit,
                 target_value_planned=target_value_planned,
