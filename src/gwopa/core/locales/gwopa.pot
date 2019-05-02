@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-30 15:49+0000\n"
+"POT-Creation-Date: 2019-05-02 06:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "Add Activity"
 msgstr ""
 
-#: ../browser/templates/planning.pt:435
+#: ../browser/templates/planning.pt:439
 msgid "Add New Overall KPI"
 msgstr ""
 
@@ -72,11 +72,11 @@ msgstr ""
 msgid "Add Output"
 msgstr ""
 
-#: ../browser/templates/planning.pt:524
+#: ../browser/templates/planning.pt:528
 msgid "Add ZONE KPI"
 msgstr ""
 
-#: ../browser/templates/planning.pt:401
+#: ../browser/templates/planning.pt:405
 msgid "Add target"
 msgstr ""
 
@@ -141,7 +141,7 @@ msgstr ""
 msgid "Calendar"
 msgstr ""
 
-#: ../browser/templates/planning.pt:345
+#: ../browser/templates/planning.pt:349
 msgid "Cancel"
 msgstr ""
 
@@ -230,7 +230,7 @@ msgstr ""
 msgid "Country/Countries"
 msgstr ""
 
-#: ../browser/templates/planning.pt:346
+#: ../browser/templates/planning.pt:350
 msgid "Create"
 msgstr ""
 
@@ -532,7 +532,7 @@ msgstr ""
 msgid "Map of projects"
 msgstr ""
 
-#: ../browser/templates/planning.pt:405
+#: ../browser/templates/planning.pt:409
 #: ../content/outcomekpi.py:58
 #: ../content/outcomezone.py:64
 msgid "Means of verification"
@@ -542,16 +542,20 @@ msgstr ""
 msgid "Means of verification used to assess capacity change in this dimension"
 msgstr ""
 
-#: ../browser/templates/planning.pt:469
+#: ../browser/templates/planning.pt:473
 #: ../content/outcomekpi.py:52
 #: ../content/outcomezone.py:58
 msgid "Measuring frequency"
 msgstr ""
 
-#: ../browser/templates/planning.pt:380
+#: ../browser/templates/planning.pt:384
 #: ../content/outcomekpi.py:46
 #: ../content/outcomezone.py:52
 msgid "Measuring unit"
+msgstr ""
+
+#: ../content/outputdefaults.py:40
+msgid "Measuring unit EN"
 msgstr ""
 
 #: ../content/outputdefaults.py:50
@@ -777,7 +781,7 @@ msgstr ""
 msgid "Responsible people"
 msgstr ""
 
-#: ../browser/templates/planning.pt:409
+#: ../browser/templates/planning.pt:343
 #: ../content/outcomekpi.py:63
 #: ../content/outcomezone.py:69
 msgid "Risks / Assumptions"
@@ -873,7 +877,7 @@ msgstr ""
 msgid "Target Value Year"
 msgstr ""
 
-#: ../browser/templates/planning.pt:393
+#: ../browser/templates/planning.pt:397
 msgid "Target date"
 msgstr ""
 
@@ -1135,7 +1139,7 @@ msgid "username"
 msgstr ""
 
 #. Default: "Indicate the target value for this date"
-#: ../browser/templates/planning.pt:390
+#: ../browser/templates/planning.pt:394
 msgid "value_for_date"
 msgstr ""
 

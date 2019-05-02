@@ -37,7 +37,7 @@ class IOutputdefaults(model.Schema):
     )
 
     unit = schema.TextLine(
-        title=_(u"Measuring unit"),
+        title=_(u"Measuring unit EN"),
         required=True,
     )
 

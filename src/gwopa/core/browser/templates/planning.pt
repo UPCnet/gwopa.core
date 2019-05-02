@@ -339,6 +339,10 @@
                         data-pat-select2="vocabularyUrl:select2-users.json;"/>
                   </div>
                 </div>
+                <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <textarea class="form-control" id="edit-risks"></textarea>
+                </div>
               </div>
             </div>
             <div class="modal-footer">
@@ -529,22 +533,22 @@
                 <div class="form-group col-md-12">
                   <label id="label-kpi" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                  <input id="kpi-title" type="hidden"/>
+                  <input id="kpizone-title" type="hidden"/>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
-                    <textarea class="form-control" id="kpi-description"></textarea>
+                    <textarea class="form-control" id="kpizone-description"></textarea>
                 </div>
                 <div class="form-group row">
                       <div class="col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input class="form-control" id="kpi-baseline" />
+                    <input class="form-control" id="kpizone-baseline" />
                   </div>
                   <div class="col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                      <input id="kpi-datetimepicker" class="pat-pickadate"
+                      <input id="kpizone-datetimepicker" class="pat-pickadate"
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
                 </div>
@@ -552,44 +556,44 @@
                   <div class="col-md-6">
                     <label id="label-unit" i18n:translate=""> Measuring unit </label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="kpi-unit" type="hidden"/>
+                    <input id="kpizone-unit" type="hidden"/>
                   </div>
                   <div class="col-md-6">
                     <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="kpi-frequency" type="hidden"/>
+                    <input id="kpizone-frequency" type="hidden"/>
                   </div>
                 </div>
-                <div class="form-group col-md-12" id='KPITextBoxesGroup'>
-                  <div id="KPITextBoxDiv1">
+                <div class="form-group col-md-12" id='KPIZoneTextBoxesGroup'>
+                  <div id="KPIZoneTextBoxDiv1">
                     <div class="row">
                       <div class="col-md-6" style="margin-top: 0px; padding-left:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
-                        <input type="text" class="form-control" id="kpi-target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
+                        <input type="text" class="form-control" id="kpizone-target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
                       </div>
                       <div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
-                        <p id="kpi-target-date-1" style="padding: 6px 12px;"></p>
+                        <p id="kpizone-target-date-1" style="padding: 6px 12px;"></p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <button type="button" id='KPIaddTargetValueButton'>
+                  <button type="button" id='KPIZoneaddTargetValueButton'>
                     <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate="">Add target</tal:omit-tag>
                   </button>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
-                  <textarea class="form-control" id="kpi-means"></textarea>
+                  <textarea class="form-control" id="kpizone`-means"></textarea>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
-                  <textarea class="form-control" id="kpi-risks"></textarea>
+                  <textarea class="form-control" id="kpizone-risks"></textarea>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                  <input type="hidden" class="pat-select2" id="kpi-responsible"
+                  <input type="hidden" class="pat-select2" id="kpizone-responsible"
                               data-pat-select2="placeholder:Search users;
                                                 vocabularyUrl:select2-users.json;"/>
                 </div>

@@ -58,7 +58,7 @@ msgstr "Actual"
 msgid "Add Activity"
 msgstr "Add Activity"
 
-#: ../browser/templates/planning.pt:435
+#: ../browser/templates/planning.pt:439
 msgid "Add New Overall KPI"
 msgstr "Add New Overall KPI"
 
@@ -66,11 +66,11 @@ msgstr "Add New Overall KPI"
 msgid "Add Output"
 msgstr "Add Output"
 
-#: ../browser/templates/planning.pt:524
+#: ../browser/templates/planning.pt:528
 msgid "Add ZONE KPI"
 msgstr "Add KPI Zone"
 
-#: ../browser/templates/planning.pt:401
+#: ../browser/templates/planning.pt:405
 msgid "Add target"
 msgstr "Add target"
 
@@ -135,7 +135,7 @@ msgstr "Budget"
 msgid "Calendar"
 msgstr "Calendar"
 
-#: ../browser/templates/planning.pt:345
+#: ../browser/templates/planning.pt:349
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -224,7 +224,7 @@ msgstr "Country"
 msgid "Country/Countries"
 msgstr "Country/Countries"
 
-#: ../browser/templates/planning.pt:346
+#: ../browser/templates/planning.pt:350
 msgid "Create"
 msgstr "Create"
 
@@ -526,7 +526,7 @@ msgstr "Main organizations and their contributions"
 msgid "Map of projects"
 msgstr "Map of the projects"
 
-#: ../browser/templates/planning.pt:405
+#: ../browser/templates/planning.pt:409
 #: ../content/outcomekpi.py:58
 #: ../content/outcomezone.py:64
 msgid "Means of verification"
@@ -536,16 +536,20 @@ msgstr "Means of verification"
 msgid "Means of verification used to assess capacity change in this dimension"
 msgstr "Means of verification used to assess capacity change in this dimension"
 
-#: ../browser/templates/planning.pt:469
+#: ../browser/templates/planning.pt:473
 #: ../content/outcomekpi.py:52
 #: ../content/outcomezone.py:58
 msgid "Measuring frequency"
 msgstr "Measuring frequency"
 
-#: ../browser/templates/planning.pt:380
+#: ../browser/templates/planning.pt:384
 #: ../content/outcomekpi.py:46
 #: ../content/outcomezone.py:52
 msgid "Measuring unit"
+msgstr "Measuring unit"
+
+#: ../content/outputdefaults.py:40
+msgid "Measuring unit EN"
 msgstr "Measuring unit"
 
 #: ../content/outputdefaults.py:50
@@ -771,7 +775,7 @@ msgstr "Responsible"
 msgid "Responsible people"
 msgstr "Responsible people"
 
-#: ../browser/templates/planning.pt:409
+#: ../browser/templates/planning.pt:343
 #: ../content/outcomekpi.py:63
 #: ../content/outcomezone.py:69
 msgid "Risks / Assumptions"
@@ -867,7 +871,7 @@ msgstr "Target Value Date"
 msgid "Target Value Year"
 msgstr "Target Value Year"
 
-#: ../browser/templates/planning.pt:393
+#: ../browser/templates/planning.pt:397
 msgid "Target date"
 msgstr "Target date"
 
@@ -1131,7 +1135,7 @@ msgid "username"
 msgstr "Username"
 
 #. Default: "Indicate the target value for this date"
-#: ../browser/templates/planning.pt:390
+#: ../browser/templates/planning.pt:394
 msgid "value_for_date"
 msgstr "Indicate the target value for this date"
 
