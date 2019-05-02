@@ -116,7 +116,6 @@ class Create(BrowserView):
 
     def __call__(self):
         # TODO: check permissions. now cmf.ModifyPortalContent
-        import ipdb; ipdb.set_trace()
         item = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
         title = self.request.form.get('item_title')
         portal_type = self.request.form.get('item_type')
