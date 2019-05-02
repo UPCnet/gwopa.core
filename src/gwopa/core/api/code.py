@@ -161,5 +161,6 @@ class ChangeTarget(BrowserView):
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         item = api.content.find(path=item_path, depth=0)[0]
         annotations = IAnnotations(item.getObject())
-        annotations[KEY]['planned'] = new_value
+        data = dict(planned=new_value)
+        annotations[KEY] = data
         return "OK, value changed"

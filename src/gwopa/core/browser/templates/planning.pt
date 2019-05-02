@@ -94,7 +94,7 @@
                     <div class="contentt text_center" tal:condition="python:item['portal_type'] == 'Activity'" id="target">
                          <span tal:content="item/target_value_planned"> Target Value Planned </span>
                     </div>
-                    <div class="contentt text_left" tal:condition="python:item['portal_type'] == 'Output'" id="target">
+                    <div class="contentt target" tal:condition="python:item['portal_type'] == 'Output'" id="target">
                       <span tal:attributes="
                           data-pk currentYear;
                           data-name item/url;
@@ -138,7 +138,7 @@
                         </div>
                         <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                         <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
-                        <div class="contentt" id="target">
+                        <div class="contentt target" id="target">
                           <span tal:attributes="
                               data-pk currentYear;
                               data-name output/url;
@@ -221,7 +221,7 @@
                     </div>
                     <div class="contentt" id="bl" tal:content="outcome/base_date">2019-03-30</div>
                     <div class="contentt" id="value" tal:content="outcome/base_value">2019-06-22</div>
-                    <div class="contentt" id="target">
+                    <div class="contentt target" id="target">
                       <span tal:attributes="
                           data-pk currentYear;
                           data-name outcome/url;
