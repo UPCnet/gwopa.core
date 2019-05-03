@@ -48,6 +48,14 @@ class planningView(BrowserView):
     def project_currency(self):
         return self.context.currency.split('-')[-1:][0]
 
+    def hidden_project_currency(self):
+        currency = getattr(self.context, 'currency', None)
+        if currency:
+            letter = currency
+        else:
+            letter = 'USD-Dollar-$'
+        return letter
+
     def getPath(self):
         return '/'.join(self.context.getPhysicalPath())
 

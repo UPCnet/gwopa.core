@@ -145,6 +145,8 @@ class Create(BrowserView):
             if date_end:
                 obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
             obj.initial_situation = self.request.form.get('item_initialdescription')
+            obj.currency = self.request.form.get('item_hidden_project_currency')
+            obj.project_dates = 'TODO: Start date: XXX 2019-05-03 - End date: XXX 2022-04-30'
 
         if portal_type == 'Output':
             date_end = self.request.form.get('item_date')

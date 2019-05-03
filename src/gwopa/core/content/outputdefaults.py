@@ -37,7 +37,7 @@ class IOutputdefaults(model.Schema):
     )
 
     unit = schema.TextLine(
-        title=_(u"Measuring unit EN"),
+        title=_(u"Measuring unit"),
         required=True,
     )
 
@@ -47,7 +47,7 @@ class IOutputdefaults(model.Schema):
     )
 
     unit_es = schema.TextLine(
-        title=_(u"Measuring unit ES"),
+        title=_(u"Measuring unit"),
         required=True,
     )
 
@@ -57,7 +57,7 @@ class IOutputdefaults(model.Schema):
     )
 
     unit_fr = schema.TextLine(
-        title=_(u"Measuring unit FR"),
+        title=_(u"Measuring unit"),
         required=False,
     )
 

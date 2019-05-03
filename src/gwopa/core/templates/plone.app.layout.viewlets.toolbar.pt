@@ -41,13 +41,13 @@
           </li>
         </ul>
 
-<!--         <ul class="plone-toolbar-main">
+        <ul class="plone-toolbar-main">
           <div tal:replace="structure view/base_render">
           </div>
         </ul>
- -->
 
-        <ul class="plone-toolbar-main">
+
+<!--         <ul class="plone-toolbar-main">
           <li id="contentview-edit" class="">
             <a tal:attributes="href string:${context/absolute_url}/edit">
               <span class="icon-edit toolbar-menu-icon" aria-hidden="true"></span>
@@ -73,7 +73,7 @@
                 <span i18n:translate="">Sharing</span>
               </a>
           </li>
-        </ul>
+        </ul> -->
 
       </nav>
     </div>
