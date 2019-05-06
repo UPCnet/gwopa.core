@@ -391,8 +391,7 @@
                     <div class="row">
                       <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left: 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
-                        <input type="text" class="form-control" id="target-value-1"
-                               i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
+                        <input type="text" class="form-control" id="target-value-1"/>
                       </div>
                       <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right: 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
@@ -480,7 +479,7 @@
                     <div class="row">
                       <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
-                        <input type="text" class="form-control" id="kpi-target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
+                        <input type="text" class="form-control" id="kpi-target-value-1"/>
                       </div>
                       <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
@@ -569,7 +568,7 @@
                     <div class="row">
                       <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
-                        <input type="text" class="form-control" id="kpizone-target-value-1" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/>
+                        <input type="text" class="form-control" id="kpizone-target-value-1"/>
                       </div>
                       <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
