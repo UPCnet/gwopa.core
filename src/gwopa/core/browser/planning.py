@@ -187,6 +187,8 @@ class planningView(BrowserView):
                 start=start,
                 end=item.end.strftime('%Y-%m-%d'),
                 unit=unit,
+                limit_start='2022,2,2',
+                limit_end='2023,3,3',
                 target_value_planned=target_value_planned,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
@@ -230,6 +232,8 @@ class planningView(BrowserView):
                 measuring_frequency=obj.measuring_frequency,
                 portal_type=item.portal_type,
                 responsible=members,
+                limit_start='2020,2,2',
+                limit_end='2021,3,3',
                 url='/'.join(obj.getPhysicalPath())))
         return results
 
@@ -257,5 +261,8 @@ class planningView(BrowserView):
         start = self.context.gwopa_year_phases[:][0]['pattern_start']
         end = self.context.gwopa_year_phases[-1:][0]['pattern_end']
         #       pasar los limites para ponerlos en el label
-        value = '{"date":{ "min":[' + start + '], "max":[' + end + ']}, "time": false, "today": false, "clear": false}'
+        value = """{"date":{ "min":[""" + start + """], "max":[""" + end + """]}, "time": false, "today": false, "clear": false}"""
         return value
+
+    def test(self):
+        return self.context.id

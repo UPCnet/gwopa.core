@@ -16,6 +16,7 @@ import transaction
 import math
 from dateutil.relativedelta import *
 from zope.globalrequest import getRequest
+import dateutil.relativedelta
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
@@ -45,12 +46,10 @@ def projectAdded(content, event):
     fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
     date1 = content.startactual
     date2 = content.completionactual
-    datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)]
-    datas.append(content.completionactual.strftime("%B %d, %Y"))
-    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
-    isodate.append(content.completionactual.strftime("%Y-%d-%m"))
-    patterndate = [(date1 + relativedelta(years=i)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
-    patterndate.append(content.completionactual.strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
+    datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year)] + [date2.strftime("%B %d, %Y")]
+    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%m-%d") for i in range(date2.year - date1.year)] + [date2.strftime("%Y-%m-%d")]
+    patterndate = [(date1 - dateutil.relativedelta.relativedelta(months=1) + relativedelta(years=i)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year)]
+    patterndate.append((date2 - dateutil.relativedelta.relativedelta(months=1)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
 
     results = []
     if fases > 1:
@@ -144,12 +143,10 @@ def projectModified(content, event):
         fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
         date1 = content.startactual
         date2 = content.completionactual
-        datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)]
-        datas.append(content.completionactual.strftime("%B %d, %Y"))
-        isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%d-%m") for i in range(date2.year - date1.year + 1)]
-        isodate.append(content.completionactual.strftime("%Y-%d-%m"))
-        patterndate = [(date1 + relativedelta(years=i)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
-        patterndate.append(content.completionactual.strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
+        datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year)] + [date2.strftime("%B %d, %Y")]
+        isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%m-%d") for i in range(date2.year - date1.year)] + [date2.strftime("%Y-%m-%d")]
+        patterndate = [(date1 - dateutil.relativedelta.relativedelta(months=1) + relativedelta(years=i)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year)]
+        patterndate.append((date2 - dateutil.relativedelta.relativedelta(months=1)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
 
         results = []
         if fases > 1:

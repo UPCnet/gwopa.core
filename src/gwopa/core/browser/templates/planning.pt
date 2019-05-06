@@ -75,7 +75,7 @@
                               <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                               <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                                 <li>
-                                  <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url">
+                                  <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url; data-start item/limit_start; data-end item/limit_end">
                                       <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a>
                                 </li>
                               </ul>
@@ -313,7 +313,7 @@
                     <textarea class="form-control" id="act-initialdescription"></textarea>
                 </div>
                 <div class="form-group row" style="padding-bottom:15px;">
-                  <div class="col-xs-6 col-md-6">
+<!--                   <div class="col-xs-6 col-md-6">
                     <label class="control-label" i18n:translate="">Starting date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="act-start" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
@@ -322,7 +322,7 @@
                       <label class="control-label" i18n:translate=""> Completion date </label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="act-end" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-                  </div>
+                  </div> -->
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
@@ -355,7 +355,7 @@
     </div>
 
     <div id="modalOutput" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddOutput" data-dismiss="modal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog" role="document"  tal:define="item view/test">
         <div class="modal-content">
           <form id="toClearOutput">
             <div class="modal-header">
@@ -363,7 +363,9 @@
               <h4 class="modal-title" id="modalAddOutput" i18n:translate=""> Add Output </h4>
             </div>
             <div class="modal-body" id="NewOutput">
-              <div class="modal-url" id="OutputPath" style="display:none"></div>
+              <div class="modal-url" id="OutputPath"></div>
+              <div class="modal-start"></div>
+              <div class="modal-end"></div>
               <div class="row">
                 <div class="form-group col-md-12">
                   <label id="label-output" i18n:translate="">Title</label>
@@ -455,12 +457,12 @@
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpi-baseline" />
                   </div>
-                  <div class="col-xs-6 col-md-6">
+<!--                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpi-datetimepicker" class="pat-pickadate"
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-                  </div>
+                  </div> -->
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
@@ -544,12 +546,12 @@
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpizone-baseline" />
                   </div>
-                  <div class="col-xs-6 col-md-6">
+<!--                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpizone-datetimepicker" class="pat-pickadate"
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-                  </div>
+                  </div> -->
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
