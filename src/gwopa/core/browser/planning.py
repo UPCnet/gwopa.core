@@ -59,9 +59,17 @@ class planningView(BrowserView):
     def getPath(self):
         return '/'.join(self.context.getPhysicalPath())
 
+    def project_start(self):
+        start = self.context.startactual.strftime('%Y/%m/%d')
+        return start
+
+    def project_end(self):
+        end = self.context.completionactual.strftime('%Y/%m/%d')
+        return end
+
     def __call__(self):
         if not self.year or self.year == '0':
-            # Empty query or 0 returns default template
+            # Empty query or 0 returns default template (First Year)
             self.year = 1
             self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
             self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
@@ -178,8 +186,10 @@ class planningView(BrowserView):
                 target_value_planned = '-----'
             if item.portal_type == 'Output':
                 start = '----'
+                limit_start = '----'
             else:
                 start = item.start.strftime('%Y-%m-%d')
+                limit_start = item.start.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ',')
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
@@ -187,8 +197,8 @@ class planningView(BrowserView):
                 start=start,
                 end=item.end.strftime('%Y-%m-%d'),
                 unit=unit,
-                limit_start='2022,2,2',
-                limit_end='2023,3,3',
+                limit_start=limit_start,
+                limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
                 target_value_planned=target_value_planned,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
@@ -232,8 +242,6 @@ class planningView(BrowserView):
                 measuring_frequency=obj.measuring_frequency,
                 portal_type=item.portal_type,
                 responsible=members,
-                limit_start='2020,2,2',
-                limit_end='2021,3,3',
                 url='/'.join(obj.getPhysicalPath())))
         return results
 
@@ -257,12 +265,9 @@ class planningView(BrowserView):
         return results
 
     def custom_pattern_options(self):
-        """ Pass data from project to picker date in modal """
+        """ Pass data from project to picker date in modal, in Activity, OutcomeKPI and OutcomeKPIZone.
+            Output must be done via JS because we need to pass the value from the HTML. """
         start = self.context.gwopa_year_phases[:][0]['pattern_start']
         end = self.context.gwopa_year_phases[-1:][0]['pattern_end']
-        #       pasar los limites para ponerlos en el label
         value = """{"date":{ "min":[""" + start + """], "max":[""" + end + """]}, "time": false, "today": false, "clear": false}"""
         return value
-
-    def test(self):
-        return self.context.id

@@ -151,7 +151,7 @@ class Create(BrowserView):
         if portal_type == 'Output':
             date_end = self.request.form.get('item_date')
             if date_end:
-                obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
+                obj.end = datetime.datetime.strptime(date_end, '%d %b, %Y')
             obj.measuring_unit = self.request.form.get('item_unit')
 
         if (portal_type == 'OutcomeKPI') or (portal_type == 'OutcomeZONE'):

@@ -49,9 +49,12 @@
                         <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                           <li>
-                            <a data-toggle="modal" class="afegirActivity" data-target="#modalActivity" tal:attributes="data-val string:${view/getPath}/${item/id}">
-                              <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a>
-                          </li>
+                            <a data-toggle="modal" class="afegirActivity" data-target="#modalActivity"
+                                tal:attributes="
+                                    data-val string:${view/getPath}/${item/id};
+                                    data-start view/project_start;
+                                    data-end view/project_end">
+                              <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a></li>
                         </ul>
                       </div>
                       <div class="titleRowPlanning"><a tal:attributes="href item/url" tal:content="item/title"> Working Area Title </a></div>
@@ -75,9 +78,12 @@
                               <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                               <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                                 <li>
-                                  <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput" tal:attributes="data-val item/url; data-start item/limit_start; data-end item/limit_end">
-                                      <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a>
-                                </li>
+                                  <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput"
+                                      tal:attributes="
+                                          data-val item/url;
+                                          data-start item/limit_start;
+                                          data-end item/limit_end">
+                                      <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a></li>
                               </ul>
                             </div>
                           </tal:block>
@@ -127,7 +133,7 @@
                       <tal:omit-tag  tal:condition="python:item['portal_type'] == 'Activity'">
                         <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i>
                         <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i>
-                     </tal:omit-tag>
+                      </tal:omit-tag>
                     </div>
                     <tal:block tal:condition="python:item['portal_type'] == 'Activity'" tal:define="outputs python:view.indicatorsInside(item);">
                       <div tal:repeat="output outputs" class="block_sub_indicators">
@@ -188,11 +194,19 @@
                     <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
                       <li>
-                        <a data-toggle="modal" class="afegirKPI" data-target="#modalKPI" tal:attributes="data-val view/getPath">
+                        <a data-toggle="modal" class="afegirKPI" data-target="#modalKPI"
+                            tal:attributes="
+                            data-val view/getPath;
+                            data-start view/project_start;
+                            data-end view/project_end">
                           <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New Overall KPI </tal:omit-tag></a>
                       </li>
                       <li>
-                        <a data-toggle="modal" class="afegirKPIZone" data-target="#modalKPIZone" tal:attributes="data-val view/getPath">
+                        <a data-toggle="modal" class="afegirKPIZone" data-target="#modalKPIZone"
+                            tal:attributes="
+                                data-val view/getPath;
+                                data-start view/project_start;
+                                data-end view/project_end">
                           <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New KPI Zone </tal:omit-tag></a>
                       </li>
                     </ul>
@@ -285,8 +299,7 @@
           </div>
         </div>
      </div>
-  </div>
-
+    </div>
 
     <div id="modalActivity" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddActivity" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -299,6 +312,9 @@
             <div class="modal-body" id="NewActivity">
               <div class="modal-url" id="ActivityPath" style="display:none"></div>
               <div class="row">
+                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
+                  <span class="legend">Remember that the related Project dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
+                </div>
                 <div class="form-group col-md-12" style="padding-bottom:15px;">
                   <label id="label-output" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
@@ -313,7 +329,7 @@
                     <textarea class="form-control" id="act-initialdescription"></textarea>
                 </div>
                 <div class="form-group row" style="padding-bottom:15px;">
-<!--                   <div class="col-xs-6 col-md-6">
+                  <div class="col-xs-6 col-md-6">
                     <label class="control-label" i18n:translate="">Starting date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="act-start" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
@@ -322,7 +338,7 @@
                       <label class="control-label" i18n:translate=""> Completion date </label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="act-end" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-                  </div> -->
+                  </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
@@ -359,14 +375,15 @@
         <div class="modal-content">
           <form id="toClearOutput">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <button type="button" class="close output" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="modalAddOutput" i18n:translate=""> Add Output </h4>
             </div>
             <div class="modal-body" id="NewOutput">
-              <div class="modal-url" id="OutputPath"></div>
-              <div class="modal-start"></div>
-              <div class="modal-end"></div>
+              <div class="modal-url" id="OutputPath" style="display:none;"></div>
               <div class="row">
+                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
+                  <span class="legend">Remember that the related Activity dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
+                </div>
                 <div class="form-group col-md-12">
                   <label id="label-output" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
@@ -378,9 +395,9 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
-                    <label class="control-label" i18n:translate="">Completion date</label>
+                    <label class="control-label">Completion date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="out-datetimepicker" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
+                    <input id="out-datetimepicker" placeholder="Enter date..." />
                   </div>
                   <div class="col-xs-6 col-md-6">
                       <label id="label-unit" i18n:translate=""> Measuring unit </label>
@@ -423,7 +440,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="button" class="btn button-cancel output" data-dismiss="modal" i18n:translate="">Cancel</a>
               <a type="submit" class="btn button-save" id="createOutputFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
             </div>
           </form>
@@ -442,6 +459,9 @@
             <div class="modal-body" id="NewKPI">
               <div class="modal-url" id="KPIPath" style="display:none"></div>
               <div class="row">
+                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
+                  <span class="legend">Remember that the related Project dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
+                </div>
                 <div class="form-group col-md-12">
                   <label id="label-kpi" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
@@ -457,12 +477,12 @@
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpi-baseline" />
                   </div>
-<!--                   <div class="col-xs-6 col-md-6">
+                  <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpi-datetimepicker" class="pat-pickadate"
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-                  </div> -->
+                  </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
@@ -532,6 +552,9 @@
               <div class="modal-url" id="KPIZonePath" style="display:none"></div>
               <div class="row">
                 <div class="form-group col-md-12">
+                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
+                  <span class="legend">Remember that the related Project dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
+                </div>
                   <label id="label-kpi" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="kpizone-title" type="hidden"/>
@@ -546,12 +569,12 @@
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpizone-baseline" />
                   </div>
-<!--                   <div class="col-xs-6 col-md-6">
+                  <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpizone-datetimepicker" class="pat-pickadate"
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-                  </div> -->
+                  </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
