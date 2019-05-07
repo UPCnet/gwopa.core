@@ -65,11 +65,16 @@
 
   <browser:page
     for="*"
+    name="createPartner"
+    class=".api.code.CreatePartner"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
     name="changeTarget"
     class=".api.code.ChangeTarget"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 
 </configure>
-
-

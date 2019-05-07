@@ -375,6 +375,9 @@ class View(grok.View):
         # TODO: Create app role system
         return False
 
+    def getPath(self):
+        return '/'.join(self.context.getPhysicalPath())
+
     def getPartners(self):
         other = api.content.find(
             portal_type=['ContribPartner'],

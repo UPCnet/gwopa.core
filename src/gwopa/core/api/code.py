@@ -4,6 +4,7 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from zope.interface import alsoProvides
 import json
 from plone import api
+from decimal import Decimal
 from operator import itemgetter
 from zope.annotation.interfaces import IAnnotations
 import datetime
@@ -111,6 +112,21 @@ class Delete(BrowserView):
         api.content.delete(obj=obj, check_linkintegrity=False)
         return 'Ok, item deleted'
 
+class CreatePartner(BrowserView):
+
+    def __call__(self):
+        item = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
+        title = self.request.form.get('item_title')
+        portal_type = self.request.form.get('item_type')
+        obj = api.content.create(
+            title=title,
+            type=portal_type,
+            container=item.getObject())
+
+        obj.incash = Decimal(self.request.form.get('item_incash').replace(',', ''))
+        obj.inkind = Decimal(self.request.form.get('item_inkind').replace(',', ''))
+
+        return 'Ok, item created'
 
 class Create(BrowserView):
 
