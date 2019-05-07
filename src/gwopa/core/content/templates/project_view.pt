@@ -239,36 +239,13 @@
     </div>
   </div>
 
-<<<<<<< 43ff56df53a8cc73bed7309aac60b843544e881b
-    <div id="modalPartner" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalAddPartner" data-dismiss="modal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <form class="form-horizontal">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="modalAddPartner" i18n:translate=""> Testing! New Partner Contributor </h4>
-            </div>
-            <div class="modal-body" id="NewDonor">
-              <div class="form-group" style="padding-top:15px;">
-                <label class="col-sm-2 control-label" for="exampleInputAmount" i18n:translate="" > Name </label>
-                <div class="input-group col-sm-10">
-                  <input type="text" class="form-control" id="name">
-                </div>
-              </div>
-              <div class="form-group" style="padding-top:15px;">
-                <label class="col-sm-2 control-label" for="exampleInputAmount" i18n:translate=""> In-cash </label>
-                <div class="input-group col-sm-10">
-                  <div class="input-group-addon">$</div>
-                  <input type="text" class="form-control" id="incash">
-                </div>
-=======
   <div id="modalPartner" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalAddPartner" data-dismiss="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form class="form-horizontal">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalAddPartner" i18n:translate=""> Testing! New Partner Contributor </h4>
+            <h4 class="modal-title" id="modalAddPartner" i18n:translate=""> Add Contributor </h4>
           </div>
           <div class="modal-body" id="NewDonor">
             <div class="form-group" style="padding-top:15px;">
@@ -277,7 +254,6 @@
                 <input type="text" class="form-control" id="partnerName">
                 <input type="hidden" class="modal-url" id="partnerPath"/>
                 <input type="hidden" class="modal-type" id="partnerType"/>
->>>>>>> Update modal contrib partner
               </div>
             </div>
             <div class="form-group" style="padding-top:15px;">
@@ -302,21 +278,12 @@
         </form>
       </div>
     </div>
-<<<<<<< 43ff56df53a8cc73bed7309aac60b843544e881b
-    <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
-    <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/modal-output.js"></script>
-=======
   </div>
   <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
   <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
   <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
   <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
   <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/project.js"></script>
->>>>>>> Update modal contrib partner
-
   <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/readmore.js"></script>
 
 </metal:content-core>
