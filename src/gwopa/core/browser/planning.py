@@ -60,14 +60,16 @@ class planningView(BrowserView):
         return '/'.join(self.context.getPhysicalPath())
 
     def project_start(self):
-        start = self.context.startactual.strftime('%Y/%m/%d')
+        start = self.context.startactual.strftime('%Y-%m-%d')
         return start
 
     def project_end(self):
-        end = self.context.completionactual.strftime('%Y/%m/%d')
+        end = self.context.completionactual.strftime('%Y-%m-%d')
         return end
 
     def __call__(self):
+        if self.request['ACTUAL_URL'].split('/')[-2] == 'api':
+            self.request.response.redirect(self.context.absolute_url() + '/' + self.request['ACTUAL_URL'].split('/')[-1:][0])
         if not self.year or self.year == '0':
             # Empty query or 0 returns default template (First Year)
             self.year = 1

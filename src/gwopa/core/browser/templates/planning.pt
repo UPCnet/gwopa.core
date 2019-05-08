@@ -85,9 +85,9 @@
                                   <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput"
                                       tal:attributes="
                                           data-val item/url;
-                                          data-start item/limit_start;
-                                          data-end item/limit_end">
-                                      <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a></li>
+                                          data-start item/start;
+                                          data-end item/end">
+                                    <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a></li>
                               </ul>
                             </div>
                           </tal:block>
@@ -98,10 +98,10 @@
                         <div class="part2 titulocatplan" tal:attributes="id item/portal_type" tal:content="item/title"> Activity/Output Title </div>
                       </div>
                       <div class="contentt" id="bl">
-                        <span tal:content="item/start">2019-03-29</span>
+                        <span tal:content="item/start"> 2019-03-29 </span>
                       </div>
                       <div class="contentt" id="value">
-                        <span tal:content="item/end">2019-03-30</span>
+                        <span tal:content="item/end"> 2019-03-30 </span>
                       </div>
                       <div class="contentt text_center" tal:condition="python:item['portal_type'] == 'Activity'" id="target">
                            <span tal:content="item/target_value_planned"> Target Value Planned </span>
@@ -356,7 +356,7 @@
                    <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                     <input type="hidden" class="pat-select2" id="act-responsible"
-                           i18n:attributes="placeholder search_users" data-pat-select2="vocabularyUrl:select2-users.json;"/>
+                           i18n:attributes="placeholder search_users" data-pat-select2="vocabularyUrl:api/select2-users.json;"/>
                   </div>
                 </div>
                 <div class="form-group col-md-12">
@@ -439,7 +439,7 @@
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                   <input type="hidden" class="pat-select2" id="out-responsible"
-                         data-pat-select2="placeholder:Search users; vocabularyUrl:select2-users.json;"/>
+                         data-pat-select2="placeholder:Search users; vocabularyUrl:api/select2-users.json;"/>
                 </div>
               </div>
             </div>
@@ -531,7 +531,7 @@
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                   <input type="hidden" class="pat-select2" id="kpi-responsible"
                               data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:select2-users.json;"/>
+                                                vocabularyUrl:api/select2-users.json;"/>
                 </div>
               </div>
             </div>
@@ -628,7 +628,7 @@
                     <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                     <input type="hidden" class="pat-select2" id="kpizone-responsible"
                               data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:select2-users.json;"/>
+                                                vocabularyUrl:api/select2-users.json;"/>
                   </div>
                 </div>
               </div>
