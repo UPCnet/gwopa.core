@@ -26,6 +26,14 @@
 
   <browser:page
       for="*"
+      name="api-getOutcomes"
+      class=".api.code.getOutcomes"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="*"
       name="api-getUnits"
       class=".api.code.getUnits"
       permission="zope.Public"
@@ -42,7 +50,7 @@
 
   <!-- API values returned to show output modal -->
   <browser:page
-      for="gwopa.core.content.project.IProject"
+      for="*"
       name="select2-users.json"
       class=".api.code.getUsers"
       permission="zope2.View"

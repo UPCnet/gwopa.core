@@ -43,6 +43,23 @@ class getOutputs(BrowserView):
         return json.dumps(results)
 
 
+class getOutcomes(BrowserView):
+    # /api-getOutcomes
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        results = []
+        catalog = api.portal.get_tool('portal_catalog')
+        literals = catalog.unrestrictedSearchResults(
+            portal_type='Outcomedefaults')
+        literals = sorted(literals, key=itemgetter('Title'), reverse=False)
+        for item in literals:
+            results.append(dict(
+                name=item.Title))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
 class getUsers(BrowserView):
 
     def __call__(self):
@@ -112,6 +129,7 @@ class Delete(BrowserView):
         api.content.delete(obj=obj, check_linkintegrity=False)
         return 'Ok, item deleted'
 
+
 class CreatePartner(BrowserView):
 
     def __call__(self):
@@ -127,6 +145,7 @@ class CreatePartner(BrowserView):
         obj.inkind = Decimal(self.request.form.get('item_inkind').replace(',', ''))
 
         return 'Ok, item created'
+
 
 class Create(BrowserView):
 
@@ -156,25 +175,25 @@ class Create(BrowserView):
             obj.budget = self.request.form.get('item_budget')
             date_start = self.request.form.get('item_start')
             if date_start:
-                obj.start = datetime.datetime.strptime(date_start, '%Y-%m-%d')
+                obj.start = datetime.datetime.strptime(date_start, '%Y-%m-%d').date()
                 date_end = self.request.form.get('item_end')
             if date_end:
-                obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
+                obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d').date()
             obj.initial_situation = self.request.form.get('item_initialdescription')
             obj.currency = self.request.form.get('item_hidden_project_currency')
-            obj.project_dates = 'TODO: Start date: XXX 2019-05-03 - End date: XXX 2022-04-30'
+            obj.project_dates = 'Start date: ' + self.request.form.get('item_project_start') + ' - End date: ' + self.request.form.get('item_project_end')
 
         if portal_type == 'Output':
             date_end = self.request.form.get('item_date')
             if date_end:
-                obj.end = datetime.datetime.strptime(date_end, '%d %b, %Y')
+                obj.end = datetime.datetime.strptime(date_end, '%d %B, %Y').date()
             obj.measuring_unit = self.request.form.get('item_unit')
 
         if (portal_type == 'OutcomeKPI') or (portal_type == 'OutcomeZONE'):
             obj.baseline = self.request.form.get('item_baseline')
             itemdate = self.request.form.get('item_date')
             if itemdate:
-                obj.baseline_date = datetime.datetime.strptime(itemdate, '%Y-%m-%d')
+                obj.baseline_date = datetime.datetime.strptime(itemdate, '%Y-%m-%d').date()
             obj.measuring_frequency = self.request.form.get('item_frequency')
             obj.measuring_unit = self.request.form.get('item_unit')
             obj.zone = self.request.form.get('item_zone')
