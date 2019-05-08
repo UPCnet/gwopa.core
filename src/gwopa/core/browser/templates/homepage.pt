@@ -180,25 +180,27 @@
                                                placeholder title_search_site"
                               tal:attributes="value request/SearchableText|nothing;"
                               />
+
                         </div>
                      </form>
                     </div>
-                    <div class="col-md-2">
+  <!--                   <div class="col-md-2">
                         <a tal:attributes="href string:${portal_url}/search">
                             <button class="searchbtn">
                               <i class="fas fa-search"></i>
                               <tal:omit-tag i18n:translate="">Advanced search</tal:omit-tag>
                             </button>
                           </a>
-                    </div>
-                    <div class="col-md-2">
+                    </div> -->
+                    <div class="col-md-4">
                       <a tal:attributes="href string:${portal_url}/showMap">
                           <button class="center-btn">
                             <i class="fas fa-globe"></i>
-                            <tal:omit-tag i18n:translate="">Map of projects</tal:omit-tag>
+                            <tal:omit-tag i18n:translate="">Show projects on a Map</tal:omit-tag>
                           </button>
                         </a>
                     </div>
+                    <p class="descSearch" i18n:translate="">You can find projects by Title, Objectives, Platform, Program, Country, Location or Partners</p>
                   </div>
                 </div>
                 <div class="has-table">

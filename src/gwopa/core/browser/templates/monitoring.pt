@@ -204,7 +204,7 @@
                   <div class="contentt" id="comple">Completion date</div>
                   <div class="contentt" id="pyv">Target value</div>
                   <div class="contentt" id="mu">Measuring Unit</div>
-                  <div class="contentt" id="freq">Frequency</div><div class="contentt" id="nexupd">Next update</div>
+                  <div class="contentt" id="nexupd">Next update</div>
                   <a type="button" class="expand" data-original-title="Expand">
                     <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i></a>
                   <a type="button" class="notexpand" data-original-title="Collapse">
@@ -234,7 +234,6 @@
                       <div class="contentt" id="comple">28-02-2020</div>
                       <div class="contentt" id="pyv">28-12-2022</div>
                       <div class="contentt" id="mu">Centimeters</div>
-                      <div class="contentt" id="freq">Frequency</div>
                       <div class="contentt" id="nexupd">28-12-2022</div>
                       <a type="button" class="expand" data-original-title="Expand">
                         <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i></a>

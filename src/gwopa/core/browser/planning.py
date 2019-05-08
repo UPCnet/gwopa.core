@@ -68,9 +68,9 @@ class planningView(BrowserView):
         return end
 
     def __call__(self):
-        if self.request['ACTUAL_URL'].split('/')[-2] == 'api':
-            self.request.response.redirect(self.context.absolute_url() + '/' + self.request['ACTUAL_URL'].split('/')[-1:][0])
-        if not self.year or self.year == '0':
+        if self.request['URL'].split('/')[-1][0:4] == 'api-':
+            self.request.response.redirect(self.request['URL'].replace('planning/', ''))
+        if (not self.year or self.year == '0'):
             # Empty query or 0 returns default template (First Year)
             self.year = 1
             self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']

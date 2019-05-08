@@ -148,12 +148,22 @@ class setup(grok.View):
             outputs = api.content.create(
                 type='Folder',
                 id='outputs',
-                title='Defaults Outputs Items',
+                title='Defaults Output Items',
                 description='Default title outputs used in projects',
                 container=config_folder,
                 safe_id=False)
             allowed_types = ['Outputdefaults', ]
             _setup_constrains(outputs, allowed_types)
+
+            outcomes = api.content.create(
+                type='Folder',
+                id='outcomes',
+                title='Defaults Outpcome Items',
+                description='Default title outcomes used in projects',
+                container=config_folder,
+                safe_id=False)
+            allowed_types = ['Outcomedefaults', ]
+            _setup_constrains(outcomes, allowed_types)
 
             projects = api.content.create(
                 type='Folder',
@@ -365,6 +375,7 @@ class setup(grok.View):
 
         self.createProjects(5)
         self.createDefaultOutputs()
+        self.createDefaultOutcomes()
         return "Demo content created"
 
     def getRandomImage(self, w, h):
@@ -456,4 +467,45 @@ class setup(grok.View):
                 title_es=item,
                 title_fr=item,
                 container=portal.config.outputs,
+                safe_id=True)
+
+    def createDefaultOutcomes(self):
+        titles = [
+            'Total number of connections',
+            'Total number of people served',
+            'Coverage',
+            '(Estimated) coverage LIA population',
+            '% Female employees',
+            '% Female employees in management positions',
+            'Number of FT employees per 1000 active connections',
+            'NRW in m3 per actve connection per year',
+            'NRW as percentage of system input',
+            'Collection efficiency',
+            'Customer satisfaction',
+            'Working ratio',
+            'Operating ratio',
+            'Debt service coverage ratio (DSCR)',
+            'Energy consumption per m3 system input',
+            'Expenditures on chemicals per m3 system input',
+            'Chlorine consumption per m3 system input',
+            'Aluminium sulphate consumption per m3 system input',
+            'Percentage of required checks carried out for faecal coliform',
+            'Percentage of checks that do not comply with norm on faecal coliform',
+            'Percentage of required checks carried out for residual chlorine',
+            'Percentage of checks that do not comply with norm on residual Chlorine',
+            'Number of people with access to improved sanitation facilities',
+            'Percentage of people with access to improved sanitation facilities',
+            'Number of people with access to unimproved sanitation facilities',
+            'Percentage of people with access to unimproved sanitation facilities',
+            'Total number of sewerage connections',
+            'Percentage of waste water treated',
+        ]
+        portal = api.portal.get()
+        for item in titles:
+            api.content.create(
+                type='Outcomedefaults',
+                title=item,
+                title_es=item,
+                title_fr=item,
+                container=portal.config.outcomes,
                 safe_id=True)

@@ -51,7 +51,7 @@
   <!-- API values returned to show output modal -->
   <browser:page
       for="*"
-      name="select2-users.json"
+      name="api-select2-users.json"
       class=".api.code.getUsers"
       permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
