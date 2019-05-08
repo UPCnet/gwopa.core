@@ -42,8 +42,35 @@ class monitoringView(BrowserView):
     def getFaseEnd(self):
         return self.fase_end
 
+    def projectTitle(self):
+        return self.context.title
+
+    def project_currency(self):
+        return self.context.currency.split('-')[-1:][0]
+
+    def hidden_project_currency(self):
+        currency = getattr(self.context, 'currency', None)
+        if currency:
+            letter = currency
+        else:
+            letter = 'USD-Dollar-$'
+        return letter
+
+    def getPath(self):
+        return '/'.join(self.context.getPhysicalPath())
+
+    def project_start(self):
+        start = self.context.startactual.strftime('%Y-%m-%d')
+        return start
+
+    def project_end(self):
+        end = self.context.completionactual.strftime('%Y-%m-%d')
+        return end
+
     def __call__(self):
-        if not self.year or self.year == '0':
+        if self.request['URL'].split('/')[-1][0:4] == 'api-':
+            self.request.response.redirect(self.request['URL'].replace('monitoring/', ''))
+        if (not self.year or self.year == '0'):
             # Empty query or 0 returns default template
             self.year = '1'
             self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
@@ -85,9 +112,10 @@ class monitoringView(BrowserView):
             else:
                 url = self.context.absolute_url_path() + '/monitoring/' + str(total + 1)
             results.append(dict(
-                title='Project Year ' + str(total + 1),
+                title=_(u"Project year"),
+                year=str(total + 1),
                 url=url,
-                alt=_(u'Show planning of year ') + str(total + 1),
+                alt=_(u"Show monitoring of year "),
                 classe=classe))
             total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)
