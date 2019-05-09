@@ -126,12 +126,13 @@ class planningView(BrowserView):
             portal_type=['ImprovementArea'],
             context=self.context)
         results = []
-        for project in items:
+        for (i,project) in enumerate(items):
             item = project.getObject()
             results.append(dict(title=item.title,
                                 url='/'.join(item.getPhysicalPath()),
                                 id=item.id,
                                 description=item.description,
+                                pos=i,
                                 portal_type=item.portal_type
                                 ))
         return sorted(results, key=itemgetter('title'), reverse=False)

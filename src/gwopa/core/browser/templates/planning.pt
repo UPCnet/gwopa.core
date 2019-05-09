@@ -38,10 +38,6 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="project">
         <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
-          <div class="documentDescription titleCollapse">
-            <span id="collapseAllProjectTab" i18n:translate="">Collapse all <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
-            <span id="expandAllProjectTab" i18n:translate="">Expand all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-          </div>
           <div class="tabla_contenido_items container-fluid">
             <tal:objects repeat="item areas">
               <div tal:define="files python:view.indicatorsInside(item);" class="row-fluid">
@@ -67,8 +63,7 @@
                     <div class="contentt" id="target" i18n:translate="">Target value</div>
                     <div class="contentt" id="resp" i18n:translate="">Responsible</div>
                     <div class="contentt" id="actions" i18n:translate="">Action </div>
-                    <i class="fas fa-chevron-up collapseItem"></i>
-                    <i class="fas fa-chevron-down expandItem"></i>
+                    <i tal:attributes="id string:wa-${item/id}" class="fas fa-chevron-down collapseWA"></i>
                   </div>
                 </div>
                 <div class="tabla_cuerpo" tal:repeat="item files">
@@ -133,10 +128,6 @@
                             data-id item/title;" title="Delete" alt="Delete">
                           <i class="far fa-trash-alt"></i></a>
                       </div>
-                      <tal:omit-tag  tal:condition="python:item['portal_type'] == 'Activity'">
-                        <i class="fas fa-chevron-up collapseItem" aria-hidden="true"></i>
-                        <i class="fas fa-chevron-down expandItem" aria-hidden="true"></i>
-                      </tal:omit-tag>
                     </div>
                     <tal:block tal:define="outputs python:view.indicatorsInside(item);">
                       <div tal:repeat="output outputs" class="block_sub_indicators">
