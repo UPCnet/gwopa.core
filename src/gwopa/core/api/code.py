@@ -202,15 +202,15 @@ class Create(BrowserView):
             annotations = IAnnotations(obj)
             for x in range(0, 11):  # Create 10 annotations
                 target = self.request.form.get('item_target' + str(x + 1))
-                data = dict(real='', planned=target)
+                data = dict(real='', planned=target, monitoring='')
                 KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
                 annotations[KEY] = data
 
         return 'Ok, item created'
 
 
-class ChangeTarget(BrowserView):
-    """ /changeTarget Change the Target Value of an element """
+class ChangeTargetMonitoring(BrowserView):
+    """ /changeTarget Change the real value of an element """
 
     def __call__(self):
         year = self.request.form['pk']
@@ -219,6 +219,52 @@ class ChangeTarget(BrowserView):
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         item = api.content.find(path=item_path, depth=0)[0]
         annotations = IAnnotations(item.getObject())
-        data = dict(planned=new_value)
+        planned = annotations[KEY]['planned']
+        data = dict(real=new_value, planned=planned, monitoring='')
         annotations[KEY] = data
         return "OK, value changed"
+
+
+class ChangeTargetPlanning(BrowserView):
+    """ /changeTarget Change the planned value of an element """
+
+    def __call__(self):
+        year = self.request.form['pk']
+        item_path = self.request.form['name']
+        new_value = self.request.form['value']
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        item = api.content.find(path=item_path, depth=0)[0]
+        annotations = IAnnotations(item.getObject())
+        real = annotations[KEY]['real']
+        data = dict(real=real, planned=new_value, monitoring='')
+        annotations[KEY] = data
+        return "OK, value changed"
+
+
+class Update(BrowserView):
+
+    def __call__(self):
+        # TODO: check permissions. now cmf.ModifyPortalContent
+        year = self.request.form['year']
+        item_path = self.request.form['path']
+        progress = self.request.form['progress']
+        explanation = self.request.form['explanation']
+        # TODO: obstacles = self.request.form['obstacles']
+        # TODO: contributing = self.request.form['contributing']
+        consideration = self.request.form['consideration']
+        limiting = self.request.form['limiting']
+        monitoring_info = dict(
+            progress=progress,
+            explanation=explanation,
+            consideration=consideration,
+            limiting=limiting,
+        )
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        item = api.content.find(path=item_path, depth=0)[0]
+        annotations = IAnnotations(item.getObject())
+        real = annotations[KEY]['real']
+        planned = annotations[KEY]['planned']
+        data = dict(real=real, planned=planned, monitoring=monitoring_info)
+        annotations[KEY] = data
+
+        return 'Ok, item updated'

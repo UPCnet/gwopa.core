@@ -48,10 +48,10 @@
                     <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/planning">
                     <i class="fas fa-calendar-check"></i><tal:omit-tag i18n:translate=""> Planning </tal:omit-tag></a>
                 </li>
-                <li tal:define="tab_id string:${projectPath}/collaborating">
+<!--                 <li tal:define="tab_id string:${projectPath}/collaborating">
                     <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/collaborating">
                     <i class="fas fa-users"></i><tal:omit-tag i18n:translate=""> Collaboration </tal:omit-tag></a>
-                </li>
+                </li> -->
                 <li tal:define="tab_id string:${projectPath}/monitoring">
                     <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/monitoring">
                     <i class="fas fa-chart-pie"></i><tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>
@@ -60,10 +60,10 @@
                     <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/visualizating">
                     <i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></a>
                 </li>
-                <li tal:define="tab_id string:${projectPath}/reporting">
+<!--                 <li tal:define="tab_id string:${projectPath}/reporting">
                     <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/reporting">
                     <i class="fas fa-file-alt"></i><tal:omit-tag i18n:translate=""> Reporting </tal:omit-tag></a>
-                </li>
+                </li> -->
             </tal:omit-tag>
             <tal:omit tal:condition="isRootFolder">
                 <li tal:define="tab_id string:${portal_url}/config">

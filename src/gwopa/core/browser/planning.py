@@ -6,7 +6,7 @@ from zope.publisher.interfaces import IPublishTraverse
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
-# import datetime
+import datetime
 from gwopa.core import _
 from zope.annotation.interfaces import IAnnotations
 
@@ -168,10 +168,12 @@ class planningView(BrowserView):
                     unit = ''
                 else:
                     target_value_planned = annotations[KEY]['planned']
-                    unit = obj.measuring_unit
             else:
                 target_value_planned = _(u"Not defined")
+            if item.portal_type == 'Activity':
                 unit = ''
+            else:
+                unit = obj.measuring_unit
             if not item.start:
                 item.start = '-----'
             if not item.end:

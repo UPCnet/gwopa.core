@@ -17,7 +17,6 @@
   <object meta_type="Dexterity FTI" name="Program" />
   <object meta_type="Dexterity FTI" name="Project" />
   <object meta_type="Dexterity FTI" name="SettingsPage" />
-  <object meta_type="Dexterity FTI" name="TargetValue" />
   <object meta_type="Dexterity FTI" name="ContribOther" />
   <object meta_type="Dexterity FTI" name="ContribDonor" />
   <object meta_type="Dexterity FTI" name="ContribPartner" />

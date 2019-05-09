@@ -144,7 +144,7 @@ class monitoringView(BrowserView):
         # start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%d-%m')
         # end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
         # date_range_query = {'query': (start, end), 'range': 'min:max'},
-            # start=date_range_query,
+        # start=date_range_query,
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity'],
             path={'query': folder_path,
@@ -165,28 +165,31 @@ class monitoringView(BrowserView):
                 if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
                     target_value_real = ''
                     target_value_planned = _(u"Not defined")
-                    unit = ''
                 else:
                     target_value_real = annotations[KEY]['real']
                     target_value_planned = annotations[KEY]['planned']
-                    unit = obj.measuring_unit
             else:
                 target_value_real = ''
-                target_value_planned = _(u"Not defined")
+                target_value_planned = '-----'
+            if item.portal_type == 'Activity':
                 unit = ''
+            else:
+                unit = obj.measuring_unit
             if not item.start:
                 item.start = '-----'
             if not item.end:
                 item.end = '-----'
             results.append(dict(
                 title=item.Title,
+                path=item.getPath(),
+                id=item.id,
                 portal_type=item.portal_type,
                 start=item.start,
-                end=item.end,
+                end=item.end.strftime('%Y-%m-%d'),
                 unit=unit,
                 target_value_real=target_value_real,
                 target_value_planned=target_value_planned,
-                year='-----',
+                year=self.year,
                 next_update=data_year['end_iso'],
                 url='/'.join(obj.getPhysicalPath())))
         return results
