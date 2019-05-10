@@ -100,26 +100,26 @@
                         </div>
                         <tal:comment replace="nothing"> <!-- Activity desplegable --> </tal:comment>
                         <div class="tabla_cuerpo" id="contenido">
-                         <form id="updateActivity">
+                          <form id="updateActivity">
                             <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                               <div class="filacontenido">
                                 <div class="col-sm-1">
                                   <h3 i18n:translate=""> Progress Degree </h3>
-                                   <input type="text" id="value">
+                                   <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
                                 </div>
                                 <div class="col-sm-5">
                                   <h3 i18n:translate="">Explanation Progress</h3>
-                                  <textarea class="form-control" id="explanation"></textarea>
+                                  <textarea class="form-control" tal:content="item/explanation" tal:attributes="id string:${item/id}-explanation;"></textarea>
                                 </div>
                                 <div class="col-sm-3">
                                   <h3 i18n:translate="">Main Obstacles</h3>
-                                  <select name="Name" class="focus">
+                                  <select name="Name" class="focus" tal:attributes="id string:${item/id}-obstacles">
                                     <option value="#">Obstacle 1</option>
                                     <option value="#">Obstacle 2</option>
                                     <option value="#">Obstacle 3</option>
                                   </select>
                                 </div>
-                                <div class="col-sm-3" id="maincontrfact">
+                                <div class="col-sm-3" tal:attributes="id string:${item/id}-contributing">
                                   <h3 i18n:translate="">Main Contributing factors</h3>
                                   <select name="Name" class="focus">
                                     <option value="#">Factor 1</option>
@@ -131,16 +131,16 @@
                               <div class="filacontenido">
                                 <div class="col-sm-6">
                                   <h3 i18n:translate="">Consideration for further planning</h3>
-                                  <textarea class="form-control" id="consideration"></textarea>
+                                  <textarea class="form-control" tal:content="item/consideration" tal:attributes="id string:${item/id}-consideration;"></textarea>
                                 </div>
                                 <div class="col-sm-6">
                                   <h3 i18n:translate="">Explain contributed and limiting factors</h3>
-                                  <textarea class="form-control" id="limiting"></textarea>
+                                  <textarea class="form-control" tal:content="item/limiting" tal:attributes="id string:${item/id}-limiting;"></textarea>
                                 </div>
                               </div>
                               <div tal:content="item/year" id="year" style="display:none;"></div>
-                              <div tal:content="item/path" id="path" style="display:none;"></div>
-                              <button type="submit" class="btn btn-default focus updateActivityMonitoring" tal:attributes="id string:${item/id}-updateActivityMonitoring"> Update </button>
+                              <div tal:content="item/path" tal:attributes="id string:${item/id}-path" style="display:none;"></div>
+                              <button type="submit" tal:attributes="id string:${item/id}-updateActivityMonitoring; class string:${item/id} btn btn-default focus"> Update </button>
                             </div>
                           </form>
                         </div>

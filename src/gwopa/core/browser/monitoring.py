@@ -160,14 +160,16 @@ class monitoringView(BrowserView):
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
         for item in items:
             obj = item.getObject()
-            annotations = IAnnotations(item.getObject())
+            annotations = IAnnotations(obj)
             if KEY in annotations.keys():
                 if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
                     target_value_real = ''
                     target_value_planned = _(u"Not defined")
+                    monitoring_info = ''
                 else:
                     target_value_real = annotations[KEY]['real']
                     target_value_planned = annotations[KEY]['planned']
+                    monitoring_info = annotations[KEY]['monitoring']
             else:
                 target_value_real = ''
                 target_value_planned = '-----'
@@ -191,6 +193,10 @@ class monitoringView(BrowserView):
                 target_value_planned=target_value_planned,
                 year=self.year,
                 next_update=data_year['end_iso'],
+                consideration=monitoring_info['consideration'] if monitoring_info is not '' else '',
+                explanation=monitoring_info['explanation'] if monitoring_info is not '' else '',
+                limiting=monitoring_info['limiting'] if monitoring_info is not '' else '',
+                progress=monitoring_info['progress'] if monitoring_info is not '' else '',
                 url='/'.join(obj.getPhysicalPath())))
         return results
 

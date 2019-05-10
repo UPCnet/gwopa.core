@@ -182,6 +182,11 @@ class Create(BrowserView):
             obj.initial_situation = self.request.form.get('item_initialdescription')
             obj.currency = self.request.form.get('item_hidden_project_currency')
             obj.project_dates = 'Start date: ' + self.request.form.get('item_project_start') + ' - End date: ' + self.request.form.get('item_project_end')
+            annotations = IAnnotations(obj)
+            for x in range(0, 11):  # Create 10 annotations
+                data = dict(real='', planned='', monitoring='')
+                KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
+                annotations[KEY] = data
 
         if portal_type == 'Output':
             date_end = self.request.form.get('item_date')
@@ -256,11 +261,14 @@ class Update(BrowserView):
         monitoring_info = dict(
             progress=progress,
             explanation=explanation,
+            # obstacles=obstacles,
+            # contributing=contributing,
             consideration=consideration,
             limiting=limiting,
         )
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         item = api.content.find(path=item_path, depth=0)[0]
+        #import ipdb; ipdb.set_trace()
         annotations = IAnnotations(item.getObject())
         real = annotations[KEY]['real']
         planned = annotations[KEY]['planned']

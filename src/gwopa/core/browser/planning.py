@@ -150,6 +150,7 @@ class planningView(BrowserView):
             portal_type=['Activity'],
             path={'query': folder_path,
                   'depth': 1})
+
         # date_range_query = {'query': (end, end), 'range': 'max'}
         #     end=date_range_query,
         outputs = portal_catalog.unrestrictedSearchResults(
