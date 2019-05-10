@@ -43,15 +43,15 @@
             <span id="expandAllProjectTab" i18n:translate="">Expand all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
           </div>
           <div class="tabla_contenido_items container-fluid">
-            <tal:objects repeat="item areas">
-              <div class="row-fluid" tal:define="files python:view.indicatorsInside(item);">
+            <tal:objects repeat="area areas">
+              <div class="row-fluid" tal:define="files python:view.indicatorsInside(area);">
                 <div class="tabla_cabecera">
                   <div class="tabla_hilera">
                     <div class="tabla_info">
                       <div class="information object" id="header">
                         <div class="contentt" id="total">
                           <div class="titleRowMonitoring">
-                            <a tal:attributes="href item/url" tal:content="item/title"> Item Title </a>
+                            <a tal:attributes="href area/url" tal:content="area/title"> Item Title </a>
                           </div>
                         </div>
                         <div class="contentt" id="comple">Completion Date</div>
@@ -105,7 +105,7 @@
                               <div class="filacontenido">
                                 <div class="col-sm-1">
                                   <h3 i18n:translate=""> Progress Degree </h3>
-                                   <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
+                                    <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
                                 </div>
                                 <div class="col-sm-5">
                                   <h3 i18n:translate="">Explanation Progress</h3>
@@ -174,11 +174,11 @@
                                 <div class="filacontenido">
                                   <div class="col-sm-1">
                                     <h3 i18n:translate=""> Value </h3>
-                                     <input type="text" id="value">
+                                      <input type="text" tal:attributes="id string:${output/id}-progress; value output/progress;">
                                   </div>
                                   <div class="col-sm-5">
                                     <h3 i18n:translate="">Explanation Progress</h3>
-                                    <textarea class="form-control" id="explanation"></textarea>
+                                    <textarea class="form-control" tal:content="output/explanation" tal:attributes="id string:${output/id}-explanation;"></textarea>
                                   </div>
                                   <div class="col-sm-3">
                                     <h3 i18n:translate="">Main Obstacles</h3>
@@ -200,16 +200,18 @@
                                 <div class="filacontenido">
                                   <div class="col-sm-6">
                                     <h3 i18n:translate="">Consideration for further planning</h3>
-                                    <textarea class="form-control" id="consideration"></textarea>
+                                    <textarea class="form-control" tal:content="output/consideration" tal:attributes="id string:${output/id}-consideration;"></textarea>
                                   </div>
                                   <div class="col-sm-6">
                                     <h3 i18n:translate="">Explain contributed and limiting factors</h3>
-                                    <textarea class="form-control" id="limiting"></textarea>
+                                    <textarea class="form-control" tal:content="output/limiting" tal:attributes="id string:${output/id}-limiting;"></textarea>
                                   </div>
                                 </div>
-                                <div tal:content="item/year" id="year" style="display:none;"></div>
-                                <div tal:content="item/path" id="path" style="display:none;"></div>
-                                <button type="submit" class="btn btn-default focus updateOutputMonitoring" tal:attributes="id string:${item/id}-updateOutputMonitoring"> Update </button>
+                                <div tal:content="output/year" id="year" style="display:none;"></div>
+                                <div tal:content="output/path" tal:attributes="id string:${output/id}-path" style="display:none;"></div>
+                                <button type="submit" tal:attributes="id string:${output/id}-updateOutputMonitoring; class string:${output/id} btn btn-default focus"> Update </button>
+                                <!-- <div tal:content="item/path" id="path" style="display:none;"></div>
+                                <button type="submit" class="btn btn-default focus updateOutputMonitoring" tal:attributes="id string:${item/id}-updateOutputMonitoring"> Update </button> -->
                               </form>
                             </div>
                           </div>
