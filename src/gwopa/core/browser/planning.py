@@ -46,7 +46,8 @@ class planningView(BrowserView):
         return self.context.title
 
     def project_currency(self):
-        return self.context.currency.split('-')[-1:][0]
+        currency = self.context.currency
+        return currency.split('-')[-1:][0] if currency is not None else ''
 
     def hidden_project_currency(self):
         currency = getattr(self.context, 'currency', None)
@@ -126,7 +127,7 @@ class planningView(BrowserView):
             portal_type=['ImprovementArea'],
             context=self.context)
         results = []
-        for (i,project) in enumerate(items):
+        for (i, project) in enumerate(items):
             item = project.getObject()
             results.append(dict(title=item.title,
                                 url='/'.join(item.getPhysicalPath()),
@@ -145,7 +146,7 @@ class planningView(BrowserView):
         # start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%d-%m')
         # end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
         # date_range_query = {'query': (start, end), 'range': 'min:max'},
-            # start=date_range_query,
+        # start=date_range_query,
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity'],
             path={'query': folder_path,
@@ -275,5 +276,6 @@ class planningView(BrowserView):
             Output must be done via JS because we need to pass the value from the HTML. """
         start = self.context.gwopa_year_phases[:][0]['pattern_start']
         end = self.context.gwopa_year_phases[-1:][0]['pattern_end']
-        value = """{"date":{ "min":[""" + start + """], "max":[""" + end + """]}, "time": false, "today": false, "clear": false}"""
+        value = """{"date":{ "min":[""" + start + """], "max":[""" + \
+            end + """]}, "time": false, "today": false, "clear": false}"""
         return value
