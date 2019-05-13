@@ -63,7 +63,7 @@
                     <div class="contentt" id="target" i18n:translate="">Target value</div>
                     <div class="contentt" id="resp" i18n:translate="">Responsible</div>
                     <div class="contentt" id="actions" i18n:translate="">Action </div>
-                    <i tal:attributes="id string:wa-${item/id}" class="fas fa-chevron-down collapseWA"></i>
+                    <i tal:attributes="id string:wa-${item/id}" class="fas fa-chevron-up expandWA"></i>
                   </div>
                 </div>
                 <div class="tabla_cuerpo" tal:repeat="item files">
@@ -213,6 +213,7 @@
                 <div class="contentt" id="mu" i18n:translate=""> Frequency </div>
                 <div class="contentt" id="resp" i18n:translate=""> Responsible </div>
                 <div class="contentt" id="actions" i18n:translate=""> Action </div>
+                <i id="up" class="fas fa-chevron-up expandUP"></i>
               </div>
             </div>
             <div class="tabla_cuerpo">
@@ -261,6 +262,7 @@
                 <div class="contentt" id="total">
                   <div class="titleRowPlanning"> Utility Capacity </div>
                 </div>
+                <i id="uc" class="fas fa-chevron-up expandUC"></i>
               </div>
             </div>
             <div class="tabla_cuerpo">
