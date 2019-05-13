@@ -75,7 +75,7 @@
                               <span style="color: Mediumslateblue;">
                                 <i class="fas fa-exclamation"></i>
                               </span>
-                              <span style="color: Tomato;">
+                              <span style="color: #0e9c14;">
                                 <i class="fas fa-circle"></i>
                               </span>
                             </div>
@@ -103,8 +103,8 @@
                           <form id="updateActivity">
                             <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                               <div class="filacontenido">
-                                <div class="col-sm-1">
-                                  <h3 i18n:translate=""> Progress Degree </h3>
+                                <div class="col-sm-2">
+                                  <h3 i18n:translate="">Progress Degree (%)</h3>
                                     <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
                                 </div>
                                 <div class="col-sm-5">
@@ -182,7 +182,7 @@
                                   </div>
                                   <div class="col-sm-3">
                                     <h3 i18n:translate="">Main Obstacles</h3>
-                                    <select name="Name" class="focus">
+                                    <select name="Name" class="focus" tal:attributes="id string:${output/id}-obstacles">
                                       <option value="#">Obstacle 1</option>
                                       <option value="#">Obstacle 2</option>
                                       <option value="#">Obstacle 3</option>
@@ -190,7 +190,7 @@
                                   </div>
                                   <div class="col-sm-3">
                                     <h3 i18n:translate="">Main Contributing factors</h3>
-                                    <select name="Name" class="focus">
+                                    <select name="Name" class="focus" tal:attributes="id string:${output/id}-contributing">
                                       <option value="#">Factor 1</option>
                                       <option value="#">Factor 2</option>
                                       <option value="#">Factor 3</option>
@@ -210,8 +210,6 @@
                                 <div tal:content="output/year" id="year" style="display:none;"></div>
                                 <div tal:content="output/path" tal:attributes="id string:${output/id}-path" style="display:none;"></div>
                                 <button type="submit" tal:attributes="id string:${output/id}-updateOutputMonitoring; class string:${output/id} btn btn-default focus"> Update </button>
-                                <!-- <div tal:content="item/path" id="path" style="display:none;"></div>
-                                <button type="submit" class="btn btn-default focus updateOutputMonitoring" tal:attributes="id string:${item/id}-updateOutputMonitoring"> Update </button> -->
                               </form>
                             </div>
                           </div>
@@ -227,6 +225,10 @@
         </tal:block-activities>
       </div>
       <div role="tabpanel" class="tab-pane" id="outcomes">
+        <div class="documentDescription titleCollapse">
+          <span id="collapseAllOutcomeTab" i18n:translate="">Collapse all <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
+          <span id="expandAllOutcomeTab" i18n:translate="">Expand all <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+        </div>
         <div class="tabla_contenido_items">
           <div class="row boxUtilityPerformance" tal:define="outcomes view/listOutcomesKPI">
             <div class="tabla_cabecera">
@@ -234,62 +236,71 @@
                 <div class="contentt" id="total">
                   <div class="titleRowMonitoring" i18n:translate=""> Utility Performance </div>
                 </div>
-                <div class="contentt" id="comple">Completion date</div>
+                <div class="contentt" id="comple">Baseline date</div>
                 <div class="contentt" id="pyv">Target value</div>
-                <div class="contentt" id="mu">Measuring Unit</div>
                 <div class="contentt" id="nexupd">Next update</div>
-                <i class="fas fa-chevron-up collapseOutcome" aria-hidden="true"></i>
-                <i class="fas fa-chevron-down expandOutcome" aria-hidden="true"></i>
+                <i class="fas fa-chevron-up notexpand" aria-hidden="true"></i>
+                <i class="fas fa-chevron-down expand" aria-hidden="true"></i>
               </div>
             </div>
-            <div class="tabla_cuerpo">
-              <tal:objects repeat="outcome outcomes">
-                <div class="col-md-12 text-item-planning">
-                  <div class="information object">
-                    <div class="contentt" id="total">
-                        <div class="itemStatus">
-                          <span style="color: Mediumslateblue;">
-                            <i class="fas fa-exclamation"></i>
-                          </span>
-                          <span style="color: Tomato;">
-                            <i class="fas fa-circle"></i>
-                          </span>
-                        </div>
-                      <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
-                      <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
+            <div class="tabla_cuerpo" tal:repeat="outcome outcomes">
+              <div class="col-md-12 text-item-planning">
+                <div class="information object">
+                  <div class="contentt" id="total">
+                    <div class="itemStatus">
+                      <span style="color: Mediumslateblue;">
+                        <i class="fas fa-exclamation"></i>
+                      </span>
+                      <span style="color: #0e9c14;">
+                        <i class="fas fa-circle"></i>
+                      </span>
                     </div>
-                    <div class="contentt" id="comple">28-02-2020</div>
-                    <div class="contentt" id="pyv">28-12-2022</div>
-                    <div class="contentt" id="mu">Centimeters</div>
-                    <div class="contentt" id="nexupd">28-12-2022</div>
-                    <a type="button" class="expand" data-original-title="Expand">
-                      <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i></a>
-                    <a type="button" class="notexpand" data-original-title="Collapse">
-                      <i style="color: #557c95" class="fas fa-chevron-up" aria-hidden="true"></i></a>
+                    <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
+                    <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
                   </div>
-                  <tal:comment replace="nothing">  <!-- KPI desplegable --> </tal:comment>
-                  <div class="tabla_cuerpo" id="contenido">
+                  <div class="contentt" id="comple" tal:content="outcome/base_date">2019-03-30</div>
+                  <div class="contentt target" id="pyv">
+                    <span tal:attributes="
+                        data-pk currentYear;
+                        data-name outcome/url;
+                        data-url string:${context/absolute_url}/changeTargetMonitoring"
+                        data-type="text"
+                        data-title="Change target value"
+                        class="editable" tal:content="outcome/target_value_real"> Target Value Real
+                    </span> /
+                    <span id="pyv" tal:content="outcome/target_value_planned"> Target Value Planned </span>
+                    <span tal:content="outcome/unit"> Unit</span>
+                  </div>
+                  <div class="contentt" id="nexupd" tal:content="outcome/next_update"> 18-12-2022</div>
+                  <a type="button" class="expandOutcome" data-original-title="Expand">
+                    <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i></a>
+                  <a type="button" class="notexpandOutcome" data-original-title="Collapse">
+                    <i style="color: #557c95" class="fas fa-chevron-up" aria-hidden="true"></i></a>
+                </div>
+                <tal:comment replace="nothing">  <!-- KPI desplegable --> </tal:comment>
+                <div class="tabla_cuerpo" id="contenido">
+                  <form id="updateKPI">
                     <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                       <div class="filacontenido">
-                        <div class="col-sm-1" id="value">
+                        <div class="col-sm-1">
                           <h3 i18n:translate="">Current</h3>
-                          <textarea class="form-control" id="message-text"></textarea>
+                          <input type="text" tal:attributes="id string:${outcome/id}-progress; value outcome/progress;">
                         </div>
-                        <div class="col-sm-5" id="explprog">
-                          <h3 i18n:translate="">Explanation</h3>
-                          <textarea class="form-control" id="message-text"></textarea>
+                        <div class="col-sm-5">
+                          <h3 i18n:translate="">Explanation Progress</h3>
+                          <textarea class="form-control" tal:content="outcome/explanation" tal:attributes="id string:${outcome/id}-explanation;"></textarea>
                         </div>
-                        <div class="col-sm-3" id="mainobst">
+                        <div class="col-sm-3">
                           <h3 i18n:translate="">Main Obstacles</h3>
-                          <select name="Name" class="focus">
+                          <select name="Name" class="focus" tal:attributes="id string:${outcome/id}-obstacles">
                             <option value="#">Obstacle 1</option>
                             <option value="#">Obstacle 2</option>
                             <option value="#">Obstacle 3</option>
                           </select>
                         </div>
-                        <div class="col-sm-3" id="maincontrfact">
+                        <div class="col-sm-3">
                           <h3 i18n:translate="">Main Contributing factors</h3>
-                          <select name="Name" class="focus">
+                          <select name="Name" class="focus" tal:attributes="id string:${outcome/id}-contributing">
                             <option value="#">Factor 1</option>
                             <option value="#">Factor 2</option>
                             <option value="#">Factor 3</option>
@@ -297,20 +308,22 @@
                         </div>
                       </div>
                       <div class="filacontenido">
-                        <div class="col-sm-6" id="conforfurplan">
+                        <div class="col-sm-6">
                           <h3 i18n:translate="">Consideration for further planning</h3>
-                          <textarea class="form-control" id="message-text"></textarea>
+                          <textarea class="form-control" tal:content="outcome/consideration" tal:attributes="id string:${outcome/id}-consideration;"></textarea>
                         </div>
-                        <div class="col-sm-6" id="explcontrlimfac">
+                        <div class="col-sm-6">
                           <h3 i18n:translate="">Explain contributed and limiting factors</h3>
-                          <textarea class="form-control" id="message-text"></textarea>
+                          <textarea class="form-control" tal:content="outcome/limiting" tal:attributes="id string:${outcome/id}-limiting;"></textarea>
                         </div>
                       </div>
-                      <button type="button" class="btn btn-default focus" data-dismiss="3">Update</button>
+                      <div tal:content="outcome/year" id="year" style="display:none;"></div>
+                      <div tal:content="outcome/path" tal:attributes="id string:${outcome/id}-path" style="display:none;"></div>
+                      <button type="submit" tal:attributes="id string:${outcome/id}-updateKPIMonitoring; class string:${outcome/id} btn btn-default focus"> Update </button>
                     </div>
-                  </div>
+                  </form>
                 </div>
-              </tal:objects>
+              </div>
             </div>
           </div>
         </div>

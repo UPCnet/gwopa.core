@@ -205,23 +205,50 @@ class monitoringView(BrowserView):
             portal_type=['OutcomeKPI', 'OutcomeZONE'],
             context=self.context)
         results = []
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+        data_year = self.context.gwopa_year_phases[int(self.year) - 1]
         for item in items:
             members = []
             obj = item.getObject()
+            annotations = IAnnotations(obj)
+            if KEY in annotations.keys():
+                if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
+                    target_value_real = ''
+                    target_value_planned = _(u"Not defined")
+                    monitoring_info = ''
+                else:
+                    target_value_real = annotations[KEY]['real']
+                    target_value_planned = annotations[KEY]['planned']
+                    monitoring_info = annotations[KEY]['monitoring']
+            else:
+                target_value_real = ''
+                target_value_planned = '-----'
             if obj.members:
                 users = obj.members
                 for member in users:
                     members.append(api.user.get(username=member).getProperty('fullname'))
             results.append(dict(
+                path=item.getPath(),
+                id=item.id,
+                year=self.year,
+                portal_type=item.portal_type,
+                start=item.start,
                 title=item.Title,
                 description=item.Description,
+                base_value=obj.baseline,
                 base_date=obj.baseline_date,
-                base_value='baseline_value',
-                target_value='target_value',
-                measuring_unit=obj.measuring_unit,
-                measuring_frequency=obj.measuring_frequency,
-                portal_type=item.portal_type,
+                unit=obj.measuring_unit,
+                frequency=obj.measuring_frequency,
+                means=obj.means,
+                risks=obj.risks,
                 responsible=members,
+                next_update=data_year['end_iso'],
+                target_value_real=target_value_real,
+                target_value_planned=target_value_planned,
+                consideration=monitoring_info['consideration'] if monitoring_info is not '' else '',
+                explanation=monitoring_info['explanation'] if monitoring_info is not '' else '',
+                limiting=monitoring_info['limiting'] if monitoring_info is not '' else '',
+                progress=monitoring_info['progress'] if monitoring_info is not '' else '',
                 url='/'.join(obj.getPhysicalPath())))
         return results
 

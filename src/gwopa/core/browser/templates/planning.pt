@@ -213,8 +213,6 @@
                 <div class="contentt" id="mu" i18n:translate=""> Frequency </div>
                 <div class="contentt" id="resp" i18n:translate=""> Responsible </div>
                 <div class="contentt" id="actions" i18n:translate=""> Action </div>
-                <i class="fas fa-chevron-up collapseOutcome" aria-hidden="true"></i>
-                <i class="fas fa-chevron-down expandOutcome" aria-hidden="true"></i>
               </div>
             </div>
             <div class="tabla_cuerpo">
@@ -231,7 +229,7 @@
                       <span tal:attributes="
                           data-pk currentYear;
                           data-name outcome/url;
-                          data-url string:${context/absolute_url}/changeTarget"
+                          data-url string:${context/absolute_url}/changeTargetPlanning"
                           data-type="text"
                           data-title="Change target value"
                           class="editable" tal:content="outcome/target_value_planned"> Target Value Planned

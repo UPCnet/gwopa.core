@@ -270,7 +270,7 @@ class Update(BrowserView):
         item = api.content.find(path=item_path, depth=0)[0]
         #import ipdb; ipdb.set_trace()
         annotations = IAnnotations(item.getObject())
-        real = annotations[KEY]['real']
+        real = progress
         planned = annotations[KEY]['planned']
         data = dict(real=real, planned=planned, monitoring=monitoring_info)
         annotations[KEY] = data
