@@ -57,10 +57,7 @@
                         <div class="contentt" id="comple">Completion Date</div>
                         <div class="contentt" id="pyv">Target value</div>
                         <div class="contentt" id="nexupd">Next update</div>
-                        <a type="button" class="expand" data-original-title="Expand">
-                          <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i></a>
-                        <a type="button" class="notexpand" data-original-title="Collapse">
-                          <i style="color: #557c95" class="fas fa-chevron-up" aria-hidden="true"></i></a>
+                        <i tal:attributes="id string:wa-${area/id}" class="fas fa-chevron-up expandWA"></i>
                       </div>
                     </div>
                   </div>
@@ -92,10 +89,7 @@
                           </div>
                           <div class="contentt" id="nexupd" tal:content="item/next_update"> 18-12-2022</div>
                           <div class="contentt" id="down">
-                            <a type="button" class="expand" data-original-title="Expand">
-                              <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i></a>
-                            <a type="button" class="notexpand" data-original-title="Collapse">
-                              <i style="color: #557c95" class="fas fa-chevron-up" aria-hidden="true"></i></a>
+                            <i tal:attributes="id string:act-${item/id}" class="fas fa-chevron-up expandAct"></i>
                           </div>
                         </div>
                         <tal:comment replace="nothing"> <!-- Activity desplegable --> </tal:comment>
@@ -239,8 +233,7 @@
                 <div class="contentt" id="comple">Baseline date</div>
                 <div class="contentt" id="pyv">Target value</div>
                 <div class="contentt" id="nexupd">Next update</div>
-                <i class="fas fa-chevron-up notexpand" aria-hidden="true"></i>
-                <i class="fas fa-chevron-down expand" aria-hidden="true"></i>
+                <i id="up" class="fas fa-chevron-up expandUP"></i>
               </div>
             </div>
             <div class="tabla_cuerpo" tal:repeat="outcome outcomes">
@@ -272,10 +265,7 @@
                     <span tal:content="outcome/unit"> Unit</span>
                   </div>
                   <div class="contentt" id="nexupd" tal:content="outcome/next_update"> 18-12-2022</div>
-                  <a type="button" class="expandOutcome" data-original-title="Expand">
-                    <i style="color: #557c95" class="fas fa-chevron-down" aria-hidden="true"></i></a>
-                  <a type="button" class="notexpandOutcome" data-original-title="Collapse">
-                    <i style="color: #557c95" class="fas fa-chevron-up" aria-hidden="true"></i></a>
+                  <i tal:attributes="id string:wa-${outcome/id}" class="fas fa-chevron-up expandOutcome"></i>
                 </div>
                 <tal:comment replace="nothing">  <!-- KPI desplegable --> </tal:comment>
                 <div class="tabla_cuerpo" id="contenido">
