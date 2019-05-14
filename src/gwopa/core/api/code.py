@@ -63,19 +63,14 @@ class getOutcomes(BrowserView):
 class getUsers(BrowserView):
 
     def __call__(self):
-        users = api.user.get_users()
         results = []
-        for user in users:
+        for member in self.context.members:
+            user = api.user.get(member)
             results.append(dict(
                 id=user.id,
                 text=user.getProperty('fullname')))
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(
-            {
-                'placeholder': _(u"Select users..."),
-                'results': results,
-            }
-        )
+        return json.dumps({'results': results, })
 
 
 class getUnits(BrowserView):
