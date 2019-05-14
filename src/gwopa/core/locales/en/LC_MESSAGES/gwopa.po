@@ -602,7 +602,7 @@ msgstr "Not assigned"
 #: ../browser/monitoring.py:139
 #: ../browser/planning.py:167
 msgid "Not defined"
-msgstr "Not defined"
+msgstr "-"
 
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
