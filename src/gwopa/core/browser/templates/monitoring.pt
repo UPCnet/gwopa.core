@@ -69,12 +69,11 @@
                         <div class="information object">
                           <div class="contentt" id="total">
                             <div class="itemStatus">
-                              <span style="color: Mediumslateblue;">
-                                <i class="fas fa-exclamation"></i>
-                              </span>
-                              <span style="color: #0e9c14;">
-                                <i class="fas fa-circle"></i>
-                              </span>
+                              <tal:block tal:condition="item/updated">
+                                <span style="color: #0e9c14;">
+                                  <i id="done" class="fas fa-circle"></i>
+                                </span>
+                              </tal:block>
                             </div>
                             <div tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type"> Activity/output label</div>
                             <h4 class="titulocatplan" tal:attributes="id item/portal_type" tal:content="item/title"> Activity/Output Title </h4>
@@ -142,6 +141,13 @@
                           <div tal:repeat="output outputs" class="block_sub_indicators">
                             <div class="information object">
                               <div class="contentt row" id="total">
+                                <div class="itemStatus">
+                                  <tal:block tal:condition="output/updated">
+                                    <span style="color: #0e9c14;">
+                                      <i id="done" class="fas fa-circle"></i>
+                                    </span>
+                                  </tal:block>
+                                </div>
                                 <div class="part1 label-2nd">
                                   <span tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</span>
                                 </div>
@@ -149,6 +155,9 @@
                               </div>
                               <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                               <div class="contentt target" id="pyv">
+                                <tal:exclamation tal:condition="python:output['target_value_real'] != output['target_value_planned']">
+                                  <i class="fas fa-exclamation"></i>
+                                </tal:exclamation>
                                 <span tal:attributes="
                                     data-pk currentYear;
                                     data-name output/url;
@@ -161,6 +170,7 @@
                                 <span tal:content="output/unit"> Unit </span>
                               </div>
                               <div class="contentt" id="nexupd" tal:content="output/next_update"> 18-12-2022</div>
+                              <i tal:attributes="id string:out-${output/id}" class="fas fa-chevron-up expandOut"></i>
                             </div>
                           <div class="tabla_cuerpo" id="contenido">
                             <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
@@ -241,18 +251,20 @@
                 <div class="information object">
                   <div class="contentt" id="total">
                     <div class="itemStatus">
-                      <span style="color: Mediumslateblue;">
-                        <i class="fas fa-exclamation"></i>
-                      </span>
-                      <span style="color: #0e9c14;">
-                        <i class="fas fa-circle"></i>
-                      </span>
+                      <tal:block tal:condition="outcome/updated">
+                        <span style="color: #0e9c14;">
+                          <i id="done" class="fas fa-circle"></i>
+                        </span>
+                      </tal:block>
                     </div>
                     <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
                     <h4 class="titulocatplan" tal:content="outcome/title">KPI</h4>
                   </div>
                   <div class="contentt" id="comple" tal:content="outcome/base_date">2019-03-30</div>
                   <div class="contentt target" id="pyv">
+                    <tal:exclamation tal:condition="python:outcome['target_value_real'] != outcome['target_value_planned']">
+                      <i class="fas fa-exclamation"></i>
+                    </tal:exclamation>
                     <span tal:attributes="
                         data-pk currentYear;
                         data-name outcome/url;

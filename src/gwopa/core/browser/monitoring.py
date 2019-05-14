@@ -197,6 +197,7 @@ class monitoringView(BrowserView):
                 explanation=monitoring_info['explanation'] if monitoring_info is not '' else '',
                 limiting=monitoring_info['limiting'] if monitoring_info is not '' else '',
                 progress=monitoring_info['progress'] if monitoring_info is not '' else '',
+                updated=monitoring_info['updated'] if monitoring_info is not '' else '',
                 url='/'.join(obj.getPhysicalPath())))
         return results
 
@@ -249,6 +250,7 @@ class monitoringView(BrowserView):
                 explanation=monitoring_info['explanation'] if monitoring_info is not '' else '',
                 limiting=monitoring_info['limiting'] if monitoring_info is not '' else '',
                 progress=monitoring_info['progress'] if monitoring_info is not '' else '',
+                updated=monitoring_info['updated'] if monitoring_info is not '' else '',
                 url='/'.join(obj.getPhysicalPath())))
         return results
 

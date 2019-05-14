@@ -253,6 +253,7 @@ class Update(BrowserView):
         # TODO: contributing = self.request.form['contributing']
         consideration = self.request.form['consideration']
         limiting = self.request.form['limiting']
+        updated = self.request.form['updated']
         monitoring_info = dict(
             progress=progress,
             explanation=explanation,
@@ -260,6 +261,7 @@ class Update(BrowserView):
             # contributing=contributing,
             consideration=consideration,
             limiting=limiting,
+            updated=updated,
         )
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         item = api.content.find(path=item_path, depth=0)[0]
