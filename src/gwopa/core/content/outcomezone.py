@@ -26,15 +26,15 @@ class IOutcomezone(model.Schema):
         required=True,
     )
 
+    zone = schema.TextLine(
+        title=_(u'Zone'),
+        required=True,
+    )
+
     description = schema.Text(
         title=_(u'Summary'),
         required=False,
         missing_value=u'',
-    )
-
-    zone = schema.TextLine(
-        title=_(u'Zone'),
-        required=True,
     )
 
     baseline = schema.TextLine(

@@ -142,6 +142,36 @@ class CreatePartner(BrowserView):
         return 'Ok, item created'
 
 
+class addTitleOutput(BrowserView):
+
+    def __call__(self):
+        title = self.request.form.get('item_title')
+        portal = api.portal.get()
+        api.content.create(
+            type='Outputdefaults',
+            title=title,
+            title_es=title,
+            title_fr=title,
+            container=portal.config.outputs,
+            safe_id=True)
+        return 'Ok, Outputdefaults created'
+
+
+class addTitleKPI(BrowserView):
+
+    def __call__(self):
+        title = self.request.form.get('item_title')
+        portal = api.portal.get()
+        api.content.create(
+            type='Outcomedefaults',
+            title=title,
+            title_es=title,
+            title_fr=title,
+            container=portal.config.outcomes,
+            safe_id=True)
+        return 'Ok, Outcomedefaults created'
+
+
 class Create(BrowserView):
 
     def __call__(self):

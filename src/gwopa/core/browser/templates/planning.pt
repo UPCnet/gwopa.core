@@ -378,6 +378,16 @@
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="out-title" type="hidden"/>
                 </div>
+                <div id="addOutputTitle" class="form-group col-md-12">
+                  <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                  <span class="legend">Add new Output if not listed in the before field</span>
+                </div>
+                <div class="form-group col-md-12">
+                  <div id="addBox">
+                    <label id="label-title" i18n:translate="">Output title</label>
+                    <input id="add-output" type="text" placeholder="Type title..."/>
+                  </div>
+                </div>
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="out-description"></textarea>
@@ -454,6 +464,16 @@
                   <label id="label-kpi" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="kpi-title" type="hidden"/>
+                </div>
+                <div id="addKPITitle" class="form-group col-md-12">
+                  <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                  <span class="legend">Add new KPI if not listed in the before field</span>
+                </div>
+                <div class="form-group col-md-12">
+                  <div id="addBox">
+                    <label id="label-title" i18n:translate="">KPI title</label>
+                    <input id="add-KPI" type="text" placeholder="Type title..."/>
+                  </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
@@ -542,10 +562,28 @@
             <div class="modal-body" id="NewKPIZone">
               <div class="modal-url" id="KPIZonePath" style="display:none"></div>
               <div class="row">
-                <div class="form-group col-md-12">
-                  <label id="label-kpi" i18n:translate="">Title</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                  <input id="kpizone-title" type="hidden"/>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-8">
+                    <label id="label-kpi" i18n:translate="">Title</label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input id="kpizone-title" type="hidden"/>
+                  </div>
+                  <div class="col-xs-6 col-md-4">
+                    <label id="label-title" i18n:translate="">Add new KPI title</label>
+                    <input id="add-KPI" type="text" placeholder="Type title..."/>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                    <label id="label-zone" i18n:translate=""> Zone </label>
+                    <input type="text" class="form-control" id="kpizone-zone" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
+                    <input type="hidden" class="pat-select2" id="kpizone-responsible"
+                              data-pat-select2="placeholder:Search users;
+                                                vocabularyUrl:api-select2-users.json;"/>
+                  </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
@@ -605,18 +643,6 @@
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="kpizone-risks"></textarea>
-                </div>
-                <div class="form-group row">
-                  <div class="col-xs-6 col-md-6">
-                    <label id="label-zone" i18n:translate=""> Zone </label>
-                    <input type="text" class="form-control" id="kpizone-zone" />
-                  </div>
-                  <div class="col-xs-6 col-md-6">
-                    <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                    <input type="hidden" class="pat-select2" id="kpizone-responsible"
-                              data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:api-select2-users.json;"/>
-                  </div>
                 </div>
               </div>
             </div>
