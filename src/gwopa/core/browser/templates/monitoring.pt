@@ -89,9 +89,7 @@
                             <tal:block tal:condition="python:item['portal_type'] == 'Activity'">  -----  </tal:block>
                           </div>
                           <div class="contentt" id="nexupd" tal:content="item/next_update"> 18-12-2022</div>
-                          <div class="contentt" id="down">
-                            <i tal:attributes="id string:act-${item/id}" class="fas fa-chevron-up expandAct"></i>
-                          </div>
+                          <i tal:attributes="id string:act-${item/id}" class="fas fa-chevron-up expandAct"></i>
                         </div>
                         <tal:comment replace="nothing"> <!-- Activity desplegable --> </tal:comment>
                         <div class="tabla_cuerpo" id="contenido">
@@ -276,7 +274,7 @@
                         data-title="Change target value"
                         class="editable" tal:content="outcome/target_value_real"> Target Value Real
                     </span> /
-                    <span id="pyv" tal:content="outcome/target_value_planned"> Target Value Planned </span>
+                    <span tal:content="outcome/target_value_planned"> Target Value Planned </span>
                     <span tal:content="outcome/unit"> Unit</span>
                   </div>
                   <div class="contentt" id="nexupd" tal:content="outcome/next_update"> 18-12-2022</div>

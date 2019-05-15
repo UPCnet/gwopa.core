@@ -210,7 +210,6 @@
                 <div class="contentt" id="bl" i18n:translate=""> Baseline date </div>
                 <div class="contentt" id="value" i18n:translate=""> Baseline value </div>
                 <div class="contentt" id="target" i18n:translate=""> Target value </div>
-                <div class="contentt" id="mu" i18n:translate=""> Frequency </div>
                 <div class="contentt" id="resp" i18n:translate=""> Responsible </div>
                 <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></div>
                 <i id="up" class="fas fa-chevron-up expandUP"></i>
@@ -237,11 +236,10 @@
                       </span>
                       <span tal:content="outcome/unit"> Unit </span>
                     </div>
-                    <div class="contentt" id="freq" tal:content="outcome/measuring_frequency"> Frequency </div>
-                      <div class="contentt" id="resp" tal:define="members outcome/responsible">
-                        <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
-                        <tal:block tal:condition="not:members" i18n:translate=""> - </tal:block>
-                      </div>
+                    <div class="contentt" id="resp" tal:define="members outcome/responsible">
+                      <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
+                      <tal:block tal:condition="not:members" i18n:translate=""> - </tal:block>
+                    </div>
                     <div class="contentt" id="actions">
                       <a class="pat-plone-modal" tal:attributes="href string:${outcome/url}/edit" title="Edit" alt="Edit"><i class="far fa-edit"></i></a>
                       <a href="#confirm-delete" data-toggle="modal" class="btn-delete"
@@ -375,9 +373,6 @@
             <div class="modal-body" id="NewOutput">
               <div class="modal-url" id="OutputPath" style="display:none;"></div>
               <div class="row">
-                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
-                  <span class="legend">Remember that the related Activity dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
-                </div>
                 <div class="form-group col-md-12">
                   <label id="label-output" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
@@ -386,6 +381,9 @@
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="out-description"></textarea>
+                </div>
+                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
+                  <span class="legend">Remember that the related Activity dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
@@ -452,9 +450,6 @@
             <div class="modal-body" id="NewKPI">
               <div class="modal-url" id="KPIPath" style="display:none"></div>
               <div class="row">
-                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
-                  <span class="legend">Remember that the related Project dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
-                </div>
                 <div class="form-group col-md-12">
                   <label id="label-kpi" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
@@ -463,6 +458,9 @@
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="kpi-description"></textarea>
+                </div>
+                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
+                  <span class="legend">Remember that the related Project dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
                 </div>
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
@@ -545,9 +543,6 @@
               <div class="modal-url" id="KPIZonePath" style="display:none"></div>
               <div class="row">
                 <div class="form-group col-md-12">
-                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
-                  <span class="legend">Remember that the related Project dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
-                </div>
                   <label id="label-kpi" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="kpizone-title" type="hidden"/>
@@ -555,6 +550,9 @@
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="kpizone-description"></textarea>
+                </div>
+                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
+                  <span class="legend">Remember that the related Project dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
                 </div>
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
