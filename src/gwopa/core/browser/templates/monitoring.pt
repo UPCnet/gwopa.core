@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-sm-5">
                                   <h3 i18n:translate="">Explanation Progress</h3>
-                                  <textarea class="form-control" tal:content="item/explanation" tal:attributes="id string:${item/id}-explanation;"></textarea>
+                                  <textarea class="form-control" rows="1" tal:content="item/explanation" tal:attributes="id string:${item/id}-explanation;"></textarea>
                                 </div>
                                 <div class="col-sm-3">
                                   <h3 i18n:translate="">Main Obstacles</h3>
@@ -124,11 +124,11 @@
                               <div class="filacontenido">
                                 <div class="col-sm-6">
                                   <h3 i18n:translate="">Consideration for further planning</h3>
-                                  <textarea class="form-control" tal:content="item/consideration" tal:attributes="id string:${item/id}-consideration;"></textarea>
+                                  <textarea class="form-control" rows="1" tal:content="item/consideration" tal:attributes="id string:${item/id}-consideration;"></textarea>
                                 </div>
                                 <div class="col-sm-6">
                                   <h3 i18n:translate="">Explain contributed and limiting factors</h3>
-                                  <textarea class="form-control" tal:content="item/limiting" tal:attributes="id string:${item/id}-limiting;"></textarea>
+                                  <textarea class="form-control" rows="1" tal:content="item/limiting" tal:attributes="id string:${item/id}-limiting;"></textarea>
                                 </div>
                               </div>
                               <div tal:content="item/year" id="year" style="display:none;"></div>
@@ -183,7 +183,7 @@
                                   </div>
                                   <div class="col-sm-5">
                                     <h3 i18n:translate="">Explanation Progress</h3>
-                                    <textarea class="form-control" tal:content="output/explanation" tal:attributes="id string:${output/id}-explanation;"></textarea>
+                                    <textarea class="form-control" rows="1" tal:content="output/explanation" tal:attributes="id string:${output/id}-explanation;"></textarea>
                                   </div>
                                   <div class="col-sm-3">
                                     <h3 i18n:translate="">Main Obstacles</h3>
@@ -205,11 +205,11 @@
                                 <div class="filacontenido">
                                   <div class="col-sm-6">
                                     <h3 i18n:translate="">Consideration for further planning</h3>
-                                    <textarea class="form-control" tal:content="output/consideration" tal:attributes="id string:${output/id}-consideration;"></textarea>
+                                    <textarea class="form-control" rows="1" tal:content="output/consideration" tal:attributes="id string:${output/id}-consideration;"></textarea>
                                   </div>
                                   <div class="col-sm-6">
                                     <h3 i18n:translate="">Explain contributed and limiting factors</h3>
-                                    <textarea class="form-control" tal:content="output/limiting" tal:attributes="id string:${output/id}-limiting;"></textarea>
+                                    <textarea class="form-control" rows="1" tal:content="output/limiting" tal:attributes="id string:${output/id}-limiting;"></textarea>
                                   </div>
                                 </div>
                                 <div tal:content="output/year" id="year" style="display:none;"></div>
@@ -291,7 +291,7 @@
                         </div>
                         <div class="col-sm-5">
                           <h3 i18n:translate="">Explanation Progress</h3>
-                          <textarea class="form-control" tal:content="outcome/explanation" tal:attributes="id string:${outcome/id}-explanation;"></textarea>
+                          <textarea class="form-control" rows="1" tal:content="outcome/explanation" tal:attributes="id string:${outcome/id}-explanation;"></textarea>
                         </div>
                         <div class="col-sm-3">
                           <h3 i18n:translate="">Main Obstacles</h3>
@@ -313,11 +313,11 @@
                       <div class="filacontenido">
                         <div class="col-sm-6">
                           <h3 i18n:translate="">Consideration for further planning</h3>
-                          <textarea class="form-control" tal:content="outcome/consideration" tal:attributes="id string:${outcome/id}-consideration;"></textarea>
+                          <textarea class="form-control" rows="1" tal:content="outcome/consideration" tal:attributes="id string:${outcome/id}-consideration;"></textarea>
                         </div>
                         <div class="col-sm-6">
                           <h3 i18n:translate="">Explain contributed and limiting factors</h3>
-                          <textarea class="form-control" tal:content="outcome/limiting" tal:attributes="id string:${outcome/id}-limiting;"></textarea>
+                          <textarea class="form-control" rows="1" tal:content="outcome/limiting" tal:attributes="id string:${outcome/id}-limiting;"></textarea>
                         </div>
                       </div>
                       <div tal:content="outcome/year" id="year" style="display:none;"></div>
