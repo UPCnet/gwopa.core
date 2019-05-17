@@ -56,7 +56,10 @@
                               <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a></li>
                         </ul>
                       </div>
-                      <div class="titleRowPlanning"><a tal:attributes="href item/url" tal:content="item/title"> Working Area Title </a></div>
+                      <div class="titleRowPlanning">
+                        <!-- <a tal:attributes="href item/url" tal:content="item/title"> Working Area Title </a> -->
+                        <p tal:attributes="id string:${item/id}" class="expPlWA" tal:content="item/title"> Working Area Title </p>
+                      </div>
                     </div>
                     <div class="contentt" id="bl" i18n:translate="">Starting date</div>
                     <div class="contentt" id="value" i18n:translate="">Completion date</div>
@@ -205,7 +208,9 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="titleRowPlanning" i18n:translate=""> Utility Performance </div>
+                  <div class="titleRowPlanning" i18n:translate="">
+                    <p id="utility" class="expPlUP"> Utility Performance </p>
+                  </div>
                 </div>
                 <div class="contentt" id="bl" i18n:translate=""> Baseline date </div>
                 <div class="contentt" id="value" i18n:translate=""> Baseline value </div>
