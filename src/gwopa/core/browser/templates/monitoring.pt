@@ -70,15 +70,19 @@
                       <div class="col-md-12 text-item-planning">
                         <div class="information object">
                           <div class="contentt" id="total">
-                            <div class="itemStatus">
+                            <div class="part0">
                               <tal:block tal:condition="item/updated">
                                 <span style="color: #0e9c14;">
                                   <i id="done" class="fas fa-circle"></i>
                                 </span>
                               </tal:block>
                             </div>
-                            <div tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type"> Activity/output label</div>
-                            <h4 class="titulocatplan expMoAct" tal:attributes="id item/id" tal:content="item/title"> Activity/Output Title </h4>
+                            <div class="part1">
+                              <span tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type" i18n:translate=""> Activity/output label</span>
+                            </div>
+                            <div class="part2 label-2nd">
+                              <h5 class="titulocatplan expMoAct" tal:attributes="id string:${item/id}" tal:content="item/title"> Activity/Output Title </h5>
+                            </div>
                           </div>
                           <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
                           <div class="contentt" id="comple" tal:content="item/end">28-02-2020</div>
@@ -142,17 +146,19 @@
                           <div tal:repeat="output outputs" class="block_sub_indicators">
                             <div class="information object">
                               <div class="contentt row" id="total">
-                                <div class="itemStatus">
+                                <div class="part0">
                                   <tal:block tal:condition="output/updated">
                                     <span style="color: #0e9c14;">
                                       <i id="done" class="fas fa-circle"></i>
                                     </span>
                                   </tal:block>
                                 </div>
-                                <div class="part1 label-2nd">
+                                <div class="part1">
                                   <span tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</span>
                                 </div>
-                                <div class="part2 titulocatplan expMoOut" tal:attributes="id output/id" tal:content="output/title"> Item Title </div>
+                                <div class="part2 label-2nd">
+                                  <h5 class="titulocatplan expMoOut" tal:attributes="id output/id" tal:content="output/title">Item Title</h5>
+                                </div>
                               </div>
                               <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
                               <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
@@ -241,7 +247,7 @@
               <div class="information object" id="header">
                 <div class="contentt" id="total">
                   <div class="titleRowMonitoring" i18n:translate="">
-                    <p id="utility" class="expMoUP"> Utility Performance </p>
+                    <p id="utility" class="expMoUP">Performance</p>
                   </div>
                 </div>
                 <div class="contentt" id="comple">Baseline date</div>
@@ -253,16 +259,25 @@
             <div class="tabla_cuerpo" tal:repeat="outcome outcomes">
               <div class="col-md-12 text-item-planning">
                 <div class="information object">
-                  <div class="contentt" id="total">
-                    <div class="itemStatus">
+                  <div class="contentt row" id="total">
+                    <div class="part0">
                       <tal:block tal:condition="outcome/updated">
                         <span style="color: #0e9c14;">
                           <i id="done" class="fas fa-circle"></i>
                         </span>
                       </tal:block>
                     </div>
-                    <div tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type"> Outcome - KPI Type</div>
-                    <h4 class="titulocatplan expMoUPItem" tal:attributes="id string:${outcome/id}" tal:content="outcome/title">KPI</h4>
+                    <div class="part1">
+                      <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
+                        <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
+                      </tal:block>
+                      <tal:block condition="python:outcome['portal_type'] == 'OutcomeZONE'">
+                        <span tal:attributes="class string:${outcome/portal_type}-planning second-level" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</span>
+                      </tal:block>
+                    </div>
+                    <div class="part2 label-2nd">
+                      <h5 class="titulocatplan expMoUPItem" tal:attributes="id string:${outcome/id}" tal:content="outcome/title"> KPI </h5>
+                    </div>
                   </div>
                   <div class="contentt" id="comple" tal:content="outcome/base_date">2019-03-30</div>
                   <div class="contentt target" id="pyv">

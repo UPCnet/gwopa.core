@@ -178,9 +178,13 @@ class monitoringView(BrowserView):
             else:
                 unit = obj.measuring_unit
             if not item.start:
-                item.start = '-----'
+                start = '-----'
+            else:
+                start = item.start.strftime('%Y-%m')
             if not item.end:
-                item.end = '-----'
+                end = '-----'
+            else:
+                end = item.end.strftime('%Y-%m')
             if monitoring_info == '':
                 consideration, explanation, limiting, progress, updated = '', '', '', '', ''
             else:
@@ -194,13 +198,13 @@ class monitoringView(BrowserView):
                 path=item.getPath(),
                 id=item.id,
                 portal_type=item.portal_type,
-                start=item.start,
-                end=item.end.strftime('%Y-%m-%d'),
+                start=start,
+                end=end,
                 unit=unit,
                 target_value_real=target_value_real,
                 target_value_planned=target_value_planned,
                 year=self.year,
-                next_update=data_year['end_iso'],
+                next_update=data_year['end_iso'][0:7],
                 consideration=consideration,
                 explanation=explanation,
                 limiting=limiting,
@@ -245,13 +249,13 @@ class monitoringView(BrowserView):
                 title=item.Title,
                 description=item.Description,
                 base_value=obj.baseline,
-                base_date=obj.baseline_date,
+                base_date=obj.baseline_date.strftime('%Y-%m'),
                 unit=obj.measuring_unit,
                 frequency=obj.measuring_frequency,
                 means=obj.means,
                 risks=obj.risks,
                 responsible=members,
-                next_update=data_year['end_iso'],
+                next_update=data_year['end_iso'][0:7],
                 target_value_real=target_value_real,
                 target_value_planned=target_value_planned,
                 consideration=monitoring_info['consideration'] if monitoring_info is not '' else '',

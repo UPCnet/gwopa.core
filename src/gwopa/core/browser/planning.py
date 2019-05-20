@@ -195,14 +195,14 @@ class planningView(BrowserView):
                 start = '----'
                 limit_start = '----'
             else:
-                start = item.start.strftime('%Y-%m-%d')
+                start = item.start.strftime('%Y-%m')
                 limit_start = item.start.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ',')
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
                 start=start,
-                end=item.end.strftime('%Y-%m-%d'),
+                end=item.end.strftime('%Y-%m'),
                 unit=unit,
                 limit_start=limit_start,
                 limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
@@ -241,7 +241,7 @@ class planningView(BrowserView):
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
-                base_date=obj.baseline_date,
+                base_date=obj.baseline_date.strftime('%Y-%m'),
                 base_value=obj.baseline,
                 unit=unit,
                 target_value_planned=target_value_planned,
