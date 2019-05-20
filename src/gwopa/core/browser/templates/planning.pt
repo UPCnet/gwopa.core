@@ -140,7 +140,7 @@
                         <div class="information object">
                           <div class="contentt row" id="total">
                             <div class="part1 label-2nd">
-                              <span tal:attributes="class string:${output/portal_type}-planning second-level" i18n:translate="">Type Output</span>
+                              <span tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</span>
                             </div>
                             <div class="part2 label-2nd">
                               <h5 class="titulocatplan" tal:attributes="id output/portal_type" tal:content="output/title"> Item Title </h5>

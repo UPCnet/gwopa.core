@@ -255,12 +255,14 @@ class IProject(model.Schema):
         vocabulary=u'plone.app.vocabularies.Users',
     )
 
-    # directives.widget('project_manager', SelectWidget)
-    project_manager = schema.Choice(
+    directives.widget('project_manager', SelectWidget)
+    project_manager = schema.List(
         title=_(u"Project Manager"),
         description=_(u"The responsible of this project"),
         required=False,
-        vocabulary=u'plone.app.vocabularies.Users',
+        value_type=schema.Choice(
+            source='plone.app.vocabularies.Users',
+        )
     )
 
     directives.widget('members', SelectWidget)
