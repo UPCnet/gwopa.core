@@ -158,7 +158,7 @@ class setup(grok.View):
             outcomes = api.content.create(
                 type='Folder',
                 id='outcomes',
-                title='Defaults Outpcome Items',
+                title='Defaults Outcome Items',
                 description='Default title outcomes used in projects',
                 container=config_folder,
                 safe_id=False)
@@ -174,6 +174,26 @@ class setup(grok.View):
                 safe_id=False)
             allowed_types = ['Project', ]
             _setup_constrains(projects, allowed_types)
+
+            mainobstacles = api.content.create(
+                type='Folder',
+                id='mainobstacles',
+                title='Defaults Main Obstacles Items',
+                description='Default title Main Obstacles used in project monitoring',
+                container=config_folder,
+                safe_id=False)
+            allowed_types = ['Mainobstacles', ]
+            _setup_constrains(mainobstacles, allowed_types)
+
+            maincontributing = api.content.create(
+                type='Folder',
+                id='maincontributing',
+                title='Defaults Main Contributing Items',
+                description='Default title Main Contributing factors used in project monitoring',
+                container=config_folder,
+                safe_id=False)
+            allowed_types = ['Maincontributing', ]
+            _setup_constrains(maincontributing, allowed_types)
 
             message = _(u"The default config has been applied.")
             messages.addStatusMessage(message, type="info")
@@ -376,6 +396,8 @@ class setup(grok.View):
         self.createProjects(5)
         self.createDefaultOutputs()
         self.createDefaultOutcomes()
+        self.createDefaultMainObstacles()
+        self.createDefaultMainContributing()
         return "Demo content created"
 
     def getRandomImage(self, w, h):
@@ -508,4 +530,40 @@ class setup(grok.View):
                 title_es=item,
                 title_fr=item,
                 container=portal.config.outcomes,
+                safe_id=True)
+
+
+    def createDefaultMainObstacles(self):
+        titles = [
+            'Obstacle 1',
+            'Obstacle 2',
+            'Obstacle 3',
+            'Obstacle 4',
+        ]
+        portal = api.portal.get()
+        for item in titles:
+            api.content.create(
+                type='Mainobstacles',
+                title=item,
+                title_es=item,
+                title_fr=item,
+                container=portal.config.outputs,
+                safe_id=True)
+
+
+    def createDefaultMainContributing(self):
+        titles = [
+            'Factor 1',
+            'Factor 2',
+            'Factor 3',
+            'Factor 4',
+        ]
+        portal = api.portal.get()
+        for item in titles:
+            api.content.create(
+                type='Maincontributing',
+                title=item,
+                title_es=item,
+                title_fr=item,
+                container=portal.config.outputs,
                 safe_id=True)

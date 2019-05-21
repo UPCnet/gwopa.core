@@ -72,15 +72,15 @@
                           <div class="contentt" id="total">
                             <div class="part0">
                               <tal:block tal:condition="item/updated">
-                                <span style="color: #0e9c14;">
+                                <span class="dot">
                                   <i id="done" class="fas fa-circle"></i>
                                 </span>
                               </tal:block>
                             </div>
                             <div class="part1">
-                              <span tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type" i18n:translate=""> Activity/output label</span>
+                              <h5 tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type" i18n:translate=""> Activity/output label</h5>
                             </div>
-                            <div class="part2 label-2nd">
+                            <div class="part2">
                               <h5 class="titulocatplan expMoAct" tal:attributes="id string:${item/id}" tal:content="item/title"> Activity/Output Title </h5>
                             </div>
                           </div>
@@ -103,7 +103,7 @@
                               <div class="filacontenido">
                                 <div class="col-sm-2">
                                   <h3 i18n:translate="">Progress Degree (%)</h3>
-                                    <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
+                                  <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
                                 </div>
                                 <div class="col-sm-5">
                                   <h3 i18n:translate="">Explanation Progress</h3>
@@ -111,19 +111,27 @@
                                 </div>
                                 <div class="col-sm-3">
                                   <h3 i18n:translate="">Main Obstacles</h3>
-                                  <select name="Name" class="focus" tal:attributes="id string:${item/id}-obstacles">
-                                    <option value="#">Obstacle 1</option>
-                                    <option value="#">Obstacle 2</option>
-                                    <option value="#">Obstacle 3</option>
-                                  </select>
+                                  <input id="obs-title" type="hidden" tal:attributes="value item/obstacles" />
+                                  <div id="addObstacleTitle" class="form-group col-sm-12">
+                                    <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                                    <span class="legend">Add new Main Obstacles if not listed in the before field</span>
+                                  </div>
+                                  <div id="addObstacles" class="form-group col-sm-12">
+                                    <h3 i18n:translate="">Main Obstacles title</h3>
+                                    <input id="add-obs" type="text" placeholder="Type title..."/>
+                                  </div>
                                 </div>
-                                <div class="col-sm-3" tal:attributes="id string:${item/id}-contributing">
+                                <div class="col-sm-3">
                                   <h3 i18n:translate="">Main Contributing factors</h3>
-                                  <select name="Name" class="focus">
-                                    <option value="#">Factor 1</option>
-                                    <option value="#">Factor 2</option>
-                                    <option value="#">Factor 3</option>
-                                  </select>
+                                  <input id="contrib-title" type="hidden"/>
+                                  <div id="addContributingTitle" class="form-group col-sm-12">
+                                    <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                                    <span class="legend">Add new Main Contributing if not listed in the before field</span>
+                                  </div>
+                                  <div id="addContributing" class="form-group col-sm-12">
+                                    <h3 i18n:translate="">Main Contributing factors title</h3>
+                                    <input id="add-contrib" type="text" placeholder="Type title..."/>
+                                  </div>
                                 </div>
                               </div>
                               <div class="filacontenido">
@@ -145,18 +153,18 @@
                         <tal:block tal:define="outputs python:view.indicatorsInside(item);">
                           <div tal:repeat="output outputs" class="block_sub_indicators">
                             <div class="information object">
-                              <div class="contentt row" id="total">
+                              <div class="contentt" id="total">
                                 <div class="part0">
                                   <tal:block tal:condition="output/updated">
-                                    <span style="color: #0e9c14;">
+                                    <span class="dot">
                                       <i id="done" class="fas fa-circle"></i>
                                     </span>
                                   </tal:block>
                                 </div>
                                 <div class="part1">
-                                  <span tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</span>
+                                  <h5 tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</h5>
                                 </div>
-                                <div class="part2 label-2nd">
+                                <div class="part2">
                                   <h5 class="titulocatplan expMoOut" tal:attributes="id output/id" tal:content="output/title">Item Title</h5>
                                 </div>
                               </div>
@@ -194,19 +202,27 @@
                                   </div>
                                   <div class="col-sm-3">
                                     <h3 i18n:translate="">Main Obstacles</h3>
-                                    <select name="Name" class="focus" tal:attributes="id string:${output/id}-obstacles">
-                                      <option value="#">Obstacle 1</option>
-                                      <option value="#">Obstacle 2</option>
-                                      <option value="#">Obstacle 3</option>
-                                    </select>
+                                    <input id="obs-title" type="hidden"/>
+                                    <div id="addObstacleTitle" class="form-group col-sm-12">
+                                      <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                                      <span class="legend">Add new Main Obstacles if not listed in the before field</span>
+                                    </div>
+                                    <div id="addObstacles" class="form-group col-sm-12">
+                                      <h3 i18n:translate="">Main Obstacles title</h3>
+                                      <input id="add-obs" type="text" placeholder="Type title..."/>
+                                    </div>
                                   </div>
                                   <div class="col-sm-3">
                                     <h3 i18n:translate="">Main Contributing factors</h3>
-                                    <select name="Name" class="focus" tal:attributes="id string:${output/id}-contributing">
-                                      <option value="#">Factor 1</option>
-                                      <option value="#">Factor 2</option>
-                                      <option value="#">Factor 3</option>
-                                    </select>
+                                    <input id="contrib-title" type="hidden"/>
+                                    <div id="addContributingTitle" class="form-group col-sm-12">
+                                      <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                                      <span class="legend">Add new Main Contributing if not listed in the before field</span>
+                                    </div>
+                                    <div id="addContributing" class="form-group col-sm-12">
+                                      <h3 i18n:translate="">Main Contributing factors title</h3>
+                                      <input id="add-contrib" type="text" placeholder="Type title..."/>
+                                    </div>
                                   </div>
                                 </div>
                                 <div class="filacontenido">
@@ -247,7 +263,7 @@
               <div class="information object" id="header">
                 <div class="contentt" id="total">
                   <div class="titleRowMonitoring" i18n:translate="">
-                    <p id="utility" class="expMoUP">Performance</p>
+                    <p id="utility" class="expMoUP"> Utility Performance </p>
                   </div>
                 </div>
                 <div class="contentt" id="comple">Baseline date</div>
@@ -259,23 +275,23 @@
             <div class="tabla_cuerpo" tal:repeat="outcome outcomes">
               <div class="col-md-12 text-item-planning">
                 <div class="information object">
-                  <div class="contentt row" id="total">
+                  <div class="contentt" id="total">
                     <div class="part0">
                       <tal:block tal:condition="outcome/updated">
-                        <span style="color: #0e9c14;">
+                        <span class="dot">
                           <i id="done" class="fas fa-circle"></i>
                         </span>
                       </tal:block>
                     </div>
-                    <div class="part1">
+                    <div class="part11">
                       <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
-                        <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
+                        <h5 tal:attributes="class string:${outcome/portal_type}-planning" i18n:translate="">Performance</h5>
                       </tal:block>
                       <tal:block condition="python:outcome['portal_type'] == 'OutcomeZONE'">
-                        <span tal:attributes="class string:${outcome/portal_type}-planning second-level" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</span>
+                        <h5 tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</h5>
                       </tal:block>
                     </div>
-                    <div class="part2 label-2nd">
+                    <div class="part2">
                       <h5 class="titulocatplan expMoUPItem" tal:attributes="id string:${outcome/id}" tal:content="outcome/title"> KPI </h5>
                     </div>
                   </div>
@@ -313,19 +329,27 @@
                         </div>
                         <div class="col-sm-3">
                           <h3 i18n:translate="">Main Obstacles</h3>
-                          <select name="Name" class="focus" tal:attributes="id string:${outcome/id}-obstacles">
-                            <option value="#">Obstacle 1</option>
-                            <option value="#">Obstacle 2</option>
-                            <option value="#">Obstacle 3</option>
-                          </select>
+                          <input id="obs-title" type="hidden"/>
+                          <div id="addObstacleTitle" class="form-group col-sm-12">
+                            <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                            <span class="legend">Add new Main Obstacles if not listed in the before field</span>
+                          </div>
+                          <div id="addObstacles" class="form-group col-sm-12">
+                            <h3 i18n:translate="">Main Obstacles title</h3>
+                            <input id="add-obs" type="text" placeholder="Type title..."/>
+                          </div>
                         </div>
                         <div class="col-sm-3">
                           <h3 i18n:translate="">Main Contributing factors</h3>
-                          <select name="Name" class="focus" tal:attributes="id string:${outcome/id}-contributing">
-                            <option value="#">Factor 1</option>
-                            <option value="#">Factor 2</option>
-                            <option value="#">Factor 3</option>
-                          </select>
+                          <input id="contrib-title" type="hidden"/>
+                          <div id="addContributingTitle" class="form-group col-sm-12">
+                            <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                            <span class="legend">Add new Main Contributing if not listed in the before field</span>
+                          </div>
+                          <div id="addContributing" class="form-group col-sm-12">
+                            <h3 i18n:translate="">Main Contributing factors title</h3>
+                            <input id="add-contrib" type="text" placeholder="Type title..."/>
+                          </div>
                         </div>
                       </div>
                       <div class="filacontenido">

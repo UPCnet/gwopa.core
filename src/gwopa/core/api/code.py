@@ -43,6 +43,40 @@ class getOutputs(BrowserView):
         return json.dumps(results)
 
 
+class getMainObstacles(BrowserView):
+    # /api-getMainObstacles
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        results = []
+        catalog = api.portal.get_tool('portal_catalog')
+        literals = catalog.unrestrictedSearchResults(
+            portal_type='Mainobstacles')
+        literals = sorted(literals, key=itemgetter('Title'), reverse=False)
+        for item in literals:
+            results.append(dict(
+                name=item.Title))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
+class getMainContributing(BrowserView):
+    # /api-getMainContributing
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        results = []
+        catalog = api.portal.get_tool('portal_catalog')
+        literals = catalog.unrestrictedSearchResults(
+            portal_type='Maincontributing')
+        literals = sorted(literals, key=itemgetter('Title'), reverse=False)
+        for item in literals:
+            results.append(dict(
+                name=item.Title))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
 class getOutcomes(BrowserView):
     # /api-getOutcomes
     def __call__(self):
@@ -155,6 +189,36 @@ class addTitleOutput(BrowserView):
             container=portal.config.outputs,
             safe_id=True)
         return 'Ok, Outputdefaults created'
+
+
+class addMainObstaclesTitle(BrowserView):
+
+    def __call__(self):
+        title = self.request.form.get('item_title')
+        portal = api.portal.get()
+        api.content.create(
+            type='Mainobstacles',
+            title=title,
+            title_es=title,
+            title_fr=title,
+            container=portal.config.outputs,
+            safe_id=True)
+        return 'Ok, Mainobstacles created'
+
+
+class addMainContributingTitle(BrowserView):
+
+    def __call__(self):
+        title = self.request.form.get('item_title')
+        portal = api.portal.get()
+        api.content.create(
+            type='Maincontributing',
+            title=title,
+            title_es=title,
+            title_fr=title,
+            container=portal.config.outputs,
+            safe_id=True)
+        return 'Ok, Maincontributing created'
 
 
 class addTitleKPI(BrowserView):
@@ -279,23 +343,28 @@ class Update(BrowserView):
         item_path = self.request.form['path']
         progress = self.request.form['progress']
         explanation = self.request.form['explanation']
-        # TODO: obstacles = self.request.form['obstacles']
-        # TODO: contributing = self.request.form['contributing']
+        if self.request.form.get('obstacles[]'):
+            obstacles = self.request.form['obstacles[]']
+        else:
+            obstacles = ''
+        if self.request.form.get('contributing[]'):
+            contributing = self.request.form['contributing[]']
+        else:
+            contributing = ''
         consideration = self.request.form['consideration']
         limiting = self.request.form['limiting']
         updated = self.request.form['updated']
         monitoring_info = dict(
             progress=progress,
             explanation=explanation,
-            # obstacles=obstacles,
-            # contributing=contributing,
+            obstacles=obstacles,
+            contributing=contributing,
             consideration=consideration,
             limiting=limiting,
             updated=updated,
         )
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         item = api.content.find(path=item_path, depth=0)[0]
-        #import ipdb; ipdb.set_trace()
         annotations = IAnnotations(item.getObject())
         real = progress
         planned = annotations[KEY]['planned']

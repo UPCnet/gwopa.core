@@ -34,6 +34,21 @@
 
   <browser:page
       for="*"
+      name="api-getMainObstacles"
+      class=".api.code.getMainObstacles"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="*"
+      name="api-getMainContributing"
+      class=".api.code.getMainContributing"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
       name="api-getUnits"
       class=".api.code.getUnits"
       permission="zope.Public"
@@ -68,6 +83,20 @@
     for="*"
     name="addTitleKPI"
     class=".api.code.addTitleKPI"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
+    name="addMainObstaclesTitle"
+    class=".api.code.addMainObstaclesTitle"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
+    name="addMainContributingTitle"
+    class=".api.code.addMainContributingTitle"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 

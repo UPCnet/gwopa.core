@@ -20,6 +20,8 @@
   <object meta_type="Dexterity FTI" name="ContribOther" />
   <object meta_type="Dexterity FTI" name="ContribDonor" />
   <object meta_type="Dexterity FTI" name="ContribPartner" />
+  <object meta_type="Dexterity FTI" name="Mainobstacles" />
+  <object meta_type="Dexterity FTI" name="Maincontributing" />
 
   <object name="File" meta_type="Dexterity FTI"/>
   <object name="Folder" meta_type="Dexterity FTI"/>

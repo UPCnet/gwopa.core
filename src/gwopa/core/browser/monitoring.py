@@ -186,10 +186,12 @@ class monitoringView(BrowserView):
             else:
                 end = item.end.strftime('%Y-%m')
             if monitoring_info == '':
-                consideration, explanation, limiting, progress, updated = '', '', '', '', ''
+                consideration, explanation, limiting, obstacles, contributing, progress, updated = '', '', '', '', '', '', ''
             else:
                 consideration = monitoring_info['consideration'] if monitoring_info.get('consideration') is not None else ''
                 explanation = monitoring_info['explanation'] if monitoring_info.get('explanation') is not None else ''
+                obstacles = monitoring_info['obstacles'] if monitoring_info.get('obstacles') is not None else ''
+                contributing = monitoring_info['contributing'] if monitoring_info.get('contributing') is not None else ''
                 limiting = monitoring_info['limiting'] if monitoring_info.get('limiting') is not None else ''
                 progress = monitoring_info['progress'] if monitoring_info.get('progress') is not None else ''
                 updated = monitoring_info['updated'] if monitoring_info.get('updated') is not None else ''
@@ -207,6 +209,8 @@ class monitoringView(BrowserView):
                 next_update=data_year['end_iso'][0:7],
                 consideration=consideration,
                 explanation=explanation,
+                obstacles=obstacles,
+                contributing=contributing,
                 limiting=limiting,
                 progress=progress,
                 updated=updated,
@@ -260,6 +264,8 @@ class monitoringView(BrowserView):
                 target_value_planned=target_value_planned,
                 consideration=monitoring_info['consideration'] if monitoring_info is not '' else '',
                 explanation=monitoring_info['explanation'] if monitoring_info is not '' else '',
+                obstacles=monitoring_info['obstacles'] if monitoring_info is not '' else '',
+                contributing=monitoring_info['contributing'] if monitoring_info is not '' else '',
                 limiting=monitoring_info['limiting'] if monitoring_info is not '' else '',
                 progress=monitoring_info['progress'] if monitoring_info is not '' else '',
                 updated=monitoring_info['updated'] if monitoring_info is not '' else '',
