@@ -238,7 +238,7 @@ class IProject(model.Schema):
     )
 
     dexteritytextindexer.searchable('partners')
-    # directives.widget('partners', SelectWidget)
+    directives.widget('partners', SelectWidget)
     partners = schema.List(
         title=_(u"Partners"),
         description=_(u"Partner/partners of the project"),
@@ -351,11 +351,13 @@ class View(grok.View):
         if self.context.project_manager_admin:
             users.append(self.context.project_manager_admin)
         if self.context.project_manager:
-            users.append(self.context.project_manager)
-        results = []
+            for user in self.context.project_manager:
+                users.append(user)
 
-        users = list(set(users))  # Returns unique values in list
-        for user in users:
+        uniqueUsers = [u for u in set(users)]  # Returns unique values in list
+
+        results = []
+        for user in uniqueUsers:
             obj = api.user.get(username=user)
             manager = False
             project = False
