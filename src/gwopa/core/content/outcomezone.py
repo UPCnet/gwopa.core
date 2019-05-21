@@ -5,22 +5,22 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import utils
 from gwopa.core import _
-from z3c.form.interfaces import HIDDEN_MODE  # INPUT_MODE, DISPLAY_MODE
+# from z3c.form.interfaces import HIDDEN_MODE, INPUT_MODE, DISPLAY_MODE
 from plone.directives import form
 from plone.autoform import directives
 from plone.app.z3cform.widget import SelectWidget
-from plone.directives import form
 
 grok.templatedir("templates")
 
 
 def todayValue():
+    """ Today. """
     return datetime.date.today()
 
 
 class IOutcomezone(model.Schema):
-    """  OutcomeZONE
-    """
+    """  OutcomeZONE. """
+
     title = schema.TextLine(
         title=_(u"Title"),
         required=True,
