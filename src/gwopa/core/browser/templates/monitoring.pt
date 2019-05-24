@@ -57,7 +57,7 @@
                         </div>
                         <div class="contentt" id="bl" i18n:translate="">Starting date</div>
                         <div class="contentt" id="comple">Completion Date</div>
-                        <div class="contentt" id="pyv">Target value</div>
+                        <div class="contentt" id="pyv">Achieved/Target</div>
                         <div class="contentt" id="nexupd">Next update</div>
                         <i tal:attributes="id string:wa-${area/id}" class="fas fa-chevron-up expandWA"></i>
                       </div>
@@ -267,7 +267,8 @@
                   </div>
                 </div>
                 <div class="contentt" id="comple">Baseline date</div>
-                <div class="contentt" id="pyv">Target value</div>
+                <div class="contentt" id="zone">Zone</div>
+                <div class="contentt" id="pyv">Achieved/Target</div>
                 <div class="contentt" id="nexupd">Next update</div>
                 <i id="up" class="fas fa-chevron-up expandUP"></i>
               </div>
@@ -296,6 +297,7 @@
                     </div>
                   </div>
                   <div class="contentt" id="comple" tal:content="outcome/base_date">2019-03-30</div>
+                  <div class="contentt" id="zone" tal:content="outcome/zone"> Zone </div>
                   <div class="contentt target" id="pyv">
                     <tal:exclamation tal:condition="python:outcome['target_value_real'] != outcome['target_value_planned']">
                       <i class="fas fa-exclamation"></i>

@@ -254,6 +254,7 @@ class monitoringView(BrowserView):
                 description=item.Description,
                 base_value=obj.baseline,
                 base_date=obj.baseline_date.strftime('%Y-%m'),
+                zone=obj.zone,
                 unit=obj.measuring_unit,
                 frequency=obj.measuring_frequency,
                 means=obj.means,

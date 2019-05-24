@@ -243,6 +243,7 @@ class planningView(BrowserView):
                 description=item.Description,
                 base_date=obj.baseline_date.strftime('%Y-%m'),
                 base_value=obj.baseline,
+                zone=obj.zone,
                 unit=unit,
                 target_value_planned=target_value_planned,
                 measuring_unit=obj.measuring_unit,
