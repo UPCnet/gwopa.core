@@ -98,11 +98,14 @@ class getUsers(BrowserView):
 
     def __call__(self):
         results = []
-        for member in self.context.members:
-            user = api.user.get(member)
-            results.append(dict(
-                id=user.id,
-                text=user.getProperty('fullname')))
+        if self.context.members is None:
+            results.append(dict(id="-1", text="There aren't members assigned to this project"))
+        else:
+            for member in self.context.members:
+                user = api.user.get(member)
+                results.append(dict(
+                    id=user.id,
+                    text=user.getProperty('fullname')))
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps({'results': results, })
 
@@ -343,14 +346,8 @@ class Update(BrowserView):
         item_path = self.request.form['path']
         progress = self.request.form['progress']
         explanation = self.request.form['explanation']
-        if self.request.form.get('obstacles[]'):
-            obstacles = self.request.form['obstacles[]']
-        else:
-            obstacles = ''
-        if self.request.form.get('contributing[]'):
-            contributing = self.request.form['contributing[]']
-        else:
-            contributing = ''
+        obstacles = self.request.form['obstacles']
+        contributing = self.request.form['contributing']
         consideration = self.request.form['consideration']
         limiting = self.request.form['limiting']
         updated = self.request.form['updated']

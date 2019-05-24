@@ -52,7 +52,7 @@
                         <div class="contentt" id="total">
                           <div class="titleRowMonitoring">
                             <!-- <a tal:attributes="href area/url" tal:content="area/title"> Item Title </a> -->
-                            <p tal:attributes="id string:${area/id}" class="expMoWA" tal:content="area/title"> Working Area Title </p>
+                            <span tal:attributes="id string:${area/id}" class="expMoWA" tal:content="area/title"> Working Area Title </span>
                           </div>
                         </div>
                         <div class="contentt" id="bl" i18n:translate="">Starting date</div>
@@ -111,26 +111,26 @@
                                 </div>
                                 <div class="col-sm-3">
                                   <h3 i18n:translate="">Main Obstacles</h3>
-                                  <input id="obs-title" type="hidden" tal:attributes="value item/obstacles" />
-                                  <div id="addObstacleTitle" class="form-group col-sm-12">
+                                  <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/obstacles;" style="width: 100%" />
+                                  <div tal:attributes="id string:${item/id}-addObstacleActivity" class="form-group col-sm-12">
                                     <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                     <span class="legend">Add new Main Obstacles if not listed in the before field</span>
                                   </div>
-                                  <div id="addObstacles" class="form-group col-sm-12">
+                                  <div tal:attributes="id string:${item/id}-addObstaclesActivity" class="form-group col-sm-12">
                                     <h3 i18n:translate="">Main Obstacles title</h3>
-                                    <input id="add-obs" type="text" placeholder="Type title..."/>
+                                    <input type="text" tal:attributes="id string:${item/id}-add-obs"  placeholder="Type title..."/>
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
                                   <h3 i18n:translate="">Main Contributing factors</h3>
-                                  <input id="contrib-title" type="hidden"/>
-                                  <div id="addContributingTitle" class="form-group col-sm-12">
+                                  <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/contributing;" style="width: 100%"/>
+                                  <div tal:attributes="id string:${item/id}-addContributingActivity" class="form-group col-sm-12">
                                     <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                     <span class="legend">Add new Main Contributing if not listed in the before field</span>
                                   </div>
-                                  <div id="addContributing" class="form-group col-sm-12">
+                                  <div tal:attributes="id string:${item/id}-addContributingsActivity" class="form-group col-sm-12">
                                     <h3 i18n:translate="">Main Contributing factors title</h3>
-                                    <input id="add-contrib" type="text" placeholder="Type title..."/>
+                                    <input type="text" tal:attributes="id string:${item/id}-add-contrib" placeholder="Type title..."/>
                                   </div>
                                 </div>
                               </div>
@@ -202,26 +202,26 @@
                                   </div>
                                   <div class="col-sm-3">
                                     <h3 i18n:translate="">Main Obstacles</h3>
-                                    <input id="obs-title" type="hidden"/>
-                                    <div id="addObstacleTitle" class="form-group col-sm-12">
+                                    <input type="hidden" tal:attributes="id string:${output/id}-output-obs; value output/obstacles;" style="width: 100%"/>
+                                    <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12">
                                       <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                       <span class="legend">Add new Main Obstacles if not listed in the before field</span>
                                     </div>
-                                    <div id="addObstacles" class="form-group col-sm-12">
+                                    <div tal:attributes="id string:${output/id}-addObstaclesOutput" class="form-group col-sm-12">
                                       <h3 i18n:translate="">Main Obstacles title</h3>
-                                      <input id="add-obs" type="text" placeholder="Type title..."/>
+                                      <input type="text" tal:attributes="id string:${output/id}-add-obs" placeholder="Type title..."/>
                                     </div>
                                   </div>
                                   <div class="col-sm-3">
                                     <h3 i18n:translate="">Main Contributing factors</h3>
-                                    <input id="contrib-title" type="hidden"/>
-                                    <div id="addContributingTitle" class="form-group col-sm-12">
+                                    <input type="hidden" tal:attributes="id string:${output/id}-output-contrib; value output/contributing;" style="width: 100%"/>
+                                    <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12">
                                       <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                       <span class="legend">Add new Main Contributing if not listed in the before field</span>
                                     </div>
-                                    <div id="addContributing" class="form-group col-sm-12">
+                                    <div tal:attributes="id string:${output/id}-addContributingsOutput" class="form-group col-sm-12">
                                       <h3 i18n:translate="">Main Contributing factors title</h3>
-                                      <input id="add-contrib" type="text" placeholder="Type title..."/>
+                                      <input type="text" tal:attributes="id string:${output/id}-add-contrib" placeholder="Type title..."/>
                                     </div>
                                   </div>
                                 </div>
@@ -263,7 +263,7 @@
               <div class="information object" id="header">
                 <div class="contentt" id="total">
                   <div class="titleRowMonitoring" i18n:translate="">
-                    <p id="utility" class="expMoUP"> Utility Performance </p>
+                    <span id="utility" class="expMoUP"> Utility Performance </span>
                   </div>
                 </div>
                 <div class="contentt" id="comple">Baseline date</div>
@@ -329,26 +329,26 @@
                         </div>
                         <div class="col-sm-3">
                           <h3 i18n:translate="">Main Obstacles</h3>
-                          <input id="obs-title" type="hidden"/>
-                          <div id="addObstacleTitle" class="form-group col-sm-12">
+                          <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-obs; value outcome/obstacles;" style="width: 100%"/>
+                          <div tal:attributes="id string:${outcome/id}-addObstacleKPI" class="form-group col-sm-12">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                             <span class="legend">Add new Main Obstacles if not listed in the before field</span>
                           </div>
-                          <div id="addObstacles" class="form-group col-sm-12">
+                          <div tal:attributes="id string:${outcome/id}-addObstaclesKPI" class="form-group col-sm-12">
                             <h3 i18n:translate="">Main Obstacles title</h3>
-                            <input id="add-obs" type="text" placeholder="Type title..."/>
+                            <input type="text" tal:attributes="id string:${outcome/id}-add-obs" placeholder="Type title..."/>
                           </div>
                         </div>
                         <div class="col-sm-3">
                           <h3 i18n:translate="">Main Contributing factors</h3>
-                          <input id="contrib-title" type="hidden"/>
-                          <div id="addContributingTitle" class="form-group col-sm-12">
+                          <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-contrib; value outcome/contributing;" style="width: 100%"/>
+                          <div tal:attributes="id string:${outcome/id}-addContributingKPI" class="form-group col-sm-12">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                             <span class="legend">Add new Main Contributing if not listed in the before field</span>
                           </div>
-                          <div id="addContributing" class="form-group col-sm-12">
+                          <div tal:attributes="id string:${outcome/id}-addContributingsKPI" class="form-group col-sm-12">
                             <h3 i18n:translate="">Main Contributing factors title</h3>
-                            <input id="add-contrib" type="text" placeholder="Type title..."/>
+                            <input type="text" tal:attributes="id string:${outcome/id}-add-contrib" placeholder="Type title..."/>
                           </div>
                         </div>
                       </div>

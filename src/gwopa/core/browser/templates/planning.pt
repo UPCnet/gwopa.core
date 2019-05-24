@@ -58,7 +58,7 @@
                       </div>
                       <div class="titleRowPlanning">
                         <!-- <a tal:attributes="href item/url" tal:content="item/title"> Working Area Title </a> -->
-                        <p tal:attributes="id string:${item/id}" class="expPlWA" tal:content="item/title"> Working Area Title </p>
+                        <span tal:attributes="id string:${item/id}" class="expPlWA" tal:content="item/title"> Working Area Title </span>
                       </div>
                     </div>
                     <div class="contentt" id="bl" i18n:translate="">Starting date</div>
@@ -103,7 +103,7 @@
                         <span tal:content="item/end"> 2019-03-30 </span>
                       </div>
                       <div class="contentt text_center" tal:condition="python:item['portal_type'] == 'Activity'" id="target">
-                           <span tal:content="item/target_value_planned"> Target Value Planned </span>
+                        <span tal:content="item/target_value_planned"> Target Value Planned </span>
                       </div>
                       <div class="contentt target" tal:condition="python:item['portal_type'] == 'Output'" id="target">
                         <span tal:attributes="
@@ -215,7 +215,7 @@
                     </ul>
                   </div>
                   <div class="titleRowPlanning" i18n:translate="">
-                    <p id="utility" class="expPlUP">Performance </p>
+                    <span id="utility" class="expPlUP">Performance </span>
                   </div>
                 </div>
                 <div class="contentt" id="bl" i18n:translate=""> Baseline date </div>
