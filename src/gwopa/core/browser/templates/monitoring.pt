@@ -76,6 +76,11 @@
                                   <i id="done" class="fas fa-circle"></i>
                                 </span>
                               </tal:block>
+                              <tal:block tal:condition="not: item/updated">
+                                <span class="dot">
+                                  <i id="todo" class="fas fa-circle"></i>
+                                </span>
+                              </tal:block>
                             </div>
                             <div class="part1">
                               <h5 tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type" i18n:translate=""> Activity/output label</h5>
@@ -158,6 +163,11 @@
                                   <tal:block tal:condition="output/updated">
                                     <span class="dot">
                                       <i id="done" class="fas fa-circle"></i>
+                                    </span>
+                                  </tal:block>
+                                  <tal:block tal:condition="not: output/updated">
+                                    <span class="dot">
+                                      <i id="todo" class="fas fa-circle"></i>
                                     </span>
                                   </tal:block>
                                 </div>
@@ -283,6 +293,11 @@
                           <i id="done" class="fas fa-circle"></i>
                         </span>
                       </tal:block>
+                      <tal:block tal:condition="not: outcome/updated">
+                        <span class="dot">
+                          <i id="todo" class="fas fa-circle"></i>
+                        </span>
+                      </tal:block>
                     </div>
                     <div class="part11">
                       <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
@@ -377,7 +392,7 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/collapse-monitoring.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/monitoring.js"></script>
     <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>

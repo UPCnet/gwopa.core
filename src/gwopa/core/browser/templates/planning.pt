@@ -687,7 +687,7 @@
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/modal-output.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/planning.js"></script>
 
   </metal:block>
 
