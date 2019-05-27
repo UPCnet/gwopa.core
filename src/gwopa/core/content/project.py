@@ -90,7 +90,7 @@ class IProject(model.Schema):
 
     fieldset('project',
              label=_(u'Project'),
-             fields=['title', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'category']
+             fields=['title', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'total_budget', 'category']
              )
 
     fieldset('image',
@@ -293,10 +293,16 @@ class IProject(model.Schema):
     )
 
     # form.mode(gwopa_year_phases='hidden')
-    # form.mode(IEditForm, gwopa_code_project='display')
     gwopa_year_phases = schema.ASCIILine(
         title=_(u'Fases'),
         required=False
+    )
+
+    form.mode(total_budget='hidden')
+    total_budget = schema.ASCIILine(
+        title=_(u'Total budget'),
+        required=False,
+        readonly=True
     )
 
     # @form.default_value(field=IProject['gwopa_year_phases'])
@@ -446,5 +452,6 @@ class View(grok.View):
                 total = total + obj.incash
             if obj.inkind:
                 total = total + obj.inkind
-
+        # Assignt total_budget value to index, to find by value in Project Global Map
+        self.context.total_budget = total
         return str(total) + ' ' + letter
