@@ -62,7 +62,7 @@
                       </div>
                     </div>
                     <div class="contentt" id="bl" i18n:translate="">Starting date</div>
-                    <div class="contentt" id="value" i18n:translate="">Completion date</div>
+                    <div class="contentt" id="end" i18n:translate="">Completion date</div>
                     <div class="contentt" id="target" i18n:translate="">Target value</div>
                     <div class="contentt" id="resp" i18n:translate="">Responsible</div>
                     <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></div>
@@ -99,7 +99,7 @@
                       <div class="contentt" id="bl">
                         <span tal:content="item/start"> 2019-03-29 </span>
                       </div>
-                      <div class="contentt" id="value">
+                      <div class="contentt" id="end">
                         <span tal:content="item/end"> 2019-03-30 </span>
                       </div>
                       <div class="contentt text_center" tal:condition="python:item['portal_type'] == 'Activity'" id="target">
@@ -147,7 +147,7 @@
                             </div>
                           </div>
                           <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
-                          <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
+                          <div class="contentt" id="end" tal:content="output/end">2019-03-30</div>
                           <div class="contentt target" id="target">
                             <span tal:attributes="
                                 data-pk currentYear;
@@ -219,7 +219,7 @@
                   </div>
                 </div>
                 <div class="contentt" id="bl" i18n:translate=""> Baseline date </div>
-                <div class="contentt" id="value" i18n:translate=""> Baseline value </div>
+                <div class="contentt" id="end" i18n:translate=""> Baseline value </div>
                 <div class="contentt" id="zone" i18n:translate=""> Zone </div>
                 <div class="contentt" id="target" i18n:translate=""> Target value </div>
                 <div class="contentt" id="resp" i18n:translate=""> Responsible </div>
@@ -245,7 +245,7 @@
                       </div>
                     </div>
                     <div class="contentt" id="bl" tal:content="outcome/base_date">2019-03-30</div>
-                    <div class="contentt" id="value" tal:content="outcome/base_value">2019-06-22</div>
+                    <div class="contentt" id="end" tal:content="outcome/base_value">2019-06-22</div>
                     <div class="contentt" id="zone" tal:content="outcome/zone"> Zone </div>
                     <div class="contentt target" id="target">
                       <span tal:attributes="

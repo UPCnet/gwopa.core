@@ -317,7 +317,14 @@ class ChangeTargetMonitoring(BrowserView):
         item = api.content.find(path=item_path, depth=0)[0]
         annotations = IAnnotations(item.getObject())
         planned = annotations[KEY]['planned']
-        data = dict(real=new_value, planned=planned, monitoring='')
+        monitoring = annotations[KEY]['monitoring']
+        if monitoring is '':
+            monitoring = dict(
+                progress=new_value,
+            )
+        else:
+            monitoring['progress'] = new_value
+        data = dict(real=new_value, planned=planned, monitoring=monitoring)
         annotations[KEY] = data
         return "OK, value changed"
 
@@ -333,7 +340,8 @@ class ChangeTargetPlanning(BrowserView):
         item = api.content.find(path=item_path, depth=0)[0]
         annotations = IAnnotations(item.getObject())
         real = annotations[KEY]['real']
-        data = dict(real=real, planned=new_value, monitoring='')
+        monitoring = annotations[KEY]['monitoring']
+        data = dict(real=real, planned=new_value, monitoring=monitoring)
         annotations[KEY] = data
         return "OK, value changed"
 
