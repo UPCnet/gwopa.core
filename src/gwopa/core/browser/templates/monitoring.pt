@@ -106,46 +106,46 @@
                           <form id="updateActivity">
                             <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                               <div class="filacontenido">
-                                <div class="col-sm-2">
-                                  <h3 i18n:translate="">Progress Degree (%)</h3>
+                                <div class="col-sm-1">
+                                  <h5 i18n:translate="">Degree (%)</h5>
                                   <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
                                 </div>
                                 <div class="col-sm-5">
-                                  <h3 i18n:translate="">Explanation Progress</h3>
+                                  <h5 i18n:translate="">Explanation Progress</h5>
                                   <textarea class="form-control" rows="1" tal:content="item/explanation" tal:attributes="id string:${item/id}-explanation;"></textarea>
                                 </div>
                                 <div class="col-sm-3">
-                                  <h3 i18n:translate="">Main Obstacles</h3>
+                                  <h5 i18n:translate="">Main Obstacles</h5>
                                   <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/obstacles;" style="width: 100%" />
                                   <div tal:attributes="id string:${item/id}-addObstacleActivity" class="form-group col-sm-12">
                                     <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                     <span class="legend">Add new Main Obstacles if not listed in the before field</span>
                                   </div>
                                   <div tal:attributes="id string:${item/id}-addObstaclesActivity" class="form-group col-sm-12">
-                                    <h3 i18n:translate="">Main Obstacles title</h3>
+                                    <h5 i18n:translate="">Main Obstacles title</h5>
                                     <input type="text" tal:attributes="id string:${item/id}-add-obs"  placeholder="Type title..."/>
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
-                                  <h3 i18n:translate="">Main Contributing factors</h3>
+                                  <h5 i18n:translate="">Main Contributing factors</h5>
                                   <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/contributing;" style="width: 100%"/>
                                   <div tal:attributes="id string:${item/id}-addContributingActivity" class="form-group col-sm-12">
                                     <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                     <span class="legend">Add new Main Contributing if not listed in the before field</span>
                                   </div>
                                   <div tal:attributes="id string:${item/id}-addContributingsActivity" class="form-group col-sm-12">
-                                    <h3 i18n:translate="">Main Contributing factors title</h3>
+                                    <h5 i18n:translate="">Main Contributing factors title</h5>
                                     <input type="text" tal:attributes="id string:${item/id}-add-contrib" placeholder="Type title..."/>
                                   </div>
                                 </div>
                               </div>
                               <div class="filacontenido">
                                 <div class="col-sm-6">
-                                  <h3 i18n:translate="">Consideration for further planning</h3>
+                                  <h5 i18n:translate="">Consideration for further planning</h5>
                                   <textarea class="form-control" rows="1" tal:content="item/consideration" tal:attributes="id string:${item/id}-consideration;"></textarea>
                                 </div>
                                 <div class="col-sm-6">
-                                  <h3 i18n:translate="">Explain contributed and limiting factors</h3>
+                                  <h5 i18n:translate="">Explain contributed and limiting factors</h5>
                                   <textarea class="form-control" rows="1" tal:content="item/limiting" tal:attributes="id string:${item/id}-limiting;"></textarea>
                                 </div>
                               </div>
@@ -203,45 +203,45 @@
                               <form  id="updateOutput">
                                 <div class="filacontenido">
                                   <div class="col-sm-1">
-                                    <h3 i18n:translate=""> Value </h3>
+                                    <h5 i18n:translate=""> Value </h5>
                                       <input type="text" tal:attributes="id string:${output/id}-progress; value output/progress;">
                                   </div>
                                   <div class="col-sm-5">
-                                    <h3 i18n:translate="">Explanation Progress</h3>
+                                    <h5 i18n:translate="">Explanation Progress</h5>
                                     <textarea class="form-control" rows="1" tal:content="output/explanation" tal:attributes="id string:${output/id}-explanation;"></textarea>
                                   </div>
                                   <div class="col-sm-3">
-                                    <h3 i18n:translate="">Main Obstacles</h3>
+                                    <h5 i18n:translate="">Main Obstacles</h5>
                                     <input type="hidden" tal:attributes="id string:${output/id}-output-obs; value output/obstacles;" style="width: 100%"/>
                                     <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12">
                                       <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                       <span class="legend">Add new Main Obstacles if not listed in the before field</span>
                                     </div>
                                     <div tal:attributes="id string:${output/id}-addObstaclesOutput" class="form-group col-sm-12">
-                                      <h3 i18n:translate="">Main Obstacles title</h3>
+                                      <h5 i18n:translate="">Main Obstacles title</h5>
                                       <input type="text" tal:attributes="id string:${output/id}-add-obs" placeholder="Type title..."/>
                                     </div>
                                   </div>
                                   <div class="col-sm-3">
-                                    <h3 i18n:translate="">Main Contributing factors</h3>
+                                    <h5 i18n:translate="">Main Contributing factors</h5>
                                     <input type="hidden" tal:attributes="id string:${output/id}-output-contrib; value output/contributing;" style="width: 100%"/>
                                     <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12">
                                       <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                       <span class="legend">Add new Main Contributing if not listed in the before field</span>
                                     </div>
                                     <div tal:attributes="id string:${output/id}-addContributingsOutput" class="form-group col-sm-12">
-                                      <h3 i18n:translate="">Main Contributing factors title</h3>
+                                      <h5 i18n:translate="">Main Contributing factors title</h5>
                                       <input type="text" tal:attributes="id string:${output/id}-add-contrib" placeholder="Type title..."/>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="filacontenido">
                                   <div class="col-sm-6">
-                                    <h3 i18n:translate="">Consideration for further planning</h3>
+                                    <h5 i18n:translate="">Consideration for further planning</h5>
                                     <textarea class="form-control" rows="1" tal:content="output/consideration" tal:attributes="id string:${output/id}-consideration;"></textarea>
                                   </div>
                                   <div class="col-sm-6">
-                                    <h3 i18n:translate="">Explain contributed and limiting factors</h3>
+                                    <h5 i18n:translate="">Explain contributed and limiting factors</h5>
                                     <textarea class="form-control" rows="1" tal:content="output/limiting" tal:attributes="id string:${output/id}-limiting;"></textarea>
                                   </div>
                                 </div>
@@ -337,45 +337,45 @@
                     <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                       <div class="filacontenido">
                         <div class="col-sm-1">
-                          <h3 i18n:translate="">Current</h3>
+                          <h5 i18n:translate="">Current</h5>
                           <input type="text" tal:attributes="id string:${outcome/id}-progress; value outcome/progress;">
                         </div>
                         <div class="col-sm-5">
-                          <h3 i18n:translate="">Explanation Progress</h3>
+                          <h5 i18n:translate="">Explanation Progress</h5>
                           <textarea class="form-control" rows="1" tal:content="outcome/explanation" tal:attributes="id string:${outcome/id}-explanation;"></textarea>
                         </div>
                         <div class="col-sm-3">
-                          <h3 i18n:translate="">Main Obstacles</h3>
+                          <h5 i18n:translate="">Main Obstacles</h5>
                           <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-obs; value outcome/obstacles;" style="width: 100%"/>
                           <div tal:attributes="id string:${outcome/id}-addObstacleKPI" class="form-group col-sm-12">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                             <span class="legend">Add new Main Obstacles if not listed in the before field</span>
                           </div>
                           <div tal:attributes="id string:${outcome/id}-addObstaclesKPI" class="form-group col-sm-12">
-                            <h3 i18n:translate="">Main Obstacles title</h3>
+                            <h5 i18n:translate="">Main Obstacles title</h5>
                             <input type="text" tal:attributes="id string:${outcome/id}-add-obs" placeholder="Type title..."/>
                           </div>
                         </div>
                         <div class="col-sm-3">
-                          <h3 i18n:translate="">Main Contributing factors</h3>
+                          <h5 i18n:translate="">Main Contributing factors</h5>
                           <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-contrib; value outcome/contributing;" style="width: 100%"/>
                           <div tal:attributes="id string:${outcome/id}-addContributingKPI" class="form-group col-sm-12">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                             <span class="legend">Add new Main Contributing if not listed in the before field</span>
                           </div>
                           <div tal:attributes="id string:${outcome/id}-addContributingsKPI" class="form-group col-sm-12">
-                            <h3 i18n:translate="">Main Contributing factors title</h3>
+                            <h5 i18n:translate="">Main Contributing factors title</h5>
                             <input type="text" tal:attributes="id string:${outcome/id}-add-contrib" placeholder="Type title..."/>
                           </div>
                         </div>
                       </div>
                       <div class="filacontenido">
                         <div class="col-sm-6">
-                          <h3 i18n:translate="">Consideration for further planning</h3>
+                          <h5 i18n:translate="">Consideration for further planning</h5>
                           <textarea class="form-control" rows="1" tal:content="outcome/consideration" tal:attributes="id string:${outcome/id}-consideration;"></textarea>
                         </div>
                         <div class="col-sm-6">
-                          <h3 i18n:translate="">Explain contributed and limiting factors</h3>
+                          <h5 i18n:translate="">Explain contributed and limiting factors</h5>
                           <textarea class="form-control" rows="1" tal:content="outcome/limiting" tal:attributes="id string:${outcome/id}-limiting;"></textarea>
                         </div>
                       </div>
