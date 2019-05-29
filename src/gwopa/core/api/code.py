@@ -238,6 +238,19 @@ class addTitleKPI(BrowserView):
             safe_id=True)
         return 'Ok, Outcomedefaults created'
 
+class addTitleCAPACITY(BrowserView):
+
+    def __call__(self):
+        title = self.request.form.get('item_title')
+        portal = api.portal.get()
+        api.content.create(
+            type='Outcomedefaults',
+            title=title,
+            title_es=title,
+            title_fr=title,
+            container=portal.config.outcomes,
+            safe_id=True)
+        return 'Ok, Outcomedefaults created'
 
 class Create(BrowserView):
 
@@ -286,7 +299,7 @@ class Create(BrowserView):
                 obj.end = datetime.datetime.strptime(date_end, '%d %B, %Y').date()
             obj.measuring_unit = self.request.form.get('item_unit')
 
-        if (portal_type == 'OutcomeKPI') or (portal_type == 'OutcomeZONE'):
+        if (portal_type == 'OutcomeKPI') or (portal_type == 'OutcomeZONE') or (portal_type == 'OutcomeCC'):
             obj.baseline = self.request.form.get('item_baseline')
             itemdate = self.request.form.get('item_date')
             if itemdate:
@@ -295,7 +308,7 @@ class Create(BrowserView):
             obj.measuring_unit = self.request.form.get('item_unit')
             obj.zone = self.request.form.get('item_zone')
 
-        if (portal_type == 'Output') or (portal_type == 'OutcomeZONE') or (portal_type == 'OutcomeKPI'):
+        if (portal_type == 'Output') or (portal_type == 'OutcomeZONE') or (portal_type == 'OutcomeKPI') or (portal_type == 'OutcomeCC'):
             annotations = IAnnotations(obj)
             for x in range(0, 11):  # Create 10 annotations
                 target = self.request.form.get('item_target' + str(x + 1))

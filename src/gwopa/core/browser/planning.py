@@ -262,10 +262,13 @@ class planningView(BrowserView):
             obj = item.getObject()
             if obj.aq_parent.portal_type == 'ImprovementArea':
                 area = obj.aq_parent.title
+                area_url = '/'.join(obj.aq_parent.getPhysicalPath())
             else:
                 area = obj.aq_parent.aq_parent.title
+                area_url = '/'.join(obj.aq_parent.aq_parent.getPhysicalPath())
             results.append(dict(
                 area=area,
+                area_url=area_url,
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,

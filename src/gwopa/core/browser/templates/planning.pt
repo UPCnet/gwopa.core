@@ -233,7 +233,7 @@
                   <div class="information object">
                     <div class="contentt row" id="total">
                       <div class="part1 label-2nd">
-                        <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
+                        <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI' or outcome['portal_type'] == 'OutcomeCC'">
                           <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
                         </tal:block>
                         <tal:block condition="python:outcome['portal_type'] == 'OutcomeZONE'">
@@ -292,6 +292,7 @@
             </div>
             <div class="tabla_cuerpo">
               <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
+                ***<tal:repl tal:replace="outcome"></tal:repl>***
                 <div class="information object">
                   <div class="contentt addCapacity" id="total">
                     <div class="btn-group" role="group" aria-label="Add element">
@@ -300,12 +301,10 @@
                       </div>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="types">
                         <li>
-                          <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCC">
-                              <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve generic Capacity Change</tal:omit-tag></a>
-                        </li>
-                        <li>
-                          <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCCS">
-                              <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve specific Capacity Change</tal:omit-tag></a>
+                          <a data-toggle="modal" class="afegirCAPACITY" data-target="#modalCapacity"
+                              tal:attributes="
+                                  data-val outcome/area_url">
+                             <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Improve generic Capacity Change </tal:omit-tag></a>
                         </li>
                       </ul>
                     </div>
@@ -676,6 +675,95 @@
             <div class="modal-footer">
               <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
               <a type="submit" class="btn button-save" id="createKPIZoneFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalCapacity" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddCapacity" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="toClearCapacity">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalAddCapacity" i18n:translate=""> Add CAPACITY </h4>
+            </div>
+            <div class="modal-body" id="NewCapacity">
+              <div class="modal-url" id="CapacityPath" style="display:none"></div>
+              <div class="row">
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-8">
+                    <label id="label-capacity" i18n:translate="">Title</label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input id="capacity-title" type="hidden"/>
+                  </div>
+                  <div class="col-xs-6 col-md-4">
+                    <label id="label-title" i18n:translate="">Add new CAPACITY title</label>
+                    <input id="add-CAPACITY" type="text" placeholder="Type title..."/>
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="message-text" class="control-label" i18n:translate="">Description</label>
+                    <textarea class="form-control" id="capacity-description"></textarea>
+                </div>
+                <div class="form-group row">
+                      <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input class="form-control" id="capacity-baseline" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                      <label class="control-label" i18n:translate="">Baseline date</label>
+                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <input id="capacity-datetimepicker" class="pat-pickadate"
+                      tal:attributes="data-pat-pickadate view/custom_pattern_options" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                    <label id="label-unit" i18n:translate=""> Measuring unit </label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input id="capacity-unit" type="hidden"/>
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                    <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input id="capacity-frequency" type="hidden"/>
+                  </div>
+                </div>
+                <div class="form-group col-md-12" id='CapacityTextBoxesGroup'>
+                  <div id="CapacityTextBoxDiv1">
+                    <div class="row">
+                      <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left:0px;">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
+                        <input type="text" class="form-control" id="capacity-target-value-1"/>
+                      </div>
+                      <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
+                        <p id="capacity-target-date-1" style="padding: 6px 12px;"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="button" id='CapacityaddTargetValueButton'>
+                    <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate="">Add target</tal:omit-tag>
+                  </button>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
+                  <textarea class="form-control" id="capacity-means"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <textarea class="form-control" id="capacity-risks"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="createCapacityFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
             </div>
           </form>
         </div>
