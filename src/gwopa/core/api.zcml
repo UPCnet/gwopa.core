@@ -185,6 +185,13 @@
       permission="zope.Public"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
+  <browser:page
+      for="*"
+      name="updatedMap.js"
+      class=".api.code.updatedMap"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
   <!-- End Map endpoints -->
 
 </configure>

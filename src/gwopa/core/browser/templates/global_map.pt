@@ -13,6 +13,7 @@
     <h1 class="documentFirstHeading" i18n:translate=""> Projects </h1>
 
     <div class="row-fluid">
+      <form id="updateMapValues">
       <div class="col-xs-12 col-md-2">
         <div>
           <label id="label-status"> Status </label>
@@ -41,15 +42,17 @@
         <div>
           <label for="message-text" class="control-label" i18n:translate="">Tags</label>
           <input type="hidden" class="pat-select2" id="map-tags"
-                    data-pat-select2="vocabularyUrl:api-getProjectTags; allowClear: true;"/>
+                    data-pat-select2="vocabularyUrl:api-getProjectTags;"/>
         </div>
         <div>
           <label id="label-budget"> Budget</label>
           <input type="text" class="js-range-slider" name="budget_range" />
         </div>
+        <input class="btn btn-info" style="width: 100%;" type="submit" value='Apply'></input>
       </div>
+      </form>
       <div class="geolocation_wrapper col-xs-12 col-md-10">
-        <div class="pat-leaflet map" tal:attributes="data-geojson view/getPoints" data-pat-leaflet='{
+        <div class="pat-leaflet" id="mapid" data-pat-leaflet='{
           "fullscreencontrol": true,
           "locatecontrol": false,
           "zoomcontrol": true,
@@ -64,9 +67,102 @@
       </div>
     </div>
 
-  <link tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.css" rel="stylesheet" />
-  <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.js"></script>
-  <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/global_map.js"></script>
+    <script>
+      // Initiate the map
+      var mymap = L.map('mapid').setView([30.4, 79.1],2);
+
+      // This adds the tiles
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(mymap);
+     
+      // here I add a scale bar
+      L.control.scale({position: 'topright', imperial: false})
+      .addTo(mymap);  
+    
+      // get color depending on population density value
+      // These values come from colorbrewer
+      function getColor(d) {
+        return d > 50  ? '#800026' :
+               d > 25  ? '#BD0026' :
+               d > 10  ? '#E31A1C' :
+               d > 5   ? '#FC4E2A' :
+               d > 2.5 ? '#FD8D3C' :
+               d > 1   ? '#FEB24C' :
+               d > 0.5 ? '#FED976' :
+                         '#FFEDA0';
+      }   
+
+      $.getJSON("http://localhost:8080/Plone/updatedMap.js", function(data) {
+        L.geoJson(data, {
+           pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, {
+              radius: 8,   
+              fillOpacity: 0.8,color: "none",
+              fillColor: getColor(feature.properties.chi)  
+            }).addTo(mymap);
+          }
+        });
+      });     
+    
+      // Create a legend
+      var legend = L.control({position: 'bottomright'});
+
+          // here is all the data for the legend
+      legend.onAdd = function (mymap) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+          grades = [0, 0.5, 1, 2.5, 5, 10, 25, 50],
+          labels = [],
+          from, to;
+          for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+            labels.push(
+              '<i style="background:' + getColor(from + 1) + '"></i> ' +
+              from + (to ? '&ndash;' + to : '+'));
+          }
+          div.innerHTML = labels.join('<br>');
+          return div;
+      };
+      legend.addTo(mymap);
+    </script>
+
+    <link tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/global_map.js"></script>
+
+    <style>
+      #mapid {
+        width: 800px;
+        height: 500px;
+      }
+      .info {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255,255,255,0.8);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+      }
+      .info h4 {
+        margin: 0 0 5px;
+        color: #777;
+      }
+      .legend {
+        text-align: left;
+        line-height: 18px;
+        color: #555;
+      }
+      .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+      }
+    </style> 
 
   </metal:block>
 </metal:content-core>

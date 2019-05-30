@@ -8,6 +8,7 @@ from decimal import Decimal
 from operator import itemgetter
 from zope.annotation.interfaces import IAnnotations
 import datetime
+from geojson import Feature, Point, FeatureCollection
 # from gwopa.core import _
 
 
@@ -488,3 +489,23 @@ class getProjectTags(BrowserView):
 
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps({'results': results, })
+
+
+class updatedMap(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type=['Project'])
+        results = []
+        for item in items:
+            obj = item.getObject()
+            if obj.longitude and obj.latitude:
+                poi = Feature(
+                    geometry=Point((float(obj.longitude), float(obj.latitude))),
+                    properties={
+                        'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
+                        'verified': "No",
+                        'chi': 84.642})
+                results.append(poi)
+        obj = ({"type": "FeatureCollection", 'features': results})
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(obj)

@@ -200,7 +200,7 @@
                             </div>
                           <div class="tabla_cuerpo" id="contenido">
                             <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
-                              <form  id="updateOutput">
+                              <form id="updateOutput">
                                 <div class="filacontenido">
                                   <div class="col-sm-1">
                                     <h5 i18n:translate=""> Value </h5>
