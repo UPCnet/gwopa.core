@@ -7,29 +7,68 @@
     i18n:domain="gwopa">
 <body>
 
-<metal:content-core fill-slot="main">
-
+<metal:content-core fill-slot="main" tal:define="portal_state context/@@plone_portal_state;
+                                                 portal_url portal_state/portal_url;">
   <metal:block define-macro="content-core">
+    <h1 class="documentFirstHeading" i18n:translate=""> Projects </h1>
 
-    <h1 class="documentFirstHeading" i18n:translate=""> Current projects map </h1>
-    <div class="documentDescription description" i18n:translate=""> All the projects in one map.</div>
-
-    <div class="geolocation_wrapper" >
-      <div class="pat-leaflet map" tal:attributes="data-geojson view/getPoints" data-pat-leaflet='{
-        "fullscreencontrol": true,
-        "locatecontrol": false,
-        "zoomcontrol": true,
-        "minimap": true,
-        "geosearch": false,
-        "addmarker": false,
-        "map_layers": [
-              {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-        ]
-      }'></div>
+    <div class="row-fluid">
+      <div class="col-xs-12 col-md-2">
+        <div>
+          <label id="label-status"> Status </label>
+          <input id="map-status" type="hidden"/>
+        </div>
+        <div>
+          <label id="label-area"> Working Area </label>
+          <input id="map-area" type="hidden"/>
+        </div>
+        <div>
+          <label id="label-country"> Country </label>
+          <input id="map-country" type="hidden"/>
+        </div>
+        <div>
+          <label id="label-platform"> WOP Platform </label>
+          <input id="map-platform" type="hidden"/>
+        </div>
+        <div>
+          <label id="label-program"> WOP Program </label>
+          <input id="map-program" type="hidden"/>
+        </div>
+        <div>
+          <label id="label-partner"> Partner </label>
+          <input id="map-partner" type="hidden"/>
+        </div>
+        <div>
+          <label for="message-text" class="control-label" i18n:translate="">Tags</label>
+          <input type="hidden" class="pat-select2" id="map-tags"
+                    data-pat-select2="vocabularyUrl:api-getProjectTags; allowClear: true;"/>
+        </div>
+        <div>
+          <label id="label-budget"> Budget</label>
+          <input type="text" class="js-range-slider" name="budget_range" />
+        </div>
+      </div>
+      <div class="geolocation_wrapper col-xs-12 col-md-10">
+        <div class="pat-leaflet map" tal:attributes="data-geojson view/getPoints" data-pat-leaflet='{
+          "fullscreencontrol": true,
+          "locatecontrol": false,
+          "zoomcontrol": true,
+          "minimap": false,
+          "geosearch": false,
+          "addmarker": false,
+          "map_layers": [
+                {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+          ]
+          }'>
+        </div>
+      </div>
     </div>
 
-  </metal:block>
+  <link tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.css" rel="stylesheet" />
+  <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.js"></script>
+  <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/global_map.js"></script>
 
+  </metal:block>
 </metal:content-core>
 
 </body>

@@ -8,7 +8,7 @@ from decimal import Decimal
 from operator import itemgetter
 from zope.annotation.interfaces import IAnnotations
 import datetime
-from gwopa.core import _
+# from gwopa.core import _
 
 
 class getPhases(BrowserView):
@@ -191,7 +191,7 @@ class addTitleOutput(BrowserView):
             title_fr=title,
             container=portal.config.outputs,
             safe_id=True)
-        return 'Ok, Outputdefaults created'
+        return 'Ok! Default Output created'
 
 
 class addMainObstaclesTitle(BrowserView):
@@ -206,7 +206,7 @@ class addMainObstaclesTitle(BrowserView):
             title_fr=title,
             container=portal.config.outputs,
             safe_id=True)
-        return 'Ok, Mainobstacles created'
+        return 'Ok! Main obstacle created'
 
 
 class addMainContributingTitle(BrowserView):
@@ -221,7 +221,7 @@ class addMainContributingTitle(BrowserView):
             title_fr=title,
             container=portal.config.outputs,
             safe_id=True)
-        return 'Ok, Maincontributing created'
+        return 'Ok! Main contributing created'
 
 
 class addTitleKPI(BrowserView):
@@ -236,7 +236,7 @@ class addTitleKPI(BrowserView):
             title_fr=title,
             container=portal.config.outcomes,
             safe_id=True)
-        return 'Ok, Outcomedefaults created'
+        return 'Ok! Default Outcome created'
 
 
 class Create(BrowserView):
@@ -377,3 +377,116 @@ class Update(BrowserView):
         annotations[KEY] = data
 
         return 'Ok, item updated'
+
+
+class getProjectWOPPlatform(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        for item in items:
+            value = item.getObject().wop_platform
+            if value:
+                results.append(dict(
+                    name=value))
+        results = sorted(results, key=itemgetter('name'), reverse=False)
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
+class getProjectWOPProgram(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        for item in items:
+            value = item.getObject().wop_program
+            if value:
+                results.append(dict(
+                    name=value))
+        results = sorted(results, key=itemgetter('name'), reverse=False)
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
+class getProjectWorkingArea(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        areas = []
+        for item in items:
+            values = item.getObject().areas
+            if values:
+                for value in values:
+                    if value not in areas:
+                        areas.append(value)
+        areas.sort()
+        for value in areas:
+            results.append(dict(
+                name=value))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
+class getProjectCountry(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        countries = []
+        for item in items:
+            value = item.getObject().country
+            if value:
+                if value not in countries:
+                    countries.append(value)
+        countries.sort()
+        for value in countries:
+            results.append(dict(
+                name=value))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
+class getProjectPartners(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        partners = []
+        for item in items:
+            values = item.getObject().partners
+            if values:
+                for value in values:
+                    if value not in partners:
+                        partners.append(value)
+        partners.sort()
+        for value in partners:
+            results.append(dict(
+                name=value))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
+class getProjectTags(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        tags = []
+        for item in items:
+            values = item.getObject().category
+            if values:
+                for value in values:
+                    if value not in tags:
+                        tags.append(value)
+        tags.sort()
+        if not tags:
+            results.append(dict(id="-1", text="No tags found"))
+        for value in tags:
+            results.append(dict(
+                id=value,
+                text=value))
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps({'results': results, })

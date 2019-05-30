@@ -142,5 +142,49 @@
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 
+  <!-- Start Map endpoints -->
+  <browser:page
+      for="*"
+      name="api-getProjectWOPPlatform"
+      class=".api.code.getProjectWOPPlatform"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="api-getProjectWOPProgram"
+      class=".api.code.getProjectWOPProgram"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="api-getProjectWorkingArea"
+      class=".api.code.getProjectWorkingArea"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="api-getProjectCountry"
+      class=".api.code.getProjectCountry"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="api-getProjectPartners"
+      class=".api.code.getProjectPartners"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="api-getProjectTags"
+      class=".api.code.getProjectTags"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <!-- End Map endpoints -->
 
 </configure>
