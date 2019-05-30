@@ -7,6 +7,7 @@ from gwopa.core import _
 from plone.directives import form
 from plone import api
 from collections import defaultdict
+from plone.autoform import directives
 
 grok.templatedir("templates")
 
@@ -18,9 +19,37 @@ def todayValue():
 class IOutcomecc(model.Schema):
     """  OutcomeCC
     """
+    directives.mode(title='hidden')
     title = schema.TextLine(
         title=_(u"Title"),
         required=True,
+    )
+
+    description = schema.Text(
+        title=_(u'Summary'),
+        required=False,
+        missing_value=u'',
+    )
+
+    baseline = schema.TextLine(
+        title=_(u"Baseline value"),
+        required=True,
+    )
+
+    baseline_date = schema.Date(
+        title=_(u'Baseline date'),
+        required=True,
+        defaultFactory=todayValue
+    )
+
+    means = schema.Text(
+        title=_(u"Means of verification"),
+        required=False,
+    )
+
+    risks = schema.Text(
+        title=_(u"Risks / Assumptions"),
+        required=False,
     )
 
 

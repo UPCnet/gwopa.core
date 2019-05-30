@@ -17,6 +17,7 @@ import math
 from dateutil.relativedelta import *
 from zope.globalrequest import getRequest
 import dateutil.relativedelta
+from zope.annotation.interfaces import IAnnotations
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
@@ -228,11 +229,17 @@ def improvementAreaAdded(content, event):
         title='Topics',
         container=content)
 
-    api.content.create(
-        type='OutcomeCC',
-        id='outcomecc',
-        title='OutcomeCC',
-        container=content)
+    obj = api.content.create(
+            type='OutcomeCC',
+            id='outcomecc',
+            title='OutcomeCC',
+            container=content)
+
+    annotations = IAnnotations(obj)
+    for x in range(0, 11):  # Create 10 annotations
+        data = dict(real='', planned='', monitoring='')
+        KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
+        annotations[KEY] = data
 
 
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)
