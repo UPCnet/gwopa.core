@@ -189,7 +189,7 @@
       </div>
       <div role="tabpanel" class="tab-pane" id="outcomes">
         <div class="tabla_contenido_items">
-          <div class="row boxUtilityPerformance" tal:define="outcomes view/listOutcomesKPI">
+          <div id="outcomesPerformance" class="row boxUtilityPerformance" tal:define="outcomes view/listOutcomesKPI">
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
@@ -281,36 +281,55 @@
               </tal:objects>
             </div>
           </div>
-          <div class="row documentDescription boxUtilityCapacity" tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
+          <div id="outcomesCapacity" class="row boxUtilityCapacity" tal:define="outcomes view/listOutcomesCC" tal:condition="outcomes">
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
-                  <div class="titleRowPlanning">Capacity </div>
+                  <div class="titleRowPlanning" i18n:translate="">
+                    <span id="capacity" class="expPlUC">Capacity </span>
+                  </div>
                 </div>
-                <i id="uc" class="fas fa-chevron-up expandUC"></i>
+                <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i></div>
+                <i id="up" class="fas fa-chevron-up expandUC"></i>
               </div>
             </div>
             <div class="tabla_cuerpo">
               <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
                 <div class="information object">
-                  <div class="contentt addCapacity" id="total">
-                    <div class="btn-group" role="group" aria-label="Add element">
-                      <div data-toggle="dropdown">
-                        <i class="fas fa-plus-circle"></i>
-                      </div>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                        <li>
-                          <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCC">
-                              <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve generic Capacity Change</tal:omit-tag></a>
-                        </li>
-                        <li>
-                          <a class="pat-plone-modal" tabindex="-1" tal:attributes="href string:${outcome/url}/++add++OutcomeCCS">
-                              <i class="fas fa-plus-circle"></i>&nbsp;<tal:omit-tag i18n:translate="">Improve specific Capacity Change</tal:omit-tag></a>
-                        </li>
-                      </ul>
+                  <div class="contentt row" id="total">
+                    <div class="part1">
+                      <span class="CC-planning" i18n:translate="">Improved capacity in/for</span>
                     </div>
-                    <div class="CC-planning" i18n:translate="">Improved capacity in/for</div>
-                    <h4 class="titulocatplan" id="output" tal:content="outcome/area"> Working Area 1 </h4>
+                    <div class="part2 label-2nd">
+                      <h5 tal:attributes="id string:${outcome/rid};" class="titulocatplan expPlCC" tal:content="outcome/area"> Working Area N </h5>
+                    </div>
+                  </div>
+                  <div class="contentt" id="actions">
+                    <a class="pat-plone-modal"
+                      tal:attributes="
+                        href string:${outcome/url}/edit;
+                        data-pat-plone-modal string: title: Edit ${outcome/title};
+                        title string:Edit ${outcome/title};
+                        alt string:Edit ${outcome/title}"><i class="far fa-edit"></i></a>
+                  </div>
+                  <div class="information cc_container">
+                    <div class="item">Missing & Strategy</div>
+                    <div class="item">Leadership</div>
+                    <div class="item">Organizational culture</div>
+                    <div class="item">External resources</div>
+                    <div class="item">Network / External relations</div>
+                    <div class="item six">Systems</div>
+                    <div class="item">Structure</div>
+                    <div class="item">Management</div>
+                    <div class="item">Information</div>
+                    <div class="item">Infraestructure / Equipment</div>
+                    <div class="item">Working routines</div>
+                    <div class="item twelve">Knowledge & Skills</div>
+                    <div class="item">Motivation</div>
+                    <div class="item">Applied knowledge & Skills</div>
+                  </div>
+                  <div class="information cc_container_others">
+                    <div class="item">Other</div>
                   </div>
                 </div>
               </div>
