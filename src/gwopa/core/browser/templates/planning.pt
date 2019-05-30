@@ -313,23 +313,128 @@
                         alt string:Edit ${outcome/title}"><i class="far fa-edit"></i></a>
                   </div>
                   <div class="information cc_container">
-                    <div class="item">Missing & Strategy</div>
-                    <div class="item">Leadership</div>
-                    <div class="item">Organizational culture</div>
-                    <div class="item">External resources</div>
-                    <div class="item">Network / External relations</div>
-                    <div class="item six">Systems</div>
-                    <div class="item">Structure</div>
-                    <div class="item">Management</div>
-                    <div class="item">Information</div>
-                    <div class="item">Infraestructure / Equipment</div>
-                    <div class="item">Working routines</div>
-                    <div class="item twelve">Knowledge & Skills</div>
-                    <div class="item">Motivation</div>
-                    <div class="item">Applied knowledge & Skills</div>
+                    <a class="item transformational selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/mission___strategy.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Mission & Strategy</span>
+                      </div>
+                    </a>
+                    <a class="item transformational selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/leadership.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Leadership</span>
+                      </div>
+                    </a>
+                    <a class="item transformational selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/organizational_culture.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Organizational culture</span>
+                      </div>
+                    </a>
+                    <a class="item transformational selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/external_resources.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>External resources</span>
+                      </div>
+                    </a>
+                    <a class="item transformational selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/network-external_relations.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Network / External relations</span>
+                      </div>
+                    </a>
+                    <a class="item transactional six selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/systems.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Systems</span>
+                      </div>
+                    </a>
+                    <a class="item transactional selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/structure.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Structure</span>
+                      </div>
+                    </a>
+                    <a class="item transactional selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/management.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Management</span>
+                      </div>
+                    </a>
+                    <a class="item transactional selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/information.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Information</span>
+                      </div>
+                    </a>
+                    <a class="item transactional selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/infrastructure_equipment.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Infraestructure / Equipment</span>
+                      </div>
+                    </a>
+                    <a class="item transactional selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/working_routines.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Working routines</span>
+                      </div>
+                    </a>
+                    <a class="item individual twelve selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/knowledge___skills.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Knowledge & Skills</span>
+                      </div>
+                    </a>
+                    <a class="item individual selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/motivation.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Motivation</span>
+                      </div>
+                    </a>
+                    <a class="item individual selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/applied_knowledge___skills.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Applied knowledge & Skills</span>
+                      </div>
+                    </a>
                   </div>
                   <div class="information cc_container_others">
-                    <div class="item">Other</div>
+                    <a class="item other selected">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/others.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Other</span>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
