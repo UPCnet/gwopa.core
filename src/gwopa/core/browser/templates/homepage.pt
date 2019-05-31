@@ -137,7 +137,9 @@
                 </div>
                 <br/>
                 <h1 class="documentFirstHeading" i18n:translate="">Search Projects </h1>
-
+                <div class="row search global">
+                  <div class="col-md-12">
+                    <div class="col-md-8">
                       <form tal:attributes="action string:${navigation_root_url}/search;
                                            data-pat-livesearch string:ajaxUrl:${navigation_root_url}/ajax-search" role="search" class="pat-livesearch">
                         <div class="LSBox">
@@ -151,7 +153,7 @@
                         </div>
                      </form>
                     </div>
-
+                    <div class="col-md-4">
                       <a tal:attributes="href string:${portal_url}/showMap">
                           <button class="center-btn">
                             <i class="fas fa-globe"></i><tal:omit-tag i18n:translate="">Show projects on a Map</tal:omit-tag>

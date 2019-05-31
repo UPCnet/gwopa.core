@@ -499,12 +499,22 @@ class updatedMap(BrowserView):
         for item in items:
             obj = item.getObject()
             if obj.longitude and obj.latitude:
+                if obj.total_budget:
+                    budget = int(obj.total_budget)
+                else:
+                    budget = 0
                 poi = Feature(
                     geometry=Point((float(obj.longitude), float(obj.latitude))),
                     properties={
+                        'title': obj.title,
                         'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
-                        'verified': "No",
-                        'chi': 84.642})
+                        'total_budget': budget,
+                        'wop_program': obj.wop_program,
+                        'wop_platform': obj.wop_platform,
+                        'partners': obj.partners,
+                        'country': obj.country,
+                        'tags': obj.category,
+                        'areas': obj.areas})
                 results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")
