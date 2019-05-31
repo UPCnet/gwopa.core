@@ -269,7 +269,7 @@ class planningView(BrowserView):
                     unit = ''
                 else:
                     target_value_planned = annotations[KEY]['planned']
-                    unit = obj.measuring_unit
+                    #unit = obj.measuring_unit
             else:
                 target_value_planned = _(u"Not defined")
                 unit = ''
@@ -289,10 +289,10 @@ class planningView(BrowserView):
                 area=area,
                 title=item.Title,
                 description=item.Description,
-                #base_date=obj.baseline_date.strftime('%Y-%m'),
-                #base_value=obj.baseline,
+                base_date=obj.baseline_date.strftime('%Y-%m'),
+                base_value=obj.baseline,
                 #zone=obj.zone,
-                unit=unit,
+                #unit=unit,
                 target_value_planned=target_value_planned,
                 #measuring_unit=obj.measuring_unit,
                 #measuring_frequency=obj.measuring_frequency,

@@ -17,7 +17,7 @@ def todayValue():
 
 
 class IOutcomecc(model.Schema):
-    """  OutcomeCC
+    """  OutcomeCC Generic
     """
     directives.mode(title='hidden')
     title = schema.TextLine(
@@ -32,7 +32,7 @@ class IOutcomecc(model.Schema):
     )
 
     baseline = schema.TextLine(
-        title=_(u"Baseline value"),
+        title=_(u"Baseline"),
         required=True,
     )
 
@@ -42,14 +42,15 @@ class IOutcomecc(model.Schema):
         defaultFactory=todayValue
     )
 
-    means = schema.Text(
-        title=_(u"Means of verification"),
+    objective = schema.Text(
+        title=_(u"Objective"),
         required=False,
     )
 
-    risks = schema.Text(
-        title=_(u"Risks / Assumptions"),
+    objective_date = schema.Date(
+        title=_(u"Objective date"),
         required=False,
+        defaultFactory=todayValue
     )
 
 
@@ -69,10 +70,12 @@ class View(grok.View):
             outcome = api.content.find(portal_type='OutcomeCCItem', id=item.id)[0].getObject()
             icon = outcome.icon
             category = outcome.category
+            short_category = outcome.short_category
             results.append(dict(
                 title=item.Title,
                 icon=icon,
                 category=category,
+                short_category=short_category,
                 url=item.getURL()))
         groups = defaultdict(list)
         for obj in results:

@@ -236,11 +236,40 @@ def improvementAreaAdded(content, event):
             container=content)
 
     annotations = IAnnotations(obj)
+    generic = []
     for x in range(0, 11):  # Create 10 annotations
-        data = dict(real='', planned='', monitoring='')
+        outcomeccgeneric_info = dict(
+            id_specific = obj.id,
+            description = obj.description,
+            baseline=obj.baseline,
+            baseline_date=obj.baseline_date,
+            objective=obj.objective,
+            objective_date=obj.objective_date,
+        )
+        generic.append(outcomeccgeneric_info)
+        specifics = []
+        items = api.content.find(
+            portal_type=['OutcomeCCValues'],
+            context=content)
+        for item in items:
+            specific_obj = item.getObject()
+            result = api.content.find(portal_type="OutcomeCCItem", Title=specific_obj.title)[0]
+            capacitychanges_obj = result.getObject()
+            outcomeccspecific_info = dict(
+                id_specific = specific_obj.id,
+                title_specific = specific_obj.title,
+                selected_specific=False,
+                icon_url='++theme++gwopa.theme/assets/images/' + capacitychanges_obj.id + '.png',
+                icon_url_selected='++theme++gwopa.theme/assets/images/w-' + capacitychanges_obj.id + '.png',
+                baseline=specific_obj.baseline,
+                baseline_date=specific_obj.baseline_date,
+                objective=specific_obj.objective,
+                objective_date=specific_obj.objective_date,
+            )
+            specifics.append(outcomeccspecific_info)
+        data = dict(real='', planned='', monitoring='', generic=generic, specifics=specifics)
         KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
         annotations[KEY] = data
-
 
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)
 @grok.subscribe(IOutcomeccs, IObjectAddedEvent)

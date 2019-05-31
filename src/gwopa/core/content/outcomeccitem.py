@@ -33,6 +33,12 @@ class IOutcomeccitem(model.Schema):
         required=True,
     )
 
+    short_category = schema.TextLine(
+        title=_(u'Short Category'),
+        description=_(u'Insert the used short category to group this element'),
+        required=True,
+    )
+
 
 class View(grok.View):
     grok.context(IOutcomeccitem)
