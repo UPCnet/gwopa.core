@@ -44,20 +44,21 @@
                 <div class="tabla_cabecera">
                   <div class="information" id="header">
                     <div class="contentt" id="total">
-                      <div class="btn-group" role="group" aria-label="Add element">
-                        <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                          <li>
-                            <a data-toggle="modal" class="afegirActivity" data-target="#modalActivity"
-                                tal:attributes="
-                                    data-val string:${view/getPath}/${item/id};
-                                    data-start view/project_start;
-                                    data-end view/project_end">
-                              <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a></li>
-                        </ul>
-                      </div>
                       <div class="titleRowPlanning">
-                        <!-- <a tal:attributes="href item/url" tal:content="item/title"> Working Area Title </a> -->
+                        <i style="display: none" class="fa fa-chevron-down expandWaPla" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-up notexpandWaPla" aria-hidden="true"></i>
+                        <div class="btn-group" role="group" aria-label="Add element">
+                          <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                            <li>
+                              <a data-toggle="modal" class="afegirActivity" data-target="#modalActivity"
+                                  tal:attributes="
+                                      data-val string:${view/getPath}/${item/id};
+                                      data-start view/project_start;
+                                      data-end view/project_end">
+                                <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a></li>
+                          </ul>
+                        </div>
                         <span tal:attributes="id string:${item/id}" class="expPlWA" tal:content="item/title"> Working Area Title </span>
                       </div>
                     </div>
@@ -66,15 +67,16 @@
                     <div class="contentt" id="target" i18n:translate="">Target value</div>
                     <div class="contentt" id="resp" i18n:translate="">Responsible</div>
                     <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></div>
-                    <i tal:attributes="id string:wa-${item/id}" class="fas fa-chevron-up expandWA"></i>
                   </div>
                 </div>
                 <div class="tabla_cuerpo" tal:repeat="item files">
-                  <div class="col-md-12 text-item-planning">
+                  <div class="col-md-12 text-item-planning label-activity">
                     <div class="information object">
                       <div class="contentt" id="total">
                         <div class="part0">
                           <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
+                            <!-- <i style="display: none" class="fa fa-chevron-down expandActWaPla" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-up notexpandActWaPla" aria-hidden="true"></i> -->
                             <div class="btn-group" role="group" aria-label="Add element">
                               <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                               <ul class="dropdown-menu" role="menu" aria-labelledby="types">
@@ -193,29 +195,31 @@
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
-                  <div class="btn-group" role="group" aria-label="Add KPI">
-                    <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
-                      <!-- <li>
-                        <a data-toggle="modal" class="afegirKPI" data-target="#modalKPI"
-                            tal:attributes="
-                            data-val view/getPath;
-                            data-start view/project_start;
-                            data-end view/project_end">
-                          <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New Overall KPI </tal:omit-tag></a>
-                      </li> -->
-                      <li>
-                        <a data-toggle="modal" class="afegirKPIZone" data-target="#modalKPIZone"
-                            tal:attributes="
-                                data-val view/getPath;
-                                data-start view/project_start;
-                                data-end view/project_end">
-                          <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New KPI Zone </tal:omit-tag></a>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="titleRowPlanning" i18n:translate="">
-                    <span id="utility" class="expPlUP">Performance </span>
+                    <i style="display: none" class="fa fa-chevron-down expandPerPla" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-up notexpandPerPla" aria-hidden="true"></i>
+                    <div class="btn-group" role="group" aria-label="Add KPI">
+                      <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
+                        <!-- <li>
+                          <a data-toggle="modal" class="afegirKPI" data-target="#modalKPI"
+                              tal:attributes="
+                              data-val view/getPath;
+                              data-start view/project_start;
+                              data-end view/project_end">
+                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New Overall KPI </tal:omit-tag></a>
+                        </li> -->
+                        <li>
+                          <a data-toggle="modal" class="afegirKPIZone" data-target="#modalKPIZone"
+                              tal:attributes="
+                                  data-val view/getPath;
+                                  data-start view/project_start;
+                                  data-end view/project_end">
+                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New KPI Zone </tal:omit-tag></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <span id="utility">Performance </span>
                   </div>
                 </div>
                 <div class="contentt" id="bl" i18n:translate=""> Baseline date </div>
@@ -224,7 +228,6 @@
                 <div class="contentt" id="target" i18n:translate=""> Target value </div>
                 <div class="contentt" id="resp" i18n:translate=""> Responsible </div>
                 <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></div>
-                <i id="up" class="fas fa-chevron-up expandUP"></i>
               </div>
             </div>
             <div class="tabla_cuerpo">
@@ -232,7 +235,7 @@
                 <div class="col-md-12 text-item-planning">
                   <div class="information object">
                     <div class="contentt row" id="total">
-                      <div class="part1 label-2nd">
+                      <div class="part1 label-nopart0">
                         <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
                           <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
                         </tal:block>
@@ -286,22 +289,27 @@
               <div class="information object" id="header">
                 <div class="contentt" id="total">
                   <div class="titleRowPlanning" i18n:translate="">
-                    <span id="capacity" class="expPlUC">Capacity </span>
+                    <i style="display: none" class="fa fa-chevron-down expandCapPla" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-up notexpandCapPla" aria-hidden="true"></i>
+                    <span id="capacity">Capacity </span>
                   </div>
                 </div>
                 <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i></div>
-                <i id="up" class="fas fa-chevron-up expandUC"></i>
               </div>
             </div>
             <div class="tabla_cuerpo">
               <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
                 <div class="information object">
                   <div class="contentt row" id="total">
+                    <div class="part0">
+                      <i class="fa fa-chevron-down expandccs" aria-hidden="true"></i>
+                      <i style="display: none" class="fa fa-chevron-up notexpandccs" aria-hidden="true"></i>
+                    </div>
                     <div class="part1">
                       <span class="CC-planning" i18n:translate="">Improved capacity in/for</span>
                     </div>
                     <div class="part2 label-2nd">
-                      <h5 tal:attributes="id string:${outcome/rid};" class="titulocatplan expPlCC" tal:content="outcome/area"> Working Area N </h5>
+                      <h5 tal:attributes="id string:${outcome/rid};" class="titulocatplan" tal:content="outcome/area"> Working Area N </h5>
                     </div>
                   </div>
                   <div class="contentt" id="actions">
@@ -313,15 +321,15 @@
                         alt string:Edit ${outcome/title}"><i class="far fa-edit"></i></a>
                   </div>
                   <div class="information cc_container">
-                    <a class="item transformational selected">
+                    <a class="item transformational">
                       <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/mission___strategy.png" alt="" title=""/>
+                        <img src="++theme++gwopa.theme/assets/images/mission-strategy.png" alt="" title=""/>
                       </div>
                       <div class="item_text">
                         <span>Mission & Strategy</span>
                       </div>
                     </a>
-                    <a class="item transformational selected">
+                    <a class="item transformational">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/leadership.png" alt="" title=""/>
                       </div>
@@ -329,31 +337,31 @@
                         <span>Leadership</span>
                       </div>
                     </a>
-                    <a class="item transformational selected">
+                    <a class="item transformational">
                       <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/organizational_culture.png" alt="" title=""/>
+                        <img src="++theme++gwopa.theme/assets/images/organizational-culture.png" alt="" title=""/>
                       </div>
                       <div class="item_text">
                         <span>Organizational culture</span>
                       </div>
                     </a>
-                    <a class="item transformational selected">
+                    <a class="item transformational">
                       <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/external_resources.png" alt="" title=""/>
+                        <img src="++theme++gwopa.theme/assets/images/external-resources.png" alt="" title=""/>
                       </div>
                       <div class="item_text">
                         <span>External resources</span>
                       </div>
                     </a>
-                    <a class="item transformational selected">
+                    <a class="item transformational">
                       <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/network-external_relations.png" alt="" title=""/>
+                        <img src="++theme++gwopa.theme/assets/images/network-external-relations.png" alt="" title=""/>
                       </div>
                       <div class="item_text">
                         <span>Network / External relations</span>
                       </div>
                     </a>
-                    <a class="item transactional six selected">
+                    <a class="item transactional six">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/systems.png" alt="" title=""/>
                       </div>
@@ -361,7 +369,7 @@
                         <span>Systems</span>
                       </div>
                     </a>
-                    <a class="item transactional selected">
+                    <a class="item transactional">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/structure.png" alt="" title=""/>
                       </div>
@@ -369,7 +377,7 @@
                         <span>Structure</span>
                       </div>
                     </a>
-                    <a class="item transactional selected">
+                    <a class="item transactional">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/management.png" alt="" title=""/>
                       </div>
@@ -377,7 +385,7 @@
                         <span>Management</span>
                       </div>
                     </a>
-                    <a class="item transactional selected">
+                    <a class="item transactional">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/information.png" alt="" title=""/>
                       </div>
@@ -385,31 +393,31 @@
                         <span>Information</span>
                       </div>
                     </a>
-                    <a class="item transactional selected">
+                    <a class="item transactional">
                       <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/infrastructure_equipment.png" alt="" title=""/>
+                        <img src="++theme++gwopa.theme/assets/images/infrastructure-equipment.png" alt="" title=""/>
                       </div>
                       <div class="item_text">
                         <span>Infraestructure / Equipment</span>
                       </div>
                     </a>
-                    <a class="item transactional selected">
+                    <a class="item transactional">
                       <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/working_routines.png" alt="" title=""/>
+                        <img src="++theme++gwopa.theme/assets/images/working-routines.png" alt="" title=""/>
                       </div>
                       <div class="item_text">
                         <span>Working routines</span>
                       </div>
                     </a>
-                    <a class="item individual twelve selected">
+                    <a class="item individual twelve">
                       <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/knowledge___skills.png" alt="" title=""/>
+                        <img src="++theme++gwopa.theme/assets/images/knowledge-skills.png" alt="" title=""/>
                       </div>
                       <div class="item_text">
                         <span>Knowledge & Skills</span>
                       </div>
                     </a>
-                    <a class="item individual selected">
+                    <a class="item individual">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/motivation.png" alt="" title=""/>
                       </div>
@@ -417,9 +425,9 @@
                         <span>Motivation</span>
                       </div>
                     </a>
-                    <a class="item individual selected">
+                    <a class="item individual">
                       <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/applied_knowledge___skills.png" alt="" title=""/>
+                        <img src="++theme++gwopa.theme/assets/images/applied-knowledge-skills.png" alt="" title=""/>
                       </div>
                       <div class="item_text">
                         <span>Applied knowledge & Skills</span>
@@ -427,7 +435,7 @@
                     </a>
                   </div>
                   <div class="information cc_container_others">
-                    <a class="item other selected">
+                    <a class="item other">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/others.png" alt="" title=""/>
                       </div>
