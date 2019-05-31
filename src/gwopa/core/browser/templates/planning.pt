@@ -70,13 +70,11 @@
                   </div>
                 </div>
                 <div class="tabla_cuerpo" tal:repeat="item files">
-                  <div class="col-md-12 text-item-planning label-activity">
+                  <div class="col-md-12 text-item-planning">
                     <div class="information object">
                       <div class="contentt" id="total">
                         <div class="part0">
                           <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
-                            <!-- <i style="display: none" class="fa fa-chevron-down expandActWaPla" aria-hidden="true"></i>
-                            <i class="fa fa-chevron-up notexpandActWaPla" aria-hidden="true"></i> -->
                             <div class="btn-group" role="group" aria-label="Add element">
                               <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                               <ul class="dropdown-menu" role="menu" aria-labelledby="types">
