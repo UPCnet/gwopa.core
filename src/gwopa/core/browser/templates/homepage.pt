@@ -83,34 +83,6 @@
                       <h4 i18n:translate=""> Your company has no projects. </h4>
                     </div>
                   </div>
-
-                  <div class="modal" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Modal title</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                              <div id='TextBoxesGroup'>
-                              <div id="TextBoxDiv1">
-                              <label>Target Value Year 1</label><input type='text' id='textbox1'>
-                              </div>
-                              </div>
-                              <input type='button' value='Add Button' id='addButton'>
-                              <input type='button' value='Remove Button' id='removeButton'>
-                              <input type='button' value='Get TextBox Value' id='getButtonValue'>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                   <tal:projects tal:condition="items"
                                 tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime;">
                     <div class="row">
@@ -164,9 +136,8 @@
                   </tal:CompanyProjects>
                 </div>
                 <br/>
-
                 <h1 class="documentFirstHeading" i18n:translate="">Search Projects </h1>
-                <div class="row-fluid search global">
+                <div class="row search global">
                   <div class="col-md-12">
                     <div class="col-md-8">
                       <form tal:attributes="action string:${navigation_root_url}/search;
@@ -178,25 +149,14 @@
                               size="15"
                               i18n:attributes="title title_search_title;
                                                placeholder title_search_site"
-                              tal:attributes="value request/SearchableText|nothing;"
-                              />
-
+                              tal:attributes="value request/SearchableText|nothing;"/>
                         </div>
                      </form>
                     </div>
-  <!--                   <div class="col-md-2">
-                        <a tal:attributes="href string:${portal_url}/search">
-                            <button class="searchbtn">
-                              <i class="fas fa-search"></i>
-                              <tal:omit-tag i18n:translate="">Advanced search</tal:omit-tag>
-                            </button>
-                          </a>
-                    </div> -->
                     <div class="col-md-4">
                       <a tal:attributes="href string:${portal_url}/showMap">
                           <button class="center-btn">
-                            <i class="fas fa-globe"></i>
-                            <tal:omit-tag i18n:translate="">Show projects on a Map</tal:omit-tag>
+                            <i class="fas fa-globe"></i><tal:omit-tag i18n:translate="">Show projects on a Map</tal:omit-tag>
                           </button>
                         </a>
                     </div>
@@ -245,7 +205,6 @@
     <footer id="portal-footer-wrapper" i18n:domain="plone">
       <div tal:replace="structure provider:plone.portalfooter" />
     </footer>
-
   </body>
 </html>
 
