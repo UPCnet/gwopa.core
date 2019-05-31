@@ -481,8 +481,6 @@ class getProjectTags(BrowserView):
                     if value not in tags:
                         tags.append(value)
         tags.sort()
-        if not tags:
-            results.append(dict(id="-1", text="No tags found"))
         for value in tags:
             results.append(dict(
                 id=value,
