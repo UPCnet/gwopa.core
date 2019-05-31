@@ -806,7 +806,7 @@
       </div>
     </div>
 
-    <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
+    <link href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
