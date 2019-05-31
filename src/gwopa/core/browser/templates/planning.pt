@@ -91,10 +91,10 @@
                             </div>
                           </tal:block>
                         </div>
-                        <div class="part1">
+                        <div class="part1 label-2nd">
                           <span tal:attributes="class string:${item/portal_type}-planning first-level" tal:content="item/portal_type" i18n:translate="">Activity/output label</span>
                         </div>
-                        <div class="part2">
+                        <div class="part2 label-2nd">
                           <h5 class="titulocatplan" tal:attributes="id item/portal_type" tal:content="item/title">Activity</h5>
                         </div>
                       </div>
@@ -141,7 +141,7 @@
                       <div tal:repeat="output outputs" class="block_sub_indicators">
                         <div class="information object">
                           <div class="contentt row" id="total">
-                            <div class="part1 label-2nd">
+                            <div class="part1 label-nopart0">
                               <span tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</span>
                             </div>
                             <div class="part2 label-2nd">
@@ -236,11 +236,12 @@
                   <div class="information object">
                     <div class="contentt row" id="total">
                       <div class="part1 label-nopart0">
-                        <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
+                        <!-- <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
                           <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
-                        </tal:block>
+                        </tal:block> -->
                         <tal:block condition="python:outcome['portal_type'] == 'OutcomeZONE'">
-                          <span tal:attributes="class string:${outcome/portal_type}-planning second-level" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</span>
+                          <!-- <span tal:attributes="class string:${outcome/portal_type}-planning second-level" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</span> -->
+                          <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
                         </tal:block>
                       </div>
                       <div class="part2 label-2nd">
@@ -305,11 +306,12 @@
                       <i class="fa fa-chevron-down expandccs" aria-hidden="true"></i>
                       <i style="display: none" class="fa fa-chevron-up notexpandccs" aria-hidden="true"></i>
                     </div>
-                    <div class="part1">
-                      <span class="CC-planning" i18n:translate="">Improved capacity in/for</span>
+                    <div class="part1 label-2nd">
+                      <span class="CC-planning" i18n:translate="">Capacity</span>
                     </div>
                     <div class="part2 label-2nd">
-                      <h5 tal:attributes="id string:${outcome/rid};" class="titulocatplan" tal:content="outcome/area"> Working Area N </h5>
+                      <h5 class="capacity-text">Improved capacity in/for </h5>
+                      <h5 tal:attributes="id string:${outcome/rid};" class="capacity-title" tal:content="outcome/area"> Working Area N </h5>
                     </div>
                   </div>
                   <div class="contentt" id="actions">
