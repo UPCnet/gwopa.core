@@ -274,6 +274,7 @@ class setup(grok.View):
             title='Mission & Strategy',
             icon='fas fa-university',
             category='Organizational transformational dimensions',
+            short_category='transformational',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
@@ -281,6 +282,7 @@ class setup(grok.View):
             title='Leadership',
             icon='fas fa-university',
             category='Organizational transformational dimensions',
+            short_category='transformational',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
@@ -288,27 +290,23 @@ class setup(grok.View):
             title='Organizational culture',
             icon='fas fa-university',
             category='Organizational transformational dimensions',
+            short_category='transformational',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Others',
+            title='External resources',
             icon='fab fa-industry',
             category='Organizational transformational dimensions',
+            short_category='transformational',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Organizational structure',
+            title='Network / External relations',
             icon='fas fa-sitemap',
-            category='Organizational transactional dimensions',
-            container=portal.config.capacitychanges,
-            safe_id=True)
-        api.content.create(
-            type='OutcomeCCItem',
-            title='Management practices',
-            icon='fas fa-comments',
-            category='Organizational transactional dimensions',
+            category='Organizational transformational dimensions',
+            short_category='transformational',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
@@ -316,27 +314,39 @@ class setup(grok.View):
             title='Systems',
             icon='fas fa-map',
             category='Organizational transactional dimensions',
+            short_category='transactional',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Infrastructure',
+            title='Structure',
+            icon='fas fa-comments',
+            category='Organizational transactional dimensions',
+            short_category='transactional',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Management',
+            icon='fas fa-comments',
+            category='Organizational transactional dimensions',
+            short_category='transactional',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title='Information',
             icon='fas fa-tree',
             category='Organizational transactional dimensions',
+            short_category='transactional',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Equipment',
+            title='Infrastructure / Equipment',
             icon='fas fa-university',
             category='Organizational transactional dimensions',
-            container=portal.config.capacitychanges,
-            safe_id=True)
-        api.content.create(
-            type='OutcomeCCItem',
-            title='Updated knowledge on conditions of systems & infrastructure',
-            icon='fas fa-tree',
-            category='Organizational transactional dimensions',
+            short_category='transactional',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
@@ -344,13 +354,15 @@ class setup(grok.View):
             title='Working routines',
             icon='fas fa-cogs',
             category='Organizational transactional dimensions',
+            short_category='transactional',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Others',
+            title='Knowledge & Skills',
             icon='fab fa-industry',
-            category='Organizational transactional dimensions',
+            category='Individual dimensions',
+            short_category='individual',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
@@ -358,13 +370,7 @@ class setup(grok.View):
             title='Motivation',
             icon='fas fa-users',
             category='Individual dimensions',
-            container=portal.config.capacitychanges,
-            safe_id=True)
-        api.content.create(
-            type='OutcomeCCItem',
-            title='Fit between skill & Knowledge and tasks to perform',
-            icon='fas fa-building',
-            category='Individual dimensions',
+            short_category='individual',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
@@ -372,13 +378,7 @@ class setup(grok.View):
             title='Applied new skills & knowledge',
             icon='fas fa-search',
             category='Individual dimensions',
-            container=portal.config.capacitychanges,
-            safe_id=True)
-        api.content.create(
-            type='OutcomeCCItem',
-            title='Others',
-            icon='fab fa-industry',
-            category='Individual dimensions',
+            short_category='individual',
             container=portal.config.capacitychanges,
             safe_id=True)
 

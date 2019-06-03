@@ -7,6 +7,7 @@ from gwopa.core import _
 from plone.directives import form
 from plone import api
 from collections import defaultdict
+from plone.autoform import directives
 
 grok.templatedir("templates")
 
@@ -16,11 +17,38 @@ def todayValue():
 
 
 class IOutcomecc(model.Schema):
-    """  OutcomeCC
+    """  OutcomeCC Generic
     """
+    directives.mode(title='hidden')
     title = schema.TextLine(
         title=_(u"Title"),
         required=True,
+    )
+
+    description = schema.Text(
+        title=_(u'Summary'),
+        required=False,
+        missing_value=u'',
+    )
+
+    baseline = schema.TextLine(
+        title=_(u"Baseline"),
+        required=True,
+    )
+
+    baseline_date = schema.Date(
+        title=_(u'Baseline date'),
+        required=True
+    )
+
+    objective = schema.Text(
+        title=_(u"Objective"),
+        required=False,
+    )
+
+    objective_date = schema.Date(
+        title=_(u"Objective date"),
+        required=False
     )
 
 
@@ -40,10 +68,12 @@ class View(grok.View):
             outcome = api.content.find(portal_type='OutcomeCCItem', id=item.id)[0].getObject()
             icon = outcome.icon
             category = outcome.category
+            short_category = outcome.short_category
             results.append(dict(
                 title=item.Title,
                 icon=icon,
                 category=category,
+                short_category=short_category,
                 url=item.getURL()))
         groups = defaultdict(list)
         for obj in results:

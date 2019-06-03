@@ -268,11 +268,16 @@ class planningView(BrowserView):
                     target_value_planned = _(u"Not defined")
                     unit = ''
                 else:
+                    base_value = annotations[KEY]['generic'][0]['baseline']
+                    base_date = annotations[KEY]['generic'][0]['baseline_date']
+                    description = annotations[KEY]['generic'][0]['description']
+                    objective = annotations[KEY]['generic'][0]['objective']
+                    objective_date = annotations[KEY]['generic'][0]['objective_date']
                     target_value_planned = annotations[KEY]['planned']
-                    unit = obj.measuring_unit
+                    specifics = annotations[KEY]['specifics']
             else:
                 target_value_planned = _(u"Not defined")
-                unit = ''
+
             if obj.members:
                 users = obj.members
                 if isinstance(users, (str,)):
@@ -288,14 +293,13 @@ class planningView(BrowserView):
                 rid=item.getRID(),
                 area=area,
                 title=item.Title,
-                description=item.Description,
-                #base_date=obj.baseline_date.strftime('%Y-%m'),
-                #base_value=obj.baseline,
-                #zone=obj.zone,
-                unit=unit,
+                description=description,
+                base_date=base_date,
+                base_value=base_value,
+                objective=objective,
+                objective_date=objective_date,
                 target_value_planned=target_value_planned,
-                #measuring_unit=obj.measuring_unit,
-                #measuring_frequency=obj.measuring_frequency,
+                specifics=specifics,
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))

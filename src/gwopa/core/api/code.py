@@ -379,6 +379,33 @@ class Update(BrowserView):
 
         return 'Ok, item updated'
 
+class UpdateOutcomeCC(BrowserView):
+
+    def __call__(self):
+        # TODO: check permissions. now cmf.ModifyPortalContent
+        year = self.request.form['year']
+        item_path = self.request.form['item_path']
+        description = self.request.form['description']
+        baseline = self.request.form['baseline']
+        baseline_date = self.request.form['baseline_date']
+        objective = self.request.form['objective']
+        objective_date = self.request.form['objective_date']
+
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        item = api.content.find(path=item_path, depth=0)[0]
+        annotations = IAnnotations(item.getObject())
+        generic = annotations[KEY]['generic']
+        generic[0]['description'] = description
+        generic[0]['baseline'] = baseline
+        generic[0]['baseline_date'] = baseline_date
+        generic[0]['objective'] = objective
+        generic[0]['objective_date'] = objective_date
+
+        specifics = annotations[KEY]['specifics']
+        data = dict(real='', planned='', monitoring='', generic=generic, specifics=specifics)
+        annotations[KEY] = data
+
+        return 'Ok, item updated'
 
 class getProjectWOPPlatform(BrowserView):
 
