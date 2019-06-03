@@ -236,8 +236,8 @@ def improvementAreaAdded(content, event):
             container=content)
 
     annotations = IAnnotations(obj)
-    generic = []
     for x in range(0, 11):  # Create 10 annotations
+        generic = []
         outcomeccgeneric_info = dict(
             id_specific = obj.id,
             description = obj.description,

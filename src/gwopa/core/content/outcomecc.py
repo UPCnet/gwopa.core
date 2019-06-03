@@ -38,8 +38,7 @@ class IOutcomecc(model.Schema):
 
     baseline_date = schema.Date(
         title=_(u'Baseline date'),
-        required=True,
-        defaultFactory=todayValue
+        required=True
     )
 
     objective = schema.Text(
@@ -49,8 +48,7 @@ class IOutcomecc(model.Schema):
 
     objective_date = schema.Date(
         title=_(u"Objective date"),
-        required=False,
-        defaultFactory=todayValue
+        required=False
     )
 
 

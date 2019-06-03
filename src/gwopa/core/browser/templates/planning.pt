@@ -317,11 +317,15 @@
                       </span>
                     </div> -->
                   <div class="contentt" id="actions">
-                    ***<tal:replace replace="outcome"></tal:replace>***
                     <a data-toggle="modal" class="editOutcomeCC" data-target="#modalEditOutcomeCC"
                             tal:attributes="
                                 data-pk currentYear;
-                                data-urloutcomecc outcome/url;">
+                                data-urloutcomecc outcome/url;
+                                data-description outcome/description;
+                                data-base-value outcome/base_value;
+                                data-base-date outcome/base_date;
+                                data-objective outcome/objective;
+                                data-objective-date outcome/objective_date;">
                         <i class="far fa-edit"></i></a>
 
                    <!--  <a class="pat-plone-modal"
@@ -747,14 +751,16 @@
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
                 </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Objective</label>
-                  <textarea class="form-control" id="outcomecc-objective"></textarea>
-                </div>
-                <div class="form-group col-md-12">
-                    <label class="control-label" i18n:translate="">Objective date</label>
-                    <input id="outcomecc-objective_date" class="pat-pickadate"
-                    tal:attributes="data-pat-pickadate view/custom_pattern_options" />
+                <div class="form-group row">
+                      <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Objective</label>
+                    <input class="form-control" id="outcomecc-objective" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                      <label class="control-label" i18n:translate="">Objective date</label>
+                      <input id="outcomecc-objective_date" class="pat-pickadate"
+                      tal:attributes="data-pat-pickadate view/custom_pattern_options" />
+                  </div>
                 </div>
               </div>
             </div>
