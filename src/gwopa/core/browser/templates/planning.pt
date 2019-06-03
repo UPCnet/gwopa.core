@@ -443,6 +443,14 @@
                         <span>Other</span>
                       </div>
                     </a>
+                    <a class="item other">
+                      <div class="item_image">
+                        <img src="++theme++gwopa.theme/assets/images/add.png" alt="" title=""/>
+                      </div>
+                      <div class="item_text">
+                        <span>Add another capacity</span>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
