@@ -25,7 +25,6 @@
         <div class="row-fluid">
             <div class="col-md-2">
                 <form>
-                    <input class="btn btn-info" style="width: 100%;" type="submit" value='Clear'></input>
                     <div>
                       <label id="label-status"> Year </label>
                       <input id="map-status" type="hidden"/>
@@ -39,7 +38,7 @@
                       <input id="map-country" type="hidden"/>
                     </div>
                     <div>
-                      <label id="label-platform"> WOP Platform </label>
+                      <label id="label-platform"> Regional WOP Platform </label>
                       <input id="map-platform" type="hidden"/>
                     </div>
                     <div>
@@ -49,6 +48,10 @@
                     <div>
                       <label id="label-partner"> Partner </label>
                       <input id="map-partner" type="hidden"/>
+                    </div>
+                    <div>
+                      <label id="label-kpi"> KPI </label>
+                      <input id="map-kpi" type="hidden"/>
                     </div>
                     <div>
                       <label for="message-text" class="control-label" i18n:translate="">Tags</label>
