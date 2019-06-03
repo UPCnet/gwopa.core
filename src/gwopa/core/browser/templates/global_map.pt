@@ -9,119 +9,67 @@
 
 <metal:content-core fill-slot="main" tal:define="portal_state context/@@plone_portal_state;
                                                  portal_url portal_state/portal_url;">
-  <metal:block define-macro="content-core">
-    <h1 class="documentFirstHeading" i18n:translate=""> Projects </h1>
-
-    <div class="row-fluid">
-      <form id="updateMapValues">
-      <div class="col-xs-12 col-md-2">
-        <div>
-          <label id="label-status"> Year </label>
-          <input id="map-status" type="hidden"/>
-        </div>
-        <div>
-          <label id="label-area"> Working Area </label>
-          <input id="map-area" type="hidden"/>
-        </div>
-        <div>
-          <label id="label-country"> Country </label>
-          <input id="map-country" type="hidden"/>
-        </div>
-        <div>
-          <label id="label-platform"> WOP Platform </label>
-          <input id="map-platform" type="hidden"/>
-        </div>
-        <div>
-          <label id="label-program"> WOP Program </label>
-          <input id="map-program" type="hidden"/>
-        </div>
-        <div>
-          <label id="label-partner"> Partner </label>
-          <input id="map-partner" type="hidden"/>
-        </div>
-        <div>
-          <label for="message-text" class="control-label" i18n:translate="">Tags</label>
-          <input type="hidden" class="pat-select2" id="map-tags"
-                    data-pat-select2="vocabularyUrl:api-getProjectTags;"/>
-        </div>
-        <div>
-          <label id="label-budget"> Budget</label>
-          <input type="text" class="js-range-slider" name="budget_range" />
-        </div>
-<!--         <input class="btn btn-info" style="width: 100%;" type="submit" value='Apply'></input> -->
-      </div>
-      </form>
-      <div class="geolocation_wrapper col-xs-12 col-md-10">
-        <div class="pat-leaflet" id="map" data-pat-leaflet='{
-          "fullscreencontrol": true,
-          "locatecontrol": true,
-          "zoomcontrol": true,
-          "minimap": false,
-          "geosearch": false,
-          "addmarker": false,
-          "map_layers": [
-                {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
-          ]
-          }'>
-        </div>
-      </div>
-    </div>
-
-    <script>
-        //   https://jsfiddle.net/roycode/6prcs5zu/
-        var url = 'updatedMap.js';  // my GeoJSON data source, in same folder as my html page.
-        var map = L.map('map').setView([50.8010, 3.1675], 2);
-        L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.5.1/dist/images/'
-        var osm=new L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}).addTo(map);
-
-        function forEachFeature(feature, layer) {
-          var popupContent =
-              "<a href=''>"+ feature.properties.title + "</a>" +
-              "<br/>Region: "+ feature.properties.country +
-              "<br/>Budget: "+ feature.properties.total_budget;
-          layer.bindPopup(popupContent);
-        }
-
-        // Null variable that will hold layer
-        var stateLayer = L.geoJson(null, {onEachFeature: forEachFeature});
-        $.getJSON(url, function(data) {
-              stateLayer.addData(data);
-        });
-        stateLayer.addTo(map);
-        // other layer?
-        var otherLayer = L.geoJson(null, {onEachFeature: forEachFeature});
-        $.getJSON(url, function(data) {
-              otherLayer.addData(data);
-        });
-        otherLayer.addTo(map);
-
-        // for Layer Control
-        var baseMaps = {
-            "Projects": osm
-        };
-
-        var overlayMaps = {
-            "Open":stateLayer,
-            "Closed":otherLayer,
-        };
-
-        //Add layer control
-        L.control.layers(baseMaps, overlayMaps).addTo(map);
-    </script>
-
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/global_map.js"></script>
-    <link tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.js"></script>
     <style>
-      #mapid {
-        width: 100%;
-        height: 600px;
-      }
+        #map {
+            width : 100%;
+            height : 650px;
+          }
     </style>
 
-  </metal:block>
+    <metal:block define-macro="content-core">
+        <h1 class="documentFirstHeading" i18n:translate=""> Projects </h1>
+
+        <div class="row-fluid">
+            <div class="col-md-2">
+                <form>
+                    <input class="btn btn-info" style="width: 100%;" type="submit" value='Clear'></input>
+                    <div>
+                      <label id="label-status"> Year </label>
+                      <input id="map-status" type="hidden"/>
+                    </div>
+                    <div>
+                      <label id="label-area"> Working Area </label>
+                      <input id="map-area" type="hidden"/>
+                    </div>
+                    <div>
+                      <label id="label-country"> Country </label>
+                      <input id="map-country" type="hidden"/>
+                    </div>
+                    <div>
+                      <label id="label-platform"> WOP Platform </label>
+                      <input id="map-platform" type="hidden"/>
+                    </div>
+                    <div>
+                      <label id="label-program"> WOP Program </label>
+                      <input id="map-program" type="hidden"/>
+                    </div>
+                    <div>
+                      <label id="label-partner"> Partner </label>
+                      <input id="map-partner" type="hidden"/>
+                    </div>
+                    <div>
+                      <label for="message-text" class="control-label" i18n:translate="">Tags</label>
+                      <input type="hidden" class="pat-select2" id="map-tags"
+                                data-pat-select2="vocabularyUrl:api-getProjectTags;"/>
+                    </div>
+                    <div>
+                      <label id="label-budget"> Budget</label>
+                      <input type="text" class="js-range-slider" name="budget_range" id="map_budget" />
+                    </div>
+                    <input class="btn btn-info" style="width: 100%;" type="submit" value='Apply'></input>
+                </form>
+            </div>
+
+            <div class="col-xs-12 col-md-10">
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/global_map.js"></script>
+        <link tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.css" rel="stylesheet" />
+        <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.js"></script>
+
+    </metal:block>
 </metal:content-core>
 
 </body>
