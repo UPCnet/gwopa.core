@@ -37,220 +37,222 @@
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="project">
-        <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
-            <div class="tabla_contenido_items container-fluid">
-            <tal:objects repeat="area areas">
-              <div class="row-fluid" tal:define="files python:view.indicatorsInside(area);">
-                <div class="tabla_cabecera">
-                  <div class="information object" id="header">
-                    <div class="contentt" id="total">
-                      <div class="titleRowMonitoring">
+        <div id="activityWorkingArea" class="row" tal:define="areas view/getAreas">
+          <tal:objects repeat="area areas">
+            <div tal:define="files python:view.indicatorsInside(area);">
+              <div class="tabla_cabecera">
+                <div class="information object" id="header">
+                  <div class="contentt" id="total">
+                    <div class="titleRowMonitoring">
+                      <tal:block condition="files">
                         <i style="display: none" class="fa fa-chevron-down expandWaMo" aria-hidden="true"></i>
                         <i class="fa fa-chevron-up notexpandWaMo" aria-hidden="true"></i>
-                        <span tal:attributes="id string:${area/id}" tal:content="area/title"> Working Area Title </span>
-                      </div>
+                      </tal:block>
+                      <span tal:attributes="id string:${area/id}" tal:content="area/title"> Working Area Title </span>
                     </div>
+                  </div>
+                  <tal:block condition="files">
                     <div class="contentt" id="bl" i18n:translate="">Starting date</div>
                     <div class="contentt" id="comple">Completion Date</div>
                     <div class="contentt" id="pyv">Achieved/Target</div>
                     <div class="contentt" id="nexupd">Next update</div>
-                  </div>
+                  </tal:block>
                 </div>
-                <div class="tabla_cuerpo" tal:repeat="item files">
-                  <div class="col-md-12 text-item-planning">
-                    <div class="information object">
-                      <div class="contentt" id="total">
-                        <div class="part0">
-                          <i class="fa fa-chevron-down expandActMo" aria-hidden="true"></i>
-                          <i style="display: none" class="fa fa-chevron-up notexpandActMo" aria-hidden="true"></i>
-                          <tal:block tal:condition="item/updated">
-                            <span class="dot">
-                              <i id="done" class="fas fa-circle"></i>
-                            </span>
-                          </tal:block>
-                          <tal:block tal:condition="not: item/updated">
-                            <span class="dot">
-                              <i id="todo" class="fas fa-circle"></i>
-                            </span>
-                          </tal:block>
-                        </div>
-                        <div class="part1">
-                          <h5 tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type" i18n:translate=""> Activity/output label</h5>
-                        </div>
-                        <div class="part2 label-2nd">
-                          <h5 class="titulocatplan" tal:attributes="id string:${item/id}" tal:content="item/title"> Activity/Output Title </h5>
-                        </div>
-                      </div>
-                      <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
-                      <div class="contentt" id="comple" tal:content="item/end">28-02-2020</div>
-                      <div class="contentt" id="pyv">
-                        <tal:block tal:condition="python:item['portal_type'] == 'Output'">
-                          <span tal:content="item/target_value_real"> 200 </span> / <span tal:content="item/target_value_planned"> 200 </span>
-                          <span tal:content="item/unit"> m3 </span>
+              </div>
+              <div class="tabla_cuerpo" tal:repeat="item files">
+                <div class="col-md-12 text-item-planning">
+                  <div class="information object">
+                    <div class="contentt" id="total">
+                      <div class="part0">
+                        <i class="fa fa-chevron-down expandActMo" aria-hidden="true"></i>
+                        <i style="display: none" class="fa fa-chevron-up notexpandActMo" aria-hidden="true"></i>
+                        <tal:block tal:condition="item/updated">
+                          <span class="dot">
+                            <i id="done" class="fas fa-circle"></i>
+                          </span>
                         </tal:block>
-                        <tal:block tal:condition="python:item['portal_type'] == 'Activity'">  -----  </tal:block>
+                        <tal:block tal:condition="not: item/updated">
+                          <span class="dot">
+                            <i id="todo" class="fas fa-circle"></i>
+                          </span>
+                        </tal:block>
                       </div>
-                      <div class="contentt" id="nexupd" tal:content="item/next_update"> 18-12-2022</div>
+                      <div class="part1">
+                        <h5 tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type" i18n:translate=""> Activity/output label</h5>
+                      </div>
+                      <div class="part2 label-2nd">
+                        <h5 class="titulocatplan" tal:attributes="id string:${item/id}" tal:content="item/title"> Activity/Output Title </h5>
+                      </div>
                     </div>
-                    <tal:comment replace="nothing"> <!-- Activity desplegable --> </tal:comment>
-                    <div class="tabla_cuerpo monitoring_info" id="contenido">
-                      <form id="updateActivity">
-                        <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
+                    <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
+                    <div class="contentt" id="comple" tal:content="item/end">28-02-2020</div>
+                    <div class="contentt" id="pyv">
+                      <tal:block tal:condition="python:item['portal_type'] == 'Output'">
+                        <span tal:content="item/target_value_real"> 200 </span> / <span tal:content="item/target_value_planned"> 200 </span>
+                        <span tal:content="item/unit"> m3 </span>
+                      </tal:block>
+                      <tal:block tal:condition="python:item['portal_type'] == 'Activity'">  -----  </tal:block>
+                    </div>
+                    <div class="contentt" id="nexupd" tal:content="item/next_update"> 18-12-2022</div>
+                  </div>
+                  <tal:comment replace="nothing"> <!-- Activity desplegable --> </tal:comment>
+                  <div class="tabla_cuerpo monitoring_info" tal:attributes="id string:${item/id}-expandA">
+                    <form id="updateActivity">
+                      <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
+                        <div class="filacontenido">
+                          <div class="col-sm-1">
+                            <h5 i18n:translate="">Degree (%)</h5>
+                            <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
+                          </div>
+                          <div class="col-sm-5">
+                            <h5 i18n:translate="">Explanation Progress</h5>
+                            <textarea class="form-control" rows="1" tal:content="item/explanation" tal:attributes="id string:${item/id}-explanation;"></textarea>
+                          </div>
+                          <div class="col-sm-3">
+                            <h5 i18n:translate="">Main Obstacles</h5>
+                            <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/obstacles;" style="width: 100%" />
+                            <div tal:attributes="id string:${item/id}-addObstacleActivity" class="form-group col-sm-12">
+                              <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                              <span class="legend">Add new Main Obstacles if not listed in the before field</span>
+                            </div>
+                            <div tal:attributes="id string:${item/id}-addObstaclesActivity" class="form-group col-sm-12">
+                              <h5 i18n:translate="">Main Obstacles title</h5>
+                              <input type="text" tal:attributes="id string:${item/id}-add-obs"  placeholder="Type title..."/>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <h5 i18n:translate="">Main Contributing factors</h5>
+                            <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/contributing;" style="width: 100%"/>
+                            <div tal:attributes="id string:${item/id}-addContributingActivity" class="form-group col-sm-12">
+                              <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                              <span class="legend">Add new Main Contributing if not listed in the before field</span>
+                            </div>
+                            <div tal:attributes="id string:${item/id}-addContributingsActivity" class="form-group col-sm-12">
+                              <h5 i18n:translate="">Main Contributing factors title</h5>
+                              <input type="text" tal:attributes="id string:${item/id}-add-contrib" placeholder="Type title..."/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="filacontenido">
+                          <div class="col-sm-6">
+                            <h5 i18n:translate="">Consideration for further planning</h5>
+                            <textarea class="form-control" rows="1" tal:content="item/consideration" tal:attributes="id string:${item/id}-consideration;"></textarea>
+                          </div>
+                          <div class="col-sm-6">
+                            <h5 i18n:translate="">Explain contributed and limiting factors</h5>
+                            <textarea class="form-control" rows="1" tal:content="item/limiting" tal:attributes="id string:${item/id}-limiting;"></textarea>
+                          </div>
+                        </div>
+                        <div tal:content="item/year" id="year" style="display:none;"></div>
+                        <div tal:content="item/path" tal:attributes="id string:${item/id}-path" style="display:none;"></div>
+                        <button type="submit" tal:attributes="id string:${item/id}-updateActivityMonitoring; class string:${item/id} btn btn-default focus"> Update </button>
+                      </div>
+                    </form>
+                  </div>
+                  <tal:block tal:define="outputs python:view.indicatorsInside(item);">
+                    <div tal:repeat="output outputs" class="block_sub_indicators">
+                      <div class="information object">
+                        <div class="contentt" id="total">
+                          <div class="part0">
+                            <i class="fa fa-chevron-down expandOutMo" aria-hidden="true"></i>
+                            <i style="display: none" class="fa fa-chevron-up notexpandOutMo" aria-hidden="true"></i>
+                            <tal:block tal:condition="output/updated">
+                              <span class="dot">
+                                <i id="done" class="fas fa-circle"></i>
+                              </span>
+                            </tal:block>
+                            <tal:block tal:condition="not: output/updated">
+                              <span class="dot">
+                                <i id="todo" class="fas fa-circle"></i>
+                              </span>
+                            </tal:block>
+                          </div>
+                          <div class="part1">
+                            <h5 tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</h5>
+                          </div>
+                          <div class="part2 label-2nd">
+                            <h5 class="titulocatplan" tal:attributes="id output/id" tal:content="output/title">Item Title</h5>
+                          </div>
+                        </div>
+                        <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
+                        <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
+                        <div class="contentt target" id="pyv">
+                          <tal:exclamation tal:condition="python:output['target_value_real'] != output['target_value_planned']">
+                            <i class="fas fa-exclamation" title="Target value differs from planned"></i>
+                          </tal:exclamation>
+                          <span tal:attributes="
+                              data-pk currentYear;
+                              data-name output/url;
+                              data-url string:${context/absolute_url}/changeTargetMonitoring"
+                              data-type="text"
+                              data-title="Change target value"
+                              class="editable" tal:content="output/target_value_real"> Target Value Real
+                          </span> /
+                          <span tal:content="output/target_value_planned"> Target Value Planned </span>
+                          <span tal:content="output/unit"> Unit </span>
+                        </div>
+                        <div class="contentt" id="nexupd" tal:content="output/next_update"> 18-12-2022</div>
+                      </div>
+                    <div class="tabla_cuerpo monitoring_info" tal:attributes="id string:${output/id}-expandO">
+                      <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
+                        <form id="updateOutput">
                           <div class="filacontenido">
                             <div class="col-sm-1">
-                              <h5 i18n:translate="">Degree (%)</h5>
-                              <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
+                              <h5 i18n:translate=""> Value </h5>
+                                <input type="text" tal:attributes="id string:${output/id}-progress; value output/progress;">
                             </div>
                             <div class="col-sm-5">
                               <h5 i18n:translate="">Explanation Progress</h5>
-                              <textarea class="form-control" rows="1" tal:content="item/explanation" tal:attributes="id string:${item/id}-explanation;"></textarea>
+                              <textarea class="form-control" rows="1" tal:content="output/explanation" tal:attributes="id string:${output/id}-explanation;"></textarea>
                             </div>
                             <div class="col-sm-3">
                               <h5 i18n:translate="">Main Obstacles</h5>
-                              <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/obstacles;" style="width: 100%" />
-                              <div tal:attributes="id string:${item/id}-addObstacleActivity" class="form-group col-sm-12">
+                              <input type="hidden" tal:attributes="id string:${output/id}-output-obs; value output/obstacles;" style="width: 100%"/>
+                              <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12">
                                 <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                 <span class="legend">Add new Main Obstacles if not listed in the before field</span>
                               </div>
-                              <div tal:attributes="id string:${item/id}-addObstaclesActivity" class="form-group col-sm-12">
+                              <div tal:attributes="id string:${output/id}-addObstaclesOutput" class="form-group col-sm-12">
                                 <h5 i18n:translate="">Main Obstacles title</h5>
-                                <input type="text" tal:attributes="id string:${item/id}-add-obs"  placeholder="Type title..."/>
+                                <input type="text" tal:attributes="id string:${output/id}-add-obs" placeholder="Type title..."/>
                               </div>
                             </div>
                             <div class="col-sm-3">
                               <h5 i18n:translate="">Main Contributing factors</h5>
-                              <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/contributing;" style="width: 100%"/>
-                              <div tal:attributes="id string:${item/id}-addContributingActivity" class="form-group col-sm-12">
+                              <input type="hidden" tal:attributes="id string:${output/id}-output-contrib; value output/contributing;" style="width: 100%"/>
+                              <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12">
                                 <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                 <span class="legend">Add new Main Contributing if not listed in the before field</span>
                               </div>
-                              <div tal:attributes="id string:${item/id}-addContributingsActivity" class="form-group col-sm-12">
+                              <div tal:attributes="id string:${output/id}-addContributingsOutput" class="form-group col-sm-12">
                                 <h5 i18n:translate="">Main Contributing factors title</h5>
-                                <input type="text" tal:attributes="id string:${item/id}-add-contrib" placeholder="Type title..."/>
+                                <input type="text" tal:attributes="id string:${output/id}-add-contrib" placeholder="Type title..."/>
                               </div>
                             </div>
                           </div>
                           <div class="filacontenido">
                             <div class="col-sm-6">
                               <h5 i18n:translate="">Consideration for further planning</h5>
-                              <textarea class="form-control" rows="1" tal:content="item/consideration" tal:attributes="id string:${item/id}-consideration;"></textarea>
+                              <textarea class="form-control" rows="1" tal:content="output/consideration" tal:attributes="id string:${output/id}-consideration;"></textarea>
                             </div>
                             <div class="col-sm-6">
                               <h5 i18n:translate="">Explain contributed and limiting factors</h5>
-                              <textarea class="form-control" rows="1" tal:content="item/limiting" tal:attributes="id string:${item/id}-limiting;"></textarea>
+                              <textarea class="form-control" rows="1" tal:content="output/limiting" tal:attributes="id string:${output/id}-limiting;"></textarea>
                             </div>
                           </div>
-                          <div tal:content="item/year" id="year" style="display:none;"></div>
-                          <div tal:content="item/path" tal:attributes="id string:${item/id}-path" style="display:none;"></div>
-                          <button type="submit" tal:attributes="id string:${item/id}-updateActivityMonitoring; class string:${item/id} btn btn-default focus"> Update </button>
-                        </div>
-                      </form>
+                          <div tal:content="output/year" id="year" style="display:none;"></div>
+                          <div tal:content="output/path" tal:attributes="id string:${output/id}-path" style="display:none;"></div>
+                          <button type="submit" tal:attributes="id string:${output/id}-updateOutputMonitoring; class string:${output/id} btn btn-default focus"> Update </button>
+                        </form>
+                      </div>
                     </div>
-                    <tal:block tal:define="outputs python:view.indicatorsInside(item);">
-                      <div tal:repeat="output outputs" class="block_sub_indicators">
-                        <div class="information object">
-                          <div class="contentt" id="total">
-                            <div class="part0">
-                              <i class="fa fa-chevron-down expandOutMo" aria-hidden="true"></i>
-                              <i style="display: none" class="fa fa-chevron-up notexpandOutMo" aria-hidden="true"></i>
-                              <tal:block tal:condition="output/updated">
-                                <span class="dot">
-                                  <i id="done" class="fas fa-circle"></i>
-                                </span>
-                              </tal:block>
-                              <tal:block tal:condition="not: output/updated">
-                                <span class="dot">
-                                  <i id="todo" class="fas fa-circle"></i>
-                                </span>
-                              </tal:block>
-                            </div>
-                            <div class="part1">
-                              <h5 tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</h5>
-                            </div>
-                            <div class="part2 label-2nd">
-                              <h5 class="titulocatplan" tal:attributes="id output/id" tal:content="output/title">Item Title</h5>
-                            </div>
-                          </div>
-                          <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
-                          <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
-                          <div class="contentt target" id="pyv">
-                            <tal:exclamation tal:condition="python:output['target_value_real'] != output['target_value_planned']">
-                              <i class="fas fa-exclamation" title="Target value differs from planned"></i>
-                            </tal:exclamation>
-                            <span tal:attributes="
-                                data-pk currentYear;
-                                data-name output/url;
-                                data-url string:${context/absolute_url}/changeTargetMonitoring"
-                                data-type="text"
-                                data-title="Change target value"
-                                class="editable" tal:content="output/target_value_real"> Target Value Real
-                            </span> /
-                            <span tal:content="output/target_value_planned"> Target Value Planned </span>
-                            <span tal:content="output/unit"> Unit </span>
-                          </div>
-                          <div class="contentt" id="nexupd" tal:content="output/next_update"> 18-12-2022</div>
-                        </div>
-                      <div class="tabla_cuerpo monitoring_info" id="contenido">
-                        <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
-                          <form id="updateOutput">
-                            <div class="filacontenido">
-                              <div class="col-sm-1">
-                                <h5 i18n:translate=""> Value </h5>
-                                  <input type="text" tal:attributes="id string:${output/id}-progress; value output/progress;">
-                              </div>
-                              <div class="col-sm-5">
-                                <h5 i18n:translate="">Explanation Progress</h5>
-                                <textarea class="form-control" rows="1" tal:content="output/explanation" tal:attributes="id string:${output/id}-explanation;"></textarea>
-                              </div>
-                              <div class="col-sm-3">
-                                <h5 i18n:translate="">Main Obstacles</h5>
-                                <input type="hidden" tal:attributes="id string:${output/id}-output-obs; value output/obstacles;" style="width: 100%"/>
-                                <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12">
-                                  <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                                  <span class="legend">Add new Main Obstacles if not listed in the before field</span>
-                                </div>
-                                <div tal:attributes="id string:${output/id}-addObstaclesOutput" class="form-group col-sm-12">
-                                  <h5 i18n:translate="">Main Obstacles title</h5>
-                                  <input type="text" tal:attributes="id string:${output/id}-add-obs" placeholder="Type title..."/>
-                                </div>
-                              </div>
-                              <div class="col-sm-3">
-                                <h5 i18n:translate="">Main Contributing factors</h5>
-                                <input type="hidden" tal:attributes="id string:${output/id}-output-contrib; value output/contributing;" style="width: 100%"/>
-                                <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12">
-                                  <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                                  <span class="legend">Add new Main Contributing if not listed in the before field</span>
-                                </div>
-                                <div tal:attributes="id string:${output/id}-addContributingsOutput" class="form-group col-sm-12">
-                                  <h5 i18n:translate="">Main Contributing factors title</h5>
-                                  <input type="text" tal:attributes="id string:${output/id}-add-contrib" placeholder="Type title..."/>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="filacontenido">
-                              <div class="col-sm-6">
-                                <h5 i18n:translate="">Consideration for further planning</h5>
-                                <textarea class="form-control" rows="1" tal:content="output/consideration" tal:attributes="id string:${output/id}-consideration;"></textarea>
-                              </div>
-                              <div class="col-sm-6">
-                                <h5 i18n:translate="">Explain contributed and limiting factors</h5>
-                                <textarea class="form-control" rows="1" tal:content="output/limiting" tal:attributes="id string:${output/id}-limiting;"></textarea>
-                              </div>
-                            </div>
-                            <div tal:content="output/year" id="year" style="display:none;"></div>
-                            <div tal:content="output/path" tal:attributes="id string:${output/id}-path" style="display:none;"></div>
-                            <button type="submit" tal:attributes="id string:${output/id}-updateOutputMonitoring; class string:${output/id} btn btn-default focus"> Update </button>
-                          </form>
-                        </div>
-                      </div>
-                      </div>
-                    </tal:block>
-                  </div>
+                    </div>
+                  </tal:block>
                 </div>
               </div>
-            </tal:objects>
-          </div>
-        </tal:block-activities>
+            </div>
+          </tal:objects>
+        </div>
       </div>
       <div role="tabpanel" class="tab-pane" id="outcomes">
         <div class="tabla_contenido_items">
@@ -259,15 +261,19 @@
               <div class="information object" id="header">
                 <div class="contentt" id="total">
                   <div class="titleRowMonitoring" i18n:translate="">
-                    <i style="display: none" class="fa fa-chevron-down expandPerMo" aria-hidden="true"></i>
-                    <i class="fa fa-chevron-up notexpandPerMo" aria-hidden="true"></i>
+                    <tal:block condition="outcomes">
+                      <i style="display: none" class="fa fa-chevron-down expandPerMo" aria-hidden="true"></i>
+                      <i class="fa fa-chevron-up notexpandPerMo" aria-hidden="true"></i>
+                    </tal:block>
                     <span id="utility"> Utility Performance </span>
                   </div>
                 </div>
-                <div class="contentt" id="comple">Baseline date</div>
-                <div class="contentt" id="zone">Zone</div>
-                <div class="contentt" id="pyv">Achieved/Target</div>
-                <div class="contentt" id="nexupd">Next update</div>
+                <tal:block condition="outcomes">
+                  <div class="contentt" id="comple">Baseline date</div>
+                  <div class="contentt" id="zone">Zone</div>
+                  <div class="contentt" id="pyv">Achieved/Target</div>
+                  <div class="contentt" id="nexupd">Next update</div>
+                </tal:block>
               </div>
             </div>
             <div class="tabla_cuerpo" tal:repeat="outcome outcomes">
@@ -289,11 +295,12 @@
                       </tal:block>
                     </div>
                     <div class="part11">
-                      <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
+                      <!-- <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
                         <h5 tal:attributes="class string:${outcome/portal_type}-planning" i18n:translate="">Performance</h5>
-                      </tal:block>
+                      </tal:block> -->
                       <tal:block condition="python:outcome['portal_type'] == 'OutcomeZONE'">
-                        <h5 tal:attributes="class string:${outcome/portal_type}-planning" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</h5>
+                        <!-- <span tal:attributes="class string:${outcome/portal_type}-planning second-level" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</span> -->
+                        <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
                       </tal:block>
                     </div>
                     <div class="part2">
@@ -320,7 +327,7 @@
                   <div class="contentt" id="nexupd" tal:content="outcome/next_update"> 18-12-2022</div>
                 </div>
                 <tal:comment replace="nothing">  <!-- KPI desplegable --> </tal:comment>
-                <div class="tabla_cuerpo monitoring_info" id="contenido">
+                <div class="tabla_cuerpo monitoring_info" tal:attributes="id string:${outcome/id}-expandK">
                   <form id="updateKPI">
                     <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                       <div class="filacontenido">
@@ -380,9 +387,11 @@
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
-                  <div class="titleRowPlanning" i18n:translate="">
-                    <i style="display: none" class="fa fa-chevron-down expandCapMo" aria-hidden="true"></i>
-                    <i class="fa fa-chevron-up notexpandCapMo" aria-hidden="true"></i>
+                  <div class="titleRowMonitoring" i18n:translate="">
+                    <tal:block condition="outcomes">
+                      <i style="display: none" class="fa fa-chevron-down expandCapMo" aria-hidden="true"></i>
+                      <i class="fa fa-chevron-up notexpandCapMo" aria-hidden="true"></i>
+                    </tal:block>
                     <span id="capacity">Capacity </span>
                   </div>
                 </div>

@@ -26,6 +26,7 @@ from zope.interface import directlyProvides
 from operator import itemgetter
 from plone.directives import form
 from collective import dexteritytextindexer
+from Products.CMFCore.utils import getToolByName
 
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
@@ -403,6 +404,38 @@ class View(grok.View):
                 incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
                 inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),
             ))
+        return results
+
+    def getMembers(self):
+        """ Returns Site Members """
+        members = api.user.get_users()
+        results = []
+
+        for item in members:
+            results += [{'id': item.id,
+                         'email': item.getProperty('email')
+                         }]
+        return results
+
+    def getFiles(self):
+        """ Return files of the Area """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        items = portal_catalog.unrestrictedSearchResults(
+            portal_type=['File'],
+            path={'query': '/'.join(self.context.getPhysicalPath()) + '/files',
+                  'depth': 1})
+        results = []
+        lang = api.portal.get_current_language()
+        if lang == 'es':
+            FORMAT_DATE = '%d/%m/%Y'
+        else:
+            FORMAT_DATE = '%m/%d/%Y'
+        for item in items:
+            results += [{'title': item.Title,
+                         'portal_type': item.portal_type,
+                         'url': item.getURL(),
+                         'date': item.modification_date.strftime(FORMAT_DATE)
+                         }]
         return results
 
     def donors(self):

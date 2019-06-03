@@ -223,7 +223,7 @@
     </div>
 
     <div class="col-md-3" tal:condition="getImprovementAreas">
-      <h2 i18n:translate="" class="h2Project"> Working Areas </h2>
+      <h2 class="h2Project" i18n:translate=""> Working Areas </h2>
       <tal:areas repeat="item getImprovementAreas">
         <div class="col-lg-12 col-md-12">
           <a tal:attributes="href item/url; title item/description; alt item/description">
@@ -236,6 +236,46 @@
           </a>
         </div>
       </tal:areas>
+      <div id="membersBlock" tal:define="recent_items view/getMembers">
+        <h2 class="h2Project" i18n:translate="">Members</h2>
+        <table class="table table-condensed table-striped">
+          <tbody>
+            <tal:items tal:repeat="obj recent_items">
+              <tr>
+                <td tal:content="obj/id"> User Photo </td>
+                <td tal:content="obj/email"> Phone</td>
+              </tr>
+            </tal:items>
+          </tbody>
+        </table>
+      </div>
+      <div id="filesBlock" tal:define="recent_items view/getFiles">
+        <h2 class="h2Project">
+          <span i18n:translate="">Recent files</span>
+          <a class="pat-plone-modal right" id="add-new-file" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/files/++add++File">
+            <button id="add-new-file" class="context focus" i18n:translate=""> + New file </button>
+          </a>
+        </h2>
+        <table class="table">
+          <tbody>
+            <tal:items tal:repeat="obj recent_items">
+              <tr>
+                <td>
+                  <span tal:content="obj/portal_type"></span>
+                </td>
+                <td>
+                  <a href="" tal:attributes="href obj/url"><tal:omit-tag tal:content="obj/title">
+                    TITLE</tal:omit-tag>
+                  </a>
+                </td>
+                <td>
+                  <span tal:content="obj/date"></span>
+                </td>
+              </tr>
+            </tal:items>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 

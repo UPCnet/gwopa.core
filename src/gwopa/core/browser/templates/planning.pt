@@ -45,8 +45,10 @@
                   <div class="information" id="header">
                     <div class="contentt" id="total">
                       <div class="titleRowPlanning">
-                        <i style="display: none" class="fa fa-chevron-down expandWaPla" aria-hidden="true"></i>
-                        <i class="fa fa-chevron-up notexpandWaPla" aria-hidden="true"></i>
+                        <tal:block condition="files">
+                          <i style="display: none" class="fa fa-chevron-down expandWaPla" aria-hidden="true"></i>
+                          <i class="fa fa-chevron-up notexpandWaPla" aria-hidden="true"></i>
+                        </tal:block>
                         <div class="btn-group" role="group" aria-label="Add element">
                           <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                           <ul class="dropdown-menu" role="menu" aria-labelledby="types">
@@ -62,11 +64,12 @@
                         <span tal:attributes="id string:${item/id}" class="expPlWA" tal:content="item/title"> Working Area Title </span>
                       </div>
                     </div>
-                    <div class="contentt" id="bl" i18n:translate="">Starting date</div>
-                    <div class="contentt" id="end" i18n:translate="">Completion date</div>
-                    <div class="contentt" id="target" i18n:translate="">Target value</div>
-                    <div class="contentt" id="resp" i18n:translate="">Responsible</div>
-                    <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></div>
+                    <tal:block condition="files">
+                      <div class="contentt" id="bl" i18n:translate="">Starting date</div>
+                      <div class="contentt" id="end" i18n:translate="">Completion date</div>
+                      <div class="contentt" id="target" i18n:translate="">Target value</div>
+                      <div class="contentt" id="resp" i18n:translate="">Responsible</div>
+                    </tal:block>
                   </div>
                 </div>
                 <div class="tabla_cuerpo" tal:repeat="item files">
@@ -194,8 +197,10 @@
               <div class="information object" id="header">
                 <div class="contentt" id="total">
                   <div class="titleRowPlanning" i18n:translate="">
-                    <i style="display: none" class="fa fa-chevron-down expandPerPla" aria-hidden="true"></i>
-                    <i class="fa fa-chevron-up notexpandPerPla" aria-hidden="true"></i>
+                    <tal:block condition="outcomes">
+                      <i style="display: none" class="fa fa-chevron-down expandPerPla" aria-hidden="true"></i>
+                      <i class="fa fa-chevron-up notexpandPerPla" aria-hidden="true"></i>
+                    </tal:block>
                     <div class="btn-group" role="group" aria-label="Add KPI">
                       <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
@@ -220,12 +225,13 @@
                     <span id="utility">Performance </span>
                   </div>
                 </div>
-                <div class="contentt" id="bl" i18n:translate=""> Baseline date </div>
-                <div class="contentt" id="end" i18n:translate=""> Baseline value </div>
-                <div class="contentt" id="zone" i18n:translate=""> Zone </div>
-                <div class="contentt" id="target" i18n:translate=""> Target value </div>
-                <div class="contentt" id="resp" i18n:translate=""> Responsible </div>
-                <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></div>
+                <tal:block condition="outcomes">
+                  <div class="contentt" id="bl" i18n:translate=""> Baseline date </div>
+                  <div class="contentt" id="end" i18n:translate=""> Baseline value </div>
+                  <div class="contentt" id="zone" i18n:translate=""> Zone </div>
+                  <div class="contentt" id="target" i18n:translate=""> Target value </div>
+                  <div class="contentt" id="resp" i18n:translate=""> Responsible </div>
+                </tal:block>
               </div>
             </div>
             <div class="tabla_cuerpo">
@@ -288,12 +294,13 @@
               <div class="information object" id="header">
                 <div class="contentt" id="total">
                   <div class="titleRowPlanning" i18n:translate="">
-                    <i style="display: none" class="fa fa-chevron-down expandCapPla" aria-hidden="true"></i>
-                    <i class="fa fa-chevron-up notexpandCapPla" aria-hidden="true"></i>
+                    <tal:block condition="outcomes">
+                      <i style="display: none" class="fa fa-chevron-down expandCapPla" aria-hidden="true"></i>
+                      <i class="fa fa-chevron-up notexpandCapPla" aria-hidden="true"></i>
+                    </tal:block>
                     <span id="capacity">Capacity </span>
                   </div>
                 </div>
-                <div class="contentt" id="actions" i18n:translate=""><i class="far fa-edit"></i></div>
               </div>
             </div>
             <div class="tabla_cuerpo">
