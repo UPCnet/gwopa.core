@@ -255,12 +255,7 @@ def improvementAreaAdded(content, event):
             specific_obj = item.getObject()
             result = api.content.find(portal_type="OutcomeCCItem", Title=specific_obj.title)[0]
             capacitychanges_obj = result.getObject()
-            if capacitychanges_obj.id == 'systems':
-                category = capacitychanges_obj.short_category + ' six'
-            elif capacitychanges_obj.id == 'knowledge-skills':
-                category = capacitychanges_obj.short_category + ' twelve'
-            else:
-                category = capacitychanges_obj.short_category
+            category = capacitychanges_obj.short_category
             outcomeccspecific_info = dict(
                 id_specific = specific_obj.id,
                 title_specific = specific_obj.title,

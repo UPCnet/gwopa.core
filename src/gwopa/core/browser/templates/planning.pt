@@ -444,15 +444,15 @@
                           </a>
                         </tal:block>
                       </tal:block>
+                      <a class="addOutcomeCCS item other" data-toggle="modal" data-target="#modalAddOutcomeCCS" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url;">
+                        <div class="item_image">
+                          <img src="++theme++gwopa.theme/assets/images/add.png" alt="" title=""/>
+                        </div>
+                        <div class="item_text">
+                          <span>Add other</span>
+                        </div>
+                      </a>
                     </div>
-                    <a class="addOutcomeCCS item other" data-toggle="modal" data-target="#modalAddOutcomeCCS" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url;">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/add.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Add other</span>
-                      </div>
-                    </a>
                   </div>
                 </div>
               </div>
