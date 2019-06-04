@@ -208,8 +208,43 @@
   />
   <browser:page
       for="*"
+      name="api-getProjectDates"
+      class=".api.code.getProjectDates"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="api-getProjectKPIs"
+      class=".api.code.getProjectKPIs"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
       name="updatedMap.js"
       class=".api.code.updatedMap"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="api-getProjectRegions"
+      class=".api.code.getProjectRegions"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="openProjectsMap.json"
+      class=".api.code.openProjectsMap"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="closedProjectsMap.json"
+      class=".api.code.closedProjectsMap"
       permission="zope.Public"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />

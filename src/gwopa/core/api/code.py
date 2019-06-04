@@ -8,7 +8,7 @@ from decimal import Decimal
 from operator import itemgetter
 from zope.annotation.interfaces import IAnnotations
 import datetime
-from geojson import Feature, Point, FeatureCollection
+from geojson import Feature, Point
 # from gwopa.core import _
 
 
@@ -239,6 +239,7 @@ class addTitleKPI(BrowserView):
             safe_id=True)
         return 'Ok! Default Outcome created'
 
+
 class addOutcomeCCS(BrowserView):
 
     def __call__(self):
@@ -257,9 +258,9 @@ class addOutcomeCCS(BrowserView):
         generic = annotations[KEY]['generic']
         specifics = annotations[KEY]['specifics']
         outcomeccspecific_info = dict(
-            id_specific = specific_obj.id,
-            title_specific = specific_obj.title,
-            description = specific_obj.description,
+            id_specific=specific_obj.id,
+            title_specific=specific_obj.title,
+            description=specific_obj.description,
             url='/'.join(specific_obj.getPhysicalPath()),
             selected_specific='',
             icon_url='++theme++gwopa.theme/assets/images/others.png',
@@ -274,6 +275,7 @@ class addOutcomeCCS(BrowserView):
         data = dict(real='', planned='', monitoring='', generic=generic, specifics=specifics)
         annotations[KEY] = data
         return 'Ok! Specific Outcomeccs created'
+
 
 class Create(BrowserView):
 
@@ -414,6 +416,7 @@ class Update(BrowserView):
 
         return 'Ok, item updated'
 
+
 class UpdateOutcomeCC(BrowserView):
 
     def __call__(self):
@@ -441,6 +444,7 @@ class UpdateOutcomeCC(BrowserView):
         annotations[KEY] = data
 
         return 'Ok, item updated'
+
 
 class UpdateOutcomeCCS(BrowserView):
 
@@ -483,10 +487,10 @@ class getProjectWOPPlatform(BrowserView):
             value = item.getObject().wop_platform
             if value:
                 results.append(dict(
-                    name=value))
-        results = sorted(results, key=itemgetter('name'), reverse=False)
+                    id=value,
+                    text=value))
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps({'results': results})
 
 
 class getProjectWOPProgram(BrowserView):
@@ -498,10 +502,10 @@ class getProjectWOPProgram(BrowserView):
             value = item.getObject().wop_program
             if value:
                 results.append(dict(
-                    name=value))
-        results = sorted(results, key=itemgetter('name'), reverse=False)
+                    id=value,
+                    text=value))
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps({'results': results})
 
 
 class getProjectWorkingArea(BrowserView):
@@ -519,9 +523,10 @@ class getProjectWorkingArea(BrowserView):
         areas.sort()
         for value in areas:
             results.append(dict(
-                name=value))
+                id=value,
+                text=value))
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps({'results': results})
 
 
 class getProjectCountry(BrowserView):
@@ -538,9 +543,10 @@ class getProjectCountry(BrowserView):
         countries.sort()
         for value in countries:
             results.append(dict(
-                name=value))
+                id=value,
+                text=value))
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps({'results': results})
 
 
 class getProjectPartners(BrowserView):
@@ -558,9 +564,10 @@ class getProjectPartners(BrowserView):
         partners.sort()
         for value in partners:
             results.append(dict(
-                name=value))
+                id=value,
+                text=value))
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps({'results': results})
 
 
 class getProjectTags(BrowserView):
@@ -582,7 +589,73 @@ class getProjectTags(BrowserView):
                 text=value))
 
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps({'results': results, })
+        return json.dumps({'results': results})
+
+
+class getProjectDates(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        tags = []
+        for item in items:
+            values = item.getObject().category
+            if values:
+                for value in values:
+                    if value not in tags:
+                        tags.append(value)
+        tags.sort()
+        for value in tags:
+            results.append(dict(
+                id=value,
+                text=value))
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps({'results': results})
+
+
+class getProjectKPIs(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        tags = []
+        for item in items:
+            values = item.getObject().category
+            if values:
+                for value in values:
+                    if value not in tags:
+                        tags.append(value)
+        tags.sort()
+        for value in tags:
+            results.append(dict(
+                id=value,
+                text=value))
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps({'results': results})
+
+
+class getProjectRegions(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        results = []
+        tags = []
+        for item in items:
+            values = item.getObject().category
+            if values:
+                for value in values:
+                    if value not in tags:
+                        tags.append(value)
+        tags.sort()
+        for value in tags:
+            results.append(dict(
+                id=value,
+                text=value))
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps({'results': results})
 
 
 class updatedMap(BrowserView):
@@ -597,18 +670,138 @@ class updatedMap(BrowserView):
                     budget = int(obj.total_budget)
                 else:
                     budget = 0
+                if not obj.areas:
+                    areas = []
+                else:
+                    areas = obj.areas
+                if not obj.wop_platform:
+                    wop_platform = []
+                else:
+                    wop_platform = obj.wop_platform
+                if not obj.wop_program:
+                    wop_program = []
+                else:
+                    wop_program = obj.wop_program
+                if not obj.category:
+                    category = []
+                else:
+                    category = obj.category
+                if not obj.partners:
+                    partners = []
+                else:
+                    partners = obj.partners
                 poi = Feature(
                     geometry=Point((float(obj.longitude), float(obj.latitude))),
                     properties={
                         'title': obj.title,
                         'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
                         'total_budget': budget,
-                        'wop_program': obj.wop_program,
-                        'wop_platform': obj.wop_platform,
-                        'partners': obj.partners,
+                        'wop_program': wop_program,
+                        'wop_platform': wop_platform,
+                        'partners': partners,
                         'country': obj.country,
-                        'tags': obj.category,
-                        'areas': obj.areas})
+                        'tags': category,
+                        'areas': areas})
+                results.append(poi)
+        obj = ({"type": "FeatureCollection", 'features': results})
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(obj)
+
+
+class openProjectsMap(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type=['Project'])
+        results = []
+        for item in items[0:3]:
+            obj = item.getObject()
+            if obj.longitude and obj.latitude:
+                if obj.total_budget:
+                    budget = int(obj.total_budget)
+                else:
+                    budget = 0
+                if not obj.areas:
+                    areas = []
+                else:
+                    areas = obj.areas
+                if not obj.wop_platform:
+                    wop_platform = []
+                else:
+                    wop_platform = obj.wop_platform
+                if not obj.wop_program:
+                    wop_program = []
+                else:
+                    wop_program = obj.wop_program
+                if not obj.category:
+                    category = []
+                else:
+                    category = obj.category
+                if not obj.partners:
+                    partners = []
+                else:
+                    partners = obj.partners
+                poi = Feature(
+                    geometry=Point((float(obj.longitude), float(obj.latitude))),
+                    properties={
+                        'title': obj.title,
+                        'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
+                        'total_budget': budget,
+                        'wop_program': wop_program,
+                        'wop_platform': wop_platform,
+                        'partners': partners,
+                        'country': obj.country,
+                        'tags': category,
+                        'areas': areas})
+                results.append(poi)
+        obj = ({"type": "FeatureCollection", 'features': results})
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(obj)
+
+
+class closedProjectsMap(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type=['Project'])
+        results = []
+        for item in items[3:6]:
+            obj = item.getObject()
+            if obj.longitude and obj.latitude:
+                if obj.total_budget:
+                    budget = int(obj.total_budget)
+                else:
+                    budget = 0
+                if not obj.areas:
+                    areas = []
+                else:
+                    areas = obj.areas
+                if not obj.wop_platform:
+                    wop_platform = []
+                else:
+                    wop_platform = obj.wop_platform
+                if not obj.wop_program:
+                    wop_program = []
+                else:
+                    wop_program = obj.wop_program
+                if not obj.category:
+                    category = []
+                else:
+                    category = obj.category
+                if not obj.partners:
+                    partners = []
+                else:
+                    partners = obj.partners
+                poi = Feature(
+                    geometry=Point((float(obj.longitude), float(obj.latitude))),
+                    properties={
+                        'title': obj.title,
+                        'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
+                        'total_budget': budget,
+                        'wop_program': wop_program,
+                        'wop_platform': wop_platform,
+                        'partners': partners,
+                        'country': obj.country,
+                        'tags': category,
+                        'areas': areas})
                 results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")
