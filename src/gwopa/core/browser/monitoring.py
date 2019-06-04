@@ -283,11 +283,15 @@ class monitoringView(BrowserView):
             members = []
             obj = item.getObject()
             annotations = IAnnotations(item.getObject())
+            base_value = ''
+            base_date = ''
+            description = ''
+            objective = ''
+            objective_date = ''
+            target_value_planned = _(u"Not defined")
+            specifics = ''
             if KEY in annotations.keys():
-                if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
-                    target_value_planned = _(u"Not defined")
-                    unit = ''
-                else:
+                if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
                     base_value = annotations[KEY]['generic'][0]['baseline']
                     base_date = annotations[KEY]['generic'][0]['baseline_date']
                     description = annotations[KEY]['generic'][0]['description']
@@ -295,8 +299,6 @@ class monitoringView(BrowserView):
                     objective_date = annotations[KEY]['generic'][0]['objective_date']
                     target_value_planned = annotations[KEY]['planned']
                     specifics = annotations[KEY]['specifics']
-            else:
-                target_value_planned = _(u"Not defined")
 
             if obj.members:
                 users = obj.members

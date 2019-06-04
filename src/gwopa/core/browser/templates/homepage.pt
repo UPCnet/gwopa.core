@@ -156,7 +156,7 @@
                     <div class="col-md-4">
                       <a tal:attributes="href string:${portal_url}/showMap">
                           <button class="center-btn">
-                            <i class="fas fa-globe"></i><tal:omit-tag i18n:translate="">Show projects on a Map</tal:omit-tag>
+                            <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:omit-tag i18n:translate="">Show projects on Map</tal:omit-tag>
                           </button>
                         </a>
                     </div>

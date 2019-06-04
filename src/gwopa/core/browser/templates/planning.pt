@@ -49,6 +49,9 @@
                           <i style="display: none" class="fa fa-chevron-down expandWaPla" aria-hidden="true"></i>
                           <i class="fa fa-chevron-up notexpandWaPla" aria-hidden="true"></i>
                         </tal:block>
+                        <tal:block condition="not:files">
+                          <span style="margin-left: 15px;">&nbsp;</span>
+                        </tal:block> 
                         <div class="btn-group" role="group" aria-label="Add element">
                           <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                           <ul class="dropdown-menu" role="menu" aria-labelledby="types">

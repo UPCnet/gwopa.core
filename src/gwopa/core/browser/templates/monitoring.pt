@@ -37,7 +37,7 @@
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="project">
-        <div id="activityWorkingArea" class="row" tal:define="areas view/getAreas">
+        <div id="activityWorkingArea" class="row row tabla_contenido_items" tal:define="areas view/getAreas">
           <tal:objects repeat="area areas">
             <div tal:define="files python:view.indicatorsInside(area);">
               <div class="tabla_cabecera">
@@ -47,6 +47,9 @@
                       <tal:block condition="files">
                         <i style="display: none" class="fa fa-chevron-down expandWaMo" aria-hidden="true"></i>
                         <i class="fa fa-chevron-up notexpandWaMo" aria-hidden="true"></i>
+                      </tal:block>
+                      <tal:block condition="not:files">
+                        <span style="margin-left: 15px;">&nbsp;</span>
                       </tal:block>
                       <span tal:attributes="id string:${area/id}" tal:content="area/title"> Working Area Title </span>
                     </div>
