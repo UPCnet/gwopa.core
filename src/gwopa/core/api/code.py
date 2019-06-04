@@ -239,6 +239,41 @@ class addTitleKPI(BrowserView):
             safe_id=True)
         return 'Ok! Default Outcome created'
 
+class addOutcomeCCS(BrowserView):
+
+    def __call__(self):
+        title = self.request.form.get('item_title')
+        item_path = self.request.form.get('item_path')
+        year = self.request.form.get('year')
+        container = api.content.find(path=item_path, depth=0)[0]
+        specific_obj = api.content.create(
+            type='OutcomeCCS',
+            title=title,
+            container=container.getObject())
+
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        item = api.content.find(path=item_path, depth=0)[0]
+        annotations = IAnnotations(item.getObject())
+        generic = annotations[KEY]['generic']
+        specifics = annotations[KEY]['specifics']
+        outcomeccspecific_info = dict(
+            id_specific = specific_obj.id,
+            title_specific = specific_obj.title,
+            description = specific_obj.description,
+            url='/'.join(specific_obj.getPhysicalPath()),
+            selected_specific='',
+            icon_url='++theme++gwopa.theme/assets/images/others.png',
+            icon_url_selected='++theme++gwopa.theme/assets/images/w-others.png',
+            short_category='other',
+            baseline=specific_obj.baseline,
+            baseline_date=specific_obj.baseline_date,
+            objective=specific_obj.objective,
+            objective_date=specific_obj.objective_date,
+        )
+        specifics.append(outcomeccspecific_info)
+        data = dict(real='', planned='', monitoring='', generic=generic, specifics=specifics)
+        annotations[KEY] = data
+        return 'Ok! Specific Outcomeccs created'
 
 class Create(BrowserView):
 

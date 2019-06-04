@@ -327,39 +327,63 @@
 
                   <div class="information cc_container" >
                     <tal:block tal:repeat="item outcome/specifics">
+
+
+                      <tal:block tal:condition="python: item['short_category'] != 'other'">
+                        <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                        tal:attributes="
+                                  data-pk currentYear;
+                                  data-urloutcomeccs outcome/url;
+                                  data-id_specific item/id_specific;
+                                  data-description item/description;
+                                  data-base-value item/baseline;
+                                  data-base-date item/baseline_date;
+                                  data-objective item/objective;
+                                  data-objective-date item/objective_date;
+                                  class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                          <div class="item_image" tal:condition="not:item/selected_specific">
+                            <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                          </div>
+                          <div class="item_image " tal:condition="item/selected_specific">
+                            <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                          </div>
+                          <div class="item_text">
+                            <span tal:content="item/title_specific">Leadership</span>
+                          </div>
+                        </a>
+                      </tal:block>
+                    </tal:block>
+                  </div>
+                  <div class="information cc_container_others">
+                   <tal:block tal:repeat="item outcome/specifics">
+                    <tal:block tal:condition="python: item['short_category'] == 'other'">
                       <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
-                      tal:attributes="
-                                data-pk currentYear;
-                                data-urloutcomeccs outcome/url;
-                                data-id_specific item/id_specific;
-                                data-description item/description;
-                                data-base-value item/baseline;
-                                data-base-date item/baseline_date;
-                                data-objective item/objective;
-                                data-objective-date item/objective_date;
-                                class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                        tal:attributes="
+                                  data-pk currentYear;
+                                  data-urloutcomeccs outcome/url;
+                                  data-id_specific item/id_specific;
+                                  data-description item/description;
+                                  data-base-value item/baseline;
+                                  data-base-date item/baseline_date;
+                                  data-objective item/objective;
+                                  data-objective-date item/objective_date;
+                                  class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                         <div class="item_image" tal:condition="not:item/selected_specific">
-                          <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                         </div>
                         <div class="item_image " tal:condition="item/selected_specific">
                           <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                         </div>
                         <div class="item_text">
-                          <span tal:content="item/title_specific">Leadership</span>
+                          <span tal:content="item/title_specific">Other</span>
                         </div>
                       </a>
                     </tal:block>
-                  </div>
-                  <div class="information cc_container_others">
-                    <a class="item other">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/others.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Other</span>
-                      </div>
-                    </a>
-                    <a class="item other">
+                    </tal:block>
+                    <a class="addOutcomeCCS item other" data-toggle="modal" data-target="#modalAddOutcomeCCS"
+                     tal:attributes="
+                                data-pk currentYear;
+                                data-urloutcomeccs outcome/url;">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/add.png" alt="" title=""/>
                       </div>
@@ -831,6 +855,33 @@
             <div class="modal-footer">
               <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
               <a type="submit" class="btn button-save" id="updateOutcomeCCSFromModal"  data-dismiss="modal" i18n:translate="">Update</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalAddOutcomeCCS" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddOutcomeCCS" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="toClearAddOutcomeCC">
+             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalAddOutcomeCCS" i18n:translate=""> Add other specific </h4>
+            </div>
+            <div class="modal-body" id="AddOutcomeCCS" >
+              <div class="modal-url" id="OutcomeCCSPath" style="display:none"></div>
+              <span class="modal-pk" id="OutcomeCCSYear" style="display:none"></span>
+              <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="message-text" class="control-label" i18n:translate="">Specific title</label>
+                    <textarea class="form-control" id="outcomeccs-title"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="addOutcomeCCSFromModal"  data-dismiss="modal" i18n:translate="">Add</a>
             </div>
           </form>
         </div>
