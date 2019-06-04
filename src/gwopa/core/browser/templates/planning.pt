@@ -51,7 +51,7 @@
                         </tal:block>
                         <tal:block condition="not:files">
                           <span style="margin-left: 15px;">&nbsp;</span>
-                        </tal:block> 
+                        </tal:block>
                         <div class="btn-group" role="group" aria-label="Add element">
                           <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                           <ul class="dropdown-menu" role="menu" aria-labelledby="types">
@@ -334,66 +334,118 @@
                                 data-objective-date outcome/objective_date;">
                         <i class="far fa-edit"></i></a>
                   </div>
-
                   <div class="information cc_container" >
-                    <tal:block tal:repeat="item outcome/specifics">
-
-
-                      <tal:block tal:condition="python: item['short_category'] != 'other'">
-                        <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
-                        tal:attributes="
-                                  data-pk currentYear;
-                                  data-urloutcomeccs outcome/url;
-                                  data-id_specific item/id_specific;
-                                  data-description item/description;
-                                  data-base-value item/baseline;
-                                  data-base-date item/baseline_date;
-                                  data-objective item/objective;
-                                  data-objective-date item/objective_date;
-                                  class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                          <div class="item_image" tal:condition="not:item/selected_specific">
-                            <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
-                          </div>
-                          <div class="item_image " tal:condition="item/selected_specific">
-                            <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                          </div>
-                          <div class="item_text">
-                            <span tal:content="item/title_specific">Leadership</span>
-                          </div>
-                        </a>
+                    <div class="primerafila">
+                      <tal:block repeat="item outcome/specifics">
+                        <tal:block condition="python: item['short_category'] == 'transformational'">
+                          <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                          tal:attributes="
+                                    data-pk currentYear;
+                                    data-urloutcomeccs outcome/url;
+                                    data-id_specific item/id_specific;
+                                    data-description item/description;
+                                    data-base-value item/baseline;
+                                    data-base-date item/baseline_date;
+                                    data-objective item/objective;
+                                    data-objective-date item/objective_date;
+                                    class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                            <div class="item_image" tal:condition="not:item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            </div>
+                            <div class="item_image " tal:condition="item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                            </div>
+                            <div class="item_text">
+                              <span tal:content="item/title_specific">Leadership</span>
+                            </div>
+                          </a>
+                        </tal:block>
                       </tal:block>
-                    </tal:block>
+                    </div>
+                    <div class="segundafila">
+                      <tal:block repeat="item outcome/specifics">
+                        <tal:block condition="python: item['short_category'] == 'transactional'">
+                          <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                          tal:attributes="
+                                    data-pk currentYear;
+                                    data-urloutcomeccs outcome/url;
+                                    data-id_specific item/id_specific;
+                                    data-description item/description;
+                                    data-base-value item/baseline;
+                                    data-base-date item/baseline_date;
+                                    data-objective item/objective;
+                                    data-objective-date item/objective_date;
+                                    class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                            <div class="item_image" tal:condition="not:item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            </div>
+                            <div class="item_image " tal:condition="item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                            </div>
+                            <div class="item_text">
+                              <span tal:content="item/title_specific">Leadership</span>
+                            </div>
+                          </a>
+                        </tal:block>
+                      </tal:block>
+                    </div>
+                    <div class="tercerafila">
+                      <tal:block repeat="item outcome/specifics">
+                        <tal:block condition="python: item['short_category'] == 'individual'">
+                          <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                          tal:attributes="
+                                    data-pk currentYear;
+                                    data-urloutcomeccs outcome/url;
+                                    data-id_specific item/id_specific;
+                                    data-description item/description;
+                                    data-base-value item/baseline;
+                                    data-base-date item/baseline_date;
+                                    data-objective item/objective;
+                                    data-objective-date item/objective_date;
+                                    class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                            <div class="item_image" tal:condition="not:item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            </div>
+                            <div class="item_image " tal:condition="item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                            </div>
+                            <div class="item_text">
+                              <span tal:content="item/title_specific">Leadership</span>
+                            </div>
+                          </a>
+                        </tal:block>
+                      </tal:block>
+                    </div>
                   </div>
                   <div class="information cc_container_others">
-                   <tal:block tal:repeat="item outcome/specifics">
-                    <tal:block tal:condition="python: item['short_category'] == 'other'">
-                      <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
-                        tal:attributes="
-                                  data-pk currentYear;
-                                  data-urloutcomeccs outcome/url;
-                                  data-id_specific item/id_specific;
-                                  data-description item/description;
-                                  data-base-value item/baseline;
-                                  data-base-date item/baseline_date;
-                                  data-objective item/objective;
-                                  data-objective-date item/objective_date;
-                                  class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                        <div class="item_image" tal:condition="not:item/selected_specific">
-                            <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
-                        </div>
-                        <div class="item_image " tal:condition="item/selected_specific">
-                          <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                        </div>
-                        <div class="item_text">
-                          <span tal:content="item/title_specific">Other</span>
-                        </div>
-                      </a>
-                    </tal:block>
-                    </tal:block>
-                    <a class="addOutcomeCCS item other" data-toggle="modal" data-target="#modalAddOutcomeCCS"
-                     tal:attributes="
-                                data-pk currentYear;
-                                data-urloutcomeccs outcome/url;">
+                    <div class="cuartafila">
+                      <tal:block repeat="item outcome/specifics">
+                        <tal:block condition="python: item['short_category'] == 'other'">
+                          <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                            tal:attributes="
+                                    data-pk currentYear;
+                                    data-urloutcomeccs outcome/url;
+                                    data-id_specific item/id_specific;
+                                    data-description item/description;
+                                    data-base-value item/baseline;
+                                    data-base-date item/baseline_date;
+                                    data-objective item/objective;
+                                    data-objective-date item/objective_date;
+                                    class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                            <div class="item_image" tal:condition="not:item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            </div>
+                            <div class="item_image " tal:condition="item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                            </div>
+                            <div class="item_text">
+                              <span tal:content="item/title_specific">Other</span>
+                            </div>
+                          </a>
+                        </tal:block>
+                      </tal:block>
+                    </div>
+                    <a class="addOutcomeCCS item other" data-toggle="modal" data-target="#modalAddOutcomeCCS" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url;">
                       <div class="item_image">
                         <img src="++theme++gwopa.theme/assets/images/add.png" alt="" title=""/>
                       </div>
@@ -407,7 +459,7 @@
             </div>
           </div>
         </div>
-     </div>
+      </div>
     </div>
 
     <div id="modalActivity" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddActivity" data-dismiss="modal" aria-hidden="true">
