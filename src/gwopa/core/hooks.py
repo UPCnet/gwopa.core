@@ -249,18 +249,27 @@ def improvementAreaAdded(content, event):
         generic.append(outcomeccgeneric_info)
         specifics = []
         items = api.content.find(
-            portal_type=['OutcomeCCValues'],
+            portal_type=['OutcomeCCS'],
             context=content)
         for item in items:
             specific_obj = item.getObject()
             result = api.content.find(portal_type="OutcomeCCItem", Title=specific_obj.title)[0]
             capacitychanges_obj = result.getObject()
+            if capacitychanges_obj.id == 'systems':
+                category = capacitychanges_obj.short_category + ' six'
+            elif capacitychanges_obj.id == 'knowledge-skills':
+                category = capacitychanges_obj.short_category + ' twelve'
+            else:
+                category = capacitychanges_obj.short_category
             outcomeccspecific_info = dict(
                 id_specific = specific_obj.id,
                 title_specific = specific_obj.title,
-                selected_specific=False,
+                description = specific_obj.description,
+                url='/'.join(specific_obj.getPhysicalPath()),
+                selected_specific='',
                 icon_url='++theme++gwopa.theme/assets/images/' + capacitychanges_obj.id + '.png',
                 icon_url_selected='++theme++gwopa.theme/assets/images/w-' + capacitychanges_obj.id + '.png',
+                short_category=category,
                 baseline=specific_obj.baseline,
                 baseline_date=specific_obj.baseline_date,
                 objective=specific_obj.objective,
@@ -272,13 +281,13 @@ def improvementAreaAdded(content, event):
         annotations[KEY] = data
 
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)
-@grok.subscribe(IOutcomeccs, IObjectAddedEvent)
+# @grok.subscribe(IOutcomeccs, IObjectAddedEvent)
 def OutcomeCCAdded(content, event):
     """ Create the 13 CC vaues inside OutcomeCC or OutcomeCCS """
     items = api.content.find(portal_type="OutcomeCCItem")
     for item in items:
         api.content.create(
-            type='OutcomeCCValues',
+            type='OutcomeCCS',
             id=item.id,
             title=item.Title,
             container=content)

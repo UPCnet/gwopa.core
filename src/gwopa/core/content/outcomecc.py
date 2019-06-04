@@ -60,7 +60,7 @@ class View(grok.View):
     def getItems(self):
 
         items = api.content.find(
-            portal_type='OutcomeCCValues',
+            portal_type='OutcomeCCS',
             path={'query': '/'.join(self.context.getPhysicalPath()),
                   'depth': 1})
         results = []
