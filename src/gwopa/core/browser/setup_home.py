@@ -375,7 +375,7 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Applied new skills & knowledge',
+            title='Applied knowledge skills',
             icon='fas fa-search',
             category='Individual dimensions',
             short_category='individual',
