@@ -423,7 +423,10 @@ class View(grok.View):
         items = portal_catalog.unrestrictedSearchResults(
             portal_type=['File'],
             path={'query': '/'.join(self.context.getPhysicalPath()) + '/files',
-                  'depth': 1})
+                  'depth': 1},
+            sort_on=('effective'),
+            sort_order='reverse',
+            sort_limit=5)
         results = []
         lang = api.portal.get_current_language()
         if lang == 'es':

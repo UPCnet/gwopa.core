@@ -117,7 +117,7 @@
         <h2 i18n:translate=""> Main organizations and their contributions </h2>
 
         <div class="table-responsive col-md-12">
-          <table class="table table-hover">
+          <table class="table table-condensed table-hover">
             <thead>
               <tr>
                 <th style="padding-left:0px;">
@@ -137,7 +137,7 @@
         </div>
 
         <div class="table-responsive col-md-12">
-          <table class="table table-hover">
+          <table class="table table-condensed table-hover">
             <thead>
               <tr>
                 <th style="padding-left:0px;">
@@ -157,7 +157,7 @@
         </div>
 
         <div class="table-responsive col-md-12">
-          <table class="table table-hover">
+          <table class="table table-condensed table-hover">
             <thead>
               <tr>
                 <th style="padding-left:0px;">
@@ -188,7 +188,7 @@
         <div class="col-md-12">
           <h2 i18n:translate=""> Focal point partner </h2>
           <div class="table-responsive">
-            <table id="tableFocalPoint" class="table table-hover">
+            <table id="tableFocalPoint" class="table table-condensed table-hover">
               <thead>
                 <tr>
                   <th i18n:translate="">Name</th>
@@ -251,18 +251,15 @@
       </div>
       <div id="filesBlock" tal:define="recent_items view/getFiles">
         <h2 class="h2Project">
-          <span i18n:translate="">Recent files</span>
+          <a tal:attributes="href string:${context/absolute_url}/files/" i18n:translate="">Recent files</a>
           <a class="pat-plone-modal right" id="add-new-file" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/files/++add++File">
             <button id="add-new-file" class="context focus" i18n:translate=""> + New file </button>
           </a>
         </h2>
-        <table class="table">
+        <table class="table table-condensed">
           <tbody>
             <tal:items tal:repeat="obj recent_items">
               <tr>
-                <td>
-                  <span tal:content="obj/portal_type"></span>
-                </td>
                 <td>
                   <a href="" tal:attributes="href obj/url"><tal:omit-tag tal:content="obj/title">
                     TITLE</tal:omit-tag>
