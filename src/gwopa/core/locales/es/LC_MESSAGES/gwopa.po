@@ -59,7 +59,7 @@ msgstr "Actual"
 
 #: ../browser/templates/planning.pt:946
 msgid "Add"
-msgstr ""
+msgstr "Añadir"
 
 #: ../browser/templates/planning.pt:64
 msgid "Add Activity"

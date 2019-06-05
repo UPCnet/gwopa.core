@@ -12,7 +12,7 @@
       for="gwopa.core.content.project.IProject"
       name="api-getPhases"
       class=".api.code.getPhases"
-      permission="zope2.View"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
@@ -20,7 +20,7 @@
       for="*"
       name="api-getOutputs"
       class=".api.code.getOutputs"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
@@ -28,7 +28,7 @@
       for="*"
       name="api-getOutcomes"
       class=".api.code.getOutcomes"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
@@ -36,7 +36,7 @@
       for="*"
       name="api-getMainObstacles"
       class=".api.code.getMainObstacles"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
@@ -44,14 +44,14 @@
       for="*"
       name="api-getMainContributing"
       class=".api.code.getMainContributing"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getUnits"
       class=".api.code.getUnits"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
@@ -59,7 +59,7 @@
       for="*"
       name="api-getFrequency"
       class=".api.code.getFrequency"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
@@ -68,7 +68,7 @@
       for="*"
       name="api-select2-users.json"
       class=".api.code.getUsers"
-      permission="zope2.View"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
@@ -168,84 +168,77 @@
       for="*"
       name="api-getProjectWOPPlatform"
       class=".api.code.getProjectWOPPlatform"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectWOPProgram"
       class=".api.code.getProjectWOPProgram"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectWorkingArea"
       class=".api.code.getProjectWorkingArea"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectCountry"
       class=".api.code.getProjectCountry"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectPartners"
       class=".api.code.getProjectPartners"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectTags"
       class=".api.code.getProjectTags"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectDates"
       class=".api.code.getProjectDates"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectKPIs"
       class=".api.code.getProjectKPIs"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
-      name="updatedMap.js"
-      class=".api.code.updatedMap"
-      permission="zope.Public"
+      name="allProjects.json"
+      class=".api.code.allProjectsMap"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
-      name="api-getProjectRegions"
-      class=".api.code.getProjectRegions"
-      permission="zope.Public"
+      name="activeProjects.json"
+      class=".api.code.activeProjectsMap"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
-      name="openProjectsMap.json"
-      class=".api.code.openProjectsMap"
-      permission="zope.Public"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-  />
-  <browser:page
-      for="*"
-      name="closedProjectsMap.json"
-      class=".api.code.closedProjectsMap"
-      permission="zope.Public"
+      name="inactiveProjects.json"
+      class=".api.code.inactiveProjectsMap"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <!-- End Map endpoints -->

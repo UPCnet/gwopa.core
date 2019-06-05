@@ -123,7 +123,7 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="showMap"
       class=".views.mapView"
-      permission="zope2.View"
+      permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 

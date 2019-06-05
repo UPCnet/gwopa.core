@@ -636,30 +636,8 @@ class getProjectKPIs(BrowserView):
         return json.dumps({'results': results})
 
 
-class getProjectRegions(BrowserView):
-
-    def __call__(self):
-        items = api.content.find(portal_type="Project")
-        results = []
-        tags = []
-        for item in items:
-            values = item.getObject().category
-            if values:
-                for value in values:
-                    if value not in tags:
-                        tags.append(value)
-        tags.sort()
-        for value in tags:
-            results.append(dict(
-                id=value,
-                text=value))
-
-        self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps({'results': results})
-
-
-class updatedMap(BrowserView):
-
+class allProjectsMap(BrowserView):
+    # Returns all projects to make queries in global map selectors. #
     def __call__(self):
         items = api.content.find(portal_type=['Project'])
         results = []
@@ -708,101 +686,108 @@ class updatedMap(BrowserView):
         return json.dumps(obj)
 
 
-class openProjectsMap(BrowserView):
-
+class activeProjectsMap(BrowserView):
+    # Returns Active projects to show in layer map #
     def __call__(self):
+        today = datetime.date.today()
         items = api.content.find(portal_type=['Project'])
         results = []
-        for item in items[0:3]:
+        for item in items:
             obj = item.getObject()
-            if obj.longitude and obj.latitude:
-                if obj.total_budget:
-                    budget = int(obj.total_budget)
-                else:
-                    budget = 0
-                if not obj.areas:
-                    areas = []
-                else:
-                    areas = obj.areas
-                if not obj.wop_platform:
-                    wop_platform = []
-                else:
-                    wop_platform = obj.wop_platform
-                if not obj.wop_program:
-                    wop_program = []
-                else:
-                    wop_program = obj.wop_program
-                if not obj.category:
-                    category = []
-                else:
-                    category = obj.category
-                if not obj.partners:
-                    partners = []
-                else:
-                    partners = obj.partners
-                poi = Feature(
-                    geometry=Point((float(obj.longitude), float(obj.latitude))),
-                    properties={
-                        'title': obj.title,
-                        'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
-                        'total_budget': budget,
-                        'wop_program': wop_program,
-                        'wop_platform': wop_platform,
-                        'partners': partners,
-                        'country': obj.country,
-                        'tags': category,
-                        'areas': areas})
-                results.append(poi)
+            # Add only current date projects
+            if (obj.startactual < today < obj.completionactual):
+                if obj.longitude and obj.latitude:
+                    if obj.total_budget:
+                        budget = int(obj.total_budget)
+                    else:
+                        budget = 0
+                    if not obj.areas:
+                        areas = []
+                    else:
+                        areas = obj.areas
+                    if not obj.wop_platform:
+                        wop_platform = []
+                    else:
+                        wop_platform = obj.wop_platform
+                    if not obj.wop_program:
+                        wop_program = []
+                    else:
+                        wop_program = obj.wop_program
+                    if not obj.category:
+                        category = []
+                    else:
+                        category = obj.category
+                    if not obj.partners:
+                        partners = []
+                    else:
+                        partners = obj.partners
+                    poi = Feature(
+                        geometry=Point((float(obj.longitude), float(obj.latitude))),
+                        properties={
+                            'title': obj.title,
+                            'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
+                            'total_budget': budget,
+                            'wop_program': wop_program,
+                            'wop_platform': wop_platform,
+                            'partners': partners,
+                            'country': obj.country,
+                            'tags': category,
+                            'areas': areas})
+                    results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(obj)
 
 
-class closedProjectsMap(BrowserView):
-
+class inactiveProjectsMap(BrowserView):
+    # Returns Inactive projects to show in layer map #
     def __call__(self):
+        today = datetime.date.today()
         items = api.content.find(portal_type=['Project'])
+
         results = []
-        for item in items[3:6]:
+        for item in items:
             obj = item.getObject()
-            if obj.longitude and obj.latitude:
-                if obj.total_budget:
-                    budget = int(obj.total_budget)
-                else:
-                    budget = 0
-                if not obj.areas:
-                    areas = []
-                else:
-                    areas = obj.areas
-                if not obj.wop_platform:
-                    wop_platform = []
-                else:
-                    wop_platform = obj.wop_platform
-                if not obj.wop_program:
-                    wop_program = []
-                else:
-                    wop_program = obj.wop_program
-                if not obj.category:
-                    category = []
-                else:
-                    category = obj.category
-                if not obj.partners:
-                    partners = []
-                else:
-                    partners = obj.partners
-                poi = Feature(
-                    geometry=Point((float(obj.longitude), float(obj.latitude))),
-                    properties={
-                        'title': obj.title,
-                        'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
-                        'total_budget': budget,
-                        'wop_program': wop_program,
-                        'wop_platform': wop_platform,
-                        'partners': partners,
-                        'country': obj.country,
-                        'tags': category,
-                        'areas': areas})
-                results.append(poi)
+            # Add only passed or not started projects
+            if ((obj.startactual < today) and (obj.completionactual < today)) or ((obj.startactual > today) and (obj.completionactual > today)):
+                if obj.longitude and obj.latitude:
+                    if obj.total_budget:
+                        budget = int(obj.total_budget)
+                    else:
+                        budget = 0
+                    if not obj.areas:
+                        areas = []
+                    else:
+                        areas = obj.areas
+                    if not obj.wop_platform:
+                        wop_platform = []
+                    else:
+                        wop_platform = obj.wop_platform
+                    if not obj.wop_program:
+                        wop_program = []
+                    else:
+                        wop_program = obj.wop_program
+                    if not obj.category:
+                        category = []
+                    else:
+                        category = obj.category
+                    if not obj.partners:
+                        partners = []
+                    else:
+                        partners = obj.partners
+                    poi = Feature(
+                        geometry=Point((float(obj.longitude), float(obj.latitude))),
+                        properties={
+                            'title': obj.title,
+                            'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
+                            'total_budget': budget,
+                            'wop_program': wop_program,
+                            'wop_platform': wop_platform,
+                            'partners': partners,
+                            'country': obj.country,
+                            'tags': category,
+                            'areas': areas})
+                    results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(obj)
