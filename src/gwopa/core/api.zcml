@@ -220,6 +220,14 @@
       permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
+
+  <browser:page
+      for="*"
+      name="api-getTotalBudgets"
+      class=".api.code.getTotalBudgets"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
   <browser:page
       for="*"
       name="allProjects.json"

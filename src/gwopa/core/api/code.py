@@ -597,18 +597,21 @@ class getProjectDates(BrowserView):
     def __call__(self):
         items = api.content.find(portal_type="Project")
         results = []
-        tags = []
+        dates = []
         for item in items:
-            values = item.getObject().category
-            if values:
-                for value in values:
-                    if value not in tags:
-                        tags.append(value)
-        tags.sort()
-        for value in tags:
+            obj = item.getObject()
+            start = obj.startactual.year
+            end = obj.completionactual.year
+            numbers = range(start, end + 1)
+            if numbers:
+                for value in numbers:
+                    if value not in dates:
+                        dates.append(value)
+        dates.sort()
+        for value in dates:
             results.append(dict(
-                id=value,
-                text=value))
+                id=str(value),
+                text=str(value)))
 
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps({'results': results})
@@ -619,21 +622,39 @@ class getProjectKPIs(BrowserView):
     def __call__(self):
         items = api.content.find(portal_type="Project")
         results = []
-        tags = []
+        values = []
         for item in items:
-            values = item.getObject().category
-            if values:
-                for value in values:
-                    if value not in tags:
-                        tags.append(value)
-        tags.sort()
-        for value in tags:
+            obj = item.getObject()
+            elements = api.content.find(portal_type=['OutcomeZONE'], context=obj, depth=1)
+            kpis = []
+            for kpi in elements:
+                kpis.append(kpi.Title)
+            if kpis:
+                for value in kpis:
+                    if value not in values:
+                        values.append(value)
+        values.sort()
+        for value in values:
             results.append(dict(
                 id=value,
                 text=value))
 
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps({'results': results})
+
+
+class getTotalBudgets(BrowserView):
+
+    def __call__(self):
+        items = api.content.find(portal_type="Project")
+        values = []
+        for item in items:
+            value = item.getObject().total_budget
+            if value != 0:
+                values.append(int(value / 100) * 100)
+        values.sort()
+        values.append(int(values[-1:][0]) + 100)
+        return values
 
 
 class allProjectsMap(BrowserView):
@@ -668,6 +689,14 @@ class allProjectsMap(BrowserView):
                     partners = []
                 else:
                     partners = obj.partners
+                start = obj.startactual.year
+                end = obj.completionactual.year
+                years = range(start, end + 1)
+                years = map(str, years)
+                elements = api.content.find(portal_type=['OutcomeZONE'], context=obj, depth=1)
+                kpis = []
+                for kpi in elements:
+                    kpis.append(kpi.Title)
                 poi = Feature(
                     geometry=Point((float(obj.longitude), float(obj.latitude))),
                     properties={
@@ -679,7 +708,9 @@ class allProjectsMap(BrowserView):
                         'partners': partners,
                         'country': obj.country,
                         'tags': category,
-                        'areas': areas})
+                        'areas': areas,
+                        'years': years,
+                        'kpis': kpis})
                 results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")
@@ -695,44 +726,13 @@ class activeProjectsMap(BrowserView):
         for item in items:
             obj = item.getObject()
             # Add only current date projects
-            if (obj.startactual < today < obj.completionactual):
+            if (obj.startactual <= today <= obj.completionactual):
                 if obj.longitude and obj.latitude:
-                    if obj.total_budget:
-                        budget = int(obj.total_budget)
-                    else:
-                        budget = 0
-                    if not obj.areas:
-                        areas = []
-                    else:
-                        areas = obj.areas
-                    if not obj.wop_platform:
-                        wop_platform = []
-                    else:
-                        wop_platform = obj.wop_platform
-                    if not obj.wop_program:
-                        wop_program = []
-                    else:
-                        wop_program = obj.wop_program
-                    if not obj.category:
-                        category = []
-                    else:
-                        category = obj.category
-                    if not obj.partners:
-                        partners = []
-                    else:
-                        partners = obj.partners
                     poi = Feature(
                         geometry=Point((float(obj.longitude), float(obj.latitude))),
                         properties={
                             'title': obj.title,
-                            'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
-                            'total_budget': budget,
-                            'wop_program': wop_program,
-                            'wop_platform': wop_platform,
-                            'partners': partners,
-                            'country': obj.country,
-                            'tags': category,
-                            'areas': areas})
+                            'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>'})
                     results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")
@@ -751,42 +751,11 @@ class inactiveProjectsMap(BrowserView):
             # Add only passed or not started projects
             if ((obj.startactual < today) and (obj.completionactual < today)) or ((obj.startactual > today) and (obj.completionactual > today)):
                 if obj.longitude and obj.latitude:
-                    if obj.total_budget:
-                        budget = int(obj.total_budget)
-                    else:
-                        budget = 0
-                    if not obj.areas:
-                        areas = []
-                    else:
-                        areas = obj.areas
-                    if not obj.wop_platform:
-                        wop_platform = []
-                    else:
-                        wop_platform = obj.wop_platform
-                    if not obj.wop_program:
-                        wop_program = []
-                    else:
-                        wop_program = obj.wop_program
-                    if not obj.category:
-                        category = []
-                    else:
-                        category = obj.category
-                    if not obj.partners:
-                        partners = []
-                    else:
-                        partners = obj.partners
                     poi = Feature(
                         geometry=Point((float(obj.longitude), float(obj.latitude))),
                         properties={
                             'title': obj.title,
-                            'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
-                            'total_budget': budget,
-                            'wop_program': wop_program,
-                            'wop_platform': wop_platform,
-                            'partners': partners,
-                            'country': obj.country,
-                            'tags': category,
-                            'areas': areas})
+                            'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>'})
                     results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")

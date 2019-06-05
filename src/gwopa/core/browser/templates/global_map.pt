@@ -18,7 +18,7 @@
                     <div>
                       <label i18n:translate=""> Year </label>
                       <input id="map-year" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectDates"/>
+                              data-pat-select2="vocabularyUrl:api-getProjectDates;"/>
                     </div>
                     <div>
                       <label i18n:translate=""> Working Area </label>
@@ -58,8 +58,12 @@
                     <div>
                       <label i18n:translate=""> Budget </label>
                       <input type="text" class="js-range-slider" name="budget_range" id="map-budget" />
+
                     </div>
-                    <input class="btn btn-info" style="width: 100%;" id="applyfilters" value='Apply filters' />
+                    <div>
+                      <input class="btn btn-warning" style="width: 49%;" id="clearfilters" value='Clear' />
+                      <input class="btn btn-info" style="width: 49%;" id="applyfilters" value='Apply' />
+                    </div>
                 </form>
             </div>
             <br/>
