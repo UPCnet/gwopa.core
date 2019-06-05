@@ -14,8 +14,11 @@
     <div class="block-nav">
       <ul class="pagination pagination-lg" tal:define="items view/getItems">
         <tal:block tal:repeat="item items">
-          <li tal:attributes="class item/classe; alt item/alt; title item/alt">
-            <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag></a>
+          <li tal:attributes="class string: ${item/classe}; alt item/alt; title item/alt; id item/year">
+            <a href="#">
+              <tal:omit-tag tal:content="item/title">
+              </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag>
+            </a>
           </li>
         </tal:block>
       </ul>
@@ -29,13 +32,152 @@
       </span>
       <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     </div>
+    <div tal:define="areas view/getAreas">
+      <select id="selectWA">
+        <option tal:repeat="area areas" tal:attributes="value area/url" tal:content="area/title">WA1</option>
+      </select>
+    </div>
+    <div class="charts">
+      <div id="chartActivity">
+        <h2 class="bolder" i18n:translate="">Activities</h2>
+        <div id="timeline-chart"></div>
+      </div>
+      <div id="chartOutput">
+        <h2 class="bolder" i18n:translate="">Outputs</h2>
+        <div id="timeline-chart"></div>
+      </div>
+    </div>
+    <div class="capacities">
+      <div id="chartCapacities" tal:define="outcome view/getOutcomeCC">
+        <h2 class="bolder" i18n:translate="">Capacity Changes</h2>
+        <div class="legendBox">
+          <span class="label custom-legend empty">Empty</span>
+          <span class="label custom-legend verybad">-2</span>
+          <span class="label custom-legend bad">-1</span>
+          <span class="label custom-legend equal">0</span>
+          <span class="label custom-legend good">1</span>
+          <span class="label custom-legend verygood">2</span>
+        </div>
+        <div class="information" >
+          <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3>
+          <div class="primerafila">
+            <tal:block repeat="item outcome/specifics">
+              <tal:block condition="python: item['short_category'] == 'transformational'">
+                <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                tal:attributes="
+                          data-pk currentYear;
+                          data-urloutcomeccs outcome/url;
+                          data-id_specific item/id_specific;
+                          data-description item/description;
+                          data-base-value item/baseline;
+                          data-base-date item/baseline_date;
+                          data-objective item/objective;
+                          data-objective-date item/objective_date;
+                          class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                  <div class="item_image" tal:condition="not:item/selected_specific">
+                    <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                  </div>
+                  <div class="item_image " tal:condition="item/selected_specific">
+                    <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                  </div>
+                  <div class="item_text">
+                    <span tal:content="item/title_specific">Leadership</span>
+                  </div>
+                </a>
+              </tal:block>
+            </tal:block>
+          </div>
+          <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3>
+          <div class="segundafila">
+            <tal:block repeat="item outcome/specifics">
+              <tal:block condition="python: item['short_category'] == 'transactional'">
+                <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                tal:attributes="
+                          data-pk currentYear;
+                          data-urloutcomeccs outcome/url;
+                          data-id_specific item/id_specific;
+                          data-description item/description;
+                          data-base-value item/baseline;
+                          data-base-date item/baseline_date;
+                          data-objective item/objective;
+                          data-objective-date item/objective_date;
+                          class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                  <div class="item_image" tal:condition="not:item/selected_specific">
+                    <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                  </div>
+                  <div class="item_image " tal:condition="item/selected_specific">
+                    <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                  </div>
+                  <div class="item_text">
+                    <span tal:content="item/title_specific">Leadership</span>
+                  </div>
+                </a>
+              </tal:block>
+            </tal:block>
+          </div>
+          <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3>
+          <div class="tercerafila">
+            <tal:block repeat="item outcome/specifics">
+              <tal:block condition="python: item['short_category'] == 'individual'">
+                <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                tal:attributes="
+                          data-pk currentYear;
+                          data-urloutcomeccs outcome/url;
+                          data-id_specific item/id_specific;
+                          data-description item/description;
+                          data-base-value item/baseline;
+                          data-base-date item/baseline_date;
+                          data-objective item/objective;
+                          data-objective-date item/objective_date;
+                          class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                  <div class="item_image" tal:condition="not:item/selected_specific">
+                    <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                  </div>
+                  <div class="item_image " tal:condition="item/selected_specific">
+                    <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                  </div>
+                  <div class="item_text">
+                    <span tal:content="item/title_specific">Leadership</span>
+                  </div>
+                </a>
+              </tal:block>
+            </tal:block>
+          </div>
+        </div>
+        <div class="information">
+          <div class="">
+            <tal:block repeat="item outcome/specifics">
+              <h3 class="capacity-title" i18n:translate="" tal:condition="python: item['short_category'] == 'other'">Others</h3>
+              <tal:block condition="python: item['short_category'] == 'other'">
+                <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                  tal:attributes="
+                          data-pk currentYear;
+                          data-urloutcomeccs outcome/url;
+                          data-id_specific item/id_specific;
+                          data-description item/description;
+                          data-base-value item/baseline;
+                          data-base-date item/baseline_date;
+                          data-objective item/objective;
+                          data-objective-date item/objective_date;
+                          class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                  <div class="item_image" tal:condition="not:item/selected_specific">
+                      <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                  </div>
+                  <div class="item_image " tal:condition="item/selected_specific">
+                    <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                  </div>
+                  <div class="item_text">
+                    <span tal:content="item/title_specific">Other</span>
+                  </div>
+                </a>
+              </tal:block>
+            </tal:block>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-    <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
-    <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
-    <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/wa-dashboard.js"></script>
 
   </metal:block>
 

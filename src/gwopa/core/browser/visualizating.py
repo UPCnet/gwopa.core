@@ -120,3 +120,75 @@ class visualizatingView(BrowserView):
                 classe=classe))
             total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)
+
+    def getAreas(self):
+        """ Returns all the Improvement Areas in a Project """
+        items = api.content.find(
+            portal_type=['ImprovementArea'],
+            context=self.context)
+        results = []
+        for (i, project) in enumerate(items):
+            item = project.getObject()
+            results.append(dict(title=item.title,
+                                url='/'.join(item.getPhysicalPath()),
+                                id=item.id,
+                                description=item.description,
+                                pos=i,
+                                portal_type=item.portal_type
+                                ))
+        return sorted(results, key=itemgetter('title'), reverse=False)
+
+    def getOutcomeCC(self):
+        items = api.content.find(
+            portal_type=['OutcomeCC'],
+            context=self.context)
+        results = []
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+        for item in items:
+            members = []
+            obj = item.getObject()
+            annotations = IAnnotations(item.getObject())
+            base_value = ''
+            base_date = ''
+            description = ''
+            objective = ''
+            objective_date = ''
+            target_value_planned = ''
+            specifics = ''
+            if KEY in annotations.keys():
+                if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
+                    base_value = annotations[KEY]['generic'][0]['baseline']
+                    base_date = annotations[KEY]['generic'][0]['baseline_date']
+                    description = annotations[KEY]['generic'][0]['description']
+                    objective = annotations[KEY]['generic'][0]['objective']
+                    objective_date = annotations[KEY]['generic'][0]['objective_date']
+                    target_value_planned = annotations[KEY]['planned']
+                    specifics = annotations[KEY]['specifics']
+
+            if obj.members:
+                users = obj.members
+                if isinstance(users, (str,)):
+                    members.append(api.user.get(username=users[0]).getProperty('fullname'))
+                else:
+                    for member in users:
+                        members.append(api.user.get(username=member).getProperty('fullname'))
+            if obj.aq_parent.portal_type == 'ImprovementArea':
+                area = obj.aq_parent.title
+            else:
+                area = obj.aq_parent.aq_parent.title
+            results.append(dict(
+                rid=item.getRID(),
+                area=area,
+                title=item.Title,
+                description=description,
+                base_date=base_date,
+                base_value=base_value,
+                objective=objective,
+                objective_date=objective_date,
+                target_value_planned=target_value_planned,
+                specifics=specifics,
+                portal_type=item.portal_type,
+                responsible=members,
+                url='/'.join(obj.getPhysicalPath())))
+
+        return results[0]
