@@ -23,55 +23,55 @@
             <div class="col-md-3">
                 <form>
                     <div>
-                      <label i18n:translate=""> Year - TMP</label>
-                      <input id="map-year" class="pat-select2" 
+                      <label i18n:translate=""> Year </label>
+                      <input id="map-year" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectDates"/>
                     </div>
                     <div>
                       <label i18n:translate=""> Working Area </label>
-                      <input id="map-area" class="pat-select2" 
+                      <input id="map-area" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectWorkingArea;" />
                     </div>
                     <div>
                       <label i18n:translate=""> Country </label>
-                      <input id="map-country" class="pat-select2" 
+                      <input id="map-country" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectCountry;" />
                     </div>
                     <div>
                       <label i18n:translate=""> WOP Platform </label>
-                      <input id="map-platform" class="pat-select2" 
+                      <input id="map-platform" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectWOPPlatform;"/>
                     </div>
                     <div>
                       <label i18n:translate=""> WOP Program </label>
-                      <input id="map-program" class="pat-select2" 
+                      <input id="map-program" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectWOPProgram;"/>
                     </div>
                     <div>
                       <label i18n:translate=""> Partner </label>
-                      <input id="map-partner" class="pat-select2" 
+                      <input id="map-partner" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectPartners;"/>
                     </div>
-                    <div>
+<!--                     <div>
                       <label i18n:translate=""> Region - TMP</label>
-                      <input id="map-region" class="pat-select2" 
+                      <input id="map-region" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectRegions;"/>
-                    </div>
+                    </div> -->
                     <div>
-                      <label i18n:translate=""> KPI - TMP</label>
-                      <input id="map-kpi" class="pat-select2" 
+                      <label i18n:translate=""> KPI </label>
+                      <input id="map-kpi" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectKPIs;"/>
                     </div>
                     <div>
                       <label i18n:translate="">Tags</label>
-                      <input id="map-tags" class="pat-select2" 
+                      <input id="map-tags" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectTags;"/>
                     </div>
                     <div>
                       <label i18n:translate=""> Budget </label>
                       <input type="text" class="js-range-slider" name="budget_range" id="map-budget" />
                     </div>
-                    <input class="btn btn-info" style="width: 100%;" id="applyfilters" value='Apply filters'></input>
+                    <input class="btn btn-info" style="width: 100%;" id="applyfilters" value='Apply filters' />
                 </form>
             </div>
             <div class="col-xs-12 col-md-9">

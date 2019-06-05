@@ -199,7 +199,7 @@
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
-                  <div class="titleRowPlanning" i18n:translate="">
+                  <div class="titleRowPlanning">
                     <tal:block condition="outcomes">
                       <i style="display: none" class="fa fa-chevron-down expandPerPla" aria-hidden="true"></i>
                       <i class="fa fa-chevron-up notexpandPerPla" aria-hidden="true"></i>
@@ -225,7 +225,7 @@
                         </li>
                       </ul>
                     </div>
-                    <span id="utility">Performance </span>
+                    <span id="utility"  i18n:translate="">Performance </span>
                   </div>
                 </div>
                 <tal:block condition="outcomes">
@@ -296,12 +296,12 @@
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
-                  <div class="titleRowPlanning" i18n:translate="">
+                  <div class="titleRowPlanning">
                     <tal:block condition="outcomes">
                       <i style="display: none" class="fa fa-chevron-down expandCapPla" aria-hidden="true"></i>
                       <i class="fa fa-chevron-up notexpandCapPla" aria-hidden="true"></i>
                     </tal:block>
-                    <span id="capacity">Capacity </span>
+                    <span id="capacity" i18n:translate="">Capacity </span>
                   </div>
                 </div>
               </div>

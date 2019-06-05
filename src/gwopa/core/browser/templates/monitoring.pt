@@ -263,12 +263,12 @@
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
-                  <div class="titleRowMonitoring" i18n:translate="">
+                  <div class="titleRowMonitoring">
                     <tal:block condition="outcomes">
                       <i style="display: none" class="fa fa-chevron-down expandPerMo" aria-hidden="true"></i>
                       <i class="fa fa-chevron-up notexpandPerMo" aria-hidden="true"></i>
                     </tal:block>
-                    <span id="utility"> Utility Performance </span>
+                    <span id="utility" i18n:translate=""> Utility Performance </span>
                   </div>
                 </div>
                 <tal:block condition="outcomes">
@@ -390,12 +390,12 @@
             <div class="tabla_cabecera">
               <div class="information object" id="header">
                 <div class="contentt" id="total">
-                  <div class="titleRowMonitoring" i18n:translate="">
+                  <div class="titleRowMonitoring">
                     <tal:block condition="outcomes">
                       <i style="display: none" class="fa fa-chevron-down expandCapMo" aria-hidden="true"></i>
                       <i class="fa fa-chevron-up notexpandCapMo" aria-hidden="true"></i>
                     </tal:block>
-                    <span id="capacity">Capacity </span>
+                    <span id="capacity"  i18n:translate="">Capacity </span>
                   </div>
                 </div>
               </div>
