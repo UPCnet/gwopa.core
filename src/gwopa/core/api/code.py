@@ -643,20 +643,6 @@ class getProjectKPIs(BrowserView):
         return json.dumps({'results': results})
 
 
-class getTotalBudgets(BrowserView):
-
-    def __call__(self):
-        items = api.content.find(portal_type="Project")
-        values = []
-        for item in items:
-            value = item.getObject().total_budget
-            if value != 0:
-                values.append(int(value / 100) * 100)
-        values.sort()
-        values.append(int(values[-1:][0]) + 100)
-        return values
-
-
 class allProjectsMap(BrowserView):
     # Returns all projects to make queries in global map selectors. #
     def __call__(self):

@@ -114,3 +114,14 @@ class mapView(BrowserView):
             return FeatureCollection(results)
         else:
             return None
+
+    def getBudgetLimits(self):
+        items = api.content.find(portal_type="Project")
+        values = []
+        for item in items:
+            value = item.getObject().total_budget
+            if value != 0:
+                values.append(int(value / 100) * 100)
+        values.sort()
+        values.append(int(values[-1:][0]) + 100)
+        return {'start': values[0], 'end': values[-1:][0]}

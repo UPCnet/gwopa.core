@@ -55,10 +55,10 @@
                       <input id="map-tags" class="pat-select2"
                               data-pat-select2="vocabularyUrl:api-getProjectTags;"/>
                     </div>
-                    <div>
+                    <div tal:define="values view/getBudgetLimits">
                       <label i18n:translate=""> Budget </label>
-                      <input type="text" class="js-range-slider" name="budget_range" id="map-budget" />
-
+                      <input type="text" class="js-range-slider" name="budget_range" id="map-budget"
+                          tal:attributes="data-min values/start; data-max values/end; from values/start; data-to values/end;" />
                     </div>
                     <div>
                       <input class="btn btn-warning" style="width: 49%;" id="clearfilters" value='Clear' />
