@@ -63,6 +63,14 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+      for="*"
+      name="api-getDegree"
+      class=".api.code.getDegree"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
   <!-- API values returned to show output modal -->
   <browser:page
       for="*"
@@ -109,6 +117,13 @@
 
   <browser:page
     for="*"
+    name="addOutcomeCCSMonitoring"
+    class=".api.code.addOutcomeCCSMonitoring"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
     name="removeElement"
     class=".api.code.Delete"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
@@ -139,6 +154,13 @@
     for="*"
     name="updateOutcomeCCS"
     class=".api.code.UpdateOutcomeCCS"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
+    name="updateOutcomeCCSMonitoring"
+    class=".api.code.UpdateOutcomeCCSMonitoring"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 

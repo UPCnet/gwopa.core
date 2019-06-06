@@ -45,6 +45,27 @@ class IOutcomeccs(model.Schema):
         required=False
     )
 
+    degree_changes = schema.Text(
+        title=_(u"Select what best represents the perceived degree of change with respect to the last reporting period"),
+        required=False,
+    )
+
+    contributing_factors = schema.Text(
+        title=_(u"Select the contributing factors to the perceived change"),
+        required=False,
+    )
+
+    limiting_factors = schema.Text(
+        title=_(u"Select the limiting factors to the perceived change"),
+        required=False,
+    )
+
+    explain = schema.Text(
+        title=_(u"Explain"),
+        required=False,
+    )
+
+
 
 class View(grok.View):
     grok.context(IOutcomeccs)

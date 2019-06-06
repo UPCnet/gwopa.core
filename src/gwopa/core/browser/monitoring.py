@@ -290,6 +290,7 @@ class monitoringView(BrowserView):
             objective_date = ''
             target_value_planned = _(u"Not defined")
             specifics = ''
+            monitoring = ''
             if KEY in annotations.keys():
                 if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
                     base_value = annotations[KEY]['generic'][0]['baseline']
@@ -299,6 +300,7 @@ class monitoringView(BrowserView):
                     objective_date = annotations[KEY]['generic'][0]['objective_date']
                     target_value_planned = annotations[KEY]['planned']
                     specifics = annotations[KEY]['specifics']
+                    monitoring = annotations[KEY]['monitoring']
 
             if obj.members:
                 users = obj.members
@@ -322,8 +324,18 @@ class monitoringView(BrowserView):
                 objective_date=objective_date,
                 target_value_planned=target_value_planned,
                 specifics=specifics,
+                monitoring=monitoring,
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
 
         return results
+
+    def custom_pattern_options(self):
+        """ Pass data from project to picker date in modal, in Activity, OutcomeKPI and OutcomeKPIZone.
+            Output must be done via JS because we need to pass the value from the HTML. """
+        start = self.context.gwopa_year_phases[:][0]['pattern_start']
+        end = self.context.gwopa_year_phases[-1:][0]['pattern_end']
+        value = """{"date":{ "min":[""" + start + """], "max":[""" + \
+            end + """]}, "time": false, "today": false, "clear": false}"""
+        return value
