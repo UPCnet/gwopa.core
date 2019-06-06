@@ -12,7 +12,7 @@
                 portal_url portal_state/portal_url;">
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
     <div class="block-nav">
-      <ul class="pagination pagination-lg" tal:define="items view/getItems">
+      <ul id="selectYear" class="pagination pagination-lg" tal:define="items view/getItems">
         <tal:block tal:repeat="item items">
           <li tal:attributes="class string: ${item/classe}; alt item/alt; title item/alt; id item/year">
             <a href="#">
@@ -51,7 +51,7 @@
       <div id="chartCapacities" tal:define="outcome view/getOutcomeCC">
         <h2 class="bolder" i18n:translate="">Capacity Changes</h2>
         <div class="legendBox">
-          <span class="label custom-legend empty">Empty</span>
+          <span class="label custom-legend notset">Empty</span>
           <span class="label custom-legend verybad">-2</span>
           <span class="label custom-legend bad">-1</span>
           <span class="label custom-legend equal">0</span>
