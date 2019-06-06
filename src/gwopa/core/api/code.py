@@ -132,27 +132,6 @@ class getUnits(BrowserView):
         return json.dumps(results)
 
 
-class getFrequency(BrowserView):
-    # /api-getFrequency
-    def __call__(self):
-        alsoProvides(self.request, IDisableCSRFProtection)
-
-        results = []
-        item = api.content.find(portal_type="SettingsPage", id='settings')
-        if item:
-            values = item[0].getObject().measuring_frequency
-            terms = []
-            for value in values.split('\n'):
-                if value != '':
-                    terms.append(value)
-        terms.sort()
-        for item in terms:
-            results.append(dict(
-                name=item))
-        self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
-
-
 class Delete(BrowserView):
 
     def __call__(self):
@@ -644,7 +623,7 @@ class getProjectKPIs(BrowserView):
 
 
 class allProjectsMap(BrowserView):
-    # Returns all projects to make queries in global map selectors. #
+    # Returns all projects to make queries in global map selectors - allProjects.json #
     def __call__(self):
         items = api.content.find(portal_type=['Project'])
         results = []
@@ -683,11 +662,20 @@ class allProjectsMap(BrowserView):
                 kpis = []
                 for kpi in elements:
                     kpis.append(kpi.Title)
+                if obj.project_manager_admin:
+                    responsible = obj.project_manager_admin
+                else:
+                    responsible = None
+                if not responsible:
+                    popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>'
+                else:
+                    popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>' + str(responsible)
+
                 poi = Feature(
                     geometry=Point((float(obj.longitude), float(obj.latitude))),
                     properties={
                         'title': obj.title,
-                        'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
+                        'popup': popup,
                         'total_budget': budget,
                         'wop_program': wop_program,
                         'wop_platform': wop_platform,
@@ -704,21 +692,29 @@ class allProjectsMap(BrowserView):
 
 
 class activeProjectsMap(BrowserView):
-    # Returns Active projects to show in layer map #
+    # Returns Active projects to show in layer map - activeProjects.json#
     def __call__(self):
         today = datetime.date.today()
         items = api.content.find(portal_type=['Project'])
         results = []
         for item in items:
             obj = item.getObject()
+            if obj.project_manager_admin:
+                responsible = obj.project_manager_admin
+            else:
+                responsible = None
             # Add only current date projects
             if (obj.startactual <= today <= obj.completionactual):
                 if obj.longitude and obj.latitude:
+                    if not responsible:
+                        popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>'
+                    else:
+                        popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>' + str(responsible)
                     poi = Feature(
                         geometry=Point((float(obj.longitude), float(obj.latitude))),
                         properties={
                             'title': obj.title,
-                            'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>'})
+                            'popup': popup})
                     results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")
@@ -726,7 +722,7 @@ class activeProjectsMap(BrowserView):
 
 
 class inactiveProjectsMap(BrowserView):
-    # Returns Inactive projects to show in layer map #
+    # Returns Inactive projects to show in layer map - inactiveProjects.json #
     def __call__(self):
         today = datetime.date.today()
         items = api.content.find(portal_type=['Project'])
@@ -734,14 +730,22 @@ class inactiveProjectsMap(BrowserView):
         results = []
         for item in items:
             obj = item.getObject()
+            if obj.project_manager_admin:
+                responsible = obj.project_manager_admin
+            else:
+                responsible = None
             # Add only passed or not started projects
             if ((obj.startactual < today) and (obj.completionactual < today)) or ((obj.startactual > today) and (obj.completionactual > today)):
                 if obj.longitude and obj.latitude:
+                    if not responsible:
+                        popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>'
+                    else:
+                        popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>' + str(responsible)
                     poi = Feature(
                         geometry=Point((float(obj.longitude), float(obj.latitude))),
                         properties={
                             'title': obj.title,
-                            'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>'})
+                            'popup': popup})
                     results.append(poi)
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")

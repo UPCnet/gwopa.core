@@ -21,7 +21,9 @@
                   donors view/donors;
                   others view/others;
                   get_budget view/get_budget;
-                  getProject_manager view/getProject_manager;">
+                  getProject_manager view/getProject_manager;
+                  portal_state context/@@plone_portal_state;
+                  portal_url portal_state/portal_url;">
 
   <h1 class="documentFirstHeading">
     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" title="Edit project" alt="Edit project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
@@ -44,7 +46,7 @@
             <a href="" class="link-category" rel="tag"
                tal:content="category"
                tal:define="quotedCat python:url_quote(category)"
-               tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}">
+               tal:attributes="href string:${portal_url}/@@search?Subject%3Alist=${quotedCat}">
               Category
             </a>
           </span>
@@ -53,7 +55,7 @@
 
       <div class="row" tal:condition="python: wop_platform or wop_program">
         <hr/>
-        <div class="col-md-6">
+        <div class="col-md-6"  style="padding-left: 0px !important;">
           <h2 i18n:translate=""> Project Dates </h2>
           <div class="col-md-6">
             <div tal:condition="context/startactual" class="actualDate" >
@@ -117,7 +119,7 @@
         <h2 i18n:translate=""> Main organizations and their contributions </h2>
 
         <div class="table-responsive col-md-12">
-          <table class="table table-condensed table-hover">
+          <table class="table-condensed table-hover">
             <thead>
               <tr>
                 <th style="padding-left:0px;">
@@ -137,15 +139,15 @@
         </div>
 
         <div class="table-responsive col-md-12">
-          <table class="table table-condensed table-hover">
+          <table class="table-condensed table-hover">
             <thead>
               <tr>
                 <th style="padding-left:0px;">
                   <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs;" data-type="ContribDonor">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Donors </span>
                 </th>
-                <th class="contibutioncentered" i18n:translate="">In-cash</th>
-                <th class="contibutioncentered" i18n:translate="">In-kind</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tr tal:repeat="partner donors">
@@ -157,15 +159,15 @@
         </div>
 
         <div class="table-responsive col-md-12">
-          <table class="table table-condensed table-hover">
+          <table class="table-condensed table-hover">
             <thead>
               <tr>
                 <th style="padding-left:0px;">
                   <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs;" data-type="ContribOther">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Other Organizations </span>
                 </th>
-                <th class="contibutioncentered" i18n:translate="">In-cash</th>
-                <th class="contibutioncentered" i18n:translate="">In-kind</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tr tal:repeat="partner others">
@@ -178,91 +180,105 @@
           </table>
         </div>
 
-        <div class="buttonbudget" tal:condition="get_budget">
-          <tal:omit-tag i18n:translate="">Total budget: </tal:omit-tag>&nbsp;<span tal:content="get_budget"></span>
+        <div class="table-responsive col-md-12" tal:condition="get_budget">
+          <div class="buttonbudget">
+            <tal:omit-tag i18n:translate="">Total budget: </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="get_budget"></tal:omit-tag>
+          </div>
         </div>
       </div>
 
       <div class="row" tal:condition="getProject_manager">
         <hr/>
-        <div class="col-md-12">
-          <h2 i18n:translate=""> Focal point partner </h2>
-          <div class="table-responsive">
-            <table id="tableFocalPoint" class="table table-condensed table-hover">
-              <thead>
-                <tr>
-                  <th i18n:translate="">Name</th>
-                  <th i18n:translate="">Partner</th>
-                  <th i18n:translate="">Contact</th>
-                </tr>
-              </thead>
-              <tal:block-partners tal:repeat="partner getProject_manager">
-                <tr tal:attributes="class partner/managerClass">
-                  <td>
-                    <tal:block tal:replace="structure partner/image"></tal:block>
+        <h2 i18n:translate=""> Focal point partner </h2>
+        <div class="table-responsive col-md-12">
+          <table id="tableFocalPoint" class="table-hover">
+            <thead>
+              <tr>
+                <th i18n:translate="">Name</th>
+                <th i18n:translate="">Partner</th>
+                <th i18n:translate="">Contact</th>
+              </tr>
+            </thead>
+            <tal:block-partners tal:repeat="partner getProject_manager">
+              <tr tal:attributes="class partner/managerClass">
+                <td>
+                  <tal:block tal:replace="structure partner/image"></tal:block>
+                  <a tal:attributes="href string:${portal_url}/profile/${partner/id}">
                     <tal:block tal:content="partner/name"></tal:block>
+                  </a>
+                </td>
+                <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
+                  <td>
+                    <span tal:replace="value"></span>
                   </td>
-                  <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
-                    <td tal:condition="python:isinstance(value, basestring)">
-                      <span tal:replace="field/value"></span>
-                    </td>
-                    <td tal:condition="not:python:isinstance(value, basestring)">
-                      <span tal:replace="structure python:'<span>'+'</span><span>'.join(str(s)+str(', ') for s in value)" />
-                    </td>
-                    <td>
-                      <tal:block tal:condition="partner/email"><a tal:attributes="href string:mailto:${partner/email}"><i class="far fa-envelope"></i></a></tal:block>
+                  <td tal:condition="not:python:isinstance(value, basestring)">
+                    <span tal:replace="structure python:'<span>'+'</span><span>'.join(str(s)+str(', ') for s in value)" />
+                  </td>
+                  <td>
+                    <tal:block tal:condition="partner/email">
+                      <a tal:attributes="href string:mailto:${partner/email}"><i class="far fa-envelope"></i></a>
                       <tal:block tal:content="partner/email"></tal:block>
-                    </td>
-                  </tal:block>
-                </tr>
-              </tal:block-partners>
-            </table>
-          </div>
+                    </tal:block>
+                  </td>
+                </tal:block>
+              </tr>
+            </tal:block-partners>
+          </table>
         </div>
       </div>
     </div>
 
-    <div class="col-md-3" tal:condition="getImprovementAreas">
-      <h2 class="h2Project" i18n:translate=""> Working Areas </h2>
-      <tal:areas repeat="item getImprovementAreas">
-        <div class="col-lg-12 col-md-12">
-          <a tal:attributes="href item/url; title item/description; alt item/description">
+    <div class="col-md-3">
+      <div tal:condition="getImprovementAreas">
+        <h2 class="h2Project" i18n:translate=""> Working Areas </h2>
+        <tal:areas repeat="item getImprovementAreas">
+          <div class="col-lg-12 col-md-12">
             <div class="box">
               <img class="box-img" tal:attributes="src string:${item/image};"/>
               <div class="card-body">
                 <span class="card-title" tal:content="item/title">Working area Title </span>
               </div>
             </div>
-          </a>
-        </div>
-      </tal:areas>
-      <div id="membersBlock" tal:define="recent_items view/getMembers">
+          </div>
+        </tal:areas>
+      </div>
+
+      <div id="membersBlock" tal:define="members view/getMembers">
         <h2 class="h2Project" i18n:translate="">Members</h2>
-        <table class="table table-condensed table-striped">
+        <table class="table-striped" id="tableMembers">
           <tbody>
-            <tal:items tal:repeat="obj recent_items">
+            <tal:items tal:repeat="obj members">
               <tr>
-                <td tal:content="obj/id"> User Photo </td>
-                <td tal:content="obj/email"> Phone</td>
+                <td class="thumb_image">
+                  <tal:block tal:replace="structure obj/image"></tal:block>
+                  <a tal:attributes="href string:${portal_url}/profile/${obj/id}">
+                    <tal:block tal:content="obj/name"></tal:block>
+                  </a>
+                </td>
+                <td>
+                  <tal:block tal:condition="obj/email">
+                    <a tal:attributes="href string:mailto:${obj/email}; title string:mailto:${obj/email}; alt string:mailto:${obj/email}" ><i class="far fa-envelope"></i></a>
+                  </tal:block>
+                </td>
               </tr>
             </tal:items>
           </tbody>
         </table>
       </div>
-      <div id="filesBlock" tal:define="recent_items view/getFiles">
+
+      <div id="filesBlock" tal:define="items view/getFiles">
         <h2 class="h2Project">
-          <a tal:attributes="href string:${context/absolute_url}/files/" i18n:translate="">Recent files</a>
-          <a class="pat-plone-modal right" id="add-new-file" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/files/++add++File">
-            <button id="add-new-file" class="context focus" i18n:translate=""> + New file </button>
-          </a>
+          <a class="pat-plone-modal" id="add-new-file" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/files/++add++File"><i class="fas fa-plus-circle"></i></a>
+          <tal:omit-tag i18n:translate=""> Files </tal:omit-tag>
+          <a class="right" style="font-size:14px; font-weight: 400;" tal:attributes="href string:${context/absolute_url}/files/"><i class="fa fa-plus"></i>&nbsp;<tal:omit-tag i18n:translate=""> View all</tal:omit-tag></a>
         </h2>
-        <table class="table table-condensed">
+        <table class="table-striped">
           <tbody>
-            <tal:items tal:repeat="obj recent_items">
+            <tal:items tal:repeat="obj items">
               <tr>
                 <td>
-                  <a href="" tal:attributes="href obj/url"><tal:omit-tag tal:content="obj/title">
-                    TITLE</tal:omit-tag>
+                  <i class="fa fa-file-o"></i>
+                  <a href="" tal:attributes="href obj/url"><tal:omit-tag tal:content="obj/title"> Title </tal:omit-tag>
                   </a>
                 </td>
                 <td>
@@ -273,6 +289,7 @@
           </tbody>
         </table>
       </div>
+
     </div>
   </div>
 

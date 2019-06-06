@@ -55,14 +55,6 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <browser:page
-      for="*"
-      name="api-getFrequency"
-      class=".api.code.getFrequency"
-      permission="cmf.ModifyPortalContent"
-      layer="gwopa.core.interfaces.IGwopaCoreLayer"
-  />
-
   <!-- API values returned to show output modal -->
   <browser:page
       for="*"

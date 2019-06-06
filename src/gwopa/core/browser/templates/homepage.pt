@@ -77,14 +77,11 @@
               <metal:bodytext define-slot="main">
                 <a tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus" i18n:translate=""> + New Project </button></a>
                 <h1 class="documentFirstHeading" i18n:translate=""> My Projects </h1>
-                <div class="has-table" tal:define="items view/myProjects;" >
+                <div class="has-table" tal:define="items view/myProjects">
                   <div class="row" tal:condition="not:items">
-                    <div class="col-xs-12 col-sm-12">
-                      <h4 i18n:translate=""> Your company has no projects. </h4>
-                    </div>
+                    <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
                   </div>
-                  <tal:projects tal:condition="items"
-                                tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime;">
+                  <tal:projects tal:condition="items">
                     <div class="row">
                       <div class="col-xs-12 col-sm-12">
                         <tal:items repeat="item items">
@@ -110,11 +107,9 @@
                 <h1 class="documentFirstHeading" i18n:translate="">My company Projects </h1>
                 <div class="has-table" tal:define="items view/companyProjects">
                   <div class="row" tal:condition="not:items">
-                    <div class="col-xs-12 col-sm-12">
-                      <h4  i18n:translate=""> Your company has no projects. </h4>
-                    </div>
+                    <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
                   </div>
-                  <tal:CompanyProjects tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
+                  <tal:CompanyProjects  condition="items">
                     <div class="row">
                       <div class="col-xs-12 col-sm-12">
                         <tal:items repeat="item items">
@@ -166,8 +161,7 @@
                 <div class="has-table">
                   <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                      <tal:AllProjects define="items view/allProjects;
-                              toLocalizedTime nocall: context/@@plone/toLocalizedTime;" condition="items">
+                      <tal:AllProjects define="items view/allProjects" condition="items">
                         <tal:items repeat="item items">
                           <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">

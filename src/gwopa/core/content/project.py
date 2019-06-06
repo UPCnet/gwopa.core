@@ -31,16 +31,6 @@ from Products.CMFCore.utils import getToolByName
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
 
-# items = [(_(u'inactive'), _(u'Inactive')),
-#          (_(u'inception'), _(u'Inception')),
-#          (_(u'implementation'), _(u'Implementation')),
-#          (_(u'completed'), _(u'Completed')),
-#          ]
-
-# terms = [SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items]
-
-# projectStatus = SimpleVocabulary(terms)
-
 grok.templatedir("templates")
 
 
@@ -50,10 +40,6 @@ def theDefaultValue():
 
 def maxValue():
     return datetime.date(2015, 5, 12)
-
-
-# def minDate():
-    # return datetime.date(2015, 2, 2)
 
 
 class StartBeforeEnd(Invalid):
@@ -91,7 +77,7 @@ class IProject(model.Schema):
 
     fieldset('project',
              label=_(u'Project'),
-             fields=['title', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'total_budget', 'category']
+             fields=['title', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'total_budget', 'measuring_frequency', 'category']
              )
 
     fieldset('image',
@@ -143,11 +129,12 @@ class IProject(model.Schema):
         required=False,
     )
 
-    # status = schema.Choice(
-    #     title=_(u'Project Status'),
-    #     description=_(u'Indicate the current status of the project'),
-    #     vocabulary=projectStatus,
-    # )
+    measuring_frequency = schema.Choice(
+        title=_(u"Measuring frequency"),
+        description=_(u"Frequency used for all the items of the project."),
+        source=utils.settings_measuring_frequency,
+        required=True,
+    )
 
     directives.mode(startdate='display')
     startdate = schema.Text(
@@ -224,14 +211,12 @@ class IProject(model.Schema):
         required=False,
     )
 
-    # form.mode(latitude='hidden')
     latitude = schema.TextLine(
         title=_(u"Latitude"),
         description=_(u"Latitude of this project. Used in the map view"),
         required=False,
     )
 
-    # form.mode(longitude='hidden')
     longitude = schema.TextLine(
         title=_(u"Longitude"),
         description=_(u"Longitude of this project. Used in the map view"),
@@ -306,21 +291,6 @@ class IProject(model.Schema):
         readonly=True
     )
 
-    # @form.default_value(field=IProject['gwopa_year_phases'])
-    # def calculatedFases(data):
-    #     # TODO: Sort ids to assign the next one, to bypass
-    #     # empty/missing values on delete
-    #     items = len(api.content.find(
-    #         portal_type='Project',
-    #         context=data.context))
-
-    #     return 'PR-{0}'.format(str(items + 1).zfill(3))
-
-    #     @invariant
-    #     def validate_start_end(data):
-    #         if (data.start and data.end and data.start > data.end):
-    #             raise StartBeforeEnd(u"End date must be after start date.")
-
 
 class View(grok.View):
     grok.context(IProject)
@@ -355,6 +325,7 @@ class View(grok.View):
 
     def getProject_manager(self):
         users = []
+        results = []
         if self.context.project_manager_admin:
             users.append(self.context.project_manager_admin)
         if self.context.project_manager:
@@ -363,18 +334,20 @@ class View(grok.View):
 
         uniqueUsers = [u for u in set(users)]  # Returns unique values in list
 
-        results = []
         for user in uniqueUsers:
             obj = api.user.get(username=user)
             manager = False
             project = False
-            if user in self.context.project_manager_admin:
-                manager = 'admin-partner'
-            if user in self.context.project_manager:
-                project = True
+            if self.context.project_manager_admin:
+                if user in self.context.project_manager_admin:
+                    manager = 'admin-partner'
+            if self.context.project_manager:
+                if user in self.context.project_manager:
+                    project = True
             results.append(dict(
                 partners=obj.getProperty('wop_partners'),
                 name=obj.getProperty('fullname'),
+                id=obj.getProperty('id'),
                 email=obj.getProperty('email'),
                 image=utils.getPortrait(self, user),
                 managerClass=manager,
@@ -408,14 +381,17 @@ class View(grok.View):
 
     def getMembers(self):
         """ Returns Site Members """
-        members = api.user.get_users()
+        users = self.context.members
         results = []
-
-        for item in members:
-            results += [{'id': item.id,
-                         'email': item.getProperty('email')
-                         }]
-        return results
+        for user in users:
+            obj = api.user.get(username=user)
+            results.append(dict(
+                name=obj.getProperty('fullname'),
+                id=obj.getProperty('id'),
+                email=obj.getProperty('email'),
+                image=utils.getPortrait(self, user),
+            ))
+        return sorted(results, key=itemgetter('name'), reverse=False)
 
     def getFiles(self):
         """ Return files of the Area """
@@ -476,6 +452,7 @@ class View(grok.View):
         return results
 
     def get_budget(self):
+        # Assign total_budget value to index. Needed to find by value in Project Global Map
         items = api.content.find(
             portal_type=['ContribOther', 'ContribPartner', 'ContribDonor'],
             path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
@@ -488,6 +465,5 @@ class View(grok.View):
                 total = total + obj.incash
             if obj.inkind:
                 total = total + obj.inkind
-        # Assignt total_budget value to index, to find by value in Project Global Map
         self.context.total_budget = total
         return str(total) + ' ' + letter

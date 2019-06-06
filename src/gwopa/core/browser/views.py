@@ -98,23 +98,6 @@ class mapView(BrowserView):
     """ Generate valid json to show POI in map """
     __call__ = ViewPageTemplateFile('templates/global_map.pt')
 
-    def getPoints(self):
-        items = api.content.find(portal_type=['Project'])
-        results = []
-        for item in items:
-            obj = item.getObject()
-            if obj.longitude and obj.latitude:
-                poi = Feature(
-                    geometry=Point((float(obj.longitude), float(obj.latitude))),
-                    properties={
-                        'popup': '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>',
-                        'Verified': "N"})
-                results.append(poi)
-        if results:
-            return FeatureCollection(results)
-        else:
-            return None
-
     def getBudgetLimits(self):
         items = api.content.find(portal_type="Project")
         values = []
@@ -123,5 +106,8 @@ class mapView(BrowserView):
             if value and value != 0:
                 values.append(int(value / 100) * 100)
         values.sort()
-        values.append(int(values[-1:][0]) + 100)
+        if values == []:
+            values = [0, 0]
+        else:
+            values.append(int(values[-1:][0]) + 100)
         return {'start': values[0], 'end': values[-1:][0]}

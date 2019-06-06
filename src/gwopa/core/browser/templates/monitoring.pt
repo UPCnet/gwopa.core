@@ -298,11 +298,7 @@
                       </tal:block>
                     </div>
                     <div class="part11">
-                      <!-- <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
-                        <h5 tal:attributes="class string:${outcome/portal_type}-planning" i18n:translate="">Performance</h5>
-                      </tal:block> -->
                       <tal:block condition="python:outcome['portal_type'] == 'OutcomeZONE'">
-                        <!-- <span tal:attributes="class string:${outcome/portal_type}-planning second-level" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</span> -->
                         <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
                       </tal:block>
                     </div>

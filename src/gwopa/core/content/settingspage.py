@@ -29,19 +29,19 @@ class ISettingspage(model.Schema):
 
     currency = schema.Text(
         title=_(u"Currency Exchange"),
-        description=_(u'Used in the projects item. One per line.'),
+        description=_(u'One per line, string and symbol merged with a dash. Ex: USD-US Dollar-$'),
         required=True,
     )
 
     measuring_unit = schema.Text(
         title=_(u'Measuring unit'),
-        description=_(u'Used in indicators'),
+        description=_(u'One unit per line. Ex: liters'),
         required=True,
     )
 
     measuring_frequency = schema.Text(
         title=_(u'Measuring frequency'),
-        description=_(u'Used in indicators'),
+        description=_(u'A string and the number of notifications per year, separated by comma. One per line. Ex: Annually,1'),
         required=True,
     )
 

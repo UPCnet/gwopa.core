@@ -128,7 +128,7 @@ class setup(grok.View):
             areas = api.content.create(
                 type='Folder',
                 id='areas',
-                title='Working Areas Items',
+                title='Default Working Areas values',
                 description='Working Areas used in the projects',
                 container=config_folder,
                 safe_id=False)
@@ -138,8 +138,8 @@ class setup(grok.View):
             outcomes = api.content.create(
                 type='Folder',
                 id='capacitychanges',
-                title='Capacity Changes Values',
-                description='Values used in Outcome CC and CCS',
+                title='Default Capacity Changes values',
+                description='Values used in OutcomeCC and OutcomeCCS',
                 container=config_folder,
                 safe_id=False)
             allowed_types = ['OutcomeCCItem', ]
@@ -148,7 +148,7 @@ class setup(grok.View):
             outputs = api.content.create(
                 type='Folder',
                 id='outputs',
-                title='Defaults Output Items',
+                title='Default Output values',
                 description='Default title outputs used in projects',
                 container=config_folder,
                 safe_id=False)
@@ -158,7 +158,7 @@ class setup(grok.View):
             outcomes = api.content.create(
                 type='Folder',
                 id='outcomes',
-                title='Defaults Outcome Items',
+                title='Default Outcome values',
                 description='Default title outcomes used in projects',
                 container=config_folder,
                 safe_id=False)
@@ -178,7 +178,7 @@ class setup(grok.View):
             mainobstacles = api.content.create(
                 type='Folder',
                 id='mainobstacles',
-                title='Defaults Main Obstacles Items',
+                title='Default Main Obstacles values',
                 description='Default title Main Obstacles used in project monitoring',
                 container=config_folder,
                 safe_id=False)
@@ -188,7 +188,7 @@ class setup(grok.View):
             maincontributing = api.content.create(
                 type='Folder',
                 id='maincontributing',
-                title='Defaults Main Contributing Items',
+                title='Default Main Contributing values',
                 description='Default title Main Contributing factors used in project monitoring',
                 container=config_folder,
                 safe_id=False)
@@ -228,27 +228,34 @@ class setup(grok.View):
             safe_id=False)
         settingspage.currency = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
         settingspage.measuring_unit = 'liters\nm3\npeople\nothers'
-        settingspage.measuring_frequency = 'annually\nbiannually\nquarterly'
-
+        settingspage.measuring_frequency = 'Annually,1\nBiannually,2\nQuarterly,4'
         portal = api.portal.get()
+
         # Create demo Platforms
-        for i in xrange(1, 6):
+        wop_platforms = [
+            "Cari-WOP",
+            "PWWA",
+            "Waterlinks",
+            "WOP-Africa",
+            "WOP-LAC",
+            "P-WOP (Pakistan)",
+            "PERPAMSI (Indonesia)"]
+        for i in wop_platforms:
             obj = api.content.create(
                 type='Platform',
-                id='platform' + str(i),
-                title='WOP Platform ' + str(i),
-                description='WOP Platform ' + str(i),
+                title=str(i),
                 container=portal.config.platforms,
                 safe_id=False)
             obj.country = ['Spain']
 
-        # Create demo programs
-        for i in xrange(1, 6):
+        # Create demo Programs
+        wop_programs = [
+            "WaterWorX",
+            "OFID"]
+        for i in wop_programs:
             obj = api.content.create(
                 type='Program',
-                id='program' + str(i),
-                title='WOP Program ' + str(i),
-                description='WOP Program ' + str(i),
+                title=str(i),
                 container=portal.config.programs,
                 safe_id=False)
             obj.contact = 'userprogram' + str(i) + '@test.com'
@@ -383,12 +390,35 @@ class setup(grok.View):
             safe_id=True)
 
         # Create item areas
-        for i in xrange(1, 6):
+        working_areas = [
+            'Asset Management',
+            'Billing & Collection Efficiency',
+            'Business Planning',
+            'Commercial & Physical Losses - NRW',
+            'Customer Service',
+            'Financial Management',
+            'Wastewater Collection & Treatment',
+            'Production processes  & Service Quality & Water Safety  (Drinking Water)',
+            'Operation & Maintenance',
+            'Energy Efficiency',
+            'Human Resource Management/ Organizational Development',
+            'Corporate Governance & Institutions',
+            'Catchment Management / IWRM',
+            'Climate Change Resilience',
+            'Services in Low-Income Areas',
+            'Extension of Sanitation & Hygiene services ',
+            'Extension of Water Supply Services ',
+            'Social Inclusion/Gender  ',
+            'Information & Technology',
+            'Policy and Legal Support ',
+            'Water Demand Management',
+        ]
+
+        for i in working_areas:
             obj = api.content.create(
                 type='ItemArea',
-                id='area' + str(i),
-                title='Working Area ' + str(i),
-                description="Description from area " + str(i),
+                id=str(i),
+                title=str(i),
                 container=portal.config.areas,
                 safe_id=True)
             obj.image = self.getRandomImage(200, 200)
@@ -532,13 +562,11 @@ class setup(grok.View):
                 container=portal.config.outcomes,
                 safe_id=True)
 
-
     def createDefaultMainObstacles(self):
         titles = [
-            'Obstacle 1',
-            'Obstacle 2',
-            'Obstacle 3',
-            'Obstacle 4',
+            'Internal organizational',
+            'External environment',
+            'WOP project - related',
         ]
         portal = api.portal.get()
         for item in titles:
@@ -550,13 +578,11 @@ class setup(grok.View):
                 container=portal.config.outputs,
                 safe_id=True)
 
-
     def createDefaultMainContributing(self):
         titles = [
-            'Factor 1',
-            'Factor 2',
-            'Factor 3',
-            'Factor 4',
+            'Internal organizational',
+            'External environment',
+            'WOP project - related',
         ]
         portal = api.portal.get()
         for item in titles:

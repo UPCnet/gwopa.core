@@ -121,7 +121,7 @@ def settings_measuring_frequency(context):
         terms = []
         for value in values.split('\n'):
             if value != '':
-                terms.append(value)
+                terms.append(value.split(',')[0])
         return safe_simplevocabulary_from_values(terms)
     else:
         return None

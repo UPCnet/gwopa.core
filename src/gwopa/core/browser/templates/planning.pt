@@ -60,7 +60,7 @@
                                   tal:attributes="
                                       data-val string:${view/getPath}/${item/id};
                                       data-start view/project_start;
-                                      data-end view/project_end">
+                                      data-end view/project_end;">
                                 <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a></li>
                           </ul>
                         </div>
@@ -207,21 +207,14 @@
                     <div class="btn-group" role="group" aria-label="Add KPI">
                       <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
-                        <!-- <li>
-                          <a data-toggle="modal" class="afegirKPI" data-target="#modalKPI"
-                              tal:attributes="
-                              data-val view/getPath;
-                              data-start view/project_start;
-                              data-end view/project_end">
-                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New Overall KPI </tal:omit-tag></a>
-                        </li> -->
                         <li>
                           <a data-toggle="modal" class="afegirKPIZone" data-target="#modalKPIZone"
                               tal:attributes="
                                   data-val view/getPath;
                                   data-start view/project_start;
-                                  data-end view/project_end">
-                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> New KPI Zone </tal:omit-tag></a>
+                                  data-end view/project_end;
+                                  data-frequency view/project_frequency">
+                            <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add New Overall KPI </tal:omit-tag></a>
                         </li>
                       </ul>
                     </div>
@@ -243,11 +236,7 @@
                   <div class="information object">
                     <div class="contentt row" id="total">
                       <div class="part1 label-nopart0">
-                        <!-- <tal:block condition="python:outcome['portal_type'] == 'OutcomeKPI'">
-                          <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
-                        </tal:block> -->
                         <tal:block condition="python:outcome['portal_type'] == 'OutcomeZONE'">
-                          <!-- <span tal:attributes="class string:${outcome/portal_type}-planning second-level" tal:content="outcome/portal_type" i18n:translate="">Outcome - KPI Type</span> -->
                           <span tal:attributes="class string:${outcome/portal_type}-planning second-level" i18n:translate="">Performance</span>
                         </tal:block>
                       </div>
@@ -487,7 +476,9 @@
                     <textarea class="form-control" id="act-initialdescription"></textarea>
                 </div>
                 <div class="form-group col-md-12" style="margin-bottom:10px !important;">
-                  <span class="legend">Remember that the related Project dates are: Start: <span class="modal-start"></span> End: <span class="modal-end"></span></span>
+                  <span class="legend">
+                    <tal:omit-tag i18n:translate=""> Remember that the related Project dates are: Start: </tal:omit-tag>&nbsp;<span class="modal-start"></span>&nbsp;<tal:omit-tag i18n:translate=""> End: </tal:omit-tag>&nbsp;<span class="modal-end"></span>
+                  </span>
                 </div>
                 <div class="form-group row" style="padding-bottom:15px;">
                   <div class="col-xs-6 col-md-6">
@@ -547,13 +538,13 @@
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="out-title" type="hidden"/>
                 </div>
-                <div id="addOutputTitle" class="form-group col-md-12">
+                <div id="addOutputTitle" class="form-group col-md-12" style="padding-bottom: 10px;">
                   <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                  <span class="legend">Add new Output if not listed in the before field</span>
+                  <span class="legend" i18n:translate="">Add Missing Title (if not listed in the previous field)</span>
                 </div>
                 <div class="form-group col-md-12">
                   <div id="addBox">
-                    <label id="label-title" i18n:translate="">Output title</label>
+                    <label id="label-title" i18n:translate="">New Output Title</label>
                     <input id="add-output" type="text" placeholder="Type title..."/>
                   </div>
                 </div>
@@ -561,8 +552,10 @@
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="out-description"></textarea>
                 </div>
-                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
-                  <span class="legend">Remember that the related Activity dates are: [Start: <span class="modal-start"></span>] [End: <span class="modal-end"></span>]</span>
+                <div class="form-group col-md-12" style="padding-bottom: 15px;">
+                  <span class="legend">
+                    <tal:omit-tag i18n:translate=""> Remember that the related Activity dates are: Start: </tal:omit-tag>&nbsp;<span class="modal-start"></span>&nbsp;<tal:omit-tag i18n:translate=""> End: </tal:omit-tag>&nbsp;<span class="modal-end"></span>
+                  </span>
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
@@ -571,7 +564,7 @@
                       <input id="out-unit" type="hidden"/>
                   </div>
                   <div class="col-xs-6 col-md-6">
-                    <label class="control-label">Completion date</label>
+                    <label class="control-label" i18n:translate="">Completion date</label>
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="out-datetimepicker" placeholder="Enter date..." />
                   </div>
@@ -649,7 +642,7 @@
                     <textarea class="form-control" id="kpi-description"></textarea>
                 </div>
                 <div class="form-group col-md-12" style="margin-bottom:10px !important;">
-                  <span class="legend">Remember that the related Project dates are: Start: <span class="modal-start"></span> End: <span class="modal-end"></span></span>
+                  <span class="legend"><tal:omit-tag i18n:translate=""> Remember that the related Project dates are: Start: </tal:omit-tag><span class="modal-start"></span><tal:omit-tag i18n:translate=""> End: </tal:omit-tag><span class="modal-end"></span></span>
                 </div>
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
@@ -672,8 +665,7 @@
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="kpi-frequency" type="hidden"/>
+                    <div class="modal-frequency"></div>
                   </div>
                 </div>
                 <div class="form-group col-md-12" id='KPITextBoxesGroup'>
@@ -726,7 +718,7 @@
           <form id="toClearKPIZone">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="modalAddKPIZone" i18n:translate=""> Add ZONE KPI </h4>
+              <h4 class="modal-title" id="modalAddKPIZone" i18n:translate=""> Add New Overall KPI </h4>
             </div>
             <div class="modal-body" id="NewKPIZone">
               <div class="modal-url" id="KPIZonePath" style="display:none"></div>
@@ -759,7 +751,9 @@
                     <textarea class="form-control" id="kpizone-description"></textarea>
                 </div>
                 <div class="form-group col-md-12" style="margin-bottom:10px !important;">
-                  <span class="legend">Remember that the related Project dates are: Start: <span class="modal-start"></span> End: <span class="modal-end"></span></span>
+                  <span class="legend">
+                    <tal:omit-tag i18n:translate=""> Remember that the related Project dates are: Start: </tal:omit-tag>&nbsp;<span class="modal-start"></span>&nbsp;<tal:omit-tag i18n:translate=""> End: </tal:omit-tag>&nbsp;<span class="modal-end"></span>
+                  </span>
                 </div>
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
@@ -782,8 +776,7 @@
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="kpizone-frequency" type="hidden"/>
+                    <div class="modal-frequency"></div>
                   </div>
                 </div>
                 <div class="form-group col-md-12" id='KPIZoneTextBoxesGroup'>

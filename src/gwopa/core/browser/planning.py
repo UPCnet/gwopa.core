@@ -68,6 +68,9 @@ class planningView(BrowserView):
         end = self.context.completionactual.strftime('%Y-%m-%d')
         return end
 
+    def project_frequency(self):
+        return self.context.measuring_frequency
+
     def __call__(self):
         if self.request['URL'].split('/')[-1][0:4] == 'api-':
             self.request.response.redirect(self.request['URL'].replace('planning/', ''))
@@ -247,7 +250,6 @@ class planningView(BrowserView):
                 unit=unit,
                 target_value_planned=target_value_planned,
                 measuring_unit=obj.measuring_unit,
-                measuring_frequency=obj.measuring_frequency,
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
@@ -307,55 +309,6 @@ class planningView(BrowserView):
                 url='/'.join(obj.getPhysicalPath())))
 
         return results
-
-    # def listOutcomesCCS(self):
-    #     items = api.content.find(
-    #         portal_type=['OutcomeCCS'],
-    #         context=self.context)
-    #     results = []
-    #     KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
-    #     for item in items:
-    #         members = []
-    #         obj = item.getObject()
-    #         annotations = IAnnotations(item.getObject())
-    #         if KEY in annotations.keys():
-    #             if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
-    #                 target_value_planned = _(u"Not defined")
-    #                 unit = ''
-    #             else:
-    #                 target_value_planned = annotations[KEY]['planned']
-    #                 unit = obj.measuring_unit
-    #         else:
-    #             target_value_planned = _(u"Not defined")
-    #             unit = ''
-    #         if obj.members:
-    #             users = obj.members
-    #             if isinstance(users, (str,)):
-    #                 members.append(api.user.get(username=users[0]).getProperty('fullname'))
-    #             else:
-    #                 for member in users:
-    #                     members.append(api.user.get(username=member).getProperty('fullname'))
-    #         if obj.aq_parent.portal_type == 'ImprovementArea':
-    #             area = obj.aq_parent.title
-    #         else:
-    #             area = obj.aq_parent.aq_parent.title
-    #         results.append(dict(
-    #             id=item.id,
-    #             area=area,
-    #             title=item.Title,
-    #             # description=item.Description,
-    #             # base_date=obj.baseline_date.strftime('%Y-%m'),
-    #             # base_value=obj.baseline,
-    #             # zone=obj.zone,
-    #             # unit=unit,
-    #             # target_value_planned=target_value_planned,
-    #             # measuring_unit=obj.measuring_unit,
-    #             # measuring_frequency=obj.measuring_frequency,
-    #             # portal_type=item.portal_type,
-    #             # responsible=members,
-    #             url='/'.join(obj.getPhysicalPath())))
-    #
-    #     return results
 
     def custom_pattern_options(self):
         """ Pass data from project to picker date in modal, in Activity, OutcomeKPI and OutcomeKPIZone.
