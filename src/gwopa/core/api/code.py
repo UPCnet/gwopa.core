@@ -152,6 +152,26 @@ class getFrequency(BrowserView):
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(results)
 
+class getDegree(BrowserView):
+    # /api-getDegree
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        results = []
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        if item:
+            values = item[0].getObject().degree_changes
+            terms = []
+            for value in values.split('\n'):
+                if value != '':
+                    terms.append(value)
+        terms.sort()
+        for item in terms:
+            results.append(dict(
+                name=item))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
 
 class Delete(BrowserView):
 
@@ -257,6 +277,7 @@ class addOutcomeCCS(BrowserView):
         annotations = IAnnotations(item.getObject())
         generic = annotations[KEY]['generic']
         specifics = annotations[KEY]['specifics']
+        monitoring = annotations[KEY]['monitoring']
         outcomeccspecific_info = dict(
             id_specific=specific_obj.id,
             title_specific=specific_obj.title,
@@ -272,7 +293,69 @@ class addOutcomeCCS(BrowserView):
             objective_date=specific_obj.objective_date,
         )
         specifics.append(outcomeccspecific_info)
-        data = dict(real='', planned='', monitoring='', generic=generic, specifics=specifics)
+        outcomeccmonitoring_info = dict(
+            id_specific = specific_obj.id,
+            title_specific = specific_obj.title,
+            description = specific_obj.description,
+            url='/'.join(specific_obj.getPhysicalPath()),
+            selected_specific='',
+            icon_url='++theme++gwopa.theme/assets/images/others.png',
+            icon_url_selected='++theme++gwopa.theme/assets/images/w-others.png',
+            short_category='other',
+            baseline=specific_obj.baseline,
+            baseline_date=specific_obj.baseline_date,
+            objective=specific_obj.objective,
+            objective_date=specific_obj.objective_date,
+            degree_changes=specific_obj.degree_changes,
+            contributing_factors=specific_obj.contributing_factors,
+            limiting_factors=specific_obj.limiting_factors,
+            explain=specific_obj.explain,
+            selected_monitoring='empty',
+        )
+        monitoring.append(outcomeccmonitoring_info)
+        data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
+        annotations[KEY] = data
+        return 'Ok! Specific Outcomeccs created'
+
+class addOutcomeCCSMonitoring(BrowserView):
+
+    def __call__(self):
+        title = self.request.form.get('item_title')
+        item_path = self.request.form.get('item_path')
+        year = self.request.form.get('year')
+        container = api.content.find(path=item_path, depth=0)[0]
+        specific_obj = api.content.create(
+            type='OutcomeCCS',
+            title=title,
+            container=container.getObject())
+
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        item = api.content.find(path=item_path, depth=0)[0]
+        annotations = IAnnotations(item.getObject())
+        generic = annotations[KEY]['generic']
+        specifics = annotations[KEY]['specifics']
+        monitoring = annotations[KEY]['monitoring']
+        outcomeccmonitoring_info = dict(
+            id_specific = specific_obj.id,
+            title_specific = specific_obj.title,
+            description = '',
+            url='/'.join(specific_obj.getPhysicalPath()),
+            selected_specific='',
+            icon_url='++theme++gwopa.theme/assets/images/others.png',
+            icon_url_selected='++theme++gwopa.theme/assets/images/w-others.png',
+            short_category='other',
+            baseline='',
+            baseline_date='',
+            objective='',
+            objective_date='',
+            degree_changes=specific_obj.degree_changes,
+            contributing_factors=specific_obj.contributing_factors,
+            limiting_factors=specific_obj.limiting_factors,
+            explain=specific_obj.explain,
+            selected_monitoring='empty',
+        )
+        monitoring.append(outcomeccmonitoring_info)
+        data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         annotations[KEY] = data
         return 'Ok! Specific Outcomeccs created'
 
@@ -440,7 +523,8 @@ class UpdateOutcomeCC(BrowserView):
         generic[0]['objective_date'] = objective_date
 
         specifics = annotations[KEY]['specifics']
-        data = dict(real='', planned='', monitoring='', generic=generic, specifics=specifics)
+        monitoring = annotations[KEY]['monitoring']
+        data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         annotations[KEY] = data
 
         return 'Ok, item updated'
@@ -458,6 +542,7 @@ class UpdateOutcomeCCS(BrowserView):
         objective = self.request.form['objective']
         objective_date = self.request.form['objective_date']
         id_specific = self.request.form['id_specific']
+
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         item = api.content.find(path=item_path, depth=0)[0]
         annotations = IAnnotations(item.getObject())
@@ -470,13 +555,75 @@ class UpdateOutcomeCCS(BrowserView):
                 specific['objective'] = objective
                 specific['objective_date'] = objective_date
                 specific['selected_specific'] = 'selected'
+        monitoring = annotations[KEY]['monitoring']
+        for specific in monitoring:
+            if specific['id_specific'] == id_specific:
+                specific['description'] = description
+                specific['baseline'] = baseline
+                specific['baseline_date'] = baseline_date
+                specific['objective'] = objective
+                specific['objective_date'] = objective_date
+                specific['selected_specific'] = 'selected'
+
 
         generic = annotations[KEY]['generic']
-        data = dict(real='', planned='', monitoring='', generic=generic, specifics=specifics)
+        data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         annotations[KEY] = data
 
         return 'Ok, item updated'
 
+class UpdateOutcomeCCSMonitoring(BrowserView):
+
+    def __call__(self):
+        # TODO: check permissions. now cmf.ModifyPortalContent
+        year = self.request.form['year']
+        item_path = self.request.form['item_path']
+        description = self.request.form['description']
+        baseline = self.request.form['baseline']
+        baseline_date = self.request.form['baseline_date']
+        objective = self.request.form['objective']
+        objective_date = self.request.form['objective_date']
+        id_specific = self.request.form['id_specific']
+        degree_changes = self.request.form['degree_changes']
+        contributing_factors = self.request.form['contributing_factors']
+        limiting_factors = self.request.form['limiting_factors']
+        explain = self.request.form['explain']
+
+        degree_values = {'-2': 'verybad', '-1': 'bad', '0': 'equal', '1': 'good', '2': 'verygood'}
+
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        item = api.content.find(path=item_path, depth=0)[0]
+        annotations = IAnnotations(item.getObject())
+        specifics = annotations[KEY]['specifics']
+        for specific in specifics:
+            if specific['id_specific'] == id_specific:
+                specific['description'] = description
+                specific['baseline'] = baseline
+                specific['baseline_date'] = baseline_date
+                specific['objective'] = objective
+                specific['objective_date'] = objective_date
+                specific['selected_specific'] = 'selected'
+        monitoring = annotations[KEY]['monitoring']
+        for specific in monitoring:
+            if specific['id_specific'] == id_specific:
+                specific['description'] = description
+                specific['baseline'] = baseline
+                specific['baseline_date'] = baseline_date
+                specific['objective'] = objective
+                specific['objective_date'] = objective_date
+                specific['selected_specific'] = 'selected'
+                specific['degree_changes'] = degree_changes
+                specific['contributing_factors'] = contributing_factors
+                specific['limiting_factors'] = limiting_factors
+                specific['explain'] = explain
+                specific['selected_monitoring'] = degree_values[degree_changes]
+
+
+        generic = annotations[KEY]['generic']
+        data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
+        annotations[KEY] = data
+
+        return 'Ok, item updated'
 
 class getProjectWOPPlatform(BrowserView):
 

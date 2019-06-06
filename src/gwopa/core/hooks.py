@@ -248,6 +248,7 @@ def improvementAreaAdded(content, event):
         )
         generic.append(outcomeccgeneric_info)
         specifics = []
+        monitoring = []
         items = api.content.find(
             portal_type=['OutcomeCCS'],
             context=content)
@@ -271,7 +272,27 @@ def improvementAreaAdded(content, event):
                 objective_date=specific_obj.objective_date,
             )
             specifics.append(outcomeccspecific_info)
-        data = dict(real='', planned='', monitoring='', generic=generic, specifics=specifics)
+            outcomeccmonitoring_info = dict(
+                id_specific = specific_obj.id,
+                title_specific = specific_obj.title,
+                description = specific_obj.description,
+                url='/'.join(specific_obj.getPhysicalPath()),
+                selected_specific='',
+                icon_url='++theme++gwopa.theme/assets/images/' + capacitychanges_obj.id + '.png',
+                icon_url_selected='++theme++gwopa.theme/assets/images/w-' + capacitychanges_obj.id + '.png',
+                short_category=category,
+                baseline=specific_obj.baseline,
+                baseline_date=specific_obj.baseline_date,
+                objective=specific_obj.objective,
+                objective_date=specific_obj.objective_date,
+                degree_changes=specific_obj.degree_changes,
+                contributing_factors=specific_obj.contributing_factors,
+                limiting_factors=specific_obj.limiting_factors,
+                explain=specific_obj.explain,
+                selected_monitoring='empty',
+            )
+            monitoring.append(outcomeccmonitoring_info)
+        data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
         annotations[KEY] = data
 
