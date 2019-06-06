@@ -412,134 +412,246 @@
                       <h5 tal:attributes="id string:${outcome/rid};" class="capacity-title" tal:content="outcome/area"> Working Area N </h5>
                     </div>
                   </div>
-                  <div class="information cc_container">
-                    <a class="item transformational">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/mission-strategy.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Mission & Strategy</span>
-                      </div>
-                    </a>
-                    <a class="item transformational">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/leadership.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Leadership</span>
-                      </div>
-                    </a>
-                    <a class="item transformational">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/organizational-culture.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Organizational culture</span>
-                      </div>
-                    </a>
-                    <a class="item transformational">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/external-resources.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>External resources</span>
-                      </div>
-                    </a>
-                    <a class="item transformational">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/network-external-relations.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Network / External relations</span>
-                      </div>
-                    </a>
-                    <a class="item transactional six">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/systems.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Systems</span>
-                      </div>
-                    </a>
-                    <a class="item transactional">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/structure.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Structure</span>
-                      </div>
-                    </a>
-                    <a class="item transactional">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/management.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Management</span>
-                      </div>
-                    </a>
-                    <a class="item transactional">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/information.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Information</span>
-                      </div>
-                    </a>
-                    <a class="item transactional">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/infrastructure-equipment.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Infraestructure / Equipment</span>
-                      </div>
-                    </a>
-                    <a class="item transactional">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/working-routines.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Working routines</span>
-                      </div>
-                    </a>
-                    <a class="item individual twelve">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/knowledge-skills.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Knowledge & Skills</span>
-                      </div>
-                    </a>
-                    <a class="item individual">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/motivation.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Motivation</span>
-                      </div>
-                    </a>
-                    <a class="item individual">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/applied-knowledge-skills.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Applied knowledge & Skills</span>
-                      </div>
-                    </a>
+                  <div class="information cc_container" >
+                    <div class="primerafila">
+                      <tal:block repeat="item outcome/monitoring">
+                        <tal:block condition="python: item['short_category'] == 'transformational'">
+                          <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                          tal:attributes="
+                                    data-pk currentYear;
+                                    data-urloutcomeccs outcome/url;
+                                    data-id_specific item/id_specific;
+                                    data-description item/degree_changes;
+                                    data-base-value item/baseline;
+                                    data-base-date item/baseline_date;
+                                    data-objective item/objective;
+                                    data-objective-date item/objective_date;
+                                    data-degree-changes item/degree_changes;
+                                    data-contributing-factors item/contributing_factors;
+                                    data-limiting-factors item/limiting_factors;
+                                    data-explain item/explain;
+                                    class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            <div class="item_image" tal:condition="not:item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            </div>
+                            <div class="item_image " tal:condition="item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                            </div>
+                            <div class="item_text">
+                              <span tal:content="item/title_specific">Leadership</span>
+                            </div>
+                          </a>
+                        </tal:block>
+                      </tal:block>
+                    </div>
+                    <div class="segundafila">
+                      <tal:block repeat="item outcome/monitoring">
+                        <tal:block condition="python: item['short_category'] == 'transactional'">
+                          <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                          tal:attributes="
+                                    data-pk currentYear;
+                                    data-urloutcomeccs outcome/url;
+                                    data-id_specific item/id_specific;
+                                    data-description item/description;
+                                    data-base-value item/baseline;
+                                    data-base-date item/baseline_date;
+                                    data-objective item/objective;
+                                    data-objective-date item/objective_date;
+                                    data-degree-changes item/degree_changes;
+                                    data-contributing-factors item/contributing_factors;
+                                    data-limiting-factors item/limiting_factors;
+                                    data-explain item/explain;
+                                    class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            <div class="item_image" tal:condition="not:item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            </div>
+                            <div class="item_image " tal:condition="item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                            </div>
+                            <div class="item_text">
+                              <span tal:content="item/title_specific">Leadership</span>
+                            </div>
+                          </a>
+                        </tal:block>
+                      </tal:block>
+                    </div>
+                    <div class="tercerafila">
+                      <tal:block repeat="item outcome/monitoring">
+                        <tal:block condition="python: item['short_category'] == 'individual'">
+                          <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                          tal:attributes="
+                                    data-pk currentYear;
+                                    data-urloutcomeccs outcome/url;
+                                    data-id_specific item/id_specific;
+                                    data-description item/description;
+                                    data-base-value item/baseline;
+                                    data-base-date item/baseline_date;
+                                    data-objective item/objective;
+                                    data-objective-date item/objective_date;
+                                    data-degree-changes item/degree_changes;
+                                    data-contributing-factors item/contributing_factors;
+                                    data-limiting-factors item/limiting_factors;
+                                    data-explain item/explain;
+                                    class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            <div class="item_image" tal:condition="not:item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            </div>
+                            <div class="item_image " tal:condition="item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                            </div>
+                            <div class="item_text">
+                              <span tal:content="item/title_specific">Leadership</span>
+                            </div>
+                          </a>
+                        </tal:block>
+                      </tal:block>
+                    </div>
                   </div>
                   <div class="information cc_container_others">
-                    <a class="item other">
-                      <div class="item_image">
-                        <img src="++theme++gwopa.theme/assets/images/others.png" alt="" title=""/>
-                      </div>
-                      <div class="item_text">
-                        <span>Other</span>
-                      </div>
-                    </a>
+                    <div class="cuartafila">
+                      <tal:block repeat="item outcome/monitoring">
+                        <tal:block condition="python: item['short_category'] == 'other'">
+                          <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
+                            tal:attributes="
+                                    data-pk currentYear;
+                                    data-urloutcomeccs outcome/url;
+                                    data-id_specific item/id_specific;
+                                    data-description item/description;
+                                    data-base-value item/baseline;
+                                    data-base-date item/baseline_date;
+                                    data-objective item/objective;
+                                    data-objective-date item/objective_date;
+                                    data-degree-changes item/degree_changes;
+                                    data-contributing-factors item/contributing_factors;
+                                    data-limiting-factors item/limiting_factors;
+                                    data-explain item/explain;
+                                    class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            <div class="item_image" tal:condition="not:item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                            </div>
+                            <div class="item_image " tal:condition="item/selected_specific">
+                              <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
+                            </div>
+                            <div class="item_text">
+                              <span tal:content="item/title_specific">Other</span>
+                            </div>
+                          </a>
+                        </tal:block>
+                      </tal:block>
+                      <a class="addOutcomeCCS item other" data-toggle="modal" data-target="#modalAddOutcomeCCS" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url;">
+                        <div class="item_image">
+                          <img src="++theme++gwopa.theme/assets/images/add.png" alt="" title=""/>
+                        </div>
+                        <div class="item_text">
+                          <span>Add other</span>
+                        </div>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalEditOutcomeCCS" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalEditOutcomeCCS" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="toClearEditOutcomeCC">
+             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalEditOutcomeCCS" i18n:translate=""> Edit Specific </h4>
+            </div>
+            <div class="modal-body" id="EditOutcomeCCS" >
+              <div class="modal-url" id="OutcomeCCSPath" style="display:none"></div>
+              <span class="modal-pk" id="OutcomeCCSYear" style="display:none"></span>
+              <span class="modal-id" id="idSpecific" style="display:none"></span>
+              <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="message-text" class="control-label" i18n:translate="">Description</label>
+                    <textarea readonly class="form-control" id="outcomeccs-description"></textarea>
+                </div>
+                <div class="form-group row">
+                      <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
+                    <input readonly class="form-control" id="outcomeccs-baseline" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                      <label class="control-label" i18n:translate="">Baseline date</label>
+                      <input readonly class="form-control" id="outcomeccs-baseline_date"></input>
+                  </div>
+                </div>
+                <div class="form-group row">
+                      <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Objective</label>
+                    <input readonly class="form-control" id="outcomeccs-objective" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                      <label class="control-label" i18n:translate="">Objective date</label>
+                      <input readonly class="form-control" id="outcomeccs-objective_date"/>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                      <label i18n:translate=""> Degree of change </label>
+                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <input id="outcomeccs-degree_changes" style="width: 100%;" type="hidden"/>
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                    <label class="control-label" i18n:translate="">Explain</label>
+                    <input class="form-control" id="outcomeccs-explain"></input>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Main contributing factors</label>
+                    <input class="form-control" id="outcomeccs-contributing_factors" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                    <label class="control-label" i18n:translate="">Main limiting factors</label>
+                    <input class="form-control" id="outcomeccs-limiting_factors"></input>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="updateOutcomeCCSFromModal"  data-dismiss="modal" i18n:translate="">Update</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalAddOutcomeCCS" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddOutcomeCCS" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="toClearAddOutcomeCC">
+             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalAddOutcomeCCS" i18n:translate=""> Add other specific </h4>
+            </div>
+            <div class="modal-body" id="AddOutcomeCCS" >
+              <div class="modal-url" id="OutcomeCCSPath" style="display:none"></div>
+              <span class="modal-pk" id="OutcomeCCSYear" style="display:none"></span>
+              <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="message-text" class="control-label" i18n:translate="">Specific title</label>
+                    <textarea class="form-control" id="outcomeccs-title"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="addOutcomeCCSMonitoringFromModal"  data-dismiss="modal" i18n:translate="">Add</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>

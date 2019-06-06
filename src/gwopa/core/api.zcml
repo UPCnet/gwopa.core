@@ -10,6 +10,30 @@
 
   <browser:page
       for="gwopa.core.content.project.IProject"
+      name="api-getActivities"
+      class=".api.wadashboard.GetActivities"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="api-getDashboardOutputs"
+      class=".api.wadashboard.GetOutputs"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="api-getCC"
+      class=".api.wadashboard.GetCapacityChanges"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="gwopa.core.content.project.IProject"
       name="api-getPhases"
       class=".api.code.getPhases"
       permission="cmf.ModifyPortalContent"
@@ -52,6 +76,13 @@
       name="api-getUnits"
       class=".api.code.getUnits"
       permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+  <browser:page
+      for="*"
+      name="api-getDegree"
+      class=".api.code.getDegree"
+      permission="zope.Public"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
@@ -101,6 +132,13 @@
 
   <browser:page
     for="*"
+    name="addOutcomeCCSMonitoring"
+    class=".api.code.addOutcomeCCSMonitoring"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
     name="removeElement"
     class=".api.code.Delete"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
@@ -131,6 +169,13 @@
     for="*"
     name="updateOutcomeCCS"
     class=".api.code.UpdateOutcomeCCS"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
+    name="updateOutcomeCCSMonitoring"
+    class=".api.code.UpdateOutcomeCCSMonitoring"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 

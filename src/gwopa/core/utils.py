@@ -13,6 +13,10 @@ from Products.CMFCore.utils import getToolByName
 from zope.interface import directlyProvides
 
 
+def percentage(part, whole):
+    return round(100 * float(part) / float(whole), 0)
+
+
 def project_currency(self):
     """ Specify the project currency. """
     currency = getattr(self.context, 'currency', None)
@@ -35,7 +39,8 @@ def generate_vocabulary(value):
     """ Generates Dropdown with the countries. """
     vocabulary_list = []
     for row in value:
-        entry = SimpleTerm(value=unicodedata.normalize('NFKD', row).encode('ascii', errors='ignore').decode('ascii'), title=_(row))
+        entry = SimpleTerm(value=unicodedata.normalize('NFKD', row).encode(
+            'ascii', errors='ignore').decode('ascii'), title=_(row))
         vocabulary_list.append(entry)
     return SimpleVocabulary(vocabulary_list)
 
@@ -169,7 +174,8 @@ directlyProvides(outputs, IContextSourceBinder)
 def area_title(context):
     """ Titles of Improvement Areas. """
     terms = []
-    literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
+    literals = api.content.find(portal_type="ItemArea", context=api.portal.get()[
+                                'config']['areas'], depth=1)
     for item in literals:
         terms.append(item.Title)
     return safe_simplevocabulary_from_values(terms)

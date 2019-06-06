@@ -229,6 +229,7 @@ class setup(grok.View):
         settingspage.currency = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
         settingspage.measuring_unit = 'liters\nm3\npeople\nothers'
         settingspage.measuring_frequency = 'Annually,1\nBiannually,2\nQuarterly,4'
+        settingspage.degree_changes = '-2\n-1\n0\n1\n2'
         portal = api.portal.get()
 
         # Create demo Platforms
