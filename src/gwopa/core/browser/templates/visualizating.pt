@@ -68,19 +68,9 @@
         <div class="information" >
           <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3>
           <div class="primerafila">
-            <tal:block repeat="item outcome/specifics">
+            <tal:block repeat="item outcome/monitoring">
               <tal:block condition="python: item['short_category'] == 'transformational'">
-                <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
-                tal:attributes="
-                          data-pk currentYear;
-                          data-urloutcomeccs outcome/url;
-                          data-id_specific item/id_specific;
-                          data-description item/description;
-                          data-base-value item/baseline;
-                          data-base-date item/baseline_date;
-                          data-objective item/objective;
-                          data-objective-date item/objective_date;
-                          class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                <a tal:attributes="class string:editOutcomeCCS item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                   </div>
@@ -96,19 +86,9 @@
           </div>
           <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3>
           <div class="segundafila">
-            <tal:block repeat="item outcome/specifics">
+            <tal:block repeat="item outcome/monitoring">
               <tal:block condition="python: item['short_category'] == 'transactional'">
-                <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
-                tal:attributes="
-                          data-pk currentYear;
-                          data-urloutcomeccs outcome/url;
-                          data-id_specific item/id_specific;
-                          data-description item/description;
-                          data-base-value item/baseline;
-                          data-base-date item/baseline_date;
-                          data-objective item/objective;
-                          data-objective-date item/objective_date;
-                          class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                <a tal:attributes="class string:editOutcomeCCS item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                   </div>
@@ -124,19 +104,9 @@
           </div>
           <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3>
           <div class="tercerafila">
-            <tal:block repeat="item outcome/specifics">
+            <tal:block repeat="item outcome/monitoring">
               <tal:block condition="python: item['short_category'] == 'individual'">
-                <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
-                tal:attributes="
-                          data-pk currentYear;
-                          data-urloutcomeccs outcome/url;
-                          data-id_specific item/id_specific;
-                          data-description item/description;
-                          data-base-value item/baseline;
-                          data-base-date item/baseline_date;
-                          data-objective item/objective;
-                          data-objective-date item/objective_date;
-                          class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                <a tal:attributes="class string:editOutcomeCCS item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                   </div>
@@ -152,21 +122,11 @@
           </div>
         </div>
         <div class="information">
-          <div class="">
-            <tal:block repeat="item outcome/specifics">
-              <h3 class="capacity-title" i18n:translate="" tal:condition="python: item['short_category'] == 'other'">Others</h3>
+          <h3 class="capacity-title" i18n:translate="">Others</h3>
+          <div class="cuartafila">
+            <tal:block repeat="item outcome/monitoring">
               <tal:block condition="python: item['short_category'] == 'other'">
-                <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
-                  tal:attributes="
-                          data-pk currentYear;
-                          data-urloutcomeccs outcome/url;
-                          data-id_specific item/id_specific;
-                          data-description item/description;
-                          data-base-value item/baseline;
-                          data-base-date item/baseline_date;
-                          data-objective item/objective;
-                          data-objective-date item/objective_date;
-                          class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
+                <a tal:attributes="class string:editOutcomeCCS item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
                       <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                   </div>
@@ -180,6 +140,23 @@
               </tal:block>
             </tal:block>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="stages">
+      <h2 class="bolder" i18n:translate="">Stages</h2>
+      <div class="progress">
+        <div class="progress-bar progress-bar-achieved" style="width: 25%">
+          Stage 1
+        </div>
+        <div class="progress-bar progress-bar-achieved progress-bar-striped" style="width: 25%">
+          Stage 2
+        </div>
+        <div class="progress-bar progress-bar-todo" style="width: 25%">
+          Stage 3
+        </div>
+        <div class="progress-bar progress-bar-todo progress-bar-striped" style="width: 25%">
+          Stage 4
         </div>
       </div>
     </div>

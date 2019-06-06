@@ -153,8 +153,9 @@ class visualizatingView(BrowserView):
             description = ''
             objective = ''
             objective_date = ''
-            target_value_planned = ''
+            target_value_planned = _(u"Not defined")
             specifics = ''
+            monitoring = ''
             if KEY in annotations.keys():
                 if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
                     base_value = annotations[KEY]['generic'][0]['baseline']
@@ -164,6 +165,7 @@ class visualizatingView(BrowserView):
                     objective_date = annotations[KEY]['generic'][0]['objective_date']
                     target_value_planned = annotations[KEY]['planned']
                     specifics = annotations[KEY]['specifics']
+                    monitoring = annotations[KEY]['monitoring']
 
             if obj.members:
                 users = obj.members
@@ -187,6 +189,7 @@ class visualizatingView(BrowserView):
                 objective_date=objective_date,
                 target_value_planned=target_value_planned,
                 specifics=specifics,
+                monitoring=monitoring,
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
