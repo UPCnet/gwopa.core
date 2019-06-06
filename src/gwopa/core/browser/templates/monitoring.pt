@@ -435,7 +435,7 @@
                                     data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                            <i class="fas fa-circle" tal:attributes="id string:${item/selected_monitoring};"></i>
+                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             <div class="item_image" tal:condition="not:item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                             </div>
@@ -467,7 +467,7 @@
                                     data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                            <i class="fas fa-circle" tal:attributes="id string:${item/selected_monitoring};"></i>
+                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             <div class="item_image" tal:condition="not:item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                             </div>
@@ -499,7 +499,7 @@
                                     data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                            <i class="fas fa-circle" tal:attributes="id string:${item/selected_monitoring};"></i>
+                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             <div class="item_image" tal:condition="not:item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                             </div>
@@ -533,7 +533,7 @@
                                     data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                            <i class="fas fa-circle" tal:attributes="id string:${item/selected_monitoring};"></i>
+                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             <div class="item_image" tal:condition="not:item/selected_specific">
                                 <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                             </div>

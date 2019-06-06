@@ -33,11 +33,13 @@ def projectAdded(content, event):
             api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
 
     # Assign fases to internal field
-    content.gwopa_year_phases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
+    content.gwopa_year_phases = int(
+        math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
 
     # Asign default image if not set
     if content.image is None:
-        data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
+        data = requests.get(api.portal.get().aq_parent.absolute_url(
+        ) + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
         default_image = NamedBlobImage(data=data,
                                        filename=u'image.jpg',
                                        contentType='image/jpeg')
@@ -47,10 +49,14 @@ def projectAdded(content, event):
     fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
     date1 = content.startactual
     date2 = content.completionactual
-    datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)] + [date2.strftime("%B %d, %Y")]
-    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%m-%d") for i in range(date2.year - date1.year + 1)] + [date2.strftime("%Y-%m-%d")]
-    patterndate = [(date1 - dateutil.relativedelta.relativedelta(months=1) + relativedelta(years=i)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
-    patterndate.append((date2 - dateutil.relativedelta.relativedelta(months=1)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
+    datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y")
+             for i in range(date2.year - date1.year + 1)] + [date2.strftime("%B %d, %Y")]
+    isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%m-%d")
+               for i in range(date2.year - date1.year + 1)] + [date2.strftime("%Y-%m-%d")]
+    patterndate = [(date1 - dateutil.relativedelta.relativedelta(months=1) + relativedelta(years=i)).strftime(
+        "%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
+    patterndate.append((date2 - dateutil.relativedelta.relativedelta(months=1)
+                        ).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
 
     results = []
     if fases > 1:
@@ -134,7 +140,8 @@ def projectModified(content, event):
 
         # Asign default image if not set
         if content.image is None:
-            data = requests.get(api.portal.get().aq_parent.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
+            data = requests.get(api.portal.get().aq_parent.absolute_url(
+            ) + '/++theme++gwopa.theme/assets/images/default_image.jpg', verify=False, timeout=10).content
             default_image = NamedBlobImage(data=data,
                                            filename=u'image.jpg',
                                            contentType='image/jpeg')
@@ -144,10 +151,14 @@ def projectModified(content, event):
         fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
         date1 = content.startactual
         date2 = content.completionactual
-        datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y") for i in range(date2.year - date1.year + 1)] + [date2.strftime("%B %d, %Y")]
-        isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%m-%d") for i in range(date2.year - date1.year + 1)] + [date2.strftime("%Y-%m-%d")]
-        patterndate = [(date1 - dateutil.relativedelta.relativedelta(months=1) + relativedelta(years=i)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
-        patterndate.append((date2 - dateutil.relativedelta.relativedelta(months=1)).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
+        datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y")
+                 for i in range(date2.year - date1.year + 1)] + [date2.strftime("%B %d, %Y")]
+        isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%m-%d")
+                   for i in range(date2.year - date1.year + 1)] + [date2.strftime("%Y-%m-%d")]
+        patterndate = [(date1 - dateutil.relativedelta.relativedelta(months=1) + relativedelta(years=i)).strftime(
+            "%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
+        patterndate.append((date2 - dateutil.relativedelta.relativedelta(months=1)
+                            ).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
 
         results = []
         if fases > 1:
@@ -178,7 +189,8 @@ def projectModified(content, event):
 
         # Assign Areas
         new_areas = content.areas
-        current = [a.Title for a in api.content.find(portal_type="ImprovementArea", context=content, depth=1)]
+        current = [a.Title for a in api.content.find(
+            portal_type="ImprovementArea", context=content, depth=1)]
 
         new_areas = content.areas
         if new_areas is None:
@@ -230,17 +242,17 @@ def improvementAreaAdded(content, event):
         container=content)
 
     obj = api.content.create(
-            type='OutcomeCC',
-            id='outcomecc',
-            title='OutcomeCC',
-            container=content)
+        type='OutcomeCC',
+        id='outcomecc',
+        title='OutcomeCC',
+        container=content)
 
     annotations = IAnnotations(obj)
     for x in range(0, 11):  # Create 10 annotations
         generic = []
         outcomeccgeneric_info = dict(
-            id_specific = obj.id,
-            description = obj.description,
+            id_specific=obj.id,
+            description=obj.description,
             baseline=obj.baseline,
             baseline_date=obj.baseline_date,
             objective=obj.objective,
@@ -258,9 +270,9 @@ def improvementAreaAdded(content, event):
             capacitychanges_obj = result.getObject()
             category = capacitychanges_obj.short_category
             outcomeccspecific_info = dict(
-                id_specific = specific_obj.id,
-                title_specific = specific_obj.title,
-                description = specific_obj.description,
+                id_specific=specific_obj.id,
+                title_specific=specific_obj.title,
+                description=specific_obj.description,
                 url='/'.join(specific_obj.getPhysicalPath()),
                 selected_specific='',
                 icon_url='++theme++gwopa.theme/assets/images/' + capacitychanges_obj.id + '.png',
@@ -273,9 +285,9 @@ def improvementAreaAdded(content, event):
             )
             specifics.append(outcomeccspecific_info)
             outcomeccmonitoring_info = dict(
-                id_specific = specific_obj.id,
-                title_specific = specific_obj.title,
-                description = specific_obj.description,
+                id_specific=specific_obj.id,
+                title_specific=specific_obj.title,
+                description=specific_obj.description,
                 url='/'.join(specific_obj.getPhysicalPath()),
                 selected_specific='',
                 icon_url='++theme++gwopa.theme/assets/images/' + capacitychanges_obj.id + '.png',
@@ -289,12 +301,14 @@ def improvementAreaAdded(content, event):
                 contributing_factors=specific_obj.contributing_factors,
                 limiting_factors=specific_obj.limiting_factors,
                 explain=specific_obj.explain,
-                selected_monitoring='empty',
+                selected_monitoring='notset',
             )
             monitoring.append(outcomeccmonitoring_info)
-        data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
+        data = dict(real='', planned='', monitoring=monitoring,
+                    generic=generic, specifics=specifics)
         KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
         annotations[KEY] = data
+
 
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)
 # @grok.subscribe(IOutcomeccs, IObjectAddedEvent)
@@ -319,8 +333,10 @@ def updateCustomLangCookie(event):
     """
     if 'language' in event.data:
         if event.data['language']:
-            event.context.request.response.setCookie('I18N_LANGUAGE', event.data['language'], path='/')
-            event.context.request.response.redirect(event.context.context.absolute_url() + '/@@personal-information')
+            event.context.request.response.setCookie(
+                'I18N_LANGUAGE', event.data['language'], path='/')
+            event.context.request.response.redirect(
+                event.context.context.absolute_url() + '/@@personal-information')
 
 
 @grok.subscribe(IUserLoggedInEvent)
