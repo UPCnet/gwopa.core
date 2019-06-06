@@ -38,13 +38,20 @@
       </select>
     </div>
     <div class="charts">
-      <div id="chartActivity">
+      <div id="graphicActivity">
         <h2 class="bolder" i18n:translate="">Activities</h2>
-        <div id="timeline-chart"></div>
+        <div id="chartActivity">
+          <div id="timeline-chart"></div>
+        </div>
       </div>
-      <div id="chartOutput">
+      <div id="graphicOutput">
         <h2 class="bolder" i18n:translate="">Outputs</h2>
-        <div id="timeline-chart"></div>
+        <div id="chartOutput">
+          <div id="timeline-chart"></div>
+        </div>
+      </div>
+      <div id="noInfo">
+        <h2 class="bolder" i18n:translate="">There are no Activities and Outputs plannified/monitorized on this Working Area and year.</h2>
       </div>
     </div>
     <div class="capacities">
