@@ -120,7 +120,7 @@ class mapView(BrowserView):
         values = []
         for item in items:
             value = item.getObject().total_budget
-            if value != 0:
+            if value and value != 0:
                 values.append(int(value / 100) * 100)
         values.sort()
         values.append(int(values[-1:][0]) + 100)
