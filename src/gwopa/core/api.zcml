@@ -86,6 +86,22 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+      for="*"
+      name="api-getContributed"
+      class=".api.code.getContributed"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="*"
+      name="api-getConsensus"
+      class=".api.code.getConsensus"
+      permission="zope.Public"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
   <!-- API values returned to show output modal -->
   <browser:page
       for="*"
@@ -176,6 +192,13 @@
     for="*"
     name="updateOutcomeCCSMonitoring"
     class=".api.code.UpdateOutcomeCCSMonitoring"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
+    name="updateStageMonitoring"
+    class=".api.code.UpdateStageMonitoring"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"
     permission="cmf.ModifyPortalContent" />
 

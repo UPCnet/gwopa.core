@@ -421,15 +421,19 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/degree_changes;
+                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
                                     data-objective-date item/objective_date;
                                     data-degree-changes item/degree_changes;
+                                    data-contributed-project item/contributed_project;
                                     data-contributing-factors item/contributing_factors;
+                                    data-obstacles item/obstacles;
                                     data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
+                                    data-consensus item/consensus;
+                                    data-selected-monitoring item/selected_monitoring;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             <div class="item_image" tal:condition="not:item/selected_specific">
@@ -459,9 +463,13 @@
                                     data-objective item/objective;
                                     data-objective-date item/objective_date;
                                     data-degree-changes item/degree_changes;
+                                    data-contributed-project item/contributed_project;
                                     data-contributing-factors item/contributing_factors;
+                                    data-obstacles item/obstacles;
                                     data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
+                                    data-consensus item/consensus;
+                                    data-selected-monitoring item/selected_monitoring;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             <div class="item_image" tal:condition="not:item/selected_specific">
@@ -491,9 +499,13 @@
                                     data-objective item/objective;
                                     data-objective-date item/objective_date;
                                     data-degree-changes item/degree_changes;
+                                    data-contributed-project item/contributed_project;
                                     data-contributing-factors item/contributing_factors;
+                                    data-obstacles item/obstacles;
                                     data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
+                                    data-consensus item/consensus;
+                                    data-selected-monitoring item/selected_monitoring;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             <div class="item_image" tal:condition="not:item/selected_specific">
@@ -525,9 +537,13 @@
                                     data-objective item/objective;
                                     data-objective-date item/objective_date;
                                     data-degree-changes item/degree_changes;
+                                    data-contributed-project item/contributed_project;
                                     data-contributing-factors item/contributing_factors;
+                                    data-obstacles item/obstacles;
                                     data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
+                                    data-consensus item/consensus;
+                                    data-selected-monitoring item/selected_monitoring;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             <div class="item_image" tal:condition="not:item/selected_specific">
@@ -550,6 +566,11 @@
                           <span>Add other</span>
                         </div>
                       </a>
+                    </div>
+                  </div>
+                  <div class="information cc_container_others">
+                    <div class="modal-footer">
+                      <a type="submit" class="btn button-save" data-toggle="modal" data-target="#modalUpdateStage" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url; data-stage outcome/stage; id string:${outcome/rid}-update-stage" i18n:translate="">Stage</a>
                     </div>
                   </div>
                 </div>
@@ -598,20 +619,34 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <div class="col-xs-6 col-md-6">
+                  <div class="col-xs-4 col-md-4">
                       <label i18n:translate=""> Degree of change </label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="outcomeccs-degree_changes" style="width: 100%;" type="hidden"/>
                   </div>
-                  <div class="col-xs-6 col-md-6">
-                    <label class="control-label" i18n:translate="">Explain</label>
-                    <input class="form-control" id="outcomeccs-explain"></input>
+                  <div class="col-xs-4 col-md-4">
+                      <label i18n:translate=""> How much has contributed </label>
+                      <input id="outcomeccs-contributed_project" style="width: 100%;" type="hidden"/>
+                  </div>
+                  <div class="col-xs-4 col-md-4">
+                      <label i18n:translate=""> Consensus </label>
+                      <input id="outcomeccs-consensus" style="width: 100%;" type="hidden"/>
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
-                    <label for="message-text" class="control-label" i18n:translate="">Main contributing factors</label>
-                    <input class="form-control" id="outcomeccs-contributing_factors" />
+                      <label i18n:translate=""> Main Obstacles </label>
+                      <input id="outcomeccs-obstacles" style="width: 100%;" type="hidden"/>
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                      <label i18n:translate=""> Main Contributing factors </label>
+                      <input id="outcomeccs-contributing_factors" style="width: 100%;" type="hidden"/>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                    <label class="control-label" i18n:translate="">Explain</label>
+                    <input class="form-control" id="outcomeccs-explain"></input>
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label class="control-label" i18n:translate="">Main limiting factors</label>
@@ -650,6 +685,60 @@
             <div class="modal-footer">
               <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
               <a type="submit" class="btn button-save" id="addOutcomeCCSMonitoringFromModal"  data-dismiss="modal" i18n:translate="">Add</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalUpdateStage" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalUpdateStage" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="toClearAddOutcomeCC">
+             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalUpdateStage" i18n:translate=""> Select Stage of this Working Area </h4>
+            </div>
+            <div class="modal-body" id="UpdateStage" >
+              <div class="modal-url" id="OutcomeCCSPathStage" style="display:none"></div>
+              <div class="modal-stage" id="Stage" style="display:none"></div>
+              <span class="modal-pk" id="OutcomeCCSYearStage" style="display:none"></span>
+              <div class="row">
+                <div class="form-group row">
+                  <div id="StageRadio" class="col-xs-2 col-md-2">
+                    <label class="container"> Stage 1
+                      <input type="radio" name="radio" id="checkstage1" value="1">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container"> Stage 2
+                      <input type="radio" name="radio" id="checkstage2" value="2">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container"> Stage 3
+                      <input type="radio" name="radio" id="checkstage3" value="3">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container"> Stage 4
+                      <input type="radio" name="radio" id="checkstage4" value="4">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="col-xs-10 col-md-10">
+                    <label class="container" i18n:translate="">Identifying needs and course of action
+                    </label>
+                    <label class="container" i18n:translate="">Creating conditions of change
+                    </label>
+                    <label class="container" i18n:translate="">Initial changes in the organization start to materialize
+                    </label>
+                    <label class="container" i18n:translate="">Changes have become routine and are well embedded in the organization
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="updateStageMonitoringFromModal"  data-dismiss="modal" i18n:translate="">Update</a>
             </div>
           </form>
         </div>

@@ -51,6 +51,11 @@ class IOutcomecc(model.Schema):
         required=False
     )
 
+    stage = schema.TextLine(
+        title=_(u"Stage"),
+        required=False,
+    )
+
 
 class View(grok.View):
     grok.context(IOutcomecc)

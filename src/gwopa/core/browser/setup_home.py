@@ -230,6 +230,9 @@ class setup(grok.View):
         settingspage.measuring_unit = 'liters\nm3\npeople\nothers'
         settingspage.measuring_frequency = 'Annually,1\nBiannually,2\nQuarterly,4'
         settingspage.degree_changes = '-2\n-1\n0\n1\n2'
+        settingspage.contributed_project = '0\n1\n2'
+        settingspage.consensus = 'Yes\nNo'
+
         portal = api.portal.get()
 
         # Create demo Platforms
