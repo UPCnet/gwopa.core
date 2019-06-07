@@ -146,28 +146,49 @@ class planningView(BrowserView):
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
         data_year = self.context.gwopa_year_phases[int(self.year) - 1]
-        # start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%d-%m')
-        # end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
-        # date_range_query = {'query': (start, end), 'range': 'min:max'},
-        # start=date_range_query,
-        items = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Activity'],
+
+        start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+        end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+        range_start = {'query': (start, end), 'range': 'min:max'}
+        items1 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity', 'Output'],
+            start=range_start,
             path={'query': folder_path,
                   'depth': 1})
 
-        # date_range_query = {'query': (end, end), 'range': 'max'}
-        #     end=date_range_query,
-        outputs = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Output'],
+        range_start = {'query': (start), 'range': 'min'}
+        items2 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity', 'Output'],
+            start=range_start,
             path={'query': folder_path,
                   'depth': 1})
-        items = items + outputs
-        results = []
-        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+
+        range_end = {'query': (start, end), 'range': 'min:max'}
+        items3 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity', 'Output'],
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        range_end = {'query': (end), 'range': 'max'}
+        items4 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity', 'Output'],
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        elements = []
+        items = items1 + items2 + items3 + items4
         for item in items:
+            if item.getObject() not in elements:
+                elements.append(item.getObject())
+        results = []
+
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+        for item in elements:
             members = []
-            obj = item.getObject()
-            annotations = IAnnotations(item.getObject())
+            annotations = IAnnotations(item)
             if KEY in annotations.keys():
                 if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
                     target_value_planned = _(u"Not defined")
@@ -179,13 +200,13 @@ class planningView(BrowserView):
             if item.portal_type == 'Activity':
                 unit = ''
             else:
-                unit = obj.measuring_unit
+                unit = item.measuring_unit
             if not item.start:
                 item.start = '-----'
             if not item.end:
                 item.end = '-----'
-            if obj.members:
-                users = obj.members
+            if item.members:
+                users = item.members
                 if isinstance(users, (str,)):
                     members.append(api.user.get(username=users).getProperty('fullname'))
                 else:
@@ -198,20 +219,20 @@ class planningView(BrowserView):
                 start = '----'
                 limit_start = '----'
             else:
-                start = item.start.strftime('%Y-%m')
+                start = item.start.strftime('%Y-%m-%d')
                 limit_start = item.start.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ',')
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
                 portal_type=item.portal_type,
                 start=start,
-                end=item.end.strftime('%Y-%m'),
+                end=item.end.strftime('%Y-%m-%d'),
                 unit=unit,
                 limit_start=limit_start,
                 limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
                 target_value_planned=target_value_planned,
                 responsible=members,
-                url='/'.join(obj.getPhysicalPath())))
+                url='/'.join(item.getPhysicalPath())))
         return results
 
     def listOutcomesKPI(self):

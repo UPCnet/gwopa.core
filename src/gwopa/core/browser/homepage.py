@@ -159,6 +159,8 @@ class MainTemplate(BrowserView):
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     def allProjects(self):
+        # Return random objects 8 if there are more than 8 elements
+        # in The site, or 4 if no more than 8
         catalog = api.portal.get_tool('portal_catalog')
         projects = catalog.unrestrictedSearchResults(
             portal_type='Project')
@@ -187,7 +189,7 @@ class MainTemplate(BrowserView):
         if len(results) > limit:
             items_to_show = limit
         else:
-            items_to_show = len(results)
+            items_to_show = 4
         return random.sample(results, items_to_show)
 
     def abreviaText(self, text, count=100):

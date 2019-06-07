@@ -49,6 +49,10 @@ msgstr "-"
 msgid "A string and the number of notifications per year, separated by comma. One per line. Ex: Annually,1"
 msgstr "A string and the number of notifications per year, separated by comma. One per line. Ex: Annually,1"
 
+#: ../browser/templates/monitoring.pt:60
+msgid "Achieved/Target"
+msgstr ""
+
 #: ../browser/templates/manage_portal.pt:38
 msgid "Action"
 msgstr "Action"
@@ -65,6 +69,7 @@ msgstr "Activity"
 msgid "Actual"
 msgstr "Actual"
 
+#: ../browser/templates/monitoring.pt:648
 #: ../browser/templates/planning.pt:939
 msgid "Add"
 msgstr "Add"
@@ -93,6 +98,7 @@ msgstr "Add Output"
 msgid "Add new KPI title"
 msgstr "Add new KPI title"
 
+#: ../browser/templates/monitoring.pt:634
 #: ../browser/templates/planning.pt:925
 msgid "Add other specific"
 msgstr "Add another specific"
@@ -127,9 +133,9 @@ msgstr "Association to platforms or programs"
 msgid "Baseline"
 msgstr "Baseline"
 
+#: ../browser/templates/monitoring.pt:275
 #: ../browser/templates/planning.pt:225
 #: ../content/outcomecc.py:40
-#: ../content/outcomeccs.py:34
 msgid "Baseline date"
 msgstr "Baseline date"
 
@@ -137,9 +143,9 @@ msgstr "Baseline date"
 msgid "Baseline description"
 msgstr "Baseline description"
 
+#: ../browser/templates/monitoring.pt:578
 #: ../browser/templates/planning.pt:226
 #: ../content/outcomekpi.py:35
-#: ../content/outcomezone.py:41
 msgid "Baseline value"
 msgstr "Baseline value"
 
@@ -152,17 +158,18 @@ msgstr "Budget"
 msgid "Calendar"
 msgstr "Calendar"
 
+#: ../browser/templates/monitoring.pt:620
 #: ../browser/templates/planning.pt:517
 #: ../content/templates/project_view.pt:329
 msgid "Cancel"
 msgstr "Cancel"
 
-#: ../browser/templates/monitoring.pt:394
+#: ../browser/templates/monitoring.pt:390
 #: ../browser/templates/planning.pt:293
 msgid "Capacity"
 msgstr "Capacity"
 
-#: ../browser/templates/visualizating.pt:52
+#: ../browser/templates/visualizating.pt:59
 msgid "Capacity Changes"
 msgstr "Capacity Changes"
 
@@ -192,19 +199,19 @@ msgstr "Collaborating module"
 msgid "Collapse all <i class=\"fa fa-chevron-up\" aria-hidden=\"true\"></i>"
 msgstr "Collapse all <i class=\"fa fa-chevron-up\" aria-hidden=\"true\"></i>"
 
+#: ../browser/templates/monitoring.pt:59
 #: ../browser/templates/planning.pt:72
 #: ../content/activity.py:83
-#: ../content/output.py:36
 msgid "Completion date"
 msgstr "Completion date"
 
-#: ../portlets/sidenav.pt:71
+#: ../portlets/sidenav.pt:74
 msgid "Configuration"
 msgstr "Configuration"
 
 #: ../browser/templates/monitoring.pt:141
 msgid "Consideration for further planning"
-msgstr "Consideration for further planning"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:171
 #: ../content/templates/project_view.pt:199
@@ -254,9 +261,9 @@ msgstr "Currency"
 msgid "Currency Exchange"
 msgstr "Exchange currency"
 
-#: ../browser/templates/monitoring.pt:334
+#: ../browser/templates/monitoring.pt:330
 msgid "Current"
-msgstr "Current"
+msgstr ""
 
 #: ../portlets/sidenav.pt:61
 msgid "Dashboard"
@@ -272,7 +279,11 @@ msgstr "Define your language"
 
 #: ../browser/templates/monitoring.pt:107
 msgid "Degree (%)"
-msgstr "Degree (%)"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:598
+msgid "Degree of change"
+msgstr ""
 
 #: ../browser/setup_home.py:53
 msgid "Demo content has been created."
@@ -290,9 +301,9 @@ msgstr "Describe the contributing factors to the perceived changes"
 msgid "Describe the limiting factors to the perceived changes"
 msgstr "Describe the limiting factors to the perceived changes"
 
+#: ../browser/templates/monitoring.pt:573
 #: ../browser/templates/planning.pt:471
 #: ../content/activity.py:60
-#: ../content/improvement_area.py:37
 msgid "Description"
 msgstr "Description"
 
@@ -304,6 +315,7 @@ msgstr "Description and main objectives"
 msgid "Edit Capacity"
 msgstr "Edit Capacity"
 
+#: ../browser/templates/monitoring.pt:565
 #: ../browser/templates/planning.pt:875
 msgid "Edit Specific"
 msgstr "Edit Specific"
@@ -331,13 +343,18 @@ msgstr "End:"
 msgid "English"
 msgstr "English"
 
+#: ../browser/templates/monitoring.pt:603
+#: ../content/outcomeccs.py:64
+msgid "Explain"
+msgstr ""
+
 #: ../browser/templates/monitoring.pt:145
 msgid "Explain contributed and limiting factors"
-msgstr "Explain contributed and limiting factors"
+msgstr ""
 
 #: ../browser/templates/monitoring.pt:111
 msgid "Explanation Progress"
-msgstr "Explanation Progress"
+msgstr ""
 
 #: ../browser/configure.zcml:145
 msgid "Faceted listing view"
@@ -448,7 +465,7 @@ msgstr "In-cash"
 msgid "In-kind"
 msgstr "In-kind"
 
-#: ../browser/templates/visualizating.pt:90
+#: ../browser/templates/visualizating.pt:87
 msgid "Individual dimensions"
 msgstr "Individual dimensions"
 
@@ -539,19 +556,27 @@ msgstr "Longitude of this project. Used in the map view"
 
 #: ../browser/templates/monitoring.pt:127
 msgid "Main Contributing factors"
-msgstr "Main Contributing factors"
+msgstr ""
 
-#: ../browser/templates/monitoring.pt:134
+#: ../browser/templates/monitoring.pt:231
 msgid "Main Contributing factors title"
-msgstr "Main Contributing factors Title"
+msgstr ""
 
 #: ../browser/templates/monitoring.pt:115
 msgid "Main Obstacles"
-msgstr "Main Obstacles"
+msgstr ""
 
-#: ../browser/templates/monitoring.pt:122
+#: ../browser/templates/monitoring.pt:219
 msgid "Main Obstacles title"
-msgstr "Main Obstacles Title"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:609
+msgid "Main contributing factors"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:613
+msgid "Main limiting factors"
+msgstr ""
 
 #: ../content/templates/project_view.pt:119
 msgid "Main organizations and their contributions"
@@ -616,24 +641,37 @@ msgstr "My company Projects"
 msgid "Name"
 msgstr "Name"
 
+#: ../browser/templates/monitoring.pt:134
+msgid "New Main Contributing factor"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:122
+msgid "New Main Obstacle"
+msgstr ""
+
 #: ../browser/templates/planning.pt:547
 msgid "New Output Title"
 msgstr "New Output Title"
 
+#: ../browser/templates/monitoring.pt:61
+msgid "Next update"
+msgstr ""
+
 #: ../browser/monitoring.py:167
-#: ../browser/planning.py:173
+#: ../browser/planning.py:194
+#: ../browser/visualizating.py:156
 msgid "Not defined"
 msgstr "-"
 
+#: ../browser/templates/monitoring.pt:588
 #: ../browser/templates/planning.pt:849
 #: ../content/outcomecc.py:45
-#: ../content/outcomeccs.py:39
 msgid "Objective"
 msgstr "Objective"
 
+#: ../browser/templates/monitoring.pt:592
 #: ../browser/templates/planning.pt:853
 #: ../content/outcomecc.py:50
-#: ../content/outcomeccs.py:44
 msgid "Objective date"
 msgstr "Objective date"
 
@@ -645,15 +683,15 @@ msgstr "One per line, string and symbol merged with a dash. Ex: USD-US Dollar-$"
 msgid "One unit per line. Ex: liters"
 msgstr "One unit per line. Ex: liters"
 
-#: ../browser/templates/visualizating.pt:62
+#: ../browser/templates/visualizating.pt:69
 msgid "Organitzational transactional dimensions"
 msgstr "Organitzational transactional dimensions"
 
-#: ../browser/templates/visualizating.pt:118
+#: ../browser/templates/visualizating.pt:105
 msgid "Organitzational transformational dimensions"
 msgstr "Organitzational transformational dimensions"
 
-#: ../browser/templates/visualizating.pt:150
+#: ../browser/templates/visualizating.pt:125
 msgid "Others"
 msgstr "Others"
 
@@ -698,7 +736,7 @@ msgstr "Output"
 msgid "Outputdefaults"
 msgstr "Default Output value"
 
-#: ../browser/templates/visualizating.pt:46
+#: ../browser/templates/visualizating.pt:48
 msgid "Outputs"
 msgstr "Outputs"
 
@@ -720,8 +758,9 @@ msgstr "You can select more than one Partner"
 msgid "Partners"
 msgstr "Partners"
 
-#: ../browser/templates/monitoring.pt:302
+#: ../browser/templates/monitoring.pt:298
 #: ../browser/templates/planning.pt:221
+#: ../portlets/sidenav.pt:63
 msgid "Performance"
 msgstr "Performance"
 
@@ -816,10 +855,6 @@ msgstr "Region"
 msgid "Regional WOP Platform"
 msgstr "Regional WOP Platform"
 
-#: ../browser/templates/homepage.pt:158
-msgid "Remember that can find projects by Title, Objectives, Platform, Program, Country, Location or Partners"
-msgstr "Remember that can find projects by Title, Objectives, Platform, Program, Country, Location or Partners"
-
 #: ../browser/templates/planning.pt:557
 msgid "Remember that the related Activity dates are: Start:"
 msgstr "Remember that the related Activity dates are: Start:"
@@ -848,9 +883,13 @@ msgstr "Risks / Assumptions"
 msgid "Save"
 msgstr "Save"
 
-#: ../browser/templates/homepage.pt:134
+#: ../browser/templates/homepage.pt:135
 msgid "Search Projects"
 msgstr "Search Projects"
+
+#: ../browser/templates/homepage.pt:162
+msgid "Search projects by Title, Objectives, Platform, Program, Country, Location or Partners"
+msgstr ""
 
 #: ../content/project.py:202
 msgid "Select a country from the list"
@@ -864,19 +903,22 @@ msgstr "Select country"
 msgid "Select one or more associated Working Area"
 msgstr "Select one or more associated Working Area"
 
+#: ../content/outcomeccs.py:54
 #: ../content/outcomeccvalues.py:45
 msgid "Select the contributing factors to the perceived change"
 msgstr "Select the contributing factors to the perceived change"
 
+#: ../content/outcomeccs.py:59
 #: ../content/outcomeccvalues.py:55
 msgid "Select the limiting factors to the perceived change"
 msgstr "Select the limiting factors to the perceived change"
 
+#: ../content/outcomeccs.py:49
 #: ../content/outcomeccvalues.py:40
 msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr "Select what best represents the perceived degree of change with respect to the last reporting period"
 
-#: ../portlets/sidenav.pt:75
+#: ../portlets/sidenav.pt:78
 msgid "Settings"
 msgstr "Settings"
 
@@ -888,9 +930,17 @@ msgstr "Settings Page"
 msgid "Short Category"
 msgstr "Short Category"
 
+#: ../browser/templates/homepage.pt:165
+msgid "Show a map with all the Projects"
+msgstr ""
+
 #: ../browser/templates/reporting.pt:37
 msgid "Show all <i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>"
 msgstr "Show all <i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>"
+
+#: ../browser/templates/homepage.pt:155
+msgid "Show map Projects"
+msgstr ""
 
 #: ../browser/monitoring.py:118
 msgid "Show monitoring of year "
@@ -899,10 +949,6 @@ msgstr "Show monitoring of year"
 #: ../browser/planning.py:122
 msgid "Show planning of year "
 msgstr "Show planning of year "
-
-#: ../browser/templates/homepage.pt:154
-msgid "Show projects on Map"
-msgstr "Show projects on Map"
 
 #: ../browser/visualizating.py:119
 msgid "Show visualizating of year "
@@ -918,9 +964,14 @@ msgstr "Site Members"
 msgid "Spanish"
 msgstr "Spanish"
 
+#: ../browser/templates/monitoring.pt:641
 #: ../browser/templates/planning.pt:932
 msgid "Specific title"
 msgstr "Specific Title"
+
+#: ../browser/templates/visualizating.pt:147
+msgid "Stages"
+msgstr ""
 
 #: ../content/templates/activity_view.pt:26
 msgid "Start"
@@ -1006,6 +1057,10 @@ msgstr "The starting date must be before the completion date."
 msgid "The system will use the settings id. Change for testing purposes only."
 msgstr "The system will use the settings id. Change for testing purposes only."
 
+#: ../browser/templates/visualizating.pt:54
+msgid "There are no Activities and Outputs plannified/monitorized on this Working Area and year."
+msgstr ""
+
 #: ../content/activity.py:41
 msgid "This date must be between the dates of the project."
 msgstr "This date must be between the dates of the project."
@@ -1058,6 +1113,7 @@ msgstr "Uninstalls the gwopa.core add-on."
 msgid "Unit"
 msgstr "Unit"
 
+#: ../browser/templates/monitoring.pt:621
 #: ../browser/templates/planning.pt:862
 msgid "Update"
 msgstr "Update"
@@ -1080,11 +1136,11 @@ msgstr "Users in this Partner"
 
 #: ../browser/templates/monitoring.pt:271
 msgid "Utility Performance"
-msgstr "Utility Performance"
+msgstr ""
 
 #: ../browser/templates/monitoring.pt:204
 msgid "Value"
-msgstr "Value"
+msgstr ""
 
 #: ../content/templates/project_view.pt:273
 msgid "View all"
@@ -1142,6 +1198,7 @@ msgstr "Your company has no projects (or you don't have any assigned)."
 msgid "Your telephone number."
 msgstr "Your telephone number."
 
+#: ../browser/templates/monitoring.pt:276
 #: ../browser/templates/planning.pt:227
 #: ../content/outcomezone.py:30
 msgid "Zone"
@@ -1225,14 +1282,14 @@ msgid "title_previous_month"
 msgstr "Previous month"
 
 #. Default: "Search Site"
-#: ../browser/templates/homepage.pt:141
+#: ../browser/templates/homepage.pt:143
 msgid "title_search_site"
-msgstr "Search on projects"
+msgstr "Search projects..."
 
 #. Default: "Search Site"
-#: ../browser/templates/homepage.pt:141
+#: ../browser/templates/homepage.pt:143
 msgid "title_search_title"
-msgstr "Search on projects"
+msgstr "Search projects..."
 
 #: ../browser/templates/monitoring.pt:30
 #: ../browser/templates/planning.pt:30

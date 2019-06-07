@@ -36,7 +36,7 @@ def checkDate(value):
         start_project = context.aq_parent.startactual.toordinal()
         end_project = context.aq_parent.completionactual.toordinal()
         # portal = getUtility(ISiteRoot)
-        date = value.toordinal()
+        date = value.date().toordinal()
         if not (date <= end_project and date >= start_project):
             raise Invalid(_(u'This date must be between the dates of the project.'))
     return True
@@ -73,13 +73,13 @@ class IActivity(model.Schema):
         title=_(u'Project dates'),
     )
 
-    start = schema.Date(
+    start = schema.Datetime(
         title=_(u'Starting date'),
         required=True,
         constraint=checkDate
     )
 
-    end = schema.Date(
+    end = schema.Datetime(
         title=_(u'Completion date'),
         required=True,
         constraint=checkDate

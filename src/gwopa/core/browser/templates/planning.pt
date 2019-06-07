@@ -232,7 +232,7 @@
             </div>
             <div class="tabla_cuerpo">
               <tal:objects repeat="outcome outcomes">
-                <div class="col-md-12 text-item-planning">
+                <div class="col-md-12">
                   <div class="information object">
                     <div class="contentt row" id="total">
                       <div class="part1 label-nopart0">
@@ -296,7 +296,7 @@
               </div>
             </div>
             <div class="tabla_cuerpo">
-              <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
+              <div class="col-md-12" tal:repeat="outcome outcomes">
                 <div class="information object">
                   <div class="contentt row" id="total">
                     <div class="part0">

@@ -37,9 +37,9 @@
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="project">
-        <div id="activityWorkingArea" class="row row tabla_contenido_items" tal:define="areas view/getAreas">
+        <div id="activityWorkingArea" class="row tabla_contenido_items" tal:define="areas view/getAreas">
           <tal:objects repeat="area areas">
-            <div tal:define="files python:view.indicatorsInside(area);">
+            <tal:block tal:define="files python:view.indicatorsInside(area);">
               <div class="tabla_cabecera">
                 <div class="information object" id="header">
                   <div class="contentt" id="total">
@@ -55,15 +55,15 @@
                     </div>
                   </div>
                   <tal:block condition="files">
-                    <div class="contentt" id="bl" i18n:translate="">Starting date</div>
-                    <div class="contentt" id="comple">Completion Date</div>
-                    <div class="contentt" id="pyv">Achieved/Target</div>
-                    <div class="contentt" id="nexupd">Next update</div>
+                    <div class="contentt" id="bl" i18n:translate=""> Starting date </div>
+                    <div class="contentt" id="comple" i18n:translate="">Completion date </div>
+                    <div class="contentt" id="pyv" i18n:translate=""> Achieved/Target </div>
+                    <div class="contentt" id="nexupd" i18n:translate=""> Next update </div>
                   </tal:block>
                 </div>
               </div>
               <div class="tabla_cuerpo" tal:repeat="item files">
-                <div class="col-md-12 text-item-planning">
+                <div class="col-md-12 text-item-monitoring">
                   <div class="information object">
                     <div class="contentt" id="total">
                       <div class="part0">
@@ -81,10 +81,10 @@
                         </tal:block>
                       </div>
                       <div class="part1">
-                        <h5 tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type" i18n:translate=""> Activity/output label</h5>
+                        <span tal:attributes="class string:${item/portal_type}-planning" tal:content="item/portal_type" i18n:translate=""> Activity/output label</span>
                       </div>
                       <div class="part2 label-2nd">
-                        <h5 class="titulocatplan" tal:attributes="id string:${item/id}" tal:content="item/title"> Activity/Output Title </h5>
+                        <span class="titulocatplan" tal:attributes="id string:${item/id}" tal:content="item/title"> Activity/Output Title </span>
                       </div>
                     </div>
                     <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
@@ -103,36 +103,36 @@
                     <form id="updateActivity">
                       <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                         <div class="filacontenido">
-                          <div class="col-sm-1">
+                          <div class="col-sm-2">
                             <h5 i18n:translate="">Degree (%)</h5>
                             <input type="text" tal:attributes="id string:${item/id}-progress; value item/progress;">
                           </div>
-                          <div class="col-sm-5">
+                          <div class="col-sm-4">
                             <h5 i18n:translate="">Explanation Progress</h5>
                             <textarea class="form-control" rows="1" tal:content="item/explanation" tal:attributes="id string:${item/id}-explanation;"></textarea>
                           </div>
                           <div class="col-sm-3">
                             <h5 i18n:translate="">Main Obstacles</h5>
-                            <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/obstacles;" style="width: 100%" />
-                            <div tal:attributes="id string:${item/id}-addObstacleActivity" class="form-group col-sm-12">
+                            <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/obstacles;" style="width: 100%" placeholder="Search..."/>
+                            <div tal:attributes="id string:${item/id}-addObstacleActivity">
                               <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                              <span class="legend">Add new Main Obstacles if not listed in the before field</span>
+                              <span class="legend"> Add new Obstacle if not listed</span>
                             </div>
                             <div tal:attributes="id string:${item/id}-addObstaclesActivity" class="form-group col-sm-12">
-                              <h5 i18n:translate="">Main Obstacles title</h5>
-                              <input type="text" tal:attributes="id string:${item/id}-add-obs"  placeholder="Type title..."/>
+                              <h5 i18n:translate=""> New Main Obstacle </h5>
+                              <input type="text" tal:attributes="id string:${item/id}-add-obs" placeholder="Type Obstacle..."/>
                             </div>
                           </div>
                           <div class="col-sm-3">
                             <h5 i18n:translate="">Main Contributing factors</h5>
-                            <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/contributing;" style="width: 100%"/>
-                            <div tal:attributes="id string:${item/id}-addContributingActivity" class="form-group col-sm-12">
+                            <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/contributing;" style="width: 100%" placeholder="Search..." />
+                            <div tal:attributes="id string:${item/id}-addContributingActivity">
                               <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                              <span class="legend">Add new Main Contributing if not listed in the before field</span>
+                              <span class="legend"> Add new Contributing factor </span>
                             </div>
                             <div tal:attributes="id string:${item/id}-addContributingsActivity" class="form-group col-sm-12">
-                              <h5 i18n:translate="">Main Contributing factors title</h5>
-                              <input type="text" tal:attributes="id string:${item/id}-add-contrib" placeholder="Type title..."/>
+                              <h5 i18n:translate=""> New Main Contributing factor </h5>
+                              <input type="text" tal:attributes="id string:${item/id}-add-contrib" placeholder="Type Contributing factor..."/>
                             </div>
                           </div>
                         </div>
@@ -171,10 +171,10 @@
                             </tal:block>
                           </div>
                           <div class="part1">
-                            <h5 tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</h5>
+                            <span tal:attributes="class string:${output/portal_type}-planning second-level" tal:content="output/portal_type" i18n:translate="">Type Output</span>
                           </div>
                           <div class="part2 label-2nd">
-                            <h5 class="titulocatplan" tal:attributes="id output/id" tal:content="output/title">Item Title</h5>
+                            <span class="titulocatplan" tal:attributes="id output/id" tal:content="output/title">Item Title</span>
                           </div>
                         </div>
                         <div class="contentt" id="bl" tal:content="output/start">2019-03-29</div>
@@ -253,7 +253,7 @@
                   </tal:block>
                 </div>
               </div>
-            </div>
+            </tal:block>
           </tal:objects>
         </div>
       </div>
@@ -272,30 +272,26 @@
                   </div>
                 </div>
                 <tal:block condition="outcomes">
-                  <div class="contentt" id="comple">Baseline date</div>
-                  <div class="contentt" id="zone">Zone</div>
-                  <div class="contentt" id="pyv">Achieved/Target</div>
-                  <div class="contentt" id="nexupd">Next update</div>
+                  <div class="contentt" id="comple" i18n:translate="">Baseline date</div>
+                  <div class="contentt" id="zone" i18n:translate="">Zone</div>
+                  <div class="contentt" id="pyv" i18n:translate="">Achieved/Target</div>
+                  <div class="contentt" id="nexupd" i18n:translate="">Next update</div>
                 </tal:block>
               </div>
             </div>
-            <div class="tabla_cuerpo" tal:repeat="outcome outcomes">
-              <div class="col-md-12 text-item-planning">
+            <div tal:repeat="outcome outcomes">
+              <div class="col-md-12">
                 <div class="information object">
                   <div class="contentt" id="total">
                     <div class="part0">
                       <i class="fa fa-chevron-down expandKPIMo" aria-hidden="true"></i>
                       <i style="display: none" class="fa fa-chevron-up notexpandKPIMo" aria-hidden="true"></i>
-                      <tal:block tal:condition="outcome/updated">
-                        <span class="dot">
-                          <i id="done" class="fas fa-circle"></i>
-                        </span>
-                      </tal:block>
-                      <tal:block tal:condition="not: outcome/updated">
-                        <span class="dot">
-                          <i id="todo" class="fas fa-circle"></i>
-                        </span>
-                      </tal:block>
+                      <span class="dot" tal:condition="outcome/updated">
+                        <i id="done" class="fas fa-circle"></i>
+                      </span>
+                      <span class="dot" tal:condition="not: outcome/updated">
+                        <i id="todo" class="fas fa-circle"></i>
+                      </span>
                     </div>
                     <div class="part11">
                       <tal:block condition="python:outcome['portal_type'] == 'OutcomeZONE'">
@@ -391,12 +387,12 @@
                       <i style="display: none" class="fa fa-chevron-down expandCapMo" aria-hidden="true"></i>
                       <i class="fa fa-chevron-up notexpandCapMo" aria-hidden="true"></i>
                     </tal:block>
-                    <span id="capacity"  i18n:translate="">Capacity </span>
+                    <span id="capacity" i18n:translate="">Capacity </span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="tabla_cuerpo">
+            <div class="">
               <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
                 <div class="information object">
                   <div class="contentt row" id="total">
@@ -479,7 +475,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <span tal:content="item/title_specific">Leadership</span>
+                              <tal:omit-tag tal:content="item/title_specific">Leadership</tal:omit-tag>
                             </div>
                           </a>
                         </tal:block>
@@ -515,7 +511,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <span tal:content="item/title_specific">Leadership</span>
+                              <tal:omit-tag tal:content="item/title_specific">Leadership</tal:omit-tag>
                             </div>
                           </a>
                         </tal:block>
@@ -553,7 +549,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <span tal:content="item/title_specific">Other</span>
+                              <tal:omit-tag tal:content="item/title_specific">Other</tal:omit-tag>
                             </div>
                           </a>
                         </tal:block>
@@ -563,7 +559,7 @@
                           <img src="++theme++gwopa.theme/assets/images/add.png" alt="" title=""/>
                         </div>
                         <div class="item_text">
-                          <span>Add other</span>
+                          <tal:omit-tag>Add other</tal:omit-tag>
                         </div>
                       </a>
                     </div>
@@ -605,7 +601,7 @@
                   </div>
                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
-                      <input readonly class="form-control" id="outcomeccs-baseline_date"></input>
+                      <input readonly class="form-control" id="outcomeccs-baseline_date" />
                   </div>
                 </div>
                 <div class="form-group row">
@@ -650,7 +646,7 @@
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label class="control-label" i18n:translate="">Main limiting factors</label>
-                    <input class="form-control" id="outcomeccs-limiting_factors"></input>
+                    <input class="form-control" id="outcomeccs-limiting_factors" />
                   </div>
                 </div>
               </div>
