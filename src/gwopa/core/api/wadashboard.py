@@ -86,29 +86,44 @@ class GetOutputs(BrowserView):
 
 
 class GetCapacityChanges(Service):
-    """Sevice for list groups linked to user."""
+    """Service for list Capacity Changes from WA and year."""
 
     def reply(self):
         """Answer for the webservice."""
-        # user = self.request.form.get('user', False)
-        # if not user:
-        #     BadRequest('User are required')
-        #
-        # mt = getToolByName(self, 'portal_membership')
-        # if mt.getMemberById(user) is None:
-        #     return self._error(
-        #         404, "Not Found",
-        #         "The user '{}' was deleted and currently does not exist".format(user)
-        #     )
-        #
-        # try:
-        #     username = api.user.get(username=user)
-        # except ComponentLookupError:
-        #     return self._error(
-        #         404, "Not Found",
-        #         "The user '{}' does not exist".format(user)
-        #     )
-        #
-        # groups = api.group.get_groups(user=username)
-        #
-        # return [g.id for g in groups]
+        wa_path = self.request.form.get('wa', False)
+        year = self.request.form.get('year', False)
+        if not wa_path:
+            BadRequest('Working area are required')
+        if not year:
+            BadRequest('Year are required')
+
+        results = []
+        specifics = []
+        others = []
+        outcomes = api.content.find(
+            portal_type=['OutcomeCC'],
+            path={'query': wa_path, 'depth': 1})
+        for outcome in outcomes:
+            annotations = IAnnotations(outcome.getObject())
+            KEY = "GWOPA_TARGET_YEAR_" + str(year)
+            if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring'][0]['icon_url_selected'] == '' or annotations[KEY]['monitoring'][0]['selected_monitoring'] == '':
+                pass
+            else:
+                for specific in annotations[KEY]['monitoring']:
+                    if specific['short_category'] == 'other':
+                        others.append(dict(
+                            id=specific['id_specific'],
+                            icon_basic=specific['icon_url_selected'],
+                            title_specific=specific['title_specific'],
+                            selected_monitoring=specific['selected_monitoring']))
+                    else:
+                        specifics.append(dict(
+                            id=specific['id_specific'],
+                            icon_basic=specific['icon_url_selected'],
+                            title_specific=specific['title_specific'],
+                            selected_monitoring=specific['selected_monitoring']))
+
+        results.append(specifics)
+        results.append(others)
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)

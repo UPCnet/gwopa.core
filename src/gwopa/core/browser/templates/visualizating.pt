@@ -70,7 +70,7 @@
           <div class="primerafila">
             <tal:block repeat="item outcome/monitoring">
               <tal:block condition="python: item['short_category'] == 'transformational'">
-                <a tal:attributes="class string:editOutcomeCCS item basic ${item/selected_monitoring};">
+                <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                   </div>
@@ -88,7 +88,7 @@
           <div class="segundafila">
             <tal:block repeat="item outcome/monitoring">
               <tal:block condition="python: item['short_category'] == 'transactional'">
-                <a tal:attributes="class string:editOutcomeCCS item basic ${item/selected_monitoring};">
+                <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                   </div>
@@ -106,7 +106,7 @@
           <div class="tercerafila">
             <tal:block repeat="item outcome/monitoring">
               <tal:block condition="python: item['short_category'] == 'individual'">
-                <a tal:attributes="class string:editOutcomeCCS item basic ${item/selected_monitoring};">
+                <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                   </div>
@@ -121,12 +121,12 @@
             </tal:block>
           </div>
         </div>
-        <div class="information">
+        <div id="others" class="information">
           <h3 class="capacity-title" i18n:translate="">Others</h3>
           <div class="cuartafila">
             <tal:block repeat="item outcome/monitoring">
               <tal:block condition="python: item['short_category'] == 'other'">
-                <a tal:attributes="class string:editOutcomeCCS item basic ${item/selected_monitoring};">
+                <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
                       <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                   </div>
@@ -145,7 +145,7 @@
     </div>
     <div class="stages">
       <h2 class="bolder" i18n:translate="">Stages</h2>
-      <div class="progress">
+      <!-- <div class="progress">
         <div class="progress-bar progress-bar-achieved" style="width: 25%">
           Stage 1
         </div>
@@ -158,6 +158,15 @@
         <div class="progress-bar progress-bar-todo progress-bar-striped" style="width: 25%">
           Stage 4
         </div>
+      </div> -->
+      <div class="col step">
+        <a ><i class="fa fa-eye" ></i><span>Step 1</span></a>
+      </div>
+      <div class="col-3 step">
+        <a><i class="fa fa-sliders" ></i><span>Step 2</span></a>
+      </div>
+      <div class="col step">
+        <a ><i class="fa fa-star" ></i><span>Step 3</span></a>
       </div>
     </div>
 

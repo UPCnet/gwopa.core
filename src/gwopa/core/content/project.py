@@ -383,15 +383,18 @@ class View(grok.View):
         """ Returns Site Members """
         users = self.context.members
         results = []
-        for user in users:
-            obj = api.user.get(username=user)
-            results.append(dict(
-                name=obj.getProperty('fullname'),
-                id=obj.getProperty('id'),
-                email=obj.getProperty('email'),
-                image=utils.getPortrait(self, user),
-            ))
-        return sorted(results, key=itemgetter('name'), reverse=False)
+        if users is None:
+            return []
+        else:
+            for user in users:
+                obj = api.user.get(username=user)
+                results.append(dict(
+                    name=obj.getProperty('fullname'),
+                    id=obj.getProperty('id'),
+                    email=obj.getProperty('email'),
+                    image=utils.getPortrait(self, user),
+                ))
+            return sorted(results, key=itemgetter('name'), reverse=False)
 
     def getFiles(self):
         """ Return files of the Area """

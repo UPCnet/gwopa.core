@@ -26,7 +26,7 @@
 
   <browser:page
       for="gwopa.core.content.project.IProject"
-      name="api-getCC"
+      name="api-getCapacityChanges"
       class=".api.wadashboard.GetCapacityChanges"
       permission="cmf.ModifyPortalContent"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
