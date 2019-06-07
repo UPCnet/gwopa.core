@@ -106,20 +106,20 @@ class GetCapacityChanges(Service):
         for outcome in outcomes:
             annotations = IAnnotations(outcome.getObject())
             KEY = "GWOPA_TARGET_YEAR_" + str(year)
-            if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring'][0]['icon_url_selected'] == '' or annotations[KEY]['monitoring'][0]['selected_monitoring'] == '':
+            if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring'][0]['icon_basic'] == '' or annotations[KEY]['monitoring'][0]['selected_monitoring'] == '':
                 pass
             else:
                 for specific in annotations[KEY]['monitoring']:
                     if specific['short_category'] == 'other':
                         others.append(dict(
                             id=specific['id_specific'],
-                            icon_basic=specific['icon_url_selected'],
+                            icon_basic=specific['icon_basic'],
                             title_specific=specific['title_specific'],
                             selected_monitoring=specific['selected_monitoring']))
                     else:
                         specifics.append(dict(
                             id=specific['id_specific'],
-                            icon_basic=specific['icon_url_selected'],
+                            icon_basic=specific['icon_basic'],
                             title_specific=specific['title_specific'],
                             selected_monitoring=specific['selected_monitoring']))
 
