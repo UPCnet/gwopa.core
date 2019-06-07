@@ -306,7 +306,7 @@ def improvementAreaAdded(content, event):
                 limiting_factors='',
                 consensus='',
                 explain='',
-                selected_monitoring='empty',
+                selected_monitoring='notset',
             )
             monitoring.append(outcomeccmonitoring_info)
 

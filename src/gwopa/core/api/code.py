@@ -334,7 +334,7 @@ class addOutcomeCCS(BrowserView):
             limiting_factors=specific_obj.limiting_factors,
             consensus=specific_obj.consensus,
             explain=specific_obj.explain,
-            selected_monitoring='empty',
+            selected_monitoring='notset',
         )
         monitoring.append(outcomeccmonitoring_info)
         data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
@@ -380,7 +380,7 @@ class addOutcomeCCSMonitoring(BrowserView):
             limiting_factors='',
             consensus='',
             explain='',
-            selected_monitoring='empty',
+            selected_monitoring='notset',
         )
         monitoring.append(outcomeccmonitoring_info)
         data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
