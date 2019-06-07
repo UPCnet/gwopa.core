@@ -28,7 +28,7 @@ class IOutcomezone(model.Schema):
 
     zone = schema.TextLine(
         title=_(u'Zone'),
-        required=True,
+        required=False,
     )
 
     description = schema.Text(

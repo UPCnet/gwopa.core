@@ -741,9 +741,9 @@
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                    <input type="hidden" class="pat-select2" id="kpizone-responsible"
+                    <input type="text" class="pat-select2" id="kpizone-responsible"
                               data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:api-select2-users.json;"/>
+                                                vocabularyUrl:api-select2-users.json;" />
                   </div>
                 </div>
                 <div class="form-group col-md-12">
@@ -949,7 +949,6 @@
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/planning.js"></script>
-
   </metal:block>
 
 </metal:content-core>

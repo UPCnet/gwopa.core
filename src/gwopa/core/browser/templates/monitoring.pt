@@ -279,7 +279,7 @@
                 </tal:block>
               </div>
             </div>
-            <div tal:repeat="outcome outcomes">
+            <div class="tabla_cuerpo" tal:repeat="outcome outcomes">
               <div class="col-md-12">
                 <div class="information object">
                   <div class="contentt" id="total">

@@ -278,7 +278,7 @@ class IProject(model.Schema):
         )
     )
 
-    # form.mode(gwopa_year_phases='hidden')
+    form.mode(gwopa_year_phases='hidden')
     gwopa_year_phases = schema.ASCIILine(
         title=_(u'Fases'),
         required=False

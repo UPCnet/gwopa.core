@@ -857,11 +857,11 @@ msgstr "Regional WOP Platform"
 
 #: ../browser/templates/planning.pt:557
 msgid "Remember that the related Activity dates are: Start:"
-msgstr "Remember that the related Activity dates are: Start:"
+msgstr "The dates must be between the limits of the related Activity. Start:"
 
 #: ../browser/templates/planning.pt:480
 msgid "Remember that the related Project dates are: Start:"
-msgstr "Remember that the related Project dates are: Start:"
+msgstr "The dates must be between the limits of this Project. Start:"
 
 #: ../browser/templates/planning.pt:74
 msgid "Responsible"
