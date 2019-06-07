@@ -50,13 +50,28 @@ class IOutcomeccs(model.Schema):
         required=False,
     )
 
+    contributed_project = schema.Text(
+        title=_(u"Select how much has contributed to the project"),
+        required=False,
+    )
+
     contributing_factors = schema.Text(
         title=_(u"Select the contributing factors to the perceived change"),
         required=False,
     )
 
+    obstacles = schema.Text(
+        title=_(u"Select the main obstacles"),
+        required=False,
+    )
+
     limiting_factors = schema.Text(
         title=_(u"Select the limiting factors to the perceived change"),
+        required=False,
+    )
+
+    consensus = schema.Text(
+        title=_(u"Cnsensus"),
         required=False,
     )
 

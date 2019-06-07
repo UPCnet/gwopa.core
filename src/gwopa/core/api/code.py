@@ -173,6 +173,47 @@ class getDegree(BrowserView):
         return json.dumps(results)
 
 
+class getContributed(BrowserView):
+    # /api-getContributed
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        results = []
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        if item:
+            values = item[0].getObject().contributed_project
+            terms = []
+            for value in values.split('\n'):
+                if value != '':
+                    terms.append(value)
+        terms.sort()
+        for item in terms:
+            results.append(dict(
+                name=item))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+class getConsensus(BrowserView):
+    # /api-getConsensus
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        results = []
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        if item:
+            values = item[0].getObject().consensus
+            terms = []
+            for value in values.split('\n'):
+                if value != '':
+                    terms.append(value)
+        terms.sort()
+        for item in terms:
+            results.append(dict(
+                name=item))
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
+
+
 class Delete(BrowserView):
 
     def __call__(self):
@@ -307,8 +348,11 @@ class addOutcomeCCS(BrowserView):
             objective=specific_obj.objective,
             objective_date=specific_obj.objective_date,
             degree_changes=specific_obj.degree_changes,
+            contributed_project=specific_obj.contributed_project,
             contributing_factors=specific_obj.contributing_factors,
+            obstacles=specific_obj.obstacles,
             limiting_factors=specific_obj.limiting_factors,
+            consensus=specific_obj.consensus,
             explain=specific_obj.explain,
             selected_monitoring='empty',
         )
@@ -348,10 +392,13 @@ class addOutcomeCCSMonitoring(BrowserView):
             baseline_date='',
             objective='',
             objective_date='',
-            degree_changes=specific_obj.degree_changes,
-            contributing_factors=specific_obj.contributing_factors,
-            limiting_factors=specific_obj.limiting_factors,
-            explain=specific_obj.explain,
+            degree_changes='',
+            contributed_project='',
+            contributing_factors='',
+            obstacles='',
+            limiting_factors='',
+            consensus='',
+            explain='',
             selected_monitoring='empty',
         )
         monitoring.append(outcomeccmonitoring_info)
@@ -521,6 +568,7 @@ class UpdateOutcomeCC(BrowserView):
         generic[0]['baseline_date'] = baseline_date
         generic[0]['objective'] = objective
         generic[0]['objective_date'] = objective_date
+        generic[0]['stage'] = ''
 
         specifics = annotations[KEY]['specifics']
         monitoring = annotations[KEY]['monitoring']
@@ -585,6 +633,9 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         objective_date = self.request.form['objective_date']
         id_specific = self.request.form['id_specific']
         degree_changes = self.request.form['degree_changes']
+        contributed_project = self.request.form['contributed_project']
+        consensus = self.request.form['consensus']
+        obstacles = self.request.form['obstacles']
         contributing_factors = self.request.form['contributing_factors']
         limiting_factors = self.request.form['limiting_factors']
         explain = self.request.form['explain']
@@ -613,6 +664,9 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
                 specific['objective_date'] = objective_date
                 specific['selected_specific'] = 'selected'
                 specific['degree_changes'] = degree_changes
+                specific['contributed_project'] = contributed_project
+                specific['consensus'] = consensus
+                specific['obstacles'] = obstacles
                 specific['contributing_factors'] = contributing_factors
                 specific['limiting_factors'] = limiting_factors
                 specific['explain'] = explain
@@ -620,6 +674,27 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
 
 
         generic = annotations[KEY]['generic']
+        data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
+        annotations[KEY] = data
+
+        return 'Ok, item updated'
+
+class UpdateStageMonitoring(BrowserView):
+
+    def __call__(self):
+        # TODO: check permissions. now cmf.ModifyPortalContent
+        year = self.request.form['year']
+        item_path = self.request.form['item_path']
+        stage = self.request.form['stage']
+
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        item = api.content.find(path=item_path, depth=0)[0]
+        annotations = IAnnotations(item.getObject())
+        generic = annotations[KEY]['generic']
+        generic[0]['stage'] = stage
+
+        specifics = annotations[KEY]['specifics']
+        monitoring = annotations[KEY]['monitoring']
         data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         annotations[KEY] = data
 

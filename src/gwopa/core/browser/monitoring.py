@@ -288,6 +288,7 @@ class monitoringView(BrowserView):
             description = ''
             objective = ''
             objective_date = ''
+            stage = ''
             target_value_planned = _(u"Not defined")
             specifics = ''
             monitoring = ''
@@ -298,6 +299,7 @@ class monitoringView(BrowserView):
                     description = annotations[KEY]['generic'][0]['description']
                     objective = annotations[KEY]['generic'][0]['objective']
                     objective_date = annotations[KEY]['generic'][0]['objective_date']
+                    stage = annotations[KEY]['generic'][0]['stage']
                     target_value_planned = annotations[KEY]['planned']
                     specifics = annotations[KEY]['specifics']
                     monitoring = annotations[KEY]['monitoring']
@@ -322,6 +324,7 @@ class monitoringView(BrowserView):
                 base_value=base_value,
                 objective=objective,
                 objective_date=objective_date,
+                stage = stage,
                 target_value_planned=target_value_planned,
                 specifics=specifics,
                 monitoring=monitoring,
