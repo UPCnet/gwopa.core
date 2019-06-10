@@ -284,21 +284,21 @@
       for="*"
       name="allProjects.json"
       class=".api.code.allProjectsMap"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="activeProjects.json"
       class=".api.code.activeProjectsMap"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="inactiveProjects.json"
       class=".api.code.inactiveProjectsMap"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <!-- End Map endpoints -->
