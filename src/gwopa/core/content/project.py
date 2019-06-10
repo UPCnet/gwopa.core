@@ -407,18 +407,21 @@ class View(grok.View):
             sort_order='reverse',
             sort_limit=5)
         results = []
-        lang = api.portal.get_current_language()
-        if lang == 'es':
-            FORMAT_DATE = '%d/%m/%Y'
+        if len(items) != 0:
+            lang = api.portal.get_current_language()
+            if lang == 'es':
+                FORMAT_DATE = '%d/%m/%Y'
+            else:
+                FORMAT_DATE = '%m/%d/%Y'
+            for item in items:
+                results += [{'title': item.Title,
+                             'portal_type': item.portal_type,
+                             'url': item.getURL(),
+                             'date': item.modification_date.strftime(FORMAT_DATE)
+                             }]
+            return results
         else:
-            FORMAT_DATE = '%m/%d/%Y'
-        for item in items:
-            results += [{'title': item.Title,
-                         'portal_type': item.portal_type,
-                         'url': item.getURL(),
-                         'date': item.modification_date.strftime(FORMAT_DATE)
-                         }]
-        return results
+            return None
 
     def donors(self):
         other = api.content.find(
@@ -456,17 +459,8 @@ class View(grok.View):
 
     def get_budget(self):
         # Assign total_budget value to index. Needed to find by value in Project Global Map
-        items = api.content.find(
-            portal_type=['ContribOther', 'ContribPartner', 'ContribDonor'],
-            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
-            depth=2)
-        total = 0
-        letter = utils.project_currency(self)
-        for item in items:
-            obj = item.getObject()
-            if obj.incash:
-                total = total + obj.incash
-            if obj.inkind:
-                total = total + obj.inkind
-        self.context.total_budget = total
-        return str(total) + ' ' + letter
+        if self.context.total_budget == 0:
+            return None
+        else:
+            letter = utils.project_currency(self)
+            return str(self.context.total_budget) + ' ' + letter

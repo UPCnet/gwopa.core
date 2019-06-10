@@ -173,6 +173,7 @@ class getContributed(BrowserView):
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(results)
 
+
 class getConsensus(BrowserView):
     # /api-getConsensus
     def __call__(self):
@@ -208,16 +209,20 @@ class CreatePartner(BrowserView):
 
     def __call__(self):
         item = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
+        project = api.content.find(path=self.request.form.get('item_path').replace('/contribs', ''), depth=0)[0].getObject()
         title = self.request.form.get('item_title')
         portal_type = self.request.form.get('item_type')
         obj = api.content.create(
             title=title,
             type=portal_type,
             container=item.getObject())
-
         obj.incash = Decimal(self.request.form.get('item_incash').replace(',', ''))
         obj.inkind = Decimal(self.request.form.get('item_inkind').replace(',', ''))
-
+        if project.total_budget is None:
+            value = 0
+        else:
+            value = project.total_budget
+        project.total_budget = value + obj.incash + obj.inkind
         return 'Ok, item created'
 
 

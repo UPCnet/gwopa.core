@@ -19,28 +19,41 @@
 
     <ul class="nav nav-tabs nav-tabs-settings settings" role="tablist">
       <li class="active">
+        <a href="#users" aria-controls="users" role="tab" data-toggle="tab" i18n:translate=""> Users </a>
+      </li>
+      <li>
         <a href="#project" aria-controls="project" role="tab" data-toggle="tab" i18n:translate=""> Projects </a>
       </li>
-      <li><a href="#areas" aria-controls="areas" role="tab" data-toggle="tab" i18n:translate=""> Working Areas </a></li>
-      <li><a href="#platforms" aria-controls="platforms" role="tab" data-toggle="tab" i18n:translate=""> WOP Platforms </a></li>
-      <li><a href="#programs" aria-controls="programs" role="tab" data-toggle="tab" i18n:translate=""> WOP Programs </a></li>
-      <li><a href="#partners" aria-controls="partners" role="tab" data-toggle="tab" i18n:translate=""> WOP Partners </a></li>
-      <li><a href="#users" aria-controls="users" role="tab" data-toggle="tab" i18n:translate=""> Users </a></li>
+      <li>
+        <a href="#areas" aria-controls="areas" role="tab" data-toggle="tab" i18n:translate=""> Working Areas </a>
+      </li>
+      <li>
+        <a href="#platforms" aria-controls="platforms" role="tab" data-toggle="tab" i18n:translate=""> WOP Platforms </a>
+      </li>
+      <li>
+        <a href="#programs" aria-controls="programs" role="tab" data-toggle="tab" i18n:translate=""> WOP Programs </a>
+      </li>
+      <li>
+        <a href="#partners" aria-controls="partners" role="tab" data-toggle="tab" i18n:translate=""> WOP Partners </a>
+      </li>
     </ul>
 
     <div class="tab-content">
-      <div class="tab-pane active" id="project">
+      <div class="tab-pane" id="project">
         <div class="tabla_items">
-          <div>
-            <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
-              <button id="add-new-project" class="context panel-button"> + New Project </button>
+          <h1> Projects 
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New Project </button>
            </a>
-          </div>
+           <a tal:attributes="href string:${portal_url}/projects/folder_contents" href="#">
+              <button class="context"><i class="fas fa-folder-open"></i> Go to Projects folder </button>
+           </a>
+         </h1>
           <tal:block tal:define="elements view/getProjects">
             <h2 tal:condition="not:elements" i18n:translate="">
               No Projects found in the Platform.
             </h2>
-            <table class="table table-condensed table-responsive sortable table-striped" tal:condition="elements">
+            <table class="table table-condensed table-bordered table-responsive sortable table-striped" tal:condition="elements">
               <thead>
                 <tr>
                   <th scope="col" i18n:translate="" i18n:translate=""> Project Title</th>
@@ -74,16 +87,25 @@
       </div>
       <div class="tab-pane" id="areas">
         <div class="tabla_items">
+          <h1> Working Areas 
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/areas/++add++ItemArea" href="#">
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New Default Area </button></a>
+            <a tal:attributes="href string:${portal_url}/config/areas/folder_contents" href="#">
+              <button class="context"><i class="fas fa-folder-open"></i> Go to Default Working Areas folder </button></a>
+          </h1>
+          <p><strong>NOTE: </strong> The default Area is the item shown as a Working Area in select Project edit form.
+          <br/>A Working Area, is the item who has items related as Files, folders, Activities, etc...
+          <br/>To Create a Working Area, first you have to create a Project</p>
           <tal:block tal:define="elements view/getAreas">
             <table tal:condition="not:elements">
               No Areas found in the Platform. A Project must be created to create an Area inside it.
             </table>
-            <table class="table table-bordered table-condensed table-responsive sortable" tal:condition="elements">
+            <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
               <thead>
                 <tr>
-                  <th i18n:translate="" scope="col"> Area </th>
-                  <th i18n:translate="" scope="col"> Inside project </th>
-                  <th i18n:translate="" scope="col"> Action </th>
+                  <th i18n:translate="" scope="col"> Working Area Title </th>
+                  <th i18n:translate="" scope="col"> Inside Project </th>
+                  <th i18n:translate="" scope="col" style="width: 65px;"> Action </th>
                 </tr>
               </thead>
               <tbody>
@@ -92,7 +114,7 @@
                     <a href="" tal:attributes="href string:${area/url}/" target="_blank" tal:content="area/title">Title</a>
                   </td>
                   <td tal:content="area/parent"> Parent </td>
-                  <td style="width: 60px;">
+                  <td >
                     <a href="" tal:attributes="href string:${area/url}/edit"><i class="far fa-edit" aria-hidden="true" style="color:green"></i></a>
                     <a tal:attributes="href string:${area/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
                       <i class="far fa-trash-alt" aria-hidden="true"></i>
@@ -106,163 +128,169 @@
       </div>
       <div class="tab-pane" id="platforms">
         <div class="tabla_items">
-          <h1> WOP Platforms </h1>
-            <a class="pat-plone-modal" id="add-platform" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/platforms/++add++Platform" href="#">
-          <button id="add-new-platform" class="context focus"> + New WOP Platform </button>
-        </a>
-      <tal:block tal:define="elements view/getPlatforms">
-        <table tal:condition="not:elements">
-          No Platforms found in the Platform.
-        </table>
-        <table class="table table-bordered table-condensed table-responsive sortable" tal:condition="elements">
-          <thead>
-            <tr>
-              <th i18n:translate="" scope="col"> Project </th>
-              <th i18n:translate="" scope="col"> Country/Countries </th>
-              <th i18n:translate="" scope="col"> Region </th>
-              <th i18n:translate="" scope="col"> Action </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr tal:repeat="project elements">
-              <td class="paddingleft20">
-                <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Project Title </a>
-              </td>
-              <td tal:content="project/country"> Country </td>
-              <td tal:content="project/region"> Region </td>
-              <td style="width: 60px;">
-                <a href="" tal:attributes="href string:${project/url}/edit"><i class="far fa-edit" aria-hidden="true"></i></a>
-                <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
-                  <i class="far fa-trash-alt" aria-hidden="true"></i>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </tal:block>
+          <h1> WOP Platforms 
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/platforms/++add++Platform" href="#">
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Platform </button></a>
+            <a tal:attributes="href string:${portal_url}/config/platforms/folder_contents" href="#">
+              <button class="context"><i class="fas fa-folder-open"></i> Go to WOP Platforms folder </button></a>
+          </h1>
+          <tal:block tal:define="elements view/getPlatforms">
+            <table tal:condition="not:elements">
+              No Platforms found in the Platform.
+            </table>
+            <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
+              <thead>
+                <tr>
+                  <th i18n:translate="" scope="col"> WOP Platform Title </th>
+                  <th i18n:translate="" scope="col"> Country/Countries </th>
+                  <th i18n:translate="" scope="col"> Region </th>
+                  <th i18n:translate="" scope="col" style="width: 65px;"> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tal:repeat="project elements">
+                  <td class="paddingleft20">
+                    <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Project Title </a>
+                  </td>
+                  <td tal:content="project/country"> Country </td>
+                  <td tal:content="project/region"> Region </td>
+                  <td >
+                    <a href="" tal:attributes="href string:${project/url}/edit"><i class="far fa-edit" aria-hidden="true"></i></a>
+                    <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
+                      <i class="far fa-trash-alt" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </tal:block>
         </div>
       </div>
       <div class="tab-pane" id="programs">
         <div class="tabla_items">
-          <h1> WOP Programs </h1>
-          <a class="pat-plone-modal" id="add-program" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/programs/++add++Program" href="#">
-          <button id="add-new-program" class="context focus"> + New WOP Program </button>
-        </a>
-      <tal:block tal:define="elements view/getPrograms">
-        <table tal:condition="not:elements">
-          No Programs found in the Platform.
-        </table>
-        <table class="table table-bordered table-condensed table-responsive sortable" tal:condition="elements">
-          <thead>
-            <tr>
-              <th i18n:translate="" scope="col"> Program </th>
-              <th i18n:translate="" scope="col"> Country/Countries </th>
-              <th i18n:translate="" scope="col"> Contact </th>
-              <th i18n:translate="" scope="col"> Action </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr tal:repeat="project elements">
-              <td class="paddingleft20">
-                <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Program Title </a>
-              </td>
-              <td tal:content="project/country"> Country </td>
-              <td tal:content="project/email"> Contact </td>
-              <td style="width: 60px;">
-                <a href="" tal:attributes="href string:${project/url}/edit"><i class="far fa-edit" aria-hidden="true"></i></a>
-                <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
-                  <i class="far fa-trash-alt" aria-hidden="true"></i>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </tal:block>
+          <h1> WOP Programs 
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/programs/++add++Program" href="#">
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Program </button></a>
+            <a tal:attributes="href string:${portal_url}/config/programs/folder_contents" href="#">
+              <button class="context"><i class="fas fa-folder-open"></i> Go to WOP Programs folder </button></a>
+          </h1>
+          <tal:block tal:define="elements view/getPrograms">
+            <table tal:condition="not:elements">
+              No Programs found in the Platform.
+            </table>
+            <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
+              <thead>
+                <tr>
+                  <th i18n:translate="" scope="col"> WOP Program Title </th>
+                  <th i18n:translate="" scope="col"> Country/Countries </th>
+                  <th i18n:translate="" scope="col"> Contact </th>
+                  <th i18n:translate="" scope="col" style="width: 65px;"> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tal:repeat="project elements">
+                  <td class="paddingleft20">
+                    <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Program Title </a>
+                  </td>
+                  <td tal:content="project/country"> Country </td>
+                  <td tal:content="project/email"> Contact </td>
+                  <td>
+                    <a href="" tal:attributes="href string:${project/url}/edit"><i class="far fa-edit" aria-hidden="true"></i></a>
+                    <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
+                      <i class="far fa-trash-alt" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </tal:block>
         </div>
       </div>
       <div class="tab-pane" id="partners">
         <div class="tabla_items">
-          <h1> WOP Partners </h1>
-           <a class="pat-plone-modal" id="add-partner" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/programs/++add++Partner" href="#">
-          <button id="add-new-partner" class="context focus"> + New WOP Partner </button>
-        </a>
-      <tal:block tal:define="elements view/getPartners">
-        <table tal:condition="not:elements">
-          No Partners found in the Platform.
-        </table>
-        <table class="table table-bordered table-condensed table-responsive sortable" tal:condition="elements">
-          <thead>
-            <tr>
-              <th i18n:translate="" scope="col"> Partner </th>
-              <th i18n:translate="" scope="col"> Country/Countries </th>
-              <th i18n:translate="" scope="col"> Contact </th>
-              <th i18n:translate="" scope="col"> Action </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr tal:repeat="project elements">
-              <td class="paddingleft20">
-                <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Partner </a>
-              </td>
-              <td tal:content="project/country"> Country </td>
-              <td tal:content="project/contact"> Contact </td>
-              <td style="width: 60px;">
-                <a href="" tal:attributes="href string:${project/url}/edit"><i class="far fa-edit" aria-hidden="true"></i></a>
-                <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
-                  <i class="far fa-trash-alt" aria-hidden="true"></i>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </tal:block>
+          <h1> WOP Partners 
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/partners/++add++Partner" href="#">
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Partner </button></a>
+            <a tal:attributes="href string:${portal_url}/config/partners/folder_contents" href="#">
+              <button class="context"><i class="fas fa-folder-open"></i> Go to WOP Partners folder </button></a>
+          </h1>
+          <tal:block tal:define="elements view/getPartners">
+            <table tal:condition="not:elements">
+              No Partners found in the Platform.
+            </table>
+            <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
+              <thead>
+                <tr>
+                  <th i18n:translate="" scope="col"> Partner Title </th>
+                  <th i18n:translate="" scope="col"> Country/Countries </th>
+                  <th i18n:translate="" scope="col"> Contact </th>
+                  <th i18n:translate="" scope="col" style="width: 65px;"> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tal:repeat="project elements">
+                  <td class="paddingleft20">
+                    <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Partner </a>
+                  </td>
+                  <td tal:content="project/country"> Country </td>
+                  <td tal:content="project/contact"> Contact </td>
+                  <td>
+                    <a href="" tal:attributes="href string:${project/url}/edit"><i class="far fa-edit" aria-hidden="true"></i></a>
+                    <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
+                      <i class="far fa-trash-alt" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </tal:block>
         </div>
       </div>
-      <div class="tab-pane" id="users">
+      <div class="tab-pane active" id="users">
         <div class="tabla_items">
-        <a class="pat-plone-modal" id="add-user" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
-          <button id="add-new-user" class="context focus"> + New User</button>
-        </a>
-      <tal:block tal:define="users view/getUsers" >
-        <table tal:condition="not:users">
-          No users found in the Platform
-        </table>
-        <table class="table table-bordered table-condensed table-responsive sortable" tal:condition="users">
-          <thead>
-            <tr>
-              <th i18n:translate="" scope="col"> UserID </th>
-              <th i18n:translate="" scope="col"> Action </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr tal:repeat="user users">
-              <td class="paddingleft20">
-                <i class="fa fa-user"></i>
-                <a href="" tal:attributes="href string:${portal_url}/profile/${user/id}" tal:content="user/id"> User ID </a>
-              </td>
-              <td style="width: 60px;">
-                <a href="" tal:attributes="href string:${portal_url}/@@user-information?userid=${user/id}"><i class="far fa-edit" aria-hidden="true"></i></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </tal:block>
-
+          <h1> Users 
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New User </button></a>
+          </h1>
+          <tal:block tal:define="users view/getUsers" >
+            <table tal:condition="not:users">
+              No users found in the Platform
+            </table>
+            <table class="table table-bordered table-condensed table-responsive sortable" tal:condition="users">
+              <thead>
+                <tr>
+                  <th i18n:translate="" scope="col"> UserID </th>
+                  <th i18n:translate="" scope="col"> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tal:repeat="user users">
+                  <td class="paddingleft20">
+                    <i class="fa fa-user"></i>
+                    <a href="" tal:attributes="href string:${portal_url}/profile/${user/id}" tal:content="user/id"> User ID </a>
+                  </td>
+                  <td style="width: 60px;">
+                    <a href="" tal:attributes="href string:${portal_url}/@@user-information?userid=${user/id}"><i class="far fa-edit" aria-hidden="true"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </tal:block>
         </div>
       </div>
     </div>
-<div class="clearfix"></div>
-      <h2> Currency/Measuring/Capacity Settings
-        <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}; title: PMP Settings" tal:attributes="href string:${portal_url}/config/settings/edit" href="#">
-          <button class="context focus"> View or edit values </button>
-        </a>
-      </h2>
-      <p> Shows the current values for: Exchange Currency / Measuring Unit / Measuring Frequency / Capacity Changes</p>
+    <div class="clearfix"></div>
+    <h2> More options
+      <a tal:attributes="href string:${portal_url}/config/" href="#">
+        <button class="context"><i class="fas fa-folder-open"></i> Go to Config folder </button></a>
+    </h2>
+    <h2> Exchange Currency / Measuring Unit / Capacity Settings
+      <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}; title: PMP Settings" tal:attributes="href string:${portal_url}/config/settings/edit" href="#">
+        <button class="context focus"> View or edit values </button>
+      </a>
+    </h2>
 
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
-
-      
-    </script>
 
     </metal:main-macro>
   </div>

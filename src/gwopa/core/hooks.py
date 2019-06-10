@@ -119,6 +119,7 @@ def projectAdded(content, event):
                 container=content.contribs)
             obj.incash = 0
             obj.inkind = 0
+    content.total_budget = 0
 
 
 @grok.subscribe(IProject, IObjectModifiedEvent)

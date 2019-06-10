@@ -31,6 +31,15 @@ class MainTemplate(BrowserView):
         else:
             return False
 
+    def canAdd(self):
+        # Can create projects
+        currentuser = api.user.get_current().id
+        roles = ['Manager', 'Contributor']
+        for role in roles:
+            if role in api.user.get_roles(username=currentuser):
+                return True
+        return False
+
     def myProjects(self):
         catalog = api.portal.get_tool('portal_catalog')
         currentuser = api.user.get_current().id

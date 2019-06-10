@@ -75,7 +75,7 @@
           <metal:slot define-slot="body">
             <article id="content">
               <metal:bodytext define-slot="main">
-                <a tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus" i18n:translate=""> + New Project </button></a>
+                <a tal:condition="view/canAdd" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus right" i18n:translate=""> + New Project </button></a>
                 <h1 class="documentFirstHeading" i18n:translate=""> My Projects </h1>
                 <div class="has-table" tal:define="items view/myProjects">
                   <div class="row" tal:condition="not:items">

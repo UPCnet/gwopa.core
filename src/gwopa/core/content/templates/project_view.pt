@@ -31,7 +31,7 @@
   </h1>
 
   <div class="row">
-    <div tal:attributes="class python:getImprovementAreas and 'col-md-9' or 'col-md-12';">
+    <div class="col-md-9">
       <div class="row">
         <div class="col-md-3">
           <img class="fullwidth" tal:condition="context/image" tal:attributes="src string:${context/absolute_url}/@@images/image" />
@@ -117,7 +117,6 @@
       <div class="row">
         <hr/>
         <h2 i18n:translate=""> Main organizations and their contributions </h2>
-
         <div class="table-responsive col-md-12">
           <table class="table-condensed table-hover">
             <thead>
@@ -126,8 +125,10 @@
                   <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs;" data-type="ContribPartner">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Partner Water Operators </span>
                 </th>
-                <th class="contibutioncentered" i18n:translate="">In-cash</th>
-                <th class="contibutioncentered" i18n:translate="">In-kind</th>
+                <tal:omit-tag tal:condition="partners">
+                  <th class="contibutioncentered" i18n:translate="">In-cash</th>
+                  <th class="contibutioncentered" i18n:translate="">In-kind</th>
+                </tal:omit-tag>
               </tr>
             </thead>
             <tr tal:repeat="partner partners">
@@ -137,7 +138,6 @@
             </tr>
           </table>
         </div>
-
         <div class="table-responsive col-md-12">
           <table class="table-condensed table-hover">
             <thead>
@@ -146,8 +146,10 @@
                   <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs;" data-type="ContribDonor">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Donors </span>
                 </th>
-                <th></th>
-                <th></th>
+                <tal:omit-tag tal:condition="donors">
+                  <th class="contibutioncentered" i18n:translate="">In-cash</th>
+                  <th class="contibutioncentered" i18n:translate="">In-kind</th>
+                </tal:omit-tag>
               </tr>
             </thead>
             <tr tal:repeat="partner donors">
@@ -157,7 +159,6 @@
             </tr>
           </table>
         </div>
-
         <div class="table-responsive col-md-12">
           <table class="table-condensed table-hover">
             <thead>
@@ -166,8 +167,10 @@
                   <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs;" data-type="ContribOther">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Other Organizations </span>
                 </th>
-                <th></th>
-                <th></th>
+                <tal:omit-tag tal:condition="others">
+                  <th class="contibutioncentered" i18n:translate="">In-cash</th>
+                  <th class="contibutioncentered" i18n:translate="">In-kind></th>
+                </tal:omit-tag>
               </tr>
             </thead>
             <tr tal:repeat="partner others">
@@ -245,7 +248,7 @@
 
       <div id="membersBlock" tal:define="members view/getMembers">
         <h2 class="h2Project" i18n:translate="">Members</h2>
-        <table class="table-striped" id="tableMembers">
+        <table class="table-striped" id="tableMembers" tal:condition="members">
           <tbody>
             <tal:items tal:repeat="obj members">
               <tr>
@@ -264,18 +267,25 @@
             </tal:items>
           </tbody>
         </table>
+        <tr tal:condition="not:members">
+          <td i18n:translate="">
+            This Project has no assigned members.
+          </td>
+        </tr>
       </div>
 
       <div id="filesBlock" tal:define="items view/getFiles">
         <h2 class="h2Project">
           <a class="pat-plone-modal" id="add-new-file" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/files/++add++File"><i class="fas fa-plus-circle"></i></a>
           <tal:omit-tag i18n:translate=""> Files </tal:omit-tag>
-          <a class="right" style="font-size:14px; font-weight: 400;" tal:attributes="href string:${context/absolute_url}/files/"><i class="fa fa-plus"></i>&nbsp;<tal:omit-tag i18n:translate=""> View all</tal:omit-tag></a>
+          <tal:bck condition="items">
+            <a class="right" style="font-size:14px; font-weight: 400;" tal:attributes="href string:${context/absolute_url}/files/"><i class="fa fa-plus"></i>&nbsp;<tal:omit-tag i18n:translate=""> View all</tal:omit-tag></a>
+          </tal:bck>
         </h2>
-        <table class="table-striped">
+        <table class="table-striped" tal:condition="items">
           <tbody>
-            <tal:items tal:repeat="obj items">
-              <tr>
+            <tal:items tal:repeat="obj items" >
+              <tr tal:condition="items">
                 <td>
                   <i class="fa fa-file-o"></i>
                   <a href="" tal:attributes="href obj/url"><tal:omit-tag tal:content="obj/title"> Title </tal:omit-tag>
@@ -288,6 +298,11 @@
             </tal:items>
           </tbody>
         </table>
+        <tr tal:condition="not:items">
+          <td i18n:translate="">
+            There are no files in this Project.
+          </td>
+        </tr>
       </div>
 
     </div>

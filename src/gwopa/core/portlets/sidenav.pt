@@ -68,16 +68,18 @@
                     <i class="fas fa-file-alt"></i><tal:omit-tag i18n:translate=""> Reporting </tal:omit-tag></a>
                 </li> -->
             </tal:omit-tag>
-            <tal:omit tal:condition="isRootFolder">
-                <li tal:define="tab_id string:${portal_url}/config">
-                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/config">
-                    <i class="fas fa-tools"></i><tal:omit-tag i18n:translate=""> Configuration </tal:omit-tag></a>
-                </li>
-                <li tal:define="tab_id string:${portal_url}/managePortal">
-                    <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/managePortal">
-                    <i class="fas fa-cog"></i><tal:omit-tag i18n:translate=""> Settings </tal:omit-tag></a>
-                </li>
-             </tal:omit>
+            <tal:block condition="view/isManager">
+                <tal:omit tal:condition="isRootFolder">
+<!--                     <li tal:define="tab_id string:${portal_url}/config">
+                        <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/config">
+                        <i class="fas fa-tools"></i><tal:omit-tag i18n:translate=""> Configuration </tal:omit-tag></a>
+                    </li> -->
+                    <li tal:define="tab_id string:${portal_url}/managePortal">
+                        <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/managePortal">
+                        <i class="fas fa-cog"></i><tal:omit-tag i18n:translate=""> Settings </tal:omit-tag></a>
+                    </li>
+                 </tal:omit>
+             </tal:block>
         </ul>
     </div>
 

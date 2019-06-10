@@ -282,7 +282,7 @@
             <div class="tabla_cuerpo" tal:repeat="outcome outcomes">
               <div class="col-md-12">
                 <div class="information object">
-                  <div class="contentt" id="total">
+                  <div class="contentt" id="total2">
                     <div class="part0">
                       <i class="fa fa-chevron-down expandKPIMo" aria-hidden="true"></i>
                       <i style="display: none" class="fa fa-chevron-up notexpandKPIMo" aria-hidden="true"></i>
@@ -392,10 +392,9 @@
                 </div>
               </div>
             </div>
-            <div class="">
-              <div class="col-md-12 text-item-planning" tal:repeat="outcome outcomes">
+              <div class="col-md-12" style="padding:9px 0px 1px 15px;" tal:repeat="outcome outcomes">
                 <div class="information object">
-                  <div class="contentt row" id="total">
+                  <div class="contentt row">
                     <div class="part0">
                       <i class="fa fa-chevron-down expandccs" aria-hidden="true"></i>
                       <i style="display: none" class="fa fa-chevron-up notexpandccs" aria-hidden="true"></i>
@@ -571,7 +570,6 @@
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>

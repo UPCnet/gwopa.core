@@ -8,6 +8,7 @@ from gwopa.core.content.project import IProject
 from plone.app.layout.navigation.root import getNavigationRootObject
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_inner
+from plone import api
 #from plone.folder.interfaces import IFolder
 
 
@@ -30,6 +31,15 @@ class Renderer(base.Renderer):
             return True
         else:
             return False
+
+    def isManager(self):
+        # Can create projects
+        currentuser = api.user.get_current().id
+        roles = ['Manager']
+        for role in roles:
+            if role in api.user.get_roles(username=currentuser):
+                return True
+        return False
 
     def projectPath(self):
         if IProject.providedBy(self.context):
