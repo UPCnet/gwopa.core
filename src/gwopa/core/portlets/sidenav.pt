@@ -57,10 +57,13 @@
                     <i class="fas fa-chart-pie"></i><tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>
                 </li>
                 <li tal:define="tab_id string:${projectPath}/visualizating">
-                    <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft20 plone-btn plone-btn-info active' or 'paddingleft20 plone-btn plone-btn-info'; href string:${projectPath}/visualizating">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft20 plone-btn plone-btn-info active' or 'paddingleft20 plone-btn plone-btn-info'; href string:#">
                     <i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></a>
                     <ol style="padding-left:0px;">
-                        <a style="padding-left:40px;" tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/visualizating"><i class="far fa-chart-bar"></i><tal:omit-tag i18n:translate=""> Performance </tal:omit-tag></a>
+                        <a style="padding-left:25px;" tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/visualizating"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Working areas </tal:omit-tag></a>
+                    </ol>
+                    <ol style="padding-left:0px;">
+                        <a style="padding-left:25px;" tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:#"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Performance </tal:omit-tag></a>
                     </ol>
                 </li>
 <!--                 <li tal:define="tab_id string:${projectPath}/reporting">
