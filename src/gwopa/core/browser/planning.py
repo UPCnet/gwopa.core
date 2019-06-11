@@ -149,7 +149,6 @@ class planningView(BrowserView):
 
         start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
         end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
-
         range_start = {'query': (start, end), 'range': 'min:max'}
         items1 = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity', 'Output'],

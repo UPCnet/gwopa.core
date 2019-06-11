@@ -42,7 +42,7 @@ class IOutcomezone(model.Schema):
         required=True,
     )
 
-    baseline_date = schema.Date(
+    baseline_date = schema.Datetime(
         title=_(u'Baseline date'),
         required=True,
         defaultFactory=todayValue
