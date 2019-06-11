@@ -34,6 +34,14 @@
 
   <browser:page
       for="gwopa.core.content.project.IProject"
+      name="api-getCurrentStage"
+      class=".api.wadashboard.GetCurrentStage"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="gwopa.core.content.project.IProject"
       name="api-getPhases"
       class=".api.code.getPhases"
       permission="cmf.ModifyPortalContent"

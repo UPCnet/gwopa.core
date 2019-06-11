@@ -127,3 +127,46 @@ class GetCapacityChanges(Service):
         results.append(others)
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(results)
+
+
+class GetCurrentStage(BrowserView):
+    """Service for get current Stage for this WA and year."""
+
+    def __call__(self):
+        """Answer for the webservice."""
+        wa_path = self.request.form.get('wa', False)
+        year = self.request.form.get('year', False)
+        if not wa_path:
+            BadRequest('Working area are required')
+        if not year:
+            BadRequest('Year are required')
+
+        results = []
+        items = api.content.find(
+            portal_type=['OutcomeCC'],
+            path={'query': wa_path, 'depth': 1})
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        for item in items:
+            members = []
+            obj = item.getObject()
+            annotations = IAnnotations(item.getObject())
+            stage = annotations[KEY]['generic'][0]['stage']
+            if stage:
+                for i in range(1, 5):
+                    if i < int(stage):
+                        state = "past"
+                    elif i == int(stage):
+                        state = "current"
+                    else:
+                        state = "future"
+                    results.append(dict(id="stage-" + str(i),
+                                        title="Stage " + str(i),
+                                        state=state))
+            else:
+                for i in range(1, 5):
+                    results.append(dict(id="stage-" + str(i),
+                                        title="Stage " + str(i),
+                                        state="future"))
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(results)
