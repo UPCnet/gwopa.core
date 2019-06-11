@@ -169,7 +169,7 @@
                 </th>
                 <tal:omit-tag tal:condition="others">
                   <th class="contibutioncentered" i18n:translate="">In-cash</th>
-                  <th class="contibutioncentered" i18n:translate="">In-kind></th>
+                  <th class="contibutioncentered" i18n:translate="">In-kind</th>
                 </tal:omit-tag>
               </tr>
             </thead>

@@ -66,7 +66,7 @@ class IOutcomeccs(model.Schema):
     )
 
     consensus = schema.Text(
-        title=_(u"Cnsensus"),
+        title=_(u"Consensus"),
         required=False,
     )
 
