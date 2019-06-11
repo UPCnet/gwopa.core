@@ -109,7 +109,6 @@ def projectAdded(content, event):
                 description=data.Description,
                 image=data.getObject().image,
                 container=content)
-
     partners = content.partners
     if partners:
         for partner in partners:

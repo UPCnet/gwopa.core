@@ -420,11 +420,12 @@ class Create(BrowserView):
         if portal_type == 'Activity':
             obj.budget = self.request.form.get('item_budget')
             date_start = self.request.form.get('item_start')
+            import ipdb; ipdb.set_trace()
             if date_start:
-                obj.start = datetime.datetime.strptime(date_start, '%Y-%m-%d').date()
+                obj.start = datetime.datetime.strptime(date_start, '%Y-%m-%d')
                 date_end = self.request.form.get('item_end')
             if date_end:
-                obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d').date()
+                obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
             obj.initial_situation = self.request.form.get('item_initialdescription')
             obj.currency = self.request.form.get('item_hidden_project_currency')
             obj.project_dates = 'Start date: ' + self.request.form.get('item_project_start') + ' - End date: ' + self.request.form.get('item_project_end')
@@ -437,14 +438,14 @@ class Create(BrowserView):
         if portal_type == 'Output':
             date_end = self.request.form.get('item_date')
             if date_end:
-                obj.end = datetime.datetime.strptime(date_end, '%d %B, %Y').date()
+                obj.end = datetime.datetime.strptime(date_end, '%d %B, %Y')
             obj.measuring_unit = self.request.form.get('item_unit')
 
         if (portal_type == 'OutcomeKPI') or (portal_type == 'OutcomeZONE'):
             obj.baseline = self.request.form.get('item_baseline')
             itemdate = self.request.form.get('item_date')
             if itemdate:
-                obj.baseline_date = datetime.datetime.strptime(itemdate, '%Y-%m-%d').date()
+                obj.baseline_date = datetime.datetime.strptime(itemdate, '%Y-%m-%d')
             obj.measuring_frequency = self.request.form.get('item_frequency')
             obj.measuring_unit = self.request.form.get('item_unit')
             obj.zone = self.request.form.get('item_zone')

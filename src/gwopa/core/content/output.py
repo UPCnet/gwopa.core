@@ -32,7 +32,7 @@ class IOutput(model.Schema):
         missing_value=u'',
     )
 
-    end = schema.Date(
+    end = schema.Datetime(
         title=_(u'Completion date'),
         required=True,
         defaultFactory=todayValue
