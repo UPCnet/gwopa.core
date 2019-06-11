@@ -137,33 +137,32 @@ class MainTemplate(BrowserView):
         else:
             projects = catalog.unrestrictedSearchResults(
                 portal_type='Project',
-                context=self.context,
-                review_state='published')
+                context=self.context)
             # Tuple to list in the next code
-            userPartners = (list(api.user.get_current().getProperty('wop_partners')))
+            userPartners = api.user.get_current().getProperty('wop_partners')
             for project in projects:
                 item = project._unrestrictedGetObject()
-                for a in userPartners:
-                    if a in item.partners:
-                        if item.image:
-                            image = item.absolute_url() + '/@@images/image/preview'
-                        else:
-                            image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
-                        if item.objectives:
-                            alt = self.abreviaText(item.objectives.raw, 400)
-                        else:
-                            alt = self.abreviaText(item.title)
-                        if len(results) < 4:
-                            results.append(dict(title=self.abreviaText(item.title),
-                                                alt=alt,
-                                                url=item.absolute_url(),
-                                                start=item.startplanned,
-                                                end=item.startactual,
-                                                country=item.country,
-                                                location=item.location,
-                                                project_manager=item.project_manager,
-                                                image=image
-                                                ))
+
+                if userPartners in item.partners:
+                    if item.image:
+                        image = item.absolute_url() + '/@@images/image/preview'
+                    else:
+                        image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
+                    if item.objectives:
+                        alt = self.abreviaText(item.objectives.raw, 400)
+                    else:
+                        alt = self.abreviaText(item.title)
+                    if len(results) < 4:
+                        results.append(dict(title=self.abreviaText(item.title),
+                                            alt=alt,
+                                            url=item.absolute_url(),
+                                            start=item.startplanned,
+                                            end=item.startactual,
+                                            country=item.country,
+                                            location=item.location,
+                                            project_manager=item.project_manager,
+                                            image=image
+                                            ))
 
         return sorted(results, key=itemgetter('title'), reverse=False)
 
