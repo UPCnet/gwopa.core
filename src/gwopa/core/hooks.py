@@ -304,7 +304,6 @@ def improvementAreaAdded(content, event):
                 contributed_project='',
                 contributing_factors='',
                 obstacles='',
-                limiting_factors='',
                 consensus='',
                 explain='',
                 selected_monitoring='notset',

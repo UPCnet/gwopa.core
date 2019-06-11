@@ -337,7 +337,6 @@ class addOutcomeCCS(BrowserView):
             contributed_project=specific_obj.contributed_project,
             contributing_factors=specific_obj.contributing_factors,
             obstacles=specific_obj.obstacles,
-            limiting_factors=specific_obj.limiting_factors,
             consensus=specific_obj.consensus,
             explain=specific_obj.explain,
             selected_monitoring='notset',
@@ -384,7 +383,6 @@ class addOutcomeCCSMonitoring(BrowserView):
             contributed_project='',
             contributing_factors='',
             obstacles='',
-            limiting_factors='',
             consensus='',
             explain='',
             selected_monitoring='notset',
@@ -624,7 +622,6 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         consensus = self.request.form['consensus']
         obstacles = self.request.form['obstacles']
         contributing_factors = self.request.form['contributing_factors']
-        limiting_factors = self.request.form['limiting_factors']
         explain = self.request.form['explain']
 
         degree_values = {'-2': 'verybad', '-1': 'bad', '0': 'equal', '1': 'good', '2': 'verygood'}
@@ -655,7 +652,6 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
                 specific['consensus'] = consensus
                 specific['obstacles'] = obstacles
                 specific['contributing_factors'] = contributing_factors
-                specific['limiting_factors'] = limiting_factors
                 specific['explain'] = explain
                 val_degree_changes = degree_changes[0]
                 if val_degree_changes == '-':

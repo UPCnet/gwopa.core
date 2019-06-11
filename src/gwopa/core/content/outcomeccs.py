@@ -65,11 +65,6 @@ class IOutcomeccs(model.Schema):
         required=False,
     )
 
-    limiting_factors = schema.Text(
-        title=_(u"Select the limiting factors to the perceived change"),
-        required=False,
-    )
-
     consensus = schema.Text(
         title=_(u"Cnsensus"),
         required=False,

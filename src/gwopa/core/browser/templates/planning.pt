@@ -30,7 +30,7 @@
       <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     </div>
 
-    <ul class="nav nav-tabs" role="tablist">
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
       <li role="presentation" class="active"><a href="#project" aria-controls="project" role="tab" data-toggle="tab" i18n:translate=""> Project </a></li>
       <li role="presentation"><a href="#outcomes" aria-controls="outcomes" role="tab" data-toggle="tab" i18n:translate=""> Outcomes </a></li>
     </ul>

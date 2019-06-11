@@ -30,7 +30,7 @@
       <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
     </div>
 
-    <ul class="nav nav-tabs" role="tablist">
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
       <li role="presentation" class="active"><a href="#project" aria-controls="project" role="tab" data-toggle="tab" i18n:translate=""> Project </a></li>
       <li role="presentation"><a href="#outcomes" aria-controls="outcomes" role="tab" data-toggle="tab" i18n:translate=""> Outcomes </a></li>
     </ul>
@@ -425,7 +425,6 @@
                                     data-contributed-project item/contributed_project;
                                     data-contributing-factors item/contributing_factors;
                                     data-obstacles item/obstacles;
-                                    data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
@@ -461,7 +460,6 @@
                                     data-contributed-project item/contributed_project;
                                     data-contributing-factors item/contributing_factors;
                                     data-obstacles item/obstacles;
-                                    data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
@@ -497,7 +495,6 @@
                                     data-contributed-project item/contributed_project;
                                     data-contributing-factors item/contributing_factors;
                                     data-obstacles item/obstacles;
-                                    data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
@@ -535,7 +532,6 @@
                                     data-contributed-project item/contributed_project;
                                     data-contributing-factors item/contributing_factors;
                                     data-obstacles item/obstacles;
-                                    data-limiting-factors item/limiting_factors;
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
@@ -638,13 +634,9 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <div class="col-xs-6 col-md-6">
+                  <div class="col-xs-12 col-md-12">
                     <label class="control-label" i18n:translate="">Explain</label>
                     <input class="form-control" id="outcomeccs-explain" />
-                  </div>
-                  <div class="col-xs-6 col-md-6">
-                    <label class="control-label" i18n:translate="">Main limiting factors</label>
-                    <input class="form-control" id="outcomeccs-limiting_factors" />
                   </div>
                 </div>
               </div>
