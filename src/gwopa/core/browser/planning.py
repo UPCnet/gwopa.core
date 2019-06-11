@@ -119,7 +119,7 @@ class planningView(BrowserView):
                 title=_(u"Project year"),
                 year=str(total + 1),
                 url=url,
-                alt=_(u"Show planning of year "),
+                alt=_(u"Show planning of year ") + str(total + 1),
                 classe=classe))
             total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)

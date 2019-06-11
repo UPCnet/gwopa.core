@@ -33,11 +33,11 @@
                 </li>
                 <li>
                     <li class="menuItem"><i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></li>
-                    <li id="dash1" style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-areas">
-                        <a style="padding-left:25px;" tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/dash-areas"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Working Areas </tal:omit-tag></a>
+                    <li style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-areas">
+                        <a style="padding-left:25px;" tal:attributes="class python:tab_id in selected_tab and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/dash-areas"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Working Areas </tal:omit-tag></a>
                     </li>
-                    <li id="dash2" style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-performance">
-                        <a style="padding-left:25px;" tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/dash-performance"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Performance </tal:omit-tag></a>
+                    <li style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-performance">
+                        <a style="padding-left:25px;" tal:attributes="class python:tab_id in selected_tab and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/dash-performance"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Performance </tal:omit-tag></a>
                     </li>
                 </li>
             </tal:omit-tag>
@@ -47,21 +47,10 @@
                         <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}/managePortal">
                         <i class="fas fa-cog"></i><tal:omit-tag i18n:translate=""> Settings </tal:omit-tag></a>
                     </li>
-                 </tal:omit>
-             </tal:block>
+                </tal:omit>
+            </tal:block>
         </ul>
     </div>
 
-<style type="text/css">
-    .menuItem {
-    font-weight: 600;
-    border-radius: 0px;
-    padding: 15px 0px;
-    padding-left: 10px;
-    margin: 0px 0px;
-    border-bottom: 1px solid #0a5272;
-    background-color: #007bb1;
-    color: #fff; }
-</style>
 </tal:block>
 </html>
