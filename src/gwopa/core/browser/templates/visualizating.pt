@@ -59,11 +59,11 @@
         <h2 class="bolder" i18n:translate="">Capacity Changes</h2>
         <div class="legendBox">
           <span class="label custom-legend notset">Empty</span>
-          <span class="label custom-legend verybad">-2</span>
-          <span class="label custom-legend bad">-1</span>
-          <span class="label custom-legend equal">0</span>
-          <span class="label custom-legend good">1</span>
-          <span class="label custom-legend verygood">2</span>
+          <span class="label custom-legend verybad">-2 Very negative</span>
+          <span class="label custom-legend bad">-1 Negative</span>
+          <span class="label custom-legend equal">0 No change</span>
+          <span class="label custom-legend good">+1 Positive</span>
+          <span class="label custom-legend verygood">+2 Very positive</span>
         </div>
         <div class="information" >
           <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
