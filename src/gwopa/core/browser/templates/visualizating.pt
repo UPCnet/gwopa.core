@@ -72,7 +72,7 @@
               <tal:block condition="python: item['short_category'] == 'transformational'">
                 <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
-                    <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                    <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
                   </div>
                   <div class="item_image " tal:condition="item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -90,7 +90,7 @@
               <tal:block condition="python: item['short_category'] == 'transactional'">
                 <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
-                    <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                    <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
                   </div>
                   <div class="item_image " tal:condition="item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -108,7 +108,7 @@
               <tal:block condition="python: item['short_category'] == 'individual'">
                 <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
-                    <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                    <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
                   </div>
                   <div class="item_image " tal:condition="item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -128,7 +128,7 @@
               <tal:block condition="python: item['short_category'] == 'other'">
                 <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
                   <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                    <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
                   </div>
                   <div class="item_image " tal:condition="item/selected_specific">
                     <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>

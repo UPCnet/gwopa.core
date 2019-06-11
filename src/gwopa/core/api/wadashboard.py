@@ -114,12 +114,14 @@ class GetCapacityChanges(Service):
                         others.append(dict(
                             id=specific['id_specific'],
                             icon_basic=specific['icon_basic'],
+                            icon_url_selected=specific['icon_url_selected'],
                             title_specific=specific['title_specific'],
                             selected_monitoring=specific['selected_monitoring']))
                     else:
                         specifics.append(dict(
                             id=specific['id_specific'],
                             icon_basic=specific['icon_basic'],
+                            icon_url_selected=specific['icon_url_selected'],
                             title_specific=specific['title_specific'],
                             selected_monitoring=specific['selected_monitoring']))
 
@@ -147,8 +149,6 @@ class GetCurrentStage(BrowserView):
             path={'query': wa_path, 'depth': 1})
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         for item in items:
-            members = []
-            obj = item.getObject()
             annotations = IAnnotations(item.getObject())
             stage = annotations[KEY]['generic'][0]['stage']
             if stage:
