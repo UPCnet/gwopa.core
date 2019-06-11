@@ -429,7 +429,9 @@
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
+                              <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            </tal:block>
                             <div class="item_image" tal:condition="not:item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                             </div>
@@ -464,7 +466,9 @@
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
+                              <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            </tal:block>
                             <div class="item_image" tal:condition="not:item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                             </div>
@@ -499,7 +503,9 @@
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
+                              <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            </tal:block>
                             <div class="item_image" tal:condition="not:item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                             </div>
@@ -536,7 +542,9 @@
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
-                            <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
+                              <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
+                            </tal:block>
                             <div class="item_image" tal:condition="not:item/selected_specific">
                                 <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
                             </div>
