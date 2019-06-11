@@ -56,11 +56,20 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
-  <!-- Visualizating Module view  -->
+  <!-- Dashboard areas  -->
   <browser:page
       for="gwopa.core.content.project.IProject"
-      name="visualizating"
-      class=".visualizating.visualizatingView"
+      name="dash-areas"
+      class=".dashboard-areas.dashboardAreasView"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <!-- Dashboard performance -->
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="dash-performance"
+      class=".dashboard-performance.dashboardPerformanceView"
       permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />

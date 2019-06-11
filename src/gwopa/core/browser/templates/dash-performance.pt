@@ -24,7 +24,7 @@
       </ul>
     </div>
     <h1 class="documentFirstHeading">
-      <tal:omit-tag i18n:translate=""> Visualizating </tal:omit-tag> -
+      <tal:omit-tag i18n:translate=""> Dashboard Performance </tal:omit-tag> -
       <span tal:content="view/projectTitle"></span></h1>
     <div class="documentDescription description projectDates">
       <span class="dateNumbers">

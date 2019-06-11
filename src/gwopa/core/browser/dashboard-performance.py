@@ -12,10 +12,10 @@ from zope.annotation.interfaces import IAnnotations
 
 
 @implementer(IPublishTraverse)
-class visualizatingView(BrowserView):
+class dashboardPerformanceView(BrowserView):
     """ Visualization View """
 
-    index = ViewPageTemplateFile("templates/visualizating.pt")
+    index = ViewPageTemplateFile("templates/dash-performance.pt")
 
     def publishTraverse(self, request, name):
         # Stop traversing, we have arrived
@@ -27,10 +27,10 @@ class visualizatingView(BrowserView):
         """Once we get to __call__, the path is lost so we
            capture it here on initialization
         """
-        super(visualizatingView, self).__init__(context, request)
+        super(dashboardPerformanceView, self).__init__(context, request)
         self.year = None
         path_ordered = request.path[-1:]
-        # get all param in the path -> the year /visualizating/2019
+        # get all param in the path -> the year /dash-performance/2019
         self.year = '/'.join(path_ordered)
 
     def getYear(self):
@@ -70,7 +70,7 @@ class visualizatingView(BrowserView):
 
     def __call__(self):
         if self.request['URL'].split('/')[-1][0:4] == 'api-':
-            self.request.response.redirect(self.request['URL'].replace('visualizating/', ''))
+            self.request.response.redirect(self.request['URL'].replace('dash-performance/', ''))
         if (not self.year or self.year == '0'):
             # Empty query or 0 returns default template (First Year)
             self.year = 1
@@ -96,27 +96,27 @@ class visualizatingView(BrowserView):
         return len(self.context.gwopa_year_phases)
 
     def getItems(self):
-        """ Returns all the project years of the visualizating """
+        """ Returns all the project years of the dash-performance """
         items = len(self.context.gwopa_year_phases)
         results = []
         total = 0
 
         while total != items:
-            if (total == 0) and (self.request.steps[-1] == 'visualizating'):
+            if (total == 0) and (self.request.steps[-1] == 'dash-performance'):
                 classe = 'disabled'
             elif self.request.steps[-1] == str(total + 1):
                 classe = 'disabled'
             else:
                 classe = 'visible'
             if total == 0:
-                url = self.context.absolute_url_path() + '/visualizating/'
+                url = self.context.absolute_url_path() + '/dash-performance/'
             else:
-                url = self.context.absolute_url_path() + '/visualizating/' + str(total + 1)
+                url = self.context.absolute_url_path() + '/dash-performance/' + str(total + 1)
             results.append(dict(
                 title=_(u"Project year"),
                 year=str(total + 1),
                 url=url,
-                alt=_(u"Show visualizating of year "),
+                alt=_(u"Show dash-performance of year "),
                 classe=classe))
             total = total + 1
         return sorted(results, key=itemgetter('title'), reverse=False)
