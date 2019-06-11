@@ -262,13 +262,13 @@ class monitoringView(BrowserView):
                 next_update=data_year['end_iso'][0:7],
                 target_value_real=target_value_real,
                 target_value_planned=target_value_planned,
-                consideration=monitoring_info['consideration'] if monitoring_info is not '' else '',
-                explanation=monitoring_info['explanation'] if monitoring_info is not '' else '',
-                obstacles=monitoring_info['obstacles'] if monitoring_info is not '' else '',
-                contributing=monitoring_info['contributing'] if monitoring_info is not '' else '',
-                limiting=monitoring_info['limiting'] if monitoring_info is not '' else '',
-                progress=monitoring_info['progress'] if monitoring_info is not '' else '',
-                updated=monitoring_info['updated'] if monitoring_info is not '' else '',
+                consideration=monitoring_info['consideration'] if monitoring_info.has_key('consideration') else '',
+                explanation=monitoring_info['explanation'] if monitoring_info.has_key('explanation') else '',
+                obstacles=monitoring_info['obstacles'] if monitoring_info.has_key('obstacles') else '',
+                contributing=monitoring_info['contributing'] if monitoring_info.has_key('contributing') else '',
+                limiting=monitoring_info['limiting'] if monitoring_info.has_key('limiting') else '',
+                progress=monitoring_info['progress'] if monitoring_info.has_key('progress') else '',
+                updated=monitoring_info['updated'] if monitoring_info.has_key('updated') else '',
                 url='/'.join(obj.getPhysicalPath())))
         return results
 
