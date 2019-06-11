@@ -52,9 +52,9 @@ msgstr ""
 msgid "Achieved/Target"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:38
+#: ../browser/templates/manage_portal.pt:64
 msgid "Action"
-msgstr "Acción"
+msgstr ""
 
 #: ../browser/templates/visualizating.pt:42
 msgid "Activities"
@@ -68,7 +68,7 @@ msgstr "Actividad"
 msgid "Actual"
 msgstr "Actual"
 
-#: ../browser/templates/monitoring.pt:648
+#: ../browser/templates/monitoring.pt:681
 #: ../browser/templates/planning.pt:939
 msgid "Add"
 msgstr "Añadir"
@@ -77,7 +77,7 @@ msgstr "Añadir"
 msgid "Add Activity"
 msgstr "Añadir Actividad"
 
-#: ../content/templates/project_view.pt:302
+#: ../content/templates/project_view.pt:317
 msgid "Add Contributor"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr "Añadir Output"
 msgid "Add new KPI title"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:634
+#: ../browser/templates/monitoring.pt:667
 #: ../browser/templates/planning.pt:925
 msgid "Add other specific"
 msgstr ""
@@ -106,17 +106,9 @@ msgstr ""
 msgid "Add target"
 msgstr "Añadir target"
 
-#: ../browser/templates/manage_portal.pt:16
-msgid "Admin Settings Zone"
-msgstr "Zona de administración"
-
-#: ../browser/templates/manage_portal.pt:36
+#: ../browser/templates/manage_portal.pt:62
 msgid "Admin role"
-msgstr "Rol administrador"
-
-#: ../browser/templates/manage_portal.pt:69
-msgid "Area"
-msgstr "Área"
+msgstr ""
 
 #: ../browser/templates/planning.pt:497
 #: ../content/activity.py:89
@@ -142,7 +134,7 @@ msgstr "Fecha de referencia"
 msgid "Baseline description"
 msgstr "Descripción de referencia"
 
-#: ../browser/templates/monitoring.pt:578
+#: ../browser/templates/monitoring.pt:597
 #: ../browser/templates/planning.pt:226
 #: ../content/outcomekpi.py:35
 msgid "Baseline value"
@@ -157,9 +149,9 @@ msgstr "Presupuesto"
 msgid "Calendar"
 msgstr "Calendario"
 
-#: ../browser/templates/monitoring.pt:620
+#: ../browser/templates/monitoring.pt:653
 #: ../browser/templates/planning.pt:517
-#: ../content/templates/project_view.pt:329
+#: ../content/templates/project_view.pt:344
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -180,6 +172,10 @@ msgstr "Elementos de cambio"
 msgid "Category"
 msgstr "Categoría"
 
+#: ../browser/templates/monitoring.pt:727
+msgid "Changes have become routine and are well embedded in the organization"
+msgstr ""
+
 #: ../content/partner.py:35
 #: ../content/platform.py:34
 #: ../content/program.py:47
@@ -188,6 +184,10 @@ msgstr "Elija el país de la lista que representa al país."
 
 #: ../content/platform.py:42
 msgid "Choose region based on selected country."
+msgstr ""
+
+#: ../content/outcomeccs.py:74
+msgid "Cnsensus"
 msgstr ""
 
 #: ../browser/templates/collaborating.pt:13
@@ -204,16 +204,20 @@ msgstr ""
 msgid "Completion date"
 msgstr "Fecha de finalización"
 
-#: ../portlets/sidenav.pt:74
+#: ../browser/templates/manage_portal.pt:16
 msgid "Configuration"
-msgstr "Configuración"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:626
+msgid "Consensus"
+msgstr ""
 
 #: ../browser/templates/monitoring.pt:141
 msgid "Consideration for further planning"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:171
-#: ../content/templates/project_view.pt:199
+#: ../browser/templates/manage_portal.pt:186
+#: ../content/templates/project_view.pt:202
 msgid "Contact"
 msgstr "Contacto"
 
@@ -239,18 +243,22 @@ msgid "Control panel to configure and view all the important system parameters"
 msgstr ""
 
 #: ../browser/templates/global_map.pt:29
-#: ../browser/templates/manage_portal.pt:37
+#: ../browser/templates/manage_portal.pt:63
 #: ../content/partner.py:34
 msgid "Country"
 msgstr "País"
 
-#: ../browser/templates/manage_portal.pt:134
+#: ../browser/templates/manage_portal.pt:145
 msgid "Country/Countries"
-msgstr "País/Paises"
+msgstr ""
 
 #: ../browser/templates/planning.pt:518
 msgid "Create"
 msgstr "Crear"
+
+#: ../browser/templates/monitoring.pt:723
+msgid "Creating conditions of change"
+msgstr ""
 
 #: ../content/project.py:265
 msgid "Currency"
@@ -280,7 +288,7 @@ msgstr "Define tu idioma"
 msgid "Degree (%)"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:598
+#: ../browser/templates/monitoring.pt:617
 msgid "Degree of change"
 msgstr ""
 
@@ -300,7 +308,7 @@ msgstr ""
 msgid "Describe the limiting factors to the perceived changes"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:573
+#: ../browser/templates/monitoring.pt:592
 #: ../browser/templates/planning.pt:471
 #: ../content/activity.py:60
 msgid "Description"
@@ -314,7 +322,7 @@ msgstr "Descripción y principales objetivos"
 msgid "Edit Capacity"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:565
+#: ../browser/templates/monitoring.pt:584
 #: ../browser/templates/planning.pt:875
 msgid "Edit Specific"
 msgstr ""
@@ -327,9 +335,9 @@ msgstr "Fin"
 msgid "End (Planned):"
 msgstr "Fin (planificado)"
 
-#: ../browser/templates/manage_portal.pt:35
+#: ../browser/templates/manage_portal.pt:61
 msgid "End Date"
-msgstr "Fecha de fin"
+msgstr ""
 
 #: ../browser/templates/planning.pt:480
 #: ../content/templates/project_view.pt:72
@@ -342,8 +350,8 @@ msgstr "Inicio:"
 msgid "English"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:603
-#: ../content/outcomeccs.py:64
+#: ../browser/templates/monitoring.pt:642
+#: ../content/outcomeccs.py:79
 msgid "Explain"
 msgstr ""
 
@@ -368,11 +376,11 @@ msgid "Fases"
 msgstr "Fases"
 
 #: ../browser/templates/files.pt:14
-#: ../content/templates/project_view.pt:272
+#: ../content/templates/project_view.pt:280
 msgid "Files"
 msgstr "Ficheros"
 
-#: ../content/templates/project_view.pt:192
+#: ../content/templates/project_view.pt:195
 msgid "Focal point partner"
 msgstr ""
 
@@ -418,9 +426,17 @@ msgstr ""
 msgid "Home"
 msgstr "Inicio"
 
+#: ../browser/templates/monitoring.pt:622
+msgid "How much has contributed"
+msgstr ""
+
 #: ../content/outcomeccitem.py:25
 msgid "Icon"
 msgstr "Icono"
+
+#: ../browser/templates/monitoring.pt:721
+msgid "Identifying needs and course of action"
+msgstr ""
 
 #: ../content/improvement_area.py:43
 #: ../content/itemarea.py:28
@@ -464,8 +480,8 @@ msgstr "En efectivo"
 msgid "In-kind"
 msgstr "En especie"
 
-#: ../browser/templates/visualizating.pt:87
-msgid "Individual dimensions"
+#: ../content/templates/project_view.pt:172
+msgid "In-kind>"
 msgstr ""
 
 #: ../content/outcomeccvalues.py:70
@@ -475,6 +491,10 @@ msgstr ""
 #: ../content/templates/activity_view.pt:21
 msgid "Initial Situation"
 msgstr "Situación inicial"
+
+#: ../browser/templates/monitoring.pt:725
+msgid "Initial changes in the organization start to materialize"
+msgstr ""
 
 #: ../browser/templates/planning.pt:475
 #: ../content/activity.py:66
@@ -493,8 +513,8 @@ msgstr ""
 msgid "Insert the used short category to group this element"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:70
-msgid "Inside project"
+#: ../browser/templates/manage_portal.pt:107
+msgid "Inside Project"
 msgstr ""
 
 #: ../configure.zcml:39
@@ -569,11 +589,7 @@ msgstr ""
 msgid "Main Obstacles title"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:609
-msgid "Main contributing factors"
-msgstr ""
-
-#: ../browser/templates/monitoring.pt:613
+#: ../browser/templates/monitoring.pt:646
 msgid "Main limiting factors"
 msgstr ""
 
@@ -656,19 +672,23 @@ msgstr ""
 msgid "Next update"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:53
+msgid "No Projects found in the Platform."
+msgstr ""
+
 #: ../browser/monitoring.py:167
 #: ../browser/planning.py:194
 #: ../browser/visualizating.py:156
 msgid "Not defined"
 msgstr "Sin definir"
 
-#: ../browser/templates/monitoring.pt:588
+#: ../browser/templates/monitoring.pt:607
 #: ../browser/templates/planning.pt:849
 #: ../content/outcomecc.py:45
 msgid "Objective"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:592
+#: ../browser/templates/monitoring.pt:611
 #: ../browser/templates/planning.pt:853
 #: ../content/outcomecc.py:50
 msgid "Objective date"
@@ -680,18 +700,6 @@ msgstr ""
 
 #: ../content/settingspage.py:38
 msgid "One unit per line. Ex: liters"
-msgstr ""
-
-#: ../browser/templates/visualizating.pt:69
-msgid "Organitzational transactional dimensions"
-msgstr ""
-
-#: ../browser/templates/visualizating.pt:105
-msgid "Organitzational transformational dimensions"
-msgstr ""
-
-#: ../browser/templates/visualizating.pt:125
-msgid "Others"
 msgstr ""
 
 #: ../profiles/default/types/OutcomeCC.xml
@@ -744,10 +752,13 @@ msgid "PMP Projects View"
 msgstr "Vista de proyectos de PMP"
 
 #: ../browser/templates/global_map.pt:44
-#: ../browser/templates/manage_portal.pt:205
-#: ../content/templates/project_view.pt:198
+#: ../content/templates/project_view.pt:201
 msgid "Partner"
 msgstr "Socio"
+
+#: ../browser/templates/manage_portal.pt:224
+msgid "Partner Title"
+msgstr ""
 
 #: ../content/project.py:230
 msgid "Partner/partners of the project"
@@ -780,17 +791,13 @@ msgstr "Planificación"
 msgid "Platform/platforms associated to this project"
 msgstr "Plataforma o plataformas asociadas a este proyecto"
 
-#: ../browser/templates/manage_portal.pt:169
-msgid "Program"
-msgstr "Programa"
-
 #: ../content/project.py:193
 msgid "Program/programs associated to this project"
 msgstr "Programa/Programas asociados al proyecto"
 
-#: ../browser/templates/manage_portal.pt:33
 #: ../browser/templates/monitoring.pt:34
 #: ../browser/templates/planning.pt:34
+#: ../content/project.py:79
 msgid "Project"
 msgstr "Proyecto"
 
@@ -813,6 +820,10 @@ msgstr "Administrador del proyecto"
 #: ../portlets/sidenav.pt:33
 msgid "Project Overview"
 msgstr "Proyecto"
+
+#: ../browser/templates/manage_portal.pt:59
+msgid "Project Title"
+msgstr ""
 
 #: ../content/activity.py:73
 msgid "Project dates"
@@ -837,6 +848,7 @@ msgid "Project year"
 msgstr "Año de proyecto"
 
 #: ../browser/templates/global_map.pt:14
+#: ../browser/templates/manage_portal.pt:25
 msgid "Projects"
 msgstr ""
 
@@ -844,7 +856,7 @@ msgstr ""
 msgid "Recent files"
 msgstr "Ficheros recientes"
 
-#: ../browser/templates/manage_portal.pt:135
+#: ../browser/templates/manage_portal.pt:146
 #: ../content/platform.py:41
 msgid "Region"
 msgstr "Region"
@@ -878,7 +890,7 @@ msgstr "Persona responsable"
 msgid "Risks / Assumptions"
 msgstr "Riesgos / Suposiciones"
 
-#: ../content/templates/project_view.pt:330
+#: ../content/templates/project_view.pt:345
 msgid "Save"
 msgstr ""
 
@@ -890,6 +902,10 @@ msgstr "Buscar proyectos"
 msgid "Search projects by Title, Objectives, Platform, Program, Country, Location or Partners"
 msgstr ""
 
+#: ../browser/templates/monitoring.pt:694
+msgid "Select Stage of this Working Area"
+msgstr ""
+
 #: ../content/project.py:202
 msgid "Select a country from the list"
 msgstr "Seleccionar un país de la lista"
@@ -898,18 +914,26 @@ msgstr "Seleccionar un país de la lista"
 msgid "Select country"
 msgstr "Seleccionar país"
 
+#: ../content/outcomeccs.py:54
+msgid "Select how much has contributed to the project"
+msgstr ""
+
 #: ../content/project.py:274
 msgid "Select one or more associated Working Area"
 msgstr ""
 
-#: ../content/outcomeccs.py:54
+#: ../content/outcomeccs.py:59
 #: ../content/outcomeccvalues.py:45
 msgid "Select the contributing factors to the perceived change"
 msgstr ""
 
-#: ../content/outcomeccs.py:59
+#: ../content/outcomeccs.py:69
 #: ../content/outcomeccvalues.py:55
 msgid "Select the limiting factors to the perceived change"
+msgstr ""
+
+#: ../content/outcomeccs.py:64
+msgid "Select the main obstacles"
 msgstr ""
 
 #: ../content/outcomeccs.py:49
@@ -917,7 +941,7 @@ msgstr ""
 msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr ""
 
-#: ../portlets/sidenav.pt:78
+#: ../portlets/sidenav.pt:79
 msgid "Settings"
 msgstr "Ajustes"
 
@@ -963,9 +987,14 @@ msgstr "Miembros del Sitio web"
 msgid "Spanish"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:641
+#: ../browser/templates/monitoring.pt:674
 #: ../browser/templates/planning.pt:932
 msgid "Specific title"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:568
+#: ../content/outcomecc.py:55
+msgid "Stage"
 msgstr ""
 
 #: ../browser/templates/visualizating.pt:147
@@ -980,9 +1009,9 @@ msgstr "Inicio"
 msgid "Start (Planned):"
 msgstr "Inicio (planificado):"
 
-#: ../browser/templates/manage_portal.pt:34
+#: ../browser/templates/manage_portal.pt:60
 msgid "Start Date"
-msgstr "Fecha de inicio"
+msgstr ""
 
 #: ../content/templates/project_view.pt:62
 msgid "Start:"
@@ -1060,6 +1089,14 @@ msgstr "El sistema utilizará la configuración id. Cambie para propósitos de p
 msgid "There are no Activities and Outputs plannified/monitorized on this Working Area and year."
 msgstr ""
 
+#: ../content/templates/project_view.pt:302
+msgid "There are no files in this Project."
+msgstr ""
+
+#: ../content/templates/project_view.pt:271
+msgid "This Project has no assigned members."
+msgstr ""
+
 #: ../content/activity.py:41
 msgid "This date must be between the dates of the project."
 msgstr ""
@@ -1096,7 +1133,7 @@ msgstr "Título (Español)"
 msgid "Total budget"
 msgstr ""
 
-#: ../content/templates/project_view.pt:185
+#: ../content/templates/project_view.pt:188
 msgid "Total budget:"
 msgstr "Presupuesto total:"
 
@@ -1112,7 +1149,7 @@ msgstr "Uninstalls the gwopa.core add-on."
 msgid "Unit"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:621
+#: ../browser/templates/monitoring.pt:654
 #: ../browser/templates/planning.pt:862
 msgid "Update"
 msgstr ""
@@ -1121,13 +1158,17 @@ msgstr ""
 msgid "Use this area to add all the objectives and description of the project"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:103
+#: ../browser/templates/manage_portal.pt:262
 msgid "UserID"
-msgstr "Id Usuario"
+msgstr ""
 
 #: ../browser/templates/teams.pt:36
 msgid "Username"
 msgstr "Nombre de usuario"
+
+#: ../browser/templates/manage_portal.pt:22
+msgid "Users"
+msgstr ""
 
 #: ../content/templates/partner_view.pt:62
 msgid "Users in this Partner"
@@ -1141,7 +1182,7 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: ../content/templates/project_view.pt:273
+#: ../content/templates/project_view.pt:282
 msgid "View all"
 msgstr ""
 
@@ -1153,6 +1194,7 @@ msgstr ""
 msgid "WOP Partner"
 msgstr "WOP Partner"
 
+#: ../browser/templates/manage_portal.pt:37
 #: ../userdataschema.py:62
 msgid "WOP Partners"
 msgstr "WOP Partners"
@@ -1162,11 +1204,27 @@ msgstr "WOP Partners"
 msgid "WOP Platform"
 msgstr "Regional WOP Platform"
 
+#: ../browser/templates/manage_portal.pt:144
+msgid "WOP Platform Title"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:31
+msgid "WOP Platforms"
+msgstr ""
+
 #: ../browser/templates/global_map.pt:39
 #: ../content/project.py:192
 #: ../profiles/default/types/Program.xml
 msgid "WOP Program"
 msgstr "WOP Program"
+
+#: ../browser/templates/manage_portal.pt:184
+msgid "WOP Program Title"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:34
+msgid "WOP Programs"
+msgstr ""
 
 #: ../content/templates/improvementarea_view.pt:17
 msgid "Wall"
@@ -1176,8 +1234,13 @@ msgstr "Muro"
 msgid "Working Area"
 msgstr ""
 
+#: ../browser/templates/manage_portal.pt:106
+msgid "Working Area Title"
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:28
 #: ../content/project.py:273
-#: ../content/templates/project_view.pt:233
+#: ../content/templates/project_view.pt:236
 msgid "Working Areas"
 msgstr "Áreas de Trabajo"
 
@@ -1229,7 +1292,7 @@ msgid "goes from"
 msgstr "va desde"
 
 #. Default: "GWOPA Menu"
-#: ../portlets/sidenav.py:21
+#: ../portlets/sidenav.py:22
 msgid "gwopa_menu"
 msgstr "Menú GWOPA"
 

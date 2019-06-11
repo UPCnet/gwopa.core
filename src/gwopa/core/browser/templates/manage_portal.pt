@@ -41,7 +41,7 @@
     <div class="tab-content">
       <div class="tab-pane" id="project">
         <div class="tabla_items">
-          <h1> Projects 
+          <h1> Projects
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
               <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New Project </button>
            </a>
@@ -56,12 +56,12 @@
             <table class="table table-condensed table-bordered table-responsive sortable table-striped" tal:condition="elements">
               <thead>
                 <tr>
-                  <th scope="col" i18n:translate="" i18n:translate=""> Project Title</th>
-                  <th scope="col" i18n:translate="" i18n:translate=""> Start Date </th>
-                  <th scope="col" i18n:translate="" i18n:translate=""> End Date </th>
-                  <th scope="col" i18n:translate="" i18n:translate=""> Admin role </th>
-                  <th scope="col" i18n:translate="" i18n:translate=""> Country </th>
-                  <th scope="col" i18n:translate="" i18n:translate="" style="width: 70px;"> Action </th>
+                  <th scope="col" i18n:translate=""> Project Title</th>
+                  <th scope="col" i18n:translate=""> Start Date </th>
+                  <th scope="col" i18n:translate=""> End Date </th>
+                  <th scope="col" i18n:translate=""> Admin role </th>
+                  <th scope="col" i18n:translate=""> Country </th>
+                  <th scope="col" i18n:translate="" style="width: 70px;"> Action </th>
                 </tr>
               </thead>
               <tbody>
@@ -87,7 +87,7 @@
       </div>
       <div class="tab-pane" id="areas">
         <div class="tabla_items">
-          <h1> Working Areas 
+          <h1> Working Areas
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/areas/++add++ItemArea" href="#">
               <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New Default Area </button></a>
             <a tal:attributes="href string:${portal_url}/config/areas/folder_contents" href="#">
@@ -128,7 +128,7 @@
       </div>
       <div class="tab-pane" id="platforms">
         <div class="tabla_items">
-          <h1> WOP Platforms 
+          <h1> WOP Platforms
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/platforms/++add++Platform" href="#">
               <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Platform </button></a>
             <a tal:attributes="href string:${portal_url}/config/platforms/folder_contents" href="#">
@@ -168,7 +168,7 @@
       </div>
       <div class="tab-pane" id="programs">
         <div class="tabla_items">
-          <h1> WOP Programs 
+          <h1> WOP Programs
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/programs/++add++Program" href="#">
               <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Program </button></a>
             <a tal:attributes="href string:${portal_url}/config/programs/folder_contents" href="#">
@@ -208,7 +208,7 @@
       </div>
       <div class="tab-pane" id="partners">
         <div class="tabla_items">
-          <h1> WOP Partners 
+          <h1> WOP Partners
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/partners/++add++Partner" href="#">
               <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Partner </button></a>
             <a tal:attributes="href string:${portal_url}/config/partners/folder_contents" href="#">
@@ -248,7 +248,7 @@
       </div>
       <div class="tab-pane active" id="users">
         <div class="tabla_items">
-          <h1> Users 
+          <h1> Users
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
               <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New User </button></a>
           </h1>
