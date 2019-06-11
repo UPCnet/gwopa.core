@@ -236,56 +236,56 @@
       for="*"
       name="api-getProjectWOPPlatform"
       class=".api.code.getProjectWOPPlatform"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectWOPProgram"
       class=".api.code.getProjectWOPProgram"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectWorkingArea"
       class=".api.code.getProjectWorkingArea"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectCountry"
       class=".api.code.getProjectCountry"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectPartners"
       class=".api.code.getProjectPartners"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectTags"
       class=".api.code.getProjectTags"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectDates"
       class=".api.code.getProjectDates"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
       for="*"
       name="api-getProjectKPIs"
       class=".api.code.getProjectKPIs"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
   <browser:page
