@@ -232,7 +232,16 @@ class monitoringView(BrowserView):
                 if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
                     target_value_real = ''
                     target_value_planned = _(u"Not defined")
-                    monitoring_info = ''
+                    monitoring_info = dict(
+                        progress='',
+                        explanation='',
+                        obstacles='',
+                        contributing='',
+                        consideration='',
+                        limiting='',
+                        updated='',
+                    )
+                    monitoring_info = monitoring_info
                 else:
                     target_value_real = annotations[KEY]['real']
                     target_value_planned = annotations[KEY]['planned']
@@ -240,6 +249,16 @@ class monitoringView(BrowserView):
             else:
                 target_value_real = ''
                 target_value_planned = '-----'
+                monitoring_info = dict(
+                        progress='',
+                        explanation='',
+                        obstacles='',
+                        contributing='',
+                        consideration='',
+                        limiting='',
+                        updated='',
+                    )
+                monitoring_info = monitoring_info
             if obj.members:
                 users = obj.members
                 for member in users:

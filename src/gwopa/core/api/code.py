@@ -453,7 +453,16 @@ class Create(BrowserView):
             annotations = IAnnotations(obj)
             for x in range(0, 11):  # Create 10 annotations
                 target = self.request.form.get('item_target' + str(x + 1))
-                data = dict(real='', planned=target, monitoring='')
+                monitoring_info = dict(
+                    progress='',
+                    explanation='',
+                    obstacles='',
+                    contributing='',
+                    consideration='',
+                    limiting='',
+                    updated='',
+                )
+                data = dict(real='', planned=target, monitoring=monitoring_info)
                 KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
                 annotations[KEY] = data
 
@@ -472,12 +481,7 @@ class ChangeTargetMonitoring(BrowserView):
         annotations = IAnnotations(item.getObject())
         planned = annotations[KEY]['planned']
         monitoring = annotations[KEY]['monitoring']
-        if monitoring is '':
-            monitoring = dict(
-                progress=new_value,
-            )
-        else:
-            monitoring['progress'] = new_value
+        monitoring['progress'] = new_value
         data = dict(real=new_value, planned=planned, monitoring=monitoring)
         annotations[KEY] = data
         return "OK, value changed"
