@@ -327,6 +327,7 @@ class addOutcomeCCS(BrowserView):
             selected_specific='',
             icon_url='++theme++gwopa.theme/assets/images/others.png',
             icon_url_selected='++theme++gwopa.theme/assets/images/w-others.png',
+            icon_basic='++theme++gwopa.theme/assets/images/g-others.png',
             short_category='other',
             baseline=specific_obj.baseline,
             baseline_date=specific_obj.baseline_date,
@@ -373,6 +374,7 @@ class addOutcomeCCSMonitoring(BrowserView):
             selected_specific='',
             icon_url='++theme++gwopa.theme/assets/images/others.png',
             icon_url_selected='++theme++gwopa.theme/assets/images/w-others.png',
+            icon_basic='++theme++gwopa.theme/assets/images/g-others.png',
             short_category='other',
             baseline='',
             baseline_date='',
@@ -655,7 +657,10 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
                 specific['contributing_factors'] = contributing_factors
                 specific['limiting_factors'] = limiting_factors
                 specific['explain'] = explain
-                specific['selected_monitoring'] = degree_values[degree_changes]
+                val_degree_changes = degree_changes[0]
+                if val_degree_changes == '-':
+                    val_degree_changes = degree_changes[0:2]
+                specific['selected_monitoring'] = degree_values[val_degree_changes]
         generic = annotations[KEY]['generic']
         data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         annotations[KEY] = data
