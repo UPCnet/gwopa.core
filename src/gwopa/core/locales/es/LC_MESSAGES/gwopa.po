@@ -849,11 +849,11 @@ msgstr "Administrador del proyecto"
 
 #: ../portlets/sidenav.pt:23
 msgid "Project Overview"
-msgstr ""
+msgstr "Proyecto"
 
 #: ../browser/templates/manage_portal.pt:59
 msgid "Project Title"
-msgstr ""
+msgstr "Título del proyecto"
 
 #: ../content/activity.py:72
 msgid "Project dates"

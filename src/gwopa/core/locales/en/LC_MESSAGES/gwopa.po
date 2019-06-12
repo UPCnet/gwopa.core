@@ -850,7 +850,7 @@ msgstr "Project Manager (Administrator role)"
 
 #: ../portlets/sidenav.pt:23
 msgid "Project Overview"
-msgstr "Project Overview"
+msgstr "Project"
 
 #: ../browser/templates/manage_portal.pt:59
 msgid "Project Title"
