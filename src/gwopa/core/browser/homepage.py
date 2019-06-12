@@ -44,8 +44,8 @@ class MainTemplate(BrowserView):
         catalog = api.portal.get_tool('portal_catalog')
         currentuser = api.user.get_current().id
         results = []
-        limit = 1
         if 'Manager' in api.user.get_roles(username=currentuser):
+            limit = 2
             projects = catalog.unrestrictedSearchResults(
                 portal_type='Project',
                 context=self.context,
@@ -79,8 +79,7 @@ class MainTemplate(BrowserView):
                 context=self.context,
                 sort_order='reverse',
                 sort_on='modified',
-                sort_limit=limit,
-                review_state='internally_published')
+                sort_limit=limit)
             for project in projects:
                 item = project._unrestrictedGetObject()
                 if item.members:
@@ -142,7 +141,6 @@ class MainTemplate(BrowserView):
             userPartners = api.user.get_current().getProperty('wop_partners')
             for project in projects:
                 item = project._unrestrictedGetObject()
-
                 if userPartners in item.partners:
                     if item.image:
                         image = item.absolute_url() + '/@@images/image/preview'
@@ -194,11 +192,15 @@ class MainTemplate(BrowserView):
                                 image=image
                                 ))
         limit = 8
-        if len(results) > limit:
+        items_to_show = 4
+        total_results = len(results)
+
+        if total_results >= limit:
             items_to_show = limit
-        else:
-            items_to_show = 4
-        return random.sample(results, items_to_show)
+        if total_results < items_to_show:
+            items_to_show = len(results)
+
+        return random.sample(results, k=items_to_show)
 
     def abreviaText(self, text, count=100):
         text = BeautifulSoup(text, 'lxml').text

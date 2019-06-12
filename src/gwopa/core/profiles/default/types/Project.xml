@@ -15,7 +15,6 @@
         <element value="Folder"/>
         <element value="ImprovementArea"/>
         <element value="OutcomeZONE"/>
-        <element value="OutcomeKPI"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>

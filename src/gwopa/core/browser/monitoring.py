@@ -173,6 +173,7 @@ class monitoringView(BrowserView):
             else:
                 target_value_real = ''
                 target_value_planned = '-----'
+                monitoring_info = ""
             if item.portal_type == 'Activity':
                 unit = ''
             else:
@@ -219,7 +220,7 @@ class monitoringView(BrowserView):
 
     def listOutcomesKPI(self):
         items = api.content.find(
-            portal_type=['OutcomeKPI', 'OutcomeZONE'],
+            portal_type=['OutcomeZONE'],
             context=self.context)
         results = []
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
@@ -353,7 +354,7 @@ class monitoringView(BrowserView):
         return results
 
     def custom_pattern_options(self):
-        """ Pass data from project to picker date in modal, in Activity, OutcomeKPI and OutcomeKPIZone.
+        """ Pass data from project to picker date in modal, in Activity  and OutcomeKPIZone.
             Output must be done via JS because we need to pass the value from the HTML. """
         start = self.context.gwopa_year_phases[:][0]['pattern_start']
         end = self.context.gwopa_year_phases[-1:][0]['pattern_end']

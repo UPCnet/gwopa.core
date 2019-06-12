@@ -100,6 +100,7 @@ class IProject(model.Schema):
              fields=['partners', 'project_manager_admin', 'project_manager', 'members']
              )
 
+    dexteritytextindexer.searchable('category')
     category = schema.Tuple(
         title=_(u'label_tags', default=u'Tags'),
         description=_(

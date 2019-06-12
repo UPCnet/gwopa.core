@@ -15,7 +15,7 @@ grok.templatedir("templates")
 
 
 def todayValue():
-    return datetime.date.today()
+    return datetime.datetime.today()
 
 
 class IOutput(model.Schema):
@@ -32,16 +32,21 @@ class IOutput(model.Schema):
         missing_value=u'',
     )
 
-    end = schema.Datetime(
-        title=_(u'Completion date'),
-        required=True,
-        defaultFactory=todayValue
+    directives.mode(project_dates='display')
+    project_dates = schema.Text(
+        title=_(u''),
     )
 
     measuring_unit = schema.Choice(
         title=_(u"Measuring unit"),
         source=utils.settings_measuring_unit,
         required=True,
+    )
+
+    end = schema.Datetime(
+        title=_(u'Completion date'),
+        required=True,
+        defaultFactory=todayValue
     )
 
     means = schema.Text(
@@ -61,6 +66,10 @@ class IOutput(model.Schema):
             source=u'plone.app.vocabularies.Users'),
         required=False,
     )
+
+@form.default_value(field=IOutput['project_dates'])
+def projectDates(data):
+    return "The dates must be between the limits of this Project. Start: " + str(data.context.aq_parent.startactual) + " End: " + str(data.context.aq_parent.completionactual)
 
 
 class Edit(form.SchemaEditForm):

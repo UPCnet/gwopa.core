@@ -18,12 +18,8 @@ class StartBeforeEnd(Invalid):
     __doc__ = _(u"The starting date must be before the completion date")
 
 
-# class Outofproject(Invalid):
-#     __doc__ = _(u"This date must be between the dates of the project.")
-
-
 def todayValue():
-    return datetime.date.today()
+    return datetime.datetime.today()
 
 
 current_year = datetime.date.today().year
@@ -69,7 +65,7 @@ class IActivity(model.Schema):
 
     directives.mode(project_dates='display')
     project_dates = schema.Text(
-        title=_(u'Project dates'),
+        title=_(u''),
     )
 
     start = schema.Datetime(
@@ -102,6 +98,11 @@ class IActivity(model.Schema):
         required=False,
     )
 
+    risks = schema.Text(
+        title=_(u"Risks / Assumptions"),
+        required=False,
+    )
+
     @invariant
     def validateStartEnd(data):
         if data.start is not None and data.end is not None:
@@ -116,7 +117,7 @@ def projectCurrency(data):
 
 @form.default_value(field=IActivity['project_dates'])
 def projectDates(data):
-    return "Start date: " + str(data.context.aq_parent.startactual) + " - End date: " + str(data.context.aq_parent.completionactual)
+    return "The dates must be between the limits of this Project. Start: " + str(data.context.aq_parent.startactual) + " End: " + str(data.context.aq_parent.completionactual)
 
 
 class Edit(form.SchemaEditForm):

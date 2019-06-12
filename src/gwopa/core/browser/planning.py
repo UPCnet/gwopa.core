@@ -9,6 +9,10 @@ from Products.CMFCore.utils import getToolByName
 import datetime
 from gwopa.core import _
 from zope.annotation.interfaces import IAnnotations
+from datetime import timedelta
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
 
 
 @implementer(IPublishTraverse)
@@ -132,78 +136,80 @@ class planningView(BrowserView):
         results = []
         for (i, project) in enumerate(items):
             item = project.getObject()
-            results.append(dict(title=item.title,
+            results.append(dict(title=item.Title(),
                                 url='/'.join(item.getPhysicalPath()),
                                 id=item.id,
-                                description=item.description,
+                                description=item.Description(),
                                 pos=i,
                                 portal_type=item.portal_type
                                 ))
         return sorted(results, key=itemgetter('title'), reverse=False)
 
-    def indicatorsInside(self, item):
-        """ returns objects from first level (elements inside ImprovementArea) """
+    def activitiesInside(self, item):
+        """ Returns Activities inside Working Area """
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
         data_year = self.context.gwopa_year_phases[int(self.year) - 1]
-
         start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
         end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+        # Los de la fase [---]
         range_start = {'query': (start, end), 'range': 'min:max'}
-        items1 = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Activity', 'Output'],
-            start=range_start,
-            path={'query': folder_path,
-                  'depth': 1})
-
-        range_start = {'query': (start), 'range': 'min'}
-        items2 = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Activity', 'Output'],
-            start=range_start,
-            path={'query': folder_path,
-                  'depth': 1})
-
         range_end = {'query': (start, end), 'range': 'min:max'}
-        items3 = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Activity', 'Output'],
+        activities1 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=range_start,
             end=range_end,
             path={'query': folder_path,
                   'depth': 1})
 
-        range_end = {'query': (end), 'range': 'max'}
-        items4 = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Activity', 'Output'],
+        # Los de fuera de la fase start y end ---][----
+        range_start = {'query': (start), 'range': 'max'}
+        range_end = {'query': (end), 'range': 'min'}
+        activities2 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=range_start,
             end=range_end,
             path={'query': folder_path,
                   'depth': 1})
+
+        # Los que empiezan antes y acaban en fase ---]
+        ranges = {'query': (start), 'range': 'max'}
+        range_end = {'query': (start, end), 'range': 'min:max'}
+
+        activities3 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=ranges,
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        # Los que empiezan aqui y acaban despues [----
+        range_start = {'query': (start, end), 'range': 'min:max'}
+        range_end = {'query': (end), 'range': 'min'}
+        activities4 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        items = activities1 + activities2 + activities3 + activities4
 
         elements = []
-        items = items1 + items2 + items3 + items4
+
         for item in items:
             if item.getObject() not in elements:
                 elements.append(item.getObject())
         results = []
-
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
         for item in elements:
             members = []
             annotations = IAnnotations(item)
+            target_value_planned = _(u"Not defined")
             if KEY in annotations.keys():
-                if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
-                    target_value_planned = _(u"Not defined")
-                    unit = ''
-                else:
+                if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
                     target_value_planned = annotations[KEY]['planned']
-            else:
-                target_value_planned = _(u"Not defined")
-            if item.portal_type == 'Activity':
-                unit = ''
-            else:
-                unit = item.measuring_unit
-            if not item.start:
-                item.start = '-----'
-            if not item.end:
-                item.end = '-----'
             if item.members:
                 users = item.members
                 if isinstance(users, (str,)):
@@ -211,32 +217,79 @@ class planningView(BrowserView):
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
-            if item.portal_type == 'Activity':
-                unit = ''
-                target_value_planned = '-----'
-            if item.portal_type == 'Output':
-                start = '----'
-                limit_start = '----'
-            else:
-                start = item.start.strftime('%Y-%m-%d')
-                limit_start = item.start.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ',')
             results.append(dict(
-                title=item.Title,
-                description=item.Description,
+                title=item.title,
                 portal_type=item.portal_type,
-                start=start,
+                start= item.start.strftime('%Y-%m-%d'),
                 end=item.end.strftime('%Y-%m-%d'),
-                unit=unit,
-                limit_start=limit_start,
+                limit_start=item.start.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
+                limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
+                target_value_planned='-----',
+                responsible=members,
+                url='/'.join(item.getPhysicalPath())))
+        return sorted(results, key=itemgetter('title'), reverse=False)
+
+    def outputsInside(self, item):
+        """  Returns Outpus inside Activities """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        folder_path = item['url']
+        data_year = self.context.gwopa_year_phases[int(self.year) - 1]
+
+        start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+        end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+        range_end = {'query': (start, end), 'range': 'min:max'}
+        outputs1 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Output'],
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        range_end = {'query': (end), 'range': 'min'}
+        outputs2 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Output'],
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        items = outputs1 + outputs2
+
+        elements = []
+        for item in items:
+            if item.getObject() not in elements:
+                elements.append(item.getObject())
+        results = []
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+        for item in elements:
+            members = []
+            annotations = IAnnotations(item)
+            target_value_planned = _(u"Not defined")
+            if KEY in annotations.keys():
+                if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
+                    target_value_planned = annotations[KEY]['planned']
+            if item.members:
+                users = item.members
+                if isinstance(users, (str,)):
+                    members.append(api.user.get(username=users).getProperty('fullname'))
+                else:
+                    for member in users:
+                        members.append(api.user.get(username=member).getProperty('fullname'))
+            results.append(dict(
+                title=item.title,
+                portal_type=item.portal_type,
+                start='----',
+                end=item.end.strftime('%Y-%m-%d'),
+                unit=item.measuring_unit,
+                limit_start='----',
                 limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
                 target_value_planned=target_value_planned,
                 responsible=members,
                 url='/'.join(item.getPhysicalPath())))
-        return results
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def listOutcomesKPI(self):
         items = api.content.find(
-            portal_type=['OutcomeKPI', 'OutcomeZONE'],
+            portal_type=['OutcomeZONE'],
             context=self.context)
         results = []
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
@@ -273,7 +326,7 @@ class planningView(BrowserView):
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
-        return results
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def listOutcomesCC(self):
         items = api.content.find(
@@ -327,11 +380,10 @@ class planningView(BrowserView):
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
-
-        return results
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def custom_pattern_options(self):
-        """ Pass data from project to picker date in modal, in Activity, OutcomeKPI and OutcomeKPIZone.
+        """ Pass data from project to picker date in modal, in Activity and OutcomeKPIZone.
             Output must be done via JS because we need to pass the value from the HTML. """
         start = self.context.gwopa_year_phases[:][0]['pattern_start']
         end = self.context.gwopa_year_phases[-1:][0]['pattern_end']

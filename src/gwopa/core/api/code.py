@@ -420,7 +420,7 @@ class Create(BrowserView):
         if portal_type == 'Activity':
             obj.budget = self.request.form.get('item_budget')
             date_start = self.request.form.get('item_start')
-            import ipdb; ipdb.set_trace()
+
             if date_start:
                 obj.start = datetime.datetime.strptime(date_start, '%Y-%m-%d')
                 date_end = self.request.form.get('item_end')
@@ -428,7 +428,7 @@ class Create(BrowserView):
                 obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
             obj.initial_situation = self.request.form.get('item_initialdescription')
             obj.currency = self.request.form.get('item_hidden_project_currency')
-            obj.project_dates = 'Start date: ' + self.request.form.get('item_project_start') + ' - End date: ' + self.request.form.get('item_project_end')
+            obj.project_dates = 'The dates must be between the limits of this Project. Start: ' + self.request.form.get('item_project_start') + ' End: ' + self.request.form.get('item_project_end')
             annotations = IAnnotations(obj)
             for x in range(0, 11):  # Create 10 annotations
                 data = dict(real='', planned='', monitoring='')
@@ -441,7 +441,7 @@ class Create(BrowserView):
                 obj.end = datetime.datetime.strptime(date_end, '%d %B, %Y')
             obj.measuring_unit = self.request.form.get('item_unit')
 
-        if (portal_type == 'OutcomeKPI') or (portal_type == 'OutcomeZONE'):
+        if portal_type == 'OutcomeZONE':
             obj.baseline = self.request.form.get('item_baseline')
             itemdate = self.request.form.get('item_date')
             if itemdate:
@@ -450,7 +450,7 @@ class Create(BrowserView):
             obj.measuring_unit = self.request.form.get('item_unit')
             obj.zone = self.request.form.get('item_zone')
 
-        if (portal_type == 'Output') or (portal_type == 'OutcomeZONE') or (portal_type == 'OutcomeKPI'):
+        if (portal_type == 'Output') or (portal_type == 'OutcomeZONE'):
             annotations = IAnnotations(obj)
             for x in range(0, 11):  # Create 10 annotations
                 target = self.request.form.get('item_target' + str(x + 1))
@@ -466,7 +466,7 @@ class Create(BrowserView):
                 data = dict(real='', planned=target, monitoring=monitoring_info)
                 KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
                 annotations[KEY] = data
-
+        obj.reindexObject()
         return 'Ok, item created'
 
 
