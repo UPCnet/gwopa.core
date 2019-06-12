@@ -7,7 +7,6 @@
   <object meta_type="Dexterity FTI" name="OutcomeCCItem" />
   <object meta_type="Dexterity FTI" name="OutcomeCCS" />
   <object meta_type="Dexterity FTI" name="OutcomeCCValues" />
-  <object meta_type="Dexterity FTI" name="OutcomeKPI" />
   <object meta_type="Dexterity FTI" name="OutcomeZONE" />
   <object meta_type="Dexterity FTI" name="Output" />
   <object meta_type="Dexterity FTI" name="Outputdefaults" />

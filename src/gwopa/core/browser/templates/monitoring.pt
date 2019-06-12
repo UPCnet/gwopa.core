@@ -211,9 +211,9 @@
                             <div class="col-sm-3">
                               <h5 i18n:translate="">Main Obstacles</h5>
                               <input type="hidden" tal:attributes="id string:${output/id}-output-obs; value output/obstacles;" style="width: 100%"/>
-                              <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12">
+                              <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12" style="padding: 0px;">
                                 <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                                <span class="legend">Add new Main Obstacles if not listed in the before field</span>
+                                <span class="legend">Add new Obstacle if not listed</span>
                               </div>
                               <div tal:attributes="id string:${output/id}-addObstaclesOutput" class="form-group col-sm-12">
                                 <h5 i18n:translate="">Main Obstacles title</h5>
@@ -223,9 +223,9 @@
                             <div class="col-sm-3">
                               <h5 i18n:translate="">Main Contributing factors</h5>
                               <input type="hidden" tal:attributes="id string:${output/id}-output-contrib; value output/contributing;" style="width: 100%"/>
-                              <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12">
+                              <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12" style="padding: 0px;">
                                 <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                                <span class="legend">Add new Main Contributing if not listed in the before field</span>
+                                <span class="legend">Add new Contributing factor</span>
                               </div>
                               <div tal:attributes="id string:${output/id}-addContributingsOutput" class="form-group col-sm-12">
                                 <h5 i18n:translate="">Main Contributing factors title</h5>
@@ -337,9 +337,9 @@
                         <div class="col-sm-3">
                           <h5 i18n:translate="">Main Obstacles</h5>
                           <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-obs; value outcome/obstacles;" style="width: 100%"/>
-                          <div tal:attributes="id string:${outcome/id}-addObstacleKPI" class="form-group col-sm-12">
+                          <div tal:attributes="id string:${outcome/id}-addObstacleKPI" class="form-group col-sm-12" style="padding: 0px;">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                            <span class="legend">Add new Main Obstacles if not listed in the before field</span>
+                            <span class="legend">Add new Obstacle if not listed</span>
                           </div>
                           <div tal:attributes="id string:${outcome/id}-addObstaclesKPI" class="form-group col-sm-12">
                             <h5 i18n:translate="">Main Obstacles title</h5>
@@ -349,9 +349,9 @@
                         <div class="col-sm-3">
                           <h5 i18n:translate="">Main Contributing factors</h5>
                           <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-contrib; value outcome/contributing;" style="width: 100%"/>
-                          <div tal:attributes="id string:${outcome/id}-addContributingKPI" class="form-group col-sm-12">
+                          <div tal:attributes="id string:${outcome/id}-addContributingKPI" class="form-group col-sm-12" style="padding: 0px;">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                            <span class="legend">Add new Main Contributing if not listed in the before field</span>
+                            <span class="legend">Add new Contributing factor</span>
                           </div>
                           <div tal:attributes="id string:${outcome/id}-addContributingsKPI" class="form-group col-sm-12">
                             <h5 i18n:translate="">Main Contributing factors title</h5>

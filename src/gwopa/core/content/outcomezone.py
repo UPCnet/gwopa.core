@@ -5,17 +5,17 @@ from plone.supermodel import model
 from zope import schema
 from gwopa.core import utils
 from gwopa.core import _
-# from z3c.form.interfaces import HIDDEN_MODE, INPUT_MODE, DISPLAY_MODE
 from plone.directives import form
 from plone.autoform import directives
 from plone.app.z3cform.widget import SelectWidget
+from z3c.form.interfaces import DISPLAY_MODE
 
 grok.templatedir("templates")
 
 
 def todayValue():
     """ Today. """
-    return datetime.date.today()
+    return datetime.datetime.today()
 
 
 class IOutcomezone(model.Schema):
@@ -31,8 +31,16 @@ class IOutcomezone(model.Schema):
         required=False,
     )
 
+    directives.widget('members', SelectWidget)
+    members = schema.List(
+        title=_(u"Responsible people"),
+        value_type=schema.Choice(
+            source=u'plone.app.vocabularies.Users'),
+        required=False,
+    )
+
     description = schema.Text(
-        title=_(u'Summary'),
+        title=_(u'Description'),
         required=False,
         missing_value=u'',
     )
@@ -70,14 +78,6 @@ class IOutcomezone(model.Schema):
         required=False,
     )
 
-    directives.widget('members', SelectWidget)
-    members = schema.List(
-        title=_(u"Responsible people"),
-        value_type=schema.Choice(
-            source=u'plone.app.vocabularies.Users'),
-        required=False,
-    )
-
 
 class View(grok.View):
     grok.context(IOutcomezone)
@@ -88,7 +88,7 @@ class View(grok.View):
 class Edit(form.SchemaEditForm):
     grok.context(IOutcomezone)
 
-    # def updateWidgets(self):
-    #     super(Edit, self).updateWidgets()
-    #     self.widgets["title"].mode = HIDDEN_MODE
-    #     self.widgets["description"].mode = HIDDEN_MODE
+    def updateWidgets(self):
+        super(Edit, self).updateWidgets()
+        self.widgets["title"].mode = DISPLAY_MODE
+        #self.widgets["measuring_frequency"].mode = DISPLAY_MODE

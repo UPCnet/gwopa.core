@@ -39,17 +39,17 @@
       <div role="tabpanel" class="tab-pane active" id="project">
         <tal:block-activities tal:define="areas view/getAreas" tal:condition="areas">
           <div class="tabla_contenido_items container-fluid">
-            <tal:objects repeat="item areas">
-              <div tal:define="files python:view.indicatorsInside(item);" class="row-fluid">
+            <tal:objects repeat="area areas">
+              <div tal:define="activities python:view.activitiesInside(area);" class="row-fluid">
                 <div class="tabla_cabecera">
                   <div class="information" id="header">
                     <div class="contentt" id="total">
                       <div class="titleRowPlanning">
-                        <tal:block condition="files">
+                        <tal:block condition="activities">
                           <i style="display: none" class="fa fa-chevron-down expandWaPla" aria-hidden="true"></i>
                           <i class="fa fa-chevron-up notexpandWaPla" aria-hidden="true"></i>
                         </tal:block>
-                        <tal:block condition="not:files">
+                        <tal:block condition="not:activities">
                           <span style="margin-left: 15px;">&nbsp;</span>
                         </tal:block>
                         <div class="btn-group" role="group" aria-label="Add element">
@@ -58,16 +58,16 @@
                             <li>
                               <a data-toggle="modal" class="afegirActivity" data-target="#modalActivity"
                                   tal:attributes="
-                                      data-val string:${view/getPath}/${item/id};
+                                      data-val string:${view/getPath}/${area/id};
                                       data-start view/project_start;
                                       data-end view/project_end;">
                                 <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Activity </tal:omit-tag></a></li>
                           </ul>
                         </div>
-                        <span tal:attributes="id string:${item/id}" class="expPlWA" tal:content="item/title"> Working Area Title </span>
+                        <span tal:attributes="id string:${area/id}" class="expPlWA" tal:content="area/title"> Working Area Title </span>
                       </div>
                     </div>
-                    <tal:block condition="files">
+                    <tal:block condition="activities">
                       <div class="contentt" id="bl" i18n:translate="">Starting date</div>
                       <div class="contentt" id="end" i18n:translate="">Completion date</div>
                       <div class="contentt" id="target" i18n:translate="">Target value</div>
@@ -75,73 +75,61 @@
                     </tal:block>
                   </div>
                 </div>
-                <div class="tabla_cuerpo" tal:repeat="item files">
+                <div class="tabla_cuerpo" tal:repeat="activity activities">
                   <div class="col-md-12 text-item-planning">
                     <div class="information object">
                       <div class="contentt" id="total">
                         <div class="part0">
-                          <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
-                            <div class="btn-group" role="group" aria-label="Add element">
-                              <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
-                              <ul class="dropdown-menu" role="menu" aria-labelledby="types">
-                                <li>
-                                  <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput"
-                                      tal:attributes="
-                                          data-val item/url;
-                                          data-start item/start;
-                                          data-end item/end">
-                                    <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a></li>
-                              </ul>
-                            </div>
-                          </tal:block>
+                          <div class="btn-group" role="group" aria-label="Add element">
+                            <div data-toggle="dropdown"><i class="fas fa-plus-circle"></i></div>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="types">
+                              <li>
+                                <a data-toggle="modal" class="afegirOutput" data-target="#modalOutput"
+                                    tal:attributes="
+                                        data-val activity/url;
+                                        data-start activity/start;
+                                        data-end activity/end">
+                                  <i class="fas fa-plus-circle"></i><tal:omit-tag i18n:translate=""> Add Output </tal:omit-tag></a></li>
+                            </ul>
+                          </div>
                         </div>
                         <div class="part1 label-2nd">
-                          <span tal:attributes="class string:${item/portal_type}-planning first-level" tal:content="item/portal_type" i18n:translate="">Activity/output label</span>
+                          <span tal:attributes="class string:${activity/portal_type}-planning first-level" tal:content="activity/portal_type" i18n:translate="">Activity/output label</span>
                         </div>
                         <div class="part2 label-2nd">
-                          <h5 class="titulocatplan" tal:attributes="id item/portal_type" tal:content="item/title">Activity</h5>
+                          <h5 class="titulocatplan" tal:attributes="id activity/portal_type" tal:content="activity/title">Activity</h5>
                         </div>
                       </div>
                       <div class="contentt" id="bl">
-                        <span tal:content="item/start"> 2019-03-29 </span>
+                        <span tal:content="activity/start"> 2019-03-29 </span>
                       </div>
                       <div class="contentt" id="end">
-                        <span tal:content="item/end"> 2019-03-30 </span>
+                        <span tal:content="activity/end"> 2019-03-30 </span>
                       </div>
-                      <div class="contentt text_center" tal:condition="python:item['portal_type'] == 'Activity'" id="target">
-                        <span tal:content="item/target_value_planned"> Target Value Planned </span>
+                      <div class="contentt text_center" id="target">
+                        <span tal:content="activity/target_value_planned"> Target Value Planned </span>
                       </div>
-                      <div class="contentt target" tal:condition="python:item['portal_type'] == 'Output'" id="target">
-                        <span tal:attributes="
-                            data-pk currentYear;
-                            data-name item/url;
-                            data-url string:${context/absolute_url}/changeTargetPlanning"
-                            data-type="text"
-                            data-title="Change target value"
-                            class="editable" tal:content="item/target_value_planned"> Target Value Planned
-                        </span>
-                        <span tal:content="item/unit"> Unit </span>
-                      </div>
-                      <div class="contentt" id="resp" tal:define="members item/responsible">
+                      <div class="contentt" id="resp" tal:define="members activity/responsible">
                         <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
                         <tal:block tal:condition="not:members" i18n:translate=""> - </tal:block>
                       </div>
                       <div class="contentt" id="actions">
                         <a class="pat-plone-modal"
                           tal:attributes="
-                            href string:${item/url}/edit;
-                            data-pat-plone-modal string: title: Edit ${item/title};
-                            title string:Edit ${item/title};
-                            alt string:Edit ${item/title}"><i class="far fa-edit"></i></a>
+                            href string:${activity/url}/edit;
+                            data-pat-plone-modal string: title: Edit ${activity/title};
+                            title string:Edit ${activity/title};
+                            alt string:Edit ${activity/title}"><i class="far fa-edit"></i></a>
                         <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
                           tal:attributes="
-                            data-url item/url;
-                            data-type item/portal_type;
-                            data-id item/title;" title="Delete" alt="Delete">
+                            data-url activity/url;
+                            data-type activity/portal_type;
+                            data-id activity/title;" title="Delete" alt="Delete">
                           <i class="far fa-trash-alt"></i></a>
                       </div>
                     </div>
-                    <tal:block tal:define="outputs python:view.indicatorsInside(item);">
+                    <!-- Ouputs inside activity -->
+                    <tal:block tal:define="outputs python:view.outputsInside(activity);">
                       <div tal:repeat="output outputs" class="block_sub_indicators">
                         <div class="information object">
                           <div class="contentt row" id="total">
@@ -617,107 +605,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div id="modalKPI" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddKPI" data-dismiss="modal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <form id="toClearKPI">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="modalAddKPI" i18n:translate=""> Add New Overall KPI </h4>
-            </div>
-            <div class="modal-body" id="NewKPI">
-              <div class="modal-url" id="KPIPath" style="display:none"></div>
-              <div class="row">
-                <div class="form-group col-md-12">
-                  <label id="label-kpi" i18n:translate="">Title</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                  <input id="kpi-title" type="hidden"/>
-                </div>
-                <div id="addKPITitle" class="form-group col-md-12">
-                  <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                  <span class="legend">Add new KPI if not listed in the before field</span>
-                </div>
-                <div class="form-group col-md-12">
-                  <div id="addBox">
-                    <label id="label-title" i18n:translate="">KPI title</label>
-                    <input id="add-KPI" type="text" placeholder="Type title..."/>
-                  </div>
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="message-text" class="control-label" i18n:translate="">Description</label>
-                    <textarea class="form-control" id="kpi-description"></textarea>
-                </div>
-                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
-                  <span class="legend"><tal:omit-tag i18n:translate=""> Remember that the related Project dates are: Start: </tal:omit-tag><span class="modal-start"></span><tal:omit-tag i18n:translate=""> End: </tal:omit-tag><span class="modal-end"></span></span>
-                </div>
-                <div class="form-group row">
-                      <div class="col-xs-6 col-md-6">
-                    <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input class="form-control" id="kpi-baseline" />
-                  </div>
-                  <div class="col-xs-6 col-md-6">
-                      <label class="control-label" i18n:translate="">Baseline date</label>
-                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                      <input id="kpi-datetimepicker" class="pat-pickadate"
-                      tal:attributes="data-pat-pickadate view/custom_pattern_options" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-xs-6 col-md-6">
-                    <label id="label-unit" i18n:translate=""> Measuring unit </label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                    <input id="kpi-unit" type="hidden"/>
-                  </div>
-                  <div class="col-xs-6 col-md-6">
-                    <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
-                    <div class="modal-frequency"></div>
-                  </div>
-                </div>
-                <div class="form-group col-md-12" id='KPITextBoxesGroup'>
-                  <div id="KPITextBoxDiv1">
-                    <div class="row">
-                      <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left:0px;">
-                        <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
-                        <input type="text" class="form-control" id="kpi-target-value-1"/>
-                      </div>
-                      <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
-                        <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
-                        <p id="kpi-target-date-1" style="padding: 6px 12px;"></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button type="button" id='KPIaddTargetValueButton'>
-                    <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;<tal:omit-tag i18n:translate="">Add target</tal:omit-tag>
-                  </button>
-                </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
-                  <textarea class="form-control" id="kpi-means"></textarea>
-                </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
-                  <textarea class="form-control" id="kpi-risks"></textarea>
-                </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                  <input type="hidden" class="pat-select2" id="kpi-responsible"
-                              data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:api-select2-users.json;"/>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
-              <a type="submit" class="btn button-save" id="createKPIFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div> -->
 
     <div id="modalKPIZone" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddKPIZone" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">

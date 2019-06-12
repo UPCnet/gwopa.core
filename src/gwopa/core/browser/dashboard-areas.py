@@ -193,8 +193,10 @@ class dashboardAreasView(BrowserView):
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
-
-        return results[0]
+        if len(results) != 0:
+            return results[0]
+        else:
+            return False
 
     def getCurrentStage(self):
         """ Returns all the stages for each Improvement Areas in a Project """
