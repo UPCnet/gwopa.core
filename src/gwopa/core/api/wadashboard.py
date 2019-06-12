@@ -52,6 +52,9 @@ class GetOutputs(BrowserView):
         """Answer for the webservice."""
         wa_path = self.request.form.get('wa', False)
         year = self.request.form.get('year', False)
+        #import ipdb; ipdb.set_trace()
+        # self.context.gwopa_year_phases[1]
+        #{'end': 'June 11, 2021', 'end_iso': '2021-06-11', 'pattern_end': '2021,5,11', 'start': 'June 11, 2020', 'pattern_start': '2020,5,11', 'start_iso': '2020-06-11', 'fase': 2}
         if not wa_path:
             BadRequest('Working area are required')
         if not year:

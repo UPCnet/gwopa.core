@@ -12,24 +12,26 @@
                 portal_url portal_state/portal_url;">
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
     <div class="block-nav">
-      <ul class="pagination pagination-lg" tal:define="items view/getItems">
+      <ul id="selectYear" class="pagination pagination-lg" tal:define="items view/getItems">
         <tal:block tal:repeat="item items">
-          <li tal:attributes="class item/classe; alt item/alt; title item/alt">
-            <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag></a>
+          <li tal:attributes="class string: ${item/classe}; alt item/alt; title item/alt; id item/year">
+            <a href="#">
+              <tal:omit-tag tal:content="item/title">
+              </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag>
+            </a>
           </li>
         </tal:block>
       </ul>
     </div>
     <h1 class="documentFirstHeading">
-      <tal:omit-tag i18n:translate=""> DashBoard Working Areas </tal:omit-tag> -
+      <tal:omit-tag i18n:translate=""> Dashboard Working Areas </tal:omit-tag> -
       <span tal:content="view/projectTitle"></span></h1>
-    <div class="documentDescription description projectDates">
+    <!-- <div class="documentDescription description projectDates">
       <span class="dateNumbers">
         <tal:omit-tag i18n:translate=""> Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"> 2019 </tal:omit-tag>
       </span>
       <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
-    </div>
-
+    </div> -->
     <div tal:define="areas view/getAreas">
       <select id="selectWA">
         <option tal:repeat="area areas" tal:attributes="value area/url" tal:content="area/title">WA1</option>
@@ -54,14 +56,14 @@
     </div>
     <div class="capacities">
       <div id="chartCapacities" tal:define="outcome view/getOutcomeCC">
-        <h2 class="bolder" i18n:translate=""> Capacity Changes </h2>
+        <h2 class="bolder" i18n:translate=""> Capacity Changes</h2>
         <div class="legendBox">
-          <span class="label custom-legend notset" i18n:translate=""> Empty </span>
-          <span class="label custom-legend verybad" i18n:translate=""> -2 Very negative </span>
-          <span class="label custom-legend bad" i18n:translate=""> -1 Negative </span>
-          <span class="label custom-legend equal" i18n:translate=""> 0 No change </span>
-          <span class="label custom-legend good" i18n:translate=""> +1 Positive </span>
-          <span class="label custom-legend verygood" i18n:translate=""> +2 Very positive </span>
+          <span class="label custom-legend notset" i18n:translate="">Empty</span>
+          <span class="label custom-legend verybad" i18n:translate="">-2 Very negative</span>
+          <span class="label custom-legend bad" i18n:translate="">-1 Negative</span>
+          <span class="label custom-legend equal" i18n:translate="">0 No change</span>
+          <span class="label custom-legend good" i18n:translate="">+1 Positive</span>
+          <span class="label custom-legend verygood" i18n:translate="">+2 Very positive</span>
         </div>
         <div class="information" >
           <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
