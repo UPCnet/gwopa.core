@@ -9,153 +9,32 @@
 
 <metal:content-core fill-slot="main"
     tal:define="portal_state context/@@plone_portal_state;
-                portal_url portal_state/portal_url;">
-  <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
-    <div class="block-nav">
-      <ul id="selectYear" class="pagination pagination-lg" tal:define="items view/getItems">
-        <tal:block tal:repeat="item items">
-          <li tal:attributes="class string: ${item/classe}; alt item/alt; title item/alt; id item/year">
-            <a href="#">
-              <tal:omit-tag tal:content="item/title">
-              </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag>
-            </a>
-          </li>
-        </tal:block>
-      </ul>
-    </div>
-    <h1 class="documentFirstHeading">
+                portal_url portal_state/portal_url;
+                getItems view/getItems">
+  <metal:block define-macro="content-core">
+
+    <h1 class="documentFirstHeading" style="padding:0px">
       <tal:omit-tag i18n:translate=""> Dashboard Performance </tal:omit-tag> -
       <span tal:content="view/projectTitle"></span></h1>
-    <!-- <div class="documentDescription description projectDates">
-      <span class="dateNumbers">
-        <tal:omit-tag i18n:translate=""> Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"> 2019 </tal:omit-tag>
-      </span>
-      <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
-    </div> -->
-    <div tal:define="areas view/getAreas">
-      <select id="selectWA">
-        <option tal:repeat="area areas" tal:attributes="value area/url" tal:content="area/title">WA1</option>
-      </select>
-    </div>
-    <div class="charts">
-      <div id="graphicActivity">
-        <h2 class="bolder" i18n:translate="">Activities</h2>
-        <div id="chartActivity">
-          <div id="timeline-chart"></div>
-        </div>
+      <br/>
+      <div tal:condition="not:getItems" class="row">
+        <h2 i18n:translate=""> No KPIs in this Project </h2>
       </div>
-      <div id="graphicOutput">
-        <h2 class="bolder" i18n:translate="">Outputs</h2>
-        <div id="chartOutput">
-          <div id="timeline-chart"></div>
-        </div>
-      </div>
-      <div id="noInfo">
-        <h2 class="bolder" i18n:translate=""> There are no Activities and Outputs plannified/monitorized on this Working Area and year.</h2>
-      </div>
-    </div>
-    <div class="capacities">
-      <div id="chartCapacities" tal:define="outcome view/getOutcomeCC">
-        <h2 class="bolder" i18n:translate=""> Capacity Changes</h2>
+      <div tal:condition="getItems" class="row">
         <div class="legendBox">
-          <span class="label custom-legend notset" i18n:translate="">Empty</span>
-          <span class="label custom-legend verybad" i18n:translate="">-2 Very negative</span>
-          <span class="label custom-legend bad" i18n:translate="">-1 Negative</span>
-          <span class="label custom-legend equal" i18n:translate="">0 No change</span>
-          <span class="label custom-legend good" i18n:translate="">+1 Positive</span>
-          <span class="label custom-legend verygood" i18n:translate="">+2 Very positive</span>
+          <span class="label label-default"><i class="fas fa-circle"></i> Monitoring value </span> &nbsp;&nbsp;
+          <span class="label label-default"><i class="fas fa-circle"></i> Target value </span>
         </div>
-        <tal:block condition="outcome">
-          <div class="information">
-            <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
-            <div class="primerafila">
-              <tal:block repeat="item outcome/monitoring">
-                <tal:block condition="python: item['short_category'] == 'transformational'">
-                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
-                    <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
-                    </div>
-                    <div class="item_image " tal:condition="item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                    </div>
-                    <div class="item_text">
-                      <span tal:content="item/title_specific">Leadership</span>
-                    </div>
-                  </a>
-                </tal:block>
-              </tal:block>
-            </div>
-            <!-- <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3> -->
-            <div class="segundafila">
-              <tal:block repeat="item outcome/monitoring">
-                <tal:block condition="python: item['short_category'] == 'transactional'">
-                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
-                    <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
-                    </div>
-                    <div class="item_image " tal:condition="item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                    </div>
-                    <div class="item_text">
-                      <span tal:content="item/title_specific">Leadership</span>
-                    </div>
-                  </a>
-                </tal:block>
-              </tal:block>
-            </div>
-            <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3> -->
-            <div class="tercerafila">
-              <tal:block repeat="item outcome/monitoring">
-                <tal:block condition="python: item['short_category'] == 'individual'">
-                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
-                    <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
-                    </div>
-                    <div class="item_image " tal:condition="item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                    </div>
-                    <div class="item_text">
-                      <span tal:content="item/title_specific">Leadership</span>
-                    </div>
-                  </a>
-                </tal:block>
-              </tal:block>
-            </div>
-          </div>
-          <div id="others" class="information">
-            <!-- <h3 class="capacity-title" i18n:translate="">Others</h3> -->
-            <div class="cuartafila">
-              <tal:block repeat="item outcome/monitoring">
-                <tal:block condition="python: item['short_category'] == 'other'">
-                  <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
-                    <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
-                    </div>
-                    <div class="item_image " tal:condition="item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                    </div>
-                    <div class="item_text">
-                      <span tal:content="item/title_specific">Other</span>
-                    </div>
-                  </a>
-                </tal:block>
-              </tal:block>
-            </div>
+        <tal:block repeat="item getItems">
+          <div class="col-md-4">
+            <p class="bolder" tal:content="item/title"></p>
           </div>
         </tal:block>
-      </div>
-    </div>
-    <div class="stages" tal:define="stages view/getCurrentStage">
-      <h2 class="bolder" i18n:translate="">Stages</h2>
-      <ul class="steps">
-        <li tal:repeat="stage stages"
-            tal:attributes="class string:${stage/state}; id string:${stage/id}"
-            tal:content="stage/title">Stage 1
-        </li>
-      </ul>
-    </div>
 
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/wa-dashboard.js"></script>
+      </div>
+
+
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/dashboard-kpis.js"></script>
 
   </metal:block>
 

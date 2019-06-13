@@ -163,7 +163,7 @@
       </ul>
     </div>
 
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/wa-dashboard.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/dashboard-areas.js"></script>
 
   </metal:block>
 
