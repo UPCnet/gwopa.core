@@ -10,5 +10,6 @@
     <!-- <dependency>profile-gwopa.theme:default</dependency> -->
     <dependency>profile-Products.PloneKeywordManager:default</dependency>
     <dependency>profile-collective.ploneboard:default</dependency>
+    <dependency>profile-eea.facetednavigation:default</dependency>
   </dependencies>
 </metadata>

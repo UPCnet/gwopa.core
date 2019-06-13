@@ -17,7 +17,7 @@
       factory=".userdataschema.EnhancedUserDataSchemaAdapter"
       />
 
-  <!-- Override Search to redirect at faceted search -->
+  <!-- Override Search to redirect to faceted search -->
 <!--   <browser:page
       name="search"
       class=".search.Search"

@@ -358,6 +358,11 @@ class View(grok.View):
 
     def canEdit(self):
         # TODO: Create app role system
+        currentuser = api.user.get_current().id
+        roles = ['Manager', 'Contributor', 'Editor']
+        for role in roles:
+            if role in api.user.get_roles(username=currentuser):
+                return True
         return False
 
     def getPath(self):

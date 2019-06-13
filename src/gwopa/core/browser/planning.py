@@ -10,9 +10,6 @@ import datetime
 from gwopa.core import _
 from zope.annotation.interfaces import IAnnotations
 from datetime import timedelta
-import pprint
-
-pp = pprint.PrettyPrinter(indent=4)
 
 
 @implementer(IPublishTraverse)
