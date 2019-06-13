@@ -174,6 +174,11 @@ class setup(grok.View):
                 safe_id=False)
             allowed_types = ['Project', ]
             _setup_constrains(projects, allowed_types)
+            # projects.setLayout('facetednavigation_view')  TODO: Por ahora hacerlo a mano...
+            # IFacetedNavigable(projects)
+            # IDisableSmartFacets(projects)
+            # IHidePloneLeftColumn(projects)
+            # IHidePloneRightColumn(projects)
 
             mainobstacles = api.content.create(
                 type='Folder',

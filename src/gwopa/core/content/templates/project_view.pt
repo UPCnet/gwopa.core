@@ -16,7 +16,7 @@
                   country context/country;
                   location context/location;
                   url_quote nocall:modules/Products.PythonScripts.standard/url_quote;
-                  canEdit not:view/canEdit;
+                  canEdit view/canEdit;
                   partners view/getPartners;
                   donors view/donors;
                   others view/others;
