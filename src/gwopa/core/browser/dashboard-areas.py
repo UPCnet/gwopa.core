@@ -5,15 +5,13 @@ from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
-from Products.CMFCore.utils import getToolByName
-import datetime
 from gwopa.core import _
 from zope.annotation.interfaces import IAnnotations
 
 
 @implementer(IPublishTraverse)
 class dashboardAreasView(BrowserView):
-    """ Visualization View """
+    """ Dashboard Areas View """
 
     index = ViewPageTemplateFile("templates/dash-areas.pt")
 
@@ -36,37 +34,8 @@ class dashboardAreasView(BrowserView):
     def getYear(self):
         return self.year
 
-    def getFaseStart(self):
-        return self.fase_start
-
-    def getFaseEnd(self):
-        return self.fase_end
-
     def projectTitle(self):
         return self.context.title
-
-    def project_currency(self):
-        currency = self.context.currency
-        return currency.split('-')[-1:][0] if currency is not None else ''
-
-    def hidden_project_currency(self):
-        currency = getattr(self.context, 'currency', None)
-        if currency:
-            letter = currency
-        else:
-            letter = 'USD-Dollar-$'
-        return letter
-
-    def getPath(self):
-        return '/'.join(self.context.getPhysicalPath())
-
-    def project_start(self):
-        start = self.context.startactual.strftime('%Y-%m-%d')
-        return start
-
-    def project_end(self):
-        end = self.context.completionactual.strftime('%Y-%m-%d')
-        return end
 
     def __call__(self):
         if self.request['URL'].split('/')[-1][0:4] == 'api-':
@@ -91,9 +60,6 @@ class dashboardAreasView(BrowserView):
                 self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
             return self.index()
         # TODO: if copy or delete make action!
-
-    def getPhases(self):
-        return len(self.context.gwopa_year_phases)
 
     def getItems(self):
         """ Returns all the project years of the dash-areas """
@@ -206,8 +172,6 @@ class dashboardAreasView(BrowserView):
         results = []
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
         for item in items:
-            members = []
-            obj = item.getObject()
             annotations = IAnnotations(item.getObject())
             stage = annotations[KEY]['generic'][0]['stage']
             if stage:

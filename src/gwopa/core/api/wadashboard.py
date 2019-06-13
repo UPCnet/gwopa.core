@@ -19,30 +19,33 @@ class GetActivities(BrowserView):
         wa_path = self.request.form.get('wa', False)
         year = self.request.form.get('year', False)
         if not wa_path:
-            BadRequest('Working area are required')
+            BadRequest('Working area is required')
         if not year:
-            BadRequest('Year are required')
+            BadRequest('Year is required')
 
-        items = api.content.find(
-            portal_type=['Activity'],
-            path={'query': wa_path, 'depth': 1})
-        titles = []
-        values = [{'data': []}]
-        for item in items:
-            titles.append(item.Title)
-            annotations = IAnnotations(item.getObject())
-            KEY = "GWOPA_TARGET_YEAR_" + str(year)
-            if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
-                value = 0
-            else:
-                value = annotations[KEY]['monitoring']['progress']
-            values[0]['data'].append(value)
+        if wa_path:
+            items = api.content.find(
+                portal_type=['Activity'],
+                path={'query': wa_path, 'depth': 1})
+            titles = []
+            values = [{'data': []}]
+            for item in items:
+                titles.append(item.Title)
+                annotations = IAnnotations(item.getObject())
+                KEY = "GWOPA_TARGET_YEAR_" + str(year)
+                if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                    value = 0
+                else:
+                    value = annotations[KEY]['monitoring']['progress']
+                values[0]['data'].append(value)
 
-        results = []
-        results.append(titles)
-        results.append(values)
-        self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+            results = []
+            results.append(titles)
+            results.append(values)
+            self.request.response.setHeader("Content-type", "application/json")
+            return json.dumps(results)
+        else:
+            return None
 
 
 class GetOutputs(BrowserView):
@@ -63,29 +66,32 @@ class GetOutputs(BrowserView):
         results = []
         titles = []
         values = [{'data': []}]
-        activities = api.content.find(
-            portal_type=['Activity'],
-            path={'query': wa_path, 'depth': 1})
-        for act in activities:
-            outputs = api.content.find(
-                portal_type=['Output'],
-                path={'query': act.getPath(), 'depth': 1})
-            for output in outputs:
-                titles.append(output.Title)
-                annotations = IAnnotations(output.getObject())
-                KEY = "GWOPA_TARGET_YEAR_" + str(year)
-                if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
-                    value = 0
-                else:
-                    planned = annotations[KEY]['planned']
-                    real = annotations[KEY]['monitoring']['progress']
-                    value = percentage(real, planned)
-                values[0]['data'].append(value)
+        if wa_path:
+            activities = api.content.find(
+                portal_type=['Activity'],
+                path={'query': wa_path, 'depth': 1})
+            for act in activities:
+                outputs = api.content.find(
+                    portal_type=['Output'],
+                    path={'query': act.getPath(), 'depth': 1})
+                for output in outputs:
+                    titles.append(output.Title)
+                    annotations = IAnnotations(output.getObject())
+                    KEY = "GWOPA_TARGET_YEAR_" + str(year)
+                    if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                        value = 0
+                    else:
+                        planned = annotations[KEY]['planned']
+                        real = annotations[KEY]['monitoring']['progress']
+                        value = percentage(real, planned)
+                    values[0]['data'].append(value)
 
-        results.append(titles)
-        results.append(values)
-        self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+            results.append(titles)
+            results.append(values)
+            self.request.response.setHeader("Content-type", "application/json")
+            return json.dumps(results)
+        else:
+            return None
 
 
 class GetCapacityChanges(Service):

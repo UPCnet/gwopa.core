@@ -9,7 +9,8 @@
 
 <metal:content-core fill-slot="main"
     tal:define="portal_state context/@@plone_portal_state;
-                portal_url portal_state/portal_url;">
+                portal_url portal_state/portal_url;
+                areas view/getAreas;">
   <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
     <div class="block-nav">
       <ul id="selectYear" class="pagination pagination-lg" tal:define="items view/getItems">
@@ -23,19 +24,26 @@
         </tal:block>
       </ul>
     </div>
-    <h1 class="documentFirstHeading">
+    <br/>
+    <br/>
+    <h1 class="documentFirstHeading" style="padding: 0px">
       <tal:omit-tag i18n:translate=""> Dashboard Working Areas </tal:omit-tag> -
-      <span tal:content="view/projectTitle"></span></h1>
-    <!-- <div class="documentDescription description projectDates">
-      <span class="dateNumbers">
-        <tal:omit-tag i18n:translate=""> Project year </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="currentYear"> 2019 </tal:omit-tag>
-      </span>
-      <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
-    </div> -->
-    <div tal:define="areas view/getAreas">
-      <select id="selectWA">
-        <option tal:repeat="area areas" tal:attributes="value area/url" tal:content="area/title">WA1</option>
-      </select>
+      <span tal:content="view/projectTitle"></span>
+    </h1>
+    <br/>
+    <div tal:condition="areas" class="row">
+      <div class="form-group">
+          <label style="margin-top: 7px;" class="col-sm-2 control-label"> Select Working Area from list: </label>
+          <div class="col-sm-10">
+              <select class="form-control" id="selectWA">
+                <option tal:repeat="area areas" tal:attributes="value area/url" tal:content="area/title">WA1</option>
+              </select>
+           </div>
+      </div>
+    </div>
+    <hr/>
+    <div tal:condition="not:areas" class="row">
+      <h2 i18n:translate=""> Seems that there are no Working Areas in this Project </h2>
     </div>
     <div class="charts">
       <div id="graphicActivity">
@@ -55,7 +63,7 @@
       </div>
     </div>
     <div class="capacities">
-      <div id="chartCapacities" tal:define="outcome view/getOutcomeCC">
+      <div id="chartCapacities" tal:define="outcome view/getOutcomeCC" tal:condition="outcome">
         <h2 class="bolder" i18n:translate=""> Capacity Changes</h2>
         <div class="legendBox">
           <span class="label custom-legend notset" i18n:translate="">Empty</span>
@@ -145,7 +153,7 @@
         </tal:block>
       </div>
     </div>
-    <div class="stages" tal:define="stages view/getCurrentStage">
+    <div class="stages" tal:define="stages view/getCurrentStage" tal:condition="stages">
       <h2 class="bolder" i18n:translate="">Stages</h2>
       <ul class="steps">
         <li tal:repeat="stage stages"
