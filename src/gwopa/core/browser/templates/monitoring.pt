@@ -152,7 +152,7 @@
                       </div>
                     </form>
                   </div>
-                  <tal:block tal:define="outputs python:view.indicatorsInside(item);">
+                  <tal:block tal:define="outputs python:view.outputsInside(item);">
                     <div tal:repeat="output outputs" class="block_sub_indicators">
                       <div class="information object">
                         <div class="contentt" id="total">

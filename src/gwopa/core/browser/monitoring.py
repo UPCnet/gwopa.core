@@ -7,7 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from Products.CMFCore.utils import getToolByName
 from zope.annotation.interfaces import IAnnotations
-#import datetime
+import datetime
 from gwopa.core import _
 
 
@@ -141,26 +141,62 @@ class monitoringView(BrowserView):
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = item['url']
         data_year = self.context.gwopa_year_phases[int(self.year) - 1]
-        # start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%d-%m')
-        # end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%d-%m')
-        # date_range_query = {'query': (start, end), 'range': 'min:max'},
-        # start=date_range_query,
-        items = portal_catalog.unrestrictedSearchResults(
+        start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+        end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+        # Los de la fase [---]
+        range_start = {'query': (start, end), 'range': 'min:max'}
+        range_end = {'query': (start, end), 'range': 'min:max'}
+        activities1 = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
             path={'query': folder_path,
                   'depth': 1})
-        # date_range_query = {'query': (end, end), 'range': 'max'}
-        #     end=date_range_query,
-        outputs = portal_catalog.unrestrictedSearchResults(
-            portal_type=['Output'],
+
+        # Los de fuera de la fase start y end ---][----
+        range_start = {'query': (start), 'range': 'max'}
+        range_end = {'query': (end), 'range': 'min'}
+        activities2 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
             path={'query': folder_path,
                   'depth': 1})
-        items = items + outputs
+
+        # Los que empiezan antes y acaban en fase ---]
+        ranges = {'query': (start), 'range': 'max'}
+        range_end = {'query': (start, end), 'range': 'min:max'}
+
+        activities3 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=ranges,
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        # Los que empiezan aqui y acaban despues [----
+        range_start = {'query': (start, end), 'range': 'min:max'}
+        range_end = {'query': (end), 'range': 'min'}
+        activities4 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        items = activities1 + activities2 + activities3 + activities4
+
+        elements = []
+
+        for item in items:
+            if item.getObject() not in elements:
+                elements.append(item.getObject())
+
         results = []
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
-        for item in items:
-            obj = item.getObject()
-            annotations = IAnnotations(obj)
+        for item in elements:
+            annotations = IAnnotations(item)
             if KEY in annotations.keys():
                 if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
                     target_value_real = ''
@@ -177,7 +213,7 @@ class monitoringView(BrowserView):
             if item.portal_type == 'Activity':
                 unit = ''
             else:
-                unit = obj.measuring_unit
+                unit = item.measuring_unit
             if not item.start:
                 start = '-----'
             else:
@@ -196,9 +232,10 @@ class monitoringView(BrowserView):
                 limiting = monitoring_info['limiting'] if monitoring_info.get('limiting') is not None else ''
                 progress = monitoring_info['progress'] if monitoring_info.get('progress') is not None else ''
                 updated = monitoring_info['updated'] if monitoring_info.get('updated') is not None else ''
+
             results.append(dict(
                 title=item.Title,
-                path=item.getPath(),
+                path='/'.join(item.getPhysicalPath()),
                 id=item.id,
                 portal_type=item.portal_type,
                 start=start,
@@ -215,7 +252,99 @@ class monitoringView(BrowserView):
                 limiting=limiting,
                 progress=progress,
                 updated=updated,
-                url='/'.join(obj.getPhysicalPath())))
+                url='/'.join(item.getPhysicalPath())))
+        return results
+
+    def outputsInside(self, item):
+        """ Returns Outpus inside Activities  """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        folder_path = item['url']
+        data_year = self.context.gwopa_year_phases[int(self.year) - 1]
+        start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+        end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+        range_end = {'query': (start, end), 'range': 'min:max'}
+        outputs1 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Output'],
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        range_end = {'query': (end), 'range': 'min'}
+        outputs2 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Output'],
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        items = outputs1 + outputs2
+
+        elements = []
+
+        for item in items:
+            if item.getObject() not in elements:
+                elements.append(item.getObject())
+
+        results = []
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+        for item in elements:
+            annotations = IAnnotations(item)
+            if KEY in annotations.keys():
+                if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
+                    target_value_real = ''
+                    target_value_planned = _(u"Not defined")
+                    monitoring_info = ''
+                else:
+                    target_value_real = annotations[KEY]['real']
+                    target_value_planned = annotations[KEY]['planned']
+                    monitoring_info = annotations[KEY]['monitoring']
+            else:
+                target_value_real = ''
+                target_value_planned = '-----'
+                monitoring_info = ""
+            if item.portal_type == 'Activity':
+                unit = ''
+            else:
+                unit = item.measuring_unit
+            if not item.start:
+                start = '-----'
+            else:
+                start = item.start.strftime('%Y-%m')
+            if not item.end:
+                end = '-----'
+            else:
+                end = item.end.strftime('%Y-%m')
+            if monitoring_info == '':
+                consideration, explanation, limiting, obstacles, contributing, progress, updated = '', '', '', '', '', '', ''
+            else:
+                consideration = monitoring_info['consideration'] if monitoring_info.get('consideration') is not None else ''
+                explanation = monitoring_info['explanation'] if monitoring_info.get('explanation') is not None else ''
+                obstacles = monitoring_info['obstacles'] if monitoring_info.get('obstacles') is not None else ''
+                contributing = monitoring_info['contributing'] if monitoring_info.get('contributing') is not None else ''
+                limiting = monitoring_info['limiting'] if monitoring_info.get('limiting') is not None else ''
+                progress = monitoring_info['progress'] if monitoring_info.get('progress') is not None else ''
+                updated = monitoring_info['updated'] if monitoring_info.get('updated') is not None else ''
+
+            results.append(dict(
+                title=item.Title,
+                path='/'.join(item.getPhysicalPath()),
+                id=item.id,
+                portal_type=item.portal_type,
+                start=start,
+                end=end,
+                unit=unit,
+                target_value_real=target_value_real,
+                target_value_planned=target_value_planned,
+                year=self.year,
+                next_update=data_year['end_iso'][0:7],
+                consideration=consideration,
+                explanation=explanation,
+                obstacles=obstacles,
+                contributing=contributing,
+                limiting=limiting,
+                progress=progress,
+                updated=updated,
+                url='/'.join(item.getPhysicalPath())))
         return results
 
     def listOutcomesKPI(self):
