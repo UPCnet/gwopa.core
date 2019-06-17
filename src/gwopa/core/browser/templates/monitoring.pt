@@ -272,8 +272,8 @@
                   </div>
                 </div>
                 <tal:block condition="outcomes">
-                  <div class="contentt" id="comple" i18n:translate="">Baseline date</div>
                   <div class="contentt" id="zone" i18n:translate="">Zone</div>
+                  <div class="contentt" id="comple" i18n:translate="">Baseline date</div>
                   <div class="contentt" id="pyv" i18n:translate="">Achieved/Target</div>
                   <div class="contentt" id="nexupd" i18n:translate="">Next update</div>
                 </tal:block>
@@ -302,8 +302,8 @@
                       <h5 class="titulocatplan" tal:attributes="id string:${outcome/id}" tal:content="outcome/title"> KPI </h5>
                     </div>
                   </div>
-                  <div class="contentt" id="comple" tal:content="outcome/base_date">2019-03-30</div>
                   <div class="contentt" id="zone" tal:content="outcome/zone"> Zone </div>
+                  <div class="contentt" id="comple" tal:content="outcome/base_date">2019-03-30</div>
                   <div class="contentt target" id="pyv">
                     <tal:exclamation tal:condition="python:outcome['target_value_real'] != outcome['target_value_planned']">
                       <i class="fas fa-exclamation"></i>

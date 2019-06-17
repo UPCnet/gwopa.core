@@ -483,6 +483,7 @@ class ChangeTargetMonitoring(BrowserView):
         planned = annotations[KEY]['planned']
         monitoring = annotations[KEY]['monitoring']
         monitoring['progress'] = new_value
+        monitoring['updated'] = 'true'
         data = dict(real=new_value, planned=planned, monitoring=monitoring)
         annotations[KEY] = data
         return "OK, value changed"
