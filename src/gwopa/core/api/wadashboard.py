@@ -7,6 +7,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
 import json
+import math
 from gwopa.core.utils import percentage
 
 
@@ -179,3 +180,72 @@ class GetCurrentStage(BrowserView):
 
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(results)
+
+
+class GetPerformance(BrowserView):
+    """Service for list activities from WA and year."""
+    # /api-getPerformance
+
+    def __call__(self):
+        """Answer for the webservice."""
+        path = self.request.form.get('performance', False)
+        if not path:
+            BadRequest('Performance are required')
+
+        projectFolder = '/'.join(path.split('/')[0:-1])
+        performanceID = path.split('/')[-1]
+
+        kpi = api.content.find(
+            id=performanceID,
+            portal_type=['OutcomeZONE'],
+            path={'query': projectFolder, 'depth': 1})
+
+        if not kpi:
+            BadRequest('KPI error')
+
+        project = api.content.find(
+            id=projectFolder.split('/')[-1],
+            portal_type=['Project'],
+            path={'query': '/'.join(projectFolder.split('/')[0:-1]), 'depth': 1})
+
+        if not project:
+            BadRequest('Project error')
+
+        kpi = kpi[0].getObject()
+        project = project[0].getObject()
+
+        projectPhases = len(project.gwopa_year_phases)
+        annotations = IAnnotations(kpi)
+
+        series = [{"name": "", "data": []}, {"name": "", "data": []}]
+        xaxis = []
+        maxYaxis = 0
+        for x in range(0, projectPhases):
+            KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
+            info = annotations[KEY]
+
+            real = 0 if not info['real'] or info['real'] == '' else int(info['real'])
+            planned = 0 if not info['planned'] or info['planned'] == '' else int(info['planned'])
+
+            series[0]['data'].append(planned)
+            series[1]['data'].append(real)
+            xaxis.append(project.gwopa_year_phases[x]['start'][-4:])
+
+            maxYaxis = real if real > maxYaxis else maxYaxis
+            maxYaxis = planned if planned > maxYaxis else maxYaxis
+
+        if maxYaxis <= 10:
+            maxYaxis = 10
+        elif maxYaxis <= 100:
+            maxYaxis = int(math.ceil(maxYaxis / float(10))) * 10
+        else:
+            maxYaxis = int(math.ceil(maxYaxis / float(100))) * 100
+
+        data = {
+            "series": series,
+            "xaxis": xaxis,
+            "maxYaxis": maxYaxis,
+            "mesuring_unit": kpi.measuring_unit,
+        }
+
+        return json.dumps(data)

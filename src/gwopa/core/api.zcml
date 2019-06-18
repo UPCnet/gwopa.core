@@ -110,6 +110,14 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="api-getPerformance"
+      class=".api.wadashboard.GetPerformance"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
   <!-- API values returned to show output modal -->
   <browser:page
       for="*"

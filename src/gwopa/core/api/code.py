@@ -430,7 +430,7 @@ class Create(BrowserView):
             obj.currency = self.request.form.get('item_hidden_project_currency')
             obj.project_dates = 'The dates must be between the limits of this Project. Start: ' + self.request.form.get('item_project_start') + ' End: ' + self.request.form.get('item_project_end')
             annotations = IAnnotations(obj)
-            for x in range(0, 11):  # Create 10 annotations
+            for x in range(0, 11):  # Create 11 annotations
                 data = dict(real='', planned='', monitoring='')
                 KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
                 annotations[KEY] = data

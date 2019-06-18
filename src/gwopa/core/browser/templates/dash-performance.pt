@@ -22,14 +22,22 @@
       </div>
       <div tal:condition="getItems" class="row">
         <div class="legendBox">
-          <span class="label label-default"><i class="fas fa-circle"></i> Monitoring value </span> &nbsp;&nbsp;
-          <span class="label label-default"><i class="fas fa-circle"></i> Target value </span>
+          <span class="label label-circle"><i class="fas fa-circle planned"></i> Monitoring value </span> &nbsp;&nbsp;
+          <span class="label label-circle"><i class="fas fa-circle achieved"></i> Target value </span>
         </div>
-        <tal:block repeat="item getItems">
-          <div class="col-md-4">
-            <p class="bolder" tal:content="item/title"></p>
-          </div>
-        </tal:block>
+        <div class="row performance">
+          <tal:block repeat="item getItems">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <p class="bolder" tal:content="item/title"></p>
+              <div class="chart">
+                <div class="chartPerfomance" tal:attributes="data-url item/url;
+                                                             id string:chart${item/pos}">
+                  <div id="timeline-chart"></div>
+                </div>
+            </div>
+            </div>
+          </tal:block>
+        </div>
 
       </div>
 
