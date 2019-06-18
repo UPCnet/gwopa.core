@@ -285,7 +285,7 @@
             </div>
             <div class="tabla_cuerpo">
               <div class="col-md-12" tal:repeat="outcome outcomes">
-                <div class="information object">
+                <div class="information object" tal:attributes="id string:${outcome/rid};">
                   <div class="contentt row" id="total">
                     <div class="part0">
                       <i class="fa fa-chevron-down expandccs" aria-hidden="true"></i>
@@ -308,7 +308,8 @@
                                 data-base-value outcome/base_value;
                                 data-base-date outcome/base_date;
                                 data-objective outcome/objective;
-                                data-objective-date outcome/objective_date;">
+                                data-objective-date outcome/objective_date;
+                                data-id-capacity outcome/rid;">
                         <i class="far fa-edit"></i></a>
                   </div>
                   <div class="information cc_container" >
@@ -325,9 +326,12 @@
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
                                     data-objective-date item/objective_date;
+                                    data-id-capacity outcome/rid;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <div class="item_image" tal:condition="not:item/selected_specific">
-                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                              <img tal:attributes="src item/icon_url;
+                                                   data-selected item/icon_url_selected;"
+                                   alt="" title=""/>
                             </div>
                             <div class="item_image " tal:condition="item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -352,9 +356,12 @@
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
                                     data-objective-date item/objective_date;
+                                    data-id-capacity outcome/rid;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <div class="item_image" tal:condition="not:item/selected_specific">
-                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                              <img tal:attributes="src item/icon_url;
+                                                   data-selected item/icon_url_selected;"
+                                   alt="" title=""/>
                             </div>
                             <div class="item_image " tal:condition="item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -379,9 +386,12 @@
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
                                     data-objective-date item/objective_date;
+                                    data-id-capacity outcome/rid;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <div class="item_image" tal:condition="not:item/selected_specific">
-                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                              <img tal:attributes="src item/icon_url;
+                                                   data-selected item/icon_url_selected;"
+                                   alt="" title=""/>
                             </div>
                             <div class="item_image " tal:condition="item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -408,9 +418,12 @@
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
                                     data-objective-date item/objective_date;
+                                    data-id-capacity outcome/rid;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <div class="item_image" tal:condition="not:item/selected_specific">
-                                <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                              <img tal:attributes="src item/icon_url;
+                                                   data-selected item/icon_url_selected;"
+                                   alt="" title=""/>
                             </div>
                             <div class="item_image " tal:condition="item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -733,6 +746,7 @@
             <div class="modal-body" id="EditOutcomeCC" >
               <div class="modal-url" id="OutcomeCCPath" style="display:none"></div>
               <span class="modal-pk" id="OutcomeCCYear" style="display:none"></span>
+              <span class="modal-idCapacity" id="idCapacity" style="display:none"></span>
               <div class="row">
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
@@ -783,6 +797,7 @@
               <div class="modal-url" id="OutcomeCCSPath" style="display:none"></div>
               <span class="modal-pk" id="OutcomeCCSYear" style="display:none"></span>
               <span class="modal-id" id="idSpecific" style="display:none"></span>
+              <span class="modal-idCapacityCCS" id="idCapacityCCS" style="display:none"></span>
               <div class="row">
 
                 <div class="form-group row">

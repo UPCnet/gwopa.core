@@ -393,7 +393,7 @@
               </div>
             </div>
               <div class="col-md-12" style="padding:9px 0px 1px 15px;" tal:repeat="outcome outcomes">
-                <div class="information object">
+                <div class="information object" tal:attributes="id string:${outcome/rid};">
                   <div class="contentt row">
                     <div class="part0">
                       <i class="fa fa-chevron-down expandccs" aria-hidden="true"></i>
@@ -428,12 +428,18 @@
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
+                                    data-id-capacity outcome/rid;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
                               <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             </tal:block>
+                            <tal:block tal:condition="python: item['selected_monitoring'] == 'notset'">
+                              <i class="fas fa-circle" style="display: none"></i>
+                            </tal:block>
                             <div class="item_image" tal:condition="not:item/selected_specific">
-                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                              <img tal:attributes="src item/icon_url;
+                                                   data-selected item/icon_url_selected;"
+                                   alt="" title=""/>
                             </div>
                             <div class="item_image " tal:condition="item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -465,12 +471,18 @@
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
+                                    data-id-capacity outcome/rid;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
                               <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             </tal:block>
+                            <tal:block tal:condition="python: item['selected_monitoring'] == 'notset'">
+                              <i class="fas fa-circle" style="display: none"></i>
+                            </tal:block>
                             <div class="item_image" tal:condition="not:item/selected_specific">
-                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                              <img tal:attributes="src item/icon_url;
+                                                   data-selected item/icon_url_selected;"
+                                   alt="" title=""/>
                             </div>
                             <div class="item_image " tal:condition="item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -502,12 +514,18 @@
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
+                                    data-id-capacity outcome/rid;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
                               <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             </tal:block>
+                            <tal:block tal:condition="python: item['selected_monitoring'] == 'notset'">
+                              <i class="fas fa-circle" style="display: none"></i>
+                            </tal:block>
                             <div class="item_image" tal:condition="not:item/selected_specific">
-                              <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                              <img tal:attributes="src item/icon_url;
+                                                   data-selected item/icon_url_selected;"
+                                   alt="" title=""/>
                             </div>
                             <div class="item_image " tal:condition="item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -541,12 +559,18 @@
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
+                                    data-id-capacity outcome/rid;
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
                               <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
                             </tal:block>
+                            <tal:block tal:condition="python: item['selected_monitoring'] == 'notset'">
+                              <i class="fas fa-circle" style="display: none"></i>
+                            </tal:block>
                             <div class="item_image" tal:condition="not:item/selected_specific">
-                                <img tal:attributes="src string:${item/icon_url}" alt="" title=""/>
+                                <img tal:attributes="src item/icon_url;
+                                                   data-selected item/icon_url_selected;"
+                                   alt="" title=""/>
                             </div>
                             <div class="item_image " tal:condition="item/selected_specific">
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
@@ -591,6 +615,7 @@
               <div class="modal-url" id="OutcomeCCSPath" style="display:none"></div>
               <span class="modal-pk" id="OutcomeCCSYear" style="display:none"></span>
               <span class="modal-id" id="idSpecific" style="display:none"></span>
+              <span class="modal-idCapacity" id="idCapacity" style="display:none"></span>
               <div class="row">
                 <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
