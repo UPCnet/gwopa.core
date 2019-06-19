@@ -273,7 +273,7 @@ def improvementAreaAdded(content, event):
             outcomeccspecific_info = dict(
                 id_specific=specific_obj.id,
                 title_specific=specific_obj.title,
-                description=specific_obj.description,
+                # description=specific_obj.description,
                 url='/'.join(specific_obj.getPhysicalPath()),
                 selected_specific='',
                 icon_url='++theme++gwopa.theme/assets/images/' + capacitychanges_obj.id + '.png',
@@ -288,7 +288,7 @@ def improvementAreaAdded(content, event):
             outcomeccmonitoring_info = dict(
                 id_specific=specific_obj.id,
                 title_specific=specific_obj.title,
-                description=specific_obj.description,
+                # description=specific_obj.description,
                 url='/'.join(specific_obj.getPhysicalPath()),
                 selected_specific='',
                 icon_url='++theme++gwopa.theme/assets/images/' + capacitychanges_obj.id + '.png',

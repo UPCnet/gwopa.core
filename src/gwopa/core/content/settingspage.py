@@ -45,11 +45,29 @@ class ISettingspage(model.Schema):
         required=True,
     )
 
+    degree_changes = schema.Text(
+        title=_(u'Degree changes'),
+        description=_(u'Perceived degree of change'),
+        required=True,
+    )
 
-class View(grok.View):
-    grok.context(ISettingspage)
-    grok.template('settings_view')
-    grok.require('zope2.View')
+    contributed_project = schema.Text(
+        title=_(u'Contributed project'),
+        description=_(u'Project contribution to the perceived change'),
+        required=True,
+    )
+
+    consensus = schema.Text(
+        title=_(u'Consensus'),
+        description=_(u'Perceived change decided by'),
+        required=True,
+    )
+
+
+# class View(grok.View):
+#     grok.context(ISettingspage)
+#     grok.template('settings_view')
+#     grok.require('zope2.View')
 
 
 class Edit(form.SchemaEditForm):

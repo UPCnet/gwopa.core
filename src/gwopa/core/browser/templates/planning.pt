@@ -321,7 +321,6 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -351,7 +350,6 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -381,7 +379,6 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -413,7 +410,6 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -803,7 +799,8 @@
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
-                    <input class="form-control" id="outcomeccs-baseline" />
+                    <!-- <input class="form-control" id="outcomeccs-baseline" /> -->
+                    <textarea class="form-control" id="outcomeccs-baseline" style="height: 150px;"></textarea>
                   </div>
                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
@@ -814,7 +811,8 @@
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Objective</label>
-                    <input class="form-control" id="outcomeccs-objective" />
+                    <!-- <input class="form-control" id="outcomeccs-objective" /> -->
+                    <textarea class="form-control" id="outcomeccs-objective" style="height: 150px;"></textarea>
                   </div>
                   <div class="col-xs-6 col-md-6" style="padding-bottom:15px;">
                       <label class="control-label" i18n:translate="">Objective date</label>
@@ -822,10 +820,10 @@
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
                 </div>
-                <div class="form-group col-md-12">
+               <!--  <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="outcomeccs-description" style="height: 100px;"></textarea>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="modal-footer">

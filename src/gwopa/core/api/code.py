@@ -576,7 +576,7 @@ class UpdateOutcomeCCS(BrowserView):
         # TODO: check permissions. now cmf.ModifyPortalContent
         year = self.request.form['year']
         item_path = self.request.form['item_path']
-        description = self.request.form['description']
+        # description = self.request.form['description']
         baseline = self.request.form['baseline']
         baseline_date = self.request.form['baseline_date']
         objective = self.request.form['objective']
@@ -589,7 +589,7 @@ class UpdateOutcomeCCS(BrowserView):
         specifics = annotations[KEY]['specifics']
         for specific in specifics:
             if specific['id_specific'] == id_specific:
-                specific['description'] = description
+                # specific['description'] = description
                 specific['baseline'] = baseline
                 specific['baseline_date'] = baseline_date
                 specific['objective'] = objective
@@ -598,7 +598,7 @@ class UpdateOutcomeCCS(BrowserView):
         monitoring = annotations[KEY]['monitoring']
         for specific in monitoring:
             if specific['id_specific'] == id_specific:
-                specific['description'] = description
+                # specific['description'] = description
                 specific['baseline'] = baseline
                 specific['baseline_date'] = baseline_date
                 specific['objective'] = objective
@@ -617,7 +617,7 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         # TODO: check permissions. now cmf.ModifyPortalContent
         year = self.request.form['year']
         item_path = self.request.form['item_path']
-        description = self.request.form['description']
+        # description = self.request.form['description']
         baseline = self.request.form['baseline']
         baseline_date = self.request.form['baseline_date']
         objective = self.request.form['objective']
@@ -638,7 +638,7 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         specifics = annotations[KEY]['specifics']
         for specific in specifics:
             if specific['id_specific'] == id_specific:
-                specific['description'] = description
+                # specific['description'] = description
                 specific['baseline'] = baseline
                 specific['baseline_date'] = baseline_date
                 specific['objective'] = objective
@@ -647,7 +647,7 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         monitoring = annotations[KEY]['monitoring']
         for specific in monitoring:
             if specific['id_specific'] == id_specific:
-                specific['description'] = description
+                # specific['description'] = description
                 specific['baseline'] = baseline
                 specific['baseline_date'] = baseline_date
                 specific['objective'] = objective

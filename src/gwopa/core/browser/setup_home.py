@@ -236,7 +236,7 @@ class setup(grok.View):
         settingspage.measuring_frequency = 'Annually,1\nBiannually,2\nQuarterly,4'
         settingspage.degree_changes = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
-        settingspage.consensus = 'Yes\nNo'
+        settingspage.consensus = 'One Partner\nWop Partners'
 
         portal = api.portal.get()
 

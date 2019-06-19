@@ -416,7 +416,6 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -459,7 +458,6 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -502,7 +500,6 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -547,7 +544,6 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-description item/description;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -617,14 +613,15 @@
               <span class="modal-id" id="idSpecific" style="display:none"></span>
               <span class="modal-idCapacity" id="idCapacity" style="display:none"></span>
               <div class="row">
-                <div class="form-group col-md-12">
+               <!--  <div class="form-group col-md-12">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea readonly class="form-control" id="outcomeccs-description"></textarea>
-                </div>
+                </div> -->
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
-                    <input readonly class="form-control" id="outcomeccs-baseline" />
+                    <!-- <input readonly class="form-control" id="outcomeccs-baseline" /> -->
+                    <textarea readonly class="form-control" id="outcomeccs-baseline" style="height: 50px;"></textarea>
                   </div>
                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
@@ -634,7 +631,8 @@
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Objective</label>
-                    <input readonly class="form-control" id="outcomeccs-objective" />
+                    <!-- <input readonly class="form-control" id="outcomeccs-objective" /> -->
+                    <textarea readonly class="form-control" id="outcomeccs-objective" style="height: 50px;"></textarea>
                   </div>
                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Objective date</label>
@@ -643,16 +641,16 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-4 col-md-4">
-                      <label i18n:translate=""> Degree of change </label>
+                      <label i18n:translate=""> Perceived degree of change </label>
                       <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                       <input id="outcomeccs-degree_changes" style="width: 100%;" type="hidden"/>
                   </div>
                   <div class="col-xs-4 col-md-4">
-                      <label i18n:translate=""> How much has contributed </label>
+                      <label i18n:translate=""> Project's contribution to the perceived change </label>
                       <input id="outcomeccs-contributed_project" style="width: 100%;" type="hidden"/>
                   </div>
                   <div class="col-xs-4 col-md-4">
-                      <label i18n:translate=""> Consensus </label>
+                      <label i18n:translate=""> Perceived change decided by </label>
                       <input id="outcomeccs-consensus" style="width: 100%;" type="hidden"/>
                   </div>
                 </div>
