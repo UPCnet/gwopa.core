@@ -62,11 +62,11 @@ class IOutcomezone(model.Schema):
         required=True,
     )
 
-    measuring_frequency = schema.Choice(
-        title=_(u"Measuring frequency"),
-        source=utils.settings_measuring_frequency,
-        required=True,
-    )
+    # measuring_frequency = schema.Choice(
+    #     title=_(u"Measuring frequency"),
+    #     source=utils.settings_measuring_frequency,
+    #     required=True,
+    # )
 
     means = schema.Text(
         title=_(u"Means of verification"),

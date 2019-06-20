@@ -446,7 +446,7 @@ class Create(BrowserView):
             itemdate = self.request.form.get('item_date')
             if itemdate:
                 obj.baseline_date = datetime.datetime.strptime(itemdate, '%Y-%m-%d')
-            obj.measuring_frequency = self.request.form.get('item_frequency')
+            # obj.measuring_frequency = self.request.form.get('item_frequency')
             obj.measuring_unit = self.request.form.get('item_unit')
             obj.zone = self.request.form.get('item_zone')
 

@@ -77,7 +77,7 @@ class Edit(form.SchemaEditForm):
 
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
-        self.widgets["title"].mode = DISPLAY_MODE
+        # self.widgets["title"].mode = DISPLAY_MODE
 
 
 class View(grok.View):

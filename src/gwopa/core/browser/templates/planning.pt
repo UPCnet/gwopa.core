@@ -533,9 +533,9 @@
                 <div class="form-group col-md-12">
                   <label id="label-output" i18n:translate="">Title</label>
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
-                  <input id="out-title" type="hidden"/>
+                  <input type="text" id="out-title"/>
                 </div>
-                <div id="addOutputTitle" class="form-group col-md-12" style="padding-bottom: 10px;">
+                <!-- <div id="addOutputTitle" class="form-group col-md-12" style="padding-bottom: 10px;">
                   <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                   <span class="legend" i18n:translate="">Add Missing Title (if not listed in the previous field)</span>
                 </div>
@@ -551,8 +551,8 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="form-group col-md-12">
+                </div> -->
+                <div class="form-group col-md-12" style="padding-top: 10px;">
                     <label for="message-text" class="control-label" i18n:translate="">Description</label>
                     <textarea class="form-control" id="out-description"></textarea>
                 </div>
@@ -688,10 +688,10 @@
                     <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpizone-unit" type="hidden"/>
                   </div>
-                  <div class="col-xs-6 col-md-6">
+                 <!--  <div class="col-xs-6 col-md-6">
                     <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
                     <div class="modal-frequency"></div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="form-group col-md-12" id='KPIZoneTextBoxesGroup'>
                   <div id="KPIZoneTextBoxDiv1">
