@@ -490,3 +490,32 @@ class monitoringView(BrowserView):
         value = """{"date":{ "min":[""" + start + """], "max":[""" + \
             end + """]}, "time": false, "today": false, "clear": false}"""
         return value
+
+    def getCurrentStage(self):
+        """ Returns all the stages for each Improvement Areas in a Project """
+        items = api.content.find(
+            portal_type=['OutcomeCC'],
+            context=self.context)
+        results = []
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+        for item in items:
+            annotations = IAnnotations(item.getObject())
+            stage = annotations[KEY]['generic'][0]['stage']
+            if stage:
+                for i in range(1, 5):
+                    if i < int(stage):
+                        state = "past"
+                    elif i == int(stage):
+                        state = "current"
+                    else:
+                        state = "future"
+                    results.append(dict(id="stage-" + str(i),
+                                        title="Stage " + str(i),
+                                        state=state))
+            else:
+                for i in range(1, 5):
+                    results.append(dict(id="stage-" + str(i),
+                                        title="Stage " + str(i),
+                                        state="future"))
+
+        return results[0:4]

@@ -321,6 +321,7 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
+                                    data-title_specific item/title_specific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -350,6 +351,7 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
+                                    data-title_specific item/title_specific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -379,6 +381,7 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
+                                    data-title_specific item/title_specific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -410,6 +413,7 @@
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
+                                    data-title_specific item/title_specific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -798,7 +802,7 @@
 
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
-                    <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
+                    <label for="message-text" class="control-label" i18n:translate="">Baseline description</label>
                     <!-- <input class="form-control" id="outcomeccs-baseline" /> -->
                     <textarea class="form-control" id="outcomeccs-baseline" style="height: 150px;"></textarea>
                   </div>
@@ -810,12 +814,12 @@
                 </div>
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
-                    <label for="message-text" class="control-label" i18n:translate="">Objective</label>
+                    <label for="message-text" class="control-label" i18n:translate="">Targeted improvements</label>
                     <!-- <input class="form-control" id="outcomeccs-objective" /> -->
                     <textarea class="form-control" id="outcomeccs-objective" style="height: 150px;"></textarea>
                   </div>
                   <div class="col-xs-6 col-md-6" style="padding-bottom:15px;">
-                      <label class="control-label" i18n:translate="">Objective date</label>
+                      <label class="control-label" i18n:translate="">Targeted improvements date</label>
                       <input id="outcomeccs-objective_date" class="pat-pickadate"
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>

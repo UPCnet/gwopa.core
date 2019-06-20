@@ -62,6 +62,17 @@
         <h2 class="bolder" i18n:translate=""> There are no Activities and Outputs plannified/monitorized on this Working Area and year.</h2>
       </div>
     </div>
+
+    <div class="stages" tal:define="stages view/getCurrentStage" tal:condition="stages">
+      <h2 class="bolder" i18n:translate="">Stages</h2>
+      <ul class="steps">
+        <li tal:repeat="stage stages"
+            tal:attributes="class string:${stage/state}; id string:${stage/id}"
+            tal:content="stage/title">Stage 1
+        </li>
+      </ul>
+    </div>
+
     <div class="capacities">
       <div id="chartCapacities" tal:define="outcome view/getOutcomeCC" tal:condition="outcome">
         <h2 class="bolder" i18n:translate=""> Capacity Changes</h2>
@@ -153,15 +164,7 @@
         </tal:block>
       </div>
     </div>
-    <div class="stages" tal:define="stages view/getCurrentStage" tal:condition="stages">
-      <h2 class="bolder" i18n:translate="">Stages</h2>
-      <ul class="steps">
-        <li tal:repeat="stage stages"
-            tal:attributes="class string:${stage/state}; id string:${stage/id}"
-            tal:content="stage/title">Stage 1
-        </li>
-      </ul>
-    </div>
+
 
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/dashboard-areas.js"></script>
 
