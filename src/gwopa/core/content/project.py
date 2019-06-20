@@ -152,7 +152,6 @@ class IProject(model.Schema):
     startplanned = schema.Date(
         title=_(u'Planned'),
         required=False,
-        defaultFactory=default_today
     )
 
     directives.mode(completiondate='display')
@@ -170,7 +169,6 @@ class IProject(model.Schema):
     completionplanned = schema.Date(
         title=_(u'Planned'),
         required=False,
-        defaultFactory=default_plus_one_year
     )
 
     dexteritytextindexer.searchable('objectives')
