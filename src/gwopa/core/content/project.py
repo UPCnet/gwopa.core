@@ -318,8 +318,14 @@ class View(grok.View):
         results.sort(key=lambda x: x['title'], reverse=False)
         return results
 
-    def planneddates(self):
-        if (self.context.startplanned == self.context.startactual) and (self.context.completionactual == self.context.completionplanned):
+    def startplanneddates(self):
+        if not self.context.startplanned or self.context.startplanned == '' or (self.context.startplanned == self.context.startactual):
+            return False
+        else:
+            return True
+
+    def completionplanneddates(self):
+        if not self.context.completionplanned or self.context.completionplanned == '' or (self.context.completionactual == self.context.completionplanned):
             return False
         else:
             return True
