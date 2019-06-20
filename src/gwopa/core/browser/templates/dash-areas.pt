@@ -42,6 +42,9 @@
       </div>
     </div>
     <hr/>
+    <h1 class="documentFirstHeading" style="padding: 0px; border-bottom: 2px solid #dddddd;">
+      <tal:omit-tag i18n:translate=""><span>Project</span></tal:omit-tag>
+    </h1>
     <div tal:condition="not:areas" class="row">
       <h2 i18n:translate=""> Seems that there are no Working Areas in this Project </h2>
     </div>
@@ -62,7 +65,9 @@
         <h2 class="bolder" i18n:translate=""> There are no Activities and Outputs plannified/monitorized on this Working Area and year.</h2>
       </div>
     </div>
-
+    <h1 class="documentFirstHeading" style="padding: 0px; border-bottom: 2px solid #dddddd;">
+      <tal:omit-tag i18n:translate=""><span>Outcomes</span></tal:omit-tag>
+    </h1>
     <div class="stages" tal:define="stages view/getCurrentStage" tal:condition="stages">
       <h2 class="bolder" i18n:translate="">Stages</h2>
       <ul class="steps">
