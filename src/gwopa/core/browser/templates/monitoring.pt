@@ -89,12 +89,14 @@
                     </div>
                     <div class="contentt" id="bl" tal:content="item/start">2019-03-29</div>
                     <div class="contentt" id="comple" tal:content="item/end">28-02-2020</div>
-                    <div class="contentt" id="pyv">
+                    <div class="contentt target" id="pyv">
+                      <tal:block tal:condition="python:item['portal_type'] == 'Activity'">
+                        <span tal:content="item/target_value_real"> 200 </span> / 100 %
+                      </tal:block>
                       <tal:block tal:condition="python:item['portal_type'] == 'Output'">
                         <span tal:content="item/target_value_real"> 200 </span> / <span tal:content="item/target_value_planned"> 200 </span>
                         <span tal:content="item/unit"> m3 </span>
                       </tal:block>
-                      <tal:block tal:condition="python:item['portal_type'] == 'Activity'">  -----  </tal:block>
                     </div>
                     <div class="contentt" id="nexupd" tal:content="item/next_update"> 18-12-2022</div>
                   </div>
