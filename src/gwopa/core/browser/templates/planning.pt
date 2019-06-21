@@ -647,6 +647,7 @@
             </div>
             <div class="modal-body" id="EditOutput">
               <div class="modal-url" id="OutputPath" style="display:none;"></div>
+              <span class="modal-pk" id="OutputYear" style="display:none"></span>
               <div class="row">
                 <div class="form-group col-md-12">
                   <label id="label-output" i18n:translate="">Title</label>
