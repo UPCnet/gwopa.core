@@ -271,6 +271,21 @@ class planningView(BrowserView):
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
+            if item.description:
+                description = item.description
+            else:
+                description = ''
+
+            if item.means:
+                means = item.means
+            else:
+                means = ''
+
+            if item.risks:
+                risks = item.risks
+            else:
+                risks = ''
+
             results.append(dict(
                 title=item.title,
                 portal_type=item.portal_type,
@@ -281,6 +296,9 @@ class planningView(BrowserView):
                 limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
                 target_value_planned=target_value_planned,
                 responsible=members,
+                description=description,
+                means=means,
+                risks=risks,
                 url='/'.join(item.getPhysicalPath())))
         return sorted(results, key=itemgetter('title'), reverse=False)
 
