@@ -410,8 +410,10 @@
                       <h5 tal:attributes="id string:${outcome/rid};" class="capacity-title" tal:content="outcome/area"> Working Area N </h5>
                     </div>
                   </div>
-
                   <div class="stages col-md-12">
+                    <p class="text_left" i18n:translate="">
+                      What is the change consolidation stage of this working area?
+                    </p>
                     <a data-toggle="modal" data-target="#modalUpdateStage" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url; data-stage outcome/stage; id string:${outcome/rid}-update-stage" i18n:translate="">
                       <ul class="steps">
                         <li class="future" id="stage-1">Stage 1</li>
@@ -422,7 +424,10 @@
                     </a>
                   </div>
 
-                  <div class="information cc_container" >
+                  <div class="information cc_container">
+                    <p class="text_left" i18n:translate="">
+                      What are the specific changes perceived in this working area?
+                    </p>
                     <div class="primerafila">
                       <tal:block repeat="item outcome/monitoring">
                         <tal:block condition="python: item['short_category'] == 'transformational'">
