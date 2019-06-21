@@ -14,7 +14,7 @@
     <div class="block-nav">
       <ul class="pagination pagination-lg" tal:define="items view/getItems">
         <tal:block tal:repeat="item items">
-          <li tal:attributes="class item/classe; alt item/alt; title item/alt">
+          <li tal:attributes="class item/classe; alt item/alt; title item/alt; data-project-year item/year;">
             <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag></a>
           </li>
         </tal:block>
