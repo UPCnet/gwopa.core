@@ -178,6 +178,7 @@
                                 data-target-value-planned output/target_value_planned;
                                 data-unit output/unit;
                                 data-responsible output/responsible;
+                                data-responsible-id output/responsible_id;
                                 data-means output/means;
                                 data-risks output/risks;
                                 ">

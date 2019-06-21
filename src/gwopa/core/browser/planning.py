@@ -259,6 +259,7 @@ class planningView(BrowserView):
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
         for item in elements:
             members = []
+            members_id = []
             annotations = IAnnotations(item)
             target_value_planned = _(u"Not defined")
             if KEY in annotations.keys():
@@ -268,9 +269,11 @@ class planningView(BrowserView):
                 users = item.members
                 if isinstance(users, (str,)):
                     members.append(api.user.get(username=users).getProperty('fullname'))
+                    members_id.append(users)
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
+                        members_id.append(member)
             if item.description:
                 description = item.description
             else:
@@ -296,6 +299,7 @@ class planningView(BrowserView):
                 limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
                 target_value_planned=target_value_planned,
                 responsible=members,
+                responsible_id = members_id,
                 description=description,
                 means=means,
                 risks=risks,
