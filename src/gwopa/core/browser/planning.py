@@ -314,6 +314,7 @@ class planningView(BrowserView):
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
         for item in items:
             members = []
+            members_id = []
             obj = item.getObject()
             annotations = IAnnotations(item.getObject())
             if KEY in annotations.keys():
@@ -330,13 +331,28 @@ class planningView(BrowserView):
                 users = obj.members
                 if isinstance(users, (str,)):
                     members.append(api.user.get(username=users[0]).getProperty('fullname'))
+                    members_id.append(users)
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
+                        members_id.append(member)
+
+
+            if obj.means:
+                means = obj.means
+            else:
+                means = ''
+
+            if obj.risks:
+                risks = obj.risks
+            else:
+                risks = ''
+
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
                 base_date=obj.baseline_date.strftime('%Y-%m'),
+                base_date_edit=obj.baseline_date.strftime('%Y-%m-%d'),
                 base_value=obj.baseline,
                 zone=obj.zone,
                 unit=unit,
@@ -344,6 +360,9 @@ class planningView(BrowserView):
                 measuring_unit=obj.measuring_unit,
                 portal_type=item.portal_type,
                 responsible=members,
+                responsible_id = members_id,
+                means=means,
+                risks=risks,
                 url='/'.join(obj.getPhysicalPath())))
         return sorted(results, key=itemgetter('title'), reverse=False)
 
