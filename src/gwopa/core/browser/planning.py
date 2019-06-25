@@ -268,8 +268,9 @@ class planningView(BrowserView):
             if item.members:
                 users = item.members
                 if isinstance(users, (str,)):
-                    members.append(api.user.get(username=users).getProperty('fullname'))
-                    members_id.append(users)
+                    for member in users.split(','):
+                        members.append(api.user.get(username=member).getProperty('fullname'))
+                        members_id.append(member)
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
@@ -299,7 +300,7 @@ class planningView(BrowserView):
                 limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
                 target_value_planned=target_value_planned,
                 responsible=members,
-                responsible_id = members_id,
+                responsible_id=members_id,
                 description=description,
                 means=means,
                 risks=risks,
