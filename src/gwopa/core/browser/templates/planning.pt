@@ -158,12 +158,31 @@
                             <ul tal:condition="not:members"><li i18n:translate=""> - </li></ul>
                           </div>
                           <div class="contentt" id="actions">
-                            <a class="pat-plone-modal"
+                        <!--     <a class="pat-plone-modal"
                               tal:attributes="
                                 href string:${output/url}/edit;
                                 data-pat-plone-modal string: title: Edit ${output/title};
                                 title string:Edit ${output/title};
-                                alt string:Edit ${output/title}"><i class="far fa-edit"></i></a>
+                                alt string:Edit ${output/title}"><i class="far fa-edit"></i></a> -->
+
+                            <a data-toggle="modal" class="editOutput" data-target="#modalEditOutput"
+                            tal:attributes="
+                                data-pk currentYear;
+                                data-urloutput output/url;
+                                data-title output/title;
+                                data-description output/description;
+                                data-start output/start;
+                                data-end output/end;
+                                data-limit-start output/limit_start;
+                                data-limit-end output/limit_end;
+                                data-target-value-planned output/target_value_planned;
+                                data-unit output/unit;
+                                data-responsible output/responsible;
+                                data-responsible-id output/responsible_id;
+                                data-means output/means;
+                                data-risks output/risks;
+                                ">
+                              <i class="far fa-edit"></i></a>
                             <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
                               tal:attributes="
                                 data-url output/url;
@@ -613,6 +632,99 @@
             <div class="modal-footer">
               <a type="button" class="btn button-cancel output" data-dismiss="modal" i18n:translate="">Cancel</a>
               <a type="submit" class="btn button-save" id="createOutputFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalEditOutput" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalEditOutput" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="toClearOutput">
+            <div class="modal-header">
+              <button type="button" class="close output" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalEditOutput" i18n:translate=""> Edit Output </h4>
+            </div>
+            <div class="modal-body" id="EditOutput">
+              <div class="modal-url" id="OutputPath" style="display:none;"></div>
+              <span class="modal-pk" id="OutputYear" style="display:none"></span>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label id="label-output" i18n:translate="">Title</label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <input type="text" id="out-title"/>
+                </div>
+                <!-- <div id="addOutputTitle" class="form-group col-md-12" style="padding-bottom: 10px;">
+                  <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
+                  <span class="legend" i18n:translate="">Add Missing Title (if not listed in the previous field)</span>
+                </div>
+                <div class="form-group col-md-12">
+                  <div id="addBox">
+                    <label id="label-title" i18n:translate="">New Output Title</label>
+                    <div class="form-group row">
+                      <div class="col-md-10">
+                        <input type="text" id="new-output" placeholder="Type title..."/>
+                      </div>
+                      <div class="col-md-2">
+                        <button id="add-output" type="button">Save title</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="form-group col-md-12" style="padding-top: 10px;">
+                    <label for="message-text" class="control-label" i18n:translate="">Description</label>
+                    <textarea class="form-control" id="out-description"></textarea>
+                </div>
+                <div class="form-group col-md-12" style="padding-bottom: 15px;">
+                  <span class="legend">
+                    <tal:omit-tag i18n:translate=""> Remember that the related Activity dates are: Start: </tal:omit-tag>&nbsp;<span class="modal-start"></span>&nbsp;<tal:omit-tag i18n:translate=""> End: </tal:omit-tag>&nbsp;<span class="modal-end"></span>
+                  </span>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                      <label id="label-unit" i18n:translate=""> Measuring unit </label>
+                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <input id="out-unit" type="hidden"/>
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                    <label class="control-label" i18n:translate="">Completion date</label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input id="out-datetimepicker" class="pat-pickadate" placeholder="Enter date..." tal:attributes="data-pat-pickadate view/custom_pattern_options"/>
+                  </div>
+                </div>
+                <div class="form-group col-md-12" id='TextBoxesGroup'>
+                  <div id="TextBoxDiv1">
+                    <div class="row">
+                      <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left: 0px;">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
+                        <input type="text" class="form-control" id="target-value-1"/>
+                      </div>
+                      <!-- <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right: 0px;">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
+                        <p id="target-date-1" style="padding: 6px 12px;"></p>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
+                  <textarea class="form-control" id="out-means"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <textarea class="form-control" id="out-risks"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
+                <!--   <input type="hidden" id="out-responsible" class="people-control" multiple="multiple" /> -->
+                  <input id="out-responsible" style="width: 100%;" type="hidden"/>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel output" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="updateOutputFromModal"  data-dismiss="modal" i18n:translate="">Update</a>
             </div>
           </form>
         </div>

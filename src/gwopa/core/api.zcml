@@ -192,6 +192,13 @@
 
   <browser:page
     for="*"
+    name="updateOutput"
+    class=".api.code.UpdateOutput"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
     name="updateOutcomeCC"
     class=".api.code.UpdateOutcomeCC"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"

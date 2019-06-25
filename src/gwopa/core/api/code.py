@@ -539,6 +539,44 @@ class Update(BrowserView):
         return 'Ok, item updated'
 
 
+class UpdateOutput(BrowserView):
+
+    def __call__(self):
+        # TODO: check permissions. now cmf.ModifyPortalContent
+        year = self.request.form['year']
+        item_path = self.request.form['item_path']
+        title = self.request.form['title']
+        description = self.request.form['description']
+        unit = self.request.form['unit']
+        completation_date = self.request.form['completation_date']
+        means = self.request.form['means']
+        risks = self.request.form['risks']
+        responsible = self.request.form['responsible']
+
+
+        result = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
+        item = result.getObject()
+        item.title = title
+        item.description = description
+        item.project_dates = ''
+        item.measuring_unit = unit
+        item.end = datetime.datetime.strptime(completation_date, '%Y-%m-%d')
+        item.means = means
+        item.risks = risks
+        item.members = responsible
+        item.reindexObject()
+
+        new_value = self.request.form['target_value']
+
+        KEY = "GWOPA_TARGET_YEAR_" + str(year)
+        annotations = IAnnotations(item)
+        real = annotations[KEY]['real']
+        monitoring = annotations[KEY]['monitoring']
+        data = dict(real=real, planned=new_value, monitoring=monitoring)
+        annotations[KEY] = data
+
+        return 'Ok, item updated'
+
 class UpdateOutcomeCC(BrowserView):
 
     def __call__(self):
