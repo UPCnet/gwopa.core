@@ -672,7 +672,7 @@
                 <div class="form-group row">
                   <div class="col-xs-12 col-md-12">
                     <label class="control-label" i18n:translate="">Explain</label>
-                    <input class="form-control" id="outcomeccs-explain" />
+                    <textarea class="form-control" id="outcomeccs-explain"></textarea>
                   </div>
                 </div>
               </div>
@@ -775,16 +775,16 @@
                   <div class="col-xs-10 col-md-10">
                     <label class="container" i18n:translate="">Diagnosing and action planning
                     </label>
-                    <div style="margin-bottom: 20px;">The project has started and at this point most initial needs in terms of needed capacity and resources are begin identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
+                    <div>The project has started and at this point most initial needs in terms of needed capacity and resources are begin identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
                     <label class="container" i18n:translate="">Initial implementation of activities
                     </label>
-                    <div style="margin-bottom: 20px;">Mostly conditions for change have been co-created but there are no visible effective changes materialized. This entails that equipment might have been procured, trainings have been implemented resulting in new knowledge to be applied by staff from mentee utility, etc.</div>
+                    <div>Mostly conditions for change have been co-created but there are no visible effective changes materialized. This entails that equipment might have been procured, trainings have been implemented resulting in new knowledge to be applied by staff from mentee utility, etc.</div>
                     <label class="container" i18n:translate="">Visibility of changes
                     </label>
-                    <div style="margin-bottom: 20px;">Mostly there are visible changes implemented in the working routines but there is need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
+                    <div>Mostly there are visible changes implemented in the working routines but there is need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
                     <label class="container" i18n:translate="">Changes consolidated
                     </label>
-                    <div style="margin-bottom: 20px;"> Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice.</div>
+                    <div> Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice.</div>
                   </div>
                 </div>
               </div>
