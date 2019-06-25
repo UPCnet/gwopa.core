@@ -331,13 +331,13 @@ class planningView(BrowserView):
             if obj.members:
                 users = obj.members
                 if isinstance(users, (str,)):
-                    members.append(api.user.get(username=users[0]).getProperty('fullname'))
-                    members_id.append(users)
+                    for member in users.split(','):
+                        members.append(api.user.get(username=member).getProperty('fullname'))
+                        members_id.append(member)
                 else:
                     for member in users:
                         members.append(api.user.get(username=member).getProperty('fullname'))
                         members_id.append(member)
-
 
             if obj.means:
                 means = obj.means
