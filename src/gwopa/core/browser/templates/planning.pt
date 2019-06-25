@@ -876,6 +876,7 @@
             </div>
             <div class="modal-body" id="EditKPIZone">
               <div class="modal-url" id="KPIZonePath" style="display:none"></div>
+              <span class="modal-pk" id="KPIZoneYear" style="display:none"></span>
               <div class="row">
                 <div class="form-group col-md-12">
                   <label id="label-kpi" i18n:translate="">Title</label>
