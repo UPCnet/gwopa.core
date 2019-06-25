@@ -771,14 +771,18 @@
                     </label>
                   </div>
                   <div class="col-xs-10 col-md-10">
-                    <label class="container" i18n:translate="">Identifying needs and course of action
+                    <label class="container" i18n:translate="">Diagnosing and action planning
                     </label>
-                    <label class="container" i18n:translate="">Creating conditions of change
+                    <div style="margin-bottom: 20px;">The project has started and at this point most initial needs in terms of needed capacity and resources are begin identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
+                    <label class="container" i18n:translate="">Initial implementation of activities
                     </label>
-                    <label class="container" i18n:translate="">Initial changes in the organization start to materialize
+                    <div style="margin-bottom: 20px;">Mostly conditions for change have been co-created but there are no visible effective changes materialized. This entails that equipment might have been procured, trainings have been implemented resulting in new knowledge to be applied by staff from mentee utility, etc.</div>
+                    <label class="container" i18n:translate="">Visibility of changes
                     </label>
-                    <label class="container" i18n:translate="">Changes have become routine and are well embedded in the organization
+                    <div style="margin-bottom: 20px;">Mostly there are visible changes implemented in the working routines but there is need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
+                    <label class="container" i18n:translate="">Changes consolidated
                     </label>
+                    <div style="margin-bottom: 20px;"> Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice.</div>
                   </div>
                 </div>
               </div>

@@ -391,8 +391,13 @@ class monitoringView(BrowserView):
                 monitoring_info = monitoring_info
             if obj.members:
                 users = obj.members
-                for member in users:
-                    members.append(api.user.get(username=member).getProperty('fullname'))
+                if isinstance(users, (str,)):
+                    for member in users.split(','):
+                        members.append(api.user.get(username=member).getProperty('fullname'))
+                else:
+                    for member in users:
+                        members.append(api.user.get(username=member).getProperty('fullname'))
+
             results.append(dict(
                 path=item.getPath(),
                 id=item.id,
