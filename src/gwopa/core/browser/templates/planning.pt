@@ -719,10 +719,10 @@
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
                         <input type="text" class="form-control" id="target-value-1"/>
                       </div>
-                      <!-- <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right: 0px;">
+                      <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right: 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
                         <p id="target-date-1" style="padding: 6px 12px;"></p>
-                      </div> -->
+                      </div>
                     </div>
                   </div>
                 </div>
