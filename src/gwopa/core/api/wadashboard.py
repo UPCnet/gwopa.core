@@ -76,15 +76,20 @@ class GetOutputs(BrowserView):
                     portal_type=['Output'],
                     path={'query': act.getPath(), 'depth': 1})
                 for output in outputs:
-                    titles.append(output.Title)
                     annotations = IAnnotations(output.getObject())
                     KEY = "GWOPA_TARGET_YEAR_" + str(year)
-                    if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                    planned = annotations[KEY]['planned']
+                    monitoring = annotations[KEY]['monitoring']
+                    real = monitoring['progress'] if monitoring != '' else ''
+                    if planned == '' or monitoring == '' or real == '':
+                        if real == '':
+                            real = '-'
+                        if planned == '':
+                            planned = '-'
                         value = 0
                     else:
-                        planned = annotations[KEY]['planned']
-                        real = annotations[KEY]['monitoring']['progress']
                         value = percentage(real, planned)
+                    titles.append(real + " / " + planned + " | " + output.Title)
                     values[0]['data'].append(value)
 
             results.append(titles)
