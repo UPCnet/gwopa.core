@@ -270,12 +270,31 @@
                       <tal:block tal:condition="not:members" i18n:translate=""> - </tal:block>
                     </div>
                     <div class="contentt" id="actions">
-                      <a class="pat-plone-modal"
+       <!--                <a class="pat-plone-modal"
                         tal:attributes="
                           href string:${outcome/url}/edit;
                           data-pat-plone-modal string: title: Edit ${outcome/title};
                           title string:Edit ${outcome/title};
-                          alt string:Edit ${outcome/title}"><i class="far fa-edit"></i></a>
+                          alt string:Edit ${outcome/title}"><i class="far fa-edit"></i></a> -->
+
+                      <a data-toggle="modal" class="editKPIZone" data-target="#modalEditKPIZone"
+                            tal:attributes="
+                                    data-pk currentYear;
+                                    data-urlkpi outcome/url;
+                                    data-title outcome/title;
+                                    data-zone outcome/zone;
+                                    data-responsible outcome/responsible;
+                                    data-responsible-id outcome/responsible_id;
+                                    data-description outcome/description;
+                                    data-base-value outcome/base_value;
+                                    data-base-date outcome/base_date_edit;
+                                    data-unit outcome/unit;
+                                    data-target-value-planned outcome/target_value_planned;
+                                    data-means outcome/means;
+                                    data-risks outcome/risks;
+                                    data-start view/project_start;
+                                    data-end view/project_end;"><i class="far fa-edit"></i></a>
+
                       <a href="#confirm-delete" data-toggle="modal" class="btn-delete"
                         tal:attributes="
                               data-url outcome/url;
@@ -700,10 +719,10 @@
                         <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
                         <input type="text" class="form-control" id="target-value-1"/>
                       </div>
-                      <!-- <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right: 0px;">
+                      <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right: 0px;">
                         <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
                         <p id="target-date-1" style="padding: 6px 12px;"></p>
-                      </div> -->
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -841,6 +860,101 @@
             <div class="modal-footer">
               <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
               <a type="submit" class="btn button-save" id="createKPIZoneFromModal"  data-dismiss="modal" i18n:translate="">Create</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalEditKPIZone" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalEditKPIZone" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="toClearKPIZone">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalEditKPIZone" i18n:translate=""> Edit KPI </h4>
+            </div>
+            <div class="modal-body" id="EditKPIZone">
+              <div class="modal-url" id="KPIZonePath" style="display:none"></div>
+              <span class="modal-pk" id="KPIZoneYear" style="display:none"></span>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label id="label-kpi" i18n:translate="">Title</label>
+                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <input readonly  type="text" id="kpizone-title"/>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                    <label id="label-zone" i18n:translate=""> Zone </label>
+                    <input type="text" class="form-control" id="kpizone-zone" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
+                    <input type="text" class="pat-select2" id="kpizone-responsible"
+                              data-pat-select2="placeholder:Search users;
+                                                vocabularyUrl:api-select2-users.json;" />
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="message-text" class="control-label" i18n:translate="">Description</label>
+                    <textarea class="form-control" id="kpizone-description"></textarea>
+                </div>
+                <div class="form-group col-md-12" style="margin-bottom:10px !important;">
+                  <span class="legend">
+                    <tal:omit-tag i18n:translate=""> Remember that the related Project dates are: Start: </tal:omit-tag>&nbsp;<span class="modal-start"></span>&nbsp;<tal:omit-tag i18n:translate=""> End: </tal:omit-tag>&nbsp;<span class="modal-end"></span>
+                  </span>
+                </div>
+                <div class="form-group row">
+                      <div class="col-xs-6 col-md-6">
+                    <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input class="form-control" id="kpizone-baseline" />
+                  </div>
+                  <div class="col-xs-6 col-md-6">
+                      <label class="control-label" i18n:translate="">Baseline date</label>
+                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <input id="kpizone-datetimepicker" class="pat-pickadate"
+                      tal:attributes="data-pat-pickadate view/custom_pattern_options" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6 col-md-6">
+                    <label id="label-unit" i18n:translate=""> Measuring unit </label>
+                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <input id="kpizone-unit" type="hidden"/>
+                  </div>
+                 <!--  <div class="col-xs-6 col-md-6">
+                    <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
+                    <div class="modal-frequency"></div>
+                  </div> -->
+                </div>
+                <div class="form-group col-md-12" id='KPIZoneTextBoxesGroup'>
+                  <div id="KPIZoneTextBoxDiv1">
+                    <div class="row">
+                      <div class="col-xs-6 col-md-6" style="margin-top: 0px; padding-left:0px;">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target value </label>
+                        <input type="text" class="form-control" id="kpizone-target-value-1"/>
+                      </div>
+                      <div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">
+                        <label for="message-text" class="control-label" i18n:translate=""> Target date </label>
+                        <p id="kpizone-target-date-1" style="padding: 6px 12px;"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
+                  <textarea class="form-control" id="kpizone-means"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <textarea class="form-control" id="kpizone-risks"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="updateKPIZoneFromModal"  data-dismiss="modal" i18n:translate="">Update</a>
             </div>
           </form>
         </div>
