@@ -774,12 +774,19 @@ class getProjectWOPPlatform(BrowserView):
     def __call__(self):
         items = api.content.find(portal_type="Project")
         results = []
+
+        wop_platform = []
         for item in items:
             value = item.getObject().wop_platform
-            if value:
-                results.append(dict(
-                    id=value,
-                    text=value))
+            if value and value not in wop_platform:
+                wop_platform.append(value)
+        wop_platform.sort()
+
+        for value in wop_platform:
+            results.append(dict(
+                id=value,
+                text=value))
+
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps({'results': results})
 
@@ -789,12 +796,19 @@ class getProjectWOPProgram(BrowserView):
     def __call__(self):
         items = api.content.find(portal_type="Project")
         results = []
+
+        wop_program = []
         for item in items:
             value = item.getObject().wop_program
-            if value:
-                results.append(dict(
-                    id=value,
-                    text=value))
+            if value and value not in wop_program:
+                wop_program.append(value)
+        wop_program.sort()
+
+        for value in wop_program:
+            results.append(dict(
+                id=value,
+                text=value))
+
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps({'results': results})
 
