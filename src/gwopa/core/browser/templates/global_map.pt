@@ -17,43 +17,43 @@
                 <form>
                     <div>
                       <label i18n:translate=""> Year </label>
-                      <input id="map-year" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectDates;"/>
+                      <input id="map-year" type="hidden"
+                             class="people-control" multiple="multiple" />
                     </div>
                     <div>
                       <label i18n:translate=""> Working Area </label>
-                      <input id="map-area" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectWorkingArea;" />
+                      <input id="map-area" type="hidden"
+                             class="people-control" multiple="multiple"  />
                     </div>
                     <div>
                       <label i18n:translate=""> Country </label>
-                      <input id="map-country" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectCountry;" />
+                      <input id="map-country" type="hidden"
+                             class="people-control" multiple="multiple"  />
                     </div>
                     <div>
                       <label i18n:translate=""> WOP Platform </label>
-                      <input id="map-platform" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectWOPPlatform;"/>
+                      <input id="map-platform" type="hidden"
+                             class="people-control" multiple="multiple" />
                     </div>
                     <div>
                       <label i18n:translate=""> WOP Program </label>
-                      <input id="map-program" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectWOPProgram;"/>
+                      <input id="map-program" type="hidden"
+                             class="people-control" multiple="multiple" />
                     </div>
                     <div>
                       <label i18n:translate=""> Partner </label>
-                      <input id="map-partner" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectPartners;"/>
+                      <input id="map-partner" type="hidden"
+                             class="people-control" multiple="multiple" />
                     </div>
                     <div>
                       <label i18n:translate=""> KPI </label>
-                      <input id="map-kpi" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectKPIs;"/>
+                      <input id="map-kpi" type="hidden"
+                             class="people-control" multiple="multiple" />
                     </div>
                     <div>
                       <label i18n:translate="">Tags</label>
-                      <input id="map-tags" class="pat-select2"
-                              data-pat-select2="vocabularyUrl:api-getProjectTags;"/>
+                      <input id="map-tags" type="hidden"
+                             class="people-control" multiple="multiple" />
                     </div>
                     <div tal:define="values view/getBudgetLimits">
                       <label i18n:translate=""> Budget </label>
