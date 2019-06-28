@@ -544,8 +544,7 @@
                   </div>
                    <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                    <input type="hidden" class="pat-select2" id="act-responsible"
-                           i18n:attributes="placeholder search_users" data-pat-select2="vocabularyUrl:api-select2-users.json;"/>
+                    <input type="hidden" id="act-responsible" class="people-control" multiple="multiple" />
                   </div>
                 </div>
                 <div class="form-group col-md-12">
@@ -792,9 +791,7 @@
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                    <input type="text" class="pat-select2" id="kpizone-responsible"
-                              data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:api-select2-users.json;" />
+                    <input type="text" id="kpizone-responsible" class="people-control" multiple="multiple" />
                   </div>
                 </div>
                 <div class="form-group col-md-12">
@@ -892,9 +889,7 @@
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
-                    <input type="text" class="pat-select2" id="kpizone-responsible"
-                              data-pat-select2="placeholder:Search users;
-                                                vocabularyUrl:api-select2-users.json;" />
+                    <input type="text" id="kpizone-responsible" class="people-control" multiple="multiple" />
                   </div>
                 </div>
                 <div class="form-group col-md-12">
