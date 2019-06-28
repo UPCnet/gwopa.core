@@ -577,6 +577,7 @@ class UpdateOutput(BrowserView):
 
         return 'Ok, item updated'
 
+
 class UpdateKPIZone(BrowserView):
 
     def __call__(self):
@@ -614,6 +615,7 @@ class UpdateKPIZone(BrowserView):
         annotations[KEY] = data
 
         return 'Ok, item updated'
+
 
 class UpdateOutcomeCC(BrowserView):
 
@@ -765,6 +767,7 @@ class UpdateStageMonitoring(BrowserView):
         annotations[KEY] = data
 
         return 'Ok, item updated'
+
 
 class getProjectWOPPlatform(BrowserView):
 

@@ -380,23 +380,28 @@ class monitoringView(BrowserView):
                 target_value_real = ''
                 target_value_planned = '-----'
                 monitoring_info = dict(
-                        progress='',
-                        explanation='',
-                        obstacles='',
-                        contributing='',
-                        consideration='',
-                        limiting='',
-                        updated='',
-                    )
+                    progress='',
+                    explanation='',
+                    obstacles='',
+                    contributing='',
+                    consideration='',
+                    limiting='',
+                    updated='',
+                )
                 monitoring_info = monitoring_info
+
             if obj.members:
                 users = obj.members
                 if isinstance(users, (str,)):
                     for member in users.split(','):
-                        members.append(api.user.get(username=member).getProperty('fullname'))
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
                 else:
                     for member in users:
-                        members.append(api.user.get(username=member).getProperty('fullname'))
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
 
             results.append(dict(
                 path=item.getPath(),
@@ -460,10 +465,16 @@ class monitoringView(BrowserView):
             if obj.members:
                 users = obj.members
                 if isinstance(users, (str,)):
-                    members.append(api.user.get(username=users[0]).getProperty('fullname'))
+                    for member in users.split(','):
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
                 else:
                     for member in users:
-                        members.append(api.user.get(username=member).getProperty('fullname'))
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
+
             if obj.aq_parent.portal_type == 'ImprovementArea':
                 area = obj.aq_parent.title
             else:
@@ -477,7 +488,7 @@ class monitoringView(BrowserView):
                 base_value=base_value,
                 objective=objective,
                 objective_date=objective_date,
-                stage = stage,
+                stage=stage,
                 target_value_planned=target_value_planned,
                 specifics=specifics,
                 monitoring=monitoring,

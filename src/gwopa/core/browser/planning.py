@@ -9,7 +9,6 @@ from Products.CMFCore.utils import getToolByName
 import datetime
 from gwopa.core import _
 from zope.annotation.interfaces import IAnnotations
-from datetime import timedelta
 
 
 @implementer(IPublishTraverse)
@@ -207,17 +206,24 @@ class planningView(BrowserView):
             if KEY in annotations.keys():
                 if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
                     target_value_planned = annotations[KEY]['planned']
+
             if item.members:
                 users = item.members
                 if isinstance(users, (str,)):
-                    members.append(api.user.get(username=users).getProperty('fullname'))
+                    for member in users.split(','):
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
                 else:
                     for member in users:
-                        members.append(api.user.get(username=member).getProperty('fullname'))
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
+
             results.append(dict(
                 title=item.title,
                 portal_type=item.portal_type,
-                start= item.start.strftime('%Y-%m-%d'),
+                start=item.start.strftime('%Y-%m-%d'),
                 end=item.end.strftime('%Y-%m-%d'),
                 limit_start=item.start.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
                 limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
@@ -265,16 +271,22 @@ class planningView(BrowserView):
             if KEY in annotations.keys():
                 if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
                     target_value_planned = annotations[KEY]['planned']
+
             if item.members:
                 users = item.members
                 if isinstance(users, (str,)):
                     for member in users.split(','):
-                        members.append(api.user.get(username=member).getProperty('fullname'))
-                        members_id.append(member)
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
+                            members_id.append(member)
                 else:
                     for member in users:
-                        members.append(api.user.get(username=member).getProperty('fullname'))
-                        members_id.append(member)
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
+                            members_id.append(member)
+
             if item.description:
                 description = item.description
             else:
@@ -328,16 +340,21 @@ class planningView(BrowserView):
             else:
                 target_value_planned = _(u"Not defined")
                 unit = ''
+
             if obj.members:
                 users = obj.members
                 if isinstance(users, (str,)):
                     for member in users.split(','):
-                        members.append(api.user.get(username=member).getProperty('fullname'))
-                        members_id.append(member)
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
+                            members_id.append(member)
                 else:
                     for member in users:
-                        members.append(api.user.get(username=member).getProperty('fullname'))
-                        members_id.append(member)
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
+                            members_id.append(member)
 
             if obj.means:
                 means = obj.means
@@ -361,7 +378,7 @@ class planningView(BrowserView):
                 measuring_unit=obj.measuring_unit,
                 portal_type=item.portal_type,
                 responsible=members,
-                responsible_id = members_id,
+                responsible_id=members_id,
                 means=means,
                 risks=risks,
                 url='/'.join(obj.getPhysicalPath())))
@@ -397,10 +414,16 @@ class planningView(BrowserView):
             if obj.members:
                 users = obj.members
                 if isinstance(users, (str,)):
-                    members.append(api.user.get(username=users[0]).getProperty('fullname'))
+                    for member in users.split(','):
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
                 else:
                     for member in users:
-                        members.append(api.user.get(username=member).getProperty('fullname'))
+                        user = api.user.get(username=member)
+                        if user:
+                            members.append(user.getProperty('fullname'))
+
             if obj.aq_parent.portal_type == 'ImprovementArea':
                 area = obj.aq_parent.title
             else:
