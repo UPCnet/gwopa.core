@@ -40,7 +40,7 @@ class ISettingspage(model.Schema):
     )
 
     measuring_frequency = schema.Text(
-        title=_(u'Measuring frequency'),
+        title=_(u'Monitoring and reporting frequency'),
         description=_(u'A string and the number of notifications per year, separated by comma. One per line. Ex: Annually,1'),
         required=True,
     )

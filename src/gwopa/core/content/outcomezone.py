@@ -63,7 +63,7 @@ class IOutcomezone(model.Schema):
     )
 
     # measuring_frequency = schema.Choice(
-    #     title=_(u"Measuring frequency"),
+    #     title=_(u"Monitoring and reporting frequency"),
     #     source=utils.settings_measuring_frequency,
     #     required=True,
     # )
@@ -74,7 +74,7 @@ class IOutcomezone(model.Schema):
     )
 
     risks = schema.Text(
-        title=_(u"Risks / Assumptions"),
+        title=_(u"Risks and Assumptions at project level!"),
         required=False,
     )
 

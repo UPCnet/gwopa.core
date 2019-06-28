@@ -99,7 +99,7 @@ class IActivity(model.Schema):
     )
 
     risks = schema.Text(
-        title=_(u"Risks / Assumptions"),
+        title=_(u"Risks and Assumptions at project level!"),
         required=False,
     )
 

@@ -501,7 +501,7 @@ msgid "Improvement Areas"
 msgstr ""
 
 #: ../content/project.py:258
-msgid "Improvement track team and members"
+msgid "Project members"
 msgstr ""
 
 #: ../content/contributordonor.py:22
@@ -646,7 +646,7 @@ msgstr ""
 #: ../browser/templates/planning.pt:683
 #: ../content/outcomezone.py:66
 #: ../content/project.py:134
-msgid "Measuring frequency"
+msgid "Monitoring and reporting frequency"
 msgstr ""
 
 #: ../browser/templates/planning.pt:557
@@ -794,7 +794,7 @@ msgid "Partner/partners of the project"
 msgstr ""
 
 #: ../content/project.py:99
-msgid "Partners"
+msgid "Participants"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:298
@@ -912,7 +912,7 @@ msgstr ""
 #: ../browser/templates/planning.pt:499
 #: ../content/activity.py:102
 #: ../content/outcomezone.py:77
-msgid "Risks / Assumptions"
+msgid "Risks and Assumptions at project level!"
 msgstr ""
 
 #: ../content/templates/project_view.pt:345

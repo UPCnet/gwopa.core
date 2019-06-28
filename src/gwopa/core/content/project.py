@@ -96,7 +96,7 @@ class IProject(model.Schema):
              )
 
     fieldset('members',
-             label=_(u'Partners'),
+             label=_(u'Participants'),
              fields=['partners', 'project_manager_admin', 'project_manager', 'members']
              )
 
@@ -131,7 +131,7 @@ class IProject(model.Schema):
     )
 
     measuring_frequency = schema.Choice(
-        title=_(u"Measuring frequency"),
+        title=_(u"Monitoring and reporting frequency"),
         description=_(u"Frequency used for all the items of the project."),
         source=utils.settings_measuring_frequency,
         required=True,
@@ -253,7 +253,7 @@ class IProject(model.Schema):
     directives.widget('members', SelectWidget)
     members = schema.List(
         title=_(u"Members"),
-        description=_(u"Improvement track team and members"),
+        description=_(u"Project members"),
         required=False,
         value_type=schema.Choice(
             source='plone.app.vocabularies.Users',

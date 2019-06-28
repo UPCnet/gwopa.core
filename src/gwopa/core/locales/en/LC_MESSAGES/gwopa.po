@@ -495,8 +495,8 @@ msgid "Improvement Areas"
 msgstr "Working Areas"
 
 #: ../content/project.py:258
-msgid "Improvement track team and members"
-msgstr "Improvement track team and members"
+msgid "Project members"
+msgstr "Project members"
 
 #: ../content/contributordonor.py:22
 #: ../content/contributorother.py:22
@@ -640,8 +640,8 @@ msgstr "Means of verification used to assess capacity change in this dimension"
 #: ../browser/templates/planning.pt:683
 #: ../content/outcomezone.py:66
 #: ../content/project.py:134
-msgid "Measuring frequency"
-msgstr "Measuring frequency"
+msgid "Monitoring and reporting frequency"
+msgstr "Monitoring and reporting frequency"
 
 #: ../browser/templates/planning.pt:557
 #: ../content/outcomezone.py:60
@@ -788,8 +788,8 @@ msgid "Partner/partners of the project"
 msgstr "You can select more than one Partner"
 
 #: ../content/project.py:99
-msgid "Partners"
-msgstr "Partners"
+msgid "Participants"
+msgstr "Participants"
 
 #: ../browser/templates/monitoring.pt:298
 #: ../browser/templates/planning.pt:209
@@ -906,8 +906,8 @@ msgstr "Responsible people"
 #: ../browser/templates/planning.pt:499
 #: ../content/activity.py:102
 #: ../content/outcomezone.py:77
-msgid "Risks / Assumptions"
-msgstr "Risks / Assumptions"
+msgid "Risks and Assumptions at project level!"
+msgstr "Risks and Assumptions at project level!"
 
 #: ../content/templates/project_view.pt:345
 msgid "Save"

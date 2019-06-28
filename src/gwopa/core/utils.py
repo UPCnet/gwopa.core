@@ -119,7 +119,7 @@ directlyProvides(settings_measuring_unit, IContextSourceBinder)
 
 
 def settings_measuring_frequency(context):
-    """ Measuring frequency settings. """
+    """ Monitoring and reporting frequency settings. """
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
         values = item[0].getObject().measuring_frequency

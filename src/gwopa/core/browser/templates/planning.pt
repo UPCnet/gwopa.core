@@ -548,7 +548,7 @@
                   </div>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
                   <textarea class="form-control" id="act-risks"></textarea>
                 </div>
               </div>
@@ -640,7 +640,7 @@
                   <textarea class="form-control" id="out-means"></textarea>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
                   <textarea class="form-control" id="out-risks"></textarea>
                 </div>
                 <div class="form-group col-md-12">
@@ -732,7 +732,7 @@
                   <textarea class="form-control" id="out-means"></textarea>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
                   <textarea class="form-control" id="out-risks"></textarea>
                 </div>
                 <div class="form-group col-md-12">
@@ -823,7 +823,7 @@
                     <input id="kpizone-unit" type="hidden"/>
                   </div>
                  <!--  <div class="col-xs-6 col-md-6">
-                    <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
+                    <label id="label-frequency" i18n:translate=""> Monitoring and reporting frequency </label>
                     <div class="modal-frequency"></div>
                   </div> -->
                 </div>
@@ -851,7 +851,7 @@
                   <textarea class="form-control" id="kpizone-means"></textarea>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
                   <textarea class="form-control" id="kpizone-risks"></textarea>
                 </div>
               </div>
@@ -921,7 +921,7 @@
                     <input id="kpizone-unit" type="hidden"/>
                   </div>
                  <!--  <div class="col-xs-6 col-md-6">
-                    <label id="label-frequency" i18n:translate=""> Measuring frequency </label>
+                    <label id="label-frequency" i18n:translate=""> Monitoring and reporting frequency </label>
                     <div class="modal-frequency"></div>
                   </div> -->
                 </div>
@@ -944,7 +944,7 @@
                   <textarea class="form-control" id="kpizone-means"></textarea>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
+                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
                   <textarea class="form-control" id="kpizone-risks"></textarea>
                 </div>
               </div>
