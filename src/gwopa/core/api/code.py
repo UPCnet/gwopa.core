@@ -997,21 +997,24 @@ class allProjectsMap(BrowserView):
                 else:
                     popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>' + str(responsible)
 
-                poi = Feature(
-                    geometry=Point((float(obj.longitude), float(obj.latitude))),
-                    properties={
-                        'title': obj.title,
-                        'popup': popup,
-                        'total_budget': budget,
-                        'wop_program': wop_program,
-                        'wop_platform': wop_platform,
-                        'partners': partners,
-                        'country': obj.country,
-                        'tags': category,
-                        'areas': areas,
-                        'years': years,
-                        'kpis': kpis})
-                results.append(poi)
+                try:
+                    poi = Feature(
+                        geometry=Point((float(obj.longitude), float(obj.latitude))),
+                        properties={
+                            'title': obj.title,
+                            'popup': popup,
+                            'total_budget': budget,
+                            'wop_program': wop_program,
+                            'wop_platform': wop_platform,
+                            'partners': partners,
+                            'country': obj.country,
+                            'tags': category,
+                            'areas': areas,
+                            'years': years,
+                            'kpis': kpis})
+                    results.append(poi)
+                except:
+                    pass
         obj = ({"type": "FeatureCollection", 'features': results})
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(obj)
