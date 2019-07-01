@@ -214,6 +214,23 @@ def projectModified(content, event):
                         image=data.getObject().image,
                         container=content)
 
+        # Modify project_dates and currency
+        project_path = '/'.join(content.getPhysicalPath())
+        activities = api.content.find(portal_type="Activity", path=project_path)
+        for activity in activities:
+            item = activity.getObject()
+            reindex = False
+            project_dates = "The dates must be between the limits of this Project. Start: " + str(content.startactual) + " End: " + str(content.completionactual)
+            if item.project_dates != project_dates:
+                item.project_dates = project_dates
+                reindex = True
+            if item.currency != content.currency:
+                item.currency = content.currency
+                reindex = True
+            if reindex == True:
+                item.reindexObject()
+            else:
+                break
 
 @grok.subscribe(IPartner, IObjectAddedEvent)
 @grok.subscribe(IPartner, IObjectModifiedEvent)
