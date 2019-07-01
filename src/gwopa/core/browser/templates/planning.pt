@@ -171,8 +171,8 @@
                                 data-urloutput output/url;
                                 data-title output/title;
                                 data-description output/description;
-                                data-start output/start;
-                                data-end output/end;
+                                data-start activity/start;
+                                data-end activity/end;
                                 data-limit-start output/limit_start;
                                 data-limit-end output/limit_end;
                                 data-target-value-planned output/target_value_planned;
