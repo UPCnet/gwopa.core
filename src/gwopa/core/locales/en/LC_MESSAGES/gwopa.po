@@ -576,8 +576,8 @@ msgid "Latitude"
 msgstr "Latitude"
 
 #: ../content/project.py:217
-msgid "Latitude of this project. Used in the map view"
-msgstr "Latitude of this project. Used in the map view"
+msgid "Latitude of this project. Used in the map view (format: -75.2509766)"
+msgstr "Latitude of this project. Used in the map view (format: -75.2509766)"
 
 #: ../browser/templates/teams.pt:19
 msgid "List of members of the Site"
@@ -596,8 +596,8 @@ msgid "Longitude"
 msgstr "Longitude"
 
 #: ../content/project.py:223
-msgid "Longitude of this project. Used in the map view"
-msgstr "Longitude of this project. Used in the map view"
+msgid "Longitude of this project. Used in the map view (format:  -0.071389)"
+msgstr "Longitude of this project. Used in the map view (format:  -0.071389)"
 
 #: ../browser/templates/monitoring.pt:127
 msgid "Main Contributing factors"

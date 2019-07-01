@@ -27,11 +27,24 @@ from operator import itemgetter
 from plone.directives import form
 from collective import dexteritytextindexer
 from Products.CMFCore.utils import getToolByName
+from geojson import Point
 
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
 
 grok.templatedir("templates")
+
+
+class InvalidCoordinateError(schema.ValidationError):
+    __doc__ = _(u'Please enter a valid coordinate format (-75.2509766).')
+
+
+def isCoordinate(value):
+    try:
+        Point((float(value), float(0)))
+        return True
+    except:
+        raise InvalidCoordinateError
 
 
 def theDefaultValue():
@@ -212,14 +225,16 @@ class IProject(model.Schema):
 
     latitude = schema.TextLine(
         title=_(u"Latitude"),
-        description=_(u"Latitude of this project. Used in the map view"),
+        description=_(u"Latitude of this project. Used in the map view (format: -75.2509766) (format: -75.2509766)"),
         required=False,
+        constraint=isCoordinate,
     )
 
     longitude = schema.TextLine(
         title=_(u"Longitude"),
-        description=_(u"Longitude of this project. Used in the map view"),
+        description=_(u"Longitude of this project. Used in the map view (format:  -0.071389) (format:  -0.071389)"),
         required=False,
+        constraint=isCoordinate,
     )
 
     dexteritytextindexer.searchable('partners')

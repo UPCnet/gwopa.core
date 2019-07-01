@@ -573,7 +573,7 @@ msgid "Latitude"
 msgstr ""
 
 #: ../content/project.py:217
-msgid "Latitude of this project. Used in the map view"
+msgid "Latitude of this project. Used in the map view (format: -75.2509766)"
 msgstr ""
 
 #: ../browser/templates/teams.pt:19
@@ -593,7 +593,7 @@ msgid "Longitude"
 msgstr ""
 
 #: ../content/project.py:223
-msgid "Longitude of this project. Used in the map view"
+msgid "Longitude of this project. Used in the map view (format:  -0.071389)"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:127
