@@ -49,12 +49,16 @@ def projectAdded(content, event):
     fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
     date1 = content.startactual
     date2 = content.completionactual
+    if date2.month < date1.month or (date2.month == date1.month and date2.day < date1.day):
+        rangeDates = range(date2.year - date1.year)
+    else:
+        rangeDates = range(date2.year - date1.year + 1)
     datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y")
-             for i in range(date2.year - date1.year + 1)] + [date2.strftime("%B %d, %Y")]
+             for i in rangeDates] + [date2.strftime("%B %d, %Y")]
     isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%m-%d")
-               for i in range(date2.year - date1.year + 1)] + [date2.strftime("%Y-%m-%d")]
+               for i in rangeDates] + [date2.strftime("%Y-%m-%d")]
     patterndate = [(date1 - dateutil.relativedelta.relativedelta(months=1) + relativedelta(years=i)).strftime(
-        "%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
+        "%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in rangeDates]
     patterndate.append((date2 - dateutil.relativedelta.relativedelta(months=1)
                         ).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
 
@@ -151,12 +155,16 @@ def projectModified(content, event):
         fases = int(math.ceil(float((content.completionactual - content.startactual).days) / float(365)))
         date1 = content.startactual
         date2 = content.completionactual
+        if date2.month < date1.month or (date2.month == date1.month and date2.day < date1.day):
+            rangeDates = range(date2.year - date1.year)
+        else:
+            rangeDates = range(date2.year - date1.year + 1)
         datas = [(date1 + relativedelta(years=i)).strftime("%B %d, %Y")
-                 for i in range(date2.year - date1.year + 1)] + [date2.strftime("%B %d, %Y")]
+                 for i in rangeDates] + [date2.strftime("%B %d, %Y")]
         isodate = [(date1 + relativedelta(years=i)).strftime("%Y-%m-%d")
-                   for i in range(date2.year - date1.year + 1)] + [date2.strftime("%Y-%m-%d")]
+                   for i in rangeDates] + [date2.strftime("%Y-%m-%d")]
         patterndate = [(date1 - dateutil.relativedelta.relativedelta(months=1) + relativedelta(years=i)).strftime(
-            "%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in range(date2.year - date1.year + 1)]
+            "%Y %m %d").replace(' 0', ' ').replace(' ', ',') for i in rangeDates]
         patterndate.append((date2 - dateutil.relativedelta.relativedelta(months=1)
                             ).strftime("%Y %m %d").replace(' 0', ' ').replace(' ', ','))
 
