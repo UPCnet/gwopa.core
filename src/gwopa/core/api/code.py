@@ -995,6 +995,9 @@ class allProjectsMap(BrowserView):
                 if not responsible:
                     popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a>'
                 else:
+                    user = api.user.get(username=responsible)
+                    if user:
+                        responsible = user.getProperty('fullname')
                     popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>' + str(responsible)
 
                 try:
@@ -1038,6 +1041,9 @@ class activeProjectsMap(BrowserView):
                     if not responsible:
                         popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>'
                     else:
+                        user = api.user.get(username=responsible)
+                        if user:
+                            responsible = user.getProperty('fullname')
                         popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>' + str(responsible)
                     poi = Feature(
                         geometry=Point((float(obj.longitude), float(obj.latitude))),
@@ -1069,6 +1075,9 @@ class inactiveProjectsMap(BrowserView):
                     if not responsible:
                         popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>'
                     else:
+                        user = api.user.get(username=responsible)
+                        if user:
+                            responsible = user.getProperty('fullname')
                         popup = '<a href="' + obj.absolute_url() + '">' + obj.title + '</a><br/>' + str(responsible)
                     poi = Feature(
                         geometry=Point((float(obj.longitude), float(obj.latitude))),
