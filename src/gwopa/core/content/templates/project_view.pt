@@ -122,7 +122,7 @@
             <thead>
               <tr>
                 <th style="padding-left:0px;">
-                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs;" data-type="ContribPartner">
+                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribPartner">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Partner Water Operators </span>
                 </th>
                 <tal:omit-tag tal:condition="partners">
@@ -143,7 +143,7 @@
             <thead>
               <tr>
                 <th style="padding-left:0px;">
-                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs;" data-type="ContribDonor">
+                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribDonor">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Donors </span>
                 </th>
                 <tal:omit-tag tal:condition="donors">
@@ -164,7 +164,7 @@
             <thead>
               <tr>
                 <th style="padding-left:0px;">
-                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs;" data-type="ContribOther">
+                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribOther">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Other Organizations </span>
                 </th>
                 <tal:omit-tag tal:condition="others">
@@ -330,19 +330,20 @@
                 <input type="text" class="form-control" id="partnerName">
                 <input type="hidden" class="modal-url" id="partnerPath"/>
                 <input type="hidden" class="modal-type" id="partnerType"/>
+                <input type="hidden" class="modal-currency" id="partnerCurrency"/>
               </div>
             </div>
             <div class="form-group" style="padding-top:15px;">
               <label class="col-sm-2 control-label" for="exampleInputAmount" i18n:translate=""> In-cash </label>
               <div class="input-group col-sm-10">
-                <div class="input-group-addon">$</div>
+                <div class="input-group-addon"><span class="modal-currency"></span></div>
                 <input type="text" class="form-control" id="incash">
               </div>
             </div>
             <div class="form-group" style="padding-top:15px;">
               <label class="col-sm-2 control-label" for="exampleInputAmount" i18n:translate=""> In-kind </label>
               <div class="input-group col-sm-10">
-                <div class="input-group-addon">$</div>
+                <div class="input-group-addon"><span class="modal-currency"></span></div>
                 <input type="text" class="form-control" id="inkind">
               </div>
             </div>
