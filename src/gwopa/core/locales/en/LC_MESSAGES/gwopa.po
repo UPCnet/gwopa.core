@@ -785,7 +785,7 @@ msgstr "Partner Title"
 
 #: ../content/project.py:231
 msgid "Partner/partners of the project"
-msgstr "You can select more than one Partner"
+msgstr "You can select more than one Participant"
 
 #: ../content/project.py:99
 msgid "Participants"

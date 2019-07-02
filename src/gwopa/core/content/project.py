@@ -240,7 +240,7 @@ class IProject(model.Schema):
     dexteritytextindexer.searchable('partners')
     directives.widget('partners', SelectWidget)
     partners = schema.List(
-        title=_(u"Partners"),
+        title=_(u"Participants"),
         description=_(u"Partner/partners of the project"),
         required=False,
         value_type=schema.Choice(
