@@ -73,10 +73,11 @@ class IOutcomezone(model.Schema):
         required=False,
     )
 
-    risks = schema.Text(
-        title=_(u"Risks and Assumptions at project level!"),
-        required=False,
-    )
+    # risks = schema.Text(
+    #     title=_(u"Risks / Assumptions"),
+    #     required=False,
+    # )
+
 
 
 class View(grok.View):

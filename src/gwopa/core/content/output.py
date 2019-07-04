@@ -54,10 +54,11 @@ class IOutput(model.Schema):
         required=False,
     )
 
-    risks = schema.Text(
-        title=_(u"Risks and Assumptions at project level!"),
-        required=False,
-    )
+    # risks = schema.Text(
+    #     title=_(u"Risks / Assumptions"),
+    #     required=False,
+    # )
+
 
     directives.widget('members', SelectWidget)
     members = schema.List(

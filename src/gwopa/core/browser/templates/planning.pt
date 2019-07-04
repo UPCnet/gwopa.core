@@ -180,8 +180,8 @@
                                 data-responsible output/responsible;
                                 data-responsible-id output/responsible_id;
                                 data-means output/means;
-                                data-risks output/risks;
                                 ">
+                                <!-- data-risks output/risks; -->
                               <i class="far fa-edit"></i></a>
                             <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
                               tal:attributes="
@@ -291,9 +291,9 @@
                                     data-unit outcome/unit;
                                     data-target-value-planned outcome/target_value_planned;
                                     data-means outcome/means;
-                                    data-risks outcome/risks;
                                     data-start view/project_start;
                                     data-end view/project_end;"><i class="far fa-edit"></i></a>
+                                    <!-- data-risks outcome/risks; -->
 
                       <a href="#confirm-delete" data-toggle="modal" class="btn-delete"
                         tal:attributes="
@@ -547,10 +547,11 @@
                     <input type="hidden" id="act-responsible" class="people-control" multiple="multiple" />
                   </div>
                 </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
+
+                <!-- <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="act-risks"></textarea>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="modal-footer">
@@ -639,10 +640,11 @@
                   <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
                   <textarea class="form-control" id="out-means"></textarea>
                 </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
+
+               <!--  <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="out-risks"></textarea>
-                </div>
+                </div> -->
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                   <input type="hidden" id="out-responsible" class="people-control" multiple="multiple" />
@@ -731,10 +733,11 @@
                   <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
                   <textarea class="form-control" id="out-means"></textarea>
                 </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
+
+                <!-- <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="out-risks"></textarea>
-                </div>
+                </div> -->
                 <div class="form-group col-md-12">
                   <label for="message-text" class="control-label" i18n:translate="">Responsible people</label>
                 <!--   <input type="hidden" id="out-responsible" class="people-control" multiple="multiple" /> -->
@@ -850,10 +853,11 @@
                   <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
                   <textarea class="form-control" id="kpizone-means"></textarea>
                 </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
+
+                <!-- <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="kpizone-risks"></textarea>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="modal-footer">
@@ -943,10 +947,11 @@
                   <label for="message-text" class="control-label" i18n:translate="">Means of verification</label>
                   <textarea class="form-control" id="kpizone-means"></textarea>
                 </div>
-                <div class="form-group col-md-12">
-                  <label for="message-text" class="control-label" i18n:translate="">Risks and Assumptions at project level!</label>
+
+                <!-- <div class="form-group col-md-12">
+                  <label for="message-text" class="control-label" i18n:translate="">Risks / Assumptions</label>
                   <textarea class="form-control" id="kpizone-risks"></textarea>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="modal-footer">

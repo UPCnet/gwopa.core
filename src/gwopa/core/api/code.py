@@ -406,7 +406,7 @@ class Create(BrowserView):
             container=item.getObject())
         obj.description = self.request.form.get('item_description')
         obj.means = self.request.form.get('item_means')
-        obj.risks = self.request.form.get('item_risks')
+        # obj.risks = self.request.form.get('item_risks')
         members = []
         if (self.request.form.get('item_responsible') is not ''):
             users = self.request.form.get('item_responsible').split(',')
@@ -550,7 +550,7 @@ class UpdateOutput(BrowserView):
         unit = self.request.form['unit']
         completation_date = self.request.form['completation_date']
         means = self.request.form['means']
-        risks = self.request.form['risks']
+        # risks = self.request.form['risks']
         responsible = self.request.form['responsible']
 
 
@@ -562,7 +562,7 @@ class UpdateOutput(BrowserView):
         item.measuring_unit = unit
         item.end = datetime.datetime.strptime(completation_date, '%Y-%m-%d')
         item.means = means
-        item.risks = risks
+        # item.risks = risks
         item.members = responsible
         item.reindexObject()
 
@@ -591,7 +591,7 @@ class UpdateKPIZone(BrowserView):
         base_date = self.request.form['base_date']
         unit = self.request.form['unit']
         means = self.request.form['means']
-        risks = self.request.form['risks']
+        # risks = self.request.form['risks']
 
         result = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
         item = result.getObject()
@@ -602,7 +602,7 @@ class UpdateKPIZone(BrowserView):
         item.baseline_date = datetime.datetime.strptime(base_date, '%Y-%m-%d')
         item.measuring_unit = unit
         item.means = means
-        item.risks = risks
+        # item.risks = risks
         item.reindexObject()
 
         new_value = self.request.form['target_value']

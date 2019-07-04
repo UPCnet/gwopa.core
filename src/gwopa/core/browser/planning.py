@@ -297,10 +297,10 @@ class planningView(BrowserView):
             else:
                 means = ''
 
-            if item.risks:
-                risks = item.risks
-            else:
-                risks = ''
+            # if item.risks:
+            #     risks = item.risks
+            # else:
+            #     risks = ''
 
             results.append(dict(
                 title=item.title,
@@ -315,7 +315,7 @@ class planningView(BrowserView):
                 responsible_id=members_id,
                 description=description,
                 means=means,
-                risks=risks,
+                # risks=risks,
                 url='/'.join(item.getPhysicalPath())))
         return sorted(results, key=itemgetter('title'), reverse=False)
 
@@ -361,10 +361,10 @@ class planningView(BrowserView):
             else:
                 means = ''
 
-            if obj.risks:
-                risks = obj.risks
-            else:
-                risks = ''
+            # if obj.risks:
+            #     risks = obj.risks
+            # else:
+            #     risks = ''
 
             results.append(dict(
                 title=item.Title,
@@ -380,7 +380,7 @@ class planningView(BrowserView):
                 responsible=members,
                 responsible_id=members_id,
                 means=means,
-                risks=risks,
+                # risks=risks,
                 url='/'.join(obj.getPhysicalPath())))
         return sorted(results, key=itemgetter('title'), reverse=False)
 

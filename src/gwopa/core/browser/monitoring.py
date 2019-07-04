@@ -416,7 +416,7 @@ class monitoringView(BrowserView):
                 zone=obj.zone,
                 unit=obj.measuring_unit,
                 means=obj.means,
-                risks=obj.risks,
+                # risks=obj.risks,
                 responsible=members,
                 next_update=data_year['end_iso'][0:7],
                 target_value_real=target_value_real,
