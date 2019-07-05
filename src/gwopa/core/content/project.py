@@ -1,34 +1,35 @@
 # -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
+
+from collective import dexteritytextindexer
 from five import grok
-from plone.supermodel import model
-from zope import schema
-from zope.schema.interfaces import IContextAwareDefaultFactory
-from zope.interface import provider
-from plone.app.textfield import RichText
-from zope.interface import Invalid
-from plone.namedfile import field as namedfile
-from gwopa.core import _
-from gwopa.core import utils
-import datetime
+from geojson import Point
+from operator import itemgetter
 from plone import api
+from plone.app.dexterity.behaviors.metadata import ICategorization
+from plone.app.textfield import RichText
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
-from plone.app.dexterity.behaviors.metadata import ICategorization
 from plone.autoform.interfaces import OMITTED_KEY
+from plone.directives import form
+from plone.namedfile import field as namedfile
+from plone.supermodel import model
+from zope import schema
 from zope.interface import Interface
-from plone.supermodel.directives import fieldset
+from zope.interface import Invalid
+from zope.interface import directlyProvides
+from zope.interface import provider
+from zope.schema.interfaces import IContextAwareDefaultFactory
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
-from plone.app.z3cform.widget import AjaxSelectFieldWidget
-import unicodedata
-from zope.interface import directlyProvides
-# from zope.schema.vocabulary import SimpleTerm
-from operator import itemgetter
-from plone.directives import form
-from collective import dexteritytextindexer
-from Products.CMFCore.utils import getToolByName
-from geojson import Point
 
+from gwopa.core import _
+from gwopa.core import utils
+from gwopa.core.widgets.fieldset_widget import FieldsetFieldWidget
+
+import datetime
+import unicodedata
 
 ICategorization.setTaggedValue(OMITTED_KEY, [(Interface, 'language', 'true')])
 
@@ -88,32 +89,102 @@ class IProject(model.Schema):
     """  Project type
     """
 
-    fieldset('project',
-             label=_(u'Project'),
-             fields=['title', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'total_budget', 'measuring_frequency', 'category']
-             )
+    # fieldset('project',
+    #          label=_(u'Project'),
+    #          fields=['title', 'objectives', 'areas', 'wop_platform', 'wop_program', 'currency', 'total_budget', 'measuring_frequency', 'category']
+    #          )
 
-    fieldset('image',
-             label=_(u'Image'),
-             fields=['image']
-             )
+    # fieldset('image',
+    #          label=_(u'Image'),
+    #          fields=['image']
+    #          )
 
-    fieldset('dates',
-             label=_(u'Dates'),
-             fields=['startdate', 'startactual', 'startplanned', 'completiondate', 'completionactual', 'completionplanned', 'gwopa_year_phases']
-             )
+    # fieldset('dates',
+    #          label=_(u'Dates'),
+    #          fields=['startdate', 'startactual', 'startplanned', 'completiondate', 'completionactual', 'completionplanned', 'gwopa_year_phases']
+    #          )
 
-    fieldset('geo',
-             label=_(u'Geolocation'),
-             fields=['country', 'location', 'latitude', 'longitude']
-             )
+    # fieldset('geo',
+    #          label=_(u'Geolocation'),
+    #          fields=['country', 'location', 'latitude', 'longitude']
+    #          )
 
-    fieldset('members',
-             label=_(u'Participants'),
-             fields=['partners', 'project_manager_admin', 'project_manager', 'members']
-             )
+    # fieldset('members',
+    #          label=_(u'Participants'),
+    #          fields=['partners', 'project_manager_admin', 'project_manager', 'members']
+    #          )
+
+    # Project
+
+    form.widget(fieldset_project=FieldsetFieldWidget)
+    fieldset_project = schema.Text(
+        title=_(u'Project'),
+        default=_(u'Project'),
+        required=False,
+    )
 
     dexteritytextindexer.searchable('category')
+    dexteritytextindexer.searchable('title')
+    title = schema.TextLine(
+        title=_(u"Title"),
+        description=_(u"Project title"),
+        required=True,
+    )
+
+    dexteritytextindexer.searchable('objectives')
+    objectives = RichText(
+        title=_(u'Project description and main objectives'),
+        description=_(u'Use this area to add all the objectives and description of the project'),
+        required=False,
+    )
+
+    # directives.widget('areas', SelectWidget)
+    areas = schema.List(
+        title=_(u"Working Areas"),
+        description=_(u"Select one or more associated Working Area"),
+        required=False,
+        value_type=schema.Choice(
+            source=area_not_used,
+        )
+    )
+
+    dexteritytextindexer.searchable('wop_platform')
+    wop_platform = schema.Choice(
+        title=_(u'Regional WOP Platform'),
+        description=_(u"Platform/platforms associated to this project"),
+        required=False,
+        source=utils.listWOPPlatforms
+    )
+
+    dexteritytextindexer.searchable('wop_program')
+    wop_program = schema.Choice(
+        title=_(u'WOP Program'),
+        description=_(u"Program/programs associated to this project"),
+        required=False,
+        source=utils.listWOPPrograms
+    )
+
+    currency = schema.Choice(
+        title=_(u"Currency"),
+        description=_(u"The currency used into the project"),
+        source=utils.settings_currency,
+        required=True,
+    )
+
+    form.mode(total_budget='hidden')
+    total_budget = schema.ASCIILine(
+        title=_(u'Total budget'),
+        required=False,
+        readonly=True
+    )
+
+    measuring_frequency = schema.Choice(
+        title=_(u"Monitoring and reporting frequency"),
+        description=_(u"Frequency used for all the items of the project."),
+        source=utils.settings_measuring_frequency,
+        required=True,
+    )
+
     category = schema.Tuple(
         title=_(u'label_tags', default=u'Tags'),
         description=_(
@@ -124,17 +195,20 @@ class IProject(model.Schema):
         required=False,
         missing_value=(),
     )
+
     directives.widget(
         'category',
         AjaxSelectFieldWidget,
         vocabulary='plone.app.vocabularies.Keywords'
     )
 
-    dexteritytextindexer.searchable('title')
-    title = schema.TextLine(
-        title=_(u"Title"),
-        description=_(u"Project title"),
-        required=True,
+    # Image
+
+    form.widget(fieldset_image=FieldsetFieldWidget)
+    fieldset_image = schema.Text(
+        title=_(u'Image'),
+        default=_(u'Image'),
+        required=False,
     )
 
     image = namedfile.NamedBlobImage(
@@ -143,11 +217,13 @@ class IProject(model.Schema):
         required=False,
     )
 
-    measuring_frequency = schema.Choice(
-        title=_(u"Monitoring and reporting frequency"),
-        description=_(u"Frequency used for all the items of the project."),
-        source=utils.settings_measuring_frequency,
-        required=True,
+    # Dates
+
+    form.widget(fieldset_dates=FieldsetFieldWidget)
+    fieldset_dates = schema.Text(
+        title=_(u'Dates'),
+        default=_(u'Dates'),
+        required=False,
     )
 
     directives.mode(startdate='display')
@@ -184,27 +260,19 @@ class IProject(model.Schema):
         required=False,
     )
 
-    dexteritytextindexer.searchable('objectives')
-    objectives = RichText(
-        title=_(u'Project description and main objectives'),
-        description=_(u'Use this area to add all the objectives and description of the project'),
-        required=False,
+    form.mode(gwopa_year_phases='hidden')
+    gwopa_year_phases = schema.ASCIILine(
+        title=_(u'Fases'),
+        required=False
     )
 
-    dexteritytextindexer.searchable('wop_platform')
-    wop_platform = schema.Choice(
-        title=_(u'Regional WOP Platform'),
-        description=_(u"Platform/platforms associated to this project"),
-        required=False,
-        source=utils.listWOPPlatforms
-    )
+    # Geolocation
 
-    dexteritytextindexer.searchable('wop_program')
-    wop_program = schema.Choice(
-        title=_(u'WOP Program'),
-        description=_(u"Program/programs associated to this project"),
+    form.widget(fieldset_geolocation=FieldsetFieldWidget)
+    fieldset_geolocation = schema.Text(
+        title=_(u'Geolocation'),
+        default=_(u'Geolocation'),
         required=False,
-        source=utils.listWOPPrograms
     )
 
     # directives.widget('country', SelectWidget)
@@ -235,6 +303,15 @@ class IProject(model.Schema):
         description=_(u"Longitude of this project. Used in the map view (format:  -0.071389) (format:  -0.071389)"),
         required=False,
         constraint=isCoordinate,
+    )
+
+    # Participants
+
+    form.widget(fieldset_participants=FieldsetFieldWidget)
+    fieldset_participants = schema.Text(
+        title=_(u'Participants'),
+        default=_(u'Participants'),
+        required=False,
     )
 
     dexteritytextindexer.searchable('partners')
@@ -273,36 +350,6 @@ class IProject(model.Schema):
         value_type=schema.Choice(
             source='plone.app.vocabularies.Users',
         )
-    )
-
-    currency = schema.Choice(
-        title=_(u"Currency"),
-        description=_(u"The currency used into the project"),
-        source=utils.settings_currency,
-        required=True,
-    )
-
-    # directives.widget('areas', SelectWidget)
-    areas = schema.List(
-        title=_(u"Working Areas"),
-        description=_(u"Select one or more associated Working Area"),
-        required=False,
-        value_type=schema.Choice(
-            source=area_not_used,
-        )
-    )
-
-    form.mode(gwopa_year_phases='hidden')
-    gwopa_year_phases = schema.ASCIILine(
-        title=_(u'Fases'),
-        required=False
-    )
-
-    form.mode(total_budget='hidden')
-    total_budget = schema.ASCIILine(
-        title=_(u'Total budget'),
-        required=False,
-        readonly=True
     )
 
 

@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="gwopa">
+
+    <class class=".fieldset_widget.FieldsetWidget">
+        <require
+            permission="zope.Public"
+            interface=".interfaces.IFieldsetWidget"
+        />
+    </class>
+
+</configure>

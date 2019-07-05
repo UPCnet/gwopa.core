@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag=""
+      lang="ca"
+      i18n:domain="genweb.tfemarket">
+
+    <h2 class="formFieldset" tal:content="view/label">
+      Title
+    </h2>
+
+    <p class="formHelp" tal:condition="view/label" tal:content="view/field/description">
+      Title
+    </p>
+
+</html>
