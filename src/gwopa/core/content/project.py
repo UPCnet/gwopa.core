@@ -238,6 +238,7 @@ class IProject(model.Schema):
         # defaultFactory=default_today
     )
 
+    directives.omitted('startplanned')
     startplanned = schema.Date(
         title=_(u'Planned'),
         required=False,
@@ -255,6 +256,7 @@ class IProject(model.Schema):
         # defaultFactory=default_plus_one_year
     )
 
+    directives.omitted('completionplanned')
     completionplanned = schema.Date(
         title=_(u'Planned'),
         required=False,
