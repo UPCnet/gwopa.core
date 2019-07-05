@@ -232,6 +232,22 @@ def projectModified(content, event):
             else:
                 break
 
+        partners = content.partners
+        if partners:
+            path = '/'.join(content.contribs.getPhysicalPath())
+            for partner in partners:
+                item = api.content.find(
+                    portal_type='ContribPartner',
+                    Title=partner,
+                    path=path)
+                if not item:
+                    obj = api.content.create(
+                        type='ContribPartner',
+                        title=partner,
+                        container=content.contribs)
+                    obj.incash = 0
+                    obj.inkind = 0
+
 @grok.subscribe(IPartner, IObjectAddedEvent)
 @grok.subscribe(IPartner, IObjectModifiedEvent)
 def partnerModified(content, event):

@@ -122,8 +122,8 @@
             <thead>
               <tr>
                 <th style="padding-left:0px;">
-                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribPartner">
-                    <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Partner Water Operators </span>
+                  <!-- <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribPartner">
+                    <i class="fas fa-plus-circle"></i></a> -->&nbsp;<span style="font-size: 18px;"> Partner Water Operators </span>
                 </th>
                 <tal:omit-tag tal:condition="partners">
                   <th class="contibutioncentered" i18n:translate="">In-cash</th>
