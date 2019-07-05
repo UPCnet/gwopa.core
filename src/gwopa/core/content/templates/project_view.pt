@@ -203,12 +203,13 @@
               </tr>
             </thead>
             <tal:block-partners tal:repeat="partner getProject_manager">
-              <tr tal:attributes="class partner/managerClass">
+              <tr tal:define="manager partner/managerClass">
                 <td>
                   <tal:block tal:replace="structure partner/image"></tal:block>
                   <a tal:attributes="href string:${portal_url}/profile/${partner/id}">
                     <tal:block tal:content="partner/name"></tal:block>
                   </a>
+                  <span tal:condition="python:manager == 'admin-partner'">admin</span>
                 </td>
                 <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
                   <td>

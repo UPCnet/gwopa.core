@@ -412,7 +412,7 @@ msgstr "Files"
 
 #: ../content/templates/project_view.pt:195
 msgid "Focal point partner"
-msgstr "Focal point Partner"
+msgstr "Project coordinators"
 
 #: ../content/maincontributing.py:24
 #: ../content/mainobstacles.py:25
