@@ -62,20 +62,20 @@
               <span i18n:translate="">Start:</span>
               <tal:omit-tag tal:content="context/startactual">2019-02-02</tal:omit-tag>
             </div>
-            <div class="plannedDate" tal:condition="view/startplanneddates">
+            <!-- <div class="plannedDate" tal:condition="view/startplanneddates">
               <span i18n:translate="">Start (Planned):</span>
               <tal:omit-tag tal:content="context/startplanned">2019-02-02</tal:omit-tag>
-            </div>
+            </div> -->
           </div>
           <div class="col-md-6">
             <div class="actualDate" tal:condition="context/completionactual">
               <span i18n:translate="">End:</span>
               <tal:omit-tag tal:content="context/completionactual">2019-02-02</tal:omit-tag>
             </div>
-            <div class="plannedDate" tal:condition="view/completionplanneddates">
+            <!-- <div class="plannedDate" tal:condition="view/completionplanneddates">
               <span i18n:translate="">End (Planned):</span>
               <tal:omit-tag tal:content="context/completionplanned">2019-02-02</tal:omit-tag>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-md-6">
@@ -96,20 +96,20 @@
               <span i18n:translate="">Start:</span>
               <tal:omit-tag tal:content="context/startactual">2019-02-02</tal:omit-tag>
             </div>
-            <div class="plannedDate" tal:condition="view/startplanneddates">
+           <!--  <div class="plannedDate" tal:condition="view/startplanneddates">
               <span i18n:translate="">Start (Planned):</span>
               <tal:omit-tag tal:content="context/startplanned">2019-02-02</tal:omit-tag>
-            </div>
+            </div> -->
           </div>
           <div class="col-md-6">
             <div class="actualDate" tal:condition="context/completionactual">
               <span i18n:translate="">End:</span>
               <tal:omit-tag tal:content="context/completionactual">2019-02-02</tal:omit-tag>
             </div>
-            <div class="plannedDate" tal:condition="view/completionplanneddates">
+            <!-- <div class="plannedDate" tal:condition="view/completionplanneddates">
               <span i18n:translate="">End (Planned):</span>
               <tal:omit-tag tal:content="context/completionplanned">2019-02-02</tal:omit-tag>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
