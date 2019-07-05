@@ -261,7 +261,8 @@
                 </td>
                 <td>
                   <tal:block tal:condition="obj/email">
-                    <a tal:attributes="href string:mailto:${obj/email}; title string:mailto:${obj/email}; alt string:mailto:${obj/email}" ><i class="far fa-envelope"></i></a>
+                    <tal:block tal:content="obj/email"></tal:block>
+                   <!--  <a tal:attributes="href string:mailto:${obj/email}; title string:mailto:${obj/email}; alt string:mailto:${obj/email}" ><i class="far fa-envelope"></i></a> -->
                   </tal:block>
                 </td>
               </tr>
