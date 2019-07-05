@@ -27,7 +27,7 @@ class Renderer(base.Renderer):
     render = ViewPageTemplateFile('sidenav.pt')
 
     def isRootFolder(self):
-        if (self.context.portal_type == 'Plone Site'):
+        if self.context.portal_type == 'Plone Site' or self.request.getURL().split('/')[-1] == '++add++Project':
             return True
         else:
             return False
