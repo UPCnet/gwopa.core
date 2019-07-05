@@ -235,7 +235,7 @@ class IProject(model.Schema):
     startactual = schema.Date(
         title=_(u'Actual'),
         required=True,
-        defaultFactory=default_today
+        # defaultFactory=default_today
     )
 
     startplanned = schema.Date(
@@ -252,7 +252,7 @@ class IProject(model.Schema):
     completionactual = schema.Date(
         title=_(u'Actual'),
         required=True,
-        defaultFactory=default_plus_one_year
+        # defaultFactory=default_plus_one_year
     )
 
     completionplanned = schema.Date(
