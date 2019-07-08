@@ -939,7 +939,7 @@ msgstr "Select how much has contributed to the project"
 
 #: ../content/project.py:275
 msgid "Select one or more associated Working Area"
-msgstr "Select one or more associated Working Area"
+msgstr "Select one or more associated Working Area <a href=\"/en/documentation/documentation#project-working-areas\" target=\"_blank\"><i class=\"fa fa-info-circle\"></i></a>"
 
 #: ../content/outcomeccs.py:59
 #: ../content/outcomeccvalues.py:45
