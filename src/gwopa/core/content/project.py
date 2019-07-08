@@ -226,6 +226,7 @@ class IProject(model.Schema):
         required=False,
     )
 
+    directives.omitted('startdate')
     directives.mode(startdate='display')
     startdate = schema.Text(
         title=_(u"Starting date"),
@@ -233,7 +234,8 @@ class IProject(model.Schema):
     )
 
     startactual = schema.Date(
-        title=_(u'Actual'),
+        title=_(u"Starting date"),
+        description=_(u"The dates when the project has started. Planned date and current date."),
         required=True,
         # defaultFactory=default_today
     )
@@ -244,6 +246,7 @@ class IProject(model.Schema):
         required=False,
     )
 
+    directives.omitted('completiondate')
     directives.mode(completiondate='display')
     completiondate = schema.Text(
         title=_(u"Completion date"),
@@ -251,7 +254,8 @@ class IProject(model.Schema):
     )
 
     completionactual = schema.Date(
-        title=_(u'Actual'),
+        title=_(u"Completion date"),
+        description=_(u"The dates when the project has been completed. Planned date and current date."),
         required=True,
         # defaultFactory=default_plus_one_year
     )
