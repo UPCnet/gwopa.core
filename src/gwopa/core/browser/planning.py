@@ -442,7 +442,7 @@ class planningView(BrowserView):
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
-        return sorted(results, key=itemgetter('title'), reverse=False)
+        return results
 
     def custom_pattern_options(self):
         """ Pass data from project to picker date in modal, in Activity and OutcomeKPIZone.

@@ -168,7 +168,7 @@ class IProject(model.Schema):
         title=_(u"Currency"),
         description=_(u"The currency used into the project"),
         source=utils.settings_currency,
-        required=True,
+        required=False,
     )
 
     form.mode(total_budget='hidden')
@@ -182,7 +182,7 @@ class IProject(model.Schema):
         title=_(u"Monitoring and reporting frequency"),
         description=_(u"Frequency used for all the items of the project."),
         source=utils.settings_measuring_frequency,
-        required=True,
+        required=False,
     )
 
     category = schema.Tuple(
@@ -287,7 +287,7 @@ class IProject(model.Schema):
         title=_(u"Country"),
         description=_(u"Select a country from the list"),
         source=utils.countries,
-        required=True,
+        required=False,
     )
 
     dexteritytextindexer.searchable('location')
