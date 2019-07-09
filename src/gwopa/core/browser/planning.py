@@ -122,6 +122,7 @@ class planningView(BrowserView):
                 alt=_(u"Show planning of year ") + str(total + 1),
                 classe=classe))
             total = total + 1
+
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     def getAreas(self):
@@ -139,6 +140,7 @@ class planningView(BrowserView):
                                 pos=i,
                                 portal_type=item.portal_type
                                 ))
+
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     def activitiesInside(self, item):
@@ -230,6 +232,7 @@ class planningView(BrowserView):
                 target_value_planned='-----',
                 responsible=members,
                 url='/'.join(item.getPhysicalPath())))
+
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     def outputsInside(self, item):
@@ -317,6 +320,7 @@ class planningView(BrowserView):
                 means=means,
                 # risks=risks,
                 url='/'.join(item.getPhysicalPath())))
+
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     def listOutcomesKPI(self):
@@ -382,6 +386,7 @@ class planningView(BrowserView):
                 means=means,
                 # risks=risks,
                 url='/'.join(obj.getPhysicalPath())))
+
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     def listOutcomesCC(self):
@@ -431,7 +436,7 @@ class planningView(BrowserView):
             results.append(dict(
                 rid=item.getRID(),
                 area=area,
-                title=item.Title,
+                title=item.title,
                 description=description,
                 base_date=base_date,
                 base_value=base_value,
@@ -442,7 +447,8 @@ class planningView(BrowserView):
                 portal_type=item.portal_type,
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
-        return results
+
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def custom_pattern_options(self):
         """ Pass data from project to picker date in modal, in Activity and OutcomeKPIZone.

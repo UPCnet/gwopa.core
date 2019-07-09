@@ -118,6 +118,7 @@ class monitoringView(BrowserView):
                 alt=_(u"Show monitoring of year ") + str(total + 1),
                 classe=classe))
             total = total + 1
+
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     def getAreas(self):
@@ -134,6 +135,7 @@ class monitoringView(BrowserView):
                                 description=item.description,
                                 portal_type=item.portal_type
                                 ))
+
         return sorted(results, key=itemgetter('title'), reverse=False)
 
     def indicatorsInside(self, item):
@@ -234,7 +236,7 @@ class monitoringView(BrowserView):
                 updated = monitoring_info['updated'] if monitoring_info.get('updated') is not None else ''
 
             results.append(dict(
-                title=item.Title,
+                title=item.title,
                 path='/'.join(item.getPhysicalPath()),
                 id=item.id,
                 portal_type=item.portal_type,
@@ -253,7 +255,8 @@ class monitoringView(BrowserView):
                 progress=progress,
                 updated=updated,
                 url='/'.join(item.getPhysicalPath())))
-        return results
+
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def outputsInside(self, item):
         """ Returns Outpus inside Activities  """
@@ -326,7 +329,7 @@ class monitoringView(BrowserView):
                 updated = monitoring_info['updated'] if monitoring_info.get('updated') is not None else ''
 
             results.append(dict(
-                title=item.Title,
+                title=item.title,
                 path='/'.join(item.getPhysicalPath()),
                 id=item.id,
                 portal_type=item.portal_type,
@@ -345,7 +348,8 @@ class monitoringView(BrowserView):
                 progress=progress,
                 updated=updated,
                 url='/'.join(item.getPhysicalPath())))
-        return results
+
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def listOutcomesKPI(self):
         items = api.content.find(
@@ -429,7 +433,8 @@ class monitoringView(BrowserView):
                 progress=monitoring_info['progress'] if monitoring_info.has_key('progress') else '',
                 updated=monitoring_info['updated'] if monitoring_info.has_key('updated') else '',
                 url='/'.join(obj.getPhysicalPath())))
-        return results
+
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def listOutcomesCC(self):
         items = api.content.find(
@@ -482,7 +487,7 @@ class monitoringView(BrowserView):
             results.append(dict(
                 rid=item.getRID(),
                 area=area,
-                title=item.Title,
+                title=item.title,
                 description=description,
                 base_date=base_date,
                 base_value=base_value,
@@ -496,7 +501,7 @@ class monitoringView(BrowserView):
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
 
-        return results
+        return sorted(results, key=itemgetter('title'), reverse=False)
 
     def custom_pattern_options(self):
         """ Pass data from project to picker date in modal, in Activity  and OutcomeKPIZone.
