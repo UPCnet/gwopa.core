@@ -14,6 +14,7 @@ from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from plone.app.dexterity.behaviors import constrains
 from random import random
 import math
+from gwopa.core.content.project import default_plus_one_year, default_today
 
 from requests.exceptions import ConnectionError
 requests.packages.urllib3.disable_warnings()
@@ -431,7 +432,6 @@ class setup(grok.View):
                 container=portal.config.areas,
                 safe_id=True)
             obj.image = self.getRandomImage(200, 200)
-
         self.createProjects(5)
         self.createDefaultOutputs()
         self.createDefaultOutcomes()
@@ -474,6 +474,8 @@ class setup(grok.View):
                 id='project' + str(int(i + 1)),
                 title='Demo Project ' + str(int(i + 1)),
                 container=portal['projects'],
+                startactual=default_today(self),
+                completionactual=default_plus_one_year(self),
                 safe_id=True)
             project.image = self.getRandomImage(200, 200)
             project.contribution = RichTextValue(
