@@ -11,7 +11,7 @@
         <a tal:attributes="href string:${portal_url}">
           <img title="Partnership Management Platform" alt="Partnership Management Platform" class="logo_img"
              tal:attributes="src string:${context/absolute_url}/++theme++gwopa.theme/assets/images/logoGWOPA-header.png "/></a>
-      <a class="plone-toolbar-switcher" tal:condition="view/show_switcher"><span>Left-Top switcher</span></a>
+      <a class="plone-toolbar-switcher" tal:condition="view/show_switcher"><span i18n:translate="">Left-Top switcher</span></a>
       <nav>
         <ul id="personal-bar-container">
           <li id="portal-personaltools" class="plone-toolbar-separator"

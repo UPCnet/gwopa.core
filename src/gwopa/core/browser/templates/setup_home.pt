@@ -13,18 +13,18 @@
   <div metal:fill-slot="main">
     <metal:main-macro define-macro="main">
       <div>
-        <h1 class="documentFirstHeading">Initial GWOPA configuration</h1>
-        <p class="documentDescription">Execute the initial GWOPA configurations on the Site.</p>
+        <h1 class="documentFirstHeading" i18n:translate="">Initial GWOPA configuration</h1>
+        <p class="documentDescription" i18n:translate="">Execute the initial GWOPA configurations on the Site.</p>
         <div class="visualClear"></div>
       </div>
       <fieldset class="formPanel">
             <ul>
-              <li>Create GWOPA config folder, with default values</li>
-              <li>Make [English / French / Spanish] languages availables on users profiles</li>
-              <li>Assign English as default language of the Site</li>
-              <li>Set default Homepage view</li>
-              <li>Modify users profiles to assign new fields</li>
-              <li>Assign GWOPA workflow</li>
+              <li i18n:translate="">Create GWOPA config folder, with default values</li>
+              <li i18n:translate="">Make [English / French / Spanish] languages availables on users profiles</li>
+              <li i18n:translate="">Assign English as default language of the Site</li>
+              <li i18n:translate="">Set default Homepage view</li>
+              <li i18n:translate="">Modify users profiles to assign new fields</li>
+              <li i18n:translate="">Assign GWOPA workflow</li>
             </ul>
         <form method="get" action="@@setup_home">
             <input id="create" class="context" type="submit" value="Run Initial setup" name="create"/>
@@ -32,9 +32,9 @@
         <br/>
         <div class="clearfix"></div>
         <hr/>
-        <div> WARNING: For developers only. </div>
+        <div i18n:translate=""> WARNING: For developers only. </div>
         <ul>
-          <li>This option generate loremipsum items in the Site.</li>
+          <li i18n:translate="">This option generate loremipsum items in the Site.</li>
         </ul>
         <form method="get" action="@@setup_home">
             <input id="createdemocontent" class="context" type="submit" value="Create Demo content" name="createdemocontent"/>

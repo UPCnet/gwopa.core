@@ -11,7 +11,7 @@
     tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;">
 
-      <h1> Reporting </h1>
+      <h1 i18n:translate=""> Reporting </h1>
 
 </metal:content-core>
 

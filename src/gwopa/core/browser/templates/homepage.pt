@@ -58,7 +58,7 @@
       <div tal:replace="structure provider:plone.portaltop" />
     </header>
 
-    <div id="portal-mainnavigation" tal:content="structure provider:plone.mainnavigation">
+    <div id="portal-mainnavigation" tal:content="structure provider:plone.mainnavigation" i18n:translate="">
       The main navigation
     </div>
 

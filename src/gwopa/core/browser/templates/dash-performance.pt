@@ -22,8 +22,14 @@
       </div>
       <div tal:condition="getItems" class="row">
         <div class="legendBox">
-          <span class="label label-circle"><i class="fas fa-circle planned"></i> Monitoring value </span> &nbsp;&nbsp;
-          <span class="label label-circle"><i class="fas fa-circle achieved"></i> Target value </span>
+          <span class="label label-circle">
+            <i class="fas fa-circle planned"></i>
+            <tal:omit-tag  i18n:translate="">Monitoring value </tal:omit-tag>
+          </span> &nbsp;&nbsp;
+          <span class="label label-circle">
+            <i class="fas fa-circle achieved"></i>
+            <tal:omit-tag  i18n:translate="">Target value</tal:omit-tag>
+          </span>
         </div>
         <div class="row performance">
           <tal:block repeat="item getItems">

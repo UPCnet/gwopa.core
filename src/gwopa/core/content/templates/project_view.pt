@@ -123,7 +123,7 @@
               <tr>
                 <th style="padding-left:0px;">
                   <!-- <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribPartner">
-                    <i class="fas fa-plus-circle"></i></a> -->&nbsp;<span style="font-size: 18px;"> Partner Water Operators </span>
+                    <i class="fas fa-plus-circle"></i></a> -->&nbsp;<span style="font-size: 18px;" i18n:translate=""> Partner Water Operators </span>
                 </th>
                 <tal:omit-tag tal:condition="partners">
                   <th class="contibutioncentered" i18n:translate="">In-cash</th>
@@ -144,7 +144,7 @@
               <tr>
                 <th style="padding-left:0px;">
                   <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribDonor">
-                    <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Donors </span>
+                    <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;" i18n:translate=""> Donors </span>
                 </th>
                 <tal:omit-tag tal:condition="donors">
                   <th class="contibutioncentered" i18n:translate="">In-cash</th>
@@ -165,7 +165,7 @@
               <tr>
                 <th style="padding-left:0px;">
                   <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribOther">
-                    <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;"> Other Organizations </span>
+                    <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;" i18n:translate=""> Other Organizations </span>
                 </th>
                 <tal:omit-tag tal:condition="others">
                   <th class="contibutioncentered" i18n:translate="">In-cash</th>
@@ -209,7 +209,7 @@
                   <a tal:attributes="href string:${portal_url}/profile/${partner/id}">
                     <tal:block tal:content="partner/name"></tal:block>
                   </a>
-                  <span tal:condition="python:manager == 'admin-partner'">admin</span>
+                  <span tal:condition="python:manager == 'admin-partner'" i18n:translate="">admin</span>
                 </td>
                 <tal:block tal:define="value partner/partners" tal:condition="partner/partners">
                   <td>

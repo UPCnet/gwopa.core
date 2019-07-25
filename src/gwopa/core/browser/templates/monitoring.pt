@@ -118,7 +118,7 @@
                             <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/obstacles;" style="width: 100%" placeholder="Search..."/>
                             <div tal:attributes="id string:${item/id}-addObstacleActivity">
                               <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                              <span class="legend"> Add new Obstacle if not listed</span>
+                              <span class="legend" i18n:translate=""> Add new Obstacle if not listed</span>
                             </div>
                             <div tal:attributes="id string:${item/id}-addObstaclesActivity" class="form-group col-sm-12">
                               <h5 i18n:translate=""> New Main Obstacle </h5>
@@ -130,7 +130,7 @@
                             <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/contributing;" style="width: 100%" placeholder="Search..." />
                             <div tal:attributes="id string:${item/id}-addContributingActivity">
                               <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                              <span class="legend"> Add new Contributing factor </span>
+                              <span class="legend" i18n:translate=""> Add new Contributing factor </span>
                             </div>
                             <div tal:attributes="id string:${item/id}-addContributingsActivity" class="form-group col-sm-12">
                               <h5 i18n:translate=""> New Main Contributing factor </h5>
@@ -150,7 +150,7 @@
                         </div>
                         <div tal:content="item/year" id="year" style="display:none;"></div>
                         <div tal:content="item/path" tal:attributes="id string:${item/id}-path" style="display:none;"></div>
-                        <button type="submit" tal:attributes="id string:${item/id}-updateActivityMonitoring; class string:${item/id} btn btn-default focus"> Update </button>
+                        <button type="submit" tal:attributes="id string:${item/id}-updateActivityMonitoring; class string:${item/id} btn btn-default focus" i18n:translate=""> Update </button>
                       </div>
                     </form>
                   </div>
@@ -215,7 +215,7 @@
                               <input type="hidden" tal:attributes="id string:${output/id}-output-obs; value output/obstacles;" style="width: 100%"/>
                               <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12" style="padding: 0px;">
                                 <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                                <span class="legend">Add new Obstacle if not listed</span>
+                                <span class="legend" i18n:translate="">Add new Obstacle if not listed</span>
                               </div>
                               <div tal:attributes="id string:${output/id}-addObstaclesOutput" class="form-group col-sm-12">
                                 <h5 i18n:translate="">Main Obstacles title</h5>
@@ -227,7 +227,7 @@
                               <input type="hidden" tal:attributes="id string:${output/id}-output-contrib; value output/contributing;" style="width: 100%"/>
                               <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12" style="padding: 0px;">
                                 <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
-                                <span class="legend">Add new Contributing factor</span>
+                                <span class="legend" i18n:translate="">Add new Contributing factor</span>
                               </div>
                               <div tal:attributes="id string:${output/id}-addContributingsOutput" class="form-group col-sm-12">
                                 <h5 i18n:translate="">Main Contributing factors title</h5>
@@ -247,7 +247,7 @@
                           </div>
                           <div tal:content="output/year" id="year" style="display:none;"></div>
                           <div tal:content="output/path" tal:attributes="id string:${output/id}-path" style="display:none;"></div>
-                          <button type="submit" tal:attributes="id string:${output/id}-updateOutputMonitoring; class string:${output/id} btn btn-default focus"> Update </button>
+                          <button type="submit" tal:attributes="id string:${output/id}-updateOutputMonitoring; class string:${output/id} btn btn-default focus" i18n:translate=""> Update </button>
                         </form>
                       </div>
                     </div>
@@ -816,7 +816,7 @@
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/mission-strategy.png">
                     </td>
                     <td i18n:translate="">Mission and strategy</td>
-                    <td i18n:translate="">What the organization’s top management believes is and has declared in the organization’s mission and strategy and what employees believe is the central purpose of the organization.</td>
+                    <td i18n:translate="">What the organization's top management believes is and has declared in the organization's mission and strategy and what employees believe is the central purpose of the organization.</td>
                   </tr>
                  <tr>
                     <td>
@@ -852,21 +852,21 @@
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/systems.png">
                     </td>
                     <td i18n:translate="">Systems</td>
-                    <td i18n:translate="">Standardized policies, procedures and mechanisms that facilitate work, primarily (Eg. organization’s reward systems, management information systems, control and support systems as performance appraisal, goal and budget development and human resource allocation and others.</td>
+                    <td i18n:translate="">Standardized policies, procedures and mechanisms that facilitate work, primarily (Eg. organization's reward systems, management information systems, control and support systems as performance appraisal, goal and budget development and human resource allocation and others.</td>
                   </tr>
                   <tr>
                     <td>
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/structure.png">
                     </td>
                     <td i18n:translate="">Structure</td>
-                    <td i18n:translate="">Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization’s mission and strategy.</td>
+                    <td i18n:translate="">Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization's mission and strategy.</td>
                   </tr>
                  <tr>
                     <td>
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/management.png">
                     </td>
                     <td i18n:translate="">Management</td>
-                    <td i18n:translate="">Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization’s strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control).</td>
+                    <td i18n:translate="">Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization's strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control).</td>
                   </tr>
                   <tr>
                     <td>
