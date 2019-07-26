@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="gwopa">
+
+<body>
+  <metal:block fill-slot="top_slot"
+        tal:define="dummy python:request.set('disable_border',1)" />
+
+  <div metal:fill-slot="main">
+    <metal:main-macro define-macro="main">
+      <div>
+        <h1 class="documentFirstHeading" i18n:translate="">Initial GWOPA configuration</h1>
+        <p class="documentDescription" i18n:translate="">Execute the initial GWOPA configurations on the Site.</p>
+        <div class="visualClear"></div>
+      </div>
+      <fieldset class="formPanel">
+            <ul>
+              <li i18n:translate="">Create GWOPA config folder, with default values</li>
+              <li i18n:translate="">Make [English / French / Spanish] languages availables on users profiles</li>
+              <li i18n:translate="">Assign English as default language of the Site</li>
+              <li i18n:translate="">Set default Homepage view</li>
+              <li i18n:translate="">Modify users profiles to assign new fields</li>
+              <li i18n:translate="">Assign GWOPA workflow</li>
+            </ul>
+        <form method="get" action="@@setup_home_es">
+            <input id="create" class="context" type="submit" value="Run Initial setup" name="create"/>
+        </form>
+        <br/>
+        <div class="clearfix"></div>
+        <hr/>
+        <div i18n:translate=""> WARNING: For developers only. </div>
+        <ul>
+          <li i18n:translate="">This option generate loremipsum items in the Site.</li>
+        </ul>
+        <form method="get" action="@@setup_home_es">
+            <input id="createdemocontent" class="context" type="submit" value="Create Demo content" name="createdemocontent"/>
+        </form>
+      </fieldset>
+    </metal:main-macro>
+  </div>
+
+</body>
+</html>

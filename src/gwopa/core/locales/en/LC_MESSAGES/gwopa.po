@@ -356,7 +356,7 @@ msgstr "Exchange currency"
 
 #: ../browser/templates/monitoring.pt:334
 msgid "Current"
-msgstr "Current"
+msgstr "Achieved"
 
 #: ../portlets/sidenav.pt:36
 msgid "Dashboard"
@@ -905,7 +905,7 @@ msgstr "One unit per line. Ex: liters"
 #: ../browser/templates/monitoring.pt:850
 #: ../browser/templates/planning.pt:1144
 msgid "Organization - operational"
-msgstr "Organization - operational""
+msgstr "Organization - operational"
 
 #: ../browser/templates/dash-areas.pt:186
 #: ../browser/templates/monitoring.pt:814
