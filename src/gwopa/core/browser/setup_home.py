@@ -785,7 +785,7 @@ class setupEs(grok.View):
 
     def createDemoContent(self):
         """ Assign default values to panel control options """
-        for i in xrange(1, 6):
+        for i in xrange(1, 41):
             try:
                 properties = dict(
                     fullname='Test User' + str(i),
