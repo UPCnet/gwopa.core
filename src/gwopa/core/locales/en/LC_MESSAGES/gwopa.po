@@ -93,7 +93,7 @@ msgstr "Action"
 #: ../browser/templates/monitoring.pt:912
 #: ../browser/templates/planning.pt:1206
 msgid "Active use of the newly acquired knowledge and skills in their jobs."
-msgstr ""
+msgstr "Active use of the newly acquired knowledge and skills in their jobs."
 
 #: ../browser/templates/dash-areas.pt:53
 msgid "Activities"
@@ -134,11 +134,11 @@ msgstr ""
 
 #: ../browser/templates/monitoring.pt:121
 msgid "Add new Obstacle if not listed"
-msgstr ""
+msgstr "Add new Obstacle if not listed"
 
 #: ../browser/templates/planning.pt:482
 msgid "Add other"
-msgstr ""
+msgstr "Add other"
 
 #: ../browser/templates/monitoring.pt:723
 #: ../browser/templates/planning.pt:1076
@@ -157,27 +157,27 @@ msgstr "Admin role"
 #: ../browser/templates/monitoring.pt:911
 #: ../browser/templates/planning.pt:1205
 msgid "Applied knowledge skills"
-msgstr ""
+msgstr "Applied knowledge skills"
 
 #: ../browser/templates/dash-areas.pt:277
 #: ../browser/templates/monitoring.pt:905
 #: ../browser/templates/planning.pt:1199
 msgid "Aroused behaviour tendencies to move towards goals, take needed action, and persist until satisfaction is attained."
-msgstr ""
+msgstr "Aroused behaviour tendencies to move towards goals, take needed action, and persist until satisfaction is attained."
 
 #: ../browser/templates/dash-areas.pt:234
 #: ../browser/templates/monitoring.pt:862
 #: ../browser/templates/planning.pt:1156
 msgid "Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization's mission and strategy."
-msgstr ""
+msgstr "Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization's mission and strategy."
 
 #: ../browser/templates/setup_home.pt:24
 msgid "Assign English as default language of the Site"
-msgstr ""
+msgstr "Assign English as default language of the Site"
 
 #: ../browser/templates/setup_home.pt:27
 msgid "Assign GWOPA workflow"
-msgstr ""
+msgstr "Assign GWOPA workflow"
 
 #: ../browser/templates/planning.pt:538
 #: ../content/activity.py:84
@@ -192,7 +192,7 @@ msgstr "Association to platforms or programs"
 #: ../browser/templates/monitoring.pt:898
 #: ../browser/templates/planning.pt:1192
 msgid "Availability of human resources and extent to which they have the required skills and knowledge to accomplish the work for which they have been assigned to do."
-msgstr ""
+msgstr "Availability of human resources and extent to which they have the required skills and knowledge to accomplish the work for which they have been assigned to do."
 
 #: ../content/outcomecc.py:35
 #: ../content/outcomeccs.py:29
@@ -249,7 +249,7 @@ msgstr "Capacity Items"
 #: ../browser/templates/monitoring.pt:808
 #: ../browser/templates/planning.pt:1102
 msgid "Capacity specific"
-msgstr ""
+msgstr "Capacity specific"
 
 #: ../content/outcomeccitem.py:31
 msgid "Category"
@@ -257,7 +257,7 @@ msgstr "Category"
 
 #: ../browser/templates/monitoring.pt:787
 msgid "Changes consolidated"
-msgstr ""
+msgstr "Changes consolidated"
 
 #: ../content/partner.py:35
 #: ../content/platform.py:34
@@ -277,7 +277,7 @@ msgstr "Collaborating module"
 #: ../browser/templates/monitoring.pt:833
 #: ../browser/templates/planning.pt:1127
 msgid "Collection of overt and covert rules, values and principles that are enduring and guide organizational behaviour."
-msgstr ""
+msgstr "Collection of overt and covert rules, values and principles that are enduring and guide organizational behaviour."
 
 #: ../browser/templates/monitoring.pt:59
 #: ../browser/templates/planning.pt:72
@@ -322,7 +322,7 @@ msgstr "Partner contributor"
 
 #: ../content/settingspage.py:55
 msgid "Contributed project"
-msgstr ""
+msgstr "Contributed project"
 
 #: ../browser/templates/manage_portal.pt:17
 msgid "Control panel to configure and view all the important system parameters"
@@ -344,7 +344,7 @@ msgstr "Create"
 
 #: ../browser/templates/setup_home.pt:22
 msgid "Create GWOPA config folder, with default values"
-msgstr ""
+msgstr "Create GWOPA config folder, with default values"
 
 #: ../content/project.py:168
 msgid "Currency"
@@ -364,11 +364,11 @@ msgstr "Dashboard"
 
 #: ../browser/templates/dash-performance.pt:17
 msgid "Dashboard Performance"
-msgstr ""
+msgstr "Dashboard Performance"
 
 #: ../browser/templates/dash-areas.pt:30
 msgid "Dashboard Working Areas"
-msgstr ""
+msgstr "Dashboard Working Areas"
 
 #: ../content/project.py:224
 msgid "Dates"
@@ -384,7 +384,7 @@ msgstr "Degree (%)"
 
 #: ../content/settingspage.py:49
 msgid "Degree changes"
-msgstr ""
+msgstr "Degree changes"
 
 #: ../browser/setup_home.py:53
 msgid "Demo content has been created."
@@ -414,11 +414,11 @@ msgstr "Description and main objectives"
 
 #: ../browser/templates/monitoring.pt:778
 msgid "Diagnosing and action planning"
-msgstr ""
+msgstr "Diagnosing and action planning"
 
 #: ../content/templates/project_view.pt:147
 msgid "Donors"
-msgstr ""
+msgstr "Donors"
 
 #: ../browser/templates/planning.pt:972
 msgid "Edit Capacity"
@@ -426,11 +426,11 @@ msgstr "Edit Capacity"
 
 #: ../browser/templates/planning.pt:878
 msgid "Edit KPI"
-msgstr ""
+msgstr "Edit KPI"
 
 #: ../browser/templates/planning.pt:669
 msgid "Edit Output"
-msgstr ""
+msgstr "Edit Output"
 
 #: ../browser/templates/monitoring.pt:636
 #: ../browser/templates/planning.pt:1022
@@ -462,13 +462,13 @@ msgstr "English"
 
 #: ../browser/templates/setup_home.pt:17
 msgid "Execute the initial GWOPA configurations on the Site."
-msgstr ""
+msgstr "Execute the initial GWOPA configurations on the Site."
 
 #: ../browser/templates/dash-areas.pt:198
 #: ../browser/templates/monitoring.pt:826
 #: ../browser/templates/planning.pt:1120
 msgid "Executives providing overall organization direction and serving as behavioural role models for all employees."
-msgstr ""
+msgstr "Executives providing overall organization direction and serving as behavioural role models for all employees."
 
 #: ../browser/templates/monitoring.pt:676
 #: ../content/outcomeccs.py:74
@@ -487,13 +487,13 @@ msgstr "Explanation Progress"
 #: ../browser/templates/monitoring.pt:839
 #: ../browser/templates/planning.pt:1133
 msgid "External resources"
-msgstr ""
+msgstr "External resources"
 
 #: ../browser/templates/dash-areas.pt:212
 #: ../browser/templates/monitoring.pt:840
 #: ../browser/templates/planning.pt:1134
 msgid "Extra resources acquired by the water operator to implement its strategy and work plans."
-msgstr ""
+msgstr "Extra resources acquired by the water operator to implement its strategy and work plans."
 
 #: ../browser/configure.zcml:154
 msgid "Faceted listing view"
@@ -578,7 +578,7 @@ msgstr "Image used to describe the Working Area"
 
 #: ../browser/templates/planning.pt:336
 msgid "Improved capacity in/for"
-msgstr ""
+msgstr "Improved capacity in/for"
 
 #: ../content/outcomeccvalues.py:24
 msgid "Improved specific capacity"
@@ -608,7 +608,7 @@ msgstr "In-kind"
 #: ../browser/templates/monitoring.pt:893
 #: ../browser/templates/planning.pt:1187
 msgid "Individual"
-msgstr ""
+msgstr "Individual"
 
 #: ../content/outcomeccvalues.py:70
 msgid "Inform participation in the assessment"
@@ -618,17 +618,17 @@ msgstr "Inform participation in the assessment"
 #: ../browser/templates/monitoring.pt:875
 #: ../browser/templates/planning.pt:1169
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: ../browser/templates/dash-areas.pt:254
 #: ../browser/templates/monitoring.pt:882
 #: ../browser/templates/planning.pt:1176
 msgid "Infrastructure / Equipment"
-msgstr ""
+msgstr "Infrastructure / Equipment"
 
 #: ../browser/templates/setup_home.pt:16
 msgid "Initial GWOPA configuration"
-msgstr ""
+msgstr "Initial GWOPA configuration"
 
 #: ../content/templates/activity_view.pt:21
 msgid "Initial Situation"
@@ -636,7 +636,7 @@ msgstr "Initial situation"
 
 #: ../browser/templates/monitoring.pt:781
 msgid "Initial implementation of activities"
-msgstr ""
+msgstr "Initial implementation of activities"
 
 #: ../browser/templates/planning.pt:516
 #: ../content/activity.py:61
@@ -675,7 +675,7 @@ msgstr "Related WOP Programs"
 #: ../browser/templates/monitoring.pt:890
 #: ../browser/templates/planning.pt:1184
 msgid "It is the way the tasks are executed by each of the units and sub-units daily. It refers to new and improved working routines implemented."
-msgstr ""
+msgstr "It is the way the tasks are executed by each of the units and sub-units daily. It refers to new and improved working routines implemented."
 
 #: ../profiles/default/types/ItemArea.xml
 msgid "ItemArea"
@@ -693,7 +693,7 @@ msgstr "KPI Number"
 #: ../browser/templates/monitoring.pt:897
 #: ../browser/templates/planning.pt:1191
 msgid "Knowledge & Skills"
-msgstr ""
+msgstr "Knowledge & Skills"
 
 #: ../userdataschema.py:26
 msgid "Language"
@@ -705,13 +705,13 @@ msgstr "Latitude"
 
 #: ../content/project.py:302
 msgid "Latitude of this project. Used in the map view (format: -75.2509766) (format: -75.2509766)"
-msgstr ""
+msgstr "Latitude of this project. Used in the map view (format: -75.2509766) (format: -75.2509766)"
 
 #: ../browser/templates/dash-areas.pt:197
 #: ../browser/templates/monitoring.pt:825
 #: ../browser/templates/planning.pt:1119
 msgid "Leadership"
-msgstr ""
+msgstr "Leadership"
 
 #: ../browser/templates/teams.pt:19
 msgid "List of members of the Site"
@@ -731,7 +731,7 @@ msgstr "Longitude"
 
 #: ../content/project.py:309
 msgid "Longitude of this project. Used in the map view (format:  -0.071389) (format:  -0.071389)"
-msgstr ""
+msgstr "Longitude of this project. Used in the map view (format:  -0.071389) (format:  -0.071389)"
 
 #: ../browser/templates/monitoring.pt:129
 msgid "Main Contributing factors"
@@ -763,13 +763,13 @@ msgstr "Main Obstacles"
 
 #: ../browser/templates/setup_home.pt:23
 msgid "Make [English / French / Spanish] languages availables on users profiles"
-msgstr ""
+msgstr "Make [English / French / Spanish] languages availables on users profiles"
 
 #: ../browser/templates/dash-areas.pt:240
 #: ../browser/templates/monitoring.pt:868
 #: ../browser/templates/planning.pt:1162
 msgid "Management"
-msgstr ""
+msgstr "Management"
 
 #: ../browser/templates/planning.pt:640
 #: ../content/outcomezone.py:72
@@ -801,11 +801,11 @@ msgstr "Members in this region"
 #: ../browser/templates/monitoring.pt:818
 #: ../browser/templates/planning.pt:1112
 msgid "Mission and strategy"
-msgstr ""
+msgstr "Mission and strategy"
 
 #: ../browser/templates/setup_home.pt:26
 msgid "Modify users profiles to assign new fields"
-msgstr ""
+msgstr "Modify users profiles to assign new fields"
 
 #: ../browser/templates/monitoring.pt:24
 #: ../portlets/sidenav.pt:33
@@ -819,17 +819,17 @@ msgstr "Monitoring and reporting frequency"
 
 #: ../content/templates/project_view.pt:280
 msgid "Monitoring frequency"
-msgstr ""
+msgstr "Monitoring frequency"
 
 #: ../browser/templates/dash-performance.pt:27
 msgid "Monitoring value"
-msgstr ""
+msgstr "Monitoring value"
 
 #: ../browser/templates/dash-areas.pt:276
 #: ../browser/templates/monitoring.pt:904
 #: ../browser/templates/planning.pt:1198
 msgid "Motivation"
-msgstr ""
+msgstr "Motivation"
 
 #: ../browser/templates/homepage.pt:79
 msgid "My Projects"
@@ -849,7 +849,7 @@ msgstr "Name"
 #: ../browser/templates/monitoring.pt:846
 #: ../browser/templates/planning.pt:1140
 msgid "Network / External relations"
-msgstr ""
+msgstr "Network / External relations"
 
 #: ../browser/templates/planning.pt:779
 msgid "New KPI Title"
@@ -869,7 +869,7 @@ msgstr "Next update"
 
 #: ../browser/templates/dash-performance.pt:21
 msgid "No KPIs in this Project"
-msgstr ""
+msgstr "No KPIs in this Project"
 
 #: ../browser/templates/manage_portal.pt:53
 msgid "No Projects found in the Platform."
@@ -905,23 +905,23 @@ msgstr "One unit per line. Ex: liters"
 #: ../browser/templates/monitoring.pt:850
 #: ../browser/templates/planning.pt:1144
 msgid "Organization - operational"
-msgstr ""
+msgstr "Organization - operational""
 
 #: ../browser/templates/dash-areas.pt:186
 #: ../browser/templates/monitoring.pt:814
 #: ../browser/templates/planning.pt:1108
 msgid "Organization - strategic"
-msgstr ""
+msgstr "Organization - strategic"
 
 #: ../browser/templates/dash-areas.pt:204
 #: ../browser/templates/monitoring.pt:832
 #: ../browser/templates/planning.pt:1126
 msgid "Organizational culture"
-msgstr ""
+msgstr "Organizational culture"
 
 #: ../content/templates/project_view.pt:168
 msgid "Other Organizations"
-msgstr ""
+msgstr "Other Organizations"
 
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
@@ -983,7 +983,7 @@ msgstr "Partner Title"
 
 #: ../content/templates/project_view.pt:126
 msgid "Partner Water Operators"
-msgstr ""
+msgstr "Partner Water Operators"
 
 #: ../content/project.py:327
 msgid "Partner/partners of the project"
@@ -992,12 +992,12 @@ msgstr "You can select more than one Participant"
 #: ../browser/templates/monitoring.pt:660
 #: ../content/settingspage.py:62
 msgid "Perceived change decided by"
-msgstr ""
+msgstr "Perceived change decided by"
 
 #: ../browser/templates/monitoring.pt:651
 #: ../content/settingspage.py:50
 msgid "Perceived degree of change"
-msgstr ""
+msgstr "Perceived degree of change"
 
 #: ../browser/templates/monitoring.pt:301
 #: ../browser/templates/planning.pt:228
@@ -1024,13 +1024,13 @@ msgstr "Platform related to this project"
 
 #: ../content/project.py:40
 msgid "Please enter a valid coordinate format (-75.2509766)."
-msgstr ""
+msgstr "Please enter a valid coordinate format (-75.2509766)."
 
 #: ../browser/templates/dash-areas.pt:241
 #: ../browser/templates/monitoring.pt:869
 #: ../browser/templates/planning.pt:1163
 msgid "Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization's strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control)."
-msgstr ""
+msgstr "Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization's strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control)."
 
 #: ../content/project.py:162
 msgid "Program/programs associated to this project"
@@ -1068,7 +1068,7 @@ msgstr "Project Title"
 
 #: ../content/settingspage.py:56
 msgid "Project contribution to the perceived change"
-msgstr ""
+msgstr "Project contribution to the perceived change"
 
 #: ../content/project.py:136
 msgid "Project description and main objectives"
@@ -1094,7 +1094,7 @@ msgstr "Project year"
 
 #: ../browser/templates/monitoring.pt:656
 msgid "Project's contribution to the perceived change"
-msgstr ""
+msgstr "Project's contribution to the perceived change"
 
 #: ../browser/templates/global_map.pt:14
 #: ../browser/templates/manage_portal.pt:25
@@ -1119,7 +1119,7 @@ msgstr "Regional WOP Platform"
 #: ../browser/templates/monitoring.pt:847
 #: ../browser/templates/planning.pt:1141
 msgid "Relationships that the water operator has with different stakeholders and how that supports its strategy achievement."
-msgstr ""
+msgstr "Relationships that the water operator has with different stakeholders and how that supports its strategy achievement."
 
 #: ../browser/templates/planning.pt:605
 msgid "Remember that the related Activity dates are: Start:"
@@ -1131,7 +1131,7 @@ msgstr "The dates must be between the limits of this Project. Start:"
 
 #: ../browser/templates/reporting.pt:14
 msgid "Reporting"
-msgstr ""
+msgstr "Reporting"
 
 #: ../browser/templates/planning.pt:74
 msgid "Responsible"
@@ -1149,7 +1149,7 @@ msgstr "Save"
 
 #: ../browser/templates/planning.pt:785
 msgid "Save title"
-msgstr ""
+msgstr "Save title"
 
 #: ../browser/templates/homepage.pt:135
 msgid "Search Projects"
@@ -1161,7 +1161,7 @@ msgstr "Search projects by Title, Objectives, Platform, Program, Country, Locati
 
 #: ../browser/templates/dash-areas.pt:49
 msgid "Seems that there are no Working Areas in this Project"
-msgstr ""
+msgstr "Seems that there are no Working Areas in this Project"
 
 #: ../browser/templates/monitoring.pt:750
 msgid "Select Stage of this Working Area"
@@ -1203,7 +1203,7 @@ msgstr "Select what best represents the perceived degree of change with respect 
 
 #: ../browser/templates/setup_home.pt:25
 msgid "Set default Homepage view"
-msgstr ""
+msgstr "Set default Homepage view"
 
 #: ../portlets/sidenav.pt:50
 msgid "Settings"
@@ -1264,7 +1264,7 @@ msgstr "Stages"
 #: ../browser/templates/monitoring.pt:855
 #: ../browser/templates/planning.pt:1149
 msgid "Standardized policies, procedures and mechanisms that facilitate work, primarily (Eg. organization's reward systems, management information systems, control and support systems as performance appraisal, goal and budget development and human resource allocation and others."
-msgstr ""
+msgstr "Standardized policies, procedures and mechanisms that facilitate work, primarily (Eg. organization's reward systems, management information systems, control and support systems as performance appraisal, goal and budget development and human resource allocation and others."
 
 #: ../content/templates/activity_view.pt:26
 msgid "Start"
@@ -1288,7 +1288,7 @@ msgstr "Starting date"
 #: ../browser/templates/monitoring.pt:861
 #: ../browser/templates/planning.pt:1155
 msgid "Structure"
-msgstr ""
+msgstr "Structure"
 
 #: ../content/itemarea.py:22
 #: ../content/outcomecc.py:29
@@ -1300,7 +1300,7 @@ msgstr "Summary"
 #: ../browser/templates/monitoring.pt:854
 #: ../browser/templates/planning.pt:1148
 msgid "Systems"
-msgstr ""
+msgstr "Systems"
 
 #: ../browser/templates/global_map.pt:54
 msgid "Tags"
@@ -1322,12 +1322,12 @@ msgstr "Target value"
 #: ../browser/templates/monitoring.pt:696
 #: ../browser/templates/planning.pt:1045
 msgid "Targeted improvements"
-msgstr ""
+msgstr "Targeted improvements"
 
 #: ../browser/templates/monitoring.pt:701
 #: ../browser/templates/planning.pt:1050
 msgid "Targeted improvements date"
-msgstr ""
+msgstr "Targeted improvements date"
 
 #: ../browser/templates/teams.pt:16
 msgid "Team Members"
@@ -1387,7 +1387,7 @@ msgstr "This date must be between the dates of the project."
 
 #: ../browser/templates/setup_home.pt:37
 msgid "This option generate loremipsum items in the Site."
-msgstr ""
+msgstr "This option generate loremipsum items in the Site."
 
 #: ../content/settingspage.py:27
 msgid "This values are necessary for create elements on the Platform"
@@ -1421,7 +1421,7 @@ msgstr "Title"
 #: ../browser/templates/monitoring.pt:883
 #: ../browser/templates/planning.pt:1177
 msgid "Tools & equipment to do the job and basic infrastructure for the business processes (E.g. water production and distribution) and infrastructure."
-msgstr ""
+msgstr "Tools & equipment to do the job and basic infrastructure for the business processes (E.g. water production and distribution) and infrastructure."
 
 #: ../content/project.py:176
 msgid "Total budget"
@@ -1452,7 +1452,7 @@ msgstr "Update"
 #: ../browser/templates/monitoring.pt:876
 #: ../browser/templates/planning.pt:1170
 msgid "Updated information on the conditions of any part of the water utility system, be it infrastructure (E.g. pipes) related or management processes related (E.g. customer database) or others."
-msgstr ""
+msgstr "Updated information on the conditions of any part of the water utility system, be it infrastructure (E.g. pipes) related or management processes related (E.g. customer database) or others."
 
 #: ../content/project.py:137
 msgid "Use this area to add all the objectives and description of the project"
@@ -1488,11 +1488,11 @@ msgstr "View all"
 
 #: ../browser/templates/monitoring.pt:784
 msgid "Visibility of changes"
-msgstr ""
+msgstr "Visibility of changes"
 
 #: ../browser/templates/setup_home.pt:35
 msgid "WARNING: For developers only."
-msgstr ""
+msgstr "WARNING: For developers only."
 
 #: ../profiles/default/types/Partner.xml
 msgid "WOP Partner"
@@ -1536,17 +1536,17 @@ msgstr "Wall"
 
 #: ../browser/templates/monitoring.pt:431
 msgid "What are the specific changes perceived in this working area?"
-msgstr ""
+msgstr "What are the specific changes perceived in this working area?"
 
 #: ../browser/templates/monitoring.pt:416
 msgid "What is the change consolidation stage of this working area?"
-msgstr ""
+msgstr "What is the change consolidation stage of this working area?"
 
 #: ../browser/templates/dash-areas.pt:191
 #: ../browser/templates/monitoring.pt:819
 #: ../browser/templates/planning.pt:1113
 msgid "What the organization's top management believes is and has declared in the organization's mission and strategy and what employees believe is the central purpose of the organization."
-msgstr ""
+msgstr "What the organization's top management believes is and has declared in the organization's mission and strategy and what employees believe is the central purpose of the organization."
 
 #: ../browser/templates/global_map.pt:24
 msgid "Working Area"
@@ -1566,7 +1566,7 @@ msgstr "Working Areas"
 #: ../browser/templates/monitoring.pt:889
 #: ../browser/templates/planning.pt:1183
 msgid "Working routines"
-msgstr ""
+msgstr "Working routines"
 
 #: ../content/project.py:296
 msgid "Write the project location"
@@ -1592,7 +1592,7 @@ msgstr "Zone"
 
 #: ../content/templates/project_view.pt:212
 msgid "admin"
-msgstr ""
+msgstr "admin"
 
 #: ../browser/user_profile.py:47
 #: ../indexers.py:28
