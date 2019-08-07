@@ -7,6 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from gwopa.core import _
 from zope.annotation.interfaces import IAnnotations
+from gwopa.core.utils import percentage
 
 
 @implementer(IPublishTraverse)
@@ -103,6 +104,37 @@ class dashboardAreasView(BrowserView):
                                 portal_type=item.portal_type
                                 ))
         return sorted(results, key=itemgetter('title'), reverse=False)
+
+    def getIndicators(self):
+        indicators = {}
+        activities = api.content.find(
+            portal_type=['Activity'],
+            context=self.context)
+        for act in activities:
+            indicators[act.Title] = {}
+            annotations = IAnnotations(act.getObject())
+            KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+            if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                value = 0
+            else:
+                value = annotations[KEY]['monitoring']['progress']
+            indicators[act.Title]['activity_val'] = value
+            indicators[act.Title]['outputs'] = {}
+            outputs = api.content.find(
+                portal_type=['Output'],
+                path={'query': act.getPath(), 'depth': 1})
+            for output in outputs:
+                annotations = IAnnotations(output.getObject())
+                KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+                if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                    value = 0
+                else:
+                    planned = annotations[KEY]['planned']
+                    real = annotations[KEY]['monitoring']['progress']
+                    value = percentage(real, planned)
+                indicators[act.Title]['outputs'][output.Title] = value
+        # import ipdb; ipdb.set_trace()
+        return indicators
 
     def getOutcomeCC(self):
         items = api.content.find(

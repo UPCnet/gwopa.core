@@ -1,14 +1,70 @@
 # -*- coding: utf-8 -*-
 from plone.restapi.services import Service
 from plone import api
-from zope.component import ComponentLookupError
 from zExceptions import BadRequest
-from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
 import json
 import math
 from gwopa.core.utils import percentage
+
+
+class GetDashboard(BrowserView):
+    """Service for list activities and outputs from WA and year."""
+
+    # /api-getDashboard
+    def __call__(self):
+        """Answer for the webservice."""
+        wa_path = self.request.form.get('wa', False)
+        year = self.request.form.get('year', False)
+        #import ipdb; ipdb.set_trace()
+        # self.context.gwopa_year_phases[1]
+        #{'end': 'June 11, 2021', 'end_iso': '2021-06-11', 'pattern_end': '2021,5,11', 'start': 'June 11, 2020', 'pattern_start': '2020,5,11', 'start_iso': '2020-06-11', 'fase': 2}
+        if not wa_path:
+            BadRequest('Working area are required')
+        if not year:
+            BadRequest('Year are required')
+
+        indicators = {}
+        # results = []
+        # titles = []
+        # values = [{'data': []}]
+        if wa_path:
+            activities = api.content.find(
+                portal_type=['Activity'],
+                path={'query': wa_path, 'depth': 1})
+            for act in activities:
+                indicators[act.Title] = {}
+                annotations = IAnnotations(act.getObject())
+                KEY = "GWOPA_TARGET_YEAR_" + str(year)
+                if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                    value = 0
+                else:
+                    value = annotations[KEY]['monitoring']['progress']
+                indicators[act.Title]['activity_val'] = (value)
+                indicators[act.Title]['outputs'] = {}
+                outputs = api.content.find(
+                    portal_type=['Output'],
+                    path={'query': act.getPath(), 'depth': 1})
+                for output in outputs:
+                    # titles.append(output.Title)
+                    annotations = IAnnotations(output.getObject())
+                    KEY = "GWOPA_TARGET_YEAR_" + str(year)
+                    if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                        value = 0
+                    else:
+                        planned = annotations[KEY]['planned']
+                        real = annotations[KEY]['monitoring']['progress']
+                        value = percentage(real, planned)
+                    # values[0]['data'].append(value)
+                    indicators[act.Title]['outputs'][output.Title] = value
+
+            # results.append(titles)
+            # results.append(values)
+            self.request.response.setHeader("Content-type", "application/json")
+            return json.dumps(indicators)
+        else:
+            return None
 
 
 class GetActivities(BrowserView):
