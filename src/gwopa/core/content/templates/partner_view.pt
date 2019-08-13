@@ -24,8 +24,8 @@
     </div>
 
     <tal:map tal:condition="google_maps_link">
-      <div tal:define="latitude context/latitude;
-                       longitude context/longitude"
+      <div tal:define="latitude context/geolocation/latitude;
+                       longitude context/geolocation/longitude"
             class="pat-leaflet map"
        data-geojson='{
         "type": "FeatureCollection",
