@@ -1170,7 +1170,7 @@ msgstr "Mostrar mapa de Proyectos"
 
 #: ../browser/monitoring.py:118
 msgid "Show monitoring of year "
-msgstr "Monstrar seguimiento del año "
+msgstr "Mostrar seguimiento del año "
 
 #: ../browser/planning.py:122
 msgid "Show planning of year "
