@@ -126,6 +126,16 @@ class setup(grok.View):
             allowed_types = ['Partner', ]
             _setup_constrains(partners, allowed_types)
 
+            donors = api.content.create(
+                type='Folder',
+                id='donors',
+                title='Donors',
+                description='Donors',
+                container=config_folder,
+                safe_id=False)
+            allowed_types = ['Donor', ]
+            _setup_constrains(donors, allowed_types)
+
             areas = api.content.create(
                 type='Folder',
                 id='areas',
@@ -284,6 +294,19 @@ class setup(grok.View):
             obj.contact = 'userpartner' + str(i) + '@test.com'
             obj.country = ['Spain']
             obj.latitude, obj.longitude = self.randomgeo()
+
+        # Create demo donors
+        portal = api.portal.get()
+        for i in xrange(1, 6):
+            obj = api.content.create(
+                type='Donor',
+                id='donor' + str(i),
+                title='Donor ' + str(i),
+                description='Donor ' + str(i),
+                container=portal.config.donors,
+                safe_id=False)
+            obj.contact = 'userdonor' + str(i) + '@test.com'
+            obj.country = ['Spain']
 
         # Create base Outcome CC selectable Values
         api.content.create(
@@ -702,6 +725,16 @@ class setupEs(grok.View):
             allowed_types = ['Partner', ]
             _setup_constrains(partners, allowed_types)
 
+            donors = api.content.create(
+                type='Folder',
+                id='donors',
+                title='Donantes',
+                description='Donantes',
+                container=config_folder,
+                safe_id=False)
+            allowed_types = ['Donor', ]
+            _setup_constrains(donors, allowed_types)
+
             areas = api.content.create(
                 type='Folder',
                 id='areas',
@@ -858,6 +891,20 @@ class setupEs(grok.View):
                 container=portal.config.partners,
                 safe_id=False)
             obj.contact = 'userpartner' + str(i) + '@test.com'
+            obj.country = ['Spain']
+            obj.latitude, obj.longitude = self.randomgeo()
+
+        # Create demo donors
+        portal = api.portal.get()
+        for i in xrange(1, 6):
+            obj = api.content.create(
+                type='Donor',
+                id='donor' + str(i),
+                title='Donante ' + str(i),
+                description='Donante ' + str(i),
+                container=portal.config.donors,
+                safe_id=False)
+            obj.contact = 'userdonor' + str(i) + '@test.com'
             obj.country = ['Spain']
             obj.latitude, obj.longitude = self.randomgeo()
 

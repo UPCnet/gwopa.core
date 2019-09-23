@@ -72,6 +72,18 @@ def listPartners(context):
 directlyProvides(listPartners, IContextSourceBinder)
 
 
+def listDonors(context):
+    """ Donors list. """
+    terms = []
+    literals = api.content.find(portal_type="Donor")
+    for item in literals:
+        terms.append(item.Title)
+    return safe_simplevocabulary_from_values(terms)
+
+
+directlyProvides(listDonors, IContextSourceBinder)
+
+
 def listWOPPrograms(context):
     """ WOP Programs. """
     terms = []

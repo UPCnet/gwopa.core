@@ -3,6 +3,7 @@ from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 from gwopa.core.content.project import IProject
 from gwopa.core.content.partner import IPartner
+from gwopa.core.content.donor import IDonor
 from gwopa.core.content.improvement_area import IImprovementArea
 from gwopa.core.content.outcomecc import IOutcomecc
 from gwopa.core.content.outcomeccs import IOutcomeccs
@@ -123,6 +124,16 @@ def projectAdded(content, event):
             obj.incash = 0
             obj.inkind = 0
     content.total_budget = 0
+    donors = content.donors
+    if donors:
+        for donor in donors:
+            obj = api.content.create(
+                type='ContribDonor',
+                title=donor,
+                container=content.contribs)
+            obj.incash = 0
+            obj.inkind = 0
+    
 
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
@@ -232,9 +243,9 @@ def projectModified(content, event):
             else:
                 break
 
+        path = '/'.join(content.contribs.getPhysicalPath())
         partners = content.partners
         if partners:
-            path = '/'.join(content.contribs.getPhysicalPath())
             for partner in partners:
                 item = api.content.find(
                     portal_type='ContribPartner',
@@ -247,6 +258,57 @@ def projectModified(content, event):
                         container=content.contribs)
                     obj.incash = 0
                     obj.inkind = 0
+        else:
+            partners = []
+
+        all_partners = []
+        items_partners = api.content.find(
+                    portal_type='ContribPartner',
+                    path=path)
+        for item_partner in items_partners:
+            item_partner_obj = item_partner.getObject()
+            all_partners.append(item_partner_obj.title)
+      
+        for item in all_partners:
+            if item not in partners:
+                obj = api.content.find(
+                    portal_type='ContribPartner',
+                    Title=item,
+                    path=path)
+                api.content.delete(obj=obj[0].getObject(), check_linkintegrity=False)
+
+        donors = content.donors
+        if donors:
+            for donor in donors:
+                item = api.content.find(
+                    portal_type='ContribDonor',
+                    Title=donor,
+                    path=path)
+                if not item:
+                    obj = api.content.create(
+                        type='ContribDonor',
+                        title=donor,
+                        container=content.contribs)
+                    obj.incash = 0
+                    obj.inkind = 0
+        else:
+            donors = []
+
+        all_donors = []
+        items_donors = api.content.find(
+                    portal_type='ContribDonor',
+                    path=path)
+        for item_donor in items_donors:
+            item_donor_obj = item_donor.getObject()
+            all_donors.append(item_donor_obj.title)
+      
+        for item in all_donors:
+            if item not in donors:
+                obj = api.content.find(
+                    portal_type='ContribDonor',
+                    Title=item,
+                    path=path)
+                api.content.delete(obj=obj[0].getObject(), check_linkintegrity=False)
 
 @grok.subscribe(IPartner, IObjectAddedEvent)
 @grok.subscribe(IPartner, IObjectModifiedEvent)

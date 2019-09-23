@@ -331,6 +331,17 @@ class IProject(model.Schema):
         ),
     )
 
+    dexteritytextindexer.searchable('donors')
+    directives.widget('donors', SelectWidget)
+    donors = schema.List(
+        title=_(u"Donors"),
+        description=_(u"Donor/donors of the project"),
+        required=False,
+        value_type=schema.Choice(
+            source=utils.listDonors,
+        ),
+    )
+
     project_manager_admin = schema.Choice(
         title=_(u"Project Manager Admin"),
         description=_(u"The responsible manager of the project"),
@@ -530,6 +541,8 @@ class View(grok.View):
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
+                url='/'.join(obj.getPhysicalPath()),
+                portal_type=obj.portal_type,
                 incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
                 inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),
             ))
@@ -537,6 +550,17 @@ class View(grok.View):
 
     def get_budget(self):
         # Assign total_budget value to index. Needed to find by value in Project Global Map
+        results = api.content.find(
+            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            depth=2)
+        total = 0
+        for result in results:
+            obj = result.getObject()
+            if obj.portal_type == 'ContribPartner' or obj.portal_type == 'ContribDonor' or obj.portal_type == 'ContribOther':
+                total = total + obj.incash + obj.inkind
+
+        self.context.total_budget = total
+
         if self.context.total_budget == 0:
             return None
         else:

@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="gwopa">
+<body>
+
+<metal:content-core fill-slot="content-core"
+    tal:define="portal_state context/@@plone_portal_state;
+                portal_url portal_state/portal_url;
+                google_maps_link view/google_maps_link;">
+
+    <div class="leadImage"
+         tal:define="scale_func context/@@images;
+                     scaled_image python: getattr(context.aq_explicit, 'image', False) and scale_func.scale('image', scale='mini')">
+        <figure class="newsImageContainer" tal:condition="scaled_image">
+            <a class="pat-plone-modal" data-pat-plone-modal="image: true" href="#"
+                tal:attributes="href string:${context/absolute_url}/@@images/image">
+              <img src="" tal:attributes="src string:${context/absolute_url}/@@images/image" height="200" width="200" class="newsImage">
+            </a>
+        </figure>
+    </div>
+
+    <tal:map tal:condition="google_maps_link">
+      <div tal:define="latitude context/geolocation/latitude;
+                       longitude context/geolocation/longitude"
+            class="pat-leaflet map"
+       data-geojson='{
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "id": 1,
+            "properties":
+            {
+              "popup": "<h4><a href=>${context/Title}</a></h4>"
+            },
+            "geometry":
+            {
+              "type": "Point",
+              "coordinates": [ ${longitude}, ${latitude} ]
+            }
+          }
+        ]}' data-pat-leaflet='{
+         "fullscreencontrol": true,
+         "locatecontrol": false,
+         "zoomcontrol": true,
+         "minimap": false,
+         "addmarker": false,
+         "zoom": 17,
+         "map_layers": [
+          {"title": "Map", "id": "OpenStreetMap.BlackAndWhite"}
+         ]
+        }'>
+      </div>
+      <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Show in Google Maps</a>
+    </tal:map>
+
+   <!--  <tal:users tal:define="users view/usersinthisDonor" tal:condition="users">
+      <h3 i18n:translate=""> Users in this Partner </h3>
+      <span tal:repeat="user users">
+        <ul>
+          <li>
+            <a href="" tal:attributes="href user/profile" tal:content="user/id">USERNAME</a>
+          </li>
+        </ul>
+      </span>
+    </tal:users> -->
+
+</metal:content-core>
+
+</body>
+</html>

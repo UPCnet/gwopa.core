@@ -36,6 +36,9 @@
       <li>
         <a href="#partners" aria-controls="partners" role="tab" data-toggle="tab" i18n:translate=""> WOP Partners </a>
       </li>
+      <li>
+        <a href="#donors" aria-controls="donors" role="tab" data-toggle="tab" i18n:translate=""> Donors </a>
+      </li>
     </ul>
 
     <div class="tab-content">
@@ -231,6 +234,46 @@
                 <tr tal:repeat="project elements">
                   <td class="paddingleft20">
                     <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Partner </a>
+                  </td>
+                  <td tal:content="project/country"> Country </td>
+                  <td tal:content="project/contact"> Contact </td>
+                  <td>
+                    <a href="" tal:attributes="href string:${project/url}/edit"><i class="far fa-edit" aria-hidden="true"></i></a>
+                    <a tal:attributes="href string:${project/url}/delete_confirmation" title="" id="plone-contentmenu-actions-delete" class="actionicon-object_buttons-delete pat-plone-modal">
+                      <i class="far fa-trash-alt" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </tal:block>
+        </div>
+      </div>
+      <div class="tab-pane" id="donors">
+        <div class="tabla_items">
+          <h1> Donors
+            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/donors/++add++Donor" href="#">
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New Donor </button></a>
+            <a tal:attributes="href string:${portal_url}/config/donors/folder_contents" href="#">
+              <button class="context"><i class="fas fa-folder-open"></i> Go to Donors folder </button></a>
+          </h1>
+          <tal:block tal:define="elements view/getDonors">
+            <table tal:condition="not:elements">
+              No Donors found in the Platform.
+            </table>
+            <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
+              <thead>
+                <tr>
+                  <th i18n:translate="" scope="col"> Donor Title </th>
+                  <th i18n:translate="" scope="col"> Country/Countries </th>
+                  <th i18n:translate="" scope="col"> Contact </th>
+                  <th i18n:translate="" scope="col" style="width: 65px;"> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tal:repeat="project elements">
+                  <td class="paddingleft20">
+                    <a href="" tal:attributes="href string:${project/url}" tal:content="project/title"> Donor </a>
                   </td>
                   <td tal:content="project/country"> Country </td>
                   <td tal:content="project/contact"> Contact </td>

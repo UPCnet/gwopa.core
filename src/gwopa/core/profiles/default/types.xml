@@ -12,6 +12,7 @@
   <object meta_type="Dexterity FTI" name="Outputdefaults" />
   <object meta_type="Dexterity FTI" name="Outcomedefaults" />
   <object meta_type="Dexterity FTI" name="Partner" />
+  <object meta_type="Dexterity FTI" name="Donor" />
   <object meta_type="Dexterity FTI" name="Platform" />
   <object meta_type="Dexterity FTI" name="Program" />
   <object meta_type="Dexterity FTI" name="Project" />

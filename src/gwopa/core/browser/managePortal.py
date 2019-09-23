@@ -94,3 +94,16 @@ class managePortal(grok.View):
                 contact=obj.contact)
             )
         return results
+
+    def getDonors(self):
+        items = api.content.find(portal_type=['Donor'])
+        results = []
+        for item in items:
+            obj = item.getObject()
+            results.append(dict(
+                title=item.Title,
+                url='/'.join(obj.getPhysicalPath()),
+                country=', '.join(map(str, obj.country)),
+                contact=obj.contact)
+            )
+        return results

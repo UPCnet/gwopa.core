@@ -143,8 +143,8 @@
             <thead>
               <tr>
                 <th style="padding-left:0px;">
-                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribDonor">
-                    <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;" i18n:translate=""> Donors </span>
+                  <!-- <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribDonor">
+                    <i class="fas fa-plus-circle"></i></a> -->&nbsp;<span style="font-size: 18px;" i18n:translate=""> Donors </span>
                 </th>
                 <tal:omit-tag tal:condition="donors">
                   <th class="contibutioncentered" i18n:translate="">In-cash</th>
@@ -175,7 +175,14 @@
             </thead>
             <tr tal:repeat="partner others">
               <tal:block tal:condition="partner">
-                <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
+                <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;
+                    <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
+                        tal:attributes="
+                            data-url partner/url;
+                            data-type partner/portal_type;
+                            data-id partner/title;" title="Delete" alt="Delete">
+                        <i class="far fa-trash-alt"></i></a>
+                        <tal:block tal:content="partner/title"></tal:block></td>
                 <td class="contibutioncentered" tal:content="partner/incash"></td>
                 <td class="contibutioncentered" tal:content="partner/inkind"></td>
               </tal:block>
@@ -339,17 +346,17 @@
               <label class="col-sm-2 control-label" for="exampleInputAmount" i18n:translate=""> In-cash </label>
               <div class="input-group col-sm-10">
                 <div class="input-group-addon"><span class="modal-currency"></span></div>
-                <input type="text" class="form-control" id="incash">
+                <input type="text" class="form-control" id="incash" value="0">
               </div>
             </div>
             <div class="form-group" style="padding-top:15px;">
               <label class="col-sm-2 control-label" for="exampleInputAmount" i18n:translate=""> In-kind </label>
               <div class="input-group col-sm-10">
                 <div class="input-group-addon"><span class="modal-currency"></span></div>
-                <input type="text" class="form-control" id="inkind">
+                <input type="text" class="form-control" id="inkind" value="0">
               </div>
             </div>
-          </div>
+          </div> 
           <div class="modal-footer">
             <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
             <a type="submit" class="btn button-save" id="createPartnerFromModal"  data-dismiss="modal" i18n:translate="">Save</a>
