@@ -44,62 +44,11 @@
       <div tal:condition="not:areas" class="row">
         <h2 i18n:translate=""> Seems that there are no Working Areas in this Project </h2>
       </div>
-      <div class="stats">
-        <tal:project repeat="(activity, contents) python:indicators.items()">
-          <div class="indicators indicators__elem card">
-            <div class="indicators__paper">
-              <div class="indicators__paper__content">
-                <div class="indicators__paper__content--descr">
-                  <div class="indicators__elem indicators__elem--title">
-                    <p class="indicators-root indicators-p" tal:content="activity">TASKS PROGRESS</p>
-                    <h3 class="indicators-root indicators-h3" tal:content="python: str(contents['activity_val']) + '%'">75.5%</h3>
-                  </div>
-                  <div class="indicators__elem indicators__elem--icon">
-                    <div class="indicators__icon indicators__icon__circle">
-                      <div class="indicators__icon--fa">
-                        <i class="far fa-chart-bar"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="indicators-progress" role="progressbar" aria-valuenow="76">
-                  <div class="indicators-progress-bar" style="transform: translateX(-24.5%);"></div>
-                </div>
-                <div class="expand">
-                  <i class="fas fa-chevron-down showOutputs" aria-hidden="true"></i>
-                  <i style="display: none" class="fas fa-chevron-up hideOutputs" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-            <div class="indicators indicators-outputs" style="display: none">
-              <div tal:repeat="(output, value) python:contents['outputs'].items()" class="indicators__elem">
-                <p class="indicators-root indicators-outputs-p" tal:content="output">TASKS PROGRESS</p>
-                <h3 class="indicators-root indicators-outputs-h3" tal:content="value">75.5%</h3>
-                <div class="indicators-outputs-progress" role="progressbar" aria-valuenow="76">
-                  <div class="indicators-progress-bar" style="transform: translateX(-24.5%);"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </tal:project>
-      </div>
-      <!-- <div class="charts">
-      <div id="graphicActivity">
-        <h2 class="bolder" i18n:translate="">Activities</h2>
-        <div id="chartActivity">
-          <div id="timeline-chart"></div>
+      <div id="graphicActivityOutput" class="stats">
+        <div id="noInfo">
+          <h2 class="bolder" i18n:translate=""> There are no Activities and Outputs plannified/monitorized on this Working Area and year.</h2>
         </div>
       </div>
-      <div id="graphicOutput">
-        <h2 class="bolder" i18n:translate="">Outputs</h2>
-        <div id="chartOutput">
-          <div id="timeline-chart"></div>
-        </div>
-      </div>
-      <div id="noInfo">
-        <h2 class="bolder" i18n:translate=""> There are no Activities and Outputs plannified/monitorized on this Working Area and year.</h2>
-      </div>
-    </div> -->
       <h1 class="documentFirstHeading" style="padding: 0px; border-bottom: 2px solid #dddddd;">
         <tal:omit-tag i18n:translate=""><span>Outcomes</span></tal:omit-tag>
       </h1>

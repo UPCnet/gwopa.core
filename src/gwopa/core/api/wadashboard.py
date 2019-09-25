@@ -7,6 +7,7 @@ from zope.annotation.interfaces import IAnnotations
 import json
 import math
 from gwopa.core.utils import percentage
+import datetime
 
 
 class GetDashboard(BrowserView):
@@ -17,23 +18,58 @@ class GetDashboard(BrowserView):
         """Answer for the webservice."""
         wa_path = self.request.form.get('wa', False)
         year = self.request.form.get('year', False)
-        #import ipdb; ipdb.set_trace()
-        # self.context.gwopa_year_phases[1]
-        #{'end': 'June 11, 2021', 'end_iso': '2021-06-11', 'pattern_end': '2021,5,11', 'start': 'June 11, 2020', 'pattern_start': '2020,5,11', 'start_iso': '2020-06-11', 'fase': 2}
+
         if not wa_path:
             BadRequest('Working area are required')
         if not year:
             BadRequest('Year are required')
 
         indicators = {}
-        # results = []
-        # titles = []
-        # values = [{'data': []}]
         if wa_path:
-            activities = api.content.find(
+            data_year = self.context.gwopa_year_phases[int(year) - 1]
+            start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+            end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+            # Los de la fase [---]
+            range_start = {'query': (start, end), 'range': 'min:max'}
+            range_end = {'query': (start, end), 'range': 'min:max'}
+            activities1 = api.content.find(
                 portal_type=['Activity'],
+                start=range_start,
+                end=range_end,
                 path={'query': wa_path, 'depth': 1})
-            for act in activities:
+
+            # Los de fuera de la fase start y end ---][----
+            range_start = {'query': (start), 'range': 'max'}
+            range_end = {'query': (end), 'range': 'min'}
+            activities2 = api.content.find(
+                portal_type=['Activity'],
+                start=range_start,
+                end=range_end,
+                path={'query': wa_path, 'depth': 1})
+
+            # Los que empiezan antes y acaban en fase ---]
+            ranges = {'query': (start), 'range': 'max'}
+            range_end = {'query': (start, end), 'range': 'min:max'}
+
+            activities3 = api.content.find(
+                portal_type=['Activity'],
+                start=ranges,
+                end=range_end,
+                path={'query': wa_path, 'depth': 1})
+
+            # Los que empiezan aqui y acaban despues [----
+            range_start = {'query': (start, end), 'range': 'min:max'}
+            range_end = {'query': (end), 'range': 'min'}
+            activities4 = api.content.find(
+                portal_type=['Activity'],
+                start=range_start,
+                end=range_end,
+                path={'query': wa_path, 'depth': 1})
+
+            items = activities1 + activities2 + activities3 + activities4
+
+            for act in items:
                 indicators[act.Title] = {}
                 annotations = IAnnotations(act.getObject())
                 KEY = "GWOPA_TARGET_YEAR_" + str(year)
@@ -47,7 +83,6 @@ class GetDashboard(BrowserView):
                     portal_type=['Output'],
                     path={'query': act.getPath(), 'depth': 1})
                 for output in outputs:
-                    # titles.append(output.Title)
                     annotations = IAnnotations(output.getObject())
                     KEY = "GWOPA_TARGET_YEAR_" + str(year)
                     if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
@@ -55,12 +90,10 @@ class GetDashboard(BrowserView):
                     else:
                         planned = annotations[KEY]['planned']
                         real = annotations[KEY]['monitoring']['progress']
-                        value = percentage(real, planned)
-                    # values[0]['data'].append(value)
+                        # value = percentage(real, planned)
+                        value = "" + str(real) + '/' + str(planned)
                     indicators[act.Title]['outputs'][output.Title] = value
 
-            # results.append(titles)
-            # results.append(values)
             self.request.response.setHeader("Content-type", "application/json")
             return json.dumps(indicators)
         else:
