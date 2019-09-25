@@ -10,6 +10,14 @@
 
   <browser:page
       for="gwopa.core.content.project.IProject"
+      name="api-getDashboard"
+      class=".api.wadashboard.GetDashboard"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="gwopa.core.content.project.IProject"
       name="api-getActivities"
       class=".api.wadashboard.GetActivities"
       permission="cmf.ModifyPortalContent"

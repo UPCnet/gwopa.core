@@ -7,6 +7,8 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from operator import itemgetter
 from gwopa.core import _
 from zope.annotation.interfaces import IAnnotations
+from gwopa.core.utils import percentage
+import datetime
 
 
 @implementer(IPublishTraverse)
@@ -103,6 +105,80 @@ class dashboardAreasView(BrowserView):
                                 portal_type=item.portal_type
                                 ))
         return sorted(results, key=itemgetter('title'), reverse=False)
+
+    def getIndicators(self):
+        indicators = {}
+        
+        areas = self.getAreas()
+        wa_path = areas[0]['url']
+        data_year = self.context.gwopa_year_phases[int(self.year) - 1]
+        start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+        end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+        # Los de la fase [---]
+        range_start = {'query': (start, end), 'range': 'min:max'}
+        range_end = {'query': (start, end), 'range': 'min:max'}
+        activities1 = api.content.find(
+            portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
+            path={'query': wa_path, 'depth': 1})
+
+        # Los de fuera de la fase start y end ---][----
+        range_start = {'query': (start), 'range': 'max'}
+        range_end = {'query': (end), 'range': 'min'}
+        activities2 = api.content.find(
+            portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
+            path={'query': wa_path, 'depth': 1})
+
+        # Los que empiezan antes y acaban en fase ---]
+        ranges = {'query': (start), 'range': 'max'}
+        range_end = {'query': (start, end), 'range': 'min:max'}
+
+        activities3 = api.content.find(
+            portal_type=['Activity'],
+            start=ranges,
+            end=range_end,
+            path={'query': wa_path, 'depth': 1})
+
+        # Los que empiezan aqui y acaban despues [----
+        range_start = {'query': (start, end), 'range': 'min:max'}
+        range_end = {'query': (end), 'range': 'min'}
+        activities4 = api.content.find(
+            portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
+            path={'query': wa_path, 'depth': 1})
+
+        items = activities1 + activities2 + activities3 + activities4
+
+        for act in items:
+            indicators[act.Title] = {}
+            annotations = IAnnotations(act.getObject())
+            KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+            if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                value = 0
+            else:
+                value = annotations[KEY]['monitoring']['progress']
+            indicators[act.Title]['activity_val'] = value
+            indicators[act.Title]['outputs'] = {}
+            outputs = api.content.find(
+                portal_type=['Output'],
+                path={'query': act.getPath(), 'depth': 1})
+            for output in outputs:
+                annotations = IAnnotations(output.getObject())
+                KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+                if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                    value = 0
+                else:
+                    planned = annotations[KEY]['planned']
+                    real = annotations[KEY]['monitoring']['progress']
+                    #value = percentage(real, planned)
+                    value = "" + str(real) + '/' + str(planned)
+                indicators[act.Title]['outputs'][output.Title] = value
+        return indicators
 
     def getOutcomeCC(self):
         items = api.content.find(

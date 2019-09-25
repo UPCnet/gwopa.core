@@ -1,187 +1,169 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-    xmlns:tal="http://xml.zope.org/namespaces/tal"
-    xmlns:metal="http://xml.zope.org/namespaces/metal"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    lang="en"
-    metal:use-macro="context/main_template/macros/master"
-    i18n:domain="gwopa">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" lang="en" metal:use-macro="context/main_template/macros/master"
+  i18n:domain="gwopa">
+
 <body>
 
-<metal:content-core fill-slot="main"
-    tal:define="portal_state context/@@plone_portal_state;
+  <metal:content-core fill-slot="main" tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;
-                areas view/getAreas;">
-  <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
-    <div class="block-nav">
-      <ul id="selectYear" class="pagination pagination-lg" tal:define="items view/getItems">
-        <tal:block tal:repeat="item items">
-          <li tal:attributes="class string: ${item/classe}; alt item/alt; title item/alt; id item/year">
-            <a href="#">
-              <tal:omit-tag tal:content="item/title">
-              </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag>
-            </a>
-          </li>
-        </tal:block>
-      </ul>
-    </div>
-    <br/>
-    <br/>
-    <h1 class="documentFirstHeading" style="padding: 0px">
-      <tal:omit-tag i18n:translate=""> Dashboard Working Areas </tal:omit-tag> -
-      <span tal:content="view/projectTitle"></span>
-    </h1>
-    <br/>
-    <div tal:condition="areas" class="row">
-      <div class="form-group">
+                areas view/getAreas;
+                indicators view/getIndicators;">
+    <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
+      <div class="block-nav">
+        <ul id="selectYear" class="pagination pagination-lg" tal:define="items view/getItems">
+          <tal:block tal:repeat="item items">
+            <li tal:attributes="class string: ${item/classe}; alt item/alt; title item/alt; id item/year">
+              <a href="#">
+                <tal:omit-tag tal:content="item/title">
+                </tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag>
+              </a>
+            </li>
+          </tal:block>
+        </ul>
+      </div>
+      <br />
+      <br />
+      <h1 class="documentFirstHeading" style="padding: 0px">
+        <tal:omit-tag i18n:translate=""> Dashboard Working Areas </tal:omit-tag> -
+        <span tal:content="view/projectTitle"></span>
+      </h1>
+      <br />
+      <div tal:condition="areas" class="row">
+        <div class="form-group">
           <label style="margin-top: 7px;" class="col-sm-2 control-label" i18n:translate> Select Working Area from list: </label>
           <div class="col-sm-10">
-              <select class="form-control" id="selectWA">
-                <option tal:repeat="area areas" tal:attributes="value area/url" tal:content="area/title">WA1</option>
-              </select>
-           </div>
-      </div>
-    </div>
-    <hr/>
-    <h1 class="documentFirstHeading" style="padding: 0px; border-bottom: 2px solid #dddddd;">
-      <tal:omit-tag i18n:translate=""><span>Project</span></tal:omit-tag>
-    </h1>
-    <div tal:condition="not:areas" class="row">
-      <h2 i18n:translate=""> Seems that there are no Working Areas in this Project </h2>
-    </div>
-    <div class="charts">
-      <div id="graphicActivity">
-        <h2 class="bolder" i18n:translate="">Activities</h2>
-        <div id="chartActivity">
-          <div id="timeline-chart"></div>
+            <select class="form-control" id="selectWA">
+              <option tal:repeat="area areas" tal:attributes="value area/url" tal:content="area/title">WA1</option>
+            </select>
+          </div>
         </div>
       </div>
-      <div id="graphicOutput">
-        <h2 class="bolder" i18n:translate="">Outputs</h2>
-        <div id="chartOutput">
-          <div id="timeline-chart"></div>
+      <hr />
+      <h1 class="documentFirstHeading" style="padding: 0px; border-bottom: 2px solid #dddddd;">
+        <tal:omit-tag i18n:translate=""><span>Project</span></tal:omit-tag>
+      </h1>
+      <div tal:condition="not:areas" class="row">
+        <h2 i18n:translate=""> Seems that there are no Working Areas in this Project </h2>
+      </div>
+      <div id="graphicActivityOutput" class="stats">
+        <div id="noInfo">
+          <h2 class="bolder" i18n:translate=""> There are no Activities and Outputs plannified/monitorized on this Working Area and year.</h2>
         </div>
       </div>
-      <div id="noInfo">
-        <h2 class="bolder" i18n:translate=""> There are no Activities and Outputs plannified/monitorized on this Working Area and year.</h2>
+      <h1 class="documentFirstHeading" style="padding: 0px; border-bottom: 2px solid #dddddd;">
+        <tal:omit-tag i18n:translate=""><span>Outcomes</span></tal:omit-tag>
+      </h1>
+      <div class="stages" tal:define="stages view/getCurrentStage" tal:condition="stages">
+        <h2 class="bolder" i18n:translate="">Stages</h2>
+        <ul class="steps">
+          <li tal:repeat="stage stages" tal:attributes="class string:${stage/state}; id string:${stage/id}" tal:content="stage/title">Stage 1
+          </li>
+        </ul>
       </div>
-    </div>
-    <h1 class="documentFirstHeading" style="padding: 0px; border-bottom: 2px solid #dddddd;">
-      <tal:omit-tag i18n:translate=""><span>Outcomes</span></tal:omit-tag>
-    </h1>
-    <div class="stages" tal:define="stages view/getCurrentStage" tal:condition="stages">
-      <h2 class="bolder" i18n:translate="">Stages</h2>
-      <ul class="steps">
-        <li tal:repeat="stage stages"
-            tal:attributes="class string:${stage/state}; id string:${stage/id}"
-            tal:content="stage/title">Stage 1
-        </li>
-      </ul>
-    </div>
 
-    <div class="capacities">
-      <div id="chartCapacities" tal:define="outcome view/getOutcomeCC" tal:condition="outcome">
-        <h2 class="bolder" i18n:translate=""> Capacity Changes</h2>
-        <a data-toggle="modal" data-target="#modalInfoCapacity" class="btn-info-capacity">
-                        <i class="fa fa-info-circle"></i></a>
-        <div class="legendBox">
-          <span class="label custom-legend notset" i18n:translate="">Empty</span>
-          <span class="label custom-legend verybad" i18n:translate="">-2 Very negative</span>
-          <span class="label custom-legend bad" i18n:translate="">-1 Negative</span>
-          <span class="label custom-legend equal" i18n:translate="">0 No change</span>
-          <span class="label custom-legend good" i18n:translate="">+1 Positive</span>
-          <span class="label custom-legend verygood" i18n:translate="">+2 Very positive</span>
+      <div class="capacities">
+        <div id="chartCapacities" tal:define="outcome view/getOutcomeCC" tal:condition="outcome">
+          <h2 class="bolder" i18n:translate=""> Capacity Changes</h2>
+          <a data-toggle="modal" data-target="#modalInfoCapacity" class="btn-info-capacity">
+            <i class="fa fa-info-circle"></i></a>
+          <div class="legendBox">
+            <span class="label custom-legend notset" i18n:translate="">Empty</span>
+            <span class="label custom-legend verybad" i18n:translate="">-2 Very negative</span>
+            <span class="label custom-legend bad" i18n:translate="">-1 Negative</span>
+            <span class="label custom-legend equal" i18n:translate="">0 No change</span>
+            <span class="label custom-legend good" i18n:translate="">+1 Positive</span>
+            <span class="label custom-legend verygood" i18n:translate="">+2 Very positive</span>
+          </div>
+          <tal:block condition="outcome">
+            <div class="information">
+              <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
+              <div class="primerafila">
+                <tal:block repeat="item outcome/monitoring">
+                  <tal:block condition="python: item['short_category'] == 'transformational'">
+                    <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                      <div class="item_image" tal:condition="not:item/selected_specific">
+                        <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                      </div>
+                      <div class="item_image " tal:condition="item/selected_specific">
+                        <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                      </div>
+                      <div class="item_text">
+                        <span tal:content="item/title_specific">Leadership</span>
+                      </div>
+                    </a>
+                  </tal:block>
+                </tal:block>
+              </div>
+              <!-- <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3> -->
+              <div class="segundafila">
+                <tal:block repeat="item outcome/monitoring">
+                  <tal:block condition="python: item['short_category'] == 'transactional'">
+                    <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                      <div class="item_image" tal:condition="not:item/selected_specific">
+                        <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                      </div>
+                      <div class="item_image " tal:condition="item/selected_specific">
+                        <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                      </div>
+                      <div class="item_text">
+                        <span tal:content="item/title_specific">Leadership</span>
+                      </div>
+                    </a>
+                  </tal:block>
+                </tal:block>
+              </div>
+              <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3> -->
+              <div class="tercerafila">
+                <tal:block repeat="item outcome/monitoring">
+                  <tal:block condition="python: item['short_category'] == 'individual'">
+                    <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                      <div class="item_image" tal:condition="not:item/selected_specific">
+                        <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                      </div>
+                      <div class="item_image " tal:condition="item/selected_specific">
+                        <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                      </div>
+                      <div class="item_text">
+                        <span tal:content="item/title_specific">Leadership</span>
+                      </div>
+                    </a>
+                  </tal:block>
+                </tal:block>
+              </div>
+            </div>
+            <div id="others" class="information">
+              <!-- <h3 class="capacity-title" i18n:translate="">Others</h3> -->
+              <div class="cuartafila">
+                <tal:block repeat="item outcome/monitoring">
+                  <tal:block condition="python: item['short_category'] == 'other'">
+                    <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
+                      <div class="item_image" tal:condition="not:item/selected_specific">
+                        <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                      </div>
+                      <div class="item_image " tal:condition="item/selected_specific">
+                        <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                      </div>
+                      <div class="item_text">
+                        <span tal:content="item/title_specific">Other</span>
+                      </div>
+                    </a>
+                  </tal:block>
+                </tal:block>
+              </div>
+            </div>
+          </tal:block>
         </div>
-        <tal:block condition="outcome">
-          <div class="information">
-            <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
-            <div class="primerafila">
-              <tal:block repeat="item outcome/monitoring">
-                <tal:block condition="python: item['short_category'] == 'transformational'">
-                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
-                    <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
-                    </div>
-                    <div class="item_image " tal:condition="item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                    </div>
-                    <div class="item_text">
-                      <span tal:content="item/title_specific">Leadership</span>
-                    </div>
-                  </a>
-                </tal:block>
-              </tal:block>
-            </div>
-            <!-- <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3> -->
-            <div class="segundafila">
-              <tal:block repeat="item outcome/monitoring">
-                <tal:block condition="python: item['short_category'] == 'transactional'">
-                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
-                    <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
-                    </div>
-                    <div class="item_image " tal:condition="item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                    </div>
-                    <div class="item_text">
-                      <span tal:content="item/title_specific">Leadership</span>
-                    </div>
-                  </a>
-                </tal:block>
-              </tal:block>
-            </div>
-            <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3> -->
-            <div class="tercerafila">
-              <tal:block repeat="item outcome/monitoring">
-                <tal:block condition="python: item['short_category'] == 'individual'">
-                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
-                    <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
-                    </div>
-                    <div class="item_image " tal:condition="item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                    </div>
-                    <div class="item_text">
-                      <span tal:content="item/title_specific">Leadership</span>
-                    </div>
-                  </a>
-                </tal:block>
-              </tal:block>
-            </div>
-          </div>
-          <div id="others" class="information">
-            <!-- <h3 class="capacity-title" i18n:translate="">Others</h3> -->
-            <div class="cuartafila" >
-              <tal:block repeat="item outcome/monitoring">
-                <tal:block condition="python: item['short_category'] == 'other'">
-                  <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
-                    <div class="item_image" tal:condition="not:item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_basic}" alt="" title=""/>
-                    </div>
-                    <div class="item_image " tal:condition="item/selected_specific">
-                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
-                    </div>
-                    <div class="item_text">
-                      <span tal:content="item/title_specific">Other</span>
-                    </div>
-                  </a>
-                </tal:block>
-              </tal:block>
-            </div>
-          </div>
-        </tal:block>
       </div>
-    </div>
 
-    <div id="modalInfoCapacity" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalInfoCapacity" data-dismiss="modal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" i18n:translate=""> Capacity specific </h4>
-          </div>
-          <div class="modal-body">
-            <table>
-              <tbody>
+      <div id="modalInfoCapacity" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalInfoCapacity" data-dismiss="modal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" i18n:translate=""> Capacity specific </h4>
+            </div>
+            <div class="modal-body">
+              <table>
+                <tbody>
                   <tr>
                     <td rowspan="5" i18n:translate="">Organization - strategic </td>
                     <td>
@@ -190,7 +172,7 @@
                     <td i18n:translate="">Mission and strategy</td>
                     <td i18n:translate="">What the organization's top management believes is and has declared in the organization's mission and strategy and what employees believe is the central purpose of the organization.</td>
                   </tr>
-                 <tr>
+                  <tr>
                     <td>
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/leadership.png">
                     </td>
@@ -224,21 +206,24 @@
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/systems.png">
                     </td>
                     <td i18n:translate="">Systems</td>
-                    <td i18n:translate="">Standardized policies, procedures and mechanisms that facilitate work, primarily (Eg. organization's reward systems, management information systems, control and support systems as performance appraisal, goal and budget development and human resource allocation and others.</td>
+                    <td i18n:translate="">Standardized policies, procedures and mechanisms that facilitate work, primarily (Eg. organization's reward systems, management information systems, control and support systems as performance appraisal, goal
+                      and budget development and human resource allocation and others.</td>
                   </tr>
                   <tr>
                     <td>
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/structure.png">
                     </td>
                     <td i18n:translate="">Structure</td>
-                    <td i18n:translate="">Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization's mission and strategy.</td>
+                    <td i18n:translate="">Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization's
+                      mission and strategy.</td>
                   </tr>
-                 <tr>
+                  <tr>
                     <td>
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/management.png">
                     </td>
                     <td i18n:translate="">Management</td>
-                    <td i18n:translate="">Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization's strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control).</td>
+                    <td i18n:translate="">Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization's strategy (including elements such as managerial
+                      behaviour, work etiquette, professionalism, planning, communication and control).</td>
                   </tr>
                   <tr>
                     <td>
@@ -269,7 +254,7 @@
                     <td i18n:translate="">Knowledge & Skills</td>
                     <td i18n:translate="">Availability of human resources and extent to which they have the required skills and knowledge to accomplish the work for which they have been assigned to do.</td>
                   </tr>
-                 <tr>
+                  <tr>
                     <td>
                       <img alt="" title="" src="++theme++gwopa.theme/assets/images/motivation.png">
                     </td>
@@ -283,19 +268,20 @@
                     <td i18n:translate="">Applied knowledge skills</td>
                     <td i18n:translate="">Active use of the newly acquired knowledge and skills in their jobs.</td>
                   </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/dashboard-areas.js"></script>
-    <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
+      <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/dashboard-areas.js"></script>
+      <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
 
-  </metal:block>
+    </metal:block>
 
-</metal:content-core>
+  </metal:content-core>
 
 </body>
+
 </html>

@@ -1,14 +1,103 @@
 # -*- coding: utf-8 -*-
 from plone.restapi.services import Service
 from plone import api
-from zope.component import ComponentLookupError
 from zExceptions import BadRequest
-from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
 import json
 import math
 from gwopa.core.utils import percentage
+import datetime
+
+
+class GetDashboard(BrowserView):
+    """Service for list activities and outputs from WA and year."""
+
+    # /api-getDashboard
+    def __call__(self):
+        """Answer for the webservice."""
+        wa_path = self.request.form.get('wa', False)
+        year = self.request.form.get('year', False)
+
+        if not wa_path:
+            BadRequest('Working area are required')
+        if not year:
+            BadRequest('Year are required')
+
+        indicators = {}
+        if wa_path:
+            data_year = self.context.gwopa_year_phases[int(year) - 1]
+            start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+            end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+            # Los de la fase [---]
+            range_start = {'query': (start, end), 'range': 'min:max'}
+            range_end = {'query': (start, end), 'range': 'min:max'}
+            activities1 = api.content.find(
+                portal_type=['Activity'],
+                start=range_start,
+                end=range_end,
+                path={'query': wa_path, 'depth': 1})
+
+            # Los de fuera de la fase start y end ---][----
+            range_start = {'query': (start), 'range': 'max'}
+            range_end = {'query': (end), 'range': 'min'}
+            activities2 = api.content.find(
+                portal_type=['Activity'],
+                start=range_start,
+                end=range_end,
+                path={'query': wa_path, 'depth': 1})
+
+            # Los que empiezan antes y acaban en fase ---]
+            ranges = {'query': (start), 'range': 'max'}
+            range_end = {'query': (start, end), 'range': 'min:max'}
+
+            activities3 = api.content.find(
+                portal_type=['Activity'],
+                start=ranges,
+                end=range_end,
+                path={'query': wa_path, 'depth': 1})
+
+            # Los que empiezan aqui y acaban despues [----
+            range_start = {'query': (start, end), 'range': 'min:max'}
+            range_end = {'query': (end), 'range': 'min'}
+            activities4 = api.content.find(
+                portal_type=['Activity'],
+                start=range_start,
+                end=range_end,
+                path={'query': wa_path, 'depth': 1})
+
+            items = activities1 + activities2 + activities3 + activities4
+
+            for act in items:
+                indicators[act.Title] = {}
+                annotations = IAnnotations(act.getObject())
+                KEY = "GWOPA_TARGET_YEAR_" + str(year)
+                if annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                    value = 0
+                else:
+                    value = annotations[KEY]['monitoring']['progress']
+                indicators[act.Title]['activity_val'] = (value)
+                indicators[act.Title]['outputs'] = {}
+                outputs = api.content.find(
+                    portal_type=['Output'],
+                    path={'query': act.getPath(), 'depth': 1})
+                for output in outputs:
+                    annotations = IAnnotations(output.getObject())
+                    KEY = "GWOPA_TARGET_YEAR_" + str(year)
+                    if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
+                        value = 0
+                    else:
+                        planned = annotations[KEY]['planned']
+                        real = annotations[KEY]['monitoring']['progress']
+                        # value = percentage(real, planned)
+                        value = "" + str(real) + '/' + str(planned)
+                    indicators[act.Title]['outputs'][output.Title] = value
+
+            self.request.response.setHeader("Content-type", "application/json")
+            return json.dumps(indicators)
+        else:
+            return None
 
 
 class GetActivities(BrowserView):
