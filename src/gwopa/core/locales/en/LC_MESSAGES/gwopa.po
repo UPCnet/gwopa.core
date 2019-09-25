@@ -1258,7 +1258,7 @@ msgstr "Stage"
 
 #: ../browser/templates/dash-areas.pt:72
 msgid "Stages"
-msgstr "Stages"
+msgstr "Change Consolidation Stages"
 
 #: ../browser/templates/dash-areas.pt:227
 #: ../browser/templates/monitoring.pt:855

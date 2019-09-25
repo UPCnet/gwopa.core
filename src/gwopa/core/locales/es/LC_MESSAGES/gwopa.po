@@ -1195,7 +1195,7 @@ msgstr "Fase"
 
 #: ../browser/templates/dash-areas.pt:72
 msgid "Stages"
-msgstr "Fases"
+msgstr "Cambiar fases de consolidación"
 
 #: ../browser/templates/dash-areas.pt:227
 #: ../browser/templates/monitoring.pt:855 ../browser/templates/planning.pt:1149
