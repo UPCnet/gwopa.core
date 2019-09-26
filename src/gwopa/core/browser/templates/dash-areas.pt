@@ -1,5 +1,11 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" lang="en" metal:use-macro="context/main_template/macros/master"
-  i18n:domain="gwopa">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="gwopa">
 
 <body>
 
@@ -53,7 +59,8 @@
         <tal:omit-tag i18n:translate=""><span>Outcomes</span></tal:omit-tag>
       </h1>
       <div class="stages" tal:define="stages view/getCurrentStage" tal:condition="stages">
-        <h2 class="bolder" i18n:translate="">Stages
+        <h2 class="bolder">
+          <span i18n:translate="Stages">Stages</span>
           <a data-toggle="modal" data-target="#modalInfoStage" class="btn-info-capacity">
             <i class="fa fa-info-circle"></i>
           </a>
