@@ -425,7 +425,8 @@ msgstr "Descripción y principales objetivos"
 msgid "Diagnosing and action planning"
 msgstr "Diagnóstico y planificación de acción"
 
-#: ../userdataschema.py:76
+#: ../userdataschema.py:82
+#: ../utils.py:204
 msgid "Donor"
 msgstr "Donante"
 
@@ -859,7 +860,7 @@ msgstr "Motivación"
 msgid "My Projects"
 msgstr "Mis proyectos"
 
-#: ../userdataschema.py:68
+#: ../userdataschema.py:74
 msgid "My common Working Areas"
 msgstr "Mis áreas de trabajo comunes"
 
@@ -902,6 +903,10 @@ msgstr "No hay ningún KPI en este proyecto"
 #: ../browser/templates/manage_portal.pt:56
 msgid "No Projects found in the Platform."
 msgstr "Nuevos Proyectos encontrados en la Plataforma"
+
+#: ../utils.py:205
+msgid "Non-participating users"
+msgstr ""
 
 #: ../browser/dashboard-areas.py:198
 #: ../browser/monitoring.py:205
@@ -947,13 +952,17 @@ msgstr "Organización - estrategica"
 msgid "Organizational culture"
 msgstr "Cultura Organizacional"
 
-#: ../userdataschema.py:82
+#: ../userdataschema.py:88
 msgid "Other"
 msgstr "Otros"
 
 #: ../content/templates/project_view.pt:168
 msgid "Other Organizations"
 msgstr "Otras Organizaciones"
+
+#: ../utils.py:206
+msgid "Others"
+msgstr ""
 
 #: ../profiles/default/types/OutcomeCC.xml
 msgid "OutcomeCC"
@@ -1140,6 +1149,7 @@ msgstr "Región"
 
 #: ../content/project.py:153
 #: ../userdataschema.py:54
+#: ../utils.py:201
 msgid "Regional WOP Platform"
 msgstr "Plataforma regional de WOP"
 
@@ -1470,6 +1480,10 @@ msgstr "Presupuesto total"
 msgid "Total budget:"
 msgstr "Presupuesto total:"
 
+#: ../userdataschema.py:68
+msgid "Type of organization"
+msgstr "Tipo de organización"
+
 #: ../configure.zcml:49
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr "Uninstall: GWOPA Core package (gwopa.core)"
@@ -1579,6 +1593,10 @@ msgstr "WOP Programa"
 msgid "Wall"
 msgstr "Muro"
 
+#: ../utils.py:203
+msgid "Water Operator"
+msgstr ""
+
 #: ../browser/templates/monitoring.pt:431
 msgid "What are the specific changes perceived in this working area?"
 msgstr "Cuales son los cambios específicos percibidos en este Área de Trabajo?"
@@ -1639,13 +1657,13 @@ msgstr "Zona"
 msgid "admin"
 msgstr "administrador"
 
-#: ../browser/user_profile.py:51
-#: ../indexers.py:28
+#: ../browser/user_profile.py:52
+#: ../indexers.py:29
 msgid "common_working_areas"
 msgstr "Mis áreas de trabajo comunes"
 
 #: ../browser/user_profile.py:47
-#: ../indexers.py:31
+#: ../indexers.py:32
 msgid "country"
 msgstr "País"
 
@@ -1653,8 +1671,8 @@ msgstr "País"
 msgid "description"
 msgstr "Descripción"
 
-#: ../browser/user_profile.py:52
-#: ../indexers.py:29
+#: ../browser/user_profile.py:53
+#: ../indexers.py:30
 msgid "donor"
 msgstr "Donante"
 
@@ -1683,7 +1701,7 @@ msgstr "Menú GWOPA"
 msgid "help_tags"
 msgstr "Las etiquetas se utilizan para buscar y localizar elementos."
 
-#: ../indexers.py:33
+#: ../indexers.py:34
 msgid "home_page"
 msgstr "Homepage"
 
@@ -1698,13 +1716,13 @@ msgstr "Ver en Google Maps"
 msgid "label_tags"
 msgstr "Etiquetas"
 
-#: ../browser/user_profile.py:53
-#: ../indexers.py:30
+#: ../browser/user_profile.py:54
+#: ../indexers.py:31
 msgid "other"
 msgstr "Otros"
 
 #: ../browser/user_profile.py:46
-#: ../indexers.py:32
+#: ../indexers.py:33
 msgid "phone"
 msgstr "Teléfono"
 
@@ -1741,6 +1759,11 @@ msgstr "Buscador de proyectos"
 #: ../browser/templates/planning.pt:30
 msgid "to"
 msgstr "hasta"
+
+#: ../browser/user_profile.py:51
+#: ../indexers.py:28
+msgid "type_of_organization"
+msgstr "Tipo de organización"
 
 #: ../indexers.py:21
 msgid "username"

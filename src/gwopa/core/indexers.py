@@ -25,6 +25,7 @@ class UserPropertiesSoupCatalogFactory(object):
         _(u'wop_platforms'),
         _(u'wop_programs'),
         _(u'wop_partners'),
+        _(u'type_of_organization'),
         _(u'common_working_areas'),
         _(u'donor'),
         _(u'other'),
@@ -38,6 +39,7 @@ class UserPropertiesSoupCatalogFactory(object):
         'wop_platforms',
         'wop_programs',
         'wop_partners',
+        'type_of_organization'
         'common_working_areas',
         'donor',
         'other',
@@ -79,6 +81,12 @@ class UserPropertiesSoupCatalogFactory(object):
 
         country = NodeAttributeIndexer('country')
         catalog['country'] = CatalogTextIndex(country)
+
+        type_of_organization = NodeAttributeIndexer('type_of_organization')
+        catalog['type_of_organization'] = CatalogTextIndex(type_of_organization)
+
+        common_working_areas = NodeAttributeIndexer('common_working_areas')
+        catalog['common_working_areas'] = CatalogTextIndex(common_working_areas)
 
         donors = NodeAttributeIndexer('donors')
         catalog['donors'] = CatalogTextIndex(donors)

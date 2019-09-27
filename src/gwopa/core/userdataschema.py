@@ -64,6 +64,12 @@ class IEnhancedUserDataSchema(model.Schema):
         required=False,
     )
 
+    type_of_organization = schema.Choice(
+        title=_(u"Type of organization"),
+        required=False,
+        source=utils.listTypeOrganizations,
+    )
+
     common_working_areas = schema.List(
         title=_(u"My common Working Areas"),
         required=False,

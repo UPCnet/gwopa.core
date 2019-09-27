@@ -423,7 +423,8 @@ msgstr ""
 msgid "Diagnosing and action planning"
 msgstr ""
 
-#: ../userdataschema.py:76
+#: ../userdataschema.py:82
+#: ../utils.py:204
 msgid "Donor"
 msgstr ""
 
@@ -857,7 +858,7 @@ msgstr ""
 msgid "My Projects"
 msgstr ""
 
-#: ../userdataschema.py:68
+#: ../userdataschema.py:74
 msgid "My common Working Areas"
 msgstr ""
 
@@ -899,6 +900,10 @@ msgstr ""
 
 #: ../browser/templates/manage_portal.pt:56
 msgid "No Projects found in the Platform."
+msgstr ""
+
+#: ../utils.py:205
+msgid "Non-participating users"
 msgstr ""
 
 #: ../browser/dashboard-areas.py:198
@@ -945,12 +950,16 @@ msgstr ""
 msgid "Organizational culture"
 msgstr ""
 
-#: ../userdataschema.py:82
+#: ../userdataschema.py:88
 msgid "Other"
 msgstr ""
 
 #: ../content/templates/project_view.pt:168
 msgid "Other Organizations"
+msgstr ""
+
+#: ../utils.py:206
+msgid "Others"
 msgstr ""
 
 #: ../profiles/default/types/OutcomeCC.xml
@@ -1138,6 +1147,7 @@ msgstr ""
 
 #: ../content/project.py:153
 #: ../userdataschema.py:54
+#: ../utils.py:201
 msgid "Regional WOP Platform"
 msgstr ""
 
@@ -1468,6 +1478,10 @@ msgstr ""
 msgid "Total budget:"
 msgstr ""
 
+#: ../userdataschema.py:68
+msgid "Type of organization"
+msgstr ""
+
 #: ../configure.zcml:49
 msgid "Uninstall: GWOPA Core package (gwopa.core)"
 msgstr ""
@@ -1577,6 +1591,10 @@ msgstr ""
 msgid "Wall"
 msgstr ""
 
+#: ../utils.py:203
+msgid "Water Operator"
+msgstr ""
+
 #: ../browser/templates/monitoring.pt:431
 msgid "What are the specific changes perceived in this working area?"
 msgstr ""
@@ -1637,13 +1655,13 @@ msgstr ""
 msgid "admin"
 msgstr ""
 
-#: ../browser/user_profile.py:51
-#: ../indexers.py:28
+#: ../browser/user_profile.py:52
+#: ../indexers.py:29
 msgid "common_working_areas"
 msgstr ""
 
 #: ../browser/user_profile.py:47
-#: ../indexers.py:31
+#: ../indexers.py:32
 msgid "country"
 msgstr ""
 
@@ -1651,8 +1669,8 @@ msgstr ""
 msgid "description"
 msgstr ""
 
-#: ../browser/user_profile.py:52
-#: ../indexers.py:29
+#: ../browser/user_profile.py:53
+#: ../indexers.py:30
 msgid "donor"
 msgstr ""
 
@@ -1681,7 +1699,7 @@ msgstr ""
 msgid "help_tags"
 msgstr ""
 
-#: ../indexers.py:33
+#: ../indexers.py:34
 msgid "home_page"
 msgstr ""
 
@@ -1696,13 +1714,13 @@ msgstr ""
 msgid "label_tags"
 msgstr ""
 
-#: ../browser/user_profile.py:53
-#: ../indexers.py:30
+#: ../browser/user_profile.py:54
+#: ../indexers.py:31
 msgid "other"
 msgstr ""
 
 #: ../browser/user_profile.py:46
-#: ../indexers.py:32
+#: ../indexers.py:33
 msgid "phone"
 msgstr ""
 
@@ -1738,6 +1756,11 @@ msgstr ""
 #: ../browser/templates/monitoring.pt:30
 #: ../browser/templates/planning.pt:30
 msgid "to"
+msgstr ""
+
+#: ../browser/user_profile.py:51
+#: ../indexers.py:28
+msgid "type_of_organization"
 msgstr ""
 
 #: ../indexers.py:21

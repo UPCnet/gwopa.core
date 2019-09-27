@@ -196,6 +196,20 @@ def area_title(context):
 directlyProvides(area_title, IContextSourceBinder)
 
 
+def listTypeOrganizations(context):
+    types = []
+    types.append(SimpleVocabulary.createTerm(u'Regional WOP Platform', 'Regional WOP Platform', _(u'Regional WOP Platform')))
+    types.append(SimpleVocabulary.createTerm(u'WOP Program', 'WOP Program', _(u'WOP Program')))
+    types.append(SimpleVocabulary.createTerm(u'Water Operator', 'Water Operator', _(u'Water Operator')))
+    types.append(SimpleVocabulary.createTerm(u'Donor', 'Donor', _(u'Donor')))
+    types.append(SimpleVocabulary.createTerm(u'Non-participating users', 'Non-participating users', _(u'Non-participating users')))
+    types.append(SimpleVocabulary.createTerm(u'Others', 'Others', _(u'Others')))
+    return SimpleVocabulary(types)
+
+
+directlyProvides(listTypeOrganizations, IContextSourceBinder)
+
+
 def get_safe_member_by_id(username):
     """
     Gets user info from the repoze.catalog based user properties catalog.
