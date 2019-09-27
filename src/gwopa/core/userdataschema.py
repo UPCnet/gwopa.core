@@ -54,15 +54,34 @@ class IEnhancedUserDataSchema(model.Schema):
         title=_(u'Regional WOP Platform'),
         required=False,
         value_type=schema.Choice(
-            source=utils.listWOPPlatforms
+            source=utils.listWOPPlatforms,
         ),
     )
 
     wop_partners = schema.Choice(
         title=_(u"WOP Partners"),
-        description=_(u""),
         source=utils.listPartners,
         required=False,
+    )
+
+    common_working_areas = schema.List(
+        title=_(u"My common Working Areas"),
+        required=False,
+        value_type=schema.Choice(
+            source=utils.area_title,
+        ),
+    )
+
+    donor = schema.Choice(
+        title=_(u"Donor"),
+        required=False,
+        source=utils.listDonors,
+    )
+
+    other = schema.Text(
+        title=_(u'Other'),
+        required=False,
+        default=u"",
     )
 
 

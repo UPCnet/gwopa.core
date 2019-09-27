@@ -6,5 +6,7 @@
  <property name="wop_programs" type="lines"></property>
  <property name="wop_platforms" type="lines"></property>
  <property name="wop_partners" type="string"></property>
- <property name="arees_exp" type="lines"></property>
+ <property name="common_working_areas" type="lines">></property>
+ <property name="donor" type="string"></property>
+ <property name="other" type="text"></property>
 </object>
