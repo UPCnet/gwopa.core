@@ -95,10 +95,15 @@ class View(grok.View):
         members = api.user.get_users()
         results = []
 
-        for item in members:
-            results += [{'id': item.id,
-                         'country': item.getProperty('country')
-                         }]
+        wa = self.context.Title()
+        for user in members:
+            member_wa = user.getProperty('common_working_areas')
+            if wa in member_wa:
+                results += [{'id': user.id,
+                             'fullname': user.getProperty('fullname'),
+                             'email': user.getProperty('email'),
+                             'image': utils.getPortrait(self, user.id),
+                             }]
         return results
 
     def update(self):

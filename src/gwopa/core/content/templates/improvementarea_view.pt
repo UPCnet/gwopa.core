@@ -40,14 +40,29 @@
               <button id="add-new-member" class="context focus" i18n:translate=""> + New Member </button>
           </a> -->
           </h2>
-          <table class="table">
+
+          <table id="tableFocalPoint" class="table-hover">
+            <thead>
+              <tr>
+                <th i18n:translate="">Name</th>
+                <th i18n:translate="">Contact</th>
+              </tr>
+            </thead>
             <tbody>
-              <tal:items tal:repeat="obj recent_items">
-                <tr>
-                  <td tal:content="obj/id"> User Photo </td>
-                  <td tal:content="obj/country"> Country</td>
-                </tr>
-              </tal:items>
+              <tr tal:repeat="partner recent_items">
+                <td>
+                  <tal:block tal:replace="structure partner/image"></tal:block>
+                  <a tal:attributes="href string:${portal_url}/profile/${partner/id}">
+                    <tal:block tal:content="partner/fullname"></tal:block>
+                  </a>
+                </td>
+                <td>
+                  <tal:block tal:condition="partner/email">
+                    <a tal:attributes="href string:mailto:${partner/email}"><i class="far fa-envelope"></i></a>
+                    <tal:block tal:content="partner/email"></tal:block>
+                  </tal:block>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
