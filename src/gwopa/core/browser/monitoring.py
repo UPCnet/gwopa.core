@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+from operator import itemgetter
 from plone import api
+from zope.annotation.interfaces import IAnnotations
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from operator import itemgetter
-from Products.CMFCore.utils import getToolByName
-from zope.annotation.interfaces import IAnnotations
-import datetime
+
 from gwopa.core import _
+from gwopa.core.utils import getTitleAttrLang
+
+import datetime
 
 
 @implementer(IPublishTraverse)
@@ -123,13 +127,14 @@ class monitoringView(BrowserView):
 
     def getAreas(self):
         """ Returns all the Improvement Areas in a Project """
+        attr_lang = getTitleAttrLang()
         items = api.content.find(
             portal_type=['ImprovementArea'],
             context=self.context)
         results = []
         for project in items:
             item = project.getObject()
-            results.append(dict(title=item.title,
+            results.append(dict(title=getattr(project, attr_lang),
                                 url='/'.join(item.getPhysicalPath()),
                                 id=item.id,
                                 description=item.description,
@@ -480,10 +485,11 @@ class monitoringView(BrowserView):
                         if user:
                             members.append(user.getProperty('fullname'))
 
+            attr_lang = getTitleAttrLang()
             if obj.aq_parent.portal_type == 'ImprovementArea':
-                area = obj.aq_parent.title
+                area = getattr(obj.aq_parent, attr_lang)
             else:
-                area = obj.aq_parent.aq_parent.title
+                area = getattr(obj.aq_parent.aq_parent, attr_lang)
             results.append(dict(
                 rid=item.getRID(),
                 area=area,

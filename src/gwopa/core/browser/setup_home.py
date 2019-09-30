@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import IPloneSiteRoot
+from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from Products.statusmessages.interfaces import IStatusMessage
+
+from cgi import parse_qs
 from five import grok
 from plone import api
-from cgi import parse_qs
-from Products.CMFPlone.interfaces import IPloneSiteRoot
-import logging
-from gwopa.core.interfaces import IGwopaCoreLayer
-import requests
-from plone.namedfile.file import NamedBlobImage
-from plone.app.textfield.value import RichTextValue
-from Products.statusmessages.interfaces import IStatusMessage
-from gwopa.core import _
-from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from plone.app.dexterity.behaviors import constrains
+from plone.app.textfield.value import RichTextValue
+from plone.namedfile.file import NamedBlobImage
 from random import random
-import math
-from gwopa.core.content.project import default_plus_one_year, default_today
-
 from requests.exceptions import ConnectionError
+
+from gwopa.core import _
+from gwopa.core.content.project import default_plus_one_year
+from gwopa.core.content.project import default_today
+from gwopa.core.interfaces import IGwopaCoreLayer
+
+import logging
+import math
+import requests
+
 requests.packages.urllib3.disable_warnings()
 
 
@@ -424,36 +429,42 @@ class setup(grok.View):
 
         # Create item areas
         working_areas = [
-            'Asset Management',
-            'Billing & Collection Efficiency',
-            'Business Planning',
-            'Commercial & Physical Losses - NRW',
-            'Customer Service',
-            'Financial Management',
-            'Wastewater Collection & Treatment',
-            'Production processes  & Service Quality & Water Safety  (Drinking Water)',
-            'Operation & Maintenance',
-            'Energy Efficiency',
-            'Human Resource Management/ Organizational Development',
-            'Corporate Governance & Institutions',
-            'Catchment Management / IWRM',
-            'Climate Change Resilience',
-            'Services in Low-Income Areas',
-            'Extension of Sanitation & Hygiene services ',
-            'Extension of Water Supply Services ',
-            'Social Inclusion/Gender  ',
-            'Information & Technology',
-            'Policy and Legal Support ',
-            'Water Demand Management',
+            _(u'Asset Management'),
+            _(u'Billing & Collection Efficiency'),
+            _(u'Business Planning'),
+            _(u'Commercial & Physical Losses - NRW'),
+            _(u'Customer Service'),
+            _(u'Financial Management'),
+            _(u'Wastewater Collection & Treatment'),
+            _(u'Production processes & Service Quality & Water Safety (Drinking Water)'),
+            _(u'Operation & Maintenance'),
+            _(u'Energy Efficiency'),
+            _(u'Human Resource Management/ Organizational Development'),
+            _(u'Corporate Governance & Institutions'),
+            _(u'Catchment Management / IWRM'),
+            _(u'Climate Change Resilience'),
+            _(u'Services in Low-Income Areas'),
+            _(u'Extension of Sanitation & Hygiene services'),
+            _(u'Extension of Water Supply Services'),
+            _(u'Social Inclusion/Gender'),
+            _(u'Information & Technology'),
+            _(u'Policy and Legal Support'),
+            _(u'Water Demand Managemen')
         ]
 
+        tool_ts = getToolByName(self, 'translation_service')
         for i in working_areas:
+            title_es = tool_ts.translate(i, domain='gwopa', target_language='es')
+            title_fr = tool_ts.translate(i, domain='gwopa', target_language='fr')
             obj = api.content.create(
                 type='ItemArea',
-                id=str(i),
-                title=str(i),
+                id=i,
+                title=i,
+                title_es=title_es if title_es != '' else i,
+                title_fr=title_fr if title_fr != '' else i,
                 container=portal.config.areas,
                 safe_id=True)
+
             obj.image = self.getRandomImage(200, 200)
         self.createProjects(5)
         self.createDefaultOutputs()

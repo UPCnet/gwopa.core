@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+from geojson import Feature
+from geojson import FeatureCollection
+from geojson import Point
 from plone import api
-from geojson import Feature, Point, FeatureCollection
+
 from gwopa.core import _
+from gwopa.core.utils import getTitleAttrLang
 
 
 class listFiles(BrowserView):
@@ -49,6 +54,7 @@ class listAreas(BrowserView):
             return _(u'Here are all the Improvement Areas of the Platform.')
 
     def all_areas(self):
+        attr_lang = getTitleAttrLang()
         if self.context.portal_type == 'Project':
             items = api.content.find(
                 portal_type=['ImprovementArea'],
@@ -63,7 +69,7 @@ class listAreas(BrowserView):
             else:
                 image = obj.absolute_url_path() + '/@@images/image/thumb'
             results.append(dict(
-                title=item.Title,
+                title=getattr(item, attr_lang),
                 image=image,
                 project=obj.aq_parent.Title(),
                 url='/'.join(obj.getPhysicalPath()),

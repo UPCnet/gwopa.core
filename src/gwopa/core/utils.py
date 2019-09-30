@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
-from plone import api
-from zope.schema.interfaces import IContextSourceBinder
-from plone.app.vocabularies.terms import safe_simplevocabulary_from_values
-from zope.schema.vocabulary import SimpleVocabulary
-import unicodedata
-from zope.schema.vocabulary import SimpleTerm
-import pycountry
-from gwopa.core import _
-from souper.soup import get_soup
-from repoze.catalog.query import Eq
 from Products.CMFCore.utils import getToolByName
+
+from plone import api
+from plone.app.vocabularies.terms import safe_simplevocabulary_from_values
+from repoze.catalog.query import Eq
+from souper.soup import get_soup
 from zope.interface import directlyProvides
+from zope.schema.interfaces import IContextSourceBinder
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
+
+from gwopa.core import _
+
+import pycountry
+import unicodedata
 
 
 def percentage(part, whole):
@@ -186,11 +189,13 @@ directlyProvides(outputs, IContextSourceBinder)
 def area_title(context):
     """ Titles of Improvement Areas. """
     terms = []
-    literals = api.content.find(portal_type="ItemArea", context=api.portal.get()[
-                                'config']['areas'], depth=1)
+    attr_lang = getTitleAttrLang()
+
+    literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
     for item in literals:
-        terms.append(item.Title)
-    return safe_simplevocabulary_from_values(terms)
+        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
+        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, getattr(item, attr_lang)))
+    return SimpleVocabulary(terms)
 
 
 directlyProvides(area_title, IContextSourceBinder)
@@ -208,6 +213,20 @@ def listTypeOrganizations(context):
 
 
 directlyProvides(listTypeOrganizations, IContextSourceBinder)
+
+
+def getTitleAttrLang():
+    lang = getUserLang()
+    return 'Title' if lang == 'en' else 'title_' + lang
+
+
+def getUserLang():
+    lang = api.user.get_current().getProperty('language')
+
+    if not lang or lang == '':
+        lang = api.portal.get_default_language()
+
+    return lang
 
 
 def get_safe_member_by_id(username):

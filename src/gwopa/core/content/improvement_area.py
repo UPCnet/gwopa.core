@@ -1,20 +1,25 @@
 # -*- coding: utf-8 -*-
 from Acquisition import aq_inner
-from five import grok
-from zope import schema
-from gwopa.core import _
-from plone.namedfile import field as namedfile
-from plone import api
 from Products.CMFCore.utils import getToolByName
+
+from five import grok
+from plone import api
 from plone.app.event.base import construct_calendar
-from plone.app.event.base import localized_today
 from plone.app.event.base import first_weekday
+from plone.app.event.base import localized_today
 from plone.app.event.base import wkday_to_mon1
 from plone.app.event.portlets import get_calendar_url
-from zope.i18nmessageid import MessageFactory
-import calendar
+from plone.autoform import directives
 from plone.directives import form
+from plone.indexer import indexer
+from plone.namedfile import field as namedfile
+from zope import schema
+from zope.i18nmessageid import MessageFactory
+
+from gwopa.core import _
 from gwopa.core import utils
+
+import calendar
 
 PLMF = MessageFactory('plonelocales')
 
@@ -44,6 +49,42 @@ class IImprovementArea(form.Schema):
         description=_(u"Image used to describe the Area. If no file chosen, a defult one will be used."),
         required=False,
     )
+
+    directives.mode(title_es='hidden')
+    title_es = schema.TextLine(
+        title=_(u"Title Spanish"),
+        required=False,
+    )
+
+    directives.mode(title_fr='hidden')
+    title_fr = schema.TextLine(
+        title=_(u"Title French"),
+        required=False,
+    )
+
+
+@indexer(IImprovementArea)
+def title_es(context):
+    try:
+        value = context.title_es.decode("utf-8")
+        return value
+    except:
+        return context.title_es
+
+
+grok.global_adapter(title_es, name='title_es')
+
+
+@indexer(IImprovementArea)
+def title_fr(context):
+    try:
+        value = context.title_fr.decode("utf-8")
+        return value
+    except:
+        return context.title_fr
+
+
+grok.global_adapter(title_fr, name='title_fr')
 
 
 class Edit(form.SchemaEditForm):

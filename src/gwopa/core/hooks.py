@@ -1,24 +1,28 @@
+# -*- coding: utf-8 -*-
+from Products.CMFPlone.interfaces import IConfigurationChangedEvent
+from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
+
+from dateutil.relativedelta import *
 from five import grok
+from plone import api
+from plone.namedfile.file import NamedBlobImage
+from zope.annotation.interfaces import IAnnotations
+from zope.globalrequest import getRequest
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
-from gwopa.core.content.project import IProject
-from gwopa.core.content.partner import IPartner
+
 from gwopa.core.content.donor import IDonor
 from gwopa.core.content.improvement_area import IImprovementArea
 from gwopa.core.content.outcomecc import IOutcomecc
 from gwopa.core.content.outcomeccs import IOutcomeccs
-from Products.CMFPlone.interfaces import IConfigurationChangedEvent
-from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
-from plone import api
-import requests
-from plone.namedfile.file import NamedBlobImage
+from gwopa.core.content.partner import IPartner
+from gwopa.core.content.project import IProject
+
 # import datetime
-import transaction
-import math
-from dateutil.relativedelta import *
-from zope.globalrequest import getRequest
 import dateutil.relativedelta
-from zope.annotation.interfaces import IAnnotations
+import math
+import requests
+import transaction
 
 
 @grok.subscribe(IProject, IObjectAddedEvent)
@@ -111,6 +115,8 @@ def projectAdded(content, event):
             obj = api.content.create(
                 type='ImprovementArea',
                 title=data.Title,
+                title_es=data.title_es,
+                title_fr=data.title_fr,
                 description=data.Description,
                 image=data.getObject().image,
                 container=content)
@@ -133,7 +139,6 @@ def projectAdded(content, event):
                 container=content.contribs)
             obj.incash = 0
             obj.inkind = 0
-    
 
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
@@ -221,6 +226,8 @@ def projectModified(content, event):
                     api.content.create(
                         type='ImprovementArea',
                         title=data.Title,
+                        title_es=data.title_es,
+                        title_fr=data.title_fr,
                         description=data.Description,
                         image=data.getObject().image,
                         container=content)
@@ -268,7 +275,7 @@ def projectModified(content, event):
         for item_partner in items_partners:
             item_partner_obj = item_partner.getObject()
             all_partners.append(item_partner_obj.title)
-      
+
         for item in all_partners:
             if item not in partners:
                 obj = api.content.find(
@@ -301,7 +308,7 @@ def projectModified(content, event):
         for item_donor in items_donors:
             item_donor_obj = item_donor.getObject()
             all_donors.append(item_donor_obj.title)
-      
+
         for item in all_donors:
             if item not in donors:
                 obj = api.content.find(
@@ -309,6 +316,7 @@ def projectModified(content, event):
                     Title=item,
                     path=path)
                 api.content.delete(obj=obj[0].getObject(), check_linkintegrity=False)
+
 
 @grok.subscribe(IPartner, IObjectAddedEvent)
 @grok.subscribe(IPartner, IObjectModifiedEvent)
@@ -415,6 +423,16 @@ def improvementAreaAdded(content, event):
         data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
         annotations[KEY] = data
+
+
+@grok.subscribe(IImprovementArea, IObjectModifiedEvent)
+def improvementAreaModified(content, event):
+    item = api.content.find(portal_type="ItemArea", Title=content.title)
+    if item:
+        content.title_es = item[0].title_es
+        content.title_fr = item[0].title_fr
+        content.reindexObject()
+        transaction.commit()
 
 
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)

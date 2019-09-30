@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+from operator import itemgetter
 from plone import api
+from zope.annotation.interfaces import IAnnotations
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from operator import itemgetter
+
 from gwopa.core import _
-from zope.annotation.interfaces import IAnnotations
+from gwopa.core.utils import getTitleAttrLang
 from gwopa.core.utils import percentage
+
 import datetime
 
 
@@ -91,13 +95,14 @@ class dashboardAreasView(BrowserView):
 
     def getAreas(self):
         """ Returns all the Improvement Areas in a Project """
+        attr_lang = getTitleAttrLang()
         items = api.content.find(
             portal_type=['ImprovementArea'],
             context=self.context)
         results = []
         for (i, project) in enumerate(items):
             item = project.getObject()
-            results.append(dict(title=item.title,
+            results.append(dict(title=getattr(project, attr_lang),
                                 url='/'.join(item.getPhysicalPath()),
                                 id=item.id,
                                 description=item.description,
@@ -108,7 +113,7 @@ class dashboardAreasView(BrowserView):
 
     def getIndicators(self):
         indicators = {}
-        
+
         areas = self.getAreas()
         wa_path = areas[0]['url']
         data_year = self.context.gwopa_year_phases[int(self.year) - 1]

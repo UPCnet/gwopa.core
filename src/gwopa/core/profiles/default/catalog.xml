@@ -7,4 +7,16 @@
 
   <column value="gwopa_year_phases" />
 
+  <index name="title_es" meta_type="FieldIndex">
+    <indexed_attr value="title_es"/>
+  </index>
+
+  <column value="title_es" />
+
+  <index name="title_fr" meta_type="FieldIndex">
+    <indexed_attr value="title_fr"/>
+  </index>
+
+  <column value="title_fr" />
+
 </object>

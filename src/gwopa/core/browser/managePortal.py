@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
+from Products.CMFPlone.interfaces import IPloneSiteRoot
+
 from five import grok
 from plone import api
-from Products.CMFPlone.interfaces import IPloneSiteRoot
+
 from gwopa.core.interfaces import IGwopaCoreLayer
+from gwopa.core.utils import getTitleAttrLang
+
 import requests
+
 requests.packages.urllib3.disable_warnings()
 
 grok.templatedir("templates")
@@ -31,12 +36,13 @@ class managePortal(grok.View):
         return results
 
     def getAreas(self):
+        attr_lang = getTitleAttrLang()
         items = api.content.find(portal_type=['ImprovementArea'])
         results = []
         for item in items:
             obj = item.getObject()
             results.append(dict(
-                title=item.Title,
+                title=getattr(item, attr_lang),
                 parent=obj.aq_parent.title,
                 url='/'.join(obj.getPhysicalPath())))
         return results
