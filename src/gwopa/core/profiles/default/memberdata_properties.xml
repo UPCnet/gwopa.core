@@ -3,8 +3,8 @@
  <property name="language" type="string"></property>
  <property name="phone" type="string"></property>
  <property name="country" type="string"></property>
- <property name="wop_programs" type="lines"></property>
- <property name="wop_platforms" type="lines"></property>
+ <property name="wop_programs" type="string"></property>
+ <property name="wop_platforms" type="string"></property>
  <property name="wop_partners" type="string"></property>
  <property name="type_of_organization" type="string"></property>
  <property name="common_working_areas" type="lines">></property>

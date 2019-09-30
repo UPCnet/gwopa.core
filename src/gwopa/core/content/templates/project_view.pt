@@ -132,7 +132,7 @@
               </tr>
             </thead>
             <tr tal:repeat="partner partners">
-              <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
+              <td><a tal:condition="canEdit" class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
               <td class="contibutioncentered" tal:content="partner/incash"></td>
               <td class="contibutioncentered" tal:content="partner/inkind"></td>
             </tr>
@@ -153,7 +153,7 @@
               </tr>
             </thead>
             <tr tal:repeat="partner donors">
-              <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
+              <td><a tal:condition="canEdit" class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
               <td class="contibutioncentered" tal:content="partner/incash"></td>
               <td class="contibutioncentered" tal:content="partner/inkind"></td>
             </tr>
@@ -164,7 +164,7 @@
             <thead>
               <tr>
                 <th style="padding-left:0px;">
-                  <a data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribOther">
+                  <a tal:condition="canEdit" data-toggle="modal" class="addPartner" data-target="#modalPartner" tal:attributes="data-url string:${view/getPath}/contribs; data-currency context/currency;" data-type="ContribOther">
                     <i class="fas fa-plus-circle"></i></a>&nbsp;<span style="font-size: 18px;" i18n:translate=""> Other Organizations </span>
                 </th>
                 <tal:omit-tag tal:condition="others">
@@ -175,8 +175,8 @@
             </thead>
             <tr tal:repeat="partner others">
               <tal:block tal:condition="partner">
-                <td><a class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;
-                    <a href="#confirm-delete" data-toggle="modal"  class="btn-delete"
+                <td><a tal:condition="canEdit" class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;
+                    <a tal:condition="canEdit" href="#confirm-delete" data-toggle="modal"  class="btn-delete"
                         tal:attributes="
                             data-url partner/url;
                             data-type partner/portal_type;

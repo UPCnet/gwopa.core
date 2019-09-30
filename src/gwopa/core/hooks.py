@@ -11,6 +11,9 @@ from zope.globalrequest import getRequest
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 
+from gwopa.core.content.project import IProject
+from gwopa.core.utils import getUsersRegionalWOPPlatform, getUsersWOPProgram
+from gwopa.core.content.partner import IPartner
 from gwopa.core.content.donor import IDonor
 from gwopa.core.content.improvement_area import IImprovementArea
 from gwopa.core.content.outcomecc import IOutcomecc
@@ -31,10 +34,22 @@ def projectAdded(content, event):
         Copy value from behaviour fields to project fields.projectAnd create
         current year
     """
-
+    
     # Grant Editor/Reader role to members in project
     if content.members:
         for user in content.members:
+            api.user.grant_roles(username=user, obj=content, roles=['Contributor', 'Reader'])
+    if content.project_manager_admin:        
+        api.user.grant_roles(username=content.project_manager_admin, obj=content, roles=['Contributor', 'Editor', 'Reader'])
+    
+    wop_partners = getUsersRegionalWOPPlatform(content.wop_platform)
+    if wop_partners:
+        for user in wop_partners:
+            api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
+
+    wop_programs = getUsersWOPProgram(content.wop_program)
+    if wop_programs:
+        for user in wop_programs:
             api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
 
     # Assign fases to internal field
@@ -156,8 +171,30 @@ def projectModified(content, event):
         # Grant Editor/Reader role to members in project
         if content.members:
             for user in content.members:
+                api.user.grant_roles(username=user, obj=content, roles=['Contributor', 'Reader'])
+        if content.project_manager_admin:        
+            api.user.grant_roles(username=content.project_manager_admin, obj=content, roles=['Contributor', 'Editor', 'Reader'])
+        
+        wop_partners = getUsersRegionalWOPPlatform(content.wop_platform)
+        if wop_partners:
+            for user in wop_partners:
                 api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
 
+        wop_programs = getUsersWOPProgram(content.wop_program)
+        if wop_programs:
+            for user in wop_programs:
+                api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
+
+        users = [perm[0] for perm in content.get_local_roles()]
+        for user in users:
+            if content.members == None:
+                content.members = []  
+            if content.project_manager_admin == None:
+                content.project_manager_admin = []      
+
+            if user not in content.members and user not in content.project_manager_admin and user not in wop_partners and user not in wop_programs:
+                 api.user.revoke_roles(username=user, obj=content, roles=['Contributor', 'Editor', 'Reader'])
+         
         # Asign default image if not set
         if content.image is None:
             data = requests.get(api.portal.get().aq_parent.absolute_url(

@@ -18,5 +18,17 @@
   </index>
 
   <column value="title_fr" />
+  
+  <index name="wop_platform" meta_type="FieldIndex">
+    <indexed_attr value="wop_platform"/>
+  </index>
+
+  <column value="wop_platform" />
+
+  <index name="wop_program" meta_type="FieldIndex">
+    <indexed_attr value="wop_program"/>
+  </index>
+
+  <column value="wop_program" />
 
 </object>

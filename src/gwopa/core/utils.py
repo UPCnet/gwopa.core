@@ -267,3 +267,25 @@ def get_safe_member_by_id(username):
             'name_or_id': username,
             'location': '',
             'fullname': ''}
+
+
+def getUsersRegionalWOPPlatform(platform):
+    members = api.user.get_users()
+    results = []
+
+    for user in members:
+        if platform != None:
+            if platform in user.getProperty('wop_platforms'):
+                results += [user.id]
+    return results
+
+
+def getUsersWOPProgram(program):
+    members = api.user.get_users()
+    results = []
+
+    for user in members:
+        if program != None:
+            if program in user.getProperty('wop_programs'):
+                results += [user.id]
+    return results

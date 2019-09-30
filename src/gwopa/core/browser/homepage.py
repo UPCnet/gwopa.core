@@ -44,8 +44,8 @@ class MainTemplate(BrowserView):
         catalog = api.portal.get_tool('portal_catalog')
         currentuser = api.user.get_current().id
         results = []
-        if 'Manager' in api.user.get_roles(username=currentuser):
-            limit = 2
+        limit = 4
+        if 'Manager' in api.user.get_roles(username=currentuser):    
             projects = catalog.unrestrictedSearchResults(
                 portal_type='Project',
                 context=self.context,
@@ -72,8 +72,7 @@ class MainTemplate(BrowserView):
                                     project_manager=item.project_manager,
                                     image=image
                                     ))
-        else:
-            limit = 4
+        else:           
             projects = catalog.unrestrictedSearchResults(
                 portal_type='Project',
                 context=self.context,
@@ -81,9 +80,18 @@ class MainTemplate(BrowserView):
                 sort_on='modified',
                 sort_limit=limit)
             for project in projects:
+                members_project = []
                 item = project._unrestrictedGetObject()
                 if item.members:
-                    if currentuser in item.members:
+                    for i in item.members:
+                        members_project.append(i)
+                if item.project_manager:
+                    for i in item.project_manager:
+                        members_project.append(i)
+                if item.project_manager_admin:
+                    members_project.append(item.project_manager_admin)             
+                if members_project:
+                    if currentuser in members_project:
                         if item.image:
                             image = item.absolute_url() + '/@@images/image/preview'
                         else:
@@ -139,28 +147,30 @@ class MainTemplate(BrowserView):
                 context=self.context)
             # Tuple to list in the next code
             userPartners = api.user.get_current().getProperty('wop_partners')
-            for project in projects:
-                item = project._unrestrictedGetObject()
-                if userPartners in item.partners:
-                    if item.image:
-                        image = item.absolute_url() + '/@@images/image/preview'
-                    else:
-                        image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
-                    if item.objectives:
-                        alt = self.abreviaText(item.objectives.raw, 400)
-                    else:
-                        alt = self.abreviaText(item.title)
-                    if len(results) < 4:
-                        results.append(dict(title=self.abreviaText(item.title),
-                                            alt=alt,
-                                            url=item.absolute_url(),
-                                            start=item.startplanned,
-                                            end=item.startactual,
-                                            country=item.country,
-                                            location=item.location,
-                                            project_manager=item.project_manager,
-                                            image=image
-                                            ))
+            if userPartners != '':
+                for project in projects:
+                    item = project._unrestrictedGetObject()
+                    if item.partners != None:
+                        if userPartners in item.partners:
+                            if item.image:
+                                image = item.absolute_url() + '/@@images/image/preview'
+                            else:
+                                image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
+                            if item.objectives:
+                                alt = self.abreviaText(item.objectives.raw, 400)
+                            else:
+                                alt = self.abreviaText(item.title)
+                            if len(results) < 4:
+                                results.append(dict(title=self.abreviaText(item.title),
+                                                    alt=alt,
+                                                    url=item.absolute_url(),
+                                                    start=item.startplanned,
+                                                    end=item.startactual,
+                                                    country=item.country,
+                                                    location=item.location,
+                                                    project_manager=item.project_manager,
+                                                    image=image
+                                                    ))
 
         return sorted(results, key=itemgetter('title'), reverse=False)
 

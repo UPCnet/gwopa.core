@@ -3,6 +3,7 @@ from Products.CMFCore.utils import getToolByName
 
 from collective import dexteritytextindexer
 from five import grok
+from plone.indexer import indexer
 from geojson import Point
 from operator import itemgetter
 from plone import api
@@ -443,9 +444,11 @@ class View(grok.View):
     def canEdit(self):
         # TODO: Create app role system
         currentuser = api.user.get_current().id
-        roles = ['Manager', 'Contributor', 'Editor']
+        pm = getToolByName(self.context, 'portal_membership')
+        roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
+        roles = ['Manager', 'Editor'] 
         for role in roles:
-            if role in api.user.get_roles(username=currentuser):
+            if role in roles_in_context:
                 return True
         return False
 
@@ -567,3 +570,23 @@ class View(grok.View):
         else:
             letter = utils.project_currency(self)
             return str(self.context.total_budget) + ' ' + letter
+
+
+@indexer(IProject)
+def wop_platform(context):
+    """ Create a catalogue indexer, registered as an adapter, which can
+        populate the ``wop_platform`` value count it and index.
+    """
+    return context.wop_platform
+
+
+grok.global_adapter(wop_platform, name='wop_platform')
+
+@indexer(IProject)
+def wop_program(context):
+    """ Create a catalogue indexer, registered as an adapter, which can
+        populate the ``wop_program`` value count it and index.
+    """
+    return context.wop_program
+
+grok.global_adapter(wop_program, name='wop_program')
