@@ -26,7 +26,8 @@ class MainTemplate(BrowserView):
 
     def isManager(self):
         currentuser = api.user.get_current().id
-        if 'Manager' in api.user.get_roles(username=currentuser):
+        roles_currentuser = api.user.get_roles(username=currentuser)
+        if 'Manager' in roles_currentuser or 'Site Administrator' in roles_currentuser:
             return True
         else:
             return False
@@ -34,7 +35,7 @@ class MainTemplate(BrowserView):
     def canAdd(self):
         # Can create projects
         currentuser = api.user.get_current().id
-        roles = ['Manager', 'Contributor']
+        roles = ['Manager', 'Site Administrator', 'Contributor']
         for role in roles:
             if role in api.user.get_roles(username=currentuser):
                 return True
@@ -45,7 +46,8 @@ class MainTemplate(BrowserView):
         currentuser = api.user.get_current().id
         results = []
         limit = 4
-        if 'Manager' in api.user.get_roles(username=currentuser):    
+        roles_currentuser = api.user.get_roles(username=currentuser)
+        if 'Manager' in roles_currentuser or 'Site Administrator' in roles_currentuser:
             projects = catalog.unrestrictedSearchResults(
                 portal_type='Project',
                 context=self.context,
@@ -77,8 +79,7 @@ class MainTemplate(BrowserView):
                 portal_type='Project',
                 context=self.context,
                 sort_order='reverse',
-                sort_on='modified',
-                sort_limit=limit)
+                sort_on='modified')
             for project in projects:
                 members_project = []
                 item = project._unrestrictedGetObject()
@@ -116,7 +117,9 @@ class MainTemplate(BrowserView):
         catalog = api.portal.get_tool('portal_catalog')
         results = []
         # Manager views all projects
-        if 'Manager' in api.user.get_roles(username=api.user.get_current().id):
+        currentuser = api.user.get_current().id
+        roles_currentuser = api.user.get_roles(username=currentuser)
+        if 'Manager' in roles_currentuser or 'Site Administrator' in roles_currentuser:
             projects = catalog.unrestrictedSearchResults(
                 portal_type='Project',
                 context=self.context)
@@ -160,17 +163,16 @@ class MainTemplate(BrowserView):
                                 alt = self.abreviaText(item.objectives.raw, 400)
                             else:
                                 alt = self.abreviaText(item.title)
-                            if len(results) < 4:
-                                results.append(dict(title=self.abreviaText(item.title),
-                                                    alt=alt,
-                                                    url=item.absolute_url(),
-                                                    start=item.startplanned,
-                                                    end=item.startactual,
-                                                    country=item.country,
-                                                    location=item.location,
-                                                    project_manager=item.project_manager,
-                                                    image=image
-                                                    ))
+                            results.append(dict(title=self.abreviaText(item.title),
+                                                alt=alt,
+                                                url=item.absolute_url(),
+                                                start=item.startplanned,
+                                                end=item.startactual,
+                                                country=item.country,
+                                                location=item.location,
+                                                project_manager=item.project_manager,
+                                                image=image
+                                                ))
 
         return sorted(results, key=itemgetter('title'), reverse=False)
 

@@ -19,7 +19,7 @@ class managePortal(grok.View):
     grok.template('manage_portal')
     grok.context(IPloneSiteRoot)
     grok.layer(IGwopaCoreLayer)
-    grok.require('cmf.ManagePortal')
+    grok.require('cmf.AddPortalMember')
 
     def getProjects(self):
         items = api.content.find(portal_type=['Project'])

@@ -75,13 +75,13 @@
           <metal:slot define-slot="body">
             <article id="content">
               <metal:bodytext define-slot="main">
-                <a tal:condition="view/canAdd" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus right" i18n:translate=""> + New Project </button></a>
-                <h1 class="documentFirstHeading" i18n:translate=""> My Projects </h1>
+                <a tal:condition="view/canAdd" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus right" i18n:translate=""> + New Project </button></a>                
                 <div class="has-table" tal:define="items view/myProjects">
-                  <div class="row" tal:condition="not:items">
+              <!--     <div class="row" tal:condition="not:items">
                     <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
-                  </div>
+                  </div> -->
                   <tal:projects tal:condition="items">
+                  <h1 class="documentFirstHeading" i18n:translate=""> My Projects </h1>
                     <div class="row">
                       <div class="col-xs-12 col-sm-12">
                         <tal:items repeat="item items">
@@ -104,12 +104,12 @@
                   </tal:projects>
                 </div>
                 <br/>
-                <h1 class="documentFirstHeading" i18n:translate="">My company Projects </h1>
                 <div class="has-table" tal:define="items view/companyProjects">
-                  <div class="row" tal:condition="not:items">
+                  <!-- <div class="row" tal:condition="not:items">
                     <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
-                  </div>
+                  </div> -->
                   <tal:CompanyProjects condition="items">
+                    <h1 class="documentFirstHeading" i18n:translate="">My company Projects </h1>
                     <div class="row">
                       <div class="col-xs-12 col-sm-12">
                         <tal:items repeat="item items">

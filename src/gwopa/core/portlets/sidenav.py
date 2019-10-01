@@ -35,7 +35,7 @@ class Renderer(base.Renderer):
     def isManager(self):
         # Can create projects
         currentuser = api.user.get_current().id
-        roles = ['Manager']
+        roles = ['Manager', 'Site Administrator']
         for role in roles:
             if role in api.user.get_roles(username=currentuser):
                 return True

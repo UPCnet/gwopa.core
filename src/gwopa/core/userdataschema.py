@@ -97,12 +97,15 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
     def set_wop_programs(self, value):
         pc = api.portal.get_tool('portal_catalog')
         user = self.context.id
-        if value:           
+        #Si inicialmente no habia valor: Se buscan todos los proyectos de ese WOP Program
+        #y se anade el permiso para que el usuario pueda editar
+        if value and self.context.getProperty('wop_programs') == ():       
             items = pc.unrestrictedSearchResults(wop_program=value)
             for item in items:
                 project = item.getObject()
                 api.user.grant_roles(username=user, obj=project, roles=['Editor', 'Reader'])
                 project.reindexObject()
+        #Si se quita el valor: Se borran todos los permisos del usuario en los proyectos que tenian el valor antiguo
         if value == None and self.context.getProperty('wop_programs') != ():
             value_old = self.context.getProperty('wop_programs')
             items = pc.unrestrictedSearchResults(wop_program=value_old)
@@ -110,6 +113,22 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
                 project = item.getObject()
                 api.user.revoke_roles(username=user, obj=project, roles=['Editor', 'Reader'])
                 project.reindexObject()
+
+        #Si habia valor pero se modifica por otro: Se borran todos los permisos del usuario en los proyectos que tenian el valor antiguo 
+        #y se buscan todos los proyectos de ese nuevo WOP Program seleccionado y se anade el permiso para que el usuario pueda editar
+        if value and self.context.getProperty('wop_programs') != ():
+            value_old = self.context.getProperty('wop_programs')
+            if value != value_old:
+                items = pc.unrestrictedSearchResults(wop_program=value_old)
+                for item in items:
+                    project = item.getObject()
+                    api.user.revoke_roles(username=user, obj=project, roles=['Editor', 'Reader'])
+                    project.reindexObject()
+                items = pc.unrestrictedSearchResults(wop_program=value)
+                for item in items:
+                    project = item.getObject()
+                    api.user.grant_roles(username=user, obj=project, roles=['Editor', 'Reader'])
+                    project.reindexObject()
 
         return self._setProperty('wop_programs', value)
 
@@ -122,12 +141,15 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
     def set_wop_platforms(self, value):
         pc = api.portal.get_tool('portal_catalog')
         user = self.context.id
-        if value:           
+        #Si inicialmente no habia valor: Se buscan todos los proyectos de ese WOP Platform 
+        #y se anade el permiso para que el usuario pueda editar
+        if value and self.context.getProperty('wop_platforms') == ():
             items = pc.unrestrictedSearchResults(wop_platform=value)
             for item in items:
                 project = item.getObject()
                 api.user.grant_roles(username=user, obj=project, roles=['Editor', 'Reader'])
                 project.reindexObject()
+        #Si se quita el valor: Se borran todos los permisos del usuario en los proyectos que tenian el valor antiguo
         if value == None and self.context.getProperty('wop_platforms') != ():
             value_old = self.context.getProperty('wop_platforms')
             items = pc.unrestrictedSearchResults(wop_platform=value_old)
@@ -135,6 +157,22 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
                 project = item.getObject()
                 api.user.revoke_roles(username=user, obj=project, roles=['Editor', 'Reader'])
                 project.reindexObject()
+
+        #Si habia valor pero se modifica por otro: Se borran todos los permisos del usuario en los proyectos que tenian el valor antiguo 
+        #y se buscan todos los proyectos de ese nuevo WOP Platform seleccionado y se anade el permiso para que el usuario pueda editar
+        if value and self.context.getProperty('wop_platforms') != ():
+            value_old = self.context.getProperty('wop_platforms')
+            if value != value_old:
+                items = pc.unrestrictedSearchResults(wop_platform=value_old)
+                for item in items:
+                    project = item.getObject()
+                    api.user.revoke_roles(username=user, obj=project, roles=['Editor', 'Reader'])
+                    project.reindexObject()
+                items = pc.unrestrictedSearchResults(wop_platform=value)
+                for item in items:
+                    project = item.getObject()
+                    api.user.grant_roles(username=user, obj=project, roles=['Editor', 'Reader'])
+                    project.reindexObject()
 
         return self._setProperty('wop_platforms', value)
 

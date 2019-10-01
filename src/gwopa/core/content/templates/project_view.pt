@@ -178,6 +178,7 @@
                 <td><a tal:condition="canEdit" class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;
                     <a tal:condition="canEdit" href="#confirm-delete" data-toggle="modal"  class="btn-delete"
                         tal:attributes="
+                            data-path partner/path;
                             data-url partner/url;
                             data-type partner/portal_type;
                             data-id partner/title;" title="Delete" alt="Delete">

@@ -56,11 +56,12 @@ class View(grok.View):
 
         for item in members:
             partners = item.getProperty('wop_partners')
-            contextpartner = self.context.Title()
-            for obj in partners:
-                if obj == contextpartner:
-                    results += [{'id': item.id,
-                                'profile': api.portal.get().absolute_url() + '/profile/' + item.id}]
+            if partners != None:
+                contextpartner = self.context.Title()
+                for obj in partners:
+                    if obj == contextpartner:
+                        results += [{'id': item.id,
+                                    'profile': api.portal.get().absolute_url() + '/profile/' + item.id}]
         return results
 
     def google_maps_link(self):

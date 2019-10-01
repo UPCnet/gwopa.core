@@ -446,7 +446,7 @@ class View(grok.View):
         currentuser = api.user.get_current().id
         pm = getToolByName(self.context, 'portal_membership')
         roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
-        roles = ['Manager', 'Editor'] 
+        roles = ['Manager', 'Site Administrator',  'Editor'] 
         for role in roles:
             if role in roles_in_context:
                 return True
@@ -545,7 +545,8 @@ class View(grok.View):
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                url='/'.join(obj.getPhysicalPath()),
+                url=item.getURL(),
+                path='/'.join(obj.getPhysicalPath()),
                 portal_type=obj.portal_type,
                 incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
                 inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),

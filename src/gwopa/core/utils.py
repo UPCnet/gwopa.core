@@ -273,9 +273,9 @@ def getUsersRegionalWOPPlatform(platform):
     members = api.user.get_users()
     results = []
 
-    for user in members:
-        if platform != None:
-            if platform in user.getProperty('wop_platforms'):
+    if platform:
+        for user in members:
+            if platform == user.getProperty('wop_platforms'):
                 results += [user.id]
     return results
 
@@ -284,8 +284,8 @@ def getUsersWOPProgram(program):
     members = api.user.get_users()
     results = []
 
-    for user in members:
-        if program != None:
-            if program in user.getProperty('wop_programs'):
+    if program:
+        for user in members:
+            if program == user.getProperty('wop_programs'):
                 results += [user.id]
     return results
