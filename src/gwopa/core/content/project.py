@@ -452,6 +452,18 @@ class View(grok.View):
                 return True
         return False
 
+    def canAddFiles(self):
+        currentuser = api.user.get_current().id
+        pm = getToolByName(self.context, 'portal_membership')
+        roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
+        roles = ['Manager', 'Site Administrator',  'Editor']
+        for role in roles:
+            if role in roles_in_context:
+                return True
+        if (currentuser in self.context.members) or (currentuser in self.context.project_manager):
+            return True
+        return False
+
     def getPath(self):
         return '/'.join(self.context.getPhysicalPath())
 

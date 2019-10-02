@@ -17,6 +17,7 @@
                   location context/location;
                   url_quote nocall:modules/Products.PythonScripts.standard/url_quote;
                   canEdit view/canEdit;
+                  canAddFiles view/canAddFiles;
                   partners view/getPartners;
                   donors view/donors;
                   others view/others;
@@ -293,7 +294,7 @@
 
       <div id="filesBlock" tal:define="items view/getFiles">
         <h2 class="h2Project">
-          <a class="pat-plone-modal" id="add-new-file" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/files/++add++File"><i class="fas fa-plus-circle"></i></a>
+          <a tal:condition="canAddFiles" class="pat-plone-modal" id="add-new-file" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/files/++add++File"><i class="fas fa-plus-circle"></i></a>
           <tal:omit-tag i18n:translate=""> Files </tal:omit-tag>
           <tal:bck condition="items">
             <a class="right" style="font-size:14px; font-weight: 400;" tal:attributes="href string:${context/absolute_url}/files/"><i class="fa fa-plus"></i>&nbsp;<tal:omit-tag i18n:translate=""> View all</tal:omit-tag></a>
