@@ -1,21 +1,21 @@
 # import datetime
 # from DateTime.DateTime import DateTime
 
-from zope.interface import Interface
-from zope.component import adapts
-from zope import schema
-
-from z3c.form import field
-
-from plone.supermodel import model
+from plone import api
 from plone.app.users.browser.account import AccountPanelSchemaAdapter
-from plone.app.users.browser.userdatapanel import UserDataPanel
 from plone.app.users.browser.register import AddUserForm
+from plone.app.users.browser.userdatapanel import UserDataPanel
+from plone.supermodel import model
 from plone.z3cform.fieldsets import extensible
+from z3c.form import field
+from zope import schema
+from zope.component import adapts
+from zope.interface import Interface
 
-from gwopa.core.interfaces import IGwopaCoreLayer
 from gwopa.core import _
 from gwopa.core import utils
+from gwopa.core.interfaces import IGwopaCoreLayer
+
 from plone import api
 
 
@@ -43,10 +43,16 @@ class IEnhancedUserDataSchema(model.Schema):
         required=True,
     )
 
+    type_of_organization = schema.Choice(
+        title=_(u"Type of organization"),
+        required=False,
+        source=utils.listTypeOrganizations,
+    )
+
     wop_programs = schema.Choice(
         title=_(u"WOP Program"),
         required=False,
-        source=utils.listWOPPrograms,        
+        source=utils.listWOPPrograms,
     )
 
     wop_platforms = schema.Choice(
@@ -59,12 +65,6 @@ class IEnhancedUserDataSchema(model.Schema):
         title=_(u"WOP Partners"),
         source=utils.listPartners,
         required=False,
-    )
-
-    type_of_organization = schema.Choice(
-        title=_(u"Type of organization"),
-        required=False,
-        source=utils.listTypeOrganizations,
     )
 
     common_working_areas = schema.List(
@@ -99,7 +99,7 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
         user = self.context.id
         #Si inicialmente no habia valor: Se buscan todos los proyectos de ese WOP Program
         #y se anade el permiso para que el usuario pueda editar
-        if value and self.context.getProperty('wop_programs') == ():       
+        if value and self.context.getProperty('wop_programs') == ():
             items = pc.unrestrictedSearchResults(wop_program=value)
             for item in items:
                 project = item.getObject()
@@ -114,7 +114,7 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
                 api.user.revoke_roles(username=user, obj=project, roles=['Editor', 'Reader'])
                 project.reindexObject()
 
-        #Si habia valor pero se modifica por otro: Se borran todos los permisos del usuario en los proyectos que tenian el valor antiguo 
+        #Si habia valor pero se modifica por otro: Se borran todos los permisos del usuario en los proyectos que tenian el valor antiguo
         #y se buscan todos los proyectos de ese nuevo WOP Program seleccionado y se anade el permiso para que el usuario pueda editar
         if value and self.context.getProperty('wop_programs') != ():
             value_old = self.context.getProperty('wop_programs')
@@ -141,7 +141,7 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
     def set_wop_platforms(self, value):
         pc = api.portal.get_tool('portal_catalog')
         user = self.context.id
-        #Si inicialmente no habia valor: Se buscan todos los proyectos de ese WOP Platform 
+        #Si inicialmente no habia valor: Se buscan todos los proyectos de ese WOP Platform
         #y se anade el permiso para que el usuario pueda editar
         if value and self.context.getProperty('wop_platforms') == ():
             items = pc.unrestrictedSearchResults(wop_platform=value)
@@ -158,7 +158,7 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
                 api.user.revoke_roles(username=user, obj=project, roles=['Editor', 'Reader'])
                 project.reindexObject()
 
-        #Si habia valor pero se modifica por otro: Se borran todos los permisos del usuario en los proyectos que tenian el valor antiguo 
+        #Si habia valor pero se modifica por otro: Se borran todos los permisos del usuario en los proyectos que tenian el valor antiguo
         #y se buscan todos los proyectos de ese nuevo WOP Platform seleccionado y se anade el permiso para que el usuario pueda editar
         if value and self.context.getProperty('wop_platforms') != ():
             value_old = self.context.getProperty('wop_platforms')
@@ -184,6 +184,16 @@ class UserDataPanelExtender(extensible.FormExtender):
 
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
+        roles = api.user.get_roles(username=api.user.get_current().id)
+        isAdmin = 'Site Administrator' in roles or 'Manager' in roles
+        if not isAdmin:
+            fields = fields.omit('type_of_organization')
+            fields = fields.omit('wop_programs')
+            fields = fields.omit('wop_platforms')
+            fields = fields.omit('wop_partners')
+            fields = fields.omit('common_working_areas')
+            fields = fields.omit('donor')
+            fields = fields.omit('other')
         self.add(fields)
 
 
