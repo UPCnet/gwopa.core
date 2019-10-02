@@ -421,6 +421,8 @@ def improvementAreaAdded(content, event):
             outcomeccspecific_info = dict(
                 id_specific=specific_obj.id,
                 title_specific=specific_obj.title,
+                title_specific_es=specific_obj.title_es,
+                title_specific_fr=specific_obj.title_fr,
                 # description=specific_obj.description,
                 url='/'.join(specific_obj.getPhysicalPath()),
                 selected_specific='',
@@ -436,6 +438,8 @@ def improvementAreaAdded(content, event):
             outcomeccmonitoring_info = dict(
                 id_specific=specific_obj.id,
                 title_specific=specific_obj.title,
+                title_specific_es=specific_obj.title_es,
+                title_specific_fr=specific_obj.title_fr,
                 # description=specific_obj.description,
                 url='/'.join(specific_obj.getPhysicalPath()),
                 selected_specific='',
@@ -482,6 +486,8 @@ def OutcomeCCAdded(content, event):
             type='OutcomeCCS',
             id=item.id,
             title=item.Title,
+            title_es=item.title_es,
+            title_fr=item.title_fr,
             container=content)
         transaction.commit()
 

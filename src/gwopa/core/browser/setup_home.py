@@ -314,9 +314,12 @@ class setup(grok.View):
             obj.country = ['Spain']
 
         # Create base Outcome CC selectable Values
+        tool_ts = getToolByName(self, 'translation_service')
         api.content.create(
             type='OutcomeCCItem',
-            title='Mission & Strategy',
+            title=_(u'Mission & Strategy'),
+            title_es=tool_ts.translate(u'Mission & Strategy', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Mission & Strategy', domain='gwopa', target_language='fr'),
             icon='fas fa-university',
             category='Organizational transformational dimensions',
             short_category='transformational',
@@ -324,7 +327,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Leadership',
+            title=_(u'Leadership'),
+            title_es=tool_ts.translate(u'Leadership', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Leadership', domain='gwopa', target_language='fr'),
             icon='fas fa-university',
             category='Organizational transformational dimensions',
             short_category='transformational',
@@ -332,7 +337,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Organizational culture',
+            title=_(u'Organizational culture'),
+            title_es=tool_ts.translate(u'Organizational culture', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Organizational culture', domain='gwopa', target_language='fr'),
             icon='fas fa-university',
             category='Organizational transformational dimensions',
             short_category='transformational',
@@ -340,7 +347,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='External resources',
+            title=_(u'External resources'),
+            title_es=tool_ts.translate(u'External resources', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'External resources', domain='gwopa', target_language='fr'),
             icon='fab fa-industry',
             category='Organizational transformational dimensions',
             short_category='transformational',
@@ -348,7 +357,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Network / External relations',
+            title=_(u'Network / External relations'),
+            title_es=tool_ts.translate(u'Network / External relations', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Network / External relations', domain='gwopa', target_language='fr'),
             icon='fas fa-sitemap',
             category='Organizational transformational dimensions',
             short_category='transformational',
@@ -356,7 +367,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Systems',
+            title=_(u'Systems'),
+            title_es=tool_ts.translate(u'Systems', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Systems', domain='gwopa', target_language='fr'),
             icon='fas fa-map',
             category='Organizational transactional dimensions',
             short_category='transactional',
@@ -364,7 +377,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Structure',
+            title=_(u'Structure'),
+            title_es=tool_ts.translate(u'Structure', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Structure', domain='gwopa', target_language='fr'),
             icon='fas fa-comments',
             category='Organizational transactional dimensions',
             short_category='transactional',
@@ -372,7 +387,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Management',
+            title=_(u'Management'),
+            title_es=tool_ts.translate(u'Management', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Management', domain='gwopa', target_language='fr'),
             icon='fas fa-comments',
             category='Organizational transactional dimensions',
             short_category='transactional',
@@ -380,7 +397,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Information',
+            title=_(u'Information'),
+            title_es=tool_ts.translate(u'Information', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Information', domain='gwopa', target_language='fr'),
             icon='fas fa-tree',
             category='Organizational transactional dimensions',
             short_category='transactional',
@@ -388,7 +407,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Infrastructure / Equipment',
+            title=_(u'Infrastructure / Equipment'),
+            title_es=tool_ts.translate(u'Infrastructure / Equipment', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Infrastructure / Equipment', domain='gwopa', target_language='fr'),
             icon='fas fa-university',
             category='Organizational transactional dimensions',
             short_category='transactional',
@@ -396,7 +417,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Working routines',
+            title=_(u'Working routines'),
+            title_es=tool_ts.translate(u'Working routines', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Working routines', domain='gwopa', target_language='fr'),
             icon='fas fa-cogs',
             category='Organizational transactional dimensions',
             short_category='transactional',
@@ -404,7 +427,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Knowledge & Skills',
+            title=_(u'Knowledge & Skills'),
+            title_es=tool_ts.translate(u'Knowledge & Skills', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Knowledge & Skills', domain='gwopa', target_language='fr'),
             icon='fab fa-industry',
             category='Individual dimensions',
             short_category='individual',
@@ -412,7 +437,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Motivation',
+            title=_(u'Motivation'),
+            title_es=tool_ts.translate(u'Motivation', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Motivation', domain='gwopa', target_language='fr'),
             icon='fas fa-users',
             category='Individual dimensions',
             short_category='individual',
@@ -420,7 +447,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title='Applied knowledge skills',
+            title=_(u'Applied knowledge skills'),
+            title_es=tool_ts.translate(u'Applied knowledge skills', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Applied knowledge skills', domain='gwopa', target_language='fr'),
             icon='fas fa-search',
             category='Individual dimensions',
             short_category='individual',
@@ -535,107 +564,123 @@ class setup(grok.View):
 
     def createDefaultOutputs(self):
         titles = [
-            'Leadership development program prepared',
-            'Business plan developed/improved',
-            'Management information system introduced/improved',
-            'Internal audit performed on transparency and integrity',
-            'Improvement plan drawn up based on internal audit',
-            'Yearly benchmark report prepared',
-            'Organisation improvement plan developed',
-            'Capacity development program prepared',
-            'NRW reduction plan developed',
-            'Number of people trained in NRW reduction approach',
-            'Maintenance and management program developed',
-            'Number of people trained in maintenance and management',
-            'Development of an improvement plan for sanitation, sewage and waste water treatment',
-            'Pro-poor coordinators appointed and trained',
-            'Pro-poor vision, strategy and objectives developed',
-            'Proposals developed for providing people with direct acces to improved water and/ or sanitation facilities',
-            'Coordination of the implementation of the proposals',
-            'Climate resistant water supply program 2050 developed',
-            'Energy saving program developed',
-            'Gender analysis and approach developed'
+            _(u'Leadership development program prepared'),
+            _(u'Business plan developed/improved'),
+            _(u'Management information system introduced/improved'),
+            _(u'Internal audit performed on transparency and integrity'),
+            _(u'Improvement plan drawn up based on internal audit'),
+            _(u'Yearly benchmark report prepared'),
+            _(u'Organisation improvement plan developed'),
+            _(u'Capacity development program prepared'),
+            _(u'NRW reduction plan developed'),
+            _(u'Number of people trained in NRW reduction approach'),
+            _(u'Maintenance and management program developed'),
+            _(u'Number of people trained in maintenance and management'),
+            _(u'Development of an improvement plan for sanitation, sewage and waste water treatment'),
+            _(u'Pro-poor coordinators appointed and trained'),
+            _(u'Pro-poor vision, strategy and objectives developed'),
+            _(u'Proposals developed for providing people with direct acces to improved water and/ or sanitation facilities'),
+            _(u'Coordination of the implementation of the proposals'),
+            _(u'Climate resistant water supply program 2050 developed'),
+            _(u'Energy saving program developed'),
+            _(u'Gender analysis and approach developed')
         ]
+
+        tool_ts = getToolByName(self, 'translation_service')
         portal = api.portal.get()
         for item in titles:
+            title_es = tool_ts.translate(item, domain='gwopa', target_language='es')
+            title_fr = tool_ts.translate(item, domain='gwopa', target_language='fr')
             api.content.create(
                 type='Outputdefaults',
                 title=item,
-                title_es=item,
-                title_fr=item,
+                title_es=title_es if title_es != '' else item,
+                title_fr=title_fr if title_fr != '' else item,
                 container=portal.config.outputs,
                 safe_id=True)
 
     def createDefaultOutcomes(self):
         titles = [
-            'Total number of connections',
-            'Total number of people served',
-            'Coverage',
-            '(Estimated) coverage LIA population',
-            '% Female employees',
-            '% Female employees in management positions',
-            'Number of FT employees per 1000 active connections',
-            'NRW in m3 per actve connection per year',
-            'NRW as percentage of system input',
-            'Collection efficiency',
-            'Customer satisfaction',
-            'Working ratio',
-            'Operating ratio',
-            'Debt service coverage ratio (DSCR)',
-            'Energy consumption per m3 system input',
-            'Expenditures on chemicals per m3 system input',
-            'Chlorine consumption per m3 system input',
-            'Aluminium sulphate consumption per m3 system input',
-            'Percentage of required checks carried out for faecal coliform',
-            'Percentage of checks that do not comply with norm on faecal coliform',
-            'Percentage of required checks carried out for residual chlorine',
-            'Percentage of checks that do not comply with norm on residual Chlorine',
-            'Number of people with access to improved sanitation facilities',
-            'Percentage of people with access to improved sanitation facilities',
-            'Number of people with access to unimproved sanitation facilities',
-            'Percentage of people with access to unimproved sanitation facilities',
-            'Total number of sewerage connections',
-            'Percentage of waste water treated',
+            _(u'Total number of connections'),
+            _(u'Total number of people served'),
+            _(u'Coverage'),
+            _(u'(Estimated) coverage LIA population'),
+            _(u'% Female employees'),
+            _(u'% Female employees in management positions'),
+            _(u'Number of FT employees per 1000 active connections'),
+            _(u'NRW in m3 per actve connection per year'),
+            _(u'NRW as percentage of system input'),
+            _(u'Collection efficiency'),
+            _(u'Customer satisfaction'),
+            _(u'Working ratio'),
+            _(u'Operating ratio'),
+            _(u'Debt service coverage ratio (DSCR)'),
+            _(u'Energy consumption per m3 system input'),
+            _(u'Expenditures on chemicals per m3 system input'),
+            _(u'Chlorine consumption per m3 system input'),
+            _(u'Aluminium sulphate consumption per m3 system input'),
+            _(u'Percentage of required checks carried out for faecal coliform'),
+            _(u'Percentage of checks that do not comply with norm on faecal coliform'),
+            _(u'Percentage of required checks carried out for residual chlorine'),
+            _(u'Percentage of checks that do not comply with norm on residual Chlorine'),
+            _(u'Number of people with access to improved sanitation facilities'),
+            _(u'Percentage of people with access to improved sanitation facilities'),
+            _(u'Number of people with access to unimproved sanitation facilities'),
+            _(u'Percentage of people with access to unimproved sanitation facilities'),
+            _(u'Total number of sewerage connections'),
+            _(u'Percentage of waste water treated'),
         ]
+
+        tool_ts = getToolByName(self, 'translation_service')
         portal = api.portal.get()
         for item in titles:
+            title_es = tool_ts.translate(item, domain='gwopa', target_language='es')
+            title_fr = tool_ts.translate(item, domain='gwopa', target_language='fr')
             api.content.create(
                 type='Outcomedefaults',
                 title=item,
-                title_es=item,
-                title_fr=item,
+                title_es=title_es if title_es != '' else item,
+                title_fr=title_fr if title_fr != '' else item,
                 container=portal.config.outcomes,
                 safe_id=True)
 
     def createDefaultMainObstacles(self):
         titles = [
-            'Internal organizational',
-            'External environment',
-            'WOP project - related',
+            _(u'Internal organizational'),
+            _(u'External environment'),
+            _(u'WOP project - related'),
         ]
+
+        tool_ts = getToolByName(self, 'translation_service')
         portal = api.portal.get()
         for item in titles:
+            title_es = tool_ts.translate(item, domain='gwopa', target_language='es')
+            title_fr = tool_ts.translate(item, domain='gwopa', target_language='fr')
             api.content.create(
                 type='Mainobstacles',
                 title=item,
-                title_es=item,
-                title_fr=item,
+                title_es=title_es if title_es != '' else item,
+                title_fr=title_fr if title_fr != '' else item,
                 container=portal.config.outputs,
                 safe_id=True)
 
     def createDefaultMainContributing(self):
         titles = [
-            'Internal organizational',
-            'External environment',
-            'WOP project - related',
+            _(u'Internal organizational'),
+            _(u'External environment'),
+            _(u'WOP project - related'),
         ]
+
+        tool_ts = getToolByName(self, 'translation_service')
         portal = api.portal.get()
         for item in titles:
+            title_es = tool_ts.translate(item, domain='gwopa', target_language='es')
+            title_fr = tool_ts.translate(item, domain='gwopa', target_language='fr')
             api.content.create(
                 type='Maincontributing',
                 title=item,
-                title_es=item,
-                title_fr=item,
+                title_es=title_es if title_es != '' else item,
+                title_fr=title_fr if title_fr != '' else item,
                 container=portal.config.outputs,
                 safe_id=True)
 
@@ -1191,7 +1236,7 @@ class setupEs(grok.View):
             'Porcentaje de controles requeridos para cloro residual',
             'Porcentaje de controles requeridos realizados para Porcentaje de controles que no cumplen con la norma sobre cloro residual',
             'Número de personas con acceso a instalaciones sanitarias mejoradas',
-            'Porcentaje de personas con acceso a instalaciones sanitarias mejoradas.',
+            'Porcentaje de personas con acceso a instalaciones sanitarias mejoradas',
             'Número de personas con acceso a instalaciones sanitarias no mejoradas',
             'Porcentaje de personas con acceso a instalaciones sanitarias no mejoradas',
             'Número total de conexiones de alcantarillado',
@@ -1225,7 +1270,7 @@ class setupEs(grok.View):
 
     def createDefaultMainContributing(self):
         titles = [
-            'IOrganizacion interna',
+            'Organizacion interna',
             'Ambiente externo',
             'Proyecto WOP - relacionado',
         ]

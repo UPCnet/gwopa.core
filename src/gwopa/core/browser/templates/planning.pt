@@ -355,13 +355,14 @@
                   <div class="information cc_container" >
                     <div class="primerafila">
                       <tal:block repeat="item outcome/specifics">
-                        <tal:block condition="python: item['short_category'] == 'transformational'">
+                        <tal:block condition="python: item['short_category'] == 'transformational'"
+                                   tal:define="titleSpecific python:view.getTitleSpecific(item)">
                           <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
                           tal:attributes="
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-title_specific item/title_specific;
+                                    data-title_specific titleSpecific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -377,7 +378,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <span tal:content="item/title_specific">Leadership</span>
+                              <span tal:content="titleSpecific">Leadership</span>
                             </div>
                           </a>
                         </tal:block>
@@ -385,13 +386,14 @@
                     </div>
                     <div class="segundafila">
                       <tal:block repeat="item outcome/specifics">
-                        <tal:block condition="python: item['short_category'] == 'transactional'">
+                        <tal:block condition="python: item['short_category'] == 'transactional'"
+                                   tal:define="titleSpecific python:view.getTitleSpecific(item)">
                           <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
                           tal:attributes="
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-title_specific item/title_specific;
+                                    data-title_specific titleSpecific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -407,7 +409,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <span tal:content="item/title_specific">Leadership</span>
+                              <span tal:content="titleSpecific">Leadership</span>
                             </div>
                           </a>
                         </tal:block>
@@ -415,13 +417,14 @@
                     </div>
                     <div class="tercerafila">
                       <tal:block repeat="item outcome/specifics">
-                        <tal:block condition="python: item['short_category'] == 'individual'">
+                        <tal:block condition="python: item['short_category'] == 'individual'"
+                                   tal:define="titleSpecific python:view.getTitleSpecific(item)">
                           <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
                           tal:attributes="
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-title_specific item/title_specific;
+                                    data-title_specific titleSpecific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -437,7 +440,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <span tal:content="item/title_specific">Leadership</span>
+                              <span tal:content="titleSpecific">Leadership</span>
                             </div>
                           </a>
                         </tal:block>
@@ -447,13 +450,14 @@
                   <div class="information cc_container_others">
                     <div class="cuartafila">
                       <tal:block repeat="item outcome/specifics">
-                        <tal:block condition="python: item['short_category'] == 'other'">
+                        <tal:block condition="python: item['short_category'] == 'other'"
+                                   tal:define="titleSpecific python:view.getTitleSpecific(item)">
                           <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
                             tal:attributes="
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-title_specific item/title_specific;
+                                    data-title_specific titleSpecific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -469,7 +473,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <span tal:content="item/title_specific">Other</span>
+                              <span tal:content="titleSpecific">Other</span>
                             </div>
                           </a>
                         </tal:block>
@@ -1080,8 +1084,12 @@
               <span class="modal-pk" id="OutcomeCCSYear" style="display:none"></span>
               <div class="row">
                 <div class="form-group col-md-12">
-                    <label for="message-text" class="control-label" i18n:translate="">Specific title</label>
+                    <label for="message-text" class="control-label" i18n:translate="">Specific title EN</label>
                     <textarea class="form-control" id="outcomeccs-title"></textarea>
+                    <label for="message-text" class="control-label" i18n:translate="">Specific title ES</label>
+                    <textarea class="form-control" id="outcomeccs-title_es"></textarea>
+                    <label for="message-text" class="control-label" i18n:translate="">Specific title FR</label>
+                    <textarea class="form-control" id="outcomeccs-title_fr"></textarea>
                 </div>
               </div>
             </div>

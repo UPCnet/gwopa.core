@@ -42,7 +42,18 @@
 
           </li>
       </ul>
-  </span> 
+  </span>
+  <span tal:define="zero items/tres">
+    <span tal:content="python:zero[0]['category']"></span>
+      <ul >
+
+          <li tal:repeat="item zero">
+              <i tal:attributes="class string:fa ${item/icon}"></i>
+              <a tal:attributes="href item/url"><span tal:content="item/title"></span></a>
+
+          </li>
+      </ul>
+  </span>
 
 </span>
 <!-- <span tal:define="items view/getItems['zero']">

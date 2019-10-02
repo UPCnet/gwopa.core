@@ -70,22 +70,31 @@ class View(grok.View):
                   'depth': 1})
         results = []
         for item in items:
-            outcome = api.content.find(portal_type='OutcomeCCItem', id=item.id)[0].getObject()
-            icon = outcome.icon
-            category = outcome.category
-            short_category = outcome.short_category
+            outcome = api.content.find(portal_type='OutcomeCCItem', id=item.id)
+            if outcome:
+                outcome = outcome[0].getObject()
+                icon = outcome.icon
+                category = outcome.category
+                short_category = outcome.short_category
+            else:
+                outcome = item.getObject()
+                icon = 'fas fa-cogs'
+                category = 'Others'
+                short_category = 'other'
+
             results.append(dict(
                 title=item.Title,
                 icon=icon,
                 category=category,
                 short_category=short_category,
                 url=item.getURL()))
-        groups = defaultdict(list)
-        for obj in results:
-            groups[obj['category']].append(obj)
 
-        new_list = groups.values()
-        return dict(zero=new_list[0], uno=new_list[1], dos=new_list[2])
+            groups = defaultdict(list)
+            for obj in results:
+                groups[obj['category']].append(obj)
+
+            new_list = groups.values()
+        return dict(zero=new_list[0], uno=new_list[1], dos=new_list[3], tres=new_list[2])
 
 
 class Edit(form.SchemaEditForm):

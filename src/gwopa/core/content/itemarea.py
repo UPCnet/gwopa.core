@@ -8,7 +8,6 @@ from zope import schema
 
 from gwopa.core import _
 
-
 grok.templatedir("templates")
 
 

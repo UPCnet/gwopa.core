@@ -418,10 +418,10 @@
                     </p>
                     <a data-toggle="modal" data-target="#modalUpdateStage" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url; data-stage outcome/stage; id string:${outcome/rid}-update-stage" i18n:translate="">
                       <ul class="steps">
-                        <li class="future" id="stage-1">Stage 1</li>
-                        <li class="future" id="stage-2">Stage 2</li>
-                        <li class="future" id="stage-3">Stage 3</li>
-                        <li class="future" id="stage-4">Stage 4</li>
+                        <li class="future" id="stage-1" i18n:translate="">Stage 1</li>
+                        <li class="future" id="stage-2" i18n:translate="">Stage 2</li>
+                        <li class="future" id="stage-3" i18n:translate="">Stage 3</li>
+                        <li class="future" id="stage-4" i18n:translate="">Stage 4</li>
                       </ul>
                     </a>
                   </div>
@@ -434,13 +434,14 @@
                     </p>
                     <div class="primerafila">
                       <tal:block repeat="item outcome/monitoring">
-                        <tal:block condition="python: item['short_category'] == 'transformational'">
+                        <tal:block condition="python: item['short_category'] == 'transformational'"
+                                   tal:define="titleSpecific python:view.getTitleSpecific(item)">
                           <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
                           tal:attributes="
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-title_specific item/title_specific;
+                                    data-title_specific titleSpecific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -469,7 +470,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <span tal:content="item/title_specific">Leadership</span>
+                              <span tal:content="titleSpecific">Leadership</span>
                             </div>
                           </a>
                         </tal:block>
@@ -477,13 +478,14 @@
                     </div>
                     <div class="segundafila">
                       <tal:block repeat="item outcome/monitoring">
-                        <tal:block condition="python: item['short_category'] == 'transactional'">
+                        <tal:block condition="python: item['short_category'] == 'transactional'"
+                                   tal:define="titleSpecific python:view.getTitleSpecific(item)">
                           <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
                           tal:attributes="
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-title_specific item/title_specific;
+                                    data-title_specific titleSpecific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -512,7 +514,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <tal:omit-tag tal:content="item/title_specific">Leadership</tal:omit-tag>
+                              <tal:omit-tag tal:content="titleSpecific">Leadership</tal:omit-tag>
                             </div>
                           </a>
                         </tal:block>
@@ -520,13 +522,14 @@
                     </div>
                     <div class="tercerafila">
                       <tal:block repeat="item outcome/monitoring">
-                        <tal:block condition="python: item['short_category'] == 'individual'">
+                        <tal:block condition="python: item['short_category'] == 'individual'"
+                                   tal:define="titleSpecific python:view.getTitleSpecific(item)">
                           <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
                           tal:attributes="
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-title_specific item/title_specific;
+                                    data-title_specific titleSpecific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -555,7 +558,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <tal:omit-tag tal:content="item/title_specific">Leadership</tal:omit-tag>
+                              <tal:omit-tag tal:content="titleSpecific">Leadership</tal:omit-tag>
                             </div>
                           </a>
                         </tal:block>
@@ -565,13 +568,14 @@
                   <div class="information cc_container_others">
                     <div class="cuartafila">
                       <tal:block repeat="item outcome/monitoring">
-                        <tal:block condition="python: item['short_category'] == 'other'">
+                        <tal:block condition="python: item['short_category'] == 'other'"
+                                   tal:define="titleSpecific python:view.getTitleSpecific(item)">
                           <a data-toggle="modal" data-target="#modalEditOutcomeCCS"
                             tal:attributes="
                                     data-pk currentYear;
                                     data-urloutcomeccs outcome/url;
                                     data-id_specific item/id_specific;
-                                    data-title_specific item/title_specific;
+                                    data-title_specific titleSpecific;
                                     data-base-value item/baseline;
                                     data-base-date item/baseline_date;
                                     data-objective item/objective;
@@ -600,7 +604,7 @@
                               <img tal:attributes="src string:${item/icon_url_selected}" alt="" title=""/>
                             </div>
                             <div class="item_text">
-                              <tal:omit-tag tal:content="item/title_specific">Other</tal:omit-tag>
+                              <tal:omit-tag tal:content="titleSpecific">Other</tal:omit-tag>
                             </div>
                           </a>
                         </tal:block>
@@ -610,7 +614,7 @@
                           <img src="++theme++gwopa.theme/assets/images/add.png" alt="" title=""/>
                         </div>
                         <div class="item_text">
-                          <tal:omit-tag>Add other</tal:omit-tag>
+                          <tal:omit-tag i18n:translate="">Add other</tal:omit-tag>
                         </div>
                       </a>
                     </div>
@@ -727,8 +731,12 @@
               <span class="modal-pk" id="OutcomeCCSYear" style="display:none"></span>
               <div class="row">
                 <div class="form-group col-md-12">
-                    <label for="message-text" class="control-label" i18n:translate="">Specific title</label>
+                    <label for="message-text" class="control-label" i18n:translate="">Specific title EN</label>
                     <textarea class="form-control" id="outcomeccs-title"></textarea>
+                    <label for="message-text" class="control-label" i18n:translate="">Specific title ES</label>
+                    <textarea class="form-control" id="outcomeccs-title_es"></textarea>
+                    <label for="message-text" class="control-label" i18n:translate="">Specific title FR</label>
+                    <textarea class="form-control" id="outcomeccs-title_fr"></textarea>
                 </div>
               </div>
             </div>
@@ -757,19 +765,23 @@
               <div class="row">
                 <div class="form-group row">
                   <div id="StageRadio" class="col-xs-2 col-md-2">
-                    <label class="container"> Stage 1
+                    <label class="container">
+                      <span i18n:translate="">Stage 1</span>
                       <input type="radio" name="radio" id="checkstage1" value="1">
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container"> Stage 2
+                    <label class="container">
+                      <span i18n:translate="">Stage 2</span>
                       <input type="radio" name="radio" id="checkstage2" value="2">
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container"> Stage 3
+                    <label class="container">
+                      <span i18n:translate="">Stage 3</span>
                       <input type="radio" name="radio" id="checkstage3" value="3">
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container"> Stage 4
+                    <label class="container">
+                      <span i18n:translate="">Stage 4</span>
                       <input type="radio" name="radio" id="checkstage4" value="4">
                       <span class="checkmark"></span>
                     </label>

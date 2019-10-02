@@ -11,6 +11,7 @@ from zope.publisher.interfaces import IPublishTraverse
 
 from gwopa.core import _
 from gwopa.core.utils import getTitleAttrLang
+from gwopa.core.utils import getUserLang
 
 import datetime
 
@@ -546,3 +547,10 @@ class monitoringView(BrowserView):
                                         state="future"))
 
         return results[0:4]
+
+    def getTitleSpecific(self, specific):
+        lang = getUserLang()
+        if lang in ['es', 'fr']:
+            return specific['title_specific_' + lang]
+        else:
+            return specific['title_specific']

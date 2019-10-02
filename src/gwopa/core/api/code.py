@@ -290,12 +290,17 @@ class addOutcomeCCS(BrowserView):
 
     def __call__(self):
         title = self.request.form.get('item_title')
+        title_es = self.request.form.get('item_title_es')
+        title_fr = self.request.form.get('item_title_fr')
         item_path = self.request.form.get('item_path')
         year = self.request.form.get('year')
         container = api.content.find(path=item_path, depth=0)[0]
         specific_obj = api.content.create(
             type='OutcomeCCS',
             title=title,
+            title_es=title_es,
+            title_fr=title_fr,
+            short_category='other',
             container=container.getObject())
 
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
@@ -304,9 +309,12 @@ class addOutcomeCCS(BrowserView):
         generic = annotations[KEY]['generic']
         specifics = annotations[KEY]['specifics']
         monitoring = annotations[KEY]['monitoring']
+
         outcomeccspecific_info = dict(
             id_specific=specific_obj.id,
             title_specific=specific_obj.title,
+            title_specific_es=specific_obj.title_es,
+            title_specific_fr=specific_obj.title_fr,
             description=specific_obj.description,
             url='/'.join(specific_obj.getPhysicalPath()),
             selected_specific='',
@@ -322,6 +330,8 @@ class addOutcomeCCS(BrowserView):
         outcomeccmonitoring_info = dict(
             id_specific=specific_obj.id,
             title_specific=specific_obj.title,
+            title_specific_es=specific_obj.title_es,
+            title_specific_fr=specific_obj.title_fr,
             description=specific_obj.description,
             url='/'.join(specific_obj.getPhysicalPath()),
             selected_specific='',
@@ -351,12 +361,16 @@ class addOutcomeCCSMonitoring(BrowserView):
 
     def __call__(self):
         title = self.request.form.get('item_title')
+        title_es = self.request.form.get('item_title_es')
+        title_fr = self.request.form.get('item_title_fr')
         item_path = self.request.form.get('item_path')
         year = self.request.form.get('year')
         container = api.content.find(path=item_path, depth=0)[0]
         specific_obj = api.content.create(
             type='OutcomeCCS',
             title=title,
+            title_es=title_es,
+            title_fr=title_fr,
             container=container.getObject())
 
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
@@ -368,6 +382,8 @@ class addOutcomeCCSMonitoring(BrowserView):
         outcomeccmonitoring_info = dict(
             id_specific=specific_obj.id,
             title_specific=specific_obj.title,
+            title_specific_es=specific_obj.title_es,
+            title_specific_fr=specific_obj.title_fr,
             description='',
             url='/'.join(specific_obj.getPhysicalPath()),
             selected_specific='',

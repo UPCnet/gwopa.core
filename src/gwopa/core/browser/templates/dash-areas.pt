@@ -138,7 +138,8 @@
               <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
               <div class="primerafila">
                 <tal:block repeat="item outcome/monitoring">
-                  <tal:block condition="python: item['short_category'] == 'transformational'">
+                  <tal:block condition="python: item['short_category'] == 'transformational'"
+                             tal:define="titleSpecific python:view.getTitleSpecific(item)">
                     <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                       <div class="item_image" tal:condition="not:item/selected_specific">
                         <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
@@ -147,7 +148,7 @@
                         <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
                       </div>
                       <div class="item_text">
-                        <span tal:content="item/title_specific">Leadership</span>
+                        <span tal:content="titleSpecific">Leadership</span>
                       </div>
                     </a>
                   </tal:block>
@@ -156,7 +157,8 @@
               <!-- <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3> -->
               <div class="segundafila">
                 <tal:block repeat="item outcome/monitoring">
-                  <tal:block condition="python: item['short_category'] == 'transactional'">
+                  <tal:block condition="python: item['short_category'] == 'transactional'"
+                             tal:define="titleSpecific python:view.getTitleSpecific(item)">
                     <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                       <div class="item_image" tal:condition="not:item/selected_specific">
                         <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
@@ -165,7 +167,7 @@
                         <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
                       </div>
                       <div class="item_text">
-                        <span tal:content="item/title_specific">Leadership</span>
+                        <span tal:content="titleSpecific">Leadership</span>
                       </div>
                     </a>
                   </tal:block>
@@ -174,7 +176,8 @@
               <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3> -->
               <div class="tercerafila">
                 <tal:block repeat="item outcome/monitoring">
-                  <tal:block condition="python: item['short_category'] == 'individual'">
+                  <tal:block condition="python: item['short_category'] == 'individual'"
+                             tal:define="titleSpecific python:view.getTitleSpecific(item)">
                     <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
                       <div class="item_image" tal:condition="not:item/selected_specific">
                         <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
@@ -183,7 +186,7 @@
                         <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
                       </div>
                       <div class="item_text">
-                        <span tal:content="item/title_specific">Leadership</span>
+                        <span tal:content="titleSpecific">Leadership</span>
                       </div>
                     </a>
                   </tal:block>
@@ -194,7 +197,8 @@
               <!-- <h3 class="capacity-title" i18n:translate="">Others</h3> -->
               <div class="cuartafila">
                 <tal:block repeat="item outcome/monitoring">
-                  <tal:block condition="python: item['short_category'] == 'other'">
+                  <tal:block condition="python: item['short_category'] == 'other'"
+                             tal:define="titleSpecific python:view.getTitleSpecific(item)">
                     <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
                       <div class="item_image" tal:condition="not:item/selected_specific">
                         <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
@@ -203,7 +207,7 @@
                         <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
                       </div>
                       <div class="item_text">
-                        <span tal:content="item/title_specific">Other</span>
+                        <span tal:content="titleSpecific">Other</span>
                       </div>
                     </a>
                   </tal:block>
