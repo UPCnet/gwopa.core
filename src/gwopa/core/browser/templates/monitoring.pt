@@ -9,8 +9,17 @@
 
 <metal:content-core fill-slot="main"
     tal:define="portal_state context/@@plone_portal_state;
-                portal_url portal_state/portal_url;">
-  <metal:block define-macro="content-core" tal:define="currentYear view/getYear">
+                portal_url portal_state/portal_url;
+                gwopa_utils context/@@gwopa.utils;">
+
+  <tal:omit-tag-ini tal:define="canViewPlanningMonitoring gwopa_utils/canViewPlanningMonitoring">  
+  <metal:block tal:condition="not: canViewPlanningMonitoring">
+   <h1 class="documentFirstHeading" i18n:translate="">Insufficient permissions</h1>
+  </metal:block>
+
+  <metal:block tal:condition="canViewPlanningMonitoring" define-macro="content-core" 
+    tal:define="currentYear view/getYear;
+                canEditPlanningMonitoring gwopa_utils/canEditPlanningMonitoring">
     <div class="block-nav">
       <ul class="pagination pagination-lg" tal:define="items view/getItems">
         <tal:block tal:repeat="item items">
@@ -150,7 +159,7 @@
                         </div>
                         <div tal:content="item/year" id="year" style="display:none;"></div>
                         <div tal:content="item/path" tal:attributes="id string:${item/id}-path" style="display:none;"></div>
-                        <button type="submit" tal:attributes="id string:${item/id}-updateActivityMonitoring; class string:${item/id} btn btn-default focus" i18n:translate=""> Update </button>
+                        <button tal:condition="canEditPlanningMonitoring" type="submit" tal:attributes="id string:${item/id}-updateActivityMonitoring; class string:${item/id} btn btn-default focus" i18n:translate=""> Update </button>
                       </div>
                     </form>
                   </div>
@@ -938,6 +947,7 @@
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
 
   </metal:block>
+  </tal:omit-tag-ini>
 
 </metal:content-core>
 

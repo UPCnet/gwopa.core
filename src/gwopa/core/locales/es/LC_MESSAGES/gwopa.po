@@ -1024,8 +1024,8 @@ msgid "My common Working Areas"
 msgstr "Mis áreas de trabajo comunes"
 
 #: ../browser/templates/homepage.pt:107
-msgid "My company Projects"
-msgstr "Los proyectos de mi compañía"
+msgid "My organization Projects"
+msgstr "Los proyectos de mi organización"
 
 #: ../browser/setup_home.py:612
 msgid "NRW as percentage of system input"
@@ -1222,8 +1222,8 @@ msgid "Partner Title"
 msgstr "Socio Título"
 
 #: ../content/templates/project_view.pt:126
-msgid "Partner Water Operators"
-msgstr "Socios Operadores del Agua"
+msgid "Water Operators"
+msgstr "Operadores del Agua"
 
 #: ../content/project.py:328
 msgid "Partner/partners of the project"
@@ -1841,7 +1841,7 @@ msgstr "WOP Partner"
 #: ../browser/templates/manage_portal.pt:37
 #: ../userdataschema.py:67
 msgid "WOP Partners"
-msgstr "WOP Partners"
+msgstr "Water Operator"
 
 #: ../browser/templates/global_map.pt:34
 #: ../profiles/default/types/Platform.xml

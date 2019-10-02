@@ -325,7 +325,7 @@ class IProject(model.Schema):
     dexteritytextindexer.searchable('partners')
     directives.widget('partners', SelectWidget)
     partners = schema.List(
-        title=_(u"Participants"),
+        title=_(u"Water Operators"),
         description=_(u"Partner/partners of the project"),
         required=False,
         value_type=schema.Choice(
@@ -460,8 +460,12 @@ class View(grok.View):
         for role in roles:
             if role in roles_in_context:
                 return True
-        if (currentuser in self.context.members) or (currentuser in self.context.project_manager):
-            return True
+        if self.context.project_manager:
+            if currentuser in self.context.project_manager:
+                return True
+        if self.context.members:
+            if currentuser in self.context.members:
+                return True
         return False
 
     def getPath(self):

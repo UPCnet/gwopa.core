@@ -9,6 +9,7 @@ from zope.interface import directlyProvides
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+from Products.Five.browser import BrowserView
 
 from gwopa.core import _
 
@@ -289,3 +290,34 @@ def getUsersWOPProgram(program):
             if program == user.getProperty('wop_programs'):
                 results += [user.id]
     return results
+
+class gwopaUtils(BrowserView):
+    """ Convenience methods placeholder gwopa.utils view. """
+
+    def canViewPlanningMonitoring(self):
+        currentuser = api.user.get_current().id
+        pm = getToolByName(self.context, 'portal_membership')
+        roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
+        roles = ['Manager', 'Site Administrator',  'Editor']
+        for role in roles:
+            if role in roles_in_context:
+                return True
+        if self.context.portal_type != 'Plone Site':
+            if self.context.project_manager:
+                if currentuser in self.context.project_manager:
+                    return True
+            if self.context.members:
+                if currentuser in self.context.members:
+                    return True
+        return False
+
+
+    def canEditPlanningMonitoring(self):
+        currentuser = api.user.get_current().id
+        pm = getToolByName(self.context, 'portal_membership')
+        roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
+        roles = ['Manager', 'Site Administrator',  'Editor'] 
+        for role in roles:
+            if role in roles_in_context:
+                return True
+        return False

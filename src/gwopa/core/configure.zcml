@@ -78,4 +78,13 @@
     />
   </configure>
 
+  <browser:page
+    for="*"
+    name="gwopa.utils"
+    class=".utils.gwopaUtils"
+    permission="zope2.Public"
+    allowed_interface="gwopa.core.interfaces.IGwopaUtils"
+    />
+
+
 </configure>

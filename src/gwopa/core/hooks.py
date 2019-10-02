@@ -38,7 +38,10 @@ def projectAdded(content, event):
     # Grant Editor/Reader role to members in project
     if content.members:
         for user in content.members:
-            api.user.grant_roles(username=user, obj=content, roles=['Contributor', 'Reader'])
+            api.user.grant_roles(username=user, obj=content, roles=['Reader'])
+    if content.project_manager:
+        for user in content.project_manager:
+            api.user.grant_roles(username=user, obj=content, roles=['Reader'])
     if content.project_manager_admin:        
         api.user.grant_roles(username=content.project_manager_admin, obj=content, roles=['Contributor', 'Editor', 'Reader'])
     
@@ -171,7 +174,10 @@ def projectModified(content, event):
         # Grant Editor/Reader role to members in project
         if content.members:
             for user in content.members:
-                api.user.grant_roles(username=user, obj=content, roles=['Contributor', 'Reader'])
+                api.user.grant_roles(username=user, obj=content, roles=['Reader'])
+        if content.project_manager:
+            for user in content.project_manager:
+                api.user.grant_roles(username=user, obj=content, roles=['Reader'])
         if content.project_manager_admin:        
             api.user.grant_roles(username=content.project_manager_admin, obj=content, roles=['Contributor', 'Editor', 'Reader'])
         
@@ -188,11 +194,13 @@ def projectModified(content, event):
         users = [perm[0] for perm in content.get_local_roles()]
         for user in users:
             if content.members == None:
-                content.members = []  
+                content.members = []
+            if content.project_manager == None:
+                content.project_manager = []   
             if content.project_manager_admin == None:
                 content.project_manager_admin = []      
 
-            if user not in content.members and user not in content.project_manager_admin and user not in wop_partners and user not in wop_programs:
+            if user not in content.members and user not in content.project_manager and user not in content.project_manager_admin and user not in wop_partners and user not in wop_programs:
                  api.user.revoke_roles(username=user, obj=content, roles=['Contributor', 'Editor', 'Reader'])
          
         # Asign default image if not set

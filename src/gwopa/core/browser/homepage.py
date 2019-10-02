@@ -149,30 +149,43 @@ class MainTemplate(BrowserView):
                 portal_type='Project',
                 context=self.context)
             # Tuple to list in the next code
+        
+            # Water Operator
             userPartners = api.user.get_current().getProperty('wop_partners')
-            if userPartners != '':
+
+            userWOPProgram = api.user.get_current().getProperty('wop_programs')
+
+            userRegionalWOPlatform = api.user.get_current().getProperty('wop_platforms')
+            if userPartners or userWOPProgram or userRegionalWOPlatform:
                 for project in projects:
+                    add_project = False
                     item = project._unrestrictedGetObject()
+                    if item.wop_program == userWOPProgram:
+                        add_project = True
+                    if item.wop_platform == userRegionalWOPlatform:
+                        add_project = True
                     if item.partners != None:
                         if userPartners in item.partners:
-                            if item.image:
-                                image = item.absolute_url() + '/@@images/image/preview'
-                            else:
-                                image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
-                            if item.objectives:
-                                alt = self.abreviaText(item.objectives.raw, 400)
-                            else:
-                                alt = self.abreviaText(item.title)
-                            results.append(dict(title=self.abreviaText(item.title),
-                                                alt=alt,
-                                                url=item.absolute_url(),
-                                                start=item.startplanned,
-                                                end=item.startactual,
-                                                country=item.country,
-                                                location=item.location,
-                                                project_manager=item.project_manager,
-                                                image=image
-                                                ))
+                            add_project = True
+                    if add_project:
+                        if item.image:
+                            image = item.absolute_url() + '/@@images/image/preview'
+                        else:
+                            image = item.absolute_url() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
+                        if item.objectives:
+                            alt = self.abreviaText(item.objectives.raw, 400)
+                        else:
+                            alt = self.abreviaText(item.title)
+                        results.append(dict(title=self.abreviaText(item.title),
+                                            alt=alt,
+                                            url=item.absolute_url(),
+                                            start=item.startplanned,
+                                            end=item.startactual,
+                                            country=item.country,
+                                            location=item.location,
+                                            project_manager=item.project_manager,
+                                            image=image
+                                            ))
 
         return sorted(results, key=itemgetter('title'), reverse=False)
 

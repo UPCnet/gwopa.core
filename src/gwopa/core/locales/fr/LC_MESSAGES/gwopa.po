@@ -1022,7 +1022,7 @@ msgid "My common Working Areas"
 msgstr ""
 
 #: ../browser/templates/homepage.pt:107
-msgid "My company Projects"
+msgid "My organization Projects"
 msgstr ""
 
 #: ../browser/setup_home.py:612
@@ -1220,7 +1220,7 @@ msgid "Partner Title"
 msgstr ""
 
 #: ../content/templates/project_view.pt:126
-msgid "Partner Water Operators"
+msgid "Water Operators"
 msgstr ""
 
 #: ../content/project.py:328
@@ -1839,7 +1839,7 @@ msgstr ""
 #: ../browser/templates/manage_portal.pt:37
 #: ../userdataschema.py:67
 msgid "WOP Partners"
-msgstr ""
+msgstr "Water Operator"
 
 #: ../browser/templates/global_map.pt:34
 #: ../profiles/default/types/Platform.xml

@@ -109,7 +109,7 @@
                     <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
                   </div> -->
                   <tal:CompanyProjects condition="items">
-                    <h1 class="documentFirstHeading" i18n:translate="">My company Projects </h1>
+                    <h1 class="documentFirstHeading" i18n:translate="">My organization Projects </h1>
                     <div class="row">
                       <div class="col-xs-12 col-sm-12">
                         <tal:items repeat="item items">

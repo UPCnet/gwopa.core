@@ -6,12 +6,13 @@
 <tal:block tal:define="portal_state context/@@plone_portal_state;
                 portal_url portal_state/portal_url;
                 isRootFolder view/isRootFolder;
-                projectPath view/projectPath">
+                projectPath view/projectPath;
+                gwopa_utils context/@@gwopa.utils;">
 
     <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/fontawesome/css/all.min.css" />
     <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css" />
 
-    <div class="sidenav2">
+    <div class="sidenav2" tal:define="canViewPlanningMonitoring gwopa_utils/canViewPlanningMonitoring">
         <ul id="sidenav-vertical" tal:define="selected_tab view/selected_portal_tab; current_path view/current_path">
             <li tal:define="tab_id string:${portal_url}/homepage">
                 <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}">
@@ -23,12 +24,12 @@
                     <i class="fas fa-home"></i><tal:omit-tag i18n:translate=""> Project Overview </tal:omit-tag></a>
                 </li>
 
-                <li tal:define="tab_id string:${projectPath}/planning">
+                <li tal:condition="canViewPlanningMonitoring" tal:define="tab_id string:${projectPath}/planning">
                     <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft20 plone-btn plone-btn-info active' or 'paddingleft20 plone-btn plone-btn-info'; href string:${projectPath}/planning">
                     <i class="fas fa-calendar-check"></i><tal:omit-tag i18n:translate=""> Planning </tal:omit-tag></a>
                 </li>
 
-                <li tal:define="tab_id string:${projectPath}/monitoring">
+                <li tal:condition="canViewPlanningMonitoring" tal:define="tab_id string:${projectPath}/monitoring">
                     <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft20 plone-btn plone-btn-info active' or 'paddingleft20 plone-btn plone-btn-info'; href string:${projectPath}/monitoring">
                     <i class="fas fa-chart-pie"></i><tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>
                 </li>
