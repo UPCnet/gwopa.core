@@ -291,6 +291,29 @@ def getUsersWOPProgram(program):
                 results += [user.id]
     return results
 
+
+def getUsersWaterOperator(wateroperator):
+    members = api.user.get_users()
+    results = []
+
+    if wateroperator:
+        for user in members:        
+            if user.getProperty('wop_partners') in wateroperator:
+                results += [user.id]
+    return results
+
+
+def getUsersDonor(donor):
+    members = api.user.get_users()
+    results = []
+
+    if donor:
+        for user in members:
+            if user.getProperty('donor') in donor:
+                results += [user.id]
+    return results
+
+
 class gwopaUtils(BrowserView):
     """ Convenience methods placeholder gwopa.utils view. """
 
@@ -320,4 +343,31 @@ class gwopaUtils(BrowserView):
         for role in roles:
             if role in roles_in_context:
                 return True
+        return False
+
+
+    def canViewDashboardProject(self):
+        currentuser = api.user.get_current().id
+        pm = getToolByName(self.context, 'portal_membership')
+        roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
+        roles = ['Manager', 'Site Administrator',  'Editor']
+        for role in roles:
+            if role in roles_in_context:
+                return True
+        if self.context.portal_type != 'Plone Site':
+            if self.context.project_manager:
+                if currentuser in self.context.project_manager:
+                    return True
+            if self.context.members:
+                if currentuser in self.context.members:
+                    return True
+            waterOperators = getUsersWaterOperator(self.context.partners)
+            if waterOperators:
+                if currentuser in waterOperators:
+                    return True
+            donors = getUsersDonor(self.context.donors)
+            if donors:
+                if currentuser in donors:
+                    return True   
+
         return False

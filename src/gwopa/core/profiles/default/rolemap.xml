@@ -148,6 +148,9 @@
       <role name="Manager"/>
       <role name="Site Administrator"/>
     </permission>
+    <permission name="Manage portal" acquire="True">
+      <role name="Manager"/>
+    </permission>
     <permission name="Manage properties" acquire="True">
       <role name="Editor"/>
       <role name="Manager"/>

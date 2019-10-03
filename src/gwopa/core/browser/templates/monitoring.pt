@@ -76,7 +76,7 @@
                   <div class="information object">
                     <div class="contentt" id="total">
                       <div class="part0">
-                        <i class="fa fa-chevron-down expandActMo" aria-hidden="true"></i>
+                        <i tal:condition="canEditPlanningMonitoring" class="fa fa-chevron-down expandActMo" aria-hidden="true"></i>
                         <i style="display: none" class="fa fa-chevron-up notexpandActMo" aria-hidden="true"></i>
                         <tal:block tal:condition="item/updated">
                           <span class="dot">
@@ -168,7 +168,7 @@
                       <div class="information object">
                         <div class="contentt" id="total">
                           <div class="part0">
-                            <i class="fa fa-chevron-down expandOutMo" aria-hidden="true"></i>
+                            <i tal:condition="canEditPlanningMonitoring" class="fa fa-chevron-down expandOutMo" aria-hidden="true"></i>
                             <i style="display: none" class="fa fa-chevron-up notexpandOutMo" aria-hidden="true"></i>
                             <tal:block tal:condition="output/updated">
                               <span class="dot">
@@ -256,7 +256,7 @@
                           </div>
                           <div tal:content="output/year" id="year" style="display:none;"></div>
                           <div tal:content="output/path" tal:attributes="id string:${output/id}-path" style="display:none;"></div>
-                          <button type="submit" tal:attributes="id string:${output/id}-updateOutputMonitoring; class string:${output/id} btn btn-default focus" i18n:translate=""> Update </button>
+                          <button tal:condition="canEditPlanningMonitoring" type="submit" tal:attributes="id string:${output/id}-updateOutputMonitoring; class string:${output/id} btn btn-default focus" i18n:translate=""> Update </button>
                         </form>
                       </div>
                     </div>
@@ -296,7 +296,7 @@
                 <div class="information object">
                   <div class="contentt" id="total2">
                     <div class="part0">
-                      <i class="fa fa-chevron-down expandKPIMo" aria-hidden="true"></i>
+                      <i tal:condition="canEditPlanningMonitoring" class="fa fa-chevron-down expandKPIMo" aria-hidden="true"></i>
                       <i style="display: none" class="fa fa-chevron-up notexpandKPIMo" aria-hidden="true"></i>
                       <span class="dot" tal:condition="outcome/updated">
                         <i id="done" class="fas fa-circle"></i>
@@ -384,7 +384,7 @@
                       </div>
                       <div tal:content="outcome/year" id="year" style="display:none;"></div>
                       <div tal:content="outcome/path" tal:attributes="id string:${outcome/id}-path" style="display:none;"></div>
-                      <button type="submit" tal:attributes="id string:${outcome/id}-updateKPIMonitoring; class string:${outcome/id} btn btn-default focus"> Update </button>
+                      <button tal:condition="canEditPlanningMonitoring" type="submit" tal:attributes="id string:${outcome/id}-updateKPIMonitoring; class string:${outcome/id} btn btn-default focus"> Update </button>
                     </div>
                   </form>
                 </div>
@@ -640,7 +640,7 @@
       </div>
     </div>
 
-    <div id="modalEditOutcomeCCS" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalEditOutcomeCCS" data-dismiss="modal" aria-hidden="true">
+    <div tal:condition="canEditPlanningMonitoring" id="modalEditOutcomeCCS" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalEditOutcomeCCS" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form id="toClearEditOutcomeCC">
@@ -727,7 +727,7 @@
       </div>
     </div>
 
-    <div id="modalAddOutcomeCCS" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddOutcomeCCS" data-dismiss="modal" aria-hidden="true">
+    <div tal:condition="canEditPlanningMonitoring" id="modalAddOutcomeCCS" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddOutcomeCCS" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form id="toClearAddOutcomeCC">
@@ -758,7 +758,7 @@
       </div>
     </div>
 
-    <div id="modalUpdateStage" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalUpdateStage" data-dismiss="modal" aria-hidden="true">
+    <div tal:condition="canEditPlanningMonitoring" id="modalUpdateStage" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalUpdateStage" data-dismiss="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form id="toClearAddOutcomeCC">

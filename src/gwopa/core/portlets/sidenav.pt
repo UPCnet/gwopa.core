@@ -12,7 +12,8 @@
     <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/fontawesome/css/all.min.css" />
     <link rel="stylesheet" tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/bootstrap/dist/css/bootstrap.min.css" />
 
-    <div class="sidenav2" tal:define="canViewPlanningMonitoring gwopa_utils/canViewPlanningMonitoring">
+    <div class="sidenav2" tal:define="canViewPlanningMonitoring gwopa_utils/canViewPlanningMonitoring;
+                                      canViewDashboardProject gwopa_utils/canViewDashboardProject">
         <ul id="sidenav-vertical" tal:define="selected_tab view/selected_portal_tab; current_path view/current_path">
             <li tal:define="tab_id string:${portal_url}/homepage">
                 <a tal:attributes="class python:selected_tab==tab_id and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${portal_url}">
@@ -34,13 +35,13 @@
                     <i class="fas fa-chart-pie"></i><tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>
                 </li>
 
-                <li class="menuItem"><i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></li>
+                <li tal:condition="canViewDashboardProject" class="menuItem"><i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></li>
 
-                <li style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-areas">
+                <li tal:condition="canViewDashboardProject" style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-areas">
                     <a style="padding-left:25px;" tal:attributes="class python:tab_id in selected_tab and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/dash-areas"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Working Areas </tal:omit-tag></a>
                 </li>
 
-                <li style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-performance">
+                <li tal:condition="canViewDashboardProject" style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-performance">
                     <a style="padding-left:25px;" tal:attributes="class python:tab_id in selected_tab and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/dash-performance"><i class="fas fa-angle-right"></i><tal:block i18n:translate=""> Performance </tal:block></a>
                 </li>
             </tal:omit-tag>

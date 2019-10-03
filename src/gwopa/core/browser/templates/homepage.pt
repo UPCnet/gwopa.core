@@ -146,6 +146,7 @@
                                   i18n:attributes="title title_search_title;
                                                    placeholder title_search_site"
                                   tal:attributes="value request/SearchableText|nothing;"/>
+                              <input type="hidden" name="portal_type" value="Project" />
                             </div>
                          </form>
                         </div>

@@ -74,24 +74,7 @@ class Renderer(base.Renderer):
         path = url[plone_url_len:]
         return url.startswith(plone_url + path)
 
-
-    # def canViewPlanningMonitoring(self):
-    #     currentuser = api.user.get_current().id
-    #     pm = getToolByName(self.context, 'portal_membership')
-    #     roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
-    #     roles = ['Manager', 'Site Administrator',  'Editor']
-    #     for role in roles:
-    #         if role in roles_in_context:
-    #             return True
-    #     if self.context.project_manager:
-    #         if currentuser in self.context.project_manager:
-    #             return True
-    #     if self.context.members:
-    #         if currentuser in self.context.members:
-    #             return True
-    #     return False
-
-
+ 
 class AddForm(base.NullAddForm):
 
     def create(self):
