@@ -2,11 +2,10 @@ Changelog
 =========
 
 
-1.3 (unreleased)
+1.3 (2019-10-04)
 ----------------
 
-- Nothing changed yet.
-
+* Modify action delete project [pilar.marinas]
 
 1.2 (2019-10-04)
 ----------------
