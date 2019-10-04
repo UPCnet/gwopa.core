@@ -680,7 +680,7 @@ class setup(grok.View):
                 title=item,
                 title_es=title_es if title_es != '' else item,
                 title_fr=title_fr if title_fr != '' else item,
-                container=portal.config.outputs,
+                container=portal.config.mainobstacles,
                 safe_id=True)
 
     def createDefaultMainContributing(self):
@@ -700,7 +700,7 @@ class setup(grok.View):
                 title=item,
                 title_es=title_es if title_es != '' else item,
                 title_fr=title_fr if title_fr != '' else item,
-                container=portal.config.outputs,
+                container=portal.config.maincontributing,
                 safe_id=True)
 
 
