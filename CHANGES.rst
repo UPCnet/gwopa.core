@@ -2,11 +2,31 @@ Changelog
 =========
 
 
-1.2 (unreleased)
+1.4 (unreleased)
 ----------------
 
 - Nothing changed yet.
 
+
+1.3 (2019-10-04)
+----------------
+
+* Modify action delete project [pilar.marinas]
+
+1.2 (2019-10-04)
+----------------
+
+* Traduccion campos Settingspage [Iago López Fernández]
+* Permisos [pilar.marinas]
+* Deshabilitar Enter en el buscador de la homepage [Iago López Fernández]
+* Permisos Project y Planning [pilar.marinas]
+* canAddFiles in project [pilar.marinas]
+* Traduccion Outcome [Iago López Fernández]
+* Merge src/gwopa/core/userdataschema.py [Iago López Fernández]
+* Arreglar error cuando un proyecto no tiene WA seleccionado [Iago López Fernández]
+* Permisos Site Administrator [pilar.marinas]
+* Permisos de la vista del proyecto [pilar.marinas]
+* Traducciones WA [Iago López Fernández]
 
 1.1 (2019-09-30)
 ----------------
