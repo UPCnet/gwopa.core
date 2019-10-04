@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 from five import grok
-from plone.supermodel import model
-from zope import schema
-from gwopa.core import _
-import datetime
 from plone.app.z3cform.widget import SelectWidget
 from plone.autoform import directives
 from plone.directives import form
-from zope.interface import invariant, Invalid
+from plone.supermodel import model
+from zope import schema
 from zope.globalrequest import getRequest
+from zope.interface import Invalid
+from zope.interface import invariant
 
+from gwopa.core import _
+from gwopa.core.utils import project_currency
+
+import datetime
 
 grok.templatedir("templates")
 
@@ -112,7 +115,7 @@ class IActivity(model.Schema):
 
 @form.default_value(field=IActivity['currency'])
 def projectCurrency(data):
-    return data.context.aq_parent.currency
+    return project_currency(data.context.aq_parent)
 
 
 @form.default_value(field=IActivity['project_dates'])

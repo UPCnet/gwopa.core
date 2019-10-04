@@ -12,12 +12,12 @@
                 portal_url portal_state/portal_url;
                 gwopa_utils context/@@gwopa.utils;">
 
-  <tal:omit-tag-ini tal:define="canViewPlanningMonitoring gwopa_utils/canViewPlanningMonitoring">  
+  <tal:omit-tag-ini tal:define="canViewPlanningMonitoring gwopa_utils/canViewPlanningMonitoring">
   <metal:block tal:condition="not: canViewPlanningMonitoring">
    <h1 class="documentFirstHeading" i18n:translate="">Insufficient permissions</h1>
   </metal:block>
 
-  <metal:block tal:condition="canViewPlanningMonitoring" define-macro="content-core" 
+  <metal:block tal:condition="canViewPlanningMonitoring" define-macro="content-core"
     tal:define="currentYear view/getYear;
                 canEditPlanningMonitoring gwopa_utils/canEditPlanningMonitoring">
     <div class="block-nav">
@@ -417,7 +417,7 @@
                       <span class="CC-planning" i18n:translate="">Capacity</span>
                     </div>
                     <div class="part2 label-2nd">
-                      <h5 class="capacity-text">Improved capacity in/for </h5>
+                      <h5 class="capacity-text" i18n:translate="">Improved capacity in/for </h5>
                       <h5 tal:attributes="id string:${outcome/rid};" class="capacity-title" tal:content="outcome/area"> Working Area N </h5>
                     </div>
                   </div>
@@ -463,6 +463,9 @@
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
                                     data-id-capacity outcome/rid;
+                                    data-degree-changes-text python:view.getTranslatedDegreeChangesFromID(item['degree_changes']);
+                                    data-contributed-project-text python:view.getTranslatedContributedProjectFromID(item['contributed_project']);
+                                    data-consensus-text python:view.getTranslatedConsensusFromID(item['consensus']);
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
                               <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
@@ -507,6 +510,9 @@
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
                                     data-id-capacity outcome/rid;
+                                    data-degree-changes-text python:view.getTranslatedDegreeChangesFromID(item['degree_changes']);
+                                    data-contributed-project-text python:view.getTranslatedContributedProjectFromID(item['contributed_project']);
+                                    data-consensus-text python:view.getTranslatedConsensusFromID(item['consensus']);
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
                               <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
@@ -551,6 +557,9 @@
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
                                     data-id-capacity outcome/rid;
+                                    data-degree-changes-text python:view.getTranslatedDegreeChangesFromID(item['degree_changes']);
+                                    data-contributed-project-text python:view.getTranslatedContributedProjectFromID(item['contributed_project']);
+                                    data-consensus-text python:view.getTranslatedConsensusFromID(item['consensus']);
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
                               <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>
@@ -597,6 +606,9 @@
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
                                     data-id-capacity outcome/rid;
+                                    data-degree-changes-text python:view.getTranslatedDegreeChangesFromID(item['degree_changes']);
+                                    data-contributed-project-text python:view.getTranslatedContributedProjectFromID(item['contributed_project']);
+                                    data-consensus-text python:view.getTranslatedConsensusFromID(item['consensus']);
                                     class string:editOutcomeCCS item ${item/short_category} ${item/selected_specific};">
                             <tal:block tal:condition="python: item['selected_monitoring'] != 'notset'">
                               <i tal:attributes="class string:fas fa-circle ${item/selected_monitoring}; id string:${item/selected_monitoring};"></i>

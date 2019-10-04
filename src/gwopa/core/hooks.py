@@ -11,15 +11,15 @@ from zope.globalrequest import getRequest
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 
-from gwopa.core.content.project import IProject
-from gwopa.core.utils import getUsersRegionalWOPPlatform, getUsersWOPProgram
-from gwopa.core.content.partner import IPartner
 from gwopa.core.content.donor import IDonor
 from gwopa.core.content.improvement_area import IImprovementArea
 from gwopa.core.content.outcomecc import IOutcomecc
 from gwopa.core.content.outcomeccs import IOutcomeccs
 from gwopa.core.content.partner import IPartner
 from gwopa.core.content.project import IProject
+from gwopa.core.utils import getUsersRegionalWOPPlatform
+from gwopa.core.utils import getUsersWOPProgram
+from gwopa.core.utils import project_currency
 
 # import datetime
 import dateutil.relativedelta
@@ -34,7 +34,7 @@ def projectAdded(content, event):
         Copy value from behaviour fields to project fields.projectAnd create
         current year
     """
-    
+
     # Grant Editor/Reader role to members in project
     if content.members:
         for user in content.members:
@@ -42,9 +42,9 @@ def projectAdded(content, event):
     if content.project_manager:
         for user in content.project_manager:
             api.user.grant_roles(username=user, obj=content, roles=['Reader'])
-    if content.project_manager_admin:        
+    if content.project_manager_admin:
         api.user.grant_roles(username=content.project_manager_admin, obj=content, roles=['Contributor', 'Editor', 'Reader'])
-    
+
     wop_partners = getUsersRegionalWOPPlatform(content.wop_platform)
     if wop_partners:
         for user in wop_partners:
@@ -178,9 +178,9 @@ def projectModified(content, event):
         if content.project_manager:
             for user in content.project_manager:
                 api.user.grant_roles(username=user, obj=content, roles=['Reader'])
-        if content.project_manager_admin:        
+        if content.project_manager_admin:
             api.user.grant_roles(username=content.project_manager_admin, obj=content, roles=['Contributor', 'Editor', 'Reader'])
-        
+
         wop_partners = getUsersRegionalWOPPlatform(content.wop_platform)
         if wop_partners:
             for user in wop_partners:
@@ -196,13 +196,13 @@ def projectModified(content, event):
             if content.members == None:
                 content.members = []
             if content.project_manager == None:
-                content.project_manager = []   
+                content.project_manager = []
             if content.project_manager_admin == None:
-                content.project_manager_admin = []      
+                content.project_manager_admin = []
 
             if user not in content.members and user not in content.project_manager and user not in content.project_manager_admin and user not in wop_partners and user not in wop_programs:
                  api.user.revoke_roles(username=user, obj=content, roles=['Contributor', 'Editor', 'Reader'])
-         
+
         # Asign default image if not set
         if content.image is None:
             data = requests.get(api.portal.get().aq_parent.absolute_url(
@@ -282,18 +282,12 @@ def projectModified(content, event):
         activities = api.content.find(portal_type="Activity", path=project_path)
         for activity in activities:
             item = activity.getObject()
-            reindex = False
             project_dates = "The dates must be between the limits of this Project. Start: " + str(content.startactual) + " End: " + str(content.completionactual)
             if item.project_dates != project_dates:
                 item.project_dates = project_dates
-                reindex = True
-            if item.currency != content.currency:
-                item.currency = content.currency
-                reindex = True
-            if reindex == True:
-                item.reindexObject()
-            else:
-                break
+
+            item.currency = project_currency(content)
+            item.reindexObject()
 
         path = '/'.join(content.contribs.getPhysicalPath())
         partners = content.partners

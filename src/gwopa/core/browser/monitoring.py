@@ -11,7 +11,12 @@ from zope.publisher.interfaces import IPublishTraverse
 
 from gwopa.core import _
 from gwopa.core.utils import getTitleAttrLang
+from gwopa.core.utils import getTranslatedConsensusFromID
+from gwopa.core.utils import getTranslatedContributedProjectFromID
+from gwopa.core.utils import getTranslatedDegreeChangesFromID
+from gwopa.core.utils import getTranslatedMesuringUnitFromID
 from gwopa.core.utils import getUserLang
+from gwopa.core.utils import project_currency
 
 import datetime
 
@@ -51,15 +56,7 @@ class monitoringView(BrowserView):
         return self.context.title
 
     def project_currency(self):
-        return self.context.currency.split('-')[-1:][0]
-
-    def hidden_project_currency(self):
-        currency = getattr(self.context, 'currency', None)
-        if currency:
-            letter = currency
-        else:
-            letter = 'USD-Dollar-$'
-        return letter
+        return project_currency(self)
 
     def getPath(self):
         return '/'.join(self.context.getPhysicalPath())
@@ -221,7 +218,7 @@ class monitoringView(BrowserView):
             if item.portal_type == 'Activity':
                 unit = ''
             else:
-                unit = item.measuring_unit
+                unit = getTranslatedMesuringUnitFromID(item.measuring_unit)
             if not item.start:
                 start = '-----'
             else:
@@ -314,7 +311,7 @@ class monitoringView(BrowserView):
             if item.portal_type == 'Activity':
                 unit = ''
             else:
-                unit = item.measuring_unit
+                unit = getTranslatedMesuringUnitFromID(item.measuring_unit)
             if not item.start:
                 start = '-----'
             else:
@@ -424,7 +421,7 @@ class monitoringView(BrowserView):
                 base_value=obj.baseline,
                 base_date=obj.baseline_date.strftime('%Y-%m'),
                 zone=obj.zone,
-                unit=obj.measuring_unit,
+                unit=getTranslatedMesuringUnitFromID(obj.measuring_unit),
                 means=obj.means,
                 # risks=obj.risks,
                 responsible=members,
@@ -488,9 +485,10 @@ class monitoringView(BrowserView):
 
             attr_lang = getTitleAttrLang()
             if obj.aq_parent.portal_type == 'ImprovementArea':
-                area = getattr(obj.aq_parent, attr_lang)
+                area = getattr(obj.aq_parent, attr_lang.lower())
             else:
-                area = getattr(obj.aq_parent.aq_parent, attr_lang)
+                area = getattr(obj.aq_parent.aq_parent, attr_lang.lower())
+
             results.append(dict(
                 rid=item.getRID(),
                 area=area,
@@ -508,7 +506,7 @@ class monitoringView(BrowserView):
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
 
-        return sorted(results, key=itemgetter('title'), reverse=False)
+        return sorted(results, key=itemgetter('area'), reverse=False)
 
     def custom_pattern_options(self):
         """ Pass data from project to picker date in modal, in Activity  and OutcomeKPIZone.
@@ -554,3 +552,18 @@ class monitoringView(BrowserView):
             return specific['title_specific_' + lang]
         else:
             return specific['title_specific']
+
+    def getTranslatedDegreeChangesFromID(self, degreeChanges):
+        if degreeChanges:
+            return getTranslatedDegreeChangesFromID(degreeChanges)
+        return ''
+
+    def getTranslatedConsensusFromID(self, consensus):
+        if consensus:
+            return getTranslatedConsensusFromID(consensus)
+        return ''
+
+    def getTranslatedContributedProjectFromID(self, contributedProject):
+        if contributedProject:
+            return getTranslatedContributedProjectFromID(contributedProject)
+        return ''

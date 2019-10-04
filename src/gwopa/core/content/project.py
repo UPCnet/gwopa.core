@@ -443,10 +443,9 @@ class View(grok.View):
 
     def canEdit(self):
         # TODO: Create app role system
-        currentuser = api.user.get_current().id
         pm = getToolByName(self.context, 'portal_membership')
         roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
-        roles = ['Manager', 'Site Administrator',  'Editor'] 
+        roles = ['Manager', 'Site Administrator', 'Editor']
         for role in roles:
             if role in roles_in_context:
                 return True
@@ -456,7 +455,7 @@ class View(grok.View):
         currentuser = api.user.get_current().id
         pm = getToolByName(self.context, 'portal_membership')
         roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
-        roles = ['Manager', 'Site Administrator',  'Editor']
+        roles = ['Manager', 'Site Administrator', 'Editor']
         for role in roles:
             if role in roles_in_context:
                 return True
@@ -588,6 +587,9 @@ class View(grok.View):
             letter = utils.project_currency(self)
             return str(self.context.total_budget) + ' ' + letter
 
+    def project_currency(self):
+        return utils.project_currency(self)
+
 
 @indexer(IProject)
 def wop_platform(context):
@@ -598,6 +600,7 @@ def wop_platform(context):
 
 
 grok.global_adapter(wop_platform, name='wop_platform')
+
 
 @indexer(IProject)
 def wop_program(context):

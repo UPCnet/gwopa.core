@@ -11,7 +11,10 @@ from zope.publisher.interfaces import IPublishTraverse
 
 from gwopa.core import _
 from gwopa.core.utils import getTitleAttrLang
+from gwopa.core.utils import getTranslatedMesuringFrequencyFromID
+from gwopa.core.utils import getTranslatedMesuringUnitFromID
 from gwopa.core.utils import getUserLang
+from gwopa.core.utils import project_currency
 
 import datetime
 
@@ -51,16 +54,7 @@ class planningView(BrowserView):
         return self.context.title
 
     def project_currency(self):
-        currency = self.context.currency
-        return currency.split('-')[-1:][0] if currency is not None else ''
-
-    def hidden_project_currency(self):
-        currency = getattr(self.context, 'currency', None)
-        if currency:
-            letter = currency
-        else:
-            letter = 'USD-Dollar-$'
-        return letter
+        return project_currency(self)
 
     def getPath(self):
         return '/'.join(self.context.getPhysicalPath())
@@ -74,7 +68,7 @@ class planningView(BrowserView):
         return end
 
     def project_frequency(self):
-        return self.context.measuring_frequency
+        return self.context.measuring_frequency  # TODO Actualmente no se utiliza, revisar si hace falta traducir
 
     def __call__(self):
         if self.request['URL'].split('/')[-1][0:4] == 'api-':
@@ -316,7 +310,7 @@ class planningView(BrowserView):
                 portal_type=item.portal_type,
                 start='----',
                 end=item.end.strftime('%Y-%m-%d'),
-                unit=item.measuring_unit,
+                unit=getTranslatedMesuringUnitFromID(item.measuring_unit),
                 limit_start='----',
                 limit_end=item.end.strftime('%Y %m %d').replace(' 0', ' ').replace(' ', ','),
                 target_value_planned=target_value_planned,
@@ -346,7 +340,7 @@ class planningView(BrowserView):
                     unit = ''
                 else:
                     target_value_planned = annotations[KEY]['planned']
-                    unit = obj.measuring_unit
+                    unit = getTranslatedMesuringUnitFromID(obj.measuring_unit)
             else:
                 target_value_planned = _(u"Not defined")
                 unit = ''
@@ -375,7 +369,6 @@ class planningView(BrowserView):
             #     risks = obj.risks
             # else:
             #     risks = ''
-
             results.append(dict(
                 title=item.Title,
                 description=item.Description,
@@ -385,7 +378,7 @@ class planningView(BrowserView):
                 zone=obj.zone,
                 unit=unit,
                 target_value_planned=target_value_planned,
-                measuring_unit=obj.measuring_unit,
+                measuring_unit=getTranslatedMesuringUnitFromID(obj.measuring_unit),
                 portal_type=item.portal_type,
                 responsible=members,
                 responsible_id=members_id,

@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
-from plone.restapi.services import Service
-from plone import api
-from zExceptions import BadRequest
 from Products.Five.browser import BrowserView
+
+from plone import api
+from plone.restapi.services import Service
+from zExceptions import BadRequest
 from zope.annotation.interfaces import IAnnotations
+
+from gwopa.core.utils import percentage
+from gwopa.core.utils import getTranslatedMesuringUnitFromID
+
+import datetime
 import json
 import math
-from gwopa.core.utils import percentage
-import datetime
 
 
 class GetDashboard(BrowserView):
@@ -83,15 +87,16 @@ class GetDashboard(BrowserView):
                     portal_type=['Output'],
                     path={'query': act.getPath(), 'depth': 1})
                 for output in outputs:
+                    measuring_unit = getTranslatedMesuringUnitFromID(output.getObject().measuring_unit)
                     annotations = IAnnotations(output.getObject())
                     KEY = "GWOPA_TARGET_YEAR_" + str(year)
                     if annotations[KEY]['planned'] == '' or annotations[KEY]['monitoring'] == '' or annotations[KEY]['monitoring']['progress'] == '':
-                        value = 0
+                        value = "0 " + measuring_unit
                     else:
                         planned = annotations[KEY]['planned']
                         real = annotations[KEY]['monitoring']['progress']
                         # value = percentage(real, planned)
-                        value = "" + str(real) + '/' + str(planned)
+                        value = "" + str(real) + '/' + str(planned) + " " + measuring_unit
                     indicators[act.Title]['outputs'][output.Title] = value
 
             self.request.response.setHeader("Content-type", "application/json")

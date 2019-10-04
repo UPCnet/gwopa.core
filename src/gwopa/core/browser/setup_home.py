@@ -16,6 +16,7 @@ from requests.exceptions import ConnectionError
 from gwopa.core import _
 from gwopa.core.content.project import default_plus_one_year
 from gwopa.core.content.project import default_today
+from gwopa.core.content.settingspage import updateDictsSetting
 from gwopa.core.interfaces import IGwopaCoreLayer
 
 import logging
@@ -253,6 +254,24 @@ class setup(grok.View):
         settingspage.degree_changes = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
         settingspage.consensus = 'One Partner\nWop Partners'
+
+        settingspage.currency_es = 'USD-Dólar estadounidense-$\r\nEUR-Euro-€\r\nGBP-Libra británica-£\r\nAUD-Dólar australiano-$\r\nCAD-Dolar canadiense-$'
+        settingspage.measuring_unit_es = 'litros\nm3\npersonas\notros'
+        settingspage.measuring_frequency_es = 'Anualmente,1\nBianualmente,2\nTrimestralmente,4'
+        settingspage.degree_changes_es = '-2 Muy negativo\n-1 Negativo\n0 Sin cambios\n1 Positivo\n2 Muy positivo'
+        settingspage.contributed_project_es = '0 Sin contribución\n1 Contribución justa\n2 Contribución muy alta'
+        settingspage.consensus_es = 'Un Partner\nWop Partners'
+
+        # TODO: Falta traducir los valores al Frances
+        settingspage.currency_fr = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
+        settingspage.measuring_unit_fr = 'liters\nm3\npeople\nothers'
+        settingspage.measuring_frequency_fr = 'Annually,1\nBiannually,2\nQuarterly,4'
+        settingspage.degree_changes_fr = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
+        settingspage.contributed_project_fr = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
+        settingspage.consensus_fr = 'One Partner\nWop Partners'
+
+        settingspage.reindexObject()
+        updateDictsSetting(settingspage)
 
         portal = api.portal.get()
 

@@ -23,12 +23,18 @@ def percentage(part, whole):
 
 def project_currency(self):
     """ Specify the project currency. """
-    currency = getattr(self.context, 'currency', None)
-    if currency:
-        letter = currency.split('-')[-1].lstrip(' ').rstrip(' ')
+    if hasattr(self, 'context'):
+        context = self.context
     else:
-        letter = '$'
-    return letter
+        context = self
+
+    currency = getattr(context, 'currency', None)
+    if currency:
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        if item:
+            lang = getUserLang()
+            return item[0].getObject().currency_dict[currency][lang].split('-')[-1].encode('utf-8')
+    return '$'
 
 
 def getPortrait(self, user):
@@ -102,53 +108,110 @@ directlyProvides(listWOPPrograms, IContextSourceBinder)
 
 def settings_currency(context):
     """ Currency settings page. """
+    lang = getUserLang()
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
-        values = item[0].getObject().currency
+        values = item[0].getObject().currency_dict
         terms = []
-        for value in values.split('\r\n'):
+        for value in values.keys():
             if value != '':
-                terms.append(value)
-        return safe_simplevocabulary_from_values(terms)
-    else:
-        return None
+                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(value, flattened, values[value][lang]))
+        return SimpleVocabulary(terms)
+    return None
 
 
 directlyProvides(settings_currency, IContextSourceBinder)
 
 
-def settings_measuring_unit(context):
-    """ Measuring Settings. """
+def getTranslatedCurrencyFromID(unit):
+    lang = getUserLang()
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
-        values = item[0].getObject().measuring_unit
+        currency_dict = item[0].getObject().currency_dict
+        return currency_dict[unit][lang]
+    return None
+
+
+def settings_measuring_unit(context):
+    """ Measuring Settings. """
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().measuring_unit_dict
         terms = []
-        for value in values.split('\n'):
+        for value in values.keys():
             if value != '':
-                terms.append(value)
-        return safe_simplevocabulary_from_values(terms)
-    else:
-        return None
+                flattened = unicodedata.normalize('NFKD', values[value]['en'].decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(values[value]['en'], flattened, values[value][lang]))
+        return SimpleVocabulary(terms)
+    return None
 
 
 directlyProvides(settings_measuring_unit, IContextSourceBinder)
 
 
-def settings_measuring_frequency(context):
-    """ Monitoring and reporting frequency settings. """
+def getTranslatedMesuringUnitFromID(unit):
+    lang = getUserLang()
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
-        values = item[0].getObject().measuring_frequency
+        measuring_unit_dict = item[0].getObject().measuring_unit_dict
+        return measuring_unit_dict[unit][lang]
+    return None
+
+
+def settings_measuring_frequency(context):
+    """ Monitoring and reporting frequency settings. """
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().measuring_frequency_dict
         terms = []
-        for value in values.split('\n'):
+        for value in values.keys():
             if value != '':
-                terms.append(value.split(',')[0])
-        return safe_simplevocabulary_from_values(terms)
-    else:
-        return None
+                flattened = unicodedata.normalize('NFKD', values[value]['en'].decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(values[value]['en'], flattened, values[value][lang].split(',')[0]))
+        return SimpleVocabulary(terms)
+    return None
 
 
 directlyProvides(settings_measuring_frequency, IContextSourceBinder)
+
+
+def getTranslatedMesuringFrequencyFromID(unit):
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        measuring_frequency_dict = item[0].getObject().measuring_frequency_dict
+        return measuring_frequency_dict[unit][lang]
+    return None
+
+
+def getTranslatedDegreeChangesFromID(unit):
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        degree_changes_dict = item[0].getObject().degree_changes_dict
+        return degree_changes_dict[unit][lang]
+    return None
+
+
+def getTranslatedContributedProjectFromID(unit):
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        contributed_project_dict = item[0].getObject().contributed_project_dict
+        return contributed_project_dict[unit][lang]
+    return None
+
+
+def getTranslatedConsensusFromID(unit):
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        consensus_dict = item[0].getObject().consensus_dict
+        return consensus_dict[unit][lang]
+    return None
 
 
 def settings_capacity_changes(context):
@@ -297,7 +360,7 @@ def getUsersWaterOperator(wateroperator):
     results = []
 
     if wateroperator:
-        for user in members:        
+        for user in members:
             if user.getProperty('wop_partners') in wateroperator:
                 results += [user.id]
     return results
@@ -321,7 +384,7 @@ class gwopaUtils(BrowserView):
         currentuser = api.user.get_current().id
         pm = getToolByName(self.context, 'portal_membership')
         roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
-        roles = ['Manager', 'Site Administrator',  'Editor']
+        roles = ['Manager', 'Site Administrator', 'Editor']
         for role in roles:
             if role in roles_in_context:
                 return True
@@ -334,23 +397,20 @@ class gwopaUtils(BrowserView):
                     return True
         return False
 
-
     def canEditPlanningMonitoring(self):
-        currentuser = api.user.get_current().id
         pm = getToolByName(self.context, 'portal_membership')
         roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
-        roles = ['Manager', 'Site Administrator',  'Editor'] 
+        roles = ['Manager', 'Site Administrator', 'Editor']
         for role in roles:
             if role in roles_in_context:
                 return True
         return False
 
-
     def canViewDashboardProject(self):
         currentuser = api.user.get_current().id
         pm = getToolByName(self.context, 'portal_membership')
         roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)
-        roles = ['Manager', 'Site Administrator',  'Editor']
+        roles = ['Manager', 'Site Administrator', 'Editor']
         for role in roles:
             if role in roles_in_context:
                 return True
@@ -368,6 +428,6 @@ class gwopaUtils(BrowserView):
             donors = getUsersDonor(self.context.donors)
             if donors:
                 if currentuser in donors:
-                    return True   
+                    return True
 
         return False

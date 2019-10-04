@@ -1,15 +1,23 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
-from plone.protect.interfaces import IDisableCSRFProtection
-from zope.interface import alsoProvides
-import json
-from plone import api
+
 from decimal import Decimal
+from geojson import Feature
+from geojson import Point
 from operator import itemgetter
+from plone import api
+from plone.protect.interfaces import IDisableCSRFProtection
 from zope.annotation.interfaces import IAnnotations
-import datetime
-from geojson import Feature, Point
+from zope.interface import alsoProvides
+
 # from gwopa.core import _
+from gwopa.core.utils import getTranslatedConsensusFromID
+from gwopa.core.utils import getTranslatedContributedProjectFromID
+from gwopa.core.utils import getTranslatedDegreeChangesFromID
+from gwopa.core.utils import getUserLang
+
+import datetime
+import json
 
 
 class getPhases(BrowserView):
@@ -116,20 +124,17 @@ class getUnits(BrowserView):
     def __call__(self):
         alsoProvides(self.request, IDisableCSRFProtection)
 
-        results = []
+        lang = getUserLang()
         item = api.content.find(portal_type="SettingsPage", id='settings')
+        results = []
         if item:
-            values = item[0].getObject().measuring_unit
-            terms = []
-            for value in values.split('\n'):
-                if value != '':
-                    terms.append(value)
-        terms.sort()
-        for item in terms:
-            results.append(dict(
-                name=item))
+            values = item[0].getObject().measuring_unit_dict
+            for value in values.keys():
+                results.append({'id': value,
+                                'name': values[value][lang]})
+
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps(sorted(results, key=lambda k: k['name']))
 
 
 class getDegree(BrowserView):
@@ -137,20 +142,17 @@ class getDegree(BrowserView):
     def __call__(self):
         alsoProvides(self.request, IDisableCSRFProtection)
 
-        results = []
+        lang = getUserLang()
         item = api.content.find(portal_type="SettingsPage", id='settings')
+        results = []
         if item:
-            values = item[0].getObject().degree_changes
-            terms = []
-            for value in values.split('\n'):
-                if value != '':
-                    terms.append(value)
-        terms.sort()
-        for item in terms:
-            results.append(dict(
-                name=item))
+            values = item[0].getObject().degree_changes_dict
+            for value in values.keys():
+                results.append({'id': value,
+                                'name': values[value][lang]})
+
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps(sorted(results, key=lambda k: k['name']))
 
 
 class getContributed(BrowserView):
@@ -158,20 +160,17 @@ class getContributed(BrowserView):
     def __call__(self):
         alsoProvides(self.request, IDisableCSRFProtection)
 
-        results = []
+        lang = getUserLang()
         item = api.content.find(portal_type="SettingsPage", id='settings')
+        results = []
         if item:
-            values = item[0].getObject().contributed_project
-            terms = []
-            for value in values.split('\n'):
-                if value != '':
-                    terms.append(value)
-        terms.sort()
-        for item in terms:
-            results.append(dict(
-                name=item))
+            values = item[0].getObject().contributed_project_dict
+            for value in values.keys():
+                results.append({'id': value,
+                                'name': values[value][lang]})
+
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps(sorted(results, key=lambda k: k['name']))
 
 
 class getConsensus(BrowserView):
@@ -179,20 +178,17 @@ class getConsensus(BrowserView):
     def __call__(self):
         alsoProvides(self.request, IDisableCSRFProtection)
 
-        results = []
+        lang = getUserLang()
         item = api.content.find(portal_type="SettingsPage", id='settings')
+        results = []
         if item:
-            values = item[0].getObject().consensus
-            terms = []
-            for value in values.split('\n'):
-                if value != '':
-                    terms.append(value)
-        terms.sort()
-        for item in terms:
-            results.append(dict(
-                name=item))
+            values = item[0].getObject().consensus_dict
+            for value in values.keys():
+                results.append({'id': value,
+                                'name': values[value][lang]})
+
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps(sorted(results, key=lambda k: k['name']))
 
 
 class Delete(BrowserView):
@@ -760,7 +756,12 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         generic = annotations[KEY]['generic']
         data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         annotations[KEY] = data
-        return 'Ok, item updated'
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps({'result': 'OK',
+                           'degree_changes_text': getTranslatedDegreeChangesFromID(degree_changes),
+                           'contributed_project_text': getTranslatedContributedProjectFromID(contributed_project),
+                           'consensus_text': getTranslatedConsensusFromID(consensus)})
 
 
 class UpdateStageMonitoring(BrowserView):
