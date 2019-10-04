@@ -196,7 +196,7 @@
    <property name="link_target"></property>
    <property name="icon_expr"></property>
    <property
-      name="available_expr">python:checkPermission("Plone Site Setup: Types", object)  and not globals_view.isPortalOrPortalDefaultPage()</property>
+      name="available_expr">python:checkPermission("Delete objects", globals_view.getParentObject()) and not globals_view.isPortalOrPortalDefaultPage()</property>
    <property name="permissions">
     <element value="View"/>
    </property>
