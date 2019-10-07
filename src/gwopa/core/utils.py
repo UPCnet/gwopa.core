@@ -415,6 +415,15 @@ def getDictTranslatedContributingFromList(contributings):
     return sorted(results, key=lambda k: k['text'])
 
 
+def getTranslatedOutcomesFromTitle(title):
+    attr_lang = getTitleAttrLang()
+    outcome = api.content.find(
+        portal_type=['Outcomedefaults'],
+        Title=title)
+
+    return getattr(outcome[0], attr_lang) if outcome else title
+
+
 class gwopaUtils(BrowserView):
     """ Convenience methods placeholder gwopa.utils view. """
 

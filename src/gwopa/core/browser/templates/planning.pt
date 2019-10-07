@@ -783,10 +783,10 @@
                   <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
                   <input id="kpizone-title" type="hidden"/>
                 </div>
-                <div id="addKPITitle" class="form-group col-md-12" style="padding-bottom: 10px;">
+<!--                 <div id="addKPITitle" class="form-group col-md-12" style="padding-bottom: 10px;">
                   <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                   <span class="legend" i18n:translate="">Add Missing Title (if not listed in the previous field)</span>
-                </div>
+                </div> -->
                 <div class="form-group col-md-12">
                   <div id="kpiBox">
                     <label id="label-title" i18n:translate="">New KPI Title</label>

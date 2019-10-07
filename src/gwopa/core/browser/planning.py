@@ -11,8 +11,8 @@ from zope.publisher.interfaces import IPublishTraverse
 
 from gwopa.core import _
 from gwopa.core.utils import getTitleAttrLang
-from gwopa.core.utils import getTranslatedMesuringFrequencyFromID
 from gwopa.core.utils import getTranslatedMesuringUnitFromID
+from gwopa.core.utils import getTranslatedOutcomesFromTitle
 from gwopa.core.utils import getUserLang
 from gwopa.core.utils import project_currency
 
@@ -370,7 +370,7 @@ class planningView(BrowserView):
             # else:
             #     risks = ''
             results.append(dict(
-                title=item.Title,
+                title=getTranslatedOutcomesFromTitle(item.Title),
                 description=item.Description,
                 base_date=obj.baseline_date.strftime('%Y-%m'),
                 base_date_edit=obj.baseline_date.strftime('%Y-%m-%d'),

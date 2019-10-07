@@ -17,6 +17,7 @@ from gwopa.core.utils import getTranslatedConsensusFromID
 from gwopa.core.utils import getTranslatedContributedProjectFromID
 from gwopa.core.utils import getTranslatedDegreeChangesFromID
 from gwopa.core.utils import getTranslatedMesuringUnitFromID
+from gwopa.core.utils import getTranslatedOutcomesFromTitle
 from gwopa.core.utils import getUserLang
 from gwopa.core.utils import project_currency
 
@@ -432,7 +433,7 @@ class monitoringView(BrowserView):
                 year=self.year,
                 portal_type=item.portal_type,
                 start=item.start,
-                title=item.Title,
+                title=getTranslatedOutcomesFromTitle(item.Title),
                 description=item.Description,
                 base_value=obj.baseline,
                 base_date=obj.baseline_date.strftime('%Y-%m'),

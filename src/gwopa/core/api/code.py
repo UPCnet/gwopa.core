@@ -102,12 +102,13 @@ class getOutcomes(BrowserView):
         catalog = api.portal.get_tool('portal_catalog')
         literals = catalog.unrestrictedSearchResults(
             portal_type='Outcomedefaults')
-        literals = sorted(literals, key=itemgetter('Title'), reverse=False)
+
+        attr_lang = getTitleAttrLang()
         for item in literals:
-            results.append(dict(
-                name=item.Title))
+            results.append({'id': item.Title,
+                            'name': getattr(item.getObject(), attr_lang.lower())})
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps(sorted(results, key=lambda k: k['name']))
 
 
 class getUsers(BrowserView):
