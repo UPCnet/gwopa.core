@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
+from Products.Five.browser import BrowserView
 
 from plone import api
 from plone.app.vocabularies.terms import safe_simplevocabulary_from_values
@@ -9,7 +10,6 @@ from zope.interface import directlyProvides
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-from Products.Five.browser import BrowserView
 
 from gwopa.core import _
 
@@ -375,6 +375,44 @@ def getUsersDonor(donor):
             if user.getProperty('donor') in donor:
                 results += [user.id]
     return results
+
+
+def getDictTranslatedObstaclesFromList(obstacles):
+    results = []
+    catalog = api.portal.get_tool('portal_catalog')
+    attr_lang = getTitleAttrLang()
+
+    if isinstance(obstacles, str) and obstacles != '':
+        obstacles = obstacles.split(',')
+
+    for item in obstacles:
+        obstacle = catalog.unrestrictedSearchResults(
+            portal_type='Mainobstacles',
+            Title=item)
+        if obstacle:
+            results.append({'id': obstacle[0].Title,
+                            'text': getattr(obstacle[0], attr_lang)})
+
+    return sorted(results, key=lambda k: k['text'])
+
+
+def getDictTranslatedContributingFromList(contributings):
+    results = []
+    catalog = api.portal.get_tool('portal_catalog')
+    attr_lang = getTitleAttrLang()
+
+    if isinstance(contributings, str) and contributings != '':
+        contributings = contributings.split(',')
+
+    for item in contributings:
+        contributing = catalog.unrestrictedSearchResults(
+            portal_type='Maincontributing',
+            Title=item)
+        if contributing:
+            results.append({'id': contributing[0].Title,
+                            'text': getattr(contributing[0], attr_lang)})
+
+    return sorted(results, key=lambda k: k['text'])
 
 
 class gwopaUtils(BrowserView):

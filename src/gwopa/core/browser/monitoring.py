@@ -10,6 +10,8 @@ from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
 
 from gwopa.core import _
+from gwopa.core.utils import getDictTranslatedContributingFromList
+from gwopa.core.utils import getDictTranslatedObstaclesFromList
 from gwopa.core.utils import getTitleAttrLang
 from gwopa.core.utils import getTranslatedConsensusFromID
 from gwopa.core.utils import getTranslatedContributedProjectFromID
@@ -19,6 +21,7 @@ from gwopa.core.utils import getUserLang
 from gwopa.core.utils import project_currency
 
 import datetime
+import json
 
 
 @implementer(IPublishTraverse)
@@ -228,12 +231,14 @@ class monitoringView(BrowserView):
             else:
                 end = item.end.strftime('%Y-%m')
             if monitoring_info == '':
-                consideration, explanation, limiting, obstacles, contributing, progress, updated = '', '', '', '', '', '', ''
+                consideration, explanation, limiting, obstacles, contributing, progress, updated, dictObstacles, dictContributing = '', '', '', '', '', '', '', '', ''
             else:
                 consideration = monitoring_info['consideration'] if monitoring_info.get('consideration') is not None else ''
                 explanation = monitoring_info['explanation'] if monitoring_info.get('explanation') is not None else ''
                 obstacles = monitoring_info['obstacles'] if monitoring_info.get('obstacles') is not None else ''
+                dictObstacles = json.dumps(getDictTranslatedObstaclesFromList(obstacles)) if obstacles != '' else ''
                 contributing = monitoring_info['contributing'] if monitoring_info.get('contributing') is not None else ''
+                dictContributing = json.dumps(getDictTranslatedContributingFromList(contributing)) if contributing != '' else ''
                 limiting = monitoring_info['limiting'] if monitoring_info.get('limiting') is not None else ''
                 progress = monitoring_info['progress'] if monitoring_info.get('progress') is not None else ''
                 updated = monitoring_info['updated'] if monitoring_info.get('updated') is not None else ''
@@ -253,7 +258,9 @@ class monitoringView(BrowserView):
                 consideration=consideration,
                 explanation=explanation,
                 obstacles=obstacles,
+                dict_obstacles=dictObstacles,
                 contributing=contributing,
+                dict_contributing=dictContributing,
                 limiting=limiting,
                 progress=progress,
                 updated=updated,
@@ -321,12 +328,14 @@ class monitoringView(BrowserView):
             else:
                 end = item.end.strftime('%Y-%m')
             if monitoring_info == '':
-                consideration, explanation, limiting, obstacles, contributing, progress, updated = '', '', '', '', '', '', ''
+                consideration, explanation, limiting, obstacles, contributing, progress, updated, dictObstacles, dictContributing = '', '', '', '', '', '', '', '', ''
             else:
                 consideration = monitoring_info['consideration'] if monitoring_info.get('consideration') is not None else ''
                 explanation = monitoring_info['explanation'] if monitoring_info.get('explanation') is not None else ''
                 obstacles = monitoring_info['obstacles'] if monitoring_info.get('obstacles') is not None else ''
+                dictObstacles = json.dumps(getDictTranslatedObstaclesFromList(obstacles)) if obstacles != '' else ''
                 contributing = monitoring_info['contributing'] if monitoring_info.get('contributing') is not None else ''
+                dictContributing = json.dumps(getDictTranslatedContributingFromList(contributing)) if contributing != '' else ''
                 limiting = monitoring_info['limiting'] if monitoring_info.get('limiting') is not None else ''
                 progress = monitoring_info['progress'] if monitoring_info.get('progress') is not None else ''
                 updated = monitoring_info['updated'] if monitoring_info.get('updated') is not None else ''
@@ -346,7 +355,9 @@ class monitoringView(BrowserView):
                 consideration=consideration,
                 explanation=explanation,
                 obstacles=obstacles,
+                dict_obstacles=dictObstacles,
                 contributing=contributing,
+                dict_contributing=dictContributing,
                 limiting=limiting,
                 progress=progress,
                 updated=updated,
@@ -410,6 +421,11 @@ class monitoringView(BrowserView):
                         if user:
                             members.append(user.getProperty('fullname'))
 
+            obstacles = monitoring_info['obstacles'] if monitoring_info.has_key('obstacles') else ''
+            contributing = monitoring_info['contributing'] if monitoring_info.has_key('contributing') else ''
+            dictObstacles = json.dumps(getDictTranslatedObstaclesFromList(obstacles)) if obstacles != '' else ''
+            dictContributing = json.dumps(getDictTranslatedContributingFromList(contributing)) if contributing != '' else ''
+
             results.append(dict(
                 path=item.getPath(),
                 id=item.id,
@@ -430,8 +446,10 @@ class monitoringView(BrowserView):
                 target_value_planned=target_value_planned,
                 consideration=monitoring_info['consideration'] if monitoring_info.has_key('consideration') else '',
                 explanation=monitoring_info['explanation'] if monitoring_info.has_key('explanation') else '',
-                obstacles=monitoring_info['obstacles'] if monitoring_info.has_key('obstacles') else '',
-                contributing=monitoring_info['contributing'] if monitoring_info.has_key('contributing') else '',
+                obstacles=obstacles,
+                dict_obstacles=dictObstacles,
+                contributing=contributing,
+                dict_contributing=dictContributing,
                 limiting=monitoring_info['limiting'] if monitoring_info.has_key('limiting') else '',
                 progress=monitoring_info['progress'] if monitoring_info.has_key('progress') else '',
                 updated=monitoring_info['updated'] if monitoring_info.has_key('updated') else '',
@@ -566,4 +584,14 @@ class monitoringView(BrowserView):
     def getTranslatedContributedProjectFromID(self, contributedProject):
         if contributedProject:
             return getTranslatedContributedProjectFromID(contributedProject)
+        return ''
+
+    def getDictTranslatedObstaclesFromList(self, obstacles):
+        if obstacles:
+            return json.dumps(getDictTranslatedObstaclesFromList(obstacles))
+        return ''
+
+    def getDictTranslatedContributingFromList(self, contributing):
+        if contributing:
+            return json.dumps(getDictTranslatedContributingFromList(contributing))
         return ''

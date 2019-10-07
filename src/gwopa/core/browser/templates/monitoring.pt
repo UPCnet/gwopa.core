@@ -124,27 +124,27 @@
                           </div>
                           <div class="col-sm-3">
                             <h5 i18n:translate="">Main Obstacles</h5>
-                            <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/obstacles;" style="width: 100%" placeholder="Search..."/>
-                            <div tal:attributes="id string:${item/id}-addObstacleActivity">
+                            <input type="hidden" tal:attributes="id string:${item/id}-activity-obs; value item/dict_obstacles;" style="width: 100%" placeholder="Search..."/>
+                            <!-- <div tal:attributes="id string:${item/id}-addObstacleActivity">
                               <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                               <span class="legend" i18n:translate=""> Add new Obstacle if not listed</span>
                             </div>
                             <div tal:attributes="id string:${item/id}-addObstaclesActivity" class="form-group col-sm-12">
                               <h5 i18n:translate=""> New Main Obstacle </h5>
                               <input type="text" tal:attributes="id string:${item/id}-add-obs" placeholder="Type Obstacle..."/>
-                            </div>
+                            </div> -->
                           </div>
                           <div class="col-sm-3">
                             <h5 i18n:translate="">Main Contributing factors</h5>
-                            <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/contributing;" style="width: 100%" placeholder="Search..." />
-                            <div tal:attributes="id string:${item/id}-addContributingActivity">
+                            <input type="hidden" tal:attributes="id string:${item/id}-activity-contrib; value item/dict_contributing;" style="width: 100%" placeholder="Search..." />
+                            <!-- <div tal:attributes="id string:${item/id}-addContributingActivity">
                               <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                               <span class="legend" i18n:translate=""> Add new Contributing factor </span>
                             </div>
                             <div tal:attributes="id string:${item/id}-addContributingsActivity" class="form-group col-sm-12">
                               <h5 i18n:translate=""> New Main Contributing factor </h5>
                               <input type="text" tal:attributes="id string:${item/id}-add-contrib" placeholder="Type Contributing factor..."/>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                         <div class="filacontenido">
@@ -221,27 +221,27 @@
                             </div>
                             <div class="col-sm-3">
                               <h5 i18n:translate="">Main Obstacles</h5>
-                              <input type="hidden" tal:attributes="id string:${output/id}-output-obs; value output/obstacles;" style="width: 100%"/>
-                              <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12" style="padding: 0px;">
+                              <input type="hidden" tal:attributes="id string:${output/id}-output-obs; value output/dict_obstacles;" style="width: 100%"/>
+                              <!-- <div tal:attributes="id string:${output/id}-addObstacleOutput" class="form-group col-sm-12" style="padding: 0px;">
                                 <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                 <span class="legend" i18n:translate="">Add new Obstacle if not listed</span>
                               </div>
                               <div tal:attributes="id string:${output/id}-addObstaclesOutput" class="form-group col-sm-12">
                                 <h5 i18n:translate="">Main Obstacles title</h5>
                                 <input type="text" tal:attributes="id string:${output/id}-add-obs" placeholder="Type title..."/>
-                              </div>
+                              </div> -->
                             </div>
                             <div class="col-sm-3">
                               <h5 i18n:translate="">Main Contributing factors</h5>
-                              <input type="hidden" tal:attributes="id string:${output/id}-output-contrib; value output/contributing;" style="width: 100%"/>
-                              <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12" style="padding: 0px;">
+                              <input type="hidden" tal:attributes="id string:${output/id}-output-contrib; value output/dict_contributing;" style="width: 100%"/>
+                              <!-- <div tal:attributes="id string:${output/id}-addContributingOutput" class="form-group col-sm-12" style="padding: 0px;">
                                 <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                                 <span class="legend" i18n:translate="">Add new Contributing factor</span>
                               </div>
                               <div tal:attributes="id string:${output/id}-addContributingsOutput" class="form-group col-sm-12">
                                 <h5 i18n:translate="">Main Contributing factors title</h5>
                                 <input type="text" tal:attributes="id string:${output/id}-add-contrib" placeholder="Type title..."/>
-                              </div>
+                              </div> -->
                             </div>
                           </div>
                           <div class="filacontenido">
@@ -349,27 +349,27 @@
                         </div>
                         <div class="col-sm-3">
                           <h5 i18n:translate="">Main Obstacles</h5>
-                          <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-obs; value outcome/obstacles;" style="width: 100%"/>
-                          <div tal:attributes="id string:${outcome/id}-addObstacleKPI" class="form-group col-sm-12" style="padding: 0px;">
+                          <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-obs; value outcome/dict_obstacles;" style="width: 100%"/>
+<!--                           <div tal:attributes="id string:${outcome/id}-addObstacleKPI" class="form-group col-sm-12" style="padding: 0px;">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                             <span class="legend">Add new Obstacle if not listed</span>
                           </div>
                           <div tal:attributes="id string:${outcome/id}-addObstaclesKPI" class="form-group col-sm-12">
                             <h5 i18n:translate="">Main Obstacles title</h5>
                             <input type="text" tal:attributes="id string:${outcome/id}-add-obs" placeholder="Type title..."/>
-                          </div>
+                          </div> -->
                         </div>
                         <div class="col-sm-3">
                           <h5 i18n:translate="">Main Contributing factors</h5>
-                          <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-contrib; value outcome/contributing;" style="width: 100%"/>
-                          <div tal:attributes="id string:${outcome/id}-addContributingKPI" class="form-group col-sm-12" style="padding: 0px;">
+                          <input type="hidden" tal:attributes="id string:${outcome/id}-kpi-contrib; value outcome/dict_contributing;" style="width: 100%"/>
+<!--                           <div tal:attributes="id string:${outcome/id}-addContributingKPI" class="form-group col-sm-12" style="padding: 0px;">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i>&nbsp;
                             <span class="legend">Add new Contributing factor</span>
                           </div>
                           <div tal:attributes="id string:${outcome/id}-addContributingsKPI" class="form-group col-sm-12">
                             <h5 i18n:translate="">Main Contributing factors title</h5>
                             <input type="text" tal:attributes="id string:${outcome/id}-add-contrib" placeholder="Type title..."/>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                       <div class="filacontenido">
@@ -457,8 +457,8 @@
                                     data-objective-date item/objective_date;
                                     data-degree-changes item/degree_changes;
                                     data-contributed-project item/contributed_project;
-                                    data-contributing-factors item/contributing_factors;
-                                    data-obstacles item/obstacles;
+                                    data-contributing-factors python:view.getDictTranslatedContributingFromList(item['contributing_factors']);
+                                    data-obstacles python:view.getDictTranslatedObstaclesFromList(item['obstacles']);
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
@@ -504,8 +504,8 @@
                                     data-objective-date item/objective_date;
                                     data-degree-changes item/degree_changes;
                                     data-contributed-project item/contributed_project;
-                                    data-contributing-factors item/contributing_factors;
-                                    data-obstacles item/obstacles;
+                                    data-contributing-factors python:view.getDictTranslatedContributingFromList(item['contributing_factors']);
+                                    data-obstacles python:view.getDictTranslatedObstaclesFromList(item['obstacles']);
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
@@ -551,8 +551,8 @@
                                     data-objective-date item/objective_date;
                                     data-degree-changes item/degree_changes;
                                     data-contributed-project item/contributed_project;
-                                    data-contributing-factors item/contributing_factors;
-                                    data-obstacles item/obstacles;
+                                    data-contributing-factors python:view.getDictTranslatedContributingFromList(item['contributing_factors']);
+                                    data-obstacles python:view.getDictTranslatedObstaclesFromList(item['obstacles']);
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;
@@ -600,8 +600,8 @@
                                     data-objective-date item/objective_date;
                                     data-degree-changes item/degree_changes;
                                     data-contributed-project item/contributed_project;
-                                    data-contributing-factors item/contributing_factors;
-                                    data-obstacles item/obstacles;
+                                    data-contributing-factors python:view.getDictTranslatedContributingFromList(item['contributing_factors']);
+                                    data-obstacles python:view.getDictTranslatedObstaclesFromList(item['obstacles']);
                                     data-explain item/explain;
                                     data-consensus item/consensus;
                                     data-selected-monitoring item/selected_monitoring;

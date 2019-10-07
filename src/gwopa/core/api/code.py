@@ -11,6 +11,9 @@ from zope.annotation.interfaces import IAnnotations
 from zope.interface import alsoProvides
 
 # from gwopa.core import _
+from gwopa.core.utils import getDictTranslatedContributingFromList
+from gwopa.core.utils import getDictTranslatedObstaclesFromList
+from gwopa.core.utils import getTitleAttrLang
 from gwopa.core.utils import getTranslatedConsensusFromID
 from gwopa.core.utils import getTranslatedContributedProjectFromID
 from gwopa.core.utils import getTranslatedDegreeChangesFromID
@@ -61,12 +64,14 @@ class getMainObstacles(BrowserView):
         catalog = api.portal.get_tool('portal_catalog')
         literals = catalog.unrestrictedSearchResults(
             portal_type='Mainobstacles')
-        literals = sorted(literals, key=itemgetter('Title'), reverse=False)
+
+        attr_lang = getTitleAttrLang()
         for item in literals:
-            results.append(dict(
-                name=item.Title))
+            results.append({'id': item.Title,
+                            'name': getattr(item.getObject(), attr_lang.lower())})
+
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps(sorted(results, key=lambda k: k['name']))
 
 
 class getMainContributing(BrowserView):
@@ -78,12 +83,14 @@ class getMainContributing(BrowserView):
         catalog = api.portal.get_tool('portal_catalog')
         literals = catalog.unrestrictedSearchResults(
             portal_type='Maincontributing')
-        literals = sorted(literals, key=itemgetter('Title'), reverse=False)
+
+        attr_lang = getTitleAttrLang()
         for item in literals:
-            results.append(dict(
-                name=item.Title))
+            results.append({'id': item.Title,
+                            'name': getattr(item.getObject(), attr_lang.lower())})
+
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(results)
+        return json.dumps(sorted(results, key=lambda k: k['name']))
 
 
 class getOutcomes(BrowserView):
@@ -756,12 +763,13 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         generic = annotations[KEY]['generic']
         data = dict(real='', planned='', monitoring=monitoring, generic=generic, specifics=specifics)
         annotations[KEY] = data
-
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps({'result': 'OK',
                            'degree_changes_text': getTranslatedDegreeChangesFromID(degree_changes),
                            'contributed_project_text': getTranslatedContributedProjectFromID(contributed_project),
-                           'consensus_text': getTranslatedConsensusFromID(consensus)})
+                           'consensus_text': getTranslatedConsensusFromID(consensus),
+                           'contributing_factors': json.dumps(getDictTranslatedContributingFromList(contributing_factors)),
+                           'obstacles': json.dumps(getDictTranslatedObstaclesFromList(obstacles))})
 
 
 class UpdateStageMonitoring(BrowserView):
