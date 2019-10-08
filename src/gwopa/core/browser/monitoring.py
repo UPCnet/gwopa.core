@@ -533,7 +533,7 @@ class monitoringView(BrowserView):
         start = self.context.gwopa_year_phases[:][0]['pattern_start']
         end = self.context.gwopa_year_phases[-1:][0]['pattern_end']
         value = """{"date":{ "min":[""" + start + """], "max":[""" + \
-            end + """]}, "time": false, "today": false, "clear": false}"""
+            end + """]}, "time": false, "today": false, "clear": true}"""
         return value
 
     def getCurrentStage(self):
