@@ -82,7 +82,7 @@ msgstr "0 Ningún Cambio"
 
 #: ../browser/templates/dash-areas.pt:59
 msgid "<span>Outcomes</span>"
-msgstr "<span>Outcomes</span>"
+msgstr "<span>Resultados</span>"
 
 #: ../browser/templates/dash-areas.pt:48
 msgid "<span>Project</span>"

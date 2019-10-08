@@ -66,7 +66,7 @@
           </a>
         </h2>
         <ul class="steps">
-          <li tal:repeat="stage stages" tal:attributes="class string:${stage/state}; id string:${stage/id}" tal:content="stage/title">Stage 1
+          <li tal:repeat="stage stages" tal:attributes="class string:${stage/state}; id string:${stage/id}" tal:content="stage/title" i18n:translate="">Stage 1
           </li>
         </ul>
         <div id="modalInfoStage" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalInfoStage" data-dismiss="modal" aria-hidden="true">
