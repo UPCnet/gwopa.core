@@ -287,7 +287,7 @@
 
       <div id="monitoringBlock">
         <h2 class="h2Project" i18n:translate=""> Monitoring frequency </h2>
-        <span tal:content="context/measuring_frequency">Monitoring frequency </span>
+        <span tal:content="view/getMeasuringFrequency">Monitoring frequency </span>
 
       </div>
 

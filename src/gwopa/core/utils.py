@@ -33,7 +33,7 @@ def project_currency(self):
         item = api.content.find(portal_type="SettingsPage", id='settings')
         if item:
             lang = getUserLang()
-            return item[0].getObject().currency_dict[currency][lang].split('-')[-1].encode('utf-8')
+            return item[0].getObject().currency_dict[currency][lang].split('-')[-1]
     return '$'
 
 

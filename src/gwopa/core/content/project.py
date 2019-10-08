@@ -389,8 +389,10 @@ class View(grok.View):
                 image = obj.absolute_url_path() + '/++theme++gwopa.theme/assets/images/default_image.jpg'
             else:
                 image = obj.absolute_url_path() + '/@@images/image/thumb'
+
+            attr_lang = utils.getTitleAttrLang()
             results.append(dict(
-                title=item.Title,
+                title=getattr(item, attr_lang),
                 image=image,
                 url='/'.join(obj.getPhysicalPath()),
                 description=item.Description))
@@ -589,6 +591,9 @@ class View(grok.View):
 
     def project_currency(self):
         return utils.project_currency(self)
+
+    def getMeasuringFrequency(self):
+        return utils.getTranslatedMesuringFrequencyFromID(self.context.measuring_frequency).split(',')[0]
 
 
 @indexer(IProject)
