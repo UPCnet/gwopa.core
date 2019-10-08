@@ -180,12 +180,14 @@ directlyProvides(settings_measuring_frequency, IContextSourceBinder)
 
 
 def getTranslatedMesuringFrequencyFromID(unit):
-    lang = getUserLang()
-    item = api.content.find(portal_type="SettingsPage", id='settings')
-    if item:
-        measuring_frequency_dict = item[0].getObject().measuring_frequency_dict
-        return measuring_frequency_dict[unit][lang]
-    return None
+    if unit:
+        lang = getUserLang()
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        if item:
+            measuring_frequency_dict = item[0].getObject().measuring_frequency_dict
+            if unit in measuring_frequency_dict:
+                return measuring_frequency_dict[unit][lang]
+    return ''
 
 
 def getTranslatedDegreeChangesFromID(unit):
