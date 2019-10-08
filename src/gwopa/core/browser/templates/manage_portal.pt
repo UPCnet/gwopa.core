@@ -45,7 +45,7 @@
       <div class="tab-pane" id="project">
         <div class="tabla_items">
           <h1> <tal:block i18n:translate="">Projects</tal:block>
-            <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
+            <a tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
               <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New Project</tal:block></button>
            </a>
            <a tal:attributes="href string:${portal_url}/projects/folder_contents" href="#">
