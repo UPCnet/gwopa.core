@@ -484,8 +484,8 @@ class View(grok.View):
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
-                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),
+                incash=str(0 if obj.incash is None else obj.incash) + ' ' + letter,
+                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + letter,
             ))
         return results
 
@@ -545,8 +545,8 @@ class View(grok.View):
             results.append(dict(
                 title=item.Title,
                 edit=item.getURL() + '/edit',
-                incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
-                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),
+                incash=str(0 if obj.incash is None else obj.incash) + ' ' + letter,
+                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + letter,
             ))
         return results
 
@@ -565,8 +565,8 @@ class View(grok.View):
                 url=item.getURL(),
                 path='/'.join(obj.getPhysicalPath()),
                 portal_type=obj.portal_type,
-                incash=str(0 if obj.incash is None else obj.incash) + ' ' + str(letter),
-                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + str(letter),
+                incash=str(0 if obj.incash is None else obj.incash) + ' ' + letter,
+                inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + letter,
             ))
         return results
 
