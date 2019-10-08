@@ -35,7 +35,7 @@
       <br />
       <div tal:condition="areas" class="row">
         <div class="form-group">
-          <label style="margin-top: 7px;" class="col-sm-2 control-label" i18n:translate> Select Working Area from list: </label>
+          <label style="margin-top: 7px;" class="col-sm-2 control-label" i18n:translate=""> Select Working Area from list: </label>
           <div class="col-sm-10">
             <select class="form-control" id="selectWA">
               <option tal:repeat="area areas" tal:attributes="value area/url" tal:content="area/title">WA1</option>

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.browser.search import quote_chars
 from Products.Five.browser import BrowserView
 
 from plone import api
@@ -419,7 +420,7 @@ def getTranslatedOutcomesFromTitle(title):
     attr_lang = getTitleAttrLang()
     outcome = api.content.find(
         portal_type=['Outcomedefaults'],
-        Title=title)
+        Title=quote_chars(title.encode('utf-8')))
 
     return getattr(outcome[0], attr_lang) if outcome else title
 

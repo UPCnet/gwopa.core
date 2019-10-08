@@ -339,7 +339,7 @@ class GetPerformance(BrowserView):
             "series": series,
             "xaxis": xaxis,
             "maxYaxis": maxYaxis,
-            "mesuring_unit": kpi.measuring_unit,
+            "mesuring_unit": getTranslatedMesuringUnitFromID(kpi.measuring_unit),
         }
 
         return json.dumps(data)

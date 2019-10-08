@@ -34,7 +34,7 @@ msgstr "% Empleadas en puestos directivos"
 
 #: ../browser/setup_home.py:626
 msgid "(Estimated) coverage LIA population"
-msgstr "(Estimated) coverage LIA population"
+msgstr "(Estimación) cobertura población LIA"
 
 #: ../content/templates/improvementarea_view.pt:74
 msgid "+ New Event"
@@ -151,7 +151,7 @@ msgstr "Añadir Otro específico"
 
 #: ../browser/templates/planning.pt:649
 msgid "Add target"
-msgstr "Añadir target"
+msgstr "Añadir objectivo"
 
 #: ../browser/templates/manage_portal.pt:65
 msgid "Admin role"
@@ -589,7 +589,7 @@ msgstr "Fecha Final"
 #: ../browser/templates/planning.pt:534
 #: ../content/templates/project_view.pt:73
 msgid "End:"
-msgstr "Inicio:"
+msgstr "Fin:"
 
 #: ../browser/setup_home.py:489
 msgid "Energy Efficiency"
@@ -1313,7 +1313,7 @@ msgstr "Default Outcome"
 #: ../browser/templates/monitoring.pt:44
 #: ../browser/templates/planning.pt:44
 msgid "Outcomes"
-msgstr "Outcomes"
+msgstr "Resultados"
 
 #: ../profiles/default/types/Output.xml
 msgid "Output"
@@ -1574,6 +1574,10 @@ msgstr "Parece ser que no hay Áreas de Trabajo en este Proyecto"
 #: ../browser/templates/monitoring.pt:779
 msgid "Select Stage of this Working Area"
 msgstr "Seleccionar la Fase del Área de Trabajo"
+
+#: ../browser/templates/dash-areas.pt:38
+msgid "Select Working Area from list:"
+msgstr "Seleccione el área de trabajo de la lista:"
 
 #: ../content/project.py:290
 msgid "Select a country from the list"

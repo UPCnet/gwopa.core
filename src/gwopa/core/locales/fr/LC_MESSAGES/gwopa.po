@@ -1573,6 +1573,10 @@ msgstr ""
 msgid "Select Stage of this Working Area"
 msgstr ""
 
+#: ../browser/templates/dash-areas.pt:38
+msgid "Select Working Area from list:"
+msgstr ""
+
 #: ../content/project.py:290
 msgid "Select a country from the list"
 msgstr ""
