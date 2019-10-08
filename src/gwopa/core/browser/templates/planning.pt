@@ -160,7 +160,7 @@
                                 data-title="Change target value"
                                 class="editable" tal:content="output/target_value_planned"> Target Value Planned
                             </span>
-                            <span tal:content="output/unit"> Unit </span>
+                            <span tal:content="output/unit_text"> Unit </span>
                           </div>
                           <div class="contentt" id="resp" tal:define="members output/responsible">
                             <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
@@ -186,6 +186,7 @@
                                 data-limit-end output/limit_end;
                                 data-target-value-planned output/target_value_planned;
                                 data-unit output/unit;
+                                data-unit-text output/unit_text;
                                 data-responsible output/responsible;
                                 data-responsible-id output/responsible_id;
                                 data-means output/means;
@@ -272,7 +273,7 @@
                           data-title="Change target value"
                           class="editable" tal:content="outcome/target_value_planned"> Target Value Planned
                       </span>
-                      <span tal:content="outcome/unit"> Unit </span>
+                      <span tal:content="outcome/unit_text"> Unit </span>
                     </div>
                     <div class="contentt" id="resp" tal:define="members outcome/responsible">
                       <ul tal:condition="members"><li tal:repeat="member members" tal:content="member"> Member Name </li></ul>
@@ -298,6 +299,7 @@
                                     data-base-value outcome/base_value;
                                     data-base-date outcome/base_date_edit;
                                     data-unit outcome/unit;
+                                    data-unit-text outcome/unit_text;
                                     data-target-value-planned outcome/target_value_planned;
                                     data-means outcome/means;
                                     data-start view/project_start;
