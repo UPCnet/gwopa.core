@@ -341,7 +341,7 @@ class planningView(BrowserView):
                     unit = ''
                 else:
                     target_value_planned = annotations[KEY]['planned']
-                    unit = getTranslatedMesuringUnitFromID(obj.measuring_unit)
+                    unit = obj.measuring_unit
             else:
                 target_value_planned = _(u"Not defined")
                 unit = ''
