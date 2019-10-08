@@ -193,14 +193,10 @@ def projectModified(content, event):
 
         users = [perm[0] for perm in content.get_local_roles()]
         for user in users:
-            if content.members == None:
-                content.members = []
-            if content.project_manager == None:
-                content.project_manager = []
-            if content.project_manager_admin == None:
-                content.project_manager_admin = []
-
-            if user not in content.members and user not in content.project_manager and user not in content.project_manager_admin and user not in wop_partners and user not in wop_programs:
+            members = [] if content.members == None else content.members
+            project_manager = [] if content.project_manager == None else content.project_manager
+            project_manager_admin = [] if content.project_manager_admin == None else content.project_manager_admin
+            if user not in members and user not in project_manager and user not in project_manager_admin and user not in wop_partners and user not in wop_programs:
                  api.user.revoke_roles(username=user, obj=content, roles=['Contributor', 'Editor', 'Reader'])
 
         # Asign default image if not set
@@ -276,6 +272,12 @@ def projectModified(content, event):
                         description=data.Description,
                         image=data.getObject().image,
                         container=content)
+
+        # Delete Areas
+        delete_areas = list(set(current) - set(new_areas))
+        for area in delete_areas:
+            item = api.content.find(portal_type="ImprovementArea", Title=area, context=content)
+            api.content.delete(obj=item[0].getObject(), check_linkintegrity=False)
 
         # Modify project_dates and currency
         project_path = '/'.join(content.getPhysicalPath())
