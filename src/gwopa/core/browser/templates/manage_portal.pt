@@ -44,12 +44,12 @@
     <div class="tab-content">
       <div class="tab-pane" id="project">
         <div class="tabla_items">
-          <h1> Projects
+          <h1> <tal:block i18n:translate="">Projects</tal:block>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/projects/++add++Project" href="#">
-              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New Project </button>
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New Project</tal:block></button>
            </a>
            <a tal:attributes="href string:${portal_url}/projects/folder_contents" href="#">
-              <button class="context"><i class="fas fa-folder-open"></i> Go to Projects folder </button>
+              <button class="context"><i class="fas fa-folder-open"></i> <tal:block i18n:translate="">Go to Projects folder</tal:block></button>
            </a>
          </h1>
           <tal:block tal:define="elements view/getProjects">
@@ -90,17 +90,17 @@
       </div>
       <div class="tab-pane" id="areas">
         <div class="tabla_items">
-          <h1> Working Areas
+          <h1> <tal:block i18n:translate="">Working Areas</tal:block>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/areas/++add++ItemArea" href="#">
-              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New Default Area </button></a>
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New Default Area</tal:block></button></a>
             <a tal:attributes="href string:${portal_url}/config/areas/folder_contents" href="#">
-              <button class="context"><i class="fas fa-folder-open"></i> Go to Default Working Areas folder </button></a>
+              <button class="context"><i class="fas fa-folder-open"></i> <tal:block i18n:translate="">Go to Default Working Areas folder</tal:block></button></a>
           </h1>
-          <p><strong>NOTE: </strong> The default Area is the item shown as a Working Area in select Project edit form.
+          <p i18n:translate=""><strong>NOTE: </strong> The default Area is the item shown as a Working Area in select Project edit form.
           <br/>A Working Area, is the item who has items related as Files, folders, Activities, etc...
           <br/>To Create a Working Area, first you have to create a Project</p>
           <tal:block tal:define="elements view/getAreas">
-            <table tal:condition="not:elements">
+            <table tal:condition="not:elements" i18n:translate="">
               No Areas found in the Platform. A Project must be created to create an Area inside it.
             </table>
             <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
@@ -131,14 +131,14 @@
       </div>
       <div class="tab-pane" id="platforms">
         <div class="tabla_items">
-          <h1> WOP Platforms
+          <h1> <tal:block i18n:translate="">WOP Platforms</tal:block>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/platforms/++add++Platform" href="#">
-              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Platform </button></a>
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New WOP Platform</tal:block></button></a>
             <a tal:attributes="href string:${portal_url}/config/platforms/folder_contents" href="#">
-              <button class="context"><i class="fas fa-folder-open"></i> Go to WOP Platforms folder </button></a>
+              <button class="context"><i class="fas fa-folder-open"></i> <tal:block i18n:translate="">Go to WOP Platforms folder</tal:block></button></a>
           </h1>
           <tal:block tal:define="elements view/getPlatforms">
-            <table tal:condition="not:elements">
+            <table tal:condition="not:elements" i18n:translate="">
               No Platforms found in the Platform.
             </table>
             <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
@@ -171,14 +171,14 @@
       </div>
       <div class="tab-pane" id="programs">
         <div class="tabla_items">
-          <h1> WOP Programs
+          <h1> <tal:block i18n:translate="">WOP Programs</tal:block>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/programs/++add++Program" href="#">
-              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Program </button></a>
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New WOP Program</tal:block></button></a>
             <a tal:attributes="href string:${portal_url}/config/programs/folder_contents" href="#">
-              <button class="context"><i class="fas fa-folder-open"></i> Go to WOP Programs folder </button></a>
+              <button class="context"><i class="fas fa-folder-open"></i> <tal:block i18n:translate="">Go to WOP Programs folder</tal:block></button></a>
           </h1>
           <tal:block tal:define="elements view/getPrograms">
-            <table tal:condition="not:elements">
+            <table tal:condition="not:elements" i18n:translate="">
               No Programs found in the Platform.
             </table>
             <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
@@ -211,14 +211,14 @@
       </div>
       <div class="tab-pane" id="partners">
         <div class="tabla_items">
-          <h1> WOP Partners
+          <h1> <tal:block i18n:translate="">WOP Partners</tal:block>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/partners/++add++Partner" href="#">
-              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New WOP Partner </button></a>
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New WOP Partner</tal:block></button></a>
             <a tal:attributes="href string:${portal_url}/config/partners/folder_contents" href="#">
-              <button class="context"><i class="fas fa-folder-open"></i> Go to WOP Partners folder </button></a>
+              <button class="context"><i class="fas fa-folder-open"></i> <tal:block i18n:translate="">Go to WOP Partners folder</tal:block></button></a>
           </h1>
           <tal:block tal:define="elements view/getPartners">
-            <table tal:condition="not:elements">
+            <table tal:condition="not:elements" i18n:translate="">
               No Partners found in the Platform.
             </table>
             <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
@@ -251,14 +251,14 @@
       </div>
       <div class="tab-pane" id="donors">
         <div class="tabla_items">
-          <h1> Donors
+          <h1> <tal:block i18n:translate="">Donors</tal:block>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/config/donors/++add++Donor" href="#">
-              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New Donor </button></a>
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New Donor</tal:block></button></a>
             <a tal:attributes="href string:${portal_url}/config/donors/folder_contents" href="#">
-              <button class="context"><i class="fas fa-folder-open"></i> Go to Donors folder </button></a>
+              <button class="context"><i class="fas fa-folder-open"></i> <tal:block i18n:translate="">Go to Donors folder</tal:block></button></a>
           </h1>
           <tal:block tal:define="elements view/getDonors">
-            <table tal:condition="not:elements">
+            <table tal:condition="not:elements" i18n:translate="">
               No Donors found in the Platform.
             </table>
             <table class="table table-bordered table-condensed table-responsive table-striped sortable" tal:condition="elements">
@@ -291,18 +291,18 @@
       </div>
       <div class="tab-pane active" id="users">
         <div class="tabla_items">
-          <h1> Users
+          <h1> <tal:block i18n:translate="">Users</tal:block>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
-              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> New User </button></a>
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New User</tal:block></button></a>
           </h1>
           <tal:block tal:define="users view/getUsers" >
-            <table tal:condition="not:users">
+            <table tal:condition="not:users" i18n:translate="">
               No users found in the Platform
             </table>
             <table class="table table-bordered table-condensed table-responsive sortable" tal:condition="users">
               <thead>
                 <tr>
-                  <th i18n:translate="" scope="col"> UserID </th>
+                  <th i18n:translate="" scope="col"> User ID </th>
                   <th i18n:translate="" scope="col"> Action </th>
                 </tr>
               </thead>
@@ -323,13 +323,13 @@
       </div>
     </div>
     <div class="clearfix"></div>
-    <h2> More options
+    <h2> <tal:block i18n:translate="">More options</tal:block>
       <a tal:attributes="href string:${portal_url}/config/" href="#">
-        <button class="context"><i class="fas fa-folder-open"></i> Go to Config folder </button></a>
+        <button class="context"><i class="fas fa-folder-open"></i> <tal:block i18n:translate="">Go to Config folder</tal:block></button></a>
     </h2>
-    <h2> Exchange Currency / Measuring Unit / Capacity Settings
+    <h2> <tal:block i18n:translate="">Exchange Currency / Measuring Unit / Capacity Settings</tal:block>
       <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}; title: PMP Settings" tal:attributes="href string:${portal_url}/config/settings/edit" href="#">
-        <button class="context focus"> View or edit values </button>
+        <button class="context focus" i18n:translate=""> View or edit values </button>
       </a>
     </h2>
 
