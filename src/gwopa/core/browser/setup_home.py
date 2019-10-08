@@ -162,15 +162,15 @@ class setup(grok.View):
             allowed_types = ['OutcomeCCItem', ]
             _setup_constrains(outcomes, allowed_types)
 
-            outputs = api.content.create(
-                type='Folder',
-                id='outputs',
-                title='Default Output values',
-                description='Default title outputs used in projects',
-                container=config_folder,
-                safe_id=False)
-            allowed_types = ['Outputdefaults', ]
-            _setup_constrains(outputs, allowed_types)
+            # outputs = api.content.create(
+            #     type='Folder',
+            #     id='outputs',
+            #     title='Default Output values',
+            #     description='Default title outputs used in projects',
+            #     container=config_folder,
+            #     safe_id=False)
+            # allowed_types = ['Outputdefaults', ]
+            # _setup_constrains(outputs, allowed_types)
 
             outcomes = api.content.create(
                 type='Folder',
@@ -605,18 +605,18 @@ class setup(grok.View):
             _(u'Gender analysis and approach developed')
         ]
 
-        tool_ts = getToolByName(self, 'translation_service')
-        portal = api.portal.get()
-        for item in titles:
-            title_es = tool_ts.translate(item, domain='gwopa', target_language='es')
-            title_fr = tool_ts.translate(item, domain='gwopa', target_language='fr')
-            api.content.create(
-                type='Outputdefaults',
-                title=item,
-                title_es=title_es if title_es != '' else item,
-                title_fr=title_fr if title_fr != '' else item,
-                container=portal.config.outputs,
-                safe_id=True)
+        # tool_ts = getToolByName(self, 'translation_service')
+        # portal = api.portal.get()
+        # for item in titles:
+        #     title_es = tool_ts.translate(item, domain='gwopa', target_language='es')
+        #     title_fr = tool_ts.translate(item, domain='gwopa', target_language='fr')
+        #     api.content.create(
+        #         type='Outputdefaults',
+        #         title=item,
+        #         title_es=title_es if title_es != '' else item,
+        #         title_fr=title_fr if title_fr != '' else item,
+        #         container=portal.config.outputs,
+        #         safe_id=True)
 
     def createDefaultOutcomes(self):
         titles = [

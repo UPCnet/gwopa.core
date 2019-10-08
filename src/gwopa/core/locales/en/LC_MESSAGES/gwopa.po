@@ -719,7 +719,7 @@ msgstr ""
 
 #: ../browser/templates/manage_portal.pt:218
 msgid "Go to WOP Partners folder"
-msgstr ""
+msgstr "Go to Water Operator folder"
 
 #: ../browser/templates/manage_portal.pt:138
 msgid "Go to WOP Platforms folder"
@@ -1149,7 +1149,7 @@ msgstr ""
 
 #: ../browser/templates/manage_portal.pt:216
 msgid "New WOP Partner"
-msgstr ""
+msgstr "New Water Operator"
 
 #: ../browser/templates/manage_portal.pt:136
 msgid "New WOP Platform"

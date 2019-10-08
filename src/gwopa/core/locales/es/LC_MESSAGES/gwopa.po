@@ -718,7 +718,7 @@ msgstr "Ir a la carpeta Proyectos"
 
 #: ../browser/templates/manage_portal.pt:218
 msgid "Go to WOP Partners folder"
-msgstr "Ir a la carpeta WOP Partners"
+msgstr "Ir a la carpeta Operadores del Agua"
 
 #: ../browser/templates/manage_portal.pt:138
 msgid "Go to WOP Platforms folder"
@@ -1148,7 +1148,7 @@ msgstr "Nuevo usuario"
 
 #: ../browser/templates/manage_portal.pt:216
 msgid "New WOP Partner"
-msgstr "Nuevo socio WOP"
+msgstr "Nuevo Operador del Agua"
 
 #: ../browser/templates/manage_portal.pt:136
 msgid "New WOP Platform"
@@ -1974,7 +1974,7 @@ msgstr "WOP Partner"
 #: ../browser/templates/manage_portal.pt:37
 #: ../userdataschema.py:65
 msgid "WOP Partners"
-msgstr "Water Operator"
+msgstr "Operadores del Agua"
 
 #: ../browser/templates/global_map.pt:34
 #: ../profiles/default/types/Platform.xml
@@ -2021,7 +2021,7 @@ msgstr "Gestión de la demanda de agua"
 
 #: ../utils.py:272
 msgid "Water Operator"
-msgstr "Water Operato"
+msgstr "Operadores del Agua"
 
 #: ../content/project.py:328
 #: ../content/templates/project_view.pt:127
