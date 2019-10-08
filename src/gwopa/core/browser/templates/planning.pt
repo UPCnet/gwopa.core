@@ -133,7 +133,7 @@
                           tal:attributes="
                             data-url activity/url;
                             data-type activity/portal_type;
-                            data-id activity/title;" title="Delete" alt="Delete">
+                            data-id activity/title;" i18n:attributes="title Delete; alt Delete">
                           <i class="far fa-trash-alt"></i></a>
                       </div>
                     </div>
@@ -157,7 +157,7 @@
                                 data-name output/url;
                                 data-url string:${context/absolute_url}/changeTargetPlanning"
                                 data-type="text"
-                                data-title="Change target value"
+                                i18n:attributes="data-title Change_target_value"
                                 class="editable" tal:content="output/target_value_planned"> Target Value Planned
                             </span>
                             <span tal:content="output/unit_text"> Unit </span>
@@ -197,7 +197,7 @@
                               tal:attributes="
                                 data-url output/url;
                                 data-type output/portal_type;
-                                data-id output/title;" title="Delete" alt="Delete">
+                                data-id output/title;" i18n:attributes="title Delete; alt Delete">
                               <i class="far fa-trash-alt"></i></a>
                           </div>
                         </div>
@@ -270,7 +270,7 @@
                           data-name outcome/url;
                           data-url string:${context/absolute_url}/changeTargetPlanning"
                           data-type="text"
-                          data-title="Change target value"
+                          i18n:attributes="data-title Change_target_value"
                           class="editable" tal:content="outcome/target_value_planned"> Target Value Planned
                       </span>
                       <span tal:content="outcome/unit_text"> Unit </span>
@@ -310,7 +310,7 @@
                         tal:attributes="
                               data-url outcome/url;
                               data-type outcome/portal_type;
-                              data-id outcome/title;" title="Delete" alt="Delete">
+                              data-id outcome/title;" i18n:attributes="title Delete; alt Delete">
                         <i class="far fa-trash-alt"></i></a>
                     </div>
                   </div>
@@ -520,7 +520,7 @@
               <div class="row">
                 <div class="form-group col-md-12" style="padding-bottom:15px;">
                   <label id="label-output" i18n:translate="">Title</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input class="form-control" id="act-title"/>
                 </div>
                 <div class="form-group col-md-12">
@@ -539,12 +539,12 @@
                 <div class="form-group row" style="padding-bottom:15px;">
                   <div class="col-xs-6 col-md-6">
                     <label class="control-label" i18n:translate="">Starting date</label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                     <input id="act-start" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate=""> Completion date </label>
-                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                       <input id="act-end" class="pat-pickadate" tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
                 </div>
@@ -591,7 +591,7 @@
               <div class="row">
                 <div class="form-group col-md-12">
                   <label id="label-output" i18n:translate="">Title</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input type="text" id="out-title"/>
                 </div>
                 <!-- <div id="addOutputTitle" class="form-group col-md-12" style="padding-bottom: 10px;">
@@ -623,12 +623,12 @@
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
                       <label id="label-unit" i18n:translate=""> Measuring unit </label>
-                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                       <input id="out-unit" type="hidden"/>
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label class="control-label" i18n:translate="">Completion date</label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                     <input id="out-datetimepicker" placeholder="Enter date..." />
                   </div>
                 </div>
@@ -689,7 +689,7 @@
               <div class="row">
                 <div class="form-group col-md-12">
                   <label id="label-output" i18n:translate="">Title</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input type="text" id="out-title"/>
                 </div>
                 <!-- <div id="addOutputTitle" class="form-group col-md-12" style="padding-bottom: 10px;">
@@ -721,12 +721,12 @@
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
                       <label id="label-unit" i18n:translate=""> Measuring unit </label>
-                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                       <input id="out-unit" type="hidden"/>
                   </div>
                   <div class="col-xs-6 col-md-6">
                     <label class="control-label" i18n:translate="">Completion date</label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                     <input id="out-datetimepicker" class="pat-pickadate" placeholder="Enter date..." tal:attributes="data-pat-pickadate view/custom_pattern_options"/>
                   </div>
                 </div>
@@ -782,7 +782,7 @@
               <div class="row">
                 <div class="form-group col-md-12">
                   <label id="label-kpi" i18n:translate="">Title</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input id="kpizone-title" type="hidden"/>
                 </div>
 <!--                 <div id="addKPITitle" class="form-group col-md-12" style="padding-bottom: 10px;">
@@ -824,12 +824,12 @@
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpizone-baseline" />
                   </div>
                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
-                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpizone-datetimepicker" class="pat-pickadate"
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
@@ -837,7 +837,7 @@
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
                     <label id="label-unit" i18n:translate=""> Measuring unit </label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpizone-unit" type="hidden"/>
                   </div>
                  <!--  <div class="col-xs-6 col-md-6">
@@ -898,7 +898,7 @@
               <div class="row">
                 <div class="form-group col-md-12">
                   <label id="label-kpi" i18n:translate="">Title</label>
-                  <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                  <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input readonly  type="text" id="kpizone-title"/>
                 </div>
                 <div class="form-group row">
@@ -923,12 +923,12 @@
                 <div class="form-group row">
                       <div class="col-xs-6 col-md-6">
                     <label for="message-text" class="control-label" i18n:translate="">Baseline value</label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                     <input class="form-control" id="kpizone-baseline" />
                   </div>
                   <div class="col-xs-6 col-md-6">
                       <label class="control-label" i18n:translate="">Baseline date</label>
-                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                       <input id="kpizone-datetimepicker" class="pat-pickadate"
                       tal:attributes="data-pat-pickadate view/custom_pattern_options" />
                   </div>
@@ -936,7 +936,7 @@
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
                     <label id="label-unit" i18n:translate=""> Measuring unit </label>
-                    <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                    <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                     <input id="kpizone-unit" type="hidden"/>
                   </div>
                  <!--  <div class="col-xs-6 col-md-6">

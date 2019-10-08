@@ -192,14 +192,14 @@
                         <div class="contentt" id="value" tal:content="output/end">2019-03-30</div>
                         <div class="contentt target" id="pyv">
                           <tal:exclamation tal:condition="python:output['target_value_real'] != output['target_value_planned']">
-                            <i class="fas fa-exclamation" title="Target value differs from planned"></i>
+                            <i class="fas fa-exclamation" i18n:attributes="title Target_value_differs_from_planned"></i>
                           </tal:exclamation>
                           <span tal:attributes="
                               data-pk currentYear;
                               data-name output/url;
                               data-url string:${context/absolute_url}/changeTargetMonitoring"
                               data-type="text"
-                              data-title="Change target value"
+                              i18n:attributes="data-title Change_target_value"
                               class="editable" tal:content="output/target_value_real"> Target Value Real
                           </span> /
                           <span tal:content="output/target_value_planned"> Target Value Planned </span>
@@ -326,7 +326,7 @@
                         data-name outcome/url;
                         data-url string:${context/absolute_url}/changeTargetMonitoring"
                         data-type="text"
-                        data-title="Change target value"
+                        i18n:attributes="data-title Change_target_value"
                         class="editable" tal:content="outcome/target_value_real"> Target Value Real
                     </span> /
                     <span tal:content="outcome/target_value_planned"> Target Value Planned </span>
@@ -674,7 +674,7 @@
                 <div class="form-group row">
                   <div class="col-xs-4 col-md-4">
                       <label i18n:translate=""> Perceived degree of change </label>
-                      <span class="requiredfield" title="Required"> <i class="fas fa-circle"></i> </span>
+                      <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                       <input id="outcomeccs-degree_changes" style="width: 100%;" type="hidden"/>
                   </div>
                   <div class="col-xs-4 col-md-4">

@@ -27,7 +27,7 @@
                   portal_url portal_state/portal_url;">
 
   <h1 class="documentFirstHeading">
-    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" title="Edit project" alt="Edit project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
+    <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" i18n:attributes="title Edit_project; alt Edit_project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
     <tal:omit-tag tal:condition="not:canEdit" tal:content="context/title"> Project Title</tal:omit-tag>
   </h1>
 
@@ -182,7 +182,7 @@
                             data-path partner/path;
                             data-url partner/url;
                             data-type partner/portal_type;
-                            data-id partner/title;" title="Delete" alt="Delete">
+                            data-id partner/title;" i18n:attributes="title Delete; alt Delete">
                         <i class="far fa-trash-alt"></i></a>
                         <tal:block tal:content="partner/title"></tal:block></td>
                 <td class="contibutioncentered" tal:content="partner/incash"></td>

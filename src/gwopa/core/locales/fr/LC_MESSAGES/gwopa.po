@@ -108,7 +108,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:333
 #: ../browser/templates/monitoring.pt:945
-#: ../browser/templates/planning.pt:1223
+#: ../browser/templates/planning.pt:1225
 msgid "Active use of the newly acquired knowledge and skills in their jobs."
 msgstr ""
 
@@ -117,7 +117,7 @@ msgid "Activity"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:766
-#: ../browser/templates/planning.pt:1107
+#: ../browser/templates/planning.pt:1109
 msgid "Add"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Add Contributor"
 msgstr ""
 
-#: ../browser/templates/planning.pt:233
+#: ../browser/templates/planning.pt:234
 msgid "Add New Overall KPI"
 msgstr ""
 
@@ -138,16 +138,16 @@ msgid "Add Output"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:638
-#: ../browser/templates/planning.pt:495
+#: ../browser/templates/planning.pt:497
 msgid "Add other"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:748
-#: ../browser/templates/planning.pt:1089
+#: ../browser/templates/planning.pt:1091
 msgid "Add other specific"
 msgstr ""
 
-#: ../browser/templates/planning.pt:649
+#: ../browser/templates/planning.pt:651
 msgid "Add target"
 msgstr ""
 
@@ -167,13 +167,13 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:326
 #: ../browser/templates/monitoring.pt:938
-#: ../browser/templates/planning.pt:1216
+#: ../browser/templates/planning.pt:1218
 msgid "Aroused behaviour tendencies to move towards goals, take needed action, and persist until satisfaction is attained."
 msgstr ""
 
 #: ../browser/templates/dash-areas.pt:281
 #: ../browser/templates/monitoring.pt:895
-#: ../browser/templates/planning.pt:1173
+#: ../browser/templates/planning.pt:1175
 msgid "Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization's mission and strategy."
 msgstr ""
 
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Assign GWOPA workflow"
 msgstr ""
 
-#: ../browser/templates/planning.pt:551
+#: ../browser/templates/planning.pt:553
 #: ../content/activity.py:87
 msgid "Assigned budget"
 msgstr ""
@@ -202,7 +202,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:319
 #: ../browser/templates/monitoring.pt:931
-#: ../browser/templates/planning.pt:1209
+#: ../browser/templates/planning.pt:1211
 msgid "Availability of human resources and extent to which they have the required skills and knowledge to accomplish the work for which they have been assigned to do."
 msgstr ""
 
@@ -212,19 +212,19 @@ msgid "Baseline"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:287
-#: ../browser/templates/planning.pt:242
+#: ../browser/templates/planning.pt:243
 #: ../content/outcomecc.py:40
 msgid "Baseline date"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:710
-#: ../browser/templates/planning.pt:1046
+#: ../browser/templates/planning.pt:1048
 #: ../content/outcomeccvalues.py:30
 msgid "Baseline description"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:288
-#: ../browser/templates/planning.pt:243
+#: ../browser/templates/planning.pt:244
 #: ../content/outcomezone.py:49
 msgid "Baseline value"
 msgstr ""
@@ -251,13 +251,13 @@ msgid "Calendar"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:734
-#: ../browser/templates/planning.pt:571
+#: ../browser/templates/planning.pt:573
 #: ../content/templates/project_view.pt:363
 msgid "Cancel"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:403
-#: ../browser/templates/planning.pt:328
+#: ../browser/templates/planning.pt:330
 msgid "Capacity"
 msgstr ""
 
@@ -275,7 +275,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:226
 #: ../browser/templates/monitoring.pt:841
-#: ../browser/templates/planning.pt:1119
+#: ../browser/templates/planning.pt:1121
 msgid "Capacity specific"
 msgstr ""
 
@@ -286,6 +286,11 @@ msgstr ""
 #: ../content/outcomeccitem.py:44
 msgid "Category"
 msgstr ""
+
+#: ../browser/templates/monitoring.pt:197
+#: ../browser/templates/planning.pt:155
+msgid "Change_target_value"
+msgstr "Change target value"
 
 #: ../browser/templates/dash-areas.pt:107
 #: ../browser/templates/monitoring.pt:820
@@ -328,7 +333,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:251
 #: ../browser/templates/monitoring.pt:866
-#: ../browser/templates/planning.pt:1144
+#: ../browser/templates/planning.pt:1146
 msgid "Collection of overt and covert rules, values and principles that are enduring and guide organizational behaviour."
 msgstr ""
 
@@ -428,7 +433,7 @@ msgstr ""
 msgid "Coverage"
 msgstr ""
 
-#: ../browser/templates/planning.pt:572
+#: ../browser/templates/planning.pt:574
 msgid "Create"
 msgstr ""
 
@@ -505,6 +510,11 @@ msgstr ""
 msgid "Degree changes FR"
 msgstr ""
 
+#: ../browser/templates/planning.pt:132
+#: ../content/templates/project_view.pt:180
+msgid "Delete"
+msgstr ""
+
 #: ../browser/setup_home.py:60
 msgid "Demo content has been created."
 msgstr ""
@@ -521,7 +531,7 @@ msgstr ""
 msgid "Describe the limiting factors to the perceived changes"
 msgstr ""
 
-#: ../browser/templates/planning.pt:525
+#: ../browser/templates/planning.pt:527
 #: ../content/activity.py:58
 #: ../content/improvement_area.py:42
 msgid "Description"
@@ -541,7 +551,7 @@ msgid "Diagnosing and action planning"
 msgstr ""
 
 #: ../userdataschema.py:79
-#: ../utils.py:273
+#: ../utils.py:276
 msgid "Donor"
 msgstr ""
 
@@ -559,22 +569,26 @@ msgstr ""
 msgid "Donors"
 msgstr ""
 
-#: ../browser/templates/planning.pt:985
+#: ../browser/templates/planning.pt:987
 msgid "Edit Capacity"
 msgstr ""
 
-#: ../browser/templates/planning.pt:891
+#: ../browser/templates/planning.pt:893
 msgid "Edit KPI"
 msgstr ""
 
-#: ../browser/templates/planning.pt:682
+#: ../browser/templates/planning.pt:684
 msgid "Edit Output"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:661
-#: ../browser/templates/planning.pt:1035
+#: ../browser/templates/planning.pt:1037
 msgid "Edit Specific"
 msgstr ""
+
+#: ../content/templates/project_view.pt:30
+msgid "Edit_project"
+msgstr "Edit project"
 
 #: ../content/templates/activity_view.pt:31
 msgid "End"
@@ -584,7 +598,7 @@ msgstr ""
 msgid "End Date"
 msgstr ""
 
-#: ../browser/templates/planning.pt:534
+#: ../browser/templates/planning.pt:536
 #: ../content/templates/project_view.pt:73
 msgid "End:"
 msgstr ""
@@ -612,7 +626,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:244
 #: ../browser/templates/monitoring.pt:859
-#: ../browser/templates/planning.pt:1137
+#: ../browser/templates/planning.pt:1139
 msgid "Executives providing overall organization direction and serving as behavioural role models for all employees."
 msgstr ""
 
@@ -653,7 +667,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:258
 #: ../browser/templates/monitoring.pt:873
-#: ../browser/templates/planning.pt:1151
+#: ../browser/templates/planning.pt:1153
 msgid "Extra resources acquired by the water operator to implement its strategy and work plans."
 msgstr ""
 
@@ -773,7 +787,7 @@ msgid "Image used to describe the Working Area"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:420
-#: ../browser/templates/planning.pt:345
+#: ../browser/templates/planning.pt:347
 msgid "Improved capacity in/for"
 msgstr ""
 
@@ -807,7 +821,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:314
 #: ../browser/templates/monitoring.pt:926
-#: ../browser/templates/planning.pt:1204
+#: ../browser/templates/planning.pt:1206
 msgid "Individual"
 msgstr ""
 
@@ -845,7 +859,7 @@ msgstr ""
 msgid "Initial implementation of activities"
 msgstr ""
 
-#: ../browser/templates/planning.pt:529
+#: ../browser/templates/planning.pt:531
 #: ../content/activity.py:64
 msgid "Initial situation description"
 msgstr ""
@@ -893,7 +907,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:311
 #: ../browser/templates/monitoring.pt:923
-#: ../browser/templates/planning.pt:1201
+#: ../browser/templates/planning.pt:1203
 msgid "It is the way the tasks are executed by each of the units and sub-units daily. It refers to new and improved working routines implemented."
 msgstr ""
 
@@ -996,7 +1010,7 @@ msgstr ""
 msgid "Management information system introduced/improved"
 msgstr ""
 
-#: ../browser/templates/planning.pt:653
+#: ../browser/templates/planning.pt:655
 #: ../content/outcomezone.py:72
 #: ../content/output.py:53
 msgid "Means of verification"
@@ -1006,7 +1020,7 @@ msgstr ""
 msgid "Means of verification used to assess capacity change in this dimension"
 msgstr ""
 
-#: ../browser/templates/planning.pt:623
+#: ../browser/templates/planning.pt:625
 #: ../content/outcomezone.py:60
 #: ../content/output.py:41
 msgid "Measuring unit"
@@ -1040,7 +1054,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:236
 #: ../browser/templates/monitoring.pt:851
-#: ../browser/templates/planning.pt:1129
+#: ../browser/templates/planning.pt:1131
 msgid "Mission and strategy"
 msgstr ""
 
@@ -1132,7 +1146,7 @@ msgstr ""
 msgid "New Donor"
 msgstr ""
 
-#: ../browser/templates/planning.pt:792
+#: ../browser/templates/planning.pt:794
 msgid "New KPI Title"
 msgstr ""
 
@@ -1192,7 +1206,7 @@ msgstr ""
 msgid "No users found in the Platform"
 msgstr ""
 
-#: ../utils.py:274
+#: ../utils.py:277
 msgid "Non-participating users"
 msgstr ""
 
@@ -1222,13 +1236,13 @@ msgstr ""
 msgid "Number of people with access to unimproved sanitation facilities"
 msgstr ""
 
-#: ../browser/templates/planning.pt:1009
+#: ../browser/templates/planning.pt:1011
 #: ../content/outcomecc.py:45
 #: ../content/outcomeccs.py:53
 msgid "Objective"
 msgstr ""
 
-#: ../browser/templates/planning.pt:1013
+#: ../browser/templates/planning.pt:1015
 #: ../content/outcomecc.py:50
 #: ../content/outcomeccs.py:58
 msgid "Objective date"
@@ -1256,13 +1270,13 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:268
 #: ../browser/templates/monitoring.pt:883
-#: ../browser/templates/planning.pt:1161
+#: ../browser/templates/planning.pt:1163
 msgid "Organization - operational"
 msgstr ""
 
 #: ../browser/templates/dash-areas.pt:232
 #: ../browser/templates/monitoring.pt:847
-#: ../browser/templates/planning.pt:1125
+#: ../browser/templates/planning.pt:1127
 msgid "Organization - strategic"
 msgstr ""
 
@@ -1280,7 +1294,7 @@ msgstr ""
 msgid "Other Organizations"
 msgstr ""
 
-#: ../utils.py:275
+#: ../utils.py:278
 msgid "Others"
 msgstr ""
 
@@ -1381,7 +1395,7 @@ msgid "Percentage of waste water treated"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:310
-#: ../browser/templates/planning.pt:237
+#: ../browser/templates/planning.pt:238
 #: ../portlets/sidenav.pt:45
 msgid "Performance"
 msgstr ""
@@ -1413,7 +1427,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:289
 #: ../browser/templates/monitoring.pt:902
-#: ../browser/templates/planning.pt:1180
+#: ../browser/templates/planning.pt:1182
 msgid "Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization's strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control)."
 msgstr ""
 
@@ -1513,21 +1527,21 @@ msgstr ""
 
 #: ../content/project.py:155
 #: ../userdataschema.py:59
-#: ../utils.py:270
+#: ../utils.py:273
 msgid "Regional WOP Platform"
 msgstr ""
 
 #: ../browser/templates/dash-areas.pt:265
 #: ../browser/templates/monitoring.pt:880
-#: ../browser/templates/planning.pt:1158
+#: ../browser/templates/planning.pt:1160
 msgid "Relationships that the water operator has with different stakeholders and how that supports its strategy achievement."
 msgstr ""
 
-#: ../browser/templates/planning.pt:618
+#: ../browser/templates/planning.pt:620
 msgid "Remember that the related Activity dates are: Start:"
 msgstr ""
 
-#: ../browser/templates/planning.pt:534
+#: ../browser/templates/planning.pt:536
 msgid "Remember that the related Project dates are: Start:"
 msgstr ""
 
@@ -1535,11 +1549,16 @@ msgstr ""
 msgid "Reporting"
 msgstr ""
 
+#: ../browser/templates/monitoring.pt:677
+#: ../browser/templates/planning.pt:523
+msgid "Required"
+msgstr ""
+
 #: ../browser/templates/planning.pt:83
 msgid "Responsible"
 msgstr ""
 
-#: ../browser/templates/planning.pt:559
+#: ../browser/templates/planning.pt:561
 #: ../content/activity.py:98
 #: ../content/outcomezone.py:36
 msgid "Responsible people"
@@ -1549,7 +1568,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../browser/templates/planning.pt:798
+#: ../browser/templates/planning.pt:800
 msgid "Save title"
 msgstr ""
 
@@ -1661,17 +1680,17 @@ msgid "Social Inclusion/Gender"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:755
-#: ../browser/templates/planning.pt:1096
+#: ../browser/templates/planning.pt:1098
 msgid "Specific title EN"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:757
-#: ../browser/templates/planning.pt:1098
+#: ../browser/templates/planning.pt:1100
 msgid "Specific title ES"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:759
-#: ../browser/templates/planning.pt:1100
+#: ../browser/templates/planning.pt:1102
 msgid "Specific title FR"
 msgstr ""
 
@@ -1706,7 +1725,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:273
 #: ../browser/templates/monitoring.pt:888
-#: ../browser/templates/planning.pt:1166
+#: ../browser/templates/planning.pt:1168
 msgid "Standardized policies, procedures and mechanisms that facilitate work, primarily (Eg. organization's reward systems, management information systems, control and support systems as performance appraisal, goal and budget development and human resource allocation and others."
 msgstr ""
 
@@ -1754,7 +1773,7 @@ msgstr ""
 msgid "Target Value Year"
 msgstr ""
 
-#: ../browser/templates/planning.pt:641
+#: ../browser/templates/planning.pt:643
 msgid "Target date"
 msgstr ""
 
@@ -1763,13 +1782,17 @@ msgstr ""
 msgid "Target value"
 msgstr ""
 
+#: ../browser/templates/monitoring.pt:195
+msgid "Target_value_differs_from_planned"
+msgstr "Target value differs from planned"
+
 #: ../browser/templates/monitoring.pt:721
-#: ../browser/templates/planning.pt:1058
+#: ../browser/templates/planning.pt:1060
 msgid "Targeted improvements"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:726
-#: ../browser/templates/planning.pt:1063
+#: ../browser/templates/planning.pt:1065
 msgid "Targeted improvements date"
 msgstr ""
 
@@ -1838,7 +1861,7 @@ msgstr ""
 msgid "This values are necessary for create elements on the Platform"
 msgstr ""
 
-#: ../browser/templates/planning.pt:520
+#: ../browser/templates/planning.pt:522
 #: ../content/activity.py:53
 #: ../content/donor.py:18
 msgid "Title"
@@ -1864,7 +1887,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:304
 #: ../browser/templates/monitoring.pt:916
-#: ../browser/templates/planning.pt:1194
+#: ../browser/templates/planning.pt:1196
 msgid "Tools & equipment to do the job and basic infrastructure for the business processes (E.g. water production and distribution) and infrastructure."
 msgstr ""
 
@@ -1905,13 +1928,13 @@ msgid "Unit"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:162
-#: ../browser/templates/planning.pt:763
+#: ../browser/templates/planning.pt:765
 msgid "Update"
 msgstr ""
 
 #: ../browser/templates/dash-areas.pt:297
 #: ../browser/templates/monitoring.pt:909
-#: ../browser/templates/planning.pt:1187
+#: ../browser/templates/planning.pt:1189
 msgid "Updated information on the conditions of any part of the water utility system, be it infrastructure (E.g. pipes) related or management processes related (E.g. customer database) or others."
 msgstr ""
 
@@ -2017,7 +2040,7 @@ msgstr ""
 msgid "Water Demand Managemen"
 msgstr ""
 
-#: ../utils.py:272
+#: ../utils.py:275
 msgid "Water Operator"
 msgstr ""
 
@@ -2036,7 +2059,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:237
 #: ../browser/templates/monitoring.pt:852
-#: ../browser/templates/planning.pt:1130
+#: ../browser/templates/planning.pt:1132
 msgid "What the organization's top management believes is and has declared in the organization's mission and strategy and what employees believe is the central purpose of the organization."
 msgstr ""
 
@@ -2081,7 +2104,7 @@ msgid "Your telephone number."
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:286
-#: ../browser/templates/planning.pt:241
+#: ../browser/templates/planning.pt:242
 #: ../content/outcomezone.py:30
 msgid "Zone"
 msgstr ""
