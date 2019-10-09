@@ -2,11 +2,27 @@ Changelog
 =========
 
 
-1.4 (unreleased)
+1.4 (2019-10-09)
 ----------------
 
-- Nothing changed yet.
-
+* Quitar modal plone para añadir Proyecto [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Comentar createDefaultOutputs y traducciones [pilar.marinas]
+* Limpiar modales Planificación/Resultados [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Solucionar error traduccion mesuring_unit [Iago López Fernández]
+* Solucionar moneda [pilar.marinas]
+* Solucionar error traduccion mesuring_unit [Iago López Fernández]
+* Solucion error getTranslatedMesuringFrequencyFromID [Iago López Fernández]
+* Delete Areas [pilar.marinas]
+* Traducciones y solución de errores [Iago López Fernández]
+* Traducciones vista proyecto [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Traducciones outcomesdefault [Iago López Fernández]
+* Traduccion campos mainobstacles y maincontributing [Iago López Fernández]
+* Merge branch 'master' of gitlab.upc.edu:pyteam/gwopa.core [Iago López Fernández]
+* Solucionar error setup_home [Iago López Fernández]
+* Delete [pilar.marinas]
 
 1.3 (2019-10-04)
 ----------------
