@@ -158,6 +158,19 @@ def projectAdded(content, event):
             obj.incash = 0
             obj.inkind = 0
 
+    path_files = '/'.join(content.files.getPhysicalPath())
+    folder_files = api.content.find(portal_type="Folder", path=path_files)
+    obj_files = folder_files[0].getObject()
+
+    # Grant Contributor role to members in folder files project
+    if content.members:
+        for user in content.members:
+            api.user.grant_roles(username=user, obj=obj_files, roles=['Contributor'])
+    if content.project_manager:
+        for user in content.project_manager:
+            api.user.grant_roles(username=user, obj=obj_files, roles=['Contributor'])
+
+
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
 def projectModified(content, event):
@@ -357,6 +370,18 @@ def projectModified(content, event):
                     Title=item,
                     path=path)
                 api.content.delete(obj=obj[0].getObject(), check_linkintegrity=False)
+
+        path_files = '/'.join(content.files.getPhysicalPath())
+        folder_files = api.content.find(portal_type="Folder", path=path_files)
+        obj_files = folder_files[0].getObject()
+
+        # Grant Contributor role to members in folder files project
+        if content.members:
+            for user in content.members:
+                api.user.grant_roles(username=user, obj=obj_files, roles=['Contributor'])
+        if content.project_manager:
+            for user in content.project_manager:
+                api.user.grant_roles(username=user, obj=obj_files, roles=['Contributor'])
 
 
 @grok.subscribe(IPartner, IObjectAddedEvent)

@@ -24,7 +24,8 @@
                   get_budget view/get_budget;
                   getProject_manager view/getProject_manager;
                   portal_state context/@@plone_portal_state;
-                  portal_url portal_state/portal_url;">
+                  portal_url portal_state/portal_url;
+                  gwopa_utils context/@@gwopa.utils;">
 
   <h1 class="documentFirstHeading">
     <a tal:condition="canEdit" tal:attributes="href string:${context/absolute_url}/edit;" i18n:attributes="title Edit_project; alt Edit_project" href="#"><tal:omit-tag tal:content="context/title"> Project Title</tal:omit-tag>&nbsp;<i class="far fa-edit"></i></a>
@@ -291,8 +292,9 @@
 
       </div>
 
+      <tal:omit-tag-ini tal:define="canViewFiles gwopa_utils/canViewFiles">
 
-      <div id="filesBlock" tal:define="items view/getFiles">
+      <div tal:condition="canViewFiles" id="filesBlock" tal:define="items view/getFiles">
         <h2 class="h2Project">
           <a tal:condition="canAddFiles" class="pat-plone-modal" id="add-new-file" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${context/absolute_url}/files/++add++File"><i class="fas fa-plus-circle"></i></a>
           <tal:omit-tag i18n:translate=""> Files </tal:omit-tag>
@@ -322,6 +324,7 @@
           </td>
         </tr>
       </div>
+    </tal:omit-tag-ini>
 
     </div>
   </div>
