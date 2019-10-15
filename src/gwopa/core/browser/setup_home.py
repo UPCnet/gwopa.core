@@ -52,6 +52,7 @@ class setup(grok.View):
                 logger.info('%s' % self.context.id)
                 self.apply_default_language_settings()
                 self.createConfigFolders()
+                self.createDefaultValues()
                 # self.request.response.redirect(self.context.absolute_url())
             if 'createdemocontent' in query:
                 logger = logging.getLogger('# Creating DEMO CONTENT on Site ->')
@@ -223,22 +224,8 @@ class setup(grok.View):
             # Show friendly error message
             messages.addStatusMessage(unicode(e), 'error')
 
-    def createDemoContent(self):
+    def createDefaultValues(self):
         """ Assign default values to panel control options """
-        for i in xrange(1, 6):
-            try:
-                properties = dict(
-                    fullname='Test User' + str(i),
-                    location='Barcelona',
-                )
-                api.user.create(
-                    username='user' + str(i),
-                    email='user' + str(i) + '@test.com',
-                    password='user' + str(i),
-                    properties=properties,
-                )
-            except:
-                pass
 
         portal = api.portal.get()
         settingspage = api.content.create(
@@ -274,63 +261,7 @@ class setup(grok.View):
         updateDictsSetting(settingspage)
 
         portal = api.portal.get()
-
-        # Create demo Platforms
-        wop_platforms = [
-            "Cari-WOP",
-            "PWWA",
-            "Waterlinks",
-            "WOP-Africa",
-            "WOP-LAC",
-            "P-WOP (Pakistan)",
-            "PERPAMSI (Indonesia)"]
-        for i in wop_platforms:
-            obj = api.content.create(
-                type='Platform',
-                title=str(i),
-                container=portal.config.platforms,
-                safe_id=False)
-            obj.country = ['Spain']
-
-        # Create demo Programs
-        wop_programs = [
-            "WaterWorX",
-            "OFID"]
-        for i in wop_programs:
-            obj = api.content.create(
-                type='Program',
-                title=str(i),
-                container=portal.config.programs,
-                safe_id=False)
-            obj.contact = 'userprogram' + str(i) + '@test.com'
-            obj.country = ['Spain']
-
-        # Create demo partners
-        portal = api.portal.get()
-        for i in xrange(1, 6):
-            obj = api.content.create(
-                type='Partner',
-                id='partner' + str(i),
-                title='WOP Partner ' + str(i),
-                description='WOP Partner ' + str(i),
-                container=portal.config.partners,
-                safe_id=False)
-            obj.contact = 'userpartner' + str(i) + '@test.com'
-            obj.country = ['Spain']
-            obj.latitude, obj.longitude = self.randomgeo()
-
-        # Create demo donors
-        portal = api.portal.get()
-        for i in xrange(1, 6):
-            obj = api.content.create(
-                type='Donor',
-                id='donor' + str(i),
-                title='Donor ' + str(i),
-                description='Donor ' + str(i),
-                container=portal.config.donors,
-                safe_id=False)
-            obj.contact = 'userdonor' + str(i) + '@test.com'
-            obj.country = ['Spain']
+        
 
         # Create base Outcome CC selectable Values
         tool_ts = getToolByName(self, 'translation_service')
@@ -514,11 +445,90 @@ class setup(grok.View):
                 safe_id=True)
 
             obj.image = self.getRandomImage(200, 200)
-        self.createProjects(5)
         self.createDefaultOutputs()
         self.createDefaultOutcomes()
         self.createDefaultMainObstacles()
         self.createDefaultMainContributing()
+        return "Default values content created"
+
+    def createDemoContent(self):
+        """ Create Demo Content """
+
+        portal = api.portal.get()
+
+        for i in xrange(1, 6):
+            try:
+                properties = dict(
+                    fullname='Test User' + str(i),
+                    location='Barcelona',
+                )
+                api.user.create(
+                    username='user' + str(i),
+                    email='user' + str(i) + '@test.com',
+                    password='user' + str(i),
+                    properties=properties,
+                )
+            except:
+                pass
+
+        # Create demo Platforms
+        wop_platforms = [
+            "Cari-WOP",
+            "PWWA",
+            "Waterlinks",
+            "WOP-Africa",
+            "WOP-LAC",
+            "P-WOP (Pakistan)",
+            "PERPAMSI (Indonesia)"]
+        for i in wop_platforms:
+            obj = api.content.create(
+                type='Platform',
+                title=str(i),
+                container=portal.config.platforms,
+                safe_id=False)
+            obj.country = ['Spain']
+
+        # Create demo Programs
+        wop_programs = [
+            "WaterWorX",
+            "OFID"]
+        for i in wop_programs:
+            obj = api.content.create(
+                type='Program',
+                title=str(i),
+                container=portal.config.programs,
+                safe_id=False)
+            obj.contact = 'userprogram' + str(i) + '@test.com'
+            obj.country = ['Spain']
+
+        # Create demo partners
+        portal = api.portal.get()
+        for i in xrange(1, 6):
+            obj = api.content.create(
+                type='Partner',
+                id='partner' + str(i),
+                title='WOP Partner ' + str(i),
+                description='WOP Partner ' + str(i),
+                container=portal.config.partners,
+                safe_id=False)
+            obj.contact = 'userpartner' + str(i) + '@test.com'
+            obj.country = ['Spain']
+            obj.latitude, obj.longitude = self.randomgeo()
+
+        # Create demo donors
+        portal = api.portal.get()
+        for i in xrange(1, 6):
+            obj = api.content.create(
+                type='Donor',
+                id='donor' + str(i),
+                title='Donor ' + str(i),
+                description='Donor ' + str(i),
+                container=portal.config.donors,
+                safe_id=False)
+            obj.contact = 'userdonor' + str(i) + '@test.com'
+            obj.country = ['Spain']
+
+        self.createProjects(5)
         return "Demo content created"
 
     def getRandomImage(self, w, h):
