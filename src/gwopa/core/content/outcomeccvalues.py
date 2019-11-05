@@ -7,6 +7,7 @@ from gwopa.core import _
 from z3c.form.interfaces import HIDDEN_MODE, DISPLAY_MODE  # INPUT_MODE
 from plone.directives import form
 from plone import api
+from Products.CMFPlone.browser.search import quote_chars
 
 grok.templatedir("templates")
 
@@ -80,7 +81,7 @@ class View(grok.View):
     def getData(self):
         results = []
         value = self.context.wop_program
-        result = api.content.find(portal_type="OutcomeCCItem", Title=value)[0]
+        result = api.content.find(portal_type="OutcomeCCItem", Title=quote_chars(value))[0]
         results.append(dict(
             icon=result.getObject().icon,
             title=result.Title,

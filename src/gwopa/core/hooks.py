@@ -26,7 +26,7 @@ import dateutil.relativedelta
 import math
 import requests
 import transaction
-
+from Products.CMFPlone.browser.search import quote_chars
 
 @grok.subscribe(IProject, IObjectAddedEvent)
 def projectAdded(content, event):
@@ -129,7 +129,7 @@ def projectAdded(content, event):
     areas = content.areas
     if areas:
         for area in areas:
-            data = api.content.find(portal_type="ItemArea", Title=area)[0]
+            data = api.content.find(portal_type="ItemArea", Title=quote_chars(area))[0]
             obj = api.content.create(
                 type='ImprovementArea',
                 title=data.Title,
@@ -276,7 +276,7 @@ def projectModified(content, event):
         else:
             for area in new_areas:
                 if area not in current:
-                    data = api.content.find(portal_type="ItemArea", Title=area)[0]
+                    data = api.content.find(portal_type="ItemArea", Title=quote_chars(area))[0]
                     api.content.create(
                         type='ImprovementArea',
                         title=data.Title,
@@ -289,7 +289,7 @@ def projectModified(content, event):
         # Delete Areas
         delete_areas = list(set(current) - set(new_areas))
         for area in delete_areas:
-            item = api.content.find(portal_type="ImprovementArea", Title=area, context=content)
+            item = api.content.find(portal_type="ImprovementArea", Title=quote_chars(area), context=content)
             api.content.delete(obj=item[0].getObject(), check_linkintegrity=False)
 
         # Modify project_dates and currency
@@ -310,7 +310,7 @@ def projectModified(content, event):
             for partner in partners:
                 item = api.content.find(
                     portal_type='ContribPartner',
-                    Title=partner,
+                    Title=quote_chars(partner),
                     path=path)
                 if not item:
                     obj = api.content.create(
@@ -334,7 +334,7 @@ def projectModified(content, event):
             if item not in partners:
                 obj = api.content.find(
                     portal_type='ContribPartner',
-                    Title=item,
+                    Title=quote_chars(item),
                     path=path)
                 api.content.delete(obj=obj[0].getObject(), check_linkintegrity=False)
 
@@ -343,7 +343,7 @@ def projectModified(content, event):
             for donor in donors:
                 item = api.content.find(
                     portal_type='ContribDonor',
-                    Title=donor,
+                    Title=quote_chars(donor),
                     path=path)
                 if not item:
                     obj = api.content.create(
@@ -367,7 +367,7 @@ def projectModified(content, event):
             if item not in donors:
                 obj = api.content.find(
                     portal_type='ContribDonor',
-                    Title=item,
+                    Title=quote_chars(item),
                     path=path)
                 api.content.delete(obj=obj[0].getObject(), check_linkintegrity=False)
 
@@ -444,7 +444,7 @@ def improvementAreaAdded(content, event):
             context=content)
         for item in items:
             specific_obj = item.getObject()
-            result = api.content.find(portal_type="OutcomeCCItem", Title=specific_obj.title)[0]
+            result = api.content.find(portal_type="OutcomeCCItem", Title=quote_chars(specific_obj.title.encode('utf-8')))[0]
             capacitychanges_obj = result.getObject()
             category = capacitychanges_obj.short_category
             outcomeccspecific_info = dict(
@@ -497,7 +497,7 @@ def improvementAreaAdded(content, event):
 
 @grok.subscribe(IImprovementArea, IObjectModifiedEvent)
 def improvementAreaModified(content, event):
-    item = api.content.find(portal_type="ItemArea", Title=content.title)
+    item = api.content.find(portal_type="ItemArea", Title=quote_chars(content.title.encode('utf-8')))
     if item:
         content.title_es = item[0].title_es
         content.title_fr = item[0].title_fr

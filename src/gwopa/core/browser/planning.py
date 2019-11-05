@@ -431,9 +431,10 @@ class planningView(BrowserView):
 
             attr_lang = getTitleAttrLang()
             if obj.aq_parent.portal_type == 'ImprovementArea':
-                area = getattr(obj.aq_parent, attr_lang)
+                area = getattr(obj.aq_parent, attr_lang.lower())
             else:
-                area = getattr(obj.aq_parent.aq_parent, attr_lang)
+                area = getattr(obj.aq_parent.aq_parent, attr_lang.lower())
+           
             results.append(dict(
                 rid=item.getRID(),
                 area=area,
@@ -449,7 +450,7 @@ class planningView(BrowserView):
                 responsible=members,
                 url='/'.join(obj.getPhysicalPath())))
 
-        return sorted(results, key=itemgetter('title'), reverse=False)
+        return sorted(results, key=itemgetter('area'), reverse=False)
 
     def custom_pattern_options(self):
         """ Pass data from project to picker date in modal, in Activity and OutcomeKPIZone.
