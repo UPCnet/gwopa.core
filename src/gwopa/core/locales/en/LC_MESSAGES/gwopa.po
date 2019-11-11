@@ -2041,7 +2041,7 @@ msgstr "Wastewater Collection & Treatment"
 
 #: ../browser/setup_home.py:500
 msgid "Water Demand Managemen"
-msgstr "Water Demand Managemen"
+msgstr "Water Demand Management"
 
 #: ../utils.py:275
 msgid "Water Operator"
