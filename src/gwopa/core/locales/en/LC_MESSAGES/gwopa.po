@@ -87,7 +87,7 @@ msgstr ""
 
 #: ../browser/templates/dash-areas.pt:48
 msgid "<span>Project</span>"
-msgstr ""
+msgstr "<span>Activities and Outputs</span>"
 
 #: ../browser/templates/manage_portal.pt:99
 msgid "<strong>NOTE: </strong> The default Area is the item shown as a Working Area in select Project edit form. <br />A Working Area, is the item who has items related as Files, folders, Activities, etc... <br />To Create a Working Area, first you have to create a Project"
@@ -1454,7 +1454,7 @@ msgstr "Program related to this project"
 #: ../browser/templates/planning.pt:43
 #: ../content/project.py:123
 msgid "Project"
-msgstr "Project"
+msgstr "Activities and Outputs"
 
 #: ../content/activity.py:93
 msgid "Project Currency"
