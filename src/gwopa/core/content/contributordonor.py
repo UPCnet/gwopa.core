@@ -6,6 +6,7 @@ from gwopa.core import _
 from plone.autoform import directives
 from plone.directives import form
 from gwopa.core import utils
+from z3c.form.interfaces import IEditForm
 
 grok.templatedir("templates")
 
@@ -13,6 +14,7 @@ grok.templatedir("templates")
 class IContribDonor(model.Schema):
     """  Donor contributor
     """
+    form.mode(IEditForm, title='display')
     title = schema.TextLine(
         title=_(u"Name"),
         required=True,
