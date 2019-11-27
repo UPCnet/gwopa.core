@@ -57,6 +57,7 @@ class setup(grok.View):
             if 'createdemocontent' in query:
                 logger = logging.getLogger('# Creating DEMO CONTENT on Site ->')
                 logger.info('%s' % self.context.id)
+                self.createUsers()
                 self.createDemoContent()
                 message = _(u"Demo content has been created.")
                 IStatusMessage(self.request).addStatusMessage(message, type="warning")
@@ -261,7 +262,7 @@ class setup(grok.View):
         updateDictsSetting(settingspage)
 
         portal = api.portal.get()
-        
+
 
         # Create base Outcome CC selectable Values
         tool_ts = getToolByName(self, 'translation_service')
@@ -451,16 +452,11 @@ class setup(grok.View):
         self.createDefaultMainContributing()
         return "Default values content created"
 
-    def createDemoContent(self):
-        """ Create Demo Content """
-
-        portal = api.portal.get()
-
+    def createUsers(self):
         for i in xrange(1, 6):
             try:
                 properties = dict(
                     fullname='Test User' + str(i),
-                    location='Barcelona',
                 )
                 api.user.create(
                     username='user' + str(i),
@@ -470,6 +466,11 @@ class setup(grok.View):
                 )
             except:
                 pass
+
+    def createDemoContent(self):
+        """ Create Demo Content """
+
+        portal = api.portal.get()
 
         # Create demo Platforms
         wop_platforms = [
