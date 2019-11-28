@@ -441,7 +441,7 @@ def improvementAreaAdded(content, event):
         container=content)
 
     transaction.commit()
-    logger.info('Create folder events in working area {} id {}'.format(content.title, content.id))
+    logger.info('Create folder Events in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
     api.content.create(
         type='Folder',
@@ -450,7 +450,7 @@ def improvementAreaAdded(content, event):
         container=content)
 
     transaction.commit()
-    logger.info('Create folder files in working area {} id {}'.format(content.title, content.id))
+    logger.info('Create folder Files in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
     api.content.create(
         type='Folder',
@@ -459,7 +459,7 @@ def improvementAreaAdded(content, event):
         container=content)
 
     transaction.commit()
-    logger.info('Create folder topics in working area {} id {}'.format(content.title, content.id))
+    logger.info('Create folder topics in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
     obj = api.content.create(
         type='OutcomeCC',
@@ -468,7 +468,7 @@ def improvementAreaAdded(content, event):
         container=content)
 
     transaction.commit()
-    logger.info('Create OutcomeCC in working area {} id {}'.format(content.title, content.id))
+    logger.info('Create OutcomeCC in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
     annotations = IAnnotations(obj)
     for x in range(0, 11):  # Create 10 annotations
@@ -540,7 +540,8 @@ def improvementAreaAdded(content, event):
         KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
         annotations[KEY] = data
 
-    logger.info('Create annotations in content {} id {}'.format(content.title, content.id))
+    logger.info('Create annotations in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
+
 
 
 #@grok.subscribe(IImprovementArea, IObjectModifiedEvent)
@@ -566,8 +567,8 @@ def OutcomeCCAdded(content, event):
             title_es=item.title_es,
             title_fr=item.title_fr,
             container=content)
-        logger.info('Create OutcomeCCS {} in project {} id {}'.format(item.Title, content.__parent__.__parent__.title, content.__parent__.__parent__.id))
         transaction.commit()
+        logger.info('Create OutcomeCCS {} in project {} id {}'.format(item.Title, content.__parent__.__parent__.title, content.__parent__.__parent__.id))
 
     logger.info('Finish create OutcomeCCS in project {} id {}'.format(content.__parent__.__parent__.title, content.__parent__.__parent__.id))
 
