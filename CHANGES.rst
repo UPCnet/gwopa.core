@@ -2,11 +2,19 @@ Changelog
 =========
 
 
-1.5 (unreleased)
+1.5 (2019-11-28)
 ----------------
 
-- Nothing changed yet.
-
+* modificar logs [pilar.marinas]
+* add logger in hook project added [pilar.marinas]
+* Add logger and transaction commit in hook addProject [pilar.marinas]
+* Separar el create Users del create Demo content [pilar.marinas]
+* Que no puedan modificar el nombre del partner o donar en modal [pilar.marinas]
+* Modify Project by Activities and Outputs [pilar.marinas]
+* Translate [pilar.marinas]
+* Solucionar que los titulos puedan tener parentesis [pilar.marinas]
+* Modificar setup_home para separar contenido demo de la configuración base [pilar.marinas]
+* canViewFiles [pilar.marinas]
 
 1.4 (2019-10-09)
 ----------------
