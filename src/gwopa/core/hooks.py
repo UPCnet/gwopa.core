@@ -28,12 +28,19 @@ import requests
 import transaction
 from Products.CMFPlone.browser.search import quote_chars
 
+import logging
+
+logger = logging.getLogger(__name__)
+
+
 @grok.subscribe(IProject, IObjectAddedEvent)
 def projectAdded(content, event):
     """ Project created handler to assign geolocation.
         Copy value from behaviour fields to project fields.projectAnd create
         current year
     """
+
+    logger.info('Create add project {} id {}'.format(content.title, content.id))
 
     # Grant Editor/Reader role to members in project
     if content.members:
@@ -45,15 +52,21 @@ def projectAdded(content, event):
     if content.project_manager_admin:
         api.user.grant_roles(username=content.project_manager_admin, obj=content, roles=['Contributor', 'Editor', 'Reader'])
 
+    logger.info('Permissions to members in project {} id {}'.format(content.title, content.id))
+
     wop_partners = getUsersRegionalWOPPlatform(content.wop_platform)
     if wop_partners:
         for user in wop_partners:
             api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
 
+    logger.info('Permissions to wop_partners in project {} id {}'.format(content.title, content.id))
+
     wop_programs = getUsersWOPProgram(content.wop_program)
     if wop_programs:
         for user in wop_programs:
             api.user.grant_roles(username=user, obj=content, roles=['Editor', 'Reader'])
+
+    logger.info('Permissions to wop_programs in project {} id {}'.format(content.title, content.id))
 
     # Assign fases to internal field
     content.gwopa_year_phases = int(
@@ -112,6 +125,8 @@ def projectAdded(content, event):
         ))
     content.gwopa_year_phases = results
 
+    logger.info('Fases project {} id {}'.format(content.title, content.id))
+
     # Create default needed folders in the new project
     api.content.create(
         type='Folder',
@@ -119,11 +134,17 @@ def projectAdded(content, event):
         title='Files',
         container=content)
 
+    transaction.commit()
+    logger.info('Create folder files in project {} id {}'.format(content.title, content.id))
+
     api.content.create(
         type='Folder',
         id='contribs',
         title='Contributors',
         container=content)
+
+    transaction.commit()
+    logger.info('Create folder contributors in project {} id {}'.format(content.title, content.id))
 
     # Create Working Areas
     areas = content.areas
@@ -138,6 +159,10 @@ def projectAdded(content, event):
                 description=data.Description,
                 image=data.getObject().image,
                 container=content)
+
+            transaction.commit()
+            logger.info('Create working area {} in project {} id {}'.format(data.Title, content.title, content.id))
+
     partners = content.partners
     if partners:
         for partner in partners:
@@ -147,6 +172,10 @@ def projectAdded(content, event):
                 container=content.contribs)
             obj.incash = 0
             obj.inkind = 0
+
+            transaction.commit()
+            logger.info('Create partner {} in project {} id {}'.format(partner, content.title, content.id))
+
     content.total_budget = 0
     donors = content.donors
     if donors:
@@ -157,6 +186,9 @@ def projectAdded(content, event):
                 container=content.contribs)
             obj.incash = 0
             obj.inkind = 0
+
+            transaction.commit()
+            logger.info('Create donor {} in project {} id {}'.format(donor, content.title, content.id))
 
     path_files = '/'.join(content.files.getPhysicalPath())
     folder_files = api.content.find(portal_type="Folder", path=path_files)
@@ -170,7 +202,7 @@ def projectAdded(content, event):
         for user in content.project_manager:
             api.user.grant_roles(username=user, obj=obj_files, roles=['Contributor'])
 
-
+    logger.info('Finish add project {} id {}'.format(content.title, content.id))
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
 def projectModified(content, event):
@@ -406,11 +438,17 @@ def improvementAreaAdded(content, event):
         title='Events',
         container=content)
 
+    transaction.commit()
+    logger.info('Create folder events in content {} id {}'.format(content.title, content.id))
+
     api.content.create(
         type='Folder',
         id='files',
         title='Files',
         container=content)
+
+    transaction.commit()
+    logger.info('Create folder files in content {} id {}'.format(content.title, content.id))
 
     api.content.create(
         type='Folder',
@@ -418,11 +456,17 @@ def improvementAreaAdded(content, event):
         title='Topics',
         container=content)
 
+    transaction.commit()
+    logger.info('Create folder topics in content {} id {}'.format(content.title, content.id))
+
     obj = api.content.create(
         type='OutcomeCC',
         id='outcomecc',
         title='OutcomeCC',
         container=content)
+
+    transaction.commit()
+    logger.info('Create OutcomeCC in content {} id {}'.format(content.title, content.id))
 
     annotations = IAnnotations(obj)
     for x in range(0, 11):  # Create 10 annotations
@@ -494,8 +538,10 @@ def improvementAreaAdded(content, event):
         KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
         annotations[KEY] = data
 
+        logger.info('Create annotations in content {} id {}'.format(content.title, content.id))
 
-@grok.subscribe(IImprovementArea, IObjectModifiedEvent)
+
+#@grok.subscribe(IImprovementArea, IObjectModifiedEvent)
 def improvementAreaModified(content, event):
     item = api.content.find(portal_type="ItemArea", Title=quote_chars(content.title.encode('utf-8')))
     if item:
@@ -519,6 +565,7 @@ def OutcomeCCAdded(content, event):
             title_fr=item.title_fr,
             container=content)
         transaction.commit()
+        logger.info('Create OutcomeCCS {} in project {} id {}'.format(item.Title, content.title, content.id))
 
 
 @grok.subscribe(IConfigurationChangedEvent)
