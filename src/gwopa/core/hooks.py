@@ -25,7 +25,7 @@ from gwopa.core.utils import project_currency
 import dateutil.relativedelta
 import math
 import requests
-import transaction
+
 from Products.CMFPlone.browser.search import quote_chars
 
 import logging
@@ -134,7 +134,6 @@ def projectAdded(content, event):
         title='Files',
         container=content)
 
-    transaction.commit()
     logger.info('Create folder files in project {} id {}'.format(content.title, content.id))
 
     api.content.create(
@@ -143,7 +142,6 @@ def projectAdded(content, event):
         title='Contributors',
         container=content)
 
-    transaction.commit()
     logger.info('Create folder contributors in project {} id {}'.format(content.title, content.id))
 
     # Create Working Areas
@@ -160,7 +158,6 @@ def projectAdded(content, event):
                 image=data.getObject().image,
                 container=content)
 
-            transaction.commit()
             logger.info('Create working area {} in project {} id {}'.format(data.Title, content.title, content.id))
 
     logger.info('Finish create working areas in project {} id {}'.format(content.title, content.id))
@@ -175,7 +172,6 @@ def projectAdded(content, event):
             obj.incash = 0
             obj.inkind = 0
 
-            transaction.commit()
             logger.info('Create partner {} in project {} id {}'.format(partner, content.title, content.id))
 
     content.total_budget = 0
@@ -189,7 +185,6 @@ def projectAdded(content, event):
             obj.incash = 0
             obj.inkind = 0
 
-            transaction.commit()
             logger.info('Create donor {} in project {} id {}'.format(donor, content.title, content.id))
 
     path_files = '/'.join(content.files.getPhysicalPath())
@@ -440,7 +435,6 @@ def improvementAreaAdded(content, event):
         title='Events',
         container=content)
 
-    transaction.commit()
     logger.info('Create folder Events in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
     api.content.create(
@@ -449,7 +443,6 @@ def improvementAreaAdded(content, event):
         title='Files',
         container=content)
 
-    transaction.commit()
     logger.info('Create folder Files in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
     api.content.create(
@@ -458,7 +451,6 @@ def improvementAreaAdded(content, event):
         title='Topics',
         container=content)
 
-    transaction.commit()
     logger.info('Create folder topics in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
     obj = api.content.create(
@@ -467,7 +459,6 @@ def improvementAreaAdded(content, event):
         title='OutcomeCC',
         container=content)
 
-    transaction.commit()
     logger.info('Create OutcomeCC in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
     annotations = IAnnotations(obj)
@@ -543,7 +534,7 @@ def improvementAreaAdded(content, event):
     logger.info('Create annotations in working area {} project {} id {}'.format(content.title, content.__parent__.title, content.__parent__.id))
 
 
-
+#Por ahora lo comentamos porque creemos que no es necesario.
 #@grok.subscribe(IImprovementArea, IObjectModifiedEvent)
 def improvementAreaModified(content, event):
     item = api.content.find(portal_type="ItemArea", Title=quote_chars(content.title.encode('utf-8')))
@@ -551,7 +542,6 @@ def improvementAreaModified(content, event):
         content.title_es = item[0].title_es
         content.title_fr = item[0].title_fr
         content.reindexObject()
-        transaction.commit()
 
 
 @grok.subscribe(IOutcomecc, IObjectAddedEvent)
@@ -567,7 +557,6 @@ def OutcomeCCAdded(content, event):
             title_es=item.title_es,
             title_fr=item.title_fr,
             container=content)
-        transaction.commit()
         logger.info('Create OutcomeCCS {} in project {} id {}'.format(item.Title, content.__parent__.__parent__.title, content.__parent__.__parent__.id))
 
     logger.info('Finish create OutcomeCCS in project {} id {}'.format(content.__parent__.__parent__.title, content.__parent__.__parent__.id))

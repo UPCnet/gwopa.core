@@ -10,6 +10,16 @@ from plone import api
 from gwopa.core import _
 from gwopa.core.utils import getTitleAttrLang
 
+from five import grok
+from zope.interface import Interface
+
+class debug(grok.View):
+    """ Convenience view for faster debugging. Needs to be manager. """
+    grok.context(Interface)
+    grok.require('cmf.ManagePortal')
+
+    def render(self):
+        import ipdb; ipdb.set_trace()  # Magic! Do not delete!!! :)
 
 class listFiles(BrowserView):
     """ View all the files associated to the project.
