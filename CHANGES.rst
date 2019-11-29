@@ -2,11 +2,10 @@ Changelog
 =========
 
 
-1.6 (unreleased)
+1.6 (2019-11-29)
 ----------------
 
-- Nothing changed yet.
-
+* Quitar transaction.commit() [pilar.marinas]
 
 1.5 (2019-11-28)
 ----------------
