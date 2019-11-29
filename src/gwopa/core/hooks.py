@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.CMFPlone.interfaces import IConfigurationChangedEvent
+from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
 
 from dateutil.relativedelta import *
@@ -143,6 +144,20 @@ def projectAdded(content, event):
         container=content)
 
     logger.info('Create folder contributors in project {} id {}'.format(content.title, content.id))
+
+    reports = api.content.create(
+        type='Folder',
+        id='reports',
+        title='Reports',
+        container=content)
+
+    logger.info('Create folder reports in project {} id {}'.format(content.title, content.id))
+
+    behavior = ISelectableConstrainTypes(reports)
+    behavior.setConstrainTypesMode(1)
+    behavior.setLocallyAllowedTypes(('File',))
+    behavior.setImmediatelyAddableTypes(('File',))
+
 
     # Create Working Areas
     areas = content.areas

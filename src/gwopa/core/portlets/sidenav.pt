@@ -35,6 +35,11 @@
                     <i class="fas fa-chart-pie"></i><tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>
                 </li>
 
+                <!-- <li tal:condition="canViewPlanningMonitoring" tal:define="tab_id string:${projectPath}/reporting">
+                    <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft20 plone-btn plone-btn-info active' or 'paddingleft20 plone-btn plone-btn-info'; href string:${projectPath}/reporting">
+                    <i class="fas fa-file-excel"></i><tal:omit-tag i18n:translate=""> Reporting </tal:omit-tag></a>
+                </li> -->
+
                 <li tal:condition="canViewDashboardProject" class="menuItem"><i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></li>
 
                 <li tal:condition="canViewDashboardProject" style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-areas">

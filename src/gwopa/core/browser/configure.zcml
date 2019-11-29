@@ -56,6 +56,15 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <!-- Report Preview Module view  -->
+  <browser:page
+      for="gwopa.core.content.project.IProject"
+      name="reportPreview"
+      class=".reportPreview.reportPreviewView"
+      permission="zope2.View"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
   <!-- Dashboard areas  -->
   <browser:page
       for="gwopa.core.content.project.IProject"

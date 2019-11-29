@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="gwopa">
+<body>
+
+<metal:content-core fill-slot="main"
+    tal:define="portal_state context/@@plone_portal_state;
+                portal_url portal_state/portal_url;
+                gwopa_utils context/@@gwopa.utils;">
+
+  <tal:omit-tag-ini tal:define="canViewPlanningMonitoring gwopa_utils/canViewPlanningMonitoring">
+  <metal:block tal:condition="not: canViewPlanningMonitoring">
+   <h1 class="documentFirstHeading" i18n:translate="">Insufficient permissions</h1>
+  </metal:block>
+
+  <metal:block tal:condition="canViewPlanningMonitoring" define-macro="content-core"
+               tal:define="canEditPlanningMonitoring gwopa_utils/canEditPlanningMonitoring">
+    <h1 class="documentFirstHeading">
+      <tal:omit-tag i18n:translate=""> Report </tal:omit-tag> -
+      <span tal:content="view/projectTitle"></span>
+    </h1>
+
+    <div id="reportPreviewProject" class="row tabla_contenido_items">
+
+      <div id="reportActions">
+        <a tal:attributes="href string:${view/projectURL}/reporting">
+          <button id="returnReporting" class="context focus" i18n:translate="">Return</button>
+        </a>
+        <a tal:attributes="href string:${view/projectURL}/saveReport">
+          <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
+        </a>
+        <button id="downloadReport" class="context focus right" i18n:translate="">Download</button>
+      </div>
+
+      <div tal:content="view/reportData">
+      </div>
+
+    </div>
+
+
+    <link rel="stylesheet" href="++theme++gwopa.theme/assets/javascripts/jquery-editable.css" rel="stylesheet"/>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery.poshytip.js"></script>
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
+    <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
+    <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
+    <!-- <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/reporting.js"></script> -->
+
+  </metal:block>
+  </tal:omit-tag-ini>
+
+</metal:content-core>
+
+</body>
+</html>
