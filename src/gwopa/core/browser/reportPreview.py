@@ -2,6 +2,7 @@
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+import datetime
 from decimal import Decimal
 from plone import api
 from zope.annotation.interfaces import IAnnotations
@@ -124,8 +125,12 @@ class reportPreviewView(BrowserView):
                 'wop_platform': self.context.wop_platform,
                 'wop_program': self.context.wop_program
             },
-            'project_description': self.context.description
+            'project_description': self.context.objectives
         }
+
+        today = datetime.date.today()
+
+        data['generation_report_date'] = today.strftime('%m/%d/%Y')
 
         data.update({'total_budget': self.getTotalBudget(
             data['project_overview']['water_operators'] +
