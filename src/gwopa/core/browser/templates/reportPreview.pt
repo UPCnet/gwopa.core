@@ -5,38 +5,6 @@
     lang="en"
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="gwopa">
-<head>
-
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <title></title>
-  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
-  <meta name="author" content="Julissa Namutebi"/>
-  <meta name="created" content="2019-11-21T10:48:00"/>
-  <meta name="changedby" content="Julissa Namutebi"/>
-  <meta name="changed" content="2019-11-26T11:32:35"/>
-  <meta name="AppVersion" content="16.0300"/>
-  <meta name="DocSecurity" content="0"/>
-  <meta name="HyperlinksChanged" content="false"/>
-  <meta name="LinksUpToDate" content="false"/>
-  <meta name="ScaleCrop" content="false"/>
-  <meta name="ShareDoc" content="false"/>
-
-  <style type="text/css">
-    body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:small }
-    a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  }
-    a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  }
-    comment { display:none;  }
-    #btn-export {
-    background: #484848;
-    color: #FFF;
-    border: #000 1px solid;
-    padding: 10px 20px;
-    font-size: 12px;
-    border-radius: 3px;
-}
-  </style>
-
-</head>
 <body>
 
 <metal:content-core fill-slot="main"
@@ -50,13 +18,14 @@
   </metal:block>
 
   <metal:block tal:condition="canViewPlanningMonitoring" define-macro="content-core"
-               tal:define="canEditPlanningMonitoring gwopa_utils/canEditPlanningMonitoring">
+               tal:define="canEditPlanningMonitoring gwopa_utils/canEditPlanningMonitoring;
+                           report view/reportData">
     <h1 class="documentFirstHeading">
       <tal:omit-tag i18n:translate=""> Report </tal:omit-tag> -
       <span tal:content="view/projectTitle"></span>
     </h1>
 
-    <div id="reportPreviewProject" class="row tabla_contenido_items" tal:define="report view/reportData">
+    <div id="reportPreviewProject" class="row tabla_contenido_items">
 
       <div id="reportActions">
         <a tal:attributes="href string:${view/projectURL}/reporting">
@@ -65,193 +34,267 @@
         <a tal:attributes="href string:${view/projectURL}/saveReport">
           <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
         </a>
-        <button id="downloadReport" onclick="tablesToExcel(['tabla1'], ['first'], ['Exportacio']);" class="context focus right" i18n:translate="">Download</button>
+        <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2'], ['first', 'second'], ['Exportacio']);" class="context focus right" i18n:translate="">Download</button>
 <!--
         <button id="btn-export" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], ['Exportacio']);">Export to Excel
             doc</button> -->
 
       </div>
 
-      <div tal:condition="report">
-        <A NAME="table1"><h1>Full 2: <em>Project Overview </em></h1></A>
-        <table id="tabla1" cellspacing="0" border="0">
-          <colgroup width="253"></colgroup>
-          <colgroup width="95"></colgroup>
-          <colgroup width="87"></colgroup>
-          <colgroup width="148"></colgroup>
-          <colgroup span="2" width="122"></colgroup>
-          <colgroup span="2" width="32"></colgroup>
-          <colgroup width="31"></colgroup>
-          <colgroup width="37"></colgroup>
-          <tr>
-            <td height="21" align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000">&lt;Insert Logos of Utilities&gt; </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><span tal:content="report/generation_report_date">Insert generation of report date</span></i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          </tr>
-          <tr>
-            <td height="21" align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td colspan=4 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000">WOP PROGRESS REPORT </b>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          </tr>
-          <tr>
-            <td height="21" align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br> </b>
-            <td align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br> </b>
-            <td align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br> </b>
-            <td align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br> </b>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          </tr>
-          <tr>
-            <td colspan=10 height="21" align="left" valign=middle bgcolor="#808080"><b><font face="Arial" color="#FFFFFF">PROJECT OVERVIEW </b>
-          </tr>
-          <tr>
-            <td height="21" align="left" valign=bottom bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br> </b>
-            <td align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br> </b>
-            <td align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br> </b>
-            <td align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br> </b>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          </tr>
-          <tr>
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Project Name:  </b>
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="report/project_overview/project_name">AUTO ENTRY</span> </i>
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Project Code: </b>
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="left" valign=top bgcolor="#FFFFFF"><b><i><font face="Arial" size=1 color="#70AD47">&lt;OPEN FIELD&gt; </i></b>
-          </tr>
-          <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Reporting Type:  </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="report/project_overview/reporting_type">AUTO ENTRY Quarterly/Biannually/Annually</span></i>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Reporting Period: </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#FF0000">&lt;AUTO ENTRY: As selected: From - To&gt;  </i>
-        </tr>
-        <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Author of Report:  </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#FF0000">&lt;AUTO ENTRY Project Manager (Administrator) NAME&gt; </i>
-        </tr>
-        <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Position of Author:  </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#FF0000">&lt;AUTO ENTRY: Project Manager (Administrator) POSITION&gt; </i>
-        </tr>
-        <tr>
-            <td height="21" align="left" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-        </tr>
-        <tr>
-          <td height="21" align="left" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=2 color="#000000">Main Organization and their contributions  </b>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#000000"><br> </i>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-          <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-        </tr>
-        <tr tal:condition="report/project_overview/water_operators" >
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 height="21" align="left" valign=middle bgcolor="#D9D9D9"><b><font face="Arial" size=1 color="#000000">Water Operators </b>
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">In-Cash </b>
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">In-Kind </b>
-        </tr>
-        <tr tal:condition="report/project_overview/water_operators" tal:repeat="water_operator report/project_overview/water_operators">
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000"><span tal:content="water_operator/name">WOP Partner 1 (Role)</span> </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=top bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#FF0000">&lt;AUTO ENTRY: Name, ROLE (Mentee/ Mentor)&gt; </i>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="water_operator/incash">AUTO ENTRY</span></i>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="water_operator/inkind">AUTO ENTRY</span> </i>
-        </tr>
-        <tr tal:condition="report/project_overview/donors" >
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 height="21" align="left" valign=middle bgcolor="#D9D9D9"><b><font face="Arial" size=1 color="#000000">Donors  </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">In-Cash </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">In-Kind </b>
-        </tr>
-        <tr tal:condition="report/project_overview/donors" tal:repeat="donor report/project_overview/donors">
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000"><span tal:content="donor/name">Donor Name</span> </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=top bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4">&lt;AUTO ENTRY: Name&gt; </i>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="donor/incash">AUTO ENTRY</span> </i>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="donor/inkind">AUTO ENTRY</span> </i>
-        </tr>
-        <tr tal:condition="report/project_overview/other_organizations">
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 height="21" align="left" valign=middle bgcolor="#D9D9D9"><b><font face="Arial" size=1 color="#000000">Other Organizations </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">In-Cash </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">In-Kind </b>
-        </tr>
-        <tr tal:condition="report/project_overview/other_organizations" tal:repeat="other_organization report/project_overview/other_organizations">
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="32" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000"><span tal:content="other_organization/name">Organization name (Role)</span> </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=top bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#FF0000">&lt;AUTO ENTRY: Name, ROLE (Broker, Technical Support, Political Support, Other)&gt; </i>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="other_organization/incash">AUTO ENTRY</span></i>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="left" valign=bottom bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="other_organization/inkind">AUTO ENTRY</span> </i>
-        </tr>
-        <tr tal:condition="report/total_budget">
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 height="21" align="right" valign=bottom bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Total Budget: </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=bottom bgcolor="#FFFFFF"><b><i><font face="Arial" size=1 color="#000000"><span tal:content="report/total_budget">AUTO ENTRY</span> </i></b>
-        </tr>
-        <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Project Location:  </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="left" valign=top bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="report/project_overview/project_location/country">AUTO ENTRY : Country, City</span> , <span tal:content="report/project_overview/project_location/location"></span>
-        </tr>
-        <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Project Duration:  </b>
-            <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Start: </b>
-            <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=top bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="report/project_overview/project_duration/start">AUTO ENTRY</span></i>
-            <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">End:  </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle><i><font face="Arial" size=1 color="#4472C4"><span tal:content="report/project_overview/project_duration/end">AUTO ENTRY</span></i>
-        </tr>
-        <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Association to Platforms or Programs:  </b>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><span tal:content="report/project_overview/association/wop_platform"></span></b><br><b><font face="Arial" size=1 color="#000000"><span tal:content="report/project_overview/association/wop_program"></span> </b>
-        </tr>
-        <tr>
-            <td height="21" align="left" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="center" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="center" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="center" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="center" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="center" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="center" valign=top bgcolor="#FFFFFF"><b><font face="Arial" size=1 color="#000000"><br> </b>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-            <td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br>
-        </tr>
-        <tr>
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=10 height="21" align="left" valign=top bgcolor="#F2F2F2"><b><font face="Arial" size=1 color="#000000">Project Description and Objectives </b>
-        </tr>
-        <tr>
-            <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=10 height="120" align="left" valign=top bgcolor="#FFFFFF"><i><font face="Arial" size=1 color="#4472C4"><span tal:content="structure report/project_overview/project_description/output">AUTO ENTRY: Insert from Project Description and Objectives</span></i>
-        </tr>
-        </table>
 
+      <div tal:condition="report">
+         <a name="table1"><h2>Full 2: <em>Project Overview </em></h2></a>
+          <table id = "tabla1" cellspacing="0" border="0">
+            <colgroup width="253"></colgroup>
+            <colgroup width="95"></colgroup>
+            <colgroup width="87"></colgroup>
+            <colgroup width="148"></colgroup>
+            <colgroup span="2" width="122"></colgroup>
+            <colgroup span="2" width="32"></colgroup>
+            <colgroup width="31"></colgroup>
+            <colgroup width="37"></colgroup>
+            <tr>
+              <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000">&lt;Insert Logos of Utilities&gt;</font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><span tal:content="report/generation_report_date">Insert generation of report date</span></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td colspan="4" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000">WOP PROGRESS REPORT</font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td colspan="10" height="21" align="left" valign="middle" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF">PROJECT OVERVIEW</font></b></td>
+              </tr>
+            <tr>
+              <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Name: </font></b></td>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/project_name">AUTO ENTRY</span></font></i></td>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Code:</font></b></td>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" align="left" valign="top" bgcolor="#FFFFFF"><b><i><font face="Arial" size="1" color="#70AD47">&lt;OPEN FIELD&gt;</font></i></b></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Reporting Type: </font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/reporting_type">AUTO ENTRY Quarterly/Biannually/annually</span></font></i></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Reporting Period:</font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#FF0000">&lt;AUTO ENTRY: As selected: From - To&gt; </font></i></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Author of Report: </font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="9" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#FF0000">&lt;AUTO ENTRY Project Manager (Administrator) name&gt;</font></i></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Position of Author: </font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="9" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#FF0000">&lt;AUTO ENTRY: Project Manager (Administrator) POSITION&gt;</font></i></td>
+              </tr>
+            <tr>
+              <td height="21" align="left" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td height="21" align="left" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000">Main Organization and their contributions </font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr tal:condition="report/project_overview/water_operators">
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" height="21" align="left" valign="middle" bgcolor="#D9D9D9"><b><font face="Arial" size="1" color="#000000">Water Operators</font></b></td>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">In-Cash</font></b></td>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">In-Kind</font></b></td>
+              </tr>
+            <tr tal:condition="report/project_overview/water_operators" tal:repeat="water_operator report/project_overview/water_operators">
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><span tal:content="water_operator/name">WOP Partner 1 (Role)</span></font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#FF0000">&lt;AUTO ENTRY: Name, ROLE (Mentee/ Mentor)&gt;</font></i></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="water_operator/incash">AUTO ENTRY</span><span tal:content="report/project_overview/currency">Currency</span></font></i></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="right" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="water_operator/inkind">AUTO ENTRY</span><span tal:content="report/project_overview/currency">Currency</span></font></i></td>
+              </tr>
+            <tr tal:condition="report/project_overview/donors">
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" height="21" align="left" valign="middle" bgcolor="#D9D9D9"><b><font face="Arial" size="1" color="#000000">Donors </font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">In-Cash</font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">In-Kind</font></b></td>
+              </tr>
+            <tr tal:condition="report/project_overview/donors" tal:repeat="donor report/project_overview/donors">
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><span tal:content="donor/name">Donor Name</span></font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY: Name&gt;</font></i></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="donor/incash">AUTO ENTRY</span><span tal:content="report/project_overview/currency">Currency</span></font></i></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="right" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="donor/inkind">AUTO ENTRY</span><span tal:content="report/project_overview/currency">Currency</span></font></i></td>
+              </tr>
+            <tr tal:condition="report/project_overview/other_organizations">
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" height="21" align="left" valign="middle" bgcolor="#D9D9D9"><b><font face="Arial" size="1" color="#000000">Other Organizations</font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">In-Cash</font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">In-Kind</font></b></td>
+              </tr>
+            <tr tal:condition="report/project_overview/other_organizations" tal:repeat="other_organization report/project_overview/other_organizations">
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="32" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><span tal:content="other_organization/name">Organization name (Role)</span></font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#FF0000">&lt;AUTO ENTRY: Name, ROLE (Broker, Technical Support, Political Support, Other)&gt;</font></i></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="other_organization/incash">AUTO ENTRY</span><span tal:content="report/project_overview/currency">Currency</span></font></i></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="right" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="other_organization/inkind">AUTO ENTRY</span><span tal:content="report/project_overview/currency">Currency</span></font></i></td>
+              </tr>
+            <tr tal:condition="report/total_budget">
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" height="21" align="right" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Total Budget:</font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" align="center" valign="bottom" bgcolor="#FFFFFF"><b><i><font face="Arial" size="1" color="#000000"><span tal:content="report/total_budget">AUTO ENTRY</span><span tal:content="report/project_overview/currency">Currency</span></font></i></b></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Location: </font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="9" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/project_location/country">AUTO ENTRY : Country, City</span>, <span tal:content="report/project_overview/project_location/location">AUTO ENTRY : Country, City</span></font></i></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Duration: </font></b></td>
+              <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Start:</font></b></td>
+              <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/project_duration/start">AUTO ENTRY</span></font></i></td>
+              <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">End: </font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" align="center" valign="middle"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/project_duration/end">AUTO ENTRY</span></font></i></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Association to Platforms or Programs: </font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="9" align="center" valign="top" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#000000"><span tal:content="report/project_overview/association/wop_platform"></span><br><span tal:content="report/project_overview/association/wop_program"></span></font></td>
+            </tr>
+            <tr>
+              <td height="21" align="left" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="10" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Description and Objectives</font></b></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="10" height="120" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/project_overview/project_description/output">AUTO ENTRY: Insert from Project Description and Objectives</span></font></i></td>
+              </tr>
+          </table>
+
+          <!-- ************************************************************************** -->
+
+          <a name="table2"><h2>Full 3: <em>Summary</em></h2></a>
+          <table id="tabla2" cellspacing="0" border="0">
+            <colgroup width="253"></colgroup>
+            <colgroup width="95"></colgroup>
+            <colgroup width="87"></colgroup>
+            <colgroup width="148"></colgroup>
+            <colgroup span="2" width="122"></colgroup>
+            <colgroup span="2" width="32"></colgroup>
+            <colgroup span="2" width="31"></colgroup>
+            <tr>
+              <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td colspan="10" height="21" align="left" valign="middle" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"> SUMMARY </font></b></td>
+              </tr>
+            <tr>
+              <td height="21" align="left" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="center" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Working Areas:</font></b></td>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="9" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/summary/working_areas">AUTO ENTRY: List all working areas</span></font></i></td>
+              </tr>
+            <tr>
+              <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+              <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+            </tr>
+            <tr>
+              <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="10" height="21" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Overall Summary/ Highlights</font></b></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" height="21" align="left" valign="middle" bgcolor="#F2F2F2"><a class="comment-indicator"></a>
+              <b><font face="Arial" size="1" color="#000000">Overall Project Status</font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#C00000">Roadblock </font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#FFA830">Potential Risks/Delays</font></b></td>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#00B050">On Track</font></b></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#70AD47">&lt;Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders&gt;</font></i></td>
+              </tr>
+            <tr>
+              <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#70AD47">&lt;Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans&gt;</font></i></td>
+              </tr>
+          </table>
         <!-- ************************************************************************** -->
 
+        <!-- Activities:  <div tal:content="report/activities_outputs"></div> -->
       </div>
-
     </div>
+
+
 
 <!--     <div class="content-footer">
         <button id="btn-export" onclick="tablesToExcel(['tabla1'], ['first'], ['Exportacio']);">Export to Excel

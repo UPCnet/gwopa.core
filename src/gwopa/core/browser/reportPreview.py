@@ -139,12 +139,13 @@ class reportPreviewView(BrowserView):
 
         working_areas = self.getWorkingAreas()
         data['summary'] = {
-            'working_areas': [getattr(wa, attr_lang) for wa in working_areas],  # Array
+            'working_areas': ", ".join([getattr(wa, attr_lang) for wa in working_areas]),
             'progress': "",  # empty
             'other': ""  # empty
         }
 
         data['activities_outputs'] = {}
+        KEY = "GWOPA_TARGET_YEAR_1" #TODO
 
         for wa in working_areas:
             data['activities_outputs'].update({
@@ -155,28 +156,30 @@ class reportPreviewView(BrowserView):
             activities = self.getActivitiesWA(wa)
             for activity in activities:
                 activityObj = activity.getObject()
+                annotations = IAnnotations(activityObj)
                 data['activities_outputs']['activities'].append({
                     'title': getattr(activity, attr_lang),
                     'start': activityObj.start.strftime('%m/%d/%Y'),
                     'completion': activityObj.end.strftime('%m/%d/%Y'),
-                    'progress_tracker': "",  # TODO annotations[KEY]['monitoring']['progress']
+                    'progress_tracker': annotations[KEY]['monitoring']['progress'] if 'progress' in annotations[KEY]['monitoring'] else "",
                     'description': {
                         'description': activityObj.description,
                         'planning': activityObj.initial_situation,
-                        'explanation_progress': "",  # TODO annotations[KEY]['monitoring']['explanation']
+                        'explanation_progress': annotations[KEY]['monitoring']['explanation'] if 'explanation' in annotations[KEY]['monitoring'] else "",
                     },
                     'main_obstacles': {
-                        'internal': "",  # TODO "X" if 'Internal organizational' in annotations[KEY]['monitoring']['obstacles'] else "",
-                        'external': "",  # TODO "X" if 'External environment' in annotations[KEY]['monitoring']['obstacles'] else "",
-                        "wop_related": ""  # TODO "X" if 'WOP project - related' in annotations[KEY]['monitoring']['obstacles'] else "",
+                        'internal': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['obstacles'] else "",
+                        'external': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'External environment' in
+                            annotations[KEY]['monitoring']['obstacles'] else "",
+                        "wop_related": "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['obstacles'] else "",
                     },
                     'main_contributing': {
-                        'internal': "",  # TODO "X" if 'Internal organizational' in annotations[KEY]['monitoring']['contributing_factors'] else "",
-                        'external': "",  # TODO "X" if 'External environment' in annotations[KEY]['monitoring']['contributing_factors'] else "",
-                        "wop_related": ""  # TODO "X" if 'WOP project - related' in annotations[KEY]['monitoring']['contributing_factors'] else "",
+                        'internal': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['contributing'] else "",  # TODO "X" if 'Internal organizational' in annotations[KEY]['monitoring']['contributing_factors'] else "",
+                        'external': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['contributing'] else "",  # TODO "X" if 'External environment' in annotations[KEY]['monitoring']['contributing_factors'] else "",
+                        "wop_related": "X" if 'contributing' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['contributing'] else "",  # TODO "X" if 'WOP project - related' in annotations[KEY]['monitoring']['contributing_factors'] else "",
                     },
-                    'explain_contributed': "",  # TODO annotations[KEY]['monitoring']['contributing']
-                    'cosidetation_for_future': "",  # TODO annotations[KEY]['monitoring']['consideration']
+                    'explain_contributed': annotations[KEY]['monitoring']['contributing'] if 'contributing' in annotations[KEY]['monitoring'] else "",
+                    'cosidetation_for_future': annotations[KEY]['monitoring']['consideration'] if 'consideration' in annotations[KEY]['monitoring'] else "",
                     'means_of_verification': "",  # TODO ???
                     'outputs': []
                 })
