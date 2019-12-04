@@ -2,19 +2,104 @@
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-import datetime
 from decimal import Decimal
+from operator import itemgetter
 from plone import api
 from zope.annotation.interfaces import IAnnotations
+from zope.interface import implementer
+from zope.publisher.interfaces import IPublishTraverse
 
+from gwopa.core import _
 from gwopa.core import utils
 from gwopa.core.utils import getTitleAttrLang
 
+import datetime
 
+
+@implementer(IPublishTraverse)
 class reportPreviewView(BrowserView):
     """ Shows all the reporting options associated to one project
     """
-    __call__ = ViewPageTemplateFile('templates/reportPreview.pt')
+    index = ViewPageTemplateFile('templates/reportPreview.pt')
+
+    def publishTraverse(self, request, name):
+        # Stop traversing, we have arrived
+        request['TraversalRequestNameStack'] = []
+        # return self so the publisher calls this view
+        return self
+
+    def __init__(self, context, request):
+        """Once we get to __call__, the path is lost so we
+           capture it here on initialization
+        """
+        super(reportPreviewView, self).__init__(context, request)
+        self.year = None
+        path_ordered = request.path[-1:]
+        # get all param in the path -> the year /planning/2019
+        self.year = '/'.join(path_ordered)
+
+    def __call__(self):
+        if self.request['URL'].split('/')[-1][0:4] == 'api-':
+            self.request.response.redirect(self.request['URL'].replace('reportPreview/', ''))
+
+        if (not self.year or self.year == '0'):
+            # Empty query or 0 returns default template (First Year)
+            self.year = 1
+            self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
+            self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
+            return self.index()
+        else:
+            try:
+                self.year = int(self.year)
+            except:
+                self.year = 1
+            if self.year > len(self.context.gwopa_year_phases):
+                self.year = 1
+                self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
+                self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
+            else:
+                self.fase_start = self.context.gwopa_year_phases[int(self.year) - 1]['start']
+                self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
+            return self.index()
+
+    def getPhases(self):
+        return len(self.context.gwopa_year_phases)
+
+    def getItems(self):
+        """ Returns all the project years of the planning """
+        items = len(self.context.gwopa_year_phases)
+        results = []
+        total = 0
+
+        while total != items:
+            if (total == 0) and (self.request.steps[-1] == 'reportPreview'):
+                classe = 'disabled'
+            elif self.request.steps[-1] == str(total + 1):
+                classe = 'disabled'
+            else:
+                classe = 'visible'
+            if total == 0:
+                url = self.context.absolute_url_path() + '/reportPreview/'
+            else:
+                url = self.context.absolute_url_path() + '/reportPreview/' + str(total + 1)
+            results.append(dict(
+                title=_(u"Project year"),
+                year=str(total + 1),
+                url=url,
+                alt=_(u"Show report preview of year ") + str(total + 1),
+                classe=classe))
+            total = total + 1
+
+        return sorted(results, key=itemgetter('title'), reverse=False)
+
+    def getYear(self):
+        return self.year
+
+    def getFaseStart(self):
+        return self.fase_start
+
+    def getFaseEnd(self):
+        return self.fase_end
 
     def projectTitle(self):
         return self.context.title
@@ -145,7 +230,7 @@ class reportPreviewView(BrowserView):
         }
 
         data['activities_outputs'] = {}
-        KEY = "GWOPA_TARGET_YEAR_1" #TODO
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
 
         for wa in working_areas:
             data['activities_outputs'].update({
