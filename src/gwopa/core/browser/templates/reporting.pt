@@ -27,13 +27,33 @@
     <div id="reportingProject" class="row tabla_contenido_items">
 
       <div id="reportActions">
-        <a tal:attributes="href string:${view/projectURL}/reportPreview">
-          <button id="generateReport" class="context focus right" i18n:translate="">Generate</button>
-        </a>
+        <button id="generateReport" class="context focus right" i18n:translate="">Generate</button>
         <a class="pat-plone-modal" tal:attributes="href string:${view/projectURL}/reports/++add++File"
            data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}">
           <button id="addFileReport" class="context focus right" i18n:translate="">Add File</button>
         </a>
+      </div>
+
+      <div class="modal fade" id="modelProyectYears" role="dialog">
+        <div class="modal-dialog modal-sm vertical-align-center">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" i18n:translate="">Select proyect year</h4>
+            </div>
+            <div class="modal-body">
+              <div class="block-nav">
+                <ul class="pagination pagination-lg" tal:define="items view/getItems">
+                  <tal:block tal:repeat="item items">
+                    <li tal:attributes="alt item/alt; title item/alt; data-project-year item/year;">
+                      <a href="#" tal:attributes="href item/url"><tal:omit-tag tal:content="item/title"></tal:omit-tag>&nbsp;<tal:omit-tag tal:content="item/year"></tal:omit-tag></a>
+                    </li>
+                  </tal:block>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <table class="table table-condensed table-bordered table-responsive sortable table-striped">
@@ -77,7 +97,7 @@
     <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
     <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
-    <!-- <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/reporting.js"></script> -->
+    <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/reporting.js"></script>
 
   </metal:block>
   </tal:omit-tag-ini>
