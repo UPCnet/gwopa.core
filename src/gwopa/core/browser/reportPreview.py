@@ -233,17 +233,19 @@ class reportPreviewView(BrowserView):
         KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
 
         for wa in working_areas:
-            data['activities_outputs'].update({
-                'title': getattr(wa, attr_lang),
-                'activities': [],
-            })
+            wa_title = getattr(wa, attr_lang)
+            data['activities_outputs'].update({wa_title : {
+                'title': wa_title,
+                'activities': {},
+            }})
 
             activities = self.getActivitiesWA(wa)
             for activity in activities:
                 activityObj = activity.getObject()
                 annotations = IAnnotations(activityObj)
-                data['activities_outputs']['activities'].append({
-                    'title': getattr(activity, attr_lang),
+                activity_title = getattr(activity, attr_lang)
+                data['activities_outputs'][wa_title]['activities'].update({activity_title: {
+                    'title': activity_title,
                     'start': activityObj.start.strftime('%m/%d/%Y'),
                     'completion': activityObj.end.strftime('%m/%d/%Y'),
                     'progress_tracker': annotations[KEY]['monitoring']['progress'] if 'progress' in annotations[KEY]['monitoring'] else "",
@@ -267,7 +269,7 @@ class reportPreviewView(BrowserView):
                     'cosidetation_for_future': annotations[KEY]['monitoring']['consideration'] if 'consideration' in annotations[KEY]['monitoring'] else "",
                     'means_of_verification': "",  # TODO ???
                     'outputs': []
-                })
+                }})
 
         data['outcomes'] = {
 
