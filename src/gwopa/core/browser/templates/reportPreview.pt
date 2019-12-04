@@ -793,7 +793,8 @@
                   <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
                   <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
                   <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="4" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
                 </tr>
                 <tr>
                   <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="16" height="21" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Explanation</font></b></td>
@@ -892,11 +893,11 @@
                 </tr>
                 <tr>
                   <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Activity Name </font></i></b></td>
-                  <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Assigned Budget </font></i></b></td>
+                  <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Assigned Budget </font></i></b></td>
                   <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000"><br></font></i></b></td>
                   <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Expenditure this reporting period </font></i></b></td>
-                  <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Total expenditure to date</font></i></b></td>
-                  <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top" bgcolor="#F2F2F2"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+                  <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Total expenditure to date</font></i></b></td>
+                  <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;" align="left" valign="top" bgcolor="#F2F2F2"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
                   <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top" bgcolor="#F2F2F2"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
                 </tr>
                 <tr>
