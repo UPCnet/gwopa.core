@@ -41,6 +41,12 @@ class dashboardAreasView(BrowserView):
     def getYear(self):
         return self.year
 
+    def getFaseStart(self):
+        return self.fase_start
+
+    def getFaseEnd(self):
+        return self.fase_end
+
     def projectTitle(self):
         return self.context.title
 
@@ -67,6 +73,9 @@ class dashboardAreasView(BrowserView):
                 self.fase_end = self.context.gwopa_year_phases[int(self.year) - 1]['end']
             return self.index()
         # TODO: if copy or delete make action!
+
+    def getPhases(self):
+        return len(self.context.gwopa_year_phases)
 
     def getItems(self):
         """ Returns all the project years of the dash-areas """
