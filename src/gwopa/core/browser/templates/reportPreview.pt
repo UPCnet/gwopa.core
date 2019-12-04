@@ -5,6 +5,7 @@
   lang="en"
   metal:use-macro="context/main_template/macros/master"
   i18n:domain="gwopa">
+
   <body>
     <metal:content-core fill-slot="main"
       tal:define="portal_state context/@@plone_portal_state;
@@ -30,9 +31,10 @@
               <a tal:attributes="href string:${view/projectURL}/saveReport">
               <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
               </a>
-              <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2'], ['first', 'second'], ['Exportacio']);" class="context focus right" i18n:translate="">Download</button>
+              <a id="dlink" style="display:none;"></a>
+              <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2'], ['first', 'second'], 'test.xlsx');" class="context focus right" i18n:translate="">Download</button>
               <!--
-                <button id="btn-export" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], ['Exportacio']);">Export to Excel
+                <button id="btn-export" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], 'test.xlsx');">Export to Excel
                     doc</button> -->
             </div>
             <div tal:condition="report">
@@ -989,8 +991,13 @@
                         if (!tables[k].nodeType) exceltable = document.getElementById(tables[k]);
                         ctx['table' + k] = exceltable.innerHTML;
                     }
+
+                    document.getElementById("dlink").href = uri + base64(format(allOfIt, ctx));
+                    document.getElementById("dlink").download = filename;
+                    document.getElementById("dlink").click();
+
                     //format 64 per poguer mostrarho
-                    window.location.href = uri + base64(format(allOfIt, ctx));
+                    //window.location.href = uri + base64(format(allOfIt, ctx));
                 }
             })();
 
