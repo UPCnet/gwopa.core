@@ -647,68 +647,69 @@
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
             </tr>
-            <tr>
-              <td tal:attributes="style styles/style2" colspan="2" rowspan="12" height="405" align="left" valign="top" bgcolor="#B23D91"><b><font face="Arial" size="2" color="#FFFFFF">Outcome - Performance</font></b></td>
-              <td tal:attributes="style styles/style2" colspan="4" rowspan="2" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY: Title&gt; </font></i></td>
-              <td tal:attributes="style styles/style2" colspan="2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Zone</font></b></td>
-              <td tal:attributes="style styles/style2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline date </font></b></td>
-              <td tal:attributes="style styles/style2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-              <td tal:attributes="style styles/style2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline value</font></b></td>
-              <td tal:attributes="style styles/style2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-              <td tal:attributes="style styles/style2" colspan="4" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Achieved/Target</font></b></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY&gt; </font></i></td>
-              <td tal:attributes="style styles/style1" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><br></font></i></td>
-              <td tal:attributes="style styles/style1" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY&gt; </font></i></td>
-              <td tal:attributes="style styles/style1" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><br></font></i></td>
-              <td tal:attributes="style styles/style1" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY&gt; </font></i></td>
-              <td tal:attributes="style styles/style4" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><br></font></i></td>
-              <td tal:attributes="style styles/style1" colspan="4" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY&gt; </font></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY: Planning - Description/ and Initial situation description&gt; <br><br>&lt;AUTO ENTRY: Text form Explanation Progress&gt;</font></i></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style4" colspan="5" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Obstacles </font></b></td>
-              <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-              <td tal:attributes="style styles/style1" colspan="8" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Contributing factors</font></b></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
-              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-              <td tal:attributes="style styles/style1" colspan="3" align="center" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
-              <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Explain contributed and limiting factors</font></b></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY: Text&gt; </font></i></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Consideration for further planning</font></b></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY: Text&gt; </font></i></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Means of Verification</font></b></td>
-            </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY: Text&gt; </font></i></td>
-            </tr>
+            <tal:block tal:define="outcomes report/outcomes" tal:omit-tag="">
+              <tal:block tal:repeat="outcome outcomes" tal:omit-tag="">
+                <tal:block tal:define="out python:outcomes[outcome]" tal:omit-tag="">
+                  <tr>
+                    <td tal:attributes="style styles/style2" colspan="2" rowspan="12" height="405" align="left" valign="top" bgcolor="#B23D91"><b><font face="Arial" size="2" color="#FFFFFF">Outcome - Performance</font></b></td>
+                    <td tal:attributes="style styles/style2" colspan="4" rowspan="2" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/title">AUTO ENTRY: Title</span> </font></i></td>
+                    <td tal:attributes="style styles/style2" colspan="2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Zone</font></b></td>
+                    <td tal:attributes="style styles/style2" colspan="2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline date </font></b></td>
+                    <td tal:attributes="style styles/style2" colspan="2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline value</font></b></td>
+                    <td tal:attributes="style styles/style2" colspan="4" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Achieved/Target</font></b></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="2" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/zone">Zone</span> </font></i></td>
+                    <td tal:attributes="style styles/style1" colspan="2" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/baseline_date">Baseline date </span> </font></i></td>
+                    <td tal:attributes="style styles/style1" colspan="2" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/baseline_value">>Baseline value </span> </font></i></td>
+                    <td tal:attributes="style styles/style1" colspan="4" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/target_value_real">Achieved/Target </span> / <span tal:content="out/target_value_planned">Achieved/Target </span></font></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><p tal:content="out/description/description">AUTO ENTRY: Planning - Description/ and Initial situation description</p> <br><p tal:content="out/description/explanation_progress">AUTO ENTRY: Text form Explanation Progress</p> </font></i></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style4" colspan="5" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Obstacles </font></b></td>
+                    <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+                    <td tal:attributes="style styles/style1" colspan="8" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Contributing factors</font></b></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><span tal:content="out/main_obstacles/internal">Internal</span></font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><span tal:content="out/main_obstacles/external">External</span></font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><span tal:content="out/main_obstacles/wop_related">WOP related</span></font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><span tal:content="out/main_contributing/internal">Internal</span></font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+                    <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><span tal:content="out/main_contributing/external">External</span></font></b></td>
+                    <td tal:attributes="style styles/style1" colspan="3" align="center" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                    <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><span tal:content="out/main_contributing/wop_related">WOP related</span></font></b></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Explain contributed and limiting factors</font></b></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/explain_contributed">AUTO ENTRY: Text</span> </font></i></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Consideration for further planning</font></b></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/consideration">AUTO ENTRY: Text</span> </font></i></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Means of Verification</font></b></td>
+                  </tr>
+                  <tr>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/means_of_verification">AUTO ENTRY: Text</span> </font></i></td>
+                  </tr>
+                </tal:block>
+              </tal:block>
+            </tal:block>
             <tr>
               <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000">….</font></td>
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>

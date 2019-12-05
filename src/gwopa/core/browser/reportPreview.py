@@ -185,6 +185,11 @@ class reportPreviewView(BrowserView):
             portal_type=['Output'],
             context=activity)
 
+    def getOutcomes(self):
+        return api.content.find(
+            portal_type=['OutcomeZONE'],
+            context=self.context)
+
     def getStyles(self):
         return {
             'style1': "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;",
@@ -322,9 +327,38 @@ class reportPreviewView(BrowserView):
                         'means_of_verification': "",  # TODO ???
                     }})
 
-        data['outcomes'] = {
+        data['outcomes'] = {}
+        outcomes = self.getOutcomes()
+        for outcome in outcomes:
+            outcomeObj = outcome.getObject()
+            annotations = IAnnotations(outcomeObj)
+            outcome_title = getattr(outcome, attr_lang)
+            data['outcomes'].update({outcome_title : {
+                'title': outcome_title,
+                'zone': outcomeObj.zone,
+                'baseline_date': outcomeObj.baseline_date.strftime('%Y-%m'),
+                'baseline_value': outcomeObj.baseline,
+                'target_value_real': annotations[KEY]['real'],
+                'target_value_planned': annotations[KEY]['planned'],
+                'description': {
+                    'description': outcomeObj.description,
+                    'explanation_progress': annotations[KEY]['monitoring']['explanation'] if 'explanation' in annotations[KEY]['monitoring'] else "",
+                },
+                'main_obstacles': {
+                    'internal': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['obstacles'] else "",
+                    'external': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['obstacles'] else "",
+                    "wop_related": "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['obstacles'] else "",
+                },
+                'main_contributing': {
+                    'internal': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['contributing'] else "",
+                    'external': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['contributing'] else "",
+                    "wop_related": "X" if 'contributing' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['contributing'] else "",
+                },
+                'explain_contributed': annotations[KEY]['monitoring']['limiting'] if 'limiting' in annotations[KEY]['monitoring'] else "",
+                'consideration': annotations[KEY]['monitoring']['consideration'] if 'consideration' in annotations[KEY]['monitoring'] else "",
+                'means_of_verification': outcomeObj.means,  # TODO ???
+            }})
 
-        }
 
         data['budget'] = {
 
