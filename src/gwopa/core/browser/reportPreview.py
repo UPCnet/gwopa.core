@@ -180,6 +180,15 @@ class reportPreviewView(BrowserView):
             portal_type=['Activity'],
             context=wa)
 
+    def getStyles(self):
+        return {
+            'style1': "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;",
+            'style2': "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;",
+            'style3': "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;",
+            'style4': "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;",
+            'style5': "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"
+        }
+
     def reportData(self):
         data = {}
         attr_lang = getTitleAttrLang()
@@ -256,8 +265,7 @@ class reportPreviewView(BrowserView):
                     },
                     'main_obstacles': {
                         'internal': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['obstacles'] else "",
-                        'external': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'External environment' in
-                            annotations[KEY]['monitoring']['obstacles'] else "",
+                        'external': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['obstacles'] else "",
                         "wop_related": "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['obstacles'] else "",
                     },
                     'main_contributing': {
@@ -265,7 +273,7 @@ class reportPreviewView(BrowserView):
                         'external': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['contributing'] else "",  # TODO "X" if 'External environment' in annotations[KEY]['monitoring']['contributing_factors'] else "",
                         "wop_related": "X" if 'contributing' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['contributing'] else "",  # TODO "X" if 'WOP project - related' in annotations[KEY]['monitoring']['contributing_factors'] else "",
                     },
-                    'explain_contributed': annotations[KEY]['monitoring']['contributing'] if 'contributing' in annotations[KEY]['monitoring'] else "",
+                    'explain_limiting': annotations[KEY]['monitoring']['limiting'] if 'limiting' in annotations[KEY]['monitoring'] else "",
                     'cosidetation_for_future': annotations[KEY]['monitoring']['consideration'] if 'consideration' in annotations[KEY]['monitoring'] else "",
                     'means_of_verification': "",  # TODO ???
                     'outputs': []
