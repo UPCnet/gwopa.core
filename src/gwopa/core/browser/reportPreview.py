@@ -170,6 +170,16 @@ class reportPreviewView(BrowserView):
 
         return str(total)
 
+    def getTotalAssignedBudget(self, activities):
+        total = 0
+        for activity in activities:
+            try:
+                total += Decimal(activity['assigned_budget'])
+            except:
+                pass
+
+        return str(total)
+
     def getWorkingAreas(self):
         return api.content.find(
             portal_type=['ImprovementArea'],
@@ -361,7 +371,21 @@ class reportPreviewView(BrowserView):
 
 
         data['budget'] = {
-
+            'planned_activities': [],
+            'total_budget': "",
         }
 
+        allActivities = api.content.find(
+            portal_type=['Activity'],
+            context=self.context)
+
+        for activity in allActivities:
+            activityObj = activity.getObject()
+            data['budget']['planned_activities'].append({
+                'wa_title': getattr(activityObj.aq_parent, attr_lang.lower()),
+                'title': activity.Title,
+                'assigned_budget': activityObj.budget,
+            })
+
+        data['budget']['total_budget'] = self.getTotalAssignedBudget(data['budget']['planned_activities'])
         return data
