@@ -180,6 +180,11 @@ class reportPreviewView(BrowserView):
             portal_type=['Activity'],
             context=wa)
 
+    def getOutputsActivity(self, activity):
+        return api.content.find(
+            portal_type=['Output'],
+            context=activity)
+
     def getStyles(self):
         return {
             'style1': "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;",
@@ -192,6 +197,9 @@ class reportPreviewView(BrowserView):
     def reportData(self):
         data = {}
         attr_lang = getTitleAttrLang()
+
+        today = datetime.date.today()
+        data['generation_report_date'] = today.strftime('%m/%d/%Y')
 
         data['project_overview'] = {
             'project_name': self.context.title,
@@ -207,6 +215,7 @@ class reportPreviewView(BrowserView):
             'water_operators': self.getProjectWaterOperators(),  # Array
             'donors': self.getProjectDonors(),  # Array
             'other_organizations': self.getProjectOtherOrganizations(),  # Array
+            'total_budget': "",
             'project_location': {
                 'country': self.context.country,
                 'location': self.context.location
@@ -219,17 +228,13 @@ class reportPreviewView(BrowserView):
                 'wop_platform': self.context.wop_platform,
                 'wop_program': self.context.wop_program
             },
-            'project_description': self.context.objectives
+            'project_description': self.context.objectives,
         }
 
-        today = datetime.date.today()
-
-        data['generation_report_date'] = today.strftime('%m/%d/%Y')
-
-        data.update({'total_budget': self.getTotalBudget(
+        data['project_overview']['total_budget'] = self.getTotalBudget(
             data['project_overview']['water_operators'] +
             data['project_overview']['donors'] +
-            data['project_overview']['other_organizations'])})
+            data['project_overview']['other_organizations'])
 
         working_areas = self.getWorkingAreas()
         data['summary'] = {
@@ -243,41 +248,79 @@ class reportPreviewView(BrowserView):
 
         for wa in working_areas:
             wa_title = getattr(wa, attr_lang)
-            data['activities_outputs'].update({wa_title : {
+            data['activities_outputs'].update({wa_title: {
                 'title': wa_title,
                 'activities': {},
             }})
 
-            activities = self.getActivitiesWA(wa)
+            activities = self.getActivitiesWA(wa.getObject())
             for activity in activities:
                 activityObj = activity.getObject()
-                annotations = IAnnotations(activityObj)
-                activity_title = getattr(activity, attr_lang)
+                activityAnn = IAnnotations(activityObj)
+                activity_title = activityObj.title
                 data['activities_outputs'][wa_title]['activities'].update({activity_title: {
                     'title': activity_title,
                     'start': activityObj.start.strftime('%m/%d/%Y'),
                     'completion': activityObj.end.strftime('%m/%d/%Y'),
-                    'progress_tracker': annotations[KEY]['monitoring']['progress'] if 'progress' in annotations[KEY]['monitoring'] else "",
+                    'progress_tracker': {
+                        'progress': activityAnn[KEY]['monitoring']['progress'] if 'progress' in activityAnn[KEY]['monitoring'] else "",
+                        'real': '100',
+                        'measuring_unit': '%',
+                    },
                     'description': {
                         'description': activityObj.description,
                         'planning': activityObj.initial_situation,
-                        'explanation_progress': annotations[KEY]['monitoring']['explanation'] if 'explanation' in annotations[KEY]['monitoring'] else "",
+                        'explanation_progress': activityAnn[KEY]['monitoring']['explanation'] if 'explanation' in activityAnn[KEY]['monitoring'] else "",
                     },
                     'main_obstacles': {
-                        'internal': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['obstacles'] else "",
-                        'external': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['obstacles'] else "",
-                        "wop_related": "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['obstacles'] else "",
+                        'internal': "X" if 'obstacles' in activityAnn[KEY]['monitoring'] and 'Internal organizational' in activityAnn[KEY]['monitoring']['obstacles'] else "",
+                        'external': "X" if 'obstacles' in activityAnn[KEY]['monitoring'] and 'External environment' in activityAnn[KEY]['monitoring']['obstacles'] else "",
+                        "wop_related": "X" if 'obstacles' in activityAnn[KEY]['monitoring'] and 'WOP project - related' in activityAnn[KEY]['monitoring']['obstacles'] else "",
                     },
                     'main_contributing': {
-                        'internal': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['contributing'] else "",  # TODO "X" if 'Internal organizational' in annotations[KEY]['monitoring']['contributing_factors'] else "",
-                        'external': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['contributing'] else "",  # TODO "X" if 'External environment' in annotations[KEY]['monitoring']['contributing_factors'] else "",
-                        "wop_related": "X" if 'contributing' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['contributing'] else "",  # TODO "X" if 'WOP project - related' in annotations[KEY]['monitoring']['contributing_factors'] else "",
+                        'internal': "X" if 'contributing' in activityAnn[KEY]['monitoring'] and 'Internal organizational' in activityAnn[KEY]['monitoring']['contributing'] else "",
+                        'external': "X" if 'contributing' in activityAnn[KEY]['monitoring'] and 'External environment' in activityAnn[KEY]['monitoring']['contributing'] else "",
+                        "wop_related": "X" if 'contributing' in activityAnn[KEY]['monitoring'] and 'WOP project - related' in activityAnn[KEY]['monitoring']['contributing'] else "",
                     },
-                    'explain_limiting': annotations[KEY]['monitoring']['limiting'] if 'limiting' in annotations[KEY]['monitoring'] else "",
-                    'cosidetation_for_future': annotations[KEY]['monitoring']['consideration'] if 'consideration' in annotations[KEY]['monitoring'] else "",
+                    'explain_limiting': activityAnn[KEY]['monitoring']['limiting'] if 'limiting' in activityAnn[KEY]['monitoring'] else "",
+                    'cosidetation_for_future': activityAnn[KEY]['monitoring']['consideration'] if 'consideration' in activityAnn[KEY]['monitoring'] else "",
                     'means_of_verification': "",  # TODO ???
-                    'outputs': []
+                    'outputs': {}
                 }})
+
+                outputs = self.getOutputsActivity(activityObj)
+                for output in outputs:
+                    outputObj = output.getObject()
+                    outputAnn = IAnnotations(outputObj)
+                    output_title = outputObj.title
+                    # import ipdb; ipdb.set_trace()
+                    data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'].update({output_title: {
+                        'title': output_title,
+                        'start': outputObj.start.strftime('%m/%d/%Y'),
+                        'completion': outputObj.end.strftime('%m/%d/%Y'),
+                        'progress_tracker': {
+                            'progress': outputAnn[KEY]['monitoring']['explanation'] if 'explanation' in outputAnn[KEY]['monitoring'] else "",
+                            'real': outputAnn[KEY]['real'],
+                            'measuring_unit': utils.getTranslatedMesuringUnitFromID(outputObj.measuring_unit),
+                        },
+                        'description': {
+                            'description': outputObj.description,
+                            'explanation_progress': outputAnn[KEY]['monitoring']['explanation'] if 'explanation' in outputAnn[KEY]['monitoring'] else "",
+                        },
+                        'main_obstacles': {
+                            'internal': "X" if 'obstacles' in outputAnn[KEY]['monitoring'] and 'Internal organizational' in outputAnn[KEY]['monitoring']['obstacles'] else "",
+                            'external': "X" if 'obstacles' in outputAnn[KEY]['monitoring'] and 'External environment' in outputAnn[KEY]['monitoring']['obstacles'] else "",
+                            "wop_related": "X" if 'obstacles' in outputAnn[KEY]['monitoring'] and 'WOP project - related' in outputAnn[KEY]['monitoring']['obstacles'] else "",
+                        },
+                        'main_contributing': {
+                            'internal': "X" if 'contributing' in outputAnn[KEY]['monitoring'] and 'Internal organizational' in outputAnn[KEY]['monitoring']['contributing'] else "",
+                            'external': "X" if 'contributing' in outputAnn[KEY]['monitoring'] and 'External environment' in outputAnn[KEY]['monitoring']['contributing'] else "",
+                            "wop_related": "X" if 'contributing' in outputAnn[KEY]['monitoring'] and 'WOP project - related' in outputAnn[KEY]['monitoring']['contributing'] else "",
+                        },
+                        'explain_limiting': outputAnn[KEY]['monitoring']['limiting'] if 'limiting' in outputAnn[KEY]['monitoring'] else "",
+                        'cosidetation_for_future': outputAnn[KEY]['monitoring']['consideration'] if 'consideration' in outputAnn[KEY]['monitoring'] else "",
+                        'means_of_verification': "",  # TODO ???
+                    }})
 
         data['outcomes'] = {
 
