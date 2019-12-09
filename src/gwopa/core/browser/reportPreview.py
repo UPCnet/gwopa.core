@@ -226,8 +226,8 @@ class reportPreviewView(BrowserView):
         data = {}
         attr_lang = getTitleAttrLang()
 
-        today = datetime.date.today()
-        data['generation_report_date'] = today.strftime('%m/%d/%Y')
+        today = datetime.datetime.now()
+        data['generation_report_date'] = today.strftime('%m/%d/%Y %H:%M:%S')
 
         data['project_overview'] = {
             'project_name': self.context.title,

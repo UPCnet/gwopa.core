@@ -51,13 +51,15 @@
           <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
           </a>
           <a id="dlink" style="display:none;"></a>
-          <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2'], ['first', 'second'], 'test.xlsx');" class="context focus right" i18n:translate="">Download</button>
+          <span id="filename" style="display:none;" tal:content="report/project_overview/project_name">Project Name</span>
+          <span id="generation_report_date" style="display:none;" tal:content="report/generation_report_date">Generation report date</span>
+          <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five']);" class="context focus right" i18n:translate="">Download</button>
           <!--
             <button id="btn-export" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], 'test.xlsx');">Export to Excel
                 doc</button> -->
         </div>
         <div tal:condition="report" tal:define="styles view/getStyles">
-          <h2>Full 2: <em>Project Overview </em></h2>
+          <!-- <h2>Full 2: <em>Project Overview </em></h2> -->
           <table id = "tabla1" cellspacing="0" border="0">
             <colgroup width="253"></colgroup>
             <colgroup width="95"></colgroup>
@@ -231,7 +233,7 @@
             </tr>
           </table>
 
-          <h2>Full 3: <em>Summary</em></h2>
+          <!-- <h2>Full 3: <em>Summary</em></h2> -->
           <table id="tabla2" cellspacing="0" border="0">
             <colgroup width="253"></colgroup>
             <colgroup width="95"></colgroup>
@@ -302,7 +304,7 @@
             </tr>
           </table>
 
-          <h2>Full 4: <em>DR - Activities &amp; Outputs</em></h2>
+          <!-- <h2>Full 4: <em>DR - Activities &amp; Outputs</em></h2> -->
           <table id="tabla3" cellspacing="0" border="0">
             <colgroup width="80"></colgroup>
             <colgroup width="71"></colgroup>
@@ -518,7 +520,7 @@
             </tal:block>
           </table>
 
-          <h2>Full 5: <em>DR - Outcomes</em></h2>
+          <!-- <h2>Full 5: <em>DR - Outcomes</em></h2> -->
           <table id="tabla4" cellspacing="0" border="0">
             <colgroup width="104"></colgroup>
             <colgroup width="31"></colgroup>
@@ -864,7 +866,7 @@
             </tal:block>
           </table>
 
-          <h2>Full 6: <em>Budget</em></h2>
+          <!-- <h2>Full 6: <em>Budget</em></h2> -->
           <table id="tabla5" cellspacing="0" border="0">
             <colgroup width="253"></colgroup>
             <colgroup width="95"></colgroup>
@@ -963,7 +965,7 @@
             , tabletemplate = '';
 
               // retorna la taula, el nom de la taula i el nom de l'arxiu
-              return function (table, name, filename) {
+              return function (table, name) {
               // es declara la variable taules per poguer mostrar casdascuna delles.
                 var tables = table;
 
@@ -991,7 +993,7 @@
                 }
 
                 document.getElementById("dlink").href = uri + base64(format(allOfIt, ctx));
-                document.getElementById("dlink").download = filename;
+                document.getElementById("dlink").download = $("#filename").text() + "_" + $("#generation_report_date").text() + ".xlsx";
                 document.getElementById("dlink").click();
 
                 //format 64 per poguer mostrarho
