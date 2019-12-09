@@ -12,6 +12,7 @@ from zope.publisher.interfaces import IPublishTraverse
 from gwopa.core import _
 from gwopa.core import utils
 from gwopa.core.utils import getTitleAttrLang
+from gwopa.core.utils import getUserLang
 
 import datetime
 
@@ -200,6 +201,18 @@ class reportPreviewView(BrowserView):
             portal_type=['OutcomeZONE'],
             context=self.context)
 
+    def getOutcomesCapacityWA(self, wa):
+        return api.content.find(
+            portal_type=['OutcomeCC'],
+            context=wa)
+
+    def getTitleSpecific(self, specific):
+        lang = getUserLang()
+        if lang in ['es', 'fr']:
+            return specific['title_specific_' + lang]
+        else:
+            return specific['title_specific']
+
     def getStyles(self):
         return {
             'style1': "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;",
@@ -308,7 +321,6 @@ class reportPreviewView(BrowserView):
                     outputObj = output.getObject()
                     outputAnn = IAnnotations(outputObj)
                     output_title = outputObj.title
-                    # import ipdb; ipdb.set_trace()
                     data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'].update({output_title: {
                         'title': output_title,
                         'start': outputObj.start.strftime('%m/%d/%Y'),
@@ -336,6 +348,7 @@ class reportPreviewView(BrowserView):
                         'cosidetation_for_future': outputAnn[KEY]['monitoring']['consideration'] if 'consideration' in outputAnn[KEY]['monitoring'] else "",
                         'means_of_verification': "",  # TODO ???
                     }})
+
 
         data['outcomes'] = {}
         outcomes = self.getOutcomes()
@@ -368,6 +381,36 @@ class reportPreviewView(BrowserView):
                 'consideration': annotations[KEY]['monitoring']['consideration'] if 'consideration' in annotations[KEY]['monitoring'] else "",
                 'means_of_verification': outcomeObj.means,  # TODO ???
             }})
+
+        data['outcomes_capacity'] = {}
+        for wa in working_areas:
+            wa_title = getattr(wa, attr_lang)
+            data['outcomes_capacity'].update({wa_title: {
+                'title': wa_title,
+                'capacities': {},
+            }})
+
+            outcomecc = self.getOutcomesCapacityWA(wa.getObject())[0]
+            annotations = IAnnotations(outcomecc.getObject())
+            for capacity in annotations[KEY]['monitoring']:
+                if 'selected' in capacity['selected_specific']:
+                    capacity_title = self.getTitleSpecific(capacity)
+                    data['outcomes_capacity'][wa_title]['capacities'].update({capacity_title: {
+                        'title': capacity_title,
+                        'consensus': capacity['consensus'],
+                        'main_obstacles': {
+                            'internal': "X" if 'obstacles' in capacity and 'Internal organizational' in capacity['obstacles'] else "",
+                            'external': "X" if 'obstacles' in capacity and 'External environment' in capacity['obstacles'] else "",
+                            "wop_related": "X" if 'obstacles' in capacity and 'WOP project - related' in capacity['obstacles'] else "",
+                        },
+                        'main_contributing': {
+                            'internal': "X" if 'contributing_factors' in capacity and 'Internal organizational' in capacity['contributing_factors'] else "",
+                            'external': "X" if 'contributing_factors' in capacity and 'External environment' in capacity['contributing_factors'] else "",
+                            "wop_related": "X" if 'contributing_factors' in capacity and 'WOP project - related' in capacity['contributing_factors'] else "",
+                        },
+                        'explain': capacity['explain'],
+                        'means_of_verification': "",  # TODO ???
+                    }})
 
 
         data['budget'] = {
