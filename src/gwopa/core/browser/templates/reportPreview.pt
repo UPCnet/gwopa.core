@@ -229,7 +229,7 @@
               <td tal:attributes="style styles/style2" colspan="10" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Description and Objectives</font></b></td>
             </tr>
             <tr>
-              <td tal:attributes="style styles/style1" colspan="10" height="120" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/project_overview/project_description/output">AUTO ENTRY: Insert from Project Description and Objectives</span></font></i></td>
+              <td tal:attributes="style styles/style1" colspan="10" height="120" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:condition="report/project_overview/project_description" tal:content="structure report/project_overview/project_description/output">AUTO ENTRY: Insert from Project Description and Objectives</span></font></i></td>
             </tr>
           </table>
 
