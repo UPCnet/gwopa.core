@@ -47,9 +47,9 @@
           <a tal:attributes="href string:${view/projectURL}/reporting">
           <button id="returnReporting" class="context focus" i18n:translate="">Return</button>
           </a>
-          <a tal:attributes="href string:${view/projectURL}/saveReport">
+          <!--<a tal:attributes="href string:${view/projectURL}/saveReport">
           <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
-          </a>
+          </a>-->
           <a id="dlink" style="display:none;"></a>
           <span id="filename" style="display:none;" tal:content="report/project_overview/project_name">Project Name</span>
           <span id="generation_report_date" style="display:none;" tal:content="report/generation_report_date">Generation report date</span>
@@ -993,7 +993,7 @@
                 }
 
                 document.getElementById("dlink").href = uri + base64(format(allOfIt, ctx));
-                document.getElementById("dlink").download = $("#filename").text() + "_" + $("#generation_report_date").text() + ".xlsx";
+                document.getElementById("dlink").download = $("#filename").text() + "_" + $("#generation_report_date").text() + ".xls";
                 document.getElementById("dlink").click();
 
                 //format 64 per poguer mostrarho
