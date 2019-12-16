@@ -2,11 +2,29 @@ Changelog
 =========
 
 
-1.7 (unreleased)
+1.7 (2019-12-16)
 ----------------
 
-- Nothing changed yet.
-
+* Modificar extension excel [root muntanyeta]
+* Reporting: Arreglar error en la busqueda en el catalogo [Iago López Fernández]
+* condition in report [pilar.marinas]
+* Generate report project name datetime [pilar.marinas]
+* Report outcomes - capacity [pilar.marinas]
+* Report Budget [Iago López Fernández]
+* Report outcome [pilar.marinas]
+* Renombrar fichero [Iago López Fernández]
+* Report outputs [Iago López Fernández]
+* Report activity [Iago López Fernández]
+* Report WA [pilar.marinas]
+* Añadir selector del proyect year antes de acceder al preview del report [Iago López Fernández]
+* Añadir selector de año de proyecto en el reportPreview [Iago López Fernández]
+* Estilos dash-areas [Iago López Fernández]
+* Reporting [Iago López Fernández]
+* Report filename [Iago López Fernández]
+* Tablas report [Iago López Fernández]
+* Report table1 and table2 [pilar.marinas]
+* Report [pilar.marinas]
+* Reporting [Iago López Fernández]
 
 1.6 (2019-11-29)
 ----------------
