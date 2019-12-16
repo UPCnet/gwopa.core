@@ -22,6 +22,9 @@ from gwopa.core.utils import getUserLang
 import datetime
 import json
 
+from plone.namedfile.file import NamedBlobFile
+from base64 import b64decode
+
 
 class getPhases(BrowserView):
     # /api-getphases
@@ -420,15 +423,24 @@ class Create(BrowserView):
         item = api.content.find(path=self.request.form.get('item_path'), depth=0)[0]
         title = self.request.form.get('item_title')
         portal_type = self.request.form.get('item_type')
-        obj = api.content.create(
-            title=title,
-            type=portal_type,
-            container=item.getObject())
+        if portal_type == 'File':
+            content_file = self.request.form.get('item_file')
+            blob_data = NamedBlobFile(data=b64decode(content_file), filename=u'fichero.xls')
+            obj = api.content.create(
+                title=title,
+                type=portal_type,
+                file=blob_data,
+                container=item.getObject())
+        else:
+            obj = api.content.create(
+                title=title,
+                type=portal_type,
+                container=item.getObject())
         obj.description = self.request.form.get('item_description')
         obj.means = self.request.form.get('item_means')
         # obj.risks = self.request.form.get('item_risks')
         members = []
-        if (self.request.form.get('item_responsible') is not ''):
+        if (self.request.form.get('item_responsible') is not '') and (self.request.form.get('item_responsible') is not None):
             users = self.request.form.get('item_responsible').split(',')
             if isinstance(users, (str,)):
                 members.append(users)

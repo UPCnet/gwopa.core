@@ -47,13 +47,13 @@
           <a tal:attributes="href string:${view/projectURL}/reporting">
           <button id="returnReporting" class="context focus" i18n:translate="">Return</button>
           </a>
-          <a tal:attributes="href string:${view/projectURL}/saveReport">
-          <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
-          </a>
+          <!-- <a tal:attributes="href string:${view/projectURL}/reporting">
+          <button id="saveReport" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], true);" class="context focus right" i18n:translate="">Save</button>
+          </a> -->
           <a id="dlink" style="display:none;"></a>
           <span id="filename" style="display:none;" tal:content="report/project_overview/project_name">Project Name</span>
           <span id="generation_report_date" style="display:none;" tal:content="report/generation_report_date">Generation report date</span>
-          <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five']);" class="context focus right" i18n:translate="">Download</button>
+          <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], false);" class="context focus right" i18n:translate="">Download</button>
           <!--
             <button id="btn-export" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], 'test.xlsx');">Export to Excel
                 doc</button> -->
@@ -942,7 +942,7 @@
       <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
       <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
       <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
-      <!-- <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/reporting.js"></script> -->
+      <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/reporting.js"></script>
       <script>
         var tablesToExcel = (function () {
             var uri = 'data:application/vnd.ms-excel;base64,'
@@ -964,10 +964,12 @@
             , wstemplate = ''
             , tabletemplate = '';
 
+
               // retorna la taula, el nom de la taula i el nom de l'arxiu
-              return function (table, name) {
+              return function (table, name, save) {
               // es declara la variable taules per poguer mostrar casdascuna delles.
                 var tables = table;
+
 
 
                 for (var i = 0; i < tables.length; ++i) {
@@ -991,10 +993,36 @@
                     if (!tables[k].nodeType) exceltable = document.getElementById(tables[k]);
                     ctx['table' + k] = exceltable.innerHTML;
                 }
+                var filename = $("#filename").text() + "_" + $("#generation_report_date").text() + ".xls";
+                var content = uri + base64(format(allOfIt, ctx));
+                debugger
 
-                document.getElementById("dlink").href = uri + base64(format(allOfIt, ctx));
-                document.getElementById("dlink").download = $("#filename").text() + "_" + $("#generation_report_date").text() + ".xlsx";
-                document.getElementById("dlink").click();
+
+                if (!save){
+                  document.getElementById("dlink").href = content;
+                  document.getElementById("dlink").download = filename;
+                  document.getElementById("dlink").click();
+                }else{
+                  var url = window.location.href;
+                  var project_path = url.substring(0, url.lastIndexOf("/reportPreview"));
+                  var project_path_report = project_path + '/reports'
+                  params = {};
+                  params.item_title = filename;
+                  params.item_path = '/gwopaultimo/projects/proyecto-ip/reports';
+                  params.item_type = 'File';
+                  params.item_file = content;
+                  params.html_file = allOfIt;
+
+                  $.ajax({
+                    url: project_path_report + '/createElement',
+                    method: 'POST',
+                    data: params,
+                    success: function(resp)
+                      { if(resp) {location.reload();}}
+                  });
+
+                }
+
 
                 //format 64 per poguer mostrarho
                 //window.location.href = uri + base64(format(allOfIt, ctx));
