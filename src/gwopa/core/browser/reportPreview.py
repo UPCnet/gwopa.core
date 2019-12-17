@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -187,14 +188,83 @@ class reportPreviewView(BrowserView):
             context=self.context)
 
     def getActivitiesWA(self, wa):
-        return api.content.find(
+        """ returns objects from first level (elements inside ImprovementArea) """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        folder_path = '/'.join(wa.getPhysicalPath())
+        data_year = self.context.gwopa_year_phases[int(self.year) - 1]
+        start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+        end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+        # Los de la fase [---]
+        range_start = {'query': (start, end), 'range': 'min:max'}
+        range_end = {'query': (start, end), 'range': 'min:max'}
+        activities1 = portal_catalog.unrestrictedSearchResults(
             portal_type=['Activity'],
-            context=wa)
+            start=range_start,
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        # Los de fuera de la fase start y end ---][----
+        range_start = {'query': (start), 'range': 'max'}
+        range_end = {'query': (end), 'range': 'min'}
+        activities2 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        # Los que empiezan antes y acaban en fase ---]
+        ranges = {'query': (start), 'range': 'max'}
+        range_end = {'query': (start, end), 'range': 'min:max'}
+
+        activities3 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=ranges,
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        # Los que empiezan aqui y acaban despues [----
+        range_start = {'query': (start, end), 'range': 'min:max'}
+        range_end = {'query': (end), 'range': 'min'}
+        activities4 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Activity'],
+            start=range_start,
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        items = activities1 + activities2 + activities3 + activities4
+
+        return items
 
     def getOutputsActivity(self, activity):
-        return api.content.find(
+        """ Returns Outpus inside Activities  """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        folder_path = '/'.join(activity.getPhysicalPath())
+        data_year = self.context.gwopa_year_phases[int(self.year) - 1]
+        start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
+        end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
+
+        range_end = {'query': (start, end), 'range': 'min:max'}
+        outputs1 = portal_catalog.unrestrictedSearchResults(
             portal_type=['Output'],
-            context=activity)
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        range_end = {'query': (end), 'range': 'min'}
+        outputs2 = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Output'],
+            end=range_end,
+            path={'query': folder_path,
+                  'depth': 1})
+
+        items = outputs1 + outputs2
+
+        return items
 
     def getOutcomes(self):
         return api.content.find(
