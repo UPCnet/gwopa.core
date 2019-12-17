@@ -109,6 +109,16 @@ class reportPreviewView(BrowserView):
     def projectURL(self):
         return self.context.absolute_url()
 
+    def getProjectManagerAdmin(self):
+        result = []
+        user = api.user.get(self.context.project_manager_admin)
+        result.append(dict(
+                    id=user.id,
+                    fullname=user.getProperty('fullname'),
+                    position=user.getProperty('position')))
+
+        return result
+
     def getProjectWaterOperators(self):
         result = []
         waterOperators = api.content.find(
@@ -295,20 +305,20 @@ class reportPreviewView(BrowserView):
     def reportData(self):
         data = {}
         attr_lang = getTitleAttrLang()
-
+        project_manager_admin = self.getProjectManagerAdmin()
         today = datetime.datetime.now()
         data['generation_report_date'] = today.strftime('%m/%d/%Y %H:%M:%S')
-
         data['project_overview'] = {
             'project_name': self.context.title,
             'project_code': "",  # empty
             'reporting_type': utils.getTranslatedMesuringFrequencyFromID(self.context.measuring_frequency),
             'reporting_period': {
-                'from': "",  # TODO ???
-                'to': ""  # TODO ????
+                'project_year': self.getYear(),
+                'from': self.getFaseStart(),  # TODO ???
+                'to': self.getFaseEnd()  # TODO ????
             },
-            'author_report': "Project Manager (Administrator) " + "",  # TODO ???
-            'position_report': "Project Manager (Administrator) " + "",  # TODO ???
+            'author_report': project_manager_admin[0]['fullname'],  # TODO ???
+            'position_report': project_manager_admin[0]['position'],  # TODO ???
             'currency': utils.project_currency(self),
             'water_operators': self.getProjectWaterOperators(),  # Array
             'donors': self.getProjectDonors(),  # Array

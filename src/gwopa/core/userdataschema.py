@@ -43,6 +43,12 @@ class IEnhancedUserDataSchema(model.Schema):
         required=True,
     )
 
+    position = schema.TextLine(
+        title=_(u'Position'),
+        description=_(u'Your position in the organization.'),
+        required=False
+    )
+
     type_of_organization = schema.Choice(
         title=_(u"Type of organization"),
         required=False,

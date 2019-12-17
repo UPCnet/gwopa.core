@@ -127,15 +127,15 @@
               <td tal:attributes="style styles/style1" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Reporting Type: </font></b></td>
               <td tal:attributes="style styles/style1" colspan="3" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/reporting_type">AUTO ENTRY Quarterly/Biannually/annually</span></font></i></td>
               <td tal:attributes="style styles/style1" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Reporting Period:</font></b></td>
-              <td tal:attributes="style styles/style1" colspan="5" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#FF0000">&lt;AUTO ENTRY: As selected: From - To&gt; </font></i></td>
+              <td tal:attributes="style styles/style1" colspan="5" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/reporting_period/from">From</span> - <span tal:content="report/project_overview/reporting_period/to">To</span> </font></i></td>
             </tr>
             <tr>
               <td tal:attributes="style styles/style1" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Author of Report: </font></b></td>
-              <td tal:attributes="style styles/style1" colspan="9" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#FF0000">&lt;AUTO ENTRY Project Manager (Administrator) name&gt;</font></i></td>
+              <td tal:attributes="style styles/style1" colspan="9" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/author_report">AUTO ENTRY Project Manager (Administrator) name</span></font></i></td>
             </tr>
             <tr>
               <td tal:attributes="style styles/style1" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Position of Author: </font></b></td>
-              <td tal:attributes="style styles/style1" colspan="9" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#FF0000">&lt;AUTO ENTRY: Project Manager (Administrator) POSITION&gt;</font></i></td>
+              <td tal:attributes="style styles/style1" colspan="9" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/position_report">AUTO ENTRY Project Manager (Administrator) POSITION</span></font></i></td>
             </tr>
             <tr>
               <td height="21" align="left" valign="top" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
@@ -459,7 +459,7 @@
                               <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
                                 <span tal:content="out_act/start"></span>
                               </font></i></td>
-                              <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><span tal:content="out_act/completion"></font></b></td>
+                              <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><span tal:content="out_act/completion"></span></font></b></td>
                               <td tal:attributes="style styles/style1" colspan="5" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000">
                                 <span tal:content="string:${out_act/progress_tracker/progress} / ${out_act/progress_tracker/real} ${out_act/progress_tracker/measuring_unit}"></span>
                               </font></b></td>

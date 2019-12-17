@@ -45,6 +45,7 @@ class userProfile(BrowserView):
             _(u'email'),
             _(u'phone'),
             _(u'country'),
+            _(u'position'),
             _(u'wop_programs'),
             _(u'wop_platforms'),
             _(u'wop_partners'),

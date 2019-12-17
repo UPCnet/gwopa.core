@@ -30,6 +30,7 @@ class UserPropertiesSoupCatalogFactory(object):
         _(u'donor'),
         _(u'other'),
         _(u'country'),
+        _(u'position'),
         _(u'phone'),
         _(u'home_page')]
 
@@ -44,6 +45,7 @@ class UserPropertiesSoupCatalogFactory(object):
         'donor',
         'other',
         'country',
+        'position',
         'phone',
         'home_page']
 
@@ -81,6 +83,9 @@ class UserPropertiesSoupCatalogFactory(object):
 
         country = NodeAttributeIndexer('country')
         catalog['country'] = CatalogTextIndex(country)
+
+        position = NodeAttributeIndexer('position')
+        catalog['position'] = CatalogTextIndex(position)
 
         type_of_organization = NodeAttributeIndexer('type_of_organization')
         catalog['type_of_organization'] = CatalogTextIndex(type_of_organization)
