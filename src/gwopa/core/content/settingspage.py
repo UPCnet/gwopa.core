@@ -127,12 +127,46 @@ class ISettingspage(model.Schema):
         required=True,
     )
 
+    partner_roles = schema.Text(
+        title=_(u'Partner Roles EN'),
+        description=_(u'The roles of the partner'),
+        required=True,
+    )
+
+    partner_roles_es = schema.Text(
+        title=_(u'Partner Roles ES'),
+        required=True,
+    )
+
+    partner_roles_fr = schema.Text(
+        title=_(u'Partner Roles FR'),
+        required=True,
+    )
+
+    organization_roles = schema.Text(
+        title=_(u'Organization Roles EN'),
+        description=_(u'The roles of other origanizations'),
+        required=True,
+    )
+
+    organization_roles_es = schema.Text(
+        title=_(u'Organization Roles ES'),
+        required=True,
+    )
+
+    organization_roles_fr = schema.Text(
+        title=_(u'Organization Roles FR'),
+        required=True,
+    )
+
     currency_dict = schema.Text(title=u'', required=False)
     measuring_unit_dict = schema.Text(title=u'', required=False)
     measuring_frequency_dict = schema.Text(title=u'', required=False)
     degree_changes_dict = schema.Text(title=u'', required=False)
     contributed_project_dict = schema.Text(title=u'', required=False)
     consensus_dict = schema.Text(title=u'', required=False)
+    partner_roles_dict = schema.Text(title=u'', required=False)
+    organization_roles_dict = schema.Text(title=u'', required=False)
 
 
 # class View(grok.View):
@@ -154,6 +188,8 @@ class Edit(form.SchemaEditForm):
         self.widgets["degree_changes_dict"].mode = HIDDEN_MODE
         self.widgets["contributed_project_dict"].mode = HIDDEN_MODE
         self.widgets["consensus_dict"].mode = HIDDEN_MODE
+        self.widgets["partner_roles_dict"].mode = HIDDEN_MODE
+        self.widgets["organization_roles_dict"].mode = HIDDEN_MODE
 
 
 @grok.subscribe(ISettingspage, IObjectModifiedEvent)
@@ -163,7 +199,8 @@ def settingsModified(content, event):
 
 def updateDictsSetting(content):
     fields = ['measuring_unit', 'measuring_frequency',
-              'degree_changes', 'contributed_project', 'consensus']
+              'degree_changes', 'contributed_project', 'consensus', 'partner_roles',
+              'organization_roles']
 
     for field in fields:
         values_en = getattr(content, field).split('\n')

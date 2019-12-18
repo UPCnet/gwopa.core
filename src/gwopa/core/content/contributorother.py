@@ -18,6 +18,13 @@ class IContribOther(model.Schema):
         required=True,
     )
 
+    organization_roles = schema.Choice(
+        title=_(u"Organization roles"),
+        description=_(u"The roles of other organizations in project"),
+        source=utils.settings_organization_roles,
+        required=False,
+    )
+
     incash = schema.Decimal(
         title=_(u'In-cash'),
         required=False,

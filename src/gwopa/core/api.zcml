@@ -126,6 +126,22 @@
       layer="gwopa.core.interfaces.IGwopaCoreLayer"
   />
 
+  <browser:page
+      for="*"
+      name="api-getRolesPartner"
+      class=".api.code.getRolesPartner"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
+      for="*"
+      name="api-getRolesOtherContributor"
+      class=".api.code.getRolesOtherContributor"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
   <!-- API values returned to show output modal -->
   <browser:page
       for="*"

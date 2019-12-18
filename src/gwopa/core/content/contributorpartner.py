@@ -20,6 +20,13 @@ class IContribPartner(model.Schema):
         required=True,
     )
 
+    partner_roles = schema.Choice(
+        title=_(u"Partner roles"),
+        description=_(u"The role of partner in project"),
+        source=utils.settings_partner_roles,
+        required=False,
+    )
+
     incash = schema.Decimal(
         title=_(u'In-cash'),
         required=False,

@@ -144,6 +144,39 @@ class getUnits(BrowserView):
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(sorted(results, key=lambda k: k['name']))
 
+class getRolesPartner(BrowserView):
+    # /api-getRolesPartner
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        lang = getUserLang()
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        results = []
+        if item:
+            values = item[0].getObject().partner_roles_dict
+            for value in values.keys():
+                results.append({'id': value,
+                                'name': values[value][lang]})
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(sorted(results, key=lambda k: k['name']))
+
+class getRolesOtherContributor(BrowserView):
+    # /api-getRolesPartner
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        lang = getUserLang()
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        results = []
+        if item:
+            values = item[0].getObject().organization_roles_dict
+            for value in values.keys():
+                results.append({'id': value,
+                                'name': values[value][lang]})
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(sorted(results, key=lambda k: k['name']))
 
 class getDegree(BrowserView):
     # /api-getDegree
@@ -220,6 +253,7 @@ class CreatePartner(BrowserView):
             title=title,
             type=portal_type,
             container=item.getObject())
+        obj.organization_roles = self.request.form.get('item_roles')
         obj.incash = Decimal(self.request.form.get('item_incash').replace(',', ''))
         obj.inkind = Decimal(self.request.form.get('item_inkind').replace(',', ''))
         if project.total_budget is None:

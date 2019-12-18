@@ -124,6 +124,39 @@ def settings_currency(context):
 
 directlyProvides(settings_currency, IContextSourceBinder)
 
+def settings_partner_roles(context):
+    """ Currency settings page. """
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().partner_roles_dict
+        terms = []
+        for value in values.keys():
+            if value != '':
+                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(value, flattened, values[value][lang]))
+        return SimpleVocabulary(terms)
+    return None
+
+
+directlyProvides(settings_partner_roles, IContextSourceBinder)
+
+def settings_organization_roles(context):
+    """ Currency settings page. """
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().organization_roles_dict
+        terms = []
+        for value in values.keys():
+            if value != '':
+                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(value, flattened, values[value][lang]))
+        return SimpleVocabulary(terms)
+    return None
+
+
+directlyProvides(settings_organization_roles, IContextSourceBinder)
 
 def getTranslatedCurrencyFromID(unit):
     lang = getUserLang()
@@ -463,7 +496,7 @@ class gwopaUtils(BrowserView):
                 if currentuser in self.context.members:
                     return True
         return False
-    
+
     def canEditPlanningMonitoring(self):
         pm = getToolByName(self.context, 'portal_membership')
         roles_in_context = pm.getAuthenticatedMember().getRolesInContext(self.context)

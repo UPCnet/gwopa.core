@@ -242,6 +242,7 @@ class setup(grok.View):
         settingspage.degree_changes = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
         settingspage.consensus = 'One Partner\nWop Partners'
+        settingspage.organization_roles = 'Broker (matchmaker, facilitator)\nTechnical Support\nPolitical Support'
 
         settingspage.currency_es = 'USD-Dólar estadounidense-$\r\nEUR-Euro-€\r\nGBP-Libra británica-£\r\nAUD-Dólar australiano-$\r\nCAD-Dolar canadiense-$'
         settingspage.measuring_unit_es = 'litros\nm3\npersonas\notros'
@@ -249,6 +250,7 @@ class setup(grok.View):
         settingspage.degree_changes_es = '-2 Muy negativo\n-1 Negativo\n0 Sin cambios\n1 Positivo\n2 Muy positivo'
         settingspage.contributed_project_es = '0 Sin contribución\n1 Contribución justa\n2 Contribución muy alta'
         settingspage.consensus_es = 'Un Partner\nWop Partners'
+        settingspage.organization_roles_es = 'Corredor (facilitador)\nSoporte técnico\nSoporte político'
 
         # TODO: Falta traducir los valores al Frances
         settingspage.currency_fr = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
@@ -257,6 +259,7 @@ class setup(grok.View):
         settingspage.degree_changes_fr = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project_fr = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
         settingspage.consensus_fr = 'One Partner\nWop Partners'
+        settingspage.organization_roles_fr = 'Broker (matchmaker, facilitator)\nTechnical Support\nPolitical Support'
 
         settingspage.reindexObject()
         updateDictsSetting(settingspage)
