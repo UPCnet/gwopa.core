@@ -2,11 +2,15 @@ Changelog
 =========
 
 
-1.9 (unreleased)
+1.9 (2019-12-20)
 ----------------
 
-- Nothing changed yet.
-
+* changes [pilar.marinas]
+* Preparing release 1.8 [pilar.marinas]
+* Add roles in project [pilar.marinas]
+* Add roles organization in WOP and Other Organizations [pilar.marinas]
+* Add position in profile and reporting [pilar.marinas]
+* Reporting solucionar actividades y outputs del project year [pilar.marinas]
 
 1.8 (2019-12-20)
 ----------------
