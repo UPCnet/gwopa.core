@@ -131,7 +131,7 @@ class reportPreviewView(BrowserView):
             wo = wo.getObject()
             result.append({
                 'name': wo.title,
-                'role': "",  # TODO Mentee / Mentor
+                'role': wo.partner_roles,
                 'incash': str(0 if wo.incash is None else wo.incash),
                 'inkind': str(0 if wo.inkind is None else wo.inkind)
             })
@@ -168,7 +168,7 @@ class reportPreviewView(BrowserView):
             wo = wo.getObject()
             result.append({
                 'name': wo.title,
-                'role': "",  # TODO Broker / Technical Support / Political Support / Other
+                'role': wo.organization_roles,
                 'incash': str(0 if wo.incash is None else wo.incash),
                 'inkind': str(0 if wo.inkind is None else wo.inkind)
             })
@@ -406,7 +406,7 @@ class reportPreviewView(BrowserView):
                         'start': outputObj.start.strftime('%m/%d/%Y'),
                         'completion': outputObj.end.strftime('%m/%d/%Y'),
                         'progress_tracker': {
-                            'progress': outputAnn[KEY]['monitoring']['explanation'] if 'explanation' in outputAnn[KEY]['monitoring'] else "",
+                            'progress': outputAnn[KEY]['planned'],
                             'real': outputAnn[KEY]['real'],
                             'measuring_unit': utils.getTranslatedMesuringUnitFromID(outputObj.measuring_unit),
                         },
