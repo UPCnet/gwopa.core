@@ -155,8 +155,8 @@ def projectAdded(content, event):
 
     behavior = ISelectableConstrainTypes(reports)
     behavior.setConstrainTypesMode(1)
-    behavior.setLocallyAllowedTypes(('File',))
-    behavior.setImmediatelyAddableTypes(('File',))
+    behavior.setLocallyAllowedTypes(('File', 'Report'))
+    behavior.setImmediatelyAddableTypes(('File','Report'))
 
 
     # Create Working Areas

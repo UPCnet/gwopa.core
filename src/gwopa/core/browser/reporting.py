@@ -19,6 +19,16 @@ class reportingView(BrowserView):
     def getReports(self):
         portal_catalog = getToolByName(self, 'portal_catalog')
         reports = portal_catalog.unrestrictedSearchResults(
+            portal_type=['Report'],
+            path={'query': '/'.join(self.context.getPhysicalPath()) + '/reports'},
+            sort_on='created',
+            sort_order='descending'
+        )
+        return reports
+
+    def getFiles(self):
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        reports = portal_catalog.unrestrictedSearchResults(
             portal_type=['File'],
             path={'query': '/'.join(self.context.getPhysicalPath()) + '/reports'},
             sort_on='created',
