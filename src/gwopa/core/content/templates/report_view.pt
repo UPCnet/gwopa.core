@@ -394,9 +394,16 @@
                       <tr>
                         <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/start"></span></font></td>
                         <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/completion"></span></font></td>
-                        <td tal:attributes="style styles/style1" colspan="5" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4">
-                          <span tal:content="string:${act_wa/progress_tracker/progress} / ${act_wa/progress_tracker/real} ${act_wa/progress_tracker/measuring_unit}"></span>
-                        </font></td>
+                        <td tal:attributes="style styles/style1" colspan="5" valign="bottom" bgcolor="#FFFFFF">
+                          <h3 class="indicators-root indicators-h3"
+                              tal:content="string:${act_wa/progress_tracker/progress} ${act_wa/progress_tracker/measuring_unit}">
+                            25%
+                          </h3>
+                          <div class="indicators-progress" role="progressbar"
+                               tal:attributes="aria-valuenow act_wa/progress_tracker/progress">
+                            <div class="indicators-progress-bar" tal:attributes="style act_wa/progress_tracker/style"></div>
+                          </div>
+                        </td>
                       </tr>
                       <tr>
                         <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
@@ -464,9 +471,16 @@
                                 <span tal:content="out_act/start"></span>
                               </font></i></td>
                               <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/completion"></span></font></td>
-                              <td tal:attributes="style styles/style1" colspan="5" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4">
-                                <span tal:content="string:${out_act/progress_tracker/real} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}"></span>
-                              </font></td>
+                              <td tal:attributes="style styles/style1" colspan="5" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4">
+                                <h3 class="indicators-root indicators-h3"
+                                    tal:content="string:${out_act/progress_tracker/progress} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}">
+                                  25%
+                                </h3>
+                                <div class="indicators-progress" role="progressbar"
+                                     tal:attributes="aria-valuenow out_act/progress_tracker/progress">
+                                  <div class="indicators-progress-bar" tal:attributes="style out_act/progress_tracker/style"></div>
+                                </div>
+                              </td>
                             </tr>
                             <tr>
                               <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
@@ -631,8 +645,36 @@
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
             </tr>
             <tr>
-              <td tal:attributes="style styles/style2" colspan="16" height="267" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br>
-                </font></b>
+              <td tal:attributes="style styles/style2" colspan="16" height="267" valign="bottom" bgcolor="#FFFFFF"
+                  tal:define="getItems report/outcomes/dash_info">
+                <div tal:condition="not:getItems" class="row">
+                  <h2 i18n:translate=""> No KPIs in this Project </h2>
+                </div>
+                <div tal:condition="getItems" class="row">
+                  <div class="legendBox">
+                    <span class="label label-circle">
+                      <i class="fas fa-circle planned"></i>
+                      <tal:omit-tag  i18n:translate="">Monitoring value </tal:omit-tag>
+                    </span> &nbsp;&nbsp;
+                    <span class="label label-circle">
+                      <i class="fas fa-circle achieved"></i>
+                      <tal:omit-tag  i18n:translate="">Target value</tal:omit-tag>
+                    </span>
+                  </div>
+                  <div class="row performance">
+                    <tal:block repeat="item getItems">
+                      <div class="col-md-4 col-sm-6 col-xs-12">
+                        <p class="bolder" tal:content="item/title"></p>
+                        <div class="chart">
+                          <div class="chartPerfomance" tal:attributes="data-url item/url;
+                                                                       id string:chart${item/pos}">
+                            <div id="timeline-chart"></div>
+                          </div>
+                      </div>
+                      </div>
+                    </tal:block>
+                  </div>
+                </div>
               </td>
             </tr>
             <tr>
@@ -653,7 +695,7 @@
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
             </tr>
-            <tal:block tal:define="outcomes report/outcomes" tal:omit-tag="">
+            <tal:block tal:define="outcomes report/outcomes/list" tal:omit-tag="">
               <tal:block tal:repeat="outcome outcomes" tal:omit-tag="">
                 <tal:block tal:define="out python:outcomes[outcome]" tal:omit-tag="">
                   <tr>
@@ -795,8 +837,166 @@
                   <td tal:attributes="style styles/style2" colspan="15" align="left" valign="middle" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="wa">AUTO ENTRY: Name of Working Area</span></font></i></td>
                 </tr>
                 <tr>
-                  <td tal:attributes="style styles/style1" colspan="16" height="200" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br>
-                    </font></b>
+                  <td tal:attributes="style styles/style1" colspan="16" height="200" valign="bottom" bgcolor="#FFFFFF">
+                    <div class="stages" tal:define="stages python:outcomes_capacity[wa]['getCurrentStage']" tal:condition="stages">
+                      <h2 class="bolder">
+                        <span i18n:translate="Stages">Stages</span>
+                        <a data-toggle="modal" data-target="#modalInfoStage" class="btn-info-capacity">
+                          <i class="fa fa-info-circle"></i>
+                        </a>
+                      </h2>
+                      <ul class="steps">
+                        <li tal:repeat="stage stages" tal:attributes="class string:${stage/state}; id string:${stage/id}" tal:content="stage/title" i18n:translate="">Stage 1
+                        </li>
+                      </ul>
+                      <div id="modalInfoStage" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalInfoStage" data-dismiss="modal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <form id="toClearAddOutcomeCC">
+                               <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="modalInfoStage" i18n:translate=""> Stage Meaning </h4>
+                              </div>
+                              <div class="modal-body" id="UpdateStage" >
+                                <div class="modal-url" id="OutcomeCCSPathStage" style="display:none"></div>
+                                <div class="modal-stage" id="Stage" style="display:none"></div>
+                                <span class="modal-pk" id="OutcomeCCSYearStage" style="display:none"></span>
+                                <span class="modal-idCapacity" id="idCapacityStage" style="display:none"></span>
+                                <div class="row">
+                                  <div class="form-group row">
+                                    <div id="StageRadio" class="col-xs-2 col-md-2">
+                                      <label class="container"> Stage 1
+                                      </label>
+                                      <label class="container"> Stage 2
+                                      </label>
+                                      <label class="container"> Stage 3
+                                      </label>
+                                      <label class="container"> Stage 4
+                                      </label>
+                                    </div>
+                                    <div class="col-xs-10 col-md-10">
+                                      <label class="container" i18n:translate="">Diagnosing and action planning
+                                      </label>
+                                      <div>The project has started and at this point most initial needs in terms of needed capacity and resources are begin identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
+                                      <label class="container" i18n:translate="">Initial implementation of activities
+                                      </label>
+                                      <div>Mostly conditions for change have been co-created but there are no visible effective changes materialized. This entails that equipment might have been procured, trainings have been implemented resulting in new knowledge to be applied by staff from mentee utility, etc.</div>
+                                      <label class="container" i18n:translate="">Visibility of changes
+                                      </label>
+                                      <div>Mostly there are visible changes implemented in the working routines but there is need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
+                                      <label class="container" i18n:translate="">Changes consolidated
+                                      </label>
+                                      <div> Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice.</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Close</a>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="capacities">
+                      <div id="chartCapacities" tal:define="outcome python:outcomes_capacity[wa]['getOutcomeCC']" tal:condition="outcome">
+                        <h2 class="bolder" i18n:translate=""> Capacity Changes</h2>
+                        <div class="legendBox">
+                          <span class="label custom-legend notset" i18n:translate="">- Empty</span>
+                          <span class="label custom-legend verybad" i18n:translate="">-2 Very negative</span>
+                          <span class="label custom-legend bad" i18n:translate="">-1 Negative</span>
+                          <span class="label custom-legend equal" i18n:translate="">0 No change</span>
+                          <span class="label custom-legend good" i18n:translate="">+1 Positive</span>
+                          <span class="label custom-legend verygood" i18n:translate="">+2 Very positive</span>
+                          <span><a data-toggle="modal" data-target="#modalInfoCapacity" class="btn-info-capacity">
+                            <i class="fa fa-info-circle"></i></a></span>
+                        </div>
+                        <tal:block condition="outcome">
+                          <div class="information">
+                            <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
+                            <div class="primerafila">
+                              <tal:block repeat="item outcome/monitoring">
+                                <tal:block condition="python: item['short_category'] == 'transformational'"
+                                           tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                                    <div class="item_image" tal:condition="not:item/selected_specific">
+                                      <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                                    </div>
+                                    <div class="item_image " tal:condition="item/selected_specific">
+                                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                                    </div>
+                                    <div class="item_text">
+                                      <span tal:content="titleSpecific">Leadership</span>
+                                    </div>
+                                  </a>
+                                </tal:block>
+                              </tal:block>
+                            </div>
+                            <!-- <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3> -->
+                            <div class="segundafila">
+                              <tal:block repeat="item outcome/monitoring">
+                                <tal:block condition="python: item['short_category'] == 'transactional'"
+                                           tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                                    <div class="item_image" tal:condition="not:item/selected_specific">
+                                      <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                                    </div>
+                                    <div class="item_image " tal:condition="item/selected_specific">
+                                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                                    </div>
+                                    <div class="item_text">
+                                      <span tal:content="titleSpecific">Leadership</span>
+                                    </div>
+                                  </a>
+                                </tal:block>
+                              </tal:block>
+                            </div>
+                            <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3> -->
+                            <div class="tercerafila">
+                              <tal:block repeat="item outcome/monitoring">
+                                <tal:block condition="python: item['short_category'] == 'individual'"
+                                           tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                                  <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                                    <div class="item_image" tal:condition="not:item/selected_specific">
+                                      <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                                    </div>
+                                    <div class="item_image " tal:condition="item/selected_specific">
+                                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                                    </div>
+                                    <div class="item_text">
+                                      <span tal:content="titleSpecific">Leadership</span>
+                                    </div>
+                                  </a>
+                                </tal:block>
+                              </tal:block>
+                            </div>
+                          </div>
+                          <div id="others" class="information">
+                            <!-- <h3 class="capacity-title" i18n:translate="">Others</h3> -->
+                            <div class="cuartafila">
+                              <tal:block repeat="item outcome/monitoring">
+                                <tal:block condition="python: item['short_category'] == 'other'"
+                                           tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                                  <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
+                                    <div class="item_image" tal:condition="not:item/selected_specific">
+                                      <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                                    </div>
+                                    <div class="item_image " tal:condition="item/selected_specific">
+                                      <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                                    </div>
+                                    <div class="item_text">
+                                      <span tal:content="titleSpecific">Other</span>
+                                    </div>
+                                  </a>
+                                </tal:block>
+                              </tal:block>
+                            </div>
+                          </div>
+                        </tal:block>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -945,6 +1145,7 @@
       <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/jquery-editable-poshytip.js"></script>
       <script type="text/javascript" src="++plone++static/components/bootstrap/js/modal.js"></script>
       <script type="text/javascript" src="++plone++static/components/bootstrap/js/tab.js"></script>
+      <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-kpis.js"></script>
       <!-- <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/reporting.js"></script> -->
       <script>
         var tablesToExcel = (function () {

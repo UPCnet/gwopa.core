@@ -1,22 +1,26 @@
 # -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
+
+from decimal import Decimal
 from five import grok
+from operator import itemgetter
+from plone import api
+from plone.app.textfield import RichText
+from plone.namedfile import field as namedfile
 from plone.supermodel import model
 from zope import schema
-from plone.namedfile import field as namedfile
-from plone import api
-from gwopa.core import _
-from gwopa.core import utils
-from gwopa.core.utils import getTitleAttrLang
-from gwopa.core.utils import getUserLang
+from zope.annotation.interfaces import IAnnotations
 from zope.interface import directlyProvides
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
-from Products.CMFCore.utils import getToolByName
-from decimal import Decimal
-from operator import itemgetter
-from zope.annotation.interfaces import IAnnotations
+
+from gwopa.core import _
+from gwopa.core import utils
+from gwopa.core.utils import getTitleAttrLang
+from gwopa.core.utils import getTranslatedOutcomesFromTitle
+from gwopa.core.utils import getUserLang
+
 import datetime
-from plone.app.textfield import RichText
 
 grok.templatedir("templates")
 
@@ -455,6 +459,7 @@ class View(grok.View):
                         'progress': activityAnn[KEY]['monitoring']['progress'] if 'progress' in activityAnn[KEY]['monitoring'] else "",
                         'real': '100',
                         'measuring_unit': '%',
+                        'style': ''
                     },
                     'description': {
                         'description': activityObj.description,
@@ -477,6 +482,9 @@ class View(grok.View):
                     'outputs': {}
                 }})
 
+                progress = int(data['activities_outputs'][wa_title]['activities'][activity_title]['progress_tracker']['progress'])
+                data['activities_outputs'][wa_title]['activities'][activity_title]['progress_tracker']['style'] = 'transform: translateX(' + str(progress - 100) + '%);'
+
                 outputs = self.getOutputsActivity(activityObj)
                 for output in outputs:
                     outputObj = output.getObject()
@@ -490,6 +498,7 @@ class View(grok.View):
                             'progress': outputAnn[KEY]['planned'],
                             'real': outputAnn[KEY]['real'],
                             'measuring_unit': utils.getTranslatedMesuringUnitFromID(outputObj.measuring_unit),
+                            'style': ''
                         },
                         'description': {
                             'description': outputObj.description,
@@ -510,13 +519,17 @@ class View(grok.View):
                         'means_of_verification': "",  # TODO ???
                     }})
 
-        data['outcomes'] = {}
+                    progress = int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['progress']) / int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['real']) * 100
+                    data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['style'] = 'transform: translateX(' + str(progress - 100) + '%);'
+
+        data['outcomes'] = {'dash_info': getItems(project),
+                            'list': ''}
         outcomes = self.getOutcomes()
         for outcome in outcomes:
             outcomeObj = outcome.getObject()
             annotations = IAnnotations(outcomeObj)
             outcome_title = getattr(outcome, attr_lang)
-            data['outcomes'].update({outcome_title: {
+            data['outcomes']['list'].update({outcome_title: {
                 'title': outcome_title,
                 'zone': outcomeObj.zone,
                 'baseline_date': outcomeObj.baseline_date.strftime('%Y-%m'),
@@ -545,12 +558,15 @@ class View(grok.View):
         data['outcomes_capacity'] = {}
         for wa in working_areas:
             wa_title = getattr(wa, attr_lang)
+            wa_object = wa.getObject()
             data['outcomes_capacity'].update({wa_title: {
                 'title': wa_title,
+                'getCurrentStage': getCurrentStage(wa_object, self.getYear()),
+                'getOutcomeCC': getOutcomeCC(wa_object, self.getYear()),
                 'capacities': {},
             }})
 
-            outcomecc = self.getOutcomesCapacityWA(wa.getObject())[0]
+            outcomecc = self.getOutcomesCapacityWA(wa_object)[0]
             annotations = IAnnotations(outcomecc.getObject())
             for capacity in annotations[KEY]['monitoring']:
                 if 'selected' in capacity['selected_specific']:
@@ -591,3 +607,121 @@ class View(grok.View):
 
         data['budget']['total_budget'] = self.getTotalAssignedBudget(data['budget']['planned_activities'])
         return data
+
+
+def getOutcomeCC(wa, year):
+    items = api.content.find(
+        portal_type=['OutcomeCC'],
+        context=wa)
+    results = []
+    KEY = "GWOPA_TARGET_YEAR_" + str(year)
+    for item in items:
+        members = []
+        obj = item.getObject()
+        annotations = IAnnotations(item.getObject())
+        base_value = ''
+        base_date = ''
+        description = ''
+        objective = ''
+        objective_date = ''
+        target_value_planned = _(u"Not defined")
+        specifics = ''
+        monitoring = ''
+        if KEY in annotations.keys():
+            if annotations[KEY] != '' or annotations[KEY] is not None or annotations[KEY] != 'None':
+                base_value = annotations[KEY]['generic'][0]['baseline']
+                base_date = annotations[KEY]['generic'][0]['baseline_date']
+                description = annotations[KEY]['generic'][0]['description']
+                objective = annotations[KEY]['generic'][0]['objective']
+                objective_date = annotations[KEY]['generic'][0]['objective_date']
+                target_value_planned = annotations[KEY]['planned']
+                specifics = annotations[KEY]['specifics']
+                monitoring = annotations[KEY]['monitoring']
+
+        if obj.members:
+            users = obj.members
+            if isinstance(users, (str,)):
+                for member in users.split(','):
+                    user = api.user.get(username=member)
+                    if user:
+                        members.append(user.getProperty('fullname'))
+            else:
+                for member in users:
+                    user = api.user.get(username=member)
+                    if user:
+                        members.append(user.getProperty('fullname'))
+
+        if obj.aq_parent.portal_type == 'ImprovementArea':
+            area = obj.aq_parent.title
+        else:
+            area = obj.aq_parent.aq_parent.title
+        results.append(dict(
+            rid=item.getRID(),
+            area=area,
+            title=item.Title,
+            description=description,
+            base_date=base_date,
+            base_value=base_value,
+            objective=objective,
+            objective_date=objective_date,
+            target_value_planned=target_value_planned,
+            specifics=specifics,
+            monitoring=monitoring,
+            portal_type=item.portal_type,
+            responsible=members,
+            url='/'.join(obj.getPhysicalPath())))
+    if len(results) != 0:
+        return results[0]
+    else:
+        return False
+
+
+def getCurrentStage(wa, year):
+    """ Returns all the stages for each Improvement Areas in a Project """
+    items = api.content.find(
+        portal_type=['OutcomeCC'],
+        context=wa)
+    results = []
+    KEY = "GWOPA_TARGET_YEAR_" + str(year)
+    for item in items:
+        annotations = IAnnotations(item.getObject())
+        stage = annotations[KEY]['generic'][0]['stage']
+        if stage:
+            for i in range(1, 5):
+                if i < int(stage):
+                    state = "past"
+                elif i == int(stage):
+                    state = "current"
+                else:
+                    state = "future"
+                results.append(dict(id="stage-" + str(i),
+                                    title="Stage " + str(i),
+                                    state=state))
+        else:
+            for i in range(1, 5):
+                results.append(dict(id="stage-" + str(i),
+                                    title="Stage " + str(i),
+                                    state="future"))
+
+    return results[0:4]
+
+
+def getItems(project):
+    """ Returns all the KPIs from project  """
+    items = api.content.find(
+        portal_type=['OutcomeZONE'],
+        context=project)
+
+    results = []
+    if len(items) != 0:
+        for (i, project) in enumerate(items):
+            item = project.getObject()
+
+            results.append(dict(title=getTranslatedOutcomesFromTitle(item.title),
+                                url='/'.join(item.getPhysicalPath()),
+                                id=item.id,
+                                pos=i,
+                                ))
+        return sorted(results, key=itemgetter('title'), reverse=False)
+    else:
+        return None
