@@ -156,8 +156,7 @@ def projectAdded(content, event):
     behavior = ISelectableConstrainTypes(reports)
     behavior.setConstrainTypesMode(1)
     behavior.setLocallyAllowedTypes(('File', 'Report'))
-    behavior.setImmediatelyAddableTypes(('File','Report'))
-
+    behavior.setImmediatelyAddableTypes(('File', 'Report'))
 
     # Create Working Areas
     areas = content.areas
@@ -215,6 +214,7 @@ def projectAdded(content, event):
             api.user.grant_roles(username=user, obj=obj_files, roles=['Contributor'])
 
     logger.info('Finish add project {} id {}'.format(content.title, content.id))
+
 
 @grok.subscribe(IProject, IObjectModifiedEvent)
 def projectModified(content, event):

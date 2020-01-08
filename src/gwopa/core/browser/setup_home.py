@@ -12,6 +12,7 @@ from plone.app.textfield.value import RichTextValue
 from plone.namedfile.file import NamedBlobImage
 from random import random
 from requests.exceptions import ConnectionError
+from zope.interface import alsoProvides
 
 from gwopa.core import _
 from gwopa.core.content.project import default_plus_one_year
@@ -1316,3 +1317,26 @@ class setupEs(grok.View):
                 title_fr=item,
                 container=portal.config.outputs,
                 safe_id=True)
+
+
+class addReportContentInProjects(grok.View):
+    grok.context(IPloneSiteRoot)
+    grok.layer(IGwopaCoreLayer)
+    grok.require('cmf.ManagePortal')
+
+    def render(self):
+        try:
+            from plone.protect.interfaces import IDisableCSRFProtection
+            alsoProvides(self.request, IDisableCSRFProtection)
+        except:
+            pass
+
+        catalog = api.portal.get_tool('portal_catalog')
+        projects = catalog.unrestrictedSearchResults(portal_type='Project')
+        for project in projects:
+            project = project.getObject()
+            if 'reports' in project:
+                behavior = ISelectableConstrainTypes(project['reports'])
+                behavior.setConstrainTypesMode(1)
+                behavior.setLocallyAllowedTypes(('File', 'Report'))
+                behavior.setImmediatelyAddableTypes(('File', 'Report'))

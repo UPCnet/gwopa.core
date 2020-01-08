@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 from five import grok
 from zope.interface import Interface
-from zope.interface import alsoProvides
-
-
 
 
 class monitoringView(grok.View):
@@ -14,4 +11,3 @@ class monitoringView(grok.View):
 
     def render(self):
         return '1'
-
