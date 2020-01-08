@@ -16,6 +16,7 @@ from decimal import Decimal
 from operator import itemgetter
 from zope.annotation.interfaces import IAnnotations
 import datetime
+from plone.app.textfield import RichText
 
 grok.templatedir("templates")
 
@@ -61,14 +62,14 @@ class IReport(model.Schema):
         missing_value=u'',
     )
 
-    progress_stakeholders = schema.Text(
+    progress_stakeholders = RichText(
         title=_(u'Progress stakeholders'),
         description=_(u"Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders."),
         required=False,
         missing_value=u'',
     )
 
-    other_additional_challenges = schema.Text(
+    other_additional_challenges = RichText(
         title=_(u'Other additional challenges'),
         description=_(u"Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans."),
         required=False,
@@ -362,15 +363,15 @@ class View(grok.View):
         data['generation_report_date'] = today.strftime('%m/%d/%Y %H:%M:%S')
         data['project_overview'] = {
             'project_name': self.context.title,
-            'project_code': "",  # empty
+            'project_code': self.context.project_code,
             'reporting_type': utils.getTranslatedMesuringFrequencyFromID(self.context.measuring_frequency),
             'reporting_period': {
                 'project_year': self.getYear(),
-                'from': self.getFaseStart(),  # TODO ???
-                'to': self.getFaseEnd()  # TODO ????
+                'from': self.getFaseStart(),
+                'to': self.getFaseEnd()
             },
-            'author_report': project_manager_admin[0]['fullname'],  # TODO ???
-            'position_report': project_manager_admin[0]['position'],  # TODO ???
+            'author_report': project_manager_admin[0]['fullname'],
+            'position_report': project_manager_admin[0]['position'],
             'currency': utils.project_currency(self),
             'water_operators': self.getProjectWaterOperators(),  # Array
             'donors': self.getProjectDonors(),  # Array
@@ -399,8 +400,8 @@ class View(grok.View):
         working_areas = self.getWorkingAreas()
         data['summary'] = {
             'working_areas': ", ".join([getattr(wa, attr_lang) for wa in working_areas]),
-            'progress': "",  # empty
-            'other': ""  # empty
+            'progress': self.context.progress_stakeholders,
+            'other': self.context.other_additional_challenges,
         }
 
         data['activities_outputs'] = {}

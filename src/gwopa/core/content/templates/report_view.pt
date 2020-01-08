@@ -42,13 +42,21 @@
           <a tal:attributes="href string:${view/projectURL}/reporting">
           <button id="returnReporting" class="context focus" i18n:translate="">Return</button>
           </a>
+          <a tal:attributes="href string:${context/absolute_url}/edit">
+          <button id="editReporting" class="context focus right" i18n:translate="">Edit</button>
+          </a>
           <!--<a tal:attributes="href string:${view/projectURL}/saveReport">
           <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
           </a>-->
           <a id="dlink" style="display:none;"></a>
           <span id="filename" style="display:none;" tal:content="report/project_overview/project_name">Project Name</span>
           <span id="generation_report_date" style="display:none;" tal:content="report/generation_report_date">Generation report date</span>
-          <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five']);" class="context focus right" i18n:translate="">Download</button>
+          <button type="button" class="context focus right" onclick="javascript:window.print()">
+            <i class="fa fa-print" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+
+<!--           <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five']);" class="context focus right" i18n:translate="">Download</button> -->
           <!--
             <button id="btn-export" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], 'test.xlsx');">Export to Excel
                 doc</button> -->
@@ -65,7 +73,7 @@
             <colgroup width="31"></colgroup>
             <colgroup width="37"></colgroup>
             <tr>
-              <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000">&lt;Insert Logos of Utilities&gt;</font></i></td>
+              <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><img class="fullwidth" tal:condition="context/image_logo" tal:attributes="src string:${context/absolute_url}/@@images/image_logo" /></font></i></td>
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
               <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
@@ -116,7 +124,7 @@
               <td tal:attributes="style styles/style2" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Name: </font></b></td>
               <td tal:attributes="style styles/style2" colspan="3" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/project_name">AUTO ENTRY</span></font></i></td>
               <td tal:attributes="style styles/style2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Code:</font></b></td>
-              <td tal:attributes="style styles/style2" colspan="5" align="left" valign="top" bgcolor="#FFFFFF"><b><i><font face="Arial" size="1" color="#70AD47">&lt;OPEN FIELD&gt;</font></i></b></td>
+              <td tal:attributes="style styles/style2" colspan="5" align="left" valign="top" bgcolor="#FFFFFF"><b><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/project_overview/project_code">OPEN FIELD</span></font></i></b></td>
             </tr>
             <tr>
               <td tal:attributes="style styles/style1" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Reporting Type: </font></b></td>
@@ -293,10 +301,10 @@
               <td tal:attributes="style styles/style1" colspan="5" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#00B050">On Track</font></b></td>
             </tr>
             <tr>
-              <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#70AD47">&lt;Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders&gt;</font></i></td>
+              <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/progress/output">Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders</span></font></i></td>
             </tr>
             <tr>
-              <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#70AD47">&lt;Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans&gt;</font></i></td>
+              <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other/output">Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans</span></font></i></td>
             </tr>
           </table>
 
