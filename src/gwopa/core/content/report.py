@@ -30,6 +30,7 @@ def listSectionsReport(context):
     sections.append(SimpleVocabulary.createTerm(u'Budget', 'Budget', _(u'Budget')))
     return SimpleVocabulary(sections)
 
+
 directlyProvides(listSectionsReport, IContextSourceBinder)
 
 
@@ -45,7 +46,19 @@ def getProjectYears(self):
 
         return SimpleVocabulary(project_years)
 
+
 directlyProvides(getProjectYears, IContextSourceBinder)
+
+
+def getOverallStatus(self):
+    status = []
+    status.append(SimpleVocabulary.createTerm(u'roadblock', 'roadblock', _(u'Roadblock')))
+    status.append(SimpleVocabulary.createTerm(u'potential', 'potential', _(u'Potential Risks/Delays')))
+    status.append(SimpleVocabulary.createTerm(u'ontrack', 'ontrack', _(u'On Track')))
+    return SimpleVocabulary(status)
+
+
+directlyProvides(getOverallStatus, IContextSourceBinder)
 
 
 class IReport(model.Schema):
@@ -60,6 +73,13 @@ class IReport(model.Schema):
         title=_(u'Project Code'),
         required=False,
         missing_value=u'',
+    )
+
+    overall_project_status = schema.Choice(
+        title=_(u"Overall Project Status"),
+        description=_(u"Select the overall Project status."),
+        source=getOverallStatus,
+        required=True,
     )
 
     progress_stakeholders = RichText(
@@ -400,7 +420,12 @@ class View(grok.View):
         working_areas = self.getWorkingAreas()
         data['summary'] = {
             'working_areas': ", ".join([getattr(wa, attr_lang) for wa in working_areas]),
-            'progress': self.context.progress_stakeholders,
+            'progress': {
+                'roadblock': self.context.overall_project_status == 'roadblock',
+                'potential': self.context.overall_project_status == 'potential',
+                'ontrack': self.context.overall_project_status == 'ontrack',
+                'stakeholders': self.context.progress_stakeholders,
+            },
             'other': self.context.other_additional_challenges,
         }
 
@@ -481,7 +506,6 @@ class View(grok.View):
                         'cosidetation_for_future': outputAnn[KEY]['monitoring']['consideration'] if 'consideration' in outputAnn[KEY]['monitoring'] else "",
                         'means_of_verification': "",  # TODO ???
                     }})
-
 
         data['outcomes'] = {}
         outcomes = self.getOutcomes()
@@ -565,4 +589,3 @@ class View(grok.View):
 
         data['budget']['total_budget'] = self.getTotalAssignedBudget(data['budget']['planned_activities'])
         return data
-

@@ -296,14 +296,14 @@
                 <b><font face="Arial" size="1" color="#000000">Overall Project Status</font></b>
                 <p><font face="Arial" size="1" color="#000000">Manually Select the overall Project status with an 'X'</font></p>
               </td>
-              <td tal:attributes="style styles/style1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#C00000">Roadblock </font></b></td>
-              <td tal:attributes="style styles/style1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#FFA830">Potential Risks/Delays</font></b></td>
-              <td tal:attributes="style styles/style1" colspan="5" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#00B050">On Track</font></b></td>
+              <td tal:attributes="style styles/style1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#C00000">Roadblock </font></b><p tal:condition="report/summary/progress/roadblock">X</p></td>
+              <td tal:attributes="style styles/style1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#FFA830">Potential Risks/Delays</font></b><p tal:condition="report/summary/progress/potential">X</p></td>
+              <td tal:attributes="style styles/style1" colspan="5" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#00B050">On Track</font></b><p tal:condition="report/summary/progress/ontrack">X</p></td>
             </tr>
-            <tr>
-              <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/progress/output">Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders</span></font></i></td>
+            <tr tal:condition="report/summary/progress/stakeholders">
+              <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/progress/stakeholders/output">Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders</span></font></i></td>
             </tr>
-            <tr>
+            <tr tal:condition="report/summary/other">
               <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other/output">Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans</span></font></i></td>
             </tr>
           </table>
