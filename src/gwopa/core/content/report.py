@@ -171,17 +171,17 @@ class View(grok.View):
         result = []
         user = api.user.get(self.context.project_manager_admin)
         result.append(dict(
-                    id=user.id,
-                    fullname=user.getProperty('fullname'),
-                    position=user.getProperty('position')))
+            id=user.id,
+            fullname=user.getProperty('fullname'),
+            position=user.getProperty('position')))
 
         return result
 
-    def getProjectWaterOperators(self):
+    def getProjectWaterOperators(self, project):
         result = []
         waterOperators = api.content.find(
             portal_type=['ContribPartner'],
-            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            path='/'.join(project.getPhysicalPath()) + '/contribs/',
             depth=2
         )
 
@@ -196,11 +196,11 @@ class View(grok.View):
 
         return result
 
-    def getProjectDonors(self):
+    def getProjectDonors(self, project):
         result = []
         waterOperators = api.content.find(
             portal_type=['ContribDonor'],
-            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            path='/'.join(project.getPhysicalPath()) + '/contribs/',
             depth=2
         )
 
@@ -214,11 +214,11 @@ class View(grok.View):
 
         return result
 
-    def getProjectOtherOrganizations(self):
+    def getProjectOtherOrganizations(self, project):
         result = []
         waterOperators = api.content.find(
             portal_type=['ContribOther'],
-            path='/'.join(self.context.getPhysicalPath()) + '/contribs/',
+            path='/'.join(project.getPhysicalPath()) + '/contribs/',
             depth=2
         )
 
@@ -250,16 +250,16 @@ class View(grok.View):
 
         return str(total)
 
-    def getWorkingAreas(self):
+    def getWorkingAreas(self, project):
         return api.content.find(
             portal_type=['ImprovementArea'],
-            context=self.context)
+            context=project)
 
     def getActivitiesWA(self, wa):
         """ returns objects from first level (elements inside ImprovementArea) """
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = '/'.join(wa.getPhysicalPath())
-        data_year = self.context.gwopa_year_phases[int(self.getYear) - 1]
+        data_year = self.context.gwopa_year_phases[int(self.getYear()) - 1]
         start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
         end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
 
@@ -312,7 +312,7 @@ class View(grok.View):
         """ Returns Outpus inside Activities  """
         portal_catalog = getToolByName(self, 'portal_catalog')
         folder_path = '/'.join(activity.getPhysicalPath())
-        data_year = self.context.gwopa_year_phases[int(self.getYear) - 1]
+        data_year = self.context.gwopa_year_phases[int(self.getYear()) - 1]
         start = datetime.datetime.strptime(data_year['start_iso'], '%Y-%m-%d')
         end = datetime.datetime.strptime(data_year['end_iso'], '%Y-%m-%d')
 
@@ -380,11 +380,14 @@ class View(grok.View):
         attr_lang = getTitleAttrLang()
         project_manager_admin = self.getProjectManagerAdmin()
         today = datetime.datetime.now()
+
+        project = self.context.aq_parent.aq_parent
+
         data['generation_report_date'] = today.strftime('%m/%d/%Y %H:%M:%S')
         data['project_overview'] = {
-            'project_name': self.context.title,
+            'project_name': project.title,
             'project_code': self.context.project_code,
-            'reporting_type': utils.getTranslatedMesuringFrequencyFromID(self.context.measuring_frequency),
+            'reporting_type': utils.getTranslatedMesuringFrequencyFromID(project.measuring_frequency),
             'reporting_period': {
                 'project_year': self.getYear(),
                 'from': self.getFaseStart(),
@@ -393,23 +396,23 @@ class View(grok.View):
             'author_report': project_manager_admin[0]['fullname'],
             'position_report': project_manager_admin[0]['position'],
             'currency': utils.project_currency(self),
-            'water_operators': self.getProjectWaterOperators(),  # Array
-            'donors': self.getProjectDonors(),  # Array
-            'other_organizations': self.getProjectOtherOrganizations(),  # Array
+            'water_operators': self.getProjectWaterOperators(project),  # Array
+            'donors': self.getProjectDonors(project),  # Array
+            'other_organizations': self.getProjectOtherOrganizations(project),  # Array
             'total_budget': "",
             'project_location': {
-                'country': self.context.country,
-                'location': self.context.location
+                'country': project.country,
+                'location': project.location
             },
             'project_duration': {
-                'start': self.context.startactual.strftime('%m/%d/%Y'),
-                'end': self.context.completionactual.strftime('%m/%d/%Y')
+                'start': project.startactual.strftime('%m/%d/%Y'),
+                'end': project.completionactual.strftime('%m/%d/%Y')
             },
             'association': {
-                'wop_platform': self.context.wop_platform,
-                'wop_program': self.context.wop_program
+                'wop_platform': project.wop_platform,
+                'wop_program': project.wop_program
             },
-            'project_description': self.context.objectives,
+            'project_description': project.objectives,
         }
 
         data['project_overview']['total_budget'] = self.getTotalBudget(
@@ -417,7 +420,7 @@ class View(grok.View):
             data['project_overview']['donors'] +
             data['project_overview']['other_organizations'])
 
-        working_areas = self.getWorkingAreas()
+        working_areas = self.getWorkingAreas(project)
         data['summary'] = {
             'working_areas': ", ".join([getattr(wa, attr_lang) for wa in working_areas]),
             'progress': {
@@ -430,7 +433,7 @@ class View(grok.View):
         }
 
         data['activities_outputs'] = {}
-        KEY = "GWOPA_TARGET_YEAR_" + str(self.getYear)
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.getYear())
 
         for wa in working_areas:
             wa_title = getattr(wa, attr_lang)
@@ -513,7 +516,7 @@ class View(grok.View):
             outcomeObj = outcome.getObject()
             annotations = IAnnotations(outcomeObj)
             outcome_title = getattr(outcome, attr_lang)
-            data['outcomes'].update({outcome_title : {
+            data['outcomes'].update({outcome_title: {
                 'title': outcome_title,
                 'zone': outcomeObj.zone,
                 'baseline_date': outcomeObj.baseline_date.strftime('%Y-%m'),
@@ -569,7 +572,6 @@ class View(grok.View):
                         'means_of_verification': "",  # TODO ???
                     }})
 
-
         data['budget'] = {
             'planned_activities': [],
             'total_budget': "",
@@ -577,7 +579,7 @@ class View(grok.View):
 
         allActivities = api.content.find(
             portal_type=['Activity'],
-            context=self.context)
+            context=project)
 
         for activity in allActivities:
             activityObj = activity.getObject()
