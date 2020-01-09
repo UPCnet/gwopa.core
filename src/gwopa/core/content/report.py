@@ -496,7 +496,7 @@ class View(grok.View):
                         'completion': outputObj.end.strftime('%m/%d/%Y'),
                         'progress_tracker': {
                             'progress': outputAnn[KEY]['planned'],
-                            'real': outputAnn[KEY]['real'],
+                            'real': outputAnn[KEY]['real'] if outputAnn[KEY]['real'] else 0,
                             'measuring_unit': utils.getTranslatedMesuringUnitFromID(outputObj.measuring_unit),
                             'style': ''
                         },
@@ -518,8 +518,10 @@ class View(grok.View):
                         'cosidetation_for_future': outputAnn[KEY]['monitoring']['consideration'] if 'consideration' in outputAnn[KEY]['monitoring'] else "",
                         'means_of_verification': "",  # TODO ???
                     }})
-
-                    progress = int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['progress']) / int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['real']) * 100
+		    try:
+                    	progress = int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['progress']) / int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['real']) * 100
+		    except:
+			progress = 0
                     data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['style'] = 'transform: translateX(' + str(progress - 100) + '%);'
 
         data['outcomes'] = {'dash_info': getItems(project),

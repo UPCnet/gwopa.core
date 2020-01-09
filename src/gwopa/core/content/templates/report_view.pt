@@ -473,7 +473,7 @@
                               <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/completion"></span></font></td>
                               <td tal:attributes="style styles/style1" colspan="5" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4">
                                 <h3 class="indicators-root indicators-h3"
-                                    tal:content="string:${out_act/progress_tracker/progress} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}">
+                                    tal:content="string:${out_act/progress_tracker/real} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}">
                                   25%
                                 </h3>
                                 <div class="indicators-progress" role="progressbar"
