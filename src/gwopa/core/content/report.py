@@ -6,6 +6,7 @@ from five import grok
 from operator import itemgetter
 from plone import api
 from plone.app.textfield import RichText
+from plone.autoform import directives as form
 from plone.namedfile import field as namedfile
 from plone.supermodel import model
 from zope import schema
@@ -13,6 +14,7 @@ from zope.annotation.interfaces import IAnnotations
 from zope.interface import directlyProvides
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
+from plone.schema.jsonfield import JSONField
 
 from gwopa.core import _
 from gwopa.core import utils
@@ -21,6 +23,7 @@ from gwopa.core.utils import getTranslatedOutcomesFromTitle
 from gwopa.core.utils import getUserLang
 
 import datetime
+import json
 
 grok.templatedir("templates")
 
@@ -118,6 +121,12 @@ class IReport(model.Schema):
         value_type=schema.Choice(
             source=listSectionsReport),
         required=True,
+    )
+
+    form.mode(save_data='hidden')
+    save_data = JSONField(
+        title=_(u"Data"),
+        required=False,
     )
 
 
@@ -380,11 +389,20 @@ class View(grok.View):
         return 'Budget' in self.context.sections_reports
 
     def reportData(self):
+
+        if self.context.save_data and self.context.save_data != "":
+            self.context.save_data['project_overview']['project_code'] = self.context.project_code
+            self.context.save_data['summary']['progress']['roadblock'] = self.context.overall_project_status == 'roadblock'
+            self.context.save_data['summary']['progress']['potential'] = self.context.overall_project_status == 'potential'
+            self.context.save_data['summary']['progress']['ontrack'] = self.context.overall_project_status == 'ontrack'
+            self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders.output if hasattr(self.context.progress_stakeholders, 'output') else ''
+            self.context.save_data['summary']['other'] = self.context.other_additional_challenges.output if hasattr(self.context.other_additional_challenges, 'output') else ''
+            return self.context.save_data
+
         data = {}
         attr_lang = getTitleAttrLang()
         project_manager_admin = self.getProjectManagerAdmin()
         today = datetime.datetime.now()
-
         project = self.context.aq_parent.aq_parent
 
         data['generation_report_date'] = today.strftime('%m/%d/%Y %H:%M:%S')
@@ -416,7 +434,7 @@ class View(grok.View):
                 'wop_platform': project.wop_platform,
                 'wop_program': project.wop_program
             },
-            'project_description': project.objectives,
+            'project_description': project.objectives.output if hasattr(project.objectives, 'output') else '',
         }
 
         data['project_overview']['total_budget'] = self.getTotalBudget(
@@ -431,9 +449,9 @@ class View(grok.View):
                 'roadblock': self.context.overall_project_status == 'roadblock',
                 'potential': self.context.overall_project_status == 'potential',
                 'ontrack': self.context.overall_project_status == 'ontrack',
-                'stakeholders': self.context.progress_stakeholders,
+                'stakeholders': self.context.progress_stakeholders.output if hasattr(self.context.progress_stakeholders, 'output') else '',
             },
-            'other': self.context.other_additional_challenges,
+            'other': self.context.other_additional_challenges.output if hasattr(self.context.other_additional_challenges, 'output') else '',
         }
 
         data['activities_outputs'] = {}
@@ -518,11 +536,12 @@ class View(grok.View):
                         'cosidetation_for_future': outputAnn[KEY]['monitoring']['consideration'] if 'consideration' in outputAnn[KEY]['monitoring'] else "",
                         'means_of_verification': "",  # TODO ???
                     }})
-		    try:
-                    	progress = int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['progress']) / int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['real']) * 100
-		    except:
-			progress = 0
-                    data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['style'] = 'transform: translateX(' + str(progress - 100) + '%);'
+
+                    try:
+                        progress = int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['progress']) / int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['real']) * 100
+                    except:
+                        progress = 0
+                        data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['style'] = 'transform: translateX(' + str(progress - 100) + '%);'
 
         data['outcomes'] = {'dash_info': getItems(project),
                             'list': ''}
@@ -608,6 +627,8 @@ class View(grok.View):
             })
 
         data['budget']['total_budget'] = self.getTotalAssignedBudget(data['budget']['planned_activities'])
+
+        self.context.save_data = data
         return data
 
 

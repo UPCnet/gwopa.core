@@ -256,7 +256,7 @@
                   <td tal:attributes="style styles/style2" colspan="10" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Description and Objectives</font></b></td>
                 </tr>
                 <tr>
-                  <td tal:attributes="style styles/style1" colspan="10" height="120" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:condition="report/project_overview/project_description" tal:content="structure report/project_overview/project_description/output">AUTO ENTRY: Insert from Project Description and Objectives</span></font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="10" height="120" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:condition="report/project_overview/project_description" tal:content="structure report/project_overview/project_description">AUTO ENTRY: Insert from Project Description and Objectives</span></font></i></td>
                 </tr>
               </table>
 
@@ -327,10 +327,10 @@
                   <td tal:attributes="style styles/style1" colspan="5" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#00B050">On Track</font></b><p tal:condition="report/summary/progress/ontrack">X</p></td>
                 </tr>
                 <tr tal:condition="report/summary/progress/stakeholders">
-                  <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/progress/stakeholders/output">Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders</span></font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/progress/stakeholders">Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders</span></font></i></td>
                 </tr>
                 <tr tal:condition="report/summary/other">
-                  <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other/output">Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans</span></font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other">Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans</span></font></i></td>
                 </tr>
               </table>
 
@@ -1338,7 +1338,7 @@
                   <td tal:attributes="style styles/style2" colspan="10" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Project Description and Objectives</font></b></td>
                 </tr>
                 <tr>
-                  <td tal:attributes="style styles/style1" colspan="10" height="120" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:condition="report/project_overview/project_description" tal:content="structure report/project_overview/project_description/output">AUTO ENTRY: Insert from Project Description and Objectives</span></font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="10" height="120" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:condition="report/project_overview/project_description" tal:content="structure report/project_overview/project_description">AUTO ENTRY: Insert from Project Description and Objectives</span></font></i></td>
                 </tr>
               </table>
 
@@ -1407,10 +1407,10 @@
                   <td tal:attributes="style styles/style1" colspan="5" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#00B050">On Track</font></b><p tal:condition="report/summary/progress/ontrack">X</p></td>
                 </tr>
                 <tr tal:condition="report/summary/progress/stakeholders">
-                  <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/progress/stakeholders/output">Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders</span></font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/progress/stakeholders">Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders</span></font></i></td>
                 </tr>
                 <tr tal:condition="report/summary/other">
-                  <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other/output">Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans</span></font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other">Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans</span></font></i></td>
                 </tr>
               </table>
 
