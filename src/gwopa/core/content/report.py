@@ -347,10 +347,10 @@ class View(grok.View):
 
         return items
 
-    def getOutcomes(self):
+    def getOutcomes(self, project):
         return api.content.find(
             portal_type=['OutcomeZONE'],
-            context=self.context)
+            context=project)
 
     def getOutcomesCapacityWA(self, wa):
         return api.content.find(
@@ -544,8 +544,9 @@ class View(grok.View):
                         data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['style'] = 'transform: translateX(' + str(progress - 100) + '%);'
 
         data['outcomes'] = {'dash_info': getItems(project),
-                            'list': ''}
-        outcomes = self.getOutcomes()
+                            'list': {}}
+
+        outcomes = self.getOutcomes(project)
         for outcome in outcomes:
             outcomeObj = outcome.getObject()
             annotations = IAnnotations(outcomeObj)
