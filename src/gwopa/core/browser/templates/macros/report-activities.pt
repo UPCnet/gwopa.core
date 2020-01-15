@@ -1,0 +1,231 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gwopa">
+
+  <metal:block metal:define-macro="activities">
+
+    <table id="tabla3" cellspacing="0" border="0">
+      <colgroup width="80"></colgroup>
+      <colgroup width="71"></colgroup>
+      <colgroup width="27"></colgroup>
+      <colgroup width="66"></colgroup>
+      <colgroup width="27"></colgroup>
+      <colgroup width="95"></colgroup>
+      <colgroup width="27"></colgroup>
+      <colgroup width="73"></colgroup>
+      <colgroup width="27"></colgroup>
+      <colgroup width="107"></colgroup>
+      <colgroup width="27"></colgroup>
+      <colgroup span="2" width="32"></colgroup>
+      <colgroup width="31"></colgroup>
+      <colgroup width="37"></colgroup>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+      </tr>
+      <tr>
+        <td height="24" align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF">ACTIVITIES AND OUTPUTS PROGRESS</font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+      </tr>
+      <tal:block tal:define="activities_outputs report/activities_outputs" tal:omit-tag="">
+        <tal:block tal:repeat="wa activities_outputs" tal:omit-tag="">
+          <tr>
+            <td tal:attributes="style styles/style2" height="33" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WORKING AREA: </font></b></td>
+            <td tal:attributes="style styles/style2" colspan="14" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="wa">AUTO ENTRY: Name of Working Area</span></font></i></td>
+          </tr>
+          <tal:block tal:define="activities python:activities_outputs[wa]['activities']" tal:omit-tag="">
+            <tal:block tal:repeat="activity activities" tal:omit-tag="">
+              <tal:block tal:define="act_wa python:activities[activity]" tal:omit-tag="">
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan="10" height="359" align="left" valign="top" bgcolor="#00B0F0"><b><font face="Arial" size="2" color="#FFFFFF">Activity </font></b></td>
+                  <td tal:attributes="style styles/style1" colspan="5" rowspan="2" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/title">AUTO ENTRY: Title</span> </font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Start date </font></b></td>
+                  <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Completion date </font></b></td>
+                  <td tal:attributes="style styles/style1" colspan="5" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Progress Tracker</font></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/start"></span></font></td>
+                  <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/completion"></span></font></td>
+                  <td tal:attributes="style styles/style1" colspan="5" valign="bottom" bgcolor="#FFFFFF">
+                    <h3 class="indicators-root indicators-h3"
+                        tal:content="string:${act_wa/progress_tracker/progress} ${act_wa/progress_tracker/measuring_unit}">
+                      25%
+                    </h3>
+                    <div class="indicators-progress" role="progressbar"
+                         tal:attributes="aria-valuenow act_wa/progress_tracker/progress">
+                      <div class="indicators-progress-bar" tal:attributes="style act_wa/progress_tracker/style"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
+                    <p tal:content="act_wa/description/description">AUTO ENTRY: Description</p>
+                    <p tal:content="act_wa/description/planning">AUTO ENTRY: Planning and Initial situation description</p>
+                    <p tal:content="act_wa/description/explanation_progress">AUTO ENTRY: Text form Explanation Progress</p>
+                  </font></i></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style4" colspan="5" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Obstacles </font></b></td>
+                  <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+                  <td tal:attributes="style styles/style1" colspan="8" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Contributing factors</font></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/main_obstacles/internal"></span></font></center></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/main_obstacles/external"></span></font></center></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/main_obstacles/wop_related"></span></font></center></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/main_contributing/internal"></span></font></center></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/main_contributing/external"></span></font></center></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2" colspan="3"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                  <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/main_contributing/internal"></span></font></center></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Explain contributed and limiting factors</font></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/explain_limiting">&lt;AUTO ENTRY: Text&gt;</span></font></i></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Consideration for further planning</font></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/cosidetation_for_future">&lt;AUTO ENTRY: Text&gt;</span></font></i></td>
+                </tr>
+                <tal:block tal:define="outputs python:act_wa['outputs']" tal:omit-tag="">
+                  <tal:block tal:repeat="output outputs" tal:omit-tag="">
+                    <tal:block tal:define="out_act python:outputs[output]" tal:omit-tag="">
+                      <tr>
+                        <td tal:attributes="style styles/style1" rowspan="12" height="439" align="left" valign="top" bgcolor="#2F5597"><b><font face="Arial" size="2" color="#FFFFFF">Output</font></b></td>
+                        <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="5" rowspan="2" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
+                          <span tal:content="out_act/title">AUTO ENTRY: Title</span>
+                        </font></i></td>
+                        <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Start date </font></b></td>
+                        <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Completion date </font></b></td>
+                        <td tal:attributes="style styles/style1" colspan="5" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Progress Tracker</font></b></td>
+                      </tr>
+                      <tr>
+                        <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
+                          <span tal:content="out_act/start"></span>
+                        </font></i></td>
+                        <td tal:attributes="style styles/style1" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/completion"></span></font></td>
+                        <td tal:attributes="style styles/style1" colspan="5" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4">
+                          <h3 class="indicators-root indicators-h3"
+                              tal:content="string:${out_act/progress_tracker/real} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}">
+                            25%
+                          </h3>
+                          <div class="indicators-progress" role="progressbar"
+                               tal:attributes="aria-valuenow out_act/progress_tracker/progress">
+                            <div class="indicators-progress-bar" tal:attributes="style out_act/progress_tracker/style"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
+                          <p tal:content="out_act/description/description">AUTO ENTRY: Description</p>
+                          <p tal:content="out_act/description/explanation_progress">AUTO ENTRY: Text form Explanation Progress</p>
+                        </font></i></td>
+                      </tr>
+                      <tr>
+                        <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="5" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Obstacles </font></b></td>
+                        <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+                        <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="8" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Contributing factors</font></b></td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/main_obstacles/internal"></span></font></center></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/main_obstacles/external"></span></font></center></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/main_obstacles/wop_related"></span></font></center></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/main_contributing/internal"></span></font></center></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/main_contributing/external"></span></font></center></td>
+                        <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2" colspan="3"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                        <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#FFFFFF"><center><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/main_contributing/internal"></span></font></center></td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Explain contributed and limiting factors</font></b></td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/explain_limiting">&lt;AUTO ENTRY: Text&gt;</span></font></i></td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Consideration for further planning</font></b></td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/cosidetation_for_future">&lt;AUTO ENTRY: Text&gt;</span></font></i></td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Means of Verification</font></b></td>
+                      </tr>
+                      <tr>
+                        <td tal:attributes="style styles/style1" colspan="14" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/means_of_verification">&lt;AUTO ENTRY: Text&gt;</span><br></font></i></td>
+                      </tr>
+                    </tal:block>
+                  </tal:block>
+                </tal:block>
+              </tal:block>
+            </tal:block>
+          </tal:block>
+        </tal:block>
+      </tal:block>
+    </table>
+
+  </metal:block>
+</html>

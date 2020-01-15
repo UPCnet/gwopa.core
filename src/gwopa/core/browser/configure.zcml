@@ -162,4 +162,39 @@
     permission="zope2.View"
   />
 
+  <browser:page
+    name="macro-report-project"
+    for="*"
+    permission="zope.Public"
+    template="templates/macros/report-project.pt"
+  />
+
+  <browser:page
+    name="macro-report-summary"
+    for="*"
+    permission="zope.Public"
+    template="templates/macros/report-summary.pt"
+  />
+
+  <browser:page
+    name="macro-report-activities"
+    for="*"
+    permission="zope.Public"
+    template="templates/macros/report-activities.pt"
+  />
+
+  <browser:page
+    name="macro-report-outcomes"
+    for="*"
+    permission="zope.Public"
+    template="templates/macros/report-outcomes.pt"
+  />
+
+  <browser:page
+    name="macro-report-budget"
+    for="*"
+    permission="zope.Public"
+    template="templates/macros/report-budget.pt"
+  />
+
 </configure>

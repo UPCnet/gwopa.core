@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gwopa">
+
+  <metal:block metal:define-macro="budget">
+
+    <table id="tabla5" cellspacing="0" border="0">
+      <colgroup width="253"></colgroup>
+      <colgroup width="95"></colgroup>
+      <colgroup width="160"></colgroup>
+      <colgroup width="148"></colgroup>
+      <colgroup span="2" width="122"></colgroup>
+      <colgroup span="2" width="32"></colgroup>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+      </tr>
+      <tr>
+        <td colspan="8" height="23" align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF">BUDGET</font></b></td>
+      </tr>
+      <tr>
+        <td height="23" align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+      </tr>
+      <tr>
+        <td tal:attributes="style styles/style2" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Total Project Budget:</font></b></td>
+        <td tal:attributes="style styles/style2" colspan="7" align="left" valign="bottom" bgcolor="#F2F2F2"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="report/budget/total_budget">&lt;AUTO ENTRY&gt;</span></font></i></td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+      </tr>
+      <tr>
+        <td tal:attributes="style styles/style2" height="21" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Activity Name </font></i></b></td>
+        <td tal:attributes="style styles/style2" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Assigned Budget </font></i></b></td>
+        <td tal:attributes="style styles/style2" colspan="3" align="center" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Expenditure this reporting period </font></i></b></td>
+        <td tal:attributes="style styles/style2" colspan="3" align="left" valign="top" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#000000">Total expenditure to date</font></i></b></td>
+      </tr>
+      <tal:block tal:repeat="activity report/budget/planned_activities">
+        <tr>
+          <td tal:attributes="style styles/style1" height="29" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
+            <span tal:content="string:[${activity/wa_title}] ${activity/title}">&lt;AUTO ENTRY: Planned Activities&gt;</span>
+          </font></i></td>
+          <td tal:attributes="style styles/style1" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
+            <span tal:content="activity/assigned_budget">&lt;AUTO ENTRY: Assigned Budget&gt;</span>
+          </font></i></td>
+          <td tal:attributes="style styles/style1" colspan="3" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#70AD47">&lt;Open field&gt;</font></i></td>
+          <td tal:attributes="style styles/style1" colspan="3" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#70AD47">&lt;Open field&gt;</font></i></td>
+        </tr>
+      </tal:block>
+    </table>
+
+  </metal:block>
+
+</html>

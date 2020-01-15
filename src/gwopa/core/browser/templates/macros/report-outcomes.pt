@@ -1,0 +1,541 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gwopa">
+
+  <metal:block metal:define-macro="outcomes">
+
+    <table id="tabla4" cellspacing="0" border="0">
+      <colgroup width="104"></colgroup>
+      <colgroup width="31"></colgroup>
+      <colgroup width="95"></colgroup>
+      <colgroup width="32"></colgroup>
+      <colgroup width="94"></colgroup>
+      <colgroup width="29"></colgroup>
+      <colgroup width="100"></colgroup>
+      <colgroup width="32"></colgroup>
+      <colgroup width="66"></colgroup>
+      <colgroup width="32"></colgroup>
+      <colgroup width="75"></colgroup>
+      <colgroup width="36"></colgroup>
+      <colgroup span="2" width="32"></colgroup>
+      <colgroup span="2" width="31"></colgroup>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" va.lign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF">OUTCOMES</font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#808080"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000">Outcomes - Utility Performance </font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+      </tr>
+      <tr>
+        <td height="11" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+      </tr>
+      <tr>
+        <td tal:attributes="style styles/style2" colspan="16" height="267" valign="bottom" bgcolor="#FFFFFF"
+            tal:define="getItems report/outcomes/dash_info">
+          <div tal:condition="not:getItems" class="row">
+            <h2 i18n:translate=""> No KPIs in this Project </h2>
+          </div>
+          <div tal:condition="getItems" class="row">
+            <div class="legendBox">
+              <span class="label label-circle">
+                <i class="fas fa-circle planned"></i>
+                <tal:omit-tag  i18n:translate="">Monitoring value </tal:omit-tag>
+              </span> &nbsp;&nbsp;
+              <span class="label label-circle">
+                <i class="fas fa-circle achieved"></i>
+                <tal:omit-tag  i18n:translate="">Target value</tal:omit-tag>
+              </span>
+            </div>
+            <div class="row performance">
+              <tal:block repeat="item getItems">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <p class="bolder" tal:content="item/title"></p>
+                  <div class="chart">
+                    <div class="chartPerfomance" tal:attributes="data-url item/url;
+                                                                 id string:chart${item/pos}">
+                      <div id="timeline-chart"></div>
+                    </div>
+                </div>
+                </div>
+              </tal:block>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+      </tr>
+      <tal:block tal:define="outcomes report/outcomes/list" tal:omit-tag="">
+        <tal:block tal:repeat="outcome outcomes" tal:omit-tag="">
+          <tal:block tal:define="out python:outcomes[outcome]" tal:omit-tag="">
+            <tr>
+              <td tal:attributes="style styles/style2" colspan="2" rowspan="12" height="405" align="left" valign="top" bgcolor="#B23D91"><b><font face="Arial" size="2" color="#FFFFFF">Outcome - Performance</font></b></td>
+              <td tal:attributes="style styles/style2" colspan="4" rowspan="2" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/title">AUTO ENTRY: Title</span> </font></i></td>
+              <td tal:attributes="style styles/style2" colspan="2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Zone</font></b></td>
+              <td tal:attributes="style styles/style2" colspan="2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline date </font></b></td>
+              <td tal:attributes="style styles/style2" colspan="2" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline value</font></b></td>
+              <td tal:attributes="style styles/style2" colspan="4" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Achieved/Target</font></b></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="2" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/zone">Zone</span> </font></i></td>
+              <td tal:attributes="style styles/style1" colspan="2" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/baseline_date">Baseline date </span> </font></i></td>
+              <td tal:attributes="style styles/style1" colspan="2" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/baseline_value">>Baseline value </span> </font></i></td>
+              <td tal:attributes="style styles/style1" colspan="4" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/target_value_real">Achieved/Target </span> / <span tal:content="out/target_value_planned">Achieved/Target </span></font></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><p tal:content="out/description/description">AUTO ENTRY: Planning - Description/ and Initial situation description</p> <br><p tal:content="out/description/explanation_progress">AUTO ENTRY: Text form Explanation Progress</p> </font></i></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style4" colspan="5" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Obstacles </font></b></td>
+              <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000"><br></font></b></td>
+              <td tal:attributes="style styles/style1" colspan="8" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Contributing factors</font></b></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/main_obstacles/internal">Internal</span></font></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/main_obstacles/external">External</span></font></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/main_obstacles/wop_related">WOP related</span></font></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/main_contributing/internal">Internal</span></font></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+              <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/main_contributing/external">External</span></font></td>
+              <td tal:attributes="style styles/style1" colspan="3" align="center" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+              <td tal:attributes="style styles/style3" align="left" valign="middle" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/main_contributing/wop_related">WOP related</span></font></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Explain contributed and limiting factors</font></b></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/explain_contributed">AUTO ENTRY: Text</span> </font></i></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Consideration for further planning</font></b></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/consideration">AUTO ENTRY: Text</span> </font></i></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Means of Verification</font></b></td>
+            </tr>
+            <tr>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out/means_of_verification">AUTO ENTRY: Text</span> </font></i></td>
+            </tr>
+          </tal:block>
+        </tal:block>
+      </tal:block>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000">Outcomes - Capacity </font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+      </tr>
+      <tr>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+        <td align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" color="#FFFFFF"><br></font></b></td>
+      </tr>
+      <tal:block tal:define="outcomes_capacity report/outcomes_capacity" tal:omit-tag="">
+        <tal:block tal:repeat="wa outcomes_capacity" tal:omit-tag="">
+          <tr>
+            <td tal:attributes="style styles/style2" height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="1" color="#000000">WORKING AREA:</font></b></td>
+            <td tal:attributes="style styles/style2" colspan="15" align="left" valign="middle" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="wa">AUTO ENTRY: Name of Working Area</span></font></i></td>
+          </tr>
+          <tr>
+            <td tal:attributes="style styles/style1" colspan="16" height="200" valign="bottom" bgcolor="#FFFFFF">
+              <div class="stages" tal:define="stages python:outcomes_capacity[wa]['getCurrentStage']" tal:condition="stages">
+                <h2 class="bolder">
+                  <span i18n:translate="Stages">Stages</span>
+                  <a data-toggle="modal" data-target="#modalInfoStage" class="btn-info-capacity">
+                    <i class="fa fa-info-circle"></i>
+                  </a>
+                </h2>
+                <ul class="steps">
+                  <li tal:repeat="stage stages" tal:attributes="class string:${stage/state}; id string:${stage/id}" tal:content="stage/title" i18n:translate="">Stage 1
+                  </li>
+                </ul>
+                <div id="modalInfoStage" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalInfoStage" data-dismiss="modal" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <form id="toClearAddOutcomeCC">
+                         <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="modalInfoStage" i18n:translate=""> Stage Meaning </h4>
+                        </div>
+                        <div class="modal-body" id="UpdateStage" >
+                          <div class="modal-url" id="OutcomeCCSPathStage" style="display:none"></div>
+                          <div class="modal-stage" id="Stage" style="display:none"></div>
+                          <span class="modal-pk" id="OutcomeCCSYearStage" style="display:none"></span>
+                          <span class="modal-idCapacity" id="idCapacityStage" style="display:none"></span>
+                          <div class="row">
+                            <div class="form-group row">
+                              <div id="StageRadio" class="col-xs-2 col-md-2">
+                                <label class="container"> Stage 1
+                                </label>
+                                <label class="container"> Stage 2
+                                </label>
+                                <label class="container"> Stage 3
+                                </label>
+                                <label class="container"> Stage 4
+                                </label>
+                              </div>
+                              <div class="col-xs-10 col-md-10">
+                                <label class="container" i18n:translate="">Diagnosing and action planning
+                                </label>
+                                <div>The project has started and at this point most initial needs in terms of needed capacity and resources are begin identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
+                                <label class="container" i18n:translate="">Initial implementation of activities
+                                </label>
+                                <div>Mostly conditions for change have been co-created but there are no visible effective changes materialized. This entails that equipment might have been procured, trainings have been implemented resulting in new knowledge to be applied by staff from mentee utility, etc.</div>
+                                <label class="container" i18n:translate="">Visibility of changes
+                                </label>
+                                <div>Mostly there are visible changes implemented in the working routines but there is need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
+                                <label class="container" i18n:translate="">Changes consolidated
+                                </label>
+                                <div> Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Close</a>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="capacities">
+                <div id="chartCapacities" tal:define="outcome python:outcomes_capacity[wa]['getOutcomeCC']" tal:condition="outcome">
+                  <h2 class="bolder" i18n:translate=""> Capacity Changes</h2>
+                  <div class="legendBox">
+                    <span class="label custom-legend notset" i18n:translate="">- Empty</span>
+                    <span class="label custom-legend verybad" i18n:translate="">-2 Very negative</span>
+                    <span class="label custom-legend bad" i18n:translate="">-1 Negative</span>
+                    <span class="label custom-legend equal" i18n:translate="">0 No change</span>
+                    <span class="label custom-legend good" i18n:translate="">+1 Positive</span>
+                    <span class="label custom-legend verygood" i18n:translate="">+2 Very positive</span>
+                    <span><a data-toggle="modal" data-target="#modalInfoCapacity" class="btn-info-capacity">
+                      <i class="fa fa-info-circle"></i></a></span>
+                  </div>
+                  <tal:block condition="outcome">
+                    <div class="information">
+                      <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
+                      <div class="primerafila">
+                        <tal:block repeat="item outcome/monitoring">
+                          <tal:block condition="python: item['short_category'] == 'transformational'"
+                                     tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                            <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                              <div class="item_image" tal:condition="not:item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                              </div>
+                              <div class="item_image " tal:condition="item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                              </div>
+                              <div class="item_text">
+                                <span tal:content="titleSpecific">Leadership</span>
+                              </div>
+                            </a>
+                          </tal:block>
+                        </tal:block>
+                      </div>
+                      <!-- <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3> -->
+                      <div class="segundafila">
+                        <tal:block repeat="item outcome/monitoring">
+                          <tal:block condition="python: item['short_category'] == 'transactional'"
+                                     tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                            <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                              <div class="item_image" tal:condition="not:item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                              </div>
+                              <div class="item_image " tal:condition="item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                              </div>
+                              <div class="item_text">
+                                <span tal:content="titleSpecific">Leadership</span>
+                              </div>
+                            </a>
+                          </tal:block>
+                        </tal:block>
+                      </div>
+                      <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3> -->
+                      <div class="tercerafila">
+                        <tal:block repeat="item outcome/monitoring">
+                          <tal:block condition="python: item['short_category'] == 'individual'"
+                                     tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                            <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                              <div class="item_image" tal:condition="not:item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                              </div>
+                              <div class="item_image " tal:condition="item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                              </div>
+                              <div class="item_text">
+                                <span tal:content="titleSpecific">Leadership</span>
+                              </div>
+                            </a>
+                          </tal:block>
+                        </tal:block>
+                      </div>
+                    </div>
+                    <div id="others" class="information">
+                      <!-- <h3 class="capacity-title" i18n:translate="">Others</h3> -->
+                      <div class="cuartafila">
+                        <tal:block repeat="item outcome/monitoring">
+                          <tal:block condition="python: item['short_category'] == 'other'"
+                                     tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                            <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
+                              <div class="item_image" tal:condition="not:item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                              </div>
+                              <div class="item_image " tal:condition="item/selected_specific">
+                                <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                              </div>
+                              <div class="item_text">
+                                <span tal:content="titleSpecific">Other</span>
+                              </div>
+                            </a>
+                          </tal:block>
+                        </tal:block>
+                      </div>
+                    </div>
+                  </tal:block>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td height="21" align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+            <td align="center" valign="bottom" bgcolor="#FFFFFF"><b><font face="Arial" size="2" color="#000000"><br></font></b></td>
+          </tr>
+          <tal:block tal:define="capacities python:outcomes_capacity[wa]['capacities']" tal:omit-tag="">
+            <tal:block tal:repeat="capacity capacities" tal:omit-tag="">
+              <tal:block tal:define="cap_wa python:capacities[capacity]" tal:omit-tag="">
+                <tr>
+                  <td tal:attributes="style styles/style2" colspan="16" height="21" align="left" valign="bottom" bgcolor="#F2F2F2"><b><i><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/title">Name of Capacity Area &lt; AUTO ENTRY&gt;</span> </font></i></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="2" height="32" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Contributing factor </font></b></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">&lt;AUTO ENTRY: Contributing Factor&gt;</font></i></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><br></font></i></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><br></font></i></td>
+                  <td tal:attributes="style styles/style1" align="left" valign="middle" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><br></font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">Perceived by:</font></i></td>
+                  <td tal:attributes="style styles/style1" colspan="8" align="center" valign="middle" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/consensus">AUTO ENTRY: Perceived  changed derived by</span></font></i></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="6" height="21" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Obstacles</font></b></td>
+                  <td tal:attributes="style styles/style1" colspan="10" align="center" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Contributing factors</font></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" height="21" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+                  <td tal:attributes="style styles/style1" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/main_obstacles/internal"></span></font></td>
+                  <td tal:attributes="style styles/style1" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+                  <td tal:attributes="style styles/style1" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/main_obstacles/external"></span></font></td>
+                  <td tal:attributes="style styles/style1" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                  <td tal:attributes="style styles/style1" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/main_obstacles/wop_related"></span></font></td>
+                  <td tal:attributes="style styles/style1" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Internal </font></b></td>
+                  <td tal:attributes="style styles/style1" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/main_contributing/internal"></span></font></td>
+                  <td tal:attributes="style styles/style1" colspan="3" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">External</font></b></td>
+                  <td tal:attributes="style styles/style3" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/main_contributing/external"></span></font></td>
+                  <td tal:attributes="style styles/style1" colspan="3" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">WOP related</font></b></td>
+                  <td tal:attributes="style styles/style3" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/main_contributing/wop_related"></span></font></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="16" height="21" align="center" valign="bottom" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Explanation</font></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="16" height="64" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/explain">AUTO ENTRY: Explanation</span><br></font></i></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="16" height="21" align="center" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Mean of Verification</font></b></td>
+                </tr>
+                <tr>
+                  <td tal:attributes="style styles/style1" colspan="16" height="21" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="cap_wa/means_of_verification">AUTO ENTRY: Explanation</span><br></font></i></td>
+                </tr>
+              </tal:block>
+            </tal:block>
+          </tal:block>
+        </tal:block>
+      </tal:block>
+    </table>
+
+  </metal:block>
+
+</html>
