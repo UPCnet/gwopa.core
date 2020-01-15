@@ -24,7 +24,13 @@ class reportingView(BrowserView):
             sort_on='created',
             sort_order='descending'
         )
-        return reports
+
+        result = {'manual': [], 'auto': []}
+        for report in reports:
+            reportObj = report.getObject()
+            result[reportObj.report_type].append(report)
+
+        return result
 
     def getFiles(self):
         portal_catalog = getToolByName(self, 'portal_catalog')

@@ -24,10 +24,9 @@
       <span tal:content="view/projectTitle"></span>
     </h1>
 
-    <div id="reportingProject" class="row tabla_contenido_items">
-
+    <div id="reportingProject" class="row tabla_contenido_items" tal:define="reports view/getReports">
       <div id="reportActions">
-        <button id="generateReport" class="context focus right" i18n:translate="">Generate excel</button>
+        <!-- <button id="generateReport" class="context focus right" i18n:translate="">Generate excel</button> -->
         <a class="pat-plone-modal" tal:attributes="href string:${view/projectURL}/reports/++add++File"
            data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}">
           <button id="addFileReport" class="context focus right" i18n:translate="">Add File</button>
@@ -63,13 +62,46 @@
       <table class="table table-condensed table-bordered table-responsive sortable table-striped">
         <thead>
           <tr>
-            <th scope="col" style="width: 72%" i18n:translate="">Report</th>
+            <th scope="col" style="width: 72%" i18n:translate="">Manual Reports</th>
             <th scope="col" style="width: 16%" i18n:translate="">Date</th>
             <th scope="col" style="width: 12%" i18n:translate="">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr tal:repeat="report view/getReports">
+          <tr tal:repeat="report reports/manual">
+            <td>
+              <a tal:attributes="href report/getURL" tal:content="report/Title"></a>
+            </td>
+            <td tal:content="python: report.created.strftime('%m/%d/%Y %H:%M')"></td>
+            <td>
+              <a tal:attributes="href report/getURL">
+                <i class="fas fa-eye" aria-hidden="true"></i>
+              </a>
+              <a title="" id="plone-contentmenu-actions-edit"
+                 class="actionicon-object_buttons-edit pat-plone-modal"
+                 tal:attributes="href string:${report/getURL}/edit">
+                <i class="far fa-edit" aria-hidden="true"></i>
+              </a>
+              <a title="" id="plone-contentmenu-actions-delete"
+                 class="actionicon-object_buttons-delete pat-plone-modal"
+                 tal:attributes="href string:${report/getURL}/delete_confirmation">
+                <i class="far fa-trash-alt" aria-hidden="true"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-condensed table-bordered table-responsive sortable table-striped">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 72%" i18n:translate="">Auto Reports</th>
+            <th scope="col" style="width: 16%" i18n:translate="">Date</th>
+            <th scope="col" style="width: 12%" i18n:translate="">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="report reports/auto">
             <td>
               <a tal:attributes="href report/getURL" tal:content="report/Title"></a>
             </td>

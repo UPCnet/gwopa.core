@@ -23,7 +23,7 @@ from gwopa.core.utils import getTranslatedOutcomesFromTitle
 from gwopa.core.utils import getUserLang
 
 import datetime
-import json
+
 
 grok.templatedir("templates")
 
@@ -66,6 +66,16 @@ def getOverallStatus(self):
 
 
 directlyProvides(getOverallStatus, IContextSourceBinder)
+
+
+def getReportTypes(self):
+    status = []
+    status.append(SimpleVocabulary.createTerm(u'manual', 'manual', _(u'Manual')))
+    status.append(SimpleVocabulary.createTerm(u'auto', 'auto', _(u'Auto')))
+    return SimpleVocabulary(status)
+
+
+directlyProvides(getReportTypes, IContextSourceBinder)
 
 
 class IReport(model.Schema):
@@ -126,6 +136,14 @@ class IReport(model.Schema):
     form.mode(save_data='hidden')
     save_data = JSONField(
         title=_(u"Data"),
+        required=False,
+    )
+
+    form.mode(report_type='hidden')
+    report_type = schema.Choice(
+        title=_(u"Type"),
+        source=getReportTypes,
+        default=u'manual',
         required=False,
     )
 
@@ -474,7 +492,7 @@ class View(grok.View):
                     'start': activityObj.start.strftime('%m/%d/%Y'),
                     'completion': activityObj.end.strftime('%m/%d/%Y'),
                     'progress_tracker': {
-                        'progress': activityAnn[KEY]['monitoring']['progress'] if 'progress' in activityAnn[KEY]['monitoring'] else "",
+                        'progress': activityAnn[KEY]['monitoring']['progress'] if 'progress' in activityAnn[KEY]['monitoring'] else 0,
                         'real': '100',
                         'measuring_unit': '%',
                         'style': ''
@@ -496,7 +514,6 @@ class View(grok.View):
                     },
                     'explain_limiting': activityAnn[KEY]['monitoring']['limiting'] if 'limiting' in activityAnn[KEY]['monitoring'] else "",
                     'cosidetation_for_future': activityAnn[KEY]['monitoring']['consideration'] if 'consideration' in activityAnn[KEY]['monitoring'] else "",
-                    'means_of_verification': "",  # TODO ???
                     'outputs': {}
                 }})
 
@@ -534,14 +551,15 @@ class View(grok.View):
                         },
                         'explain_limiting': outputAnn[KEY]['monitoring']['limiting'] if 'limiting' in outputAnn[KEY]['monitoring'] else "",
                         'cosidetation_for_future': outputAnn[KEY]['monitoring']['consideration'] if 'consideration' in outputAnn[KEY]['monitoring'] else "",
-                        'means_of_verification': "",  # TODO ???
+                        'means_of_verification': outputObj.means,
                     }})
 
                     try:
                         progress = int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['progress']) / int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['real']) * 100
                     except:
                         progress = 0
-                        data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['style'] = 'transform: translateX(' + str(progress - 100) + '%);'
+
+                    data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['style'] = 'transform: translateX(' + str(progress - 100) + '%);'
 
         data['outcomes'] = {'dash_info': getItems(project),
                             'list': {}}

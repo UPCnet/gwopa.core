@@ -37,30 +37,31 @@
         <tal:omit-tag i18n:translate=""> goes from </tal:omit-tag>&nbsp;<span tal:content="view/getFaseStart" class="dateNumbers"> 2019-02-02 </span>&nbsp;<tal:omit-tag i18n:translate=""> to </tal:omit-tag>&nbsp;<span tal:content="view/getFaseEnd" class="dateNumbers"> 2019-03-03 </span>&nbsp;<span tal:content="view/getPhases" id="totalPhases" style="display: none"></span>
       </div>
 
-      <div id="reportPreviewProject" class="row tabla_contenido_items">
-        <div id="reportActions">
-          <a tal:attributes="href string:${view/projectURL}/reporting">
-          <button id="returnReporting" class="context focus" i18n:translate="">Return</button>
-          </a>
-          <a tal:attributes="href string:${context/absolute_url}/edit">
-          <button id="editReporting" class="context focus right" i18n:translate="">Edit</button>
-          </a>
-          <!--<a tal:attributes="href string:${view/projectURL}/saveReport">
-          <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
-          </a>-->
-          <a id="dlink" style="display:none;"></a>
-          <span id="filename" style="display:none;" tal:content="report/project_overview/project_name">Project Name</span>
-          <span id="generation_report_date" style="display:none;" tal:content="report/generation_report_date">Generation report date</span>
-          <button type="button" class="context focus right" onclick="javascript:window.print()">
-            <i class="fa fa-print" aria-hidden="true"></i>
-            <span>Print</span>
-          </button>
+      <div id="reportActions">
+        <a tal:attributes="href string:${view/projectURL}/reporting">
+        <button id="returnReporting" class="context focus" i18n:translate="">Return</button>
+        </a>
+        <a tal:attributes="href string:${context/absolute_url}/edit">
+        <button id="editReporting" class="context focus right" i18n:translate="">Edit</button>
+        </a>
+        <!--<a tal:attributes="href string:${view/projectURL}/saveReport">
+        <button id="saveReport" class="context focus right" i18n:translate="">Save</button>
+        </a>-->
+        <a id="dlink" style="display:none;"></a>
+        <span id="filename" style="display:none;" tal:content="report/project_overview/project_name">Project Name</span>
+        <span id="generation_report_date" style="display:none;" tal:content="report/generation_report_date">Generation report date</span>
+        <button type="button" class="context focus right" onclick="javascript:window.print()">
+          <i class="fa fa-print" aria-hidden="true"></i>
+          <span>Print</span>
+        </button>
 
 <!--           <button id="downloadReport" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five']);" class="context focus right" i18n:translate="">Download</button> -->
-          <!--
-            <button id="btn-export" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], 'test.xlsx');">Export to Excel
-                doc</button> -->
-        </div>
+        <!--
+          <button id="btn-export" onclick="tablesToExcel(['tabla1', 'tabla2', 'tabla3', 'tabla4', 'tabla5'], ['first', 'second', 'third','fourth','five'], 'test.xlsx');">Export to Excel
+              doc</button> -->
+      </div>
+
+      <div id="reportPreviewProject" class="row tabla_contenido_items">
         <div tal:condition="report" tal:define="styles view/getStyles">
           <!-- <h2>Full 2: <em>Project Overview </em></h2> -->
 
@@ -474,14 +475,6 @@
                           <tr>
                             <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/cosidetation_for_future">&lt;AUTO ENTRY: Text&gt;</span></font></i></td>
                           </tr>
-                          <tr>
-                            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" height="19" align="left" valign="top" bgcolor="#00B0F0"><b><font face="Arial" size="2" color="#FFFFFF"><br></font></b></td>
-                            <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Means of Verification</font></b></td>
-                          </tr>
-                          <tr>
-                            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#00B0F0"><b><font face="Arial" size="2" color="#FFFFFF"><br></font></b></td>
-                            <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/means_of_verification">&lt;AUTO ENTRY: Text&gt;</span><br></font></i></td>
-                          </tr>
                           <tal:block tal:define="outputs python:act_wa['outputs']" tal:omit-tag="">
                             <tal:block tal:repeat="output outputs" tal:omit-tag="">
                               <tal:block tal:define="out_act python:outputs[output]" tal:omit-tag="">
@@ -554,7 +547,7 @@
                                   <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Means of Verification</font></b></td>
                                 </tr>
                                 <tr>
-                                  <td tal:attributes="style styles/style1" colspan="14" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/means_of_verification">&lt;AUTO ENTRY: Text&gt;</span><br></font></i></td>
+                                  <td tal:attributes="style styles/style1" colspan="14" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/means_of_verification">&lt;AUTO ENTRY: Text&gt;</span><br></font></i></td>
                                 </tr>
                               </tal:block>
                             </tal:block>
@@ -1552,14 +1545,6 @@
                           <tr>
                             <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/cosidetation_for_future">&lt;AUTO ENTRY: Text&gt;</span></font></i></td>
                           </tr>
-                          <tr>
-                            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" height="19" align="left" valign="top" bgcolor="#00B0F0"><b><font face="Arial" size="2" color="#FFFFFF"><br></font></b></td>
-                            <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Means of Verification</font></b></td>
-                          </tr>
-                          <tr>
-                            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" height="21" align="left" valign="top" bgcolor="#00B0F0"><b><font face="Arial" size="2" color="#FFFFFF"><br></font></b></td>
-                            <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="act_wa/means_of_verification">&lt;AUTO ENTRY: Text&gt;</span><br></font></i></td>
-                          </tr>
                           <tal:block tal:define="outputs python:act_wa['outputs']" tal:omit-tag="">
                             <tal:block tal:repeat="output outputs" tal:omit-tag="">
                               <tal:block tal:define="out_act python:outputs[output]" tal:omit-tag="">
@@ -1632,7 +1617,7 @@
                                   <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Means of Verification</font></b></td>
                                 </tr>
                                 <tr>
-                                  <td tal:attributes="style styles/style1" colspan="14" align="center" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/means_of_verification">&lt;AUTO ENTRY: Text&gt;</span><br></font></i></td>
+                                  <td tal:attributes="style styles/style1" colspan="14" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="out_act/means_of_verification">&lt;AUTO ENTRY: Text&gt;</span><br></font></i></td>
                                 </tr>
                               </tal:block>
                             </tal:block>
