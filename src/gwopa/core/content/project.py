@@ -133,6 +133,12 @@ class IProject(model.Schema):
         required=True,
     )
 
+    code = schema.TextLine(
+        title=_(u"Code"),
+        description=_(u"Code of project"),
+        required=True,
+    )
+
     dexteritytextindexer.searchable('objectives')
     objectives = RichText(
         title=_(u'Project description and main objectives'),

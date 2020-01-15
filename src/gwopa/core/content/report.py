@@ -8,13 +8,13 @@ from plone import api
 from plone.app.textfield import RichText
 from plone.autoform import directives as form
 from plone.namedfile import field as namedfile
+from plone.schema.jsonfield import JSONField
 from plone.supermodel import model
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import directlyProvides
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
-from plone.schema.jsonfield import JSONField
 
 from gwopa.core import _
 from gwopa.core import utils
@@ -84,12 +84,6 @@ class IReport(model.Schema):
     title = schema.TextLine(
         title=_(u"Title"),
         required=True,
-    )
-
-    project_code = schema.TextLine(
-        title=_(u'Project Code'),
-        required=False,
-        missing_value=u'',
     )
 
     overall_project_status = schema.Choice(
@@ -409,7 +403,6 @@ class View(grok.View):
     def reportData(self):
 
         if self.context.save_data and self.context.save_data != "":
-            self.context.save_data['project_overview']['project_code'] = self.context.project_code
             self.context.save_data['summary']['progress']['roadblock'] = self.context.overall_project_status == 'roadblock'
             self.context.save_data['summary']['progress']['potential'] = self.context.overall_project_status == 'potential'
             self.context.save_data['summary']['progress']['ontrack'] = self.context.overall_project_status == 'ontrack'
@@ -426,7 +419,7 @@ class View(grok.View):
         data['generation_report_date'] = today.strftime('%m/%d/%Y %H:%M:%S')
         data['project_overview'] = {
             'project_name': project.title,
-            'project_code': self.context.project_code,
+            'project_code': project.code,
             'reporting_type': utils.getTranslatedMesuringFrequencyFromID(project.measuring_frequency),
             'reporting_period': {
                 'project_year': self.getYear(),
