@@ -342,4 +342,8 @@ class GetPerformance(BrowserView):
             "mesuring_unit": getTranslatedMesuringUnitFromID(kpi.measuring_unit),
         }
 
+        table = self.request.form.get('table', False)
+        if table:
+            data.update({'table': table})
+
         return json.dumps(data)
