@@ -6,7 +6,74 @@
 
   <metal:block metal:define-macro="summary">
 
-    <table id="tabla2" cellspacing="0" border="0">
+    <h3 i18n:translate="">Summary</h3>
+
+    <p tal:content="report/summary/working_areas">Working areas, ...</p>
+
+    <h4 i18n:translate="">Overall Project Status</h4>
+
+    <div class="row overallProjectStatus">
+      <div class="col-xs-4 col-sm-4 status">
+        <div class="bg-danger" tal:condition="report/summary/progress/roadblock"><p class="text-center" i18n:translate="">Roadblock</p></div>
+        <div class="bg-disabled" data-status="roadblock" tal:condition="not:report/summary/progress/roadblock"><p class="text-center" i18n:translate="">Roadblock</p></div>
+      </div>
+      <div class="col-xs-4 col-sm-4 status">
+        <div class="bg-warning" tal:condition="report/summary/progress/potential"><p class="text-center" i18n:translate="">Potential Risks/Delays</p></div>
+        <div class="bg-disabled" data-status="potential" tal:condition="not:report/summary/progress/potential"><p class="text-center" i18n:translate="">Potential Risks/Delays</p></div>
+      </div>
+      <div class="col-xs-4 col-sm-4 status">
+        <div class="bg-success" tal:condition="report/summary/progress/ontrack"><p class="text-center" i18n:translate="">On track</p></div>
+        <div class="bg-disabled" data-status="ontrack" tal:condition="not:report/summary/progress/ontrack"><p class="text-center" i18n:translate="">On track</p></div>
+      </div>
+    </div>
+
+    <div class="infoSummary">
+      <p class="editField text-bold" i18n:translate="">Progress stakeholders</p>
+      <span data-toggle="modal" data-target="#stakeholdersModal" class="fa fa-edit"></span>
+      <p id="stakeholders" tal:content="report/summary/progress/stakeholders">Stakeholders</p>
+
+      <p class="editField text-bold" i18n:translate="">Other additional challenges</p>
+      <span data-toggle="modal" data-target="#otherModal" class="fa fa-edit"></span>
+      <p id="other" tal:content="report/summary/other">Other</p>
+    </div>
+
+
+    <div class="modal fade" id="stakeholdersModal" tabindex="-1" role="dialog" aria-labelledby="stakeholdersLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="stakeholdersLabel" i18n:translate="">Progress stakeholders</h5>
+          </div>
+          <div class="modal-body">
+            <textarea tal:content="report/summary/progress/stakeholders"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" i18n:translate="">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" i18n:translate="">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="otherModal" tabindex="-1" role="dialog" aria-labelledby="otherLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="otherLabel" i18n:translate="">Other additional challenges</h5>
+          </div>
+          <div class="modal-body">
+            <textarea tal:content="report/summary/other"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" i18n:translate="">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" i18n:translate="">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <table id="tabla2" cellspacing="0" border="0">
       <colgroup width="253"></colgroup>
       <colgroup width="95"></colgroup>
       <colgroup width="87"></colgroup>
@@ -75,7 +142,7 @@
       <tr tal:condition="report/summary/other">
         <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other">Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans</span></font></i></td>
       </tr>
-    </table>
+    </table> -->
 
   </metal:block>
 

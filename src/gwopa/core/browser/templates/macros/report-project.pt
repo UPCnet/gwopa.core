@@ -6,7 +6,18 @@
 
   <metal:block metal:define-macro="project">
 
-<table id="tabla1" cellspacing="0" border="0">
+    <!-- <h3 i18n:translate="">Project Overview</h3>
+
+    <div class="row">
+      <div class="col-xs-6 col-sm-6">
+
+      </div>
+      <div class="col-xs-6 col-sm-6">
+
+      </div>
+    </div> -->
+
+    <table id="tabla1" cellspacing="0" border="0">
       <colgroup width="253"></colgroup>
       <colgroup width="95"></colgroup>
       <colgroup width="87"></colgroup>
@@ -16,7 +27,7 @@
       <colgroup width="31"></colgroup>
       <colgroup width="37"></colgroup>
       <tr>
-        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><img class="fullwidth" tal:condition="context/image_logo" tal:attributes="src string:${context/absolute_url}/@@images/image_logo" /></font></i></td>
+        <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><img class="fullwidth" tal:condition="report/project_overview/project_image" tal:attributes="src report/project_overview/project_image" /></font></i></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>

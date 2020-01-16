@@ -197,4 +197,11 @@
     template="templates/macros/report-budget.pt"
   />
 
+  <browser:page
+    name="macro-report-firstpage"
+    for="*"
+    permission="zope.Public"
+    template="templates/macros/report-firstpage.pt"
+  />
+
 </configure>

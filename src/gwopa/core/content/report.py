@@ -10,6 +10,7 @@ from plone.autoform import directives as form
 from plone.namedfile import field as namedfile
 from plone.schema.jsonfield import JSONField
 from plone.supermodel import model
+from z3c.form.interfaces import IEditForm
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import directlyProvides
@@ -86,32 +87,31 @@ class IReport(model.Schema):
         required=True,
     )
 
+    form.mode(overall_project_status='hidden')
     overall_project_status = schema.Choice(
         title=_(u"Overall Project Status"),
         description=_(u"Select the overall Project status."),
         source=getOverallStatus,
-        required=True,
+        required=False,
     )
 
-    progress_stakeholders = RichText(
+    form.mode(progress_stakeholders='hidden')
+    progress_stakeholders = schema.Text(
         title=_(u'Progress stakeholders'),
         description=_(u"Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders."),
         required=False,
         missing_value=u'',
     )
 
-    other_additional_challenges = RichText(
+    form.mode(other_additional_challenges='hidden')
+    other_additional_challenges = schema.Text(
         title=_(u'Other additional challenges'),
         description=_(u"Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans."),
         required=False,
         missing_value=u'',
     )
 
-    image_logo = namedfile.NamedBlobImage(
-        title=_(u'Image'),
-        required=False,
-    )
-
+    form.mode(IEditForm, project_year='hidden')
     project_year = schema.Choice(
         title=_(u"Project Year"),
         description=_(u"Choose project year to view in the report."),
@@ -402,19 +402,21 @@ class View(grok.View):
 
     def reportData(self):
 
+        project = self.context.aq_parent.aq_parent
         if self.context.save_data and self.context.save_data != "":
+            self.context.save_data['project_overview']['project_name'] = project.title
+            self.context.save_data['project_overview']['project_code'] = project.code
             self.context.save_data['summary']['progress']['roadblock'] = self.context.overall_project_status == 'roadblock'
             self.context.save_data['summary']['progress']['potential'] = self.context.overall_project_status == 'potential'
             self.context.save_data['summary']['progress']['ontrack'] = self.context.overall_project_status == 'ontrack'
-            self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders.output if hasattr(self.context.progress_stakeholders, 'output') else ''
-            self.context.save_data['summary']['other'] = self.context.other_additional_challenges.output if hasattr(self.context.other_additional_challenges, 'output') else ''
+            self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders
+            self.context.save_data['summary']['other'] = self.context.other_additional_challenges
             return self.context.save_data
 
         data = {}
         attr_lang = getTitleAttrLang()
         project_manager_admin = self.getProjectManagerAdmin()
         today = datetime.datetime.now()
-        project = self.context.aq_parent.aq_parent
 
         data['generation_report_date'] = today.strftime('%m/%d/%Y %H:%M:%S')
         data['project_overview'] = {
@@ -446,6 +448,7 @@ class View(grok.View):
                 'wop_program': project.wop_program
             },
             'project_description': project.objectives.output if hasattr(project.objectives, 'output') else '',
+            'project_image': project.absolute_url() + '/@@images/image' if project.image else None
         }
 
         data['project_overview']['total_budget'] = self.getTotalBudget(
@@ -460,9 +463,9 @@ class View(grok.View):
                 'roadblock': self.context.overall_project_status == 'roadblock',
                 'potential': self.context.overall_project_status == 'potential',
                 'ontrack': self.context.overall_project_status == 'ontrack',
-                'stakeholders': self.context.progress_stakeholders.output if hasattr(self.context.progress_stakeholders, 'output') else '',
+                'stakeholders': self.context.progress_stakeholders
             },
-            'other': self.context.other_additional_challenges.output if hasattr(self.context.other_additional_challenges, 'output') else '',
+            'other': self.context.other_additional_challenges
         }
 
         data['activities_outputs'] = {}
@@ -760,3 +763,27 @@ def getItems(project):
         return sorted(results, key=itemgetter('title'), reverse=False)
     else:
         return None
+
+
+class ModifySummaryStatus(grok.View):
+    grok.context(IReport)
+    grok.require('zope2.View')
+
+    def render(self):
+        self.context.overall_project_status = self.request.form.get('status')
+
+
+class ModifySummaryProgressStakeholders(grok.View):
+    grok.context(IReport)
+    grok.require('zope2.View')
+
+    def render(self):
+        self.context.progress_stakeholders = self.request.form.get('text')
+
+
+class ModifySummaryOtherAdditionalChallenges(grok.View):
+    grok.context(IReport)
+    grok.require('zope2.View')
+
+    def render(self):
+        self.context.other_additional_challenges = self.request.form.get('text')
