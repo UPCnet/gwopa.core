@@ -26,7 +26,7 @@
       <colgroup span="2" width="32"></colgroup>
       <colgroup width="31"></colgroup>
       <colgroup width="37"></colgroup>
-      <tr>
+<!--       <tr>
         <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><img class="fullwidth" tal:condition="report/project_overview/project_image" tal:attributes="src report/project_overview/project_image" /></font></i></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
@@ -37,8 +37,8 @@
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
-      </tr>
-      <tr>
+      </tr> -->
+<!--       <tr>
         <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
         <td colspan="4" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000">WOP PROGRESS REPORT</font></b></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
@@ -46,7 +46,7 @@
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
-      </tr>
+      </tr> -->
       <tr>
         <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
         <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>

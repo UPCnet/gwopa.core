@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gwopa">
+
+  <metal:block metal:define-macro="firstpage">
+
+    <div class="coverpage">
+      <img class="imageCoverpage" tal:attributes="src report/project_overview/project_image"/>
+
+      <div class="text">
+        <h2 class="align-bottom" tal:content="report/project_overview/project_name">Title</h2>
+        <p class="linebreak"></p>
+        <h3 tal:content="context/title">Report</h3>
+        <p><span tal:content="report/project_overview/reporting_period/from">From</span> <span i18n:translate="">to</span> <span tal:content="report/project_overview/reporting_period/to">To</span></p>
+      </div>
+    </div>
+
+    <div class="logos">
+
+    </div>
+
+  </metal:block>
+</html>
