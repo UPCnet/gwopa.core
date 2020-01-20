@@ -18,7 +18,13 @@
     </div>
 
     <div class="logos">
-
+      <tal:block tal:repeat="logo report/project_overview/logos">
+        <img class="logo"
+             tal:condition="logo/url"
+             tal:attributes="alt logo/name;
+                             title logo/name;
+                             src logo/url" />
+      </tal:block>
     </div>
 
   </metal:block>

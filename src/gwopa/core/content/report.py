@@ -400,6 +400,50 @@ class View(grok.View):
     def viewBudget(self):
         return 'Budget' in self.context.sections_reports
 
+    def getLogosFirstpage(self, project):
+        """ Returns all the KPIs from project  """
+
+        logos = []
+
+        # DONORS
+        for donor in project.donors:
+            items = api.content.find(
+                portal_type=['Donor'],
+                Title=donor)
+
+            if items and items[0].getObject().image:
+                logos.append({'name': donor,
+                              'url': items[0].getURL() + '/@@images/image'})
+
+        # PLATFOWMS OR PROGRAMS
+        items = api.content.find(
+            portal_type=['Platform'],
+            Title=project.wop_platform)
+
+        if items and items[0].getObject().image:
+            logos.append({'name': project.wop_platform,
+                          'url': items[0].getURL() + '/@@images/image'})
+
+        items = api.content.find(
+            portal_type=['Program'],
+            Title=project.wop_program)
+
+        if items and items[0].getObject().image:
+            logos.append({'name': project.wop_program,
+                          'url': items[0].getURL() + '/@@images/image'})
+
+        # WATER OPERATORS
+        for partner in project.partners:
+            items = api.content.find(
+                portal_type=['Partner'],
+                Title=partner)
+
+            if items and items[0].getObject().image:
+                logos.append({'name': partner,
+                              'url': items[0].getURL() + '/@@images/image'})
+
+        return logos
+
     def reportData(self):
 
         project = self.context.aq_parent.aq_parent
@@ -411,7 +455,7 @@ class View(grok.View):
             self.context.save_data['summary']['progress']['ontrack'] = self.context.overall_project_status == 'ontrack'
             self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders
             self.context.save_data['summary']['other'] = self.context.other_additional_challenges
-            return self.context.save_data
+            # return self.context.save_data
 
         data = {}
         attr_lang = getTitleAttrLang()
@@ -448,7 +492,8 @@ class View(grok.View):
                 'wop_program': project.wop_program
             },
             'project_description': project.objectives.output if hasattr(project.objectives, 'output') else '',
-            'project_image': project.absolute_url() + '/@@images/image' if project.image else None
+            'project_image': project.absolute_url() + '/@@images/image' if project.image else None,
+            'logos': self.getLogosFirstpage(project)
         }
 
         data['project_overview']['total_budget'] = self.getTotalBudget(
