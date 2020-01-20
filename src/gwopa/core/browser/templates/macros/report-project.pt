@@ -6,18 +6,36 @@
 
   <metal:block metal:define-macro="project">
 
-    <!-- <h3 i18n:translate="">Project Overview</h3>
+    <h3>Project Overview</h3>
 
-    <div class="row">
-      <div class="col-xs-6 col-sm-6">
+    <table>
+      <thead>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span i18n:translate="">Type</span>:</td>
+          <td tal:content="report/project_overview/reporting_type"></td>
+        </tr>
+        <tr>
+          <td><span i18n:translate="">Author</span>:</td>
+          <td tal:content="report/project_overview/author_report"></td>
+        </tr>
+        <tr>
+          <td><span i18n:translate="">Position</span>:</td>
+          <td tal:content="report/project_overview/position_report"></td>
+        </tr>
+        <tr>
+          <td><span i18n:translate="">Period</span>:</td>
+          <td><span tal:content="report/project_overview/reporting_period/from">From</span> <span i18n:translate="">to</span> <span tal:content="report/project_overview/reporting_period/to">To</span></td>
+        </tr>
+        <tr>
+          <td><span i18n:translate="">Code</span>:</td>
+          <td tal:content="report/project_overview/project_code"></td>
+        </tr>
+      </tbody>
+    </table>
 
-      </div>
-      <div class="col-xs-6 col-sm-6">
-
-      </div>
-    </div> -->
-
-    <table id="tabla1" cellspacing="0" border="0">
+    <!-- <table id="tabla1" cellspacing="0" border="0">
       <colgroup width="253"></colgroup>
       <colgroup width="95"></colgroup>
       <colgroup width="87"></colgroup>
@@ -26,7 +44,7 @@
       <colgroup span="2" width="32"></colgroup>
       <colgroup width="31"></colgroup>
       <colgroup width="37"></colgroup>
-<!--       <tr>
+      <tr>
         <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><img class="fullwidth" tal:condition="report/project_overview/project_image" tal:attributes="src report/project_overview/project_image" /></font></i></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
@@ -37,8 +55,8 @@
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
-      </tr> -->
-<!--       <tr>
+      </tr>
+      <tr>
         <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
         <td colspan="4" align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000">WOP PROGRESS REPORT</font></b></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
@@ -46,7 +64,7 @@
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
         <td align="left" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
-      </tr> -->
+      </tr>
       <tr>
         <td height="21" align="left" valign="bottom" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#000000"><br></font></i></td>
         <td align="center" valign="middle" bgcolor="#FFFFFF"><b><font face="Arial" color="#000000"><br></font></b></td>
@@ -188,7 +206,7 @@
       <tr>
         <td tal:attributes="style styles/style1" colspan="10" height="120" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:condition="report/project_overview/project_description" tal:content="structure report/project_overview/project_description">AUTO ENTRY: Insert from Project Description and Objectives</span></font></i></td>
       </tr>
-    </table>
+    </table> -->
 
   </metal:block>
 

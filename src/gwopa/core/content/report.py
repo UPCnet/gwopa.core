@@ -455,7 +455,7 @@ class View(grok.View):
             self.context.save_data['summary']['progress']['ontrack'] = self.context.overall_project_status == 'ontrack'
             self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders
             self.context.save_data['summary']['other'] = self.context.other_additional_challenges
-            # return self.context.save_data
+            return self.context.save_data
 
         data = {}
         attr_lang = getTitleAttrLang()
