@@ -127,6 +127,14 @@
   />
 
   <browser:page
+      for="gwopa.core.content.report.IReport"
+      name="api-getBudgets"
+      class=".api.wadashboard.GetBudgets"
+      permission="cmf.ModifyPortalContent"
+      layer="gwopa.core.interfaces.IGwopaCoreLayer"
+  />
+
+  <browser:page
       for="*"
       name="api-getRolesPartner"
       class=".api.code.getRolesPartner"

@@ -6,8 +6,8 @@ from plone.restapi.services import Service
 from zExceptions import BadRequest
 from zope.annotation.interfaces import IAnnotations
 
-from gwopa.core.utils import percentage
 from gwopa.core.utils import getTranslatedMesuringUnitFromID
+from gwopa.core.utils import percentage
 
 import datetime
 import json
@@ -342,8 +342,12 @@ class GetPerformance(BrowserView):
             "mesuring_unit": getTranslatedMesuringUnitFromID(kpi.measuring_unit),
         }
 
-        table = self.request.form.get('table', False)
-        if table:
-            data.update({'table': table})
-
         return json.dumps(data)
+
+
+class GetBudgets(BrowserView):
+    """Service for list activities from WA and year."""
+    # /api-getBudgets
+
+    def __call__(self):
+        return json.dumps(self.context.save_data['project_overview']['chart_budget'])

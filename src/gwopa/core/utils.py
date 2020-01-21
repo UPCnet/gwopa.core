@@ -124,6 +124,7 @@ def settings_currency(context):
 
 directlyProvides(settings_currency, IContextSourceBinder)
 
+
 def settings_partner_roles(context):
     """ Currency settings page. """
     lang = getUserLang()
@@ -141,6 +142,7 @@ def settings_partner_roles(context):
 
 directlyProvides(settings_partner_roles, IContextSourceBinder)
 
+
 def settings_organization_roles(context):
     """ Currency settings page. """
     lang = getUserLang()
@@ -157,6 +159,7 @@ def settings_organization_roles(context):
 
 
 directlyProvides(settings_organization_roles, IContextSourceBinder)
+
 
 def getTranslatedCurrencyFromID(unit):
     lang = getUserLang()

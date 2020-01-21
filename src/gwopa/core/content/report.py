@@ -5,9 +5,7 @@ from decimal import Decimal
 from five import grok
 from operator import itemgetter
 from plone import api
-from plone.app.textfield import RichText
 from plone.autoform import directives as form
-from plone.namedfile import field as namedfile
 from plone.schema.jsonfield import JSONField
 from plone.supermodel import model
 from z3c.form.interfaces import IEditForm
@@ -24,7 +22,7 @@ from gwopa.core.utils import getTranslatedOutcomesFromTitle
 from gwopa.core.utils import getUserLang
 
 import datetime
-
+import random
 
 grok.templatedir("templates")
 
@@ -444,6 +442,15 @@ class View(grok.View):
 
         return logos
 
+    def getHexColor(self, pos):
+        if pos < 10:
+            colors = ['#007bb1', '#f49200', '#cce4ef', '#fce9cc', '#001823', '#301d00', '#00496a', '#925700', '#66afd0', '#f8bd66']
+            return colors[pos]
+        else:
+            random_number = random.randint(0, 16777215)
+            hex_number = str(hex(random_number))
+            return '#' + hex_number[2:]
+
     def reportData(self):
 
         project = self.context.aq_parent.aq_parent
@@ -493,13 +500,87 @@ class View(grok.View):
             },
             'project_description': project.objectives.output if hasattr(project.objectives, 'output') else '',
             'project_image': project.absolute_url() + '/@@images/image' if project.image else None,
-            'logos': self.getLogosFirstpage(project)
+            'logos': self.getLogosFirstpage(project),
         }
 
         data['project_overview']['total_budget'] = self.getTotalBudget(
             data['project_overview']['water_operators'] +
             data['project_overview']['donors'] +
             data['project_overview']['other_organizations'])
+
+        totalBugdets = int(data['project_overview']['total_budget'])
+        dataChartBudgets = {'chart': {'water_operators': {'series': [],
+                                                          'colors': []},
+                                      'donors': {'series': [],
+                                                 'colors': []},
+                                      'other_organizations': {'series': [],
+                                                              'colors': []}},
+                            'legend': {'water_operators': [],
+                                       'donors': [],
+                                       'other_organizations': []}}
+
+        pos = totalWO = 0
+        for wo in data['project_overview']['water_operators']:
+            inkind = int(wo['inkind']) if 'inkind' in wo and wo['inkind'] else 0
+            incash = int(wo['incash']) if 'incash' in wo and wo['incash'] else 0
+            woValue = inkind + incash
+            totalWO += woValue
+
+            dataChartBudgets['chart']['water_operators']['series'].append(woValue)
+
+            color = self.getHexColor(pos)
+            pos += 1
+            dataChartBudgets['chart']['water_operators']['colors'].append(color)
+
+            wo.update({'color': color})
+            dataChartBudgets['legend']['water_operators'].append(wo)
+
+        dataChartBudgets['chart']['water_operators']['series'].append(totalBugdets - totalWO)
+        dataChartBudgets['chart']['water_operators']['colors'].append('#F1F1F1')
+
+        dataChartBudgets['chart']['donors']['series'].append(totalWO)
+        dataChartBudgets['chart']['donors']['colors'].append('#F1F1F1')
+
+        pos = totalDonors = 0
+        for donor in data['project_overview']['donors']:
+            inkind = int(donor['inkind']) if 'inkind' in donor and donor['inkind'] else 0
+            incash = int(donor['incash']) if 'incash' in donor and donor['incash'] else 0
+            donorsValue = inkind + incash
+            totalDonors += donorsValue
+
+            dataChartBudgets['chart']['donors']['series'].append(donorsValue)
+
+            color = self.getHexColor(pos)
+            pos += 1
+            dataChartBudgets['chart']['donors']['colors'].append(color)
+
+            donor.update({'color': color})
+            dataChartBudgets['legend']['donors'].append(donor)
+
+        dataChartBudgets['chart']['donors']['series'].append(totalBugdets - totalWO - totalDonors)
+        dataChartBudgets['chart']['donors']['colors'].append('#F1F1F1')
+
+        dataChartBudgets['chart']['other_organizations']['series'].append(totalWO + totalDonors)
+        dataChartBudgets['chart']['other_organizations']['colors'].append('#F1F1F1')
+
+        pos = totalOO = 0
+        for oo in data['project_overview']['other_organizations']:
+            inkind = int(oo['inkind']) if 'inkind' in oo and oo['inkind'] else 0
+            incash = int(oo['incash']) if 'incash' in oo and oo['incash'] else 0
+            ooValue = inkind + incash
+            totalOO += ooValue
+
+            dataChartBudgets['chart']['other_organizations']['series'].append(ooValue)
+
+            color = self.getHexColor(pos)
+            pos += 1
+            dataChartBudgets['chart']['other_organizations']['colors'].append(color)
+
+            oo.update({'color': color})
+            dataChartBudgets['legend']['other_organizations'].append(oo)
+
+        data['project_overview'].update({'chart_budget': dataChartBudgets['chart'],
+                                         'chart_budget_legend': dataChartBudgets['legend']})
 
         working_areas = self.getWorkingAreas(project)
         data['summary'] = {
