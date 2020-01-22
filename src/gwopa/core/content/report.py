@@ -462,7 +462,7 @@ class View(grok.View):
             self.context.save_data['summary']['progress']['ontrack'] = self.context.overall_project_status == 'ontrack'
             self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders
             self.context.save_data['summary']['other'] = self.context.other_additional_challenges
-            return self.context.save_data
+            # return self.context.save_data
 
         data = {}
         attr_lang = getTitleAttrLang()
@@ -652,7 +652,7 @@ class View(grok.View):
                         'start': outputObj.start.strftime('%m/%d/%Y'),
                         'completion': outputObj.end.strftime('%m/%d/%Y'),
                         'progress_tracker': {
-                            'progress': outputAnn[KEY]['planned'],
+                            'progress': outputAnn[KEY]['planned'] if 'planned' in outputAnn[KEY] and outputAnn[KEY]['planned'] else 0,
                             'real': outputAnn[KEY]['real'] if 'real' in outputAnn[KEY] and outputAnn[KEY]['real'] else 0,
                             'measuring_unit': utils.getTranslatedMesuringUnitFromID(outputObj.measuring_unit),
                             'style': ''
@@ -696,26 +696,34 @@ class View(grok.View):
                 'zone': outcomeObj.zone,
                 'baseline_date': outcomeObj.baseline_date.strftime('%Y-%m'),
                 'baseline_value': outcomeObj.baseline,
-                'target_value_real': annotations[KEY]['real'],
-                'target_value_planned': annotations[KEY]['planned'],
+                'target_value_real': annotations[KEY]['real'] if 'real' in annotations[KEY] and annotations[KEY]['real'] else 0,
+                'target_value_planned': annotations[KEY]['planned'] if 'planned' in annotations[KEY] and annotations[KEY]['planned'] else 0,
+                'target_value_style': '',
                 'description': {
                     'description': outcomeObj.description,
                     'explanation_progress': annotations[KEY]['monitoring']['explanation'] if 'explanation' in annotations[KEY]['monitoring'] else "",
                 },
                 'main_obstacles': {
-                    'internal': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['obstacles'] else "",
-                    'external': "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['obstacles'] else "",
-                    "wop_related": "X" if 'obstacles' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['obstacles'] else "",
+                    'internal': 'obstacles' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['obstacles'],
+                    'external': 'obstacles' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['obstacles'],
+                    "wop_related": 'obstacles' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['obstacles'],
                 },
                 'main_contributing': {
-                    'internal': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['contributing'] else "",
-                    'external': "X" if 'contributing' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['contributing'] else "",
-                    "wop_related": "X" if 'contributing' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['contributing'] else "",
+                    'internal': 'contributing' in annotations[KEY]['monitoring'] and 'Internal organizational' in annotations[KEY]['monitoring']['contributing'],
+                    'external': 'contributing' in annotations[KEY]['monitoring'] and 'External environment' in annotations[KEY]['monitoring']['contributing'],
+                    "wop_related": 'contributing' in annotations[KEY]['monitoring'] and 'WOP project - related' in annotations[KEY]['monitoring']['contributing'],
                 },
                 'explain_contributed': annotations[KEY]['monitoring']['limiting'] if 'limiting' in annotations[KEY]['monitoring'] else "",
                 'consideration': annotations[KEY]['monitoring']['consideration'] if 'consideration' in annotations[KEY]['monitoring'] else "",
                 'means_of_verification': outcomeObj.means,  # TODO ???
             }})
+
+            try:
+                progress = int(float(data['outcomes']['list'][outcome_title]['target_value_real']) / float(data['outcomes']['list'][outcome_title]['target_value_planned']) * 100)
+            except:
+                progress = 0
+
+            data['outcomes']['list'][outcome_title]['target_value_style'] = 'transform: translateX(' + str(progress - 100) + '%);'
 
         data['outcomes_capacity'] = {}
         for wa in working_areas:
@@ -735,16 +743,18 @@ class View(grok.View):
                     capacity_title = self.getTitleSpecific(capacity)
                     data['outcomes_capacity'][wa_title]['capacities'].update({capacity_title: {
                         'title': capacity_title,
-                        'consensus': capacity['consensus'],
+                        'degree_changes': capacity['degree_changes'] if 'degree_changes' in capacity and capacity['degree_changes'] else '',
+                        'contributed_project': capacity['contributed_project'] if 'contributed_project' in capacity and capacity['contributed_project'] else '',
+                        'consensus': capacity['consensus'] if 'consensus' in capacity and capacity['consensus'] else '',
                         'main_obstacles': {
-                            'internal': "X" if 'obstacles' in capacity and 'Internal organizational' in capacity['obstacles'] else "",
-                            'external': "X" if 'obstacles' in capacity and 'External environment' in capacity['obstacles'] else "",
-                            "wop_related": "X" if 'obstacles' in capacity and 'WOP project - related' in capacity['obstacles'] else "",
+                            'internal': 'obstacles' in capacity and 'Internal organizational' in capacity['obstacles'],
+                            'external': 'obstacles' in capacity and 'External environment' in capacity['obstacles'],
+                            "wop_related": 'obstacles' in capacity and 'WOP project - related' in capacity['obstacles'],
                         },
                         'main_contributing': {
-                            'internal': "X" if 'contributing_factors' in capacity and 'Internal organizational' in capacity['contributing_factors'] else "",
-                            'external': "X" if 'contributing_factors' in capacity and 'External environment' in capacity['contributing_factors'] else "",
-                            "wop_related": "X" if 'contributing_factors' in capacity and 'WOP project - related' in capacity['contributing_factors'] else "",
+                            'internal': 'contributing_factors' in capacity and 'Internal organizational' in capacity['contributing_factors'],
+                            'external': 'contributing_factors' in capacity and 'External environment' in capacity['contributing_factors'],
+                            "wop_related": 'contributing_factors' in capacity and 'WOP project - related' in capacity['contributing_factors'],
                         },
                         'explain': capacity['explain'],
                         'means_of_verification': "",  # TODO ???

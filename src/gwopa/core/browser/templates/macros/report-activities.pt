@@ -16,27 +16,19 @@
             <tal:block tal:define="act_wa python:activities[activity]">
               <div class="activityBlock">
                 <div class="row">
-                  <div class="col-xs-6 col-sm-5">
+                  <div class="col-xs-4 col-sm-4">
                     <p class="text-bold" i18n:translate="">Activty</p>
                     <p tal:content="act_wa/title"></p>
                   </div>
-                  <div class="col-xs-3 col-sm-2">
+                  <div class="col-xs-2 col-sm-2">
                     <p class="text-bold" i18n:translate="">Start date</p>
                     <p tal:content="act_wa/start"></p>
                   </div>
-                  <div class="col-xs-3 col-sm-5">
+                  <div class="col-xs-4 col-sm-4">
                     <p class="text-bold" i18n:translate="">Completion date</p>
                     <p tal:content="act_wa/completion"></p>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-9 col-sm-9">
-                    <p class="text-bold" i18n:translate="">Baseline and Progress Description</p>
-                    <p tal:content="act_wa/description/description"></p>
-                    <p tal:content="act_wa/description/planning"></p>
-                    <p tal:content="act_wa/description/explanation_progress"></p>
-                  </div>
-                  <div class="col-xs-3 col-sm-3">
+                  <div class="col-xs-2 col-sm-2">
                     <p class="indicator text-bold"
                        tal:content="string:${act_wa/progress_tracker/progress} ${act_wa/progress_tracker/measuring_unit}">
                       25%
@@ -46,6 +38,14 @@
                       <div class="indicators-progress-bar" tal:attributes="style act_wa/progress_tracker/style"></div>
                     </div>
                   </div>
+                </div>
+                <div>
+                  <p class="text-bold" i18n:translate="">Baseline and Progress Description</p>
+                  <p tal:content="act_wa/description/description"></p>
+                  <p tal:content="act_wa/description/planning"></p>
+                  <p tal:content="act_wa/description/explanation_progress"></p>
+                </div>
+                <div class="row">
                 </div>
                 <table>
                   <thead>
@@ -90,26 +90,19 @@
                 <tal:block tal:repeat="output outputs" tal:omit-tag="">
                   <div tal:define="out_act python:outputs[output]" class="outputBlock">
                     <div class="row">
-                      <div class="col-xs-6 col-sm-5">
-                        <p class="text-bold" i18n:translate="">Activty</p>
+                      <div class="col-xs-4 col-sm-4">
+                        <p class="text-bold" i18n:translate="">Output</p>
                         <p tal:content="out_act/title"></p>
                       </div>
-                      <div class="col-xs-3 col-sm-2">
+                      <div class="col-xs-2 col-sm-2">
                         <p class="text-bold" i18n:translate="">Start date</p>
                         <p tal:content="out_act/start"></p>
                       </div>
-                      <div class="col-xs-3 col-sm-5">
+                      <div class="col-xs-4 col-sm-4">
                         <p class="text-bold" i18n:translate="">Completion date</p>
                         <p tal:content="out_act/completion"></p>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-9 col-sm-9">
-                        <p class="text-bold" i18n:translate="">Baseline and Progress Description</p>
-                        <p tal:content="out_act/description/description"></p>
-                        <p tal:content="out_act/description/explanation_progress"></p>
-                      </div>
-                      <div class="col-xs-3 col-sm-3">
+                      <div class="col-xs-2 col-sm-2">
                         <p class="indicator text-bold"
                            tal:content="string:${out_act/progress_tracker/real} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}">
                           25%
@@ -119,6 +112,11 @@
                           <div class="indicators-progress-bar" tal:attributes="style out_act/progress_tracker/style"></div>
                         </div>
                       </div>
+                    </div>
+                    <div>
+                      <p class="text-bold" i18n:translate="">Baseline and Progress Description</p>
+                      <p tal:content="out_act/description/description"></p>
+                      <p tal:content="out_act/description/explanation_progress"></p>
                     </div>
                     <table>
                       <thead>

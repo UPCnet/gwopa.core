@@ -6,7 +6,295 @@
 
   <metal:block metal:define-macro="outcomes">
 
-    <table id="tabla4" cellspacing="0" border="0">
+    <h3 i18n:translate="">Outcomes</h3>
+
+    <h4 i18n:translate="">Utility Perfomance</h4>
+
+    <tal:block tal:define="getItems report/outcomes/dash_info">
+      <div tal:condition="not:getItems" class="row">
+        <h2 i18n:translate=""> No KPIs in this Project </h2>
+      </div>
+      <div tal:condition="getItems" class="row">
+        <div class="row performance">
+          <tal:block repeat="item getItems">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <p class="bolder" tal:content="item/title"></p>
+              <div class="chart">
+                <div class="chartPerfomance" tal:attributes="data-url item/url;
+                                                             id string:chart${item/pos}">
+                  <div id="timeline-chart"></div>
+                </div>
+              </div>
+            </div>
+          </tal:block>
+        </div>
+        <div class="legendBox">
+          <span class="label label-circle">
+            <i class="fas fa-circle planned"></i>
+            <tal:omit-tag  i18n:translate="">Monitoring value </tal:omit-tag>
+          </span> &nbsp;&nbsp;
+          <span class="label label-circle">
+            <i class="fas fa-circle achieved"></i>
+            <tal:omit-tag  i18n:translate="">Target value</tal:omit-tag>
+          </span>
+        </div>
+      </div>
+    </tal:block>
+
+    <tal:block tal:define="outcomes report/outcomes/list" tal:omit-tag="">
+      <tal:block tal:repeat="outcome outcomes" tal:omit-tag="">
+        <tal:block tal:define="out python:outcomes[outcome]" tal:omit-tag="">
+          <div class="outcomeBlock">
+            <div class="row">
+              <div class="col-xs-4 col-sm-4">
+                <p class="text-bold" i18n:translate="">Outcome</p>
+                <p tal:content="out/title"></p>
+              </div>
+              <div class="col-xs-2 col-sm-2">
+                <p class="text-bold" i18n:translate="">Zone</p>
+                <p tal:content="out/zone"></p>
+              </div>
+              <div class="col-xs-2 col-sm-2">
+                <p class="text-bold" i18n:translate="">Baseline date</p>
+                <p tal:content="out/baseline_date"></p>
+              </div>
+              <div class="col-xs-2 col-sm-2">
+                <p class="text-bold" i18n:translate="">Baseline value</p>
+                <p tal:content="out/baseline_value"></p>
+              </div>
+              <div class="col-xs-2 col-sm-2">
+                <p class="indicator text-bold"
+                   tal:content="string:${out/target_value_real} / ${out/target_value_planned}">
+                  25%
+                </p>
+                <div class="indicators-progress" role="progressbar"
+                     tal:attributes="aria-valuenow out/target_value_real">
+                  <div class="indicators-progress-bar" tal:attributes="style out/target_value_style"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="text-bold" i18n:translate="">Baseline and Progress Description</p>
+              <p tal:content="out/description/description"></p>
+              <p tal:content="out/description/explanation_progress"></p>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th width="22%"></th>
+                  <th width="26%" i18n:translate="">Internal</th>
+                  <th width="26%" i18n:translate="">External</th>
+                  <th width="26%" i18n:translate="">WOP related</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th i18n:translate="">Main Obstables</th>
+                  <td tal:condition="out/main_obstacles/internal"><span class="fas fa-2x fa-check-circle"></span></td>
+                  <td tal:condition="not:out/main_obstacles/internal"></td>
+                  <td tal:condition="out/main_obstacles/external"><span class="fas fa-2x fa-check-circle"></span></td>
+                  <td tal:condition="not:out/main_obstacles/external"></td>
+                  <td tal:condition="out/main_obstacles/wop_related"><span class="fas fa-2x fa-check-circle"></span></td>
+                  <td tal:condition="not:out/main_obstacles/wop_related"></td>
+                </tr>
+                <tr>
+                  <th i18n:translate="">Main Contributing factors</th>
+                  <td tal:condition="out/main_contributing/internal"><span class="fas fa-2x fa-check-circle"></span></td>
+                  <td tal:condition="not:out/main_contributing/internal"></td>
+                  <td tal:condition="out/main_contributing/external"><span class="fas fa-2x fa-check-circle"></span></td>
+                  <td tal:condition="not:out/main_contributing/external"></td>
+                  <td tal:condition="out/main_contributing/wop_related"><span class="fas fa-2x fa-check-circle"></span></td>
+                  <td tal:condition="not:out/main_contributing/wop_related"></td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+              <p class="text-bold" i18n:translate="">Explain contributed and limiting factors</p>
+              <p tal:content="out/explain_contributed"></p>
+            </div>
+            <div>
+              <p class="text-bold" i18n:translate="">Consideration for further planning</p>
+              <p tal:content="out/consideration"></p>
+            </div>
+            <div>
+              <p class="text-bold" i18n:translate="">Means of Verification</p>
+              <p tal:content="out/means_of_verification"></p>
+            </div>
+          </div>
+        </tal:block>
+      </tal:block>
+    </tal:block>
+
+    <tal:block tal:define="outcomes_capacity report/outcomes_capacity" tal:omit-tag="">
+      <tal:block tal:repeat="ca outcomes_capacity" tal:omit-tag="">
+
+        <h4><span i18n:translate="">CAPACITY</span>: <span tal:content="ca/title"></span></h4>
+
+        <div class="stages" tal:define="stages python:outcomes_capacity[ca]['getCurrentStage']" tal:condition="stages">
+          <ul class="steps">
+            <li tal:repeat="stage stages" tal:attributes="class string:${stage/state}; id string:${stage/id}" tal:content="stage/title" i18n:translate="">Stage 1
+            </li>
+          </ul>
+        </div>
+
+        <div class="capacities">
+          <div id="chartCapacities" tal:define="outcome python:outcomes_capacity[ca]['getOutcomeCC']" tal:condition="outcome">
+            <h5 i18n:translate=""> Capacity Changes</h5>
+            <div class="legendBox">
+              <span class="label custom-legend notset" i18n:translate="">- Empty</span>
+              <span class="label custom-legend verybad" i18n:translate="">-2 Very negative</span>
+              <span class="label custom-legend bad" i18n:translate="">-1 Negative</span>
+              <span class="label custom-legend equal" i18n:translate="">0 No change</span>
+              <span class="label custom-legend good" i18n:translate="">+1 Positive</span>
+              <span class="label custom-legend verygood" i18n:translate="">+2 Very positive</span>
+            </div>
+            <tal:block condition="outcome">
+              <div class="information">
+                <div class="primerafila">
+                  <tal:block repeat="item outcome/monitoring">
+                    <tal:block condition="python: item['short_category'] == 'transformational'"
+                               tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                      <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                        <div class="item_image" tal:condition="not:item/selected_specific">
+                          <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                        </div>
+                        <div class="item_image " tal:condition="item/selected_specific">
+                          <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                        </div>
+                        <div class="item_text">
+                          <span tal:content="titleSpecific">Leadership</span>
+                        </div>
+                      </a>
+                    </tal:block>
+                  </tal:block>
+                </div>
+                <div class="segundafila">
+                  <tal:block repeat="item outcome/monitoring">
+                    <tal:block condition="python: item['short_category'] == 'transactional'"
+                               tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                      <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                        <div class="item_image" tal:condition="not:item/selected_specific">
+                          <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                        </div>
+                        <div class="item_image " tal:condition="item/selected_specific">
+                          <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                        </div>
+                        <div class="item_text">
+                          <span tal:content="titleSpecific">Leadership</span>
+                        </div>
+                      </a>
+                    </tal:block>
+                  </tal:block>
+                </div>
+                <div class="tercerafila">
+                  <tal:block repeat="item outcome/monitoring">
+                    <tal:block condition="python: item['short_category'] == 'individual'"
+                               tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                      <a tal:attributes="id string:${item/id_specific}; class string:item basic ${item/selected_monitoring};">
+                        <div class="item_image" tal:condition="not:item/selected_specific">
+                          <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                        </div>
+                        <div class="item_image " tal:condition="item/selected_specific">
+                          <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                        </div>
+                        <div class="item_text">
+                          <span tal:content="titleSpecific">Leadership</span>
+                        </div>
+                      </a>
+                    </tal:block>
+                  </tal:block>
+                </div>
+              </div>
+              <div id="others" class="information">
+                <div class="cuartafila">
+                  <tal:block repeat="item outcome/monitoring">
+                    <tal:block condition="python: item['short_category'] == 'other'"
+                               tal:define="titleSpecific python:view.getTitleSpecific(item)">
+                      <a tal:attributes="id string:${item/id_specific}; class string:other item basic ${item/selected_monitoring};">
+                        <div class="item_image" tal:condition="not:item/selected_specific">
+                          <img tal:attributes="src string:${item/icon_basic}" alt="" title="" />
+                        </div>
+                        <div class="item_image " tal:condition="item/selected_specific">
+                          <img tal:attributes="src string:${item/icon_url_selected}" alt="" title="" />
+                        </div>
+                        <div class="item_text">
+                          <span tal:content="titleSpecific">Other</span>
+                        </div>
+                      </a>
+                    </tal:block>
+                  </tal:block>
+                </div>
+              </div>
+            </tal:block>
+          </div>
+        </div>
+
+        <tal:block tal:define="capacities python:outcomes_capacity[ca]['capacities']" tal:omit-tag="">
+          <tal:block tal:repeat="capacity capacities" tal:omit-tag="">
+            <tal:block tal:define="cap python:capacities[capacity]" tal:omit-tag="">
+              <div class="capacityBlock">
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3">
+                    <p class="text-bold" i18n:translate="">Outcome</p>
+                    <p tal:content="cap/title"></p>
+                  </div>
+                  <div class="col-xs-3 col-sm-3">
+                    <p class="text-bold" i18n:translate="">Perceived degree of change</p>
+                    <p tal:content="cap/degree_changes"></p>
+                  </div>
+                  <div class="col-xs-3 col-sm-3">
+                    <p class="text-bold" i18n:translate="">Project's contribution to the perceived change</p>
+                    <p tal:content="cap/contributed_project"></p>
+                  </div>
+                  <div class="col-xs-3 col-sm-3">
+                    <p class="text-bold" i18n:translate="">Perceived change decided by</p>
+                    <p tal:content="cap/consensus"></p>
+                  </div>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th width="22%"></th>
+                      <th width="26%" i18n:translate="">Internal</th>
+                      <th width="26%" i18n:translate="">External</th>
+                      <th width="26%" i18n:translate="">WOP related</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th i18n:translate="">Main Obstables</th>
+                      <td tal:condition="cap/main_obstacles/internal"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:cap/main_obstacles/internal"></td>
+                      <td tal:condition="cap/main_obstacles/external"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:cap/main_obstacles/external"></td>
+                      <td tal:condition="cap/main_obstacles/wop_related"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:cap/main_obstacles/wop_related"></td>
+                    </tr>
+                    <tr>
+                      <th i18n:translate="">Main Contributing factors</th>
+                      <td tal:condition="cap/main_contributing/internal"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:cap/main_contributing/internal"></td>
+                      <td tal:condition="cap/main_contributing/external"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:cap/main_contributing/external"></td>
+                      <td tal:condition="cap/main_contributing/wop_related"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:cap/main_contributing/wop_related"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>
+                  <p class="text-bold" i18n:translate="">Explanation</p>
+                  <p tal:content="cap/explain"></p>
+                </div>
+              </div>
+            </tal:block>
+          </tal:block>
+        </tal:block>
+      </tal:block>
+    </tal:block>
+  </metal:block>
+</html>
+
+    <!-- <table id="tabla4" cellspacing="0" border="0">
       <colgroup width="104"></colgroup>
       <colgroup width="31"></colgroup>
       <colgroup width="95"></colgroup>
@@ -382,7 +670,6 @@
                   </div>
                   <tal:block condition="outcome">
                     <div class="information">
-                      <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transactional dimensions</h3> -->
                       <div class="primerafila">
                         <tal:block repeat="item outcome/monitoring">
                           <tal:block condition="python: item['short_category'] == 'transformational'"
@@ -401,7 +688,6 @@
                           </tal:block>
                         </tal:block>
                       </div>
-                      <!-- <h3 class="capacity-title" i18n:translate="">Individual dimensions</h3> -->
                       <div class="segundafila">
                         <tal:block repeat="item outcome/monitoring">
                           <tal:block condition="python: item['short_category'] == 'transactional'"
@@ -420,7 +706,6 @@
                           </tal:block>
                         </tal:block>
                       </div>
-                      <!-- <h3 class="capacity-title" i18n:translate="">Organitzational transformational dimensions</h3> -->
                       <div class="tercerafila">
                         <tal:block repeat="item outcome/monitoring">
                           <tal:block condition="python: item['short_category'] == 'individual'"
@@ -441,7 +726,6 @@
                       </div>
                     </div>
                     <div id="others" class="information">
-                      <!-- <h3 class="capacity-title" i18n:translate="">Others</h3> -->
                       <div class="cuartafila">
                         <tal:block repeat="item outcome/monitoring">
                           <tal:block condition="python: item['short_category'] == 'other'"
@@ -538,4 +822,4 @@
 
   </metal:block>
 
-</html>
+</html> -->
