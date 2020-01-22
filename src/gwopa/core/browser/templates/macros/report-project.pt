@@ -91,7 +91,7 @@
               <tbody>
                 <tr>
                   <td tal:attributes="style string:background-color:${donor/color} !important" class="color"></td>
-                  <td class="title" tal:content="donor/name"></td>
+                  <td class="text-bold" tal:content="donor/name"></td>
                 </tr>
                 <tr>
                   <td></td>
@@ -120,7 +120,7 @@
               <tbody>
                 <tr>
                   <td tal:attributes="style string:background-color:${oo/color} !important" class="color"></td>
-                  <td class="title" tal:content="oo/name"></td>
+                  <td class="text-bold" tal:content="oo/name"></td>
                 </tr>
                 <tr>
                   <td></td>
