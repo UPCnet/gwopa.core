@@ -471,7 +471,7 @@
               <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
             </tr>
             <tr>
-              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><p tal:content="out/description/description">AUTO ENTRY: Planning - Description/ and Initial situation description</p> <br><p tal:content="out/description/explanation_progress">AUTO ENTRY: Text form Explanation Progress</p> </font></i></td>
+              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><p tal:content="out/description/description">AUTO ENTRY: Planning - Description/ and Description of initial situation</p> <br><p tal:content="out/description/explanation_progress">AUTO ENTRY: Text form Progress Explanation</p> </font></i></td>
             </tr>
             <tr>
               <td tal:attributes="style styles/style4" colspan="5" align="left" valign="middle" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Main Obstacles </font></b></td>
@@ -632,13 +632,13 @@
                               <div class="col-xs-10 col-md-10">
                                 <label class="container" i18n:translate="">Diagnosing and action planning
                                 </label>
-                                <div>The project has started and at this point most initial needs in terms of needed capacity and resources are begin identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
+                                <div>The project has started, and at this point, most initial needs in terms of needed capacity and resources are being identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
                                 <label class="container" i18n:translate="">Initial implementation of activities
                                 </label>
-                                <div>Mostly conditions for change have been co-created but there are no visible effective changes materialized. This entails that equipment might have been procured, trainings have been implemented resulting in new knowledge to be applied by staff from mentee utility, etc.</div>
+                                <div>Conditions for change have been co-created, but there are no visible, effective changes materialized. Equipment may have been procured; trainings have been implemented, resulting in new knowledge to be applied by staff from mentee utility, etc</div>
                                 <label class="container" i18n:translate="">Visibility of changes
                                 </label>
-                                <div>Mostly there are visible changes implemented in the working routines but there is need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
+                                <div>Mostly there are visible changes implemented in the working routines, but there is a need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
                                 <label class="container" i18n:translate="">Changes consolidated
                                 </label>
                                 <div> Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice.</div>

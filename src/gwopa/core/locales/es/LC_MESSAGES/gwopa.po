@@ -662,7 +662,7 @@ msgid "Explain contributed and limiting factors"
 msgstr "Explica factores contribuidos y limitadores"
 
 #: ../browser/templates/monitoring.pt:122
-msgid "Explanation Progress"
+msgid "Progress Explanation"
 msgstr "El proceso de Explicación"
 
 #: ../browser/setup_home.py:427
@@ -883,7 +883,7 @@ msgstr "Inicio de actividades implementadas"
 
 #: ../browser/templates/planning.pt:531
 #: ../content/activity.py:64
-msgid "Initial situation description"
+msgid "Description of initial situation"
 msgstr "Descripción de la situación inicial"
 
 #: ../content/outcomeccitem.py:39
@@ -2195,7 +2195,7 @@ msgstr "Nombre completo"
 #: ../browser/templates/dash-areas.pt:39
 #: ../browser/templates/monitoring.pt:39
 #: ../browser/templates/planning.pt:39
-msgid "goes from"
+msgid "runs from"
 msgstr "va desde"
 
 #. Default: "GWOPA Menu"

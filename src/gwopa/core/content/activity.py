@@ -61,7 +61,7 @@ class IActivity(model.Schema):
     )
 
     initial_situation = schema.Text(
-        title=_(u'Initial situation description'),
+        title=_(u'Description of initial situation'),
         required=False,
         missing_value=u'',
     )

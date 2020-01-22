@@ -663,8 +663,8 @@ msgid "Explain contributed and limiting factors"
 msgstr "Explain contributed and limiting factors"
 
 #: ../browser/templates/monitoring.pt:122
-msgid "Explanation Progress"
-msgstr "Explanation Progress"
+msgid "Progress Explanation"
+msgstr "Progress Explanation"
 
 #: ../browser/setup_home.py:427
 msgid "Extension of Sanitation & Hygiene services"
@@ -884,8 +884,8 @@ msgstr "Initial implementation of activities"
 
 #: ../browser/templates/planning.pt:531
 #: ../content/activity.py:64
-msgid "Initial situation description"
-msgstr "Initial situation description"
+msgid "Description of initial situation"
+msgstr "Description of initial situation"
 
 #: ../content/outcomeccitem.py:39
 msgid "Insert the Font Awesome icon to describe this Outcome. IE: fa-globe"
@@ -2196,8 +2196,8 @@ msgstr "Fullname"
 #: ../browser/templates/dash-areas.pt:39
 #: ../browser/templates/monitoring.pt:39
 #: ../browser/templates/planning.pt:39
-msgid "goes from"
-msgstr "goes from"
+msgid "runs from"
+msgstr "runs from"
 
 #. Default: "GWOPA Menu"
 #: ../portlets/sidenav.py:22

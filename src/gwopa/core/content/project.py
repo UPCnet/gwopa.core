@@ -135,14 +135,14 @@ class IProject(model.Schema):
 
     code = schema.TextLine(
         title=_(u"Code"),
-        description=_(u"Code of project"),
+        description=_(u"Project Code"),
         required=True,
     )
 
     dexteritytextindexer.searchable('objectives')
     objectives = RichText(
         title=_(u'Project description and main objectives'),
-        description=_(u'Use this area to add all the objectives and description of the project'),
+        description=_(u'Use this area to introduce the project description and a summary of all the project objectives'),
         required=False,
     )
 
@@ -285,7 +285,7 @@ class IProject(model.Schema):
     form.widget(fieldset_geolocation=FieldsetFieldWidget)
     fieldset_geolocation = schema.Text(
         title=_(u'Geolocation'),
-        default=_(u'Geolocation'),
+        default=_(u'City'),
         required=False,
     )
 

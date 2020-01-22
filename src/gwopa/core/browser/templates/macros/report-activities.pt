@@ -274,8 +274,8 @@
                 <tr>
                   <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
                     <p tal:content="act_wa/description/description">AUTO ENTRY: Description</p>
-                    <p tal:content="act_wa/description/planning">AUTO ENTRY: Planning and Initial situation description</p>
-                    <p tal:content="act_wa/description/explanation_progress">AUTO ENTRY: Text form Explanation Progress</p>
+                    <p tal:content="act_wa/description/planning">AUTO ENTRY: Planning and Description of initial situation</p>
+                    <p tal:content="act_wa/description/explanation_progress">AUTO ENTRY: Text form Progress Explanation</p>
                   </font></i></td>
                 </tr>
                 <tr>
@@ -343,7 +343,7 @@
                       <tr>
                         <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
                           <p tal:content="out_act/description/description">AUTO ENTRY: Description</p>
-                          <p tal:content="out_act/description/explanation_progress">AUTO ENTRY: Text form Explanation Progress</p>
+                          <p tal:content="out_act/description/explanation_progress">AUTO ENTRY: Text form Progress Explanation</p>
                         </font></i></td>
                       </tr>
                       <tr>

@@ -28,11 +28,11 @@
     </div>
 
     <div class="infoSummary">
-      <p class="editField text-bold" i18n:translate="">Progress stakeholders</p>
+      <p class="editField text-bold" i18n:translate="">Reporting period Summary</p>
       <span data-toggle="modal" data-target="#stakeholdersModal" class="fa fa-edit"></span>
       <p id="stakeholders" tal:content="report/summary/progress/stakeholders">Stakeholders</p>
 
-      <p class="editField text-bold" i18n:translate="">Other additional challenges</p>
+      <p class="editField text-bold" i18n:translate="">Challenges, lessons learned and deviations</p>
       <span data-toggle="modal" data-target="#otherModal" class="fa fa-edit"></span>
       <p id="other" tal:content="report/summary/other">Other</p>
     </div>
@@ -42,7 +42,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="stakeholdersLabel" i18n:translate="">Progress stakeholders</h5>
+            <h5 class="modal-title" id="stakeholdersLabel" i18n:translate="">Reporting period Summary</h5>
           </div>
           <div class="modal-body">
             <textarea tal:content="report/summary/progress/stakeholders"></textarea>
@@ -59,7 +59,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="otherLabel" i18n:translate="">Other additional challenges</h5>
+            <h5 class="modal-title" id="otherLabel" i18n:translate="">Challenges, lessons learned and deviations</h5>
           </div>
           <div class="modal-body">
             <textarea tal:content="report/summary/other"></textarea>
@@ -140,7 +140,7 @@
         <td tal:attributes="style styles/style1" colspan="10" height="69" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/progress/stakeholders">Open field: Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders</span></font></i></td>
       </tr>
       <tr tal:condition="report/summary/other">
-        <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other">Open field:  Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans</span></font></i></td>
+        <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other">Open field:  Insert a maximum of two paragraphs summarizig the or Challenges, lessons learned and deviations/ lessons learned/ deviations to plans</span></font></i></td>
       </tr>
     </table> -->
 
