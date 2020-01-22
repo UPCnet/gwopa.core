@@ -58,7 +58,7 @@
               <tbody>
                 <tr>
                   <td tal:attributes="style string:background-color:${wa/color} !important" class="color"></td>
-                  <td class="title" tal:content="wa/name"></td>
+                  <td class="text-bold" tal:content="wa/name"></td>
                 </tr>
                 <tr>
                   <td></td>

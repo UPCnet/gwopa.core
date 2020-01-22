@@ -6,7 +6,7 @@
 
   <metal:block metal:define-macro="summary">
 
-    <h3 i18n:translate="">Summary</h3>
+    <h3 i18n:translate="">Activities and Outputs Progress</h3>
 
     <p tal:content="report/summary/working_areas">Working areas, ...</p>
 

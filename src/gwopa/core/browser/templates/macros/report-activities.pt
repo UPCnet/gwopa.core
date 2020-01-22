@@ -6,7 +6,175 @@
 
   <metal:block metal:define-macro="activities">
 
-    <table id="tabla3" cellspacing="0" border="0">
+    <h3 i18n:translate="">Activities and Outputs Progress</h3>
+
+    <tal:block tal:define="activities_outputs report/activities_outputs" tal:omit-tag="">
+      <tal:block tal:repeat="wa activities_outputs" tal:omit-tag="">
+        <h4><span i18n:translate="">WORKING AREA</span>: <span tal:content="wa/title"></span></h4>
+        <tal:block tal:define="activities python:activities_outputs[wa]['activities']" tal:omit-tag="">
+          <tal:block tal:repeat="activity activities" tal:omit-tag="">
+            <tal:block tal:define="act_wa python:activities[activity]">
+              <div class="activityBlock">
+                <div class="row">
+                  <div class="col-xs-6 col-sm-5">
+                    <p class="text-bold" i18n:translate="">Activty</p>
+                    <p tal:content="act_wa/title"></p>
+                  </div>
+                  <div class="col-xs-3 col-sm-2">
+                    <p class="text-bold" i18n:translate="">Start date</p>
+                    <p tal:content="act_wa/start"></p>
+                  </div>
+                  <div class="col-xs-3 col-sm-5">
+                    <p class="text-bold" i18n:translate="">Completion date</p>
+                    <p tal:content="act_wa/completion"></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-9 col-sm-9">
+                    <p class="text-bold" i18n:translate="">Baseline and Progress Description</p>
+                    <p tal:content="act_wa/description/description"></p>
+                    <p tal:content="act_wa/description/planning"></p>
+                    <p tal:content="act_wa/description/explanation_progress"></p>
+                  </div>
+                  <div class="col-xs-3 col-sm-3">
+                    <p class="indicator text-bold"
+                       tal:content="string:${act_wa/progress_tracker/progress} ${act_wa/progress_tracker/measuring_unit}">
+                      25%
+                    </p>
+                    <div class="indicators-progress" role="progressbar"
+                         tal:attributes="aria-valuenow act_wa/progress_tracker/progress">
+                      <div class="indicators-progress-bar" tal:attributes="style act_wa/progress_tracker/style"></div>
+                    </div>
+                  </div>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th width="22%"></th>
+                      <th width="26%" i18n:translate="">Internal</th>
+                      <th width="26%" i18n:translate="">External</th>
+                      <th width="26%" i18n:translate="">WOP related</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th i18n:translate="">Main Obstables</th>
+                      <td tal:condition="act_wa/main_obstacles/internal"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:act_wa/main_obstacles/internal"></td>
+                      <td tal:condition="act_wa/main_obstacles/external"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:act_wa/main_obstacles/external"></td>
+                      <td tal:condition="act_wa/main_obstacles/wop_related"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:act_wa/main_obstacles/wop_related"></td>
+                    </tr>
+                    <tr>
+                      <th i18n:translate="">Main Contributing factors</th>
+                      <td tal:condition="act_wa/main_contributing/internal"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:act_wa/main_contributing/internal"></td>
+                      <td tal:condition="act_wa/main_contributing/external"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:act_wa/main_contributing/external"></td>
+                      <td tal:condition="act_wa/main_contributing/wop_related"><span class="fas fa-2x fa-check-circle"></span></td>
+                      <td tal:condition="not:act_wa/main_contributing/wop_related"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>
+                  <p class="text-bold" i18n:translate="">Explain contributed and limiting factors</p>
+                  <p tal:content="act_wa/explain_limiting"></p>
+                </div>
+                <div>
+                  <p class="text-bold" i18n:translate="">Consideration for further planning</p>
+                  <p tal:content="act_wa/cosidetation_for_future"></p>
+                </div>
+              </div>
+              <tal:block tal:define="outputs python:act_wa['outputs']" tal:omit-tag="">
+                <tal:block tal:repeat="output outputs" tal:omit-tag="">
+                  <div tal:define="out_act python:outputs[output]" class="outputBlock">
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-5">
+                        <p class="text-bold" i18n:translate="">Activty</p>
+                        <p tal:content="out_act/title"></p>
+                      </div>
+                      <div class="col-xs-3 col-sm-2">
+                        <p class="text-bold" i18n:translate="">Start date</p>
+                        <p tal:content="out_act/start"></p>
+                      </div>
+                      <div class="col-xs-3 col-sm-5">
+                        <p class="text-bold" i18n:translate="">Completion date</p>
+                        <p tal:content="out_act/completion"></p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-9 col-sm-9">
+                        <p class="text-bold" i18n:translate="">Baseline and Progress Description</p>
+                        <p tal:content="out_act/description/description"></p>
+                        <p tal:content="out_act/description/explanation_progress"></p>
+                      </div>
+                      <div class="col-xs-3 col-sm-3">
+                        <p class="indicator text-bold"
+                           tal:content="string:${out_act/progress_tracker/real} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}">
+                          25%
+                        </p>
+                        <div class="indicators-progress" role="progressbar"
+                             tal:attributes="aria-valuenow out_act/progress_tracker/progress">
+                          <div class="indicators-progress-bar" tal:attributes="style out_act/progress_tracker/style"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th width="22%"></th>
+                          <th width="26%" i18n:translate="">Internal</th>
+                          <th width="26%" i18n:translate="">External</th>
+                          <th width="26%" i18n:translate="">WOP related</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th i18n:translate="">Main Obstables</th>
+                          <td tal:condition="out_act/main_obstacles/internal"><span class="fas fa-2x fa-check-circle"></span></td>
+                          <td tal:condition="not:out_act/main_obstacles/internal"></td>
+                          <td tal:condition="out_act/main_obstacles/external"><span class="fas fa-2x fa-check-circle"></span></td>
+                          <td tal:condition="not:out_act/main_obstacles/external"></td>
+                          <td tal:condition="out_act/main_obstacles/wop_related"><span class="fas fa-2x fa-check-circle"></span></td>
+                          <td tal:condition="not:out_act/main_obstacles/wop_related"></td>
+                        </tr>
+                        <tr>
+                          <th i18n:translate="">Main Contributing factors</th>
+                          <td tal:condition="out_act/main_contributing/internal"><span class="fas fa-2x fa-check-circle"></span></td>
+                          <td tal:condition="not:out_act/main_contributing/internal"></td>
+                          <td tal:condition="out_act/main_contributing/external"><span class="fas fa-2x fa-check-circle"></span></td>
+                          <td tal:condition="not:out_act/main_contributing/external"></td>
+                          <td tal:condition="out_act/main_contributing/wop_related"><span class="fas fa-2x fa-check-circle"></span></td>
+                          <td tal:condition="not:out_act/main_contributing/wop_related"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div>
+                      <p class="text-bold" i18n:translate="">Explain contributed and limiting factors</p>
+                      <p tal:content="out_act/explain_limiting"></p>
+                    </div>
+                    <div>
+                      <p class="text-bold" i18n:translate="">Consideration for further planning</p>
+                      <p tal:content="out_act/cosidetation_for_future"></p>
+                    </div>
+                    <div>
+                      <p class="text-bold" i18n:translate="">Means of Verification</p>
+                      <p tal:content="out_act/means_of_verification"></p>
+                    </div>
+                  </div>
+                </tal:block>
+              </tal:block>
+            </tal:block>
+          </tal:block>
+        </tal:block>
+      </tal:block>
+    </tal:block>
+  </metal:block>
+</html>
+
+
+    <!-- <table id="tabla3" cellspacing="0" border="0">
       <colgroup width="80"></colgroup>
       <colgroup width="71"></colgroup>
       <colgroup width="27"></colgroup>
@@ -226,6 +394,5 @@
         </tal:block>
       </tal:block>
     </table>
-
   </metal:block>
-</html>
+</html> -->

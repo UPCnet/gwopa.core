@@ -614,7 +614,7 @@ class View(grok.View):
                     'start': activityObj.start.strftime('%m/%d/%Y'),
                     'completion': activityObj.end.strftime('%m/%d/%Y'),
                     'progress_tracker': {
-                        'progress': activityAnn[KEY]['monitoring']['progress'] if 'progress' in activityAnn[KEY]['monitoring'] else 0,
+                        'progress': activityAnn[KEY]['monitoring']['progress'] if 'progress' in activityAnn[KEY]['monitoring'] and activityAnn[KEY]['monitoring']['progress'] else 0,
                         'real': '100',
                         'measuring_unit': '%',
                         'style': ''
@@ -625,14 +625,14 @@ class View(grok.View):
                         'explanation_progress': activityAnn[KEY]['monitoring']['explanation'] if 'explanation' in activityAnn[KEY]['monitoring'] else "",
                     },
                     'main_obstacles': {
-                        'internal': "X" if 'obstacles' in activityAnn[KEY]['monitoring'] and 'Internal organizational' in activityAnn[KEY]['monitoring']['obstacles'] else "",
-                        'external': "X" if 'obstacles' in activityAnn[KEY]['monitoring'] and 'External environment' in activityAnn[KEY]['monitoring']['obstacles'] else "",
-                        "wop_related": "X" if 'obstacles' in activityAnn[KEY]['monitoring'] and 'WOP project - related' in activityAnn[KEY]['monitoring']['obstacles'] else "",
+                        'internal': 'obstacles' in activityAnn[KEY]['monitoring'] and 'Internal organizational' in activityAnn[KEY]['monitoring']['obstacles'],
+                        'external': 'obstacles' in activityAnn[KEY]['monitoring'] and 'External environment' in activityAnn[KEY]['monitoring']['obstacles'],
+                        "wop_related": 'obstacles' in activityAnn[KEY]['monitoring'] and 'WOP project - related' in activityAnn[KEY]['monitoring']['obstacles'],
                     },
                     'main_contributing': {
-                        'internal': "X" if 'contributing' in activityAnn[KEY]['monitoring'] and 'Internal organizational' in activityAnn[KEY]['monitoring']['contributing'] else "",
-                        'external': "X" if 'contributing' in activityAnn[KEY]['monitoring'] and 'External environment' in activityAnn[KEY]['monitoring']['contributing'] else "",
-                        "wop_related": "X" if 'contributing' in activityAnn[KEY]['monitoring'] and 'WOP project - related' in activityAnn[KEY]['monitoring']['contributing'] else "",
+                        'internal': 'contributing' in activityAnn[KEY]['monitoring'] and 'Internal organizational' in activityAnn[KEY]['monitoring']['contributing'],
+                        'external': 'contributing' in activityAnn[KEY]['monitoring'] and 'External environment' in activityAnn[KEY]['monitoring']['contributing'],
+                        "wop_related": 'contributing' in activityAnn[KEY]['monitoring'] and 'WOP project - related' in activityAnn[KEY]['monitoring']['contributing'],
                     },
                     'explain_limiting': activityAnn[KEY]['monitoring']['limiting'] if 'limiting' in activityAnn[KEY]['monitoring'] else "",
                     'cosidetation_for_future': activityAnn[KEY]['monitoring']['consideration'] if 'consideration' in activityAnn[KEY]['monitoring'] else "",
@@ -653,7 +653,7 @@ class View(grok.View):
                         'completion': outputObj.end.strftime('%m/%d/%Y'),
                         'progress_tracker': {
                             'progress': outputAnn[KEY]['planned'],
-                            'real': outputAnn[KEY]['real'] if outputAnn[KEY]['real'] else 0,
+                            'real': outputAnn[KEY]['real'] if 'real' in outputAnn[KEY] and outputAnn[KEY]['real'] else 0,
                             'measuring_unit': utils.getTranslatedMesuringUnitFromID(outputObj.measuring_unit),
                             'style': ''
                         },
@@ -662,14 +662,14 @@ class View(grok.View):
                             'explanation_progress': outputAnn[KEY]['monitoring']['explanation'] if 'explanation' in outputAnn[KEY]['monitoring'] else "",
                         },
                         'main_obstacles': {
-                            'internal': "X" if 'obstacles' in outputAnn[KEY]['monitoring'] and 'Internal organizational' in outputAnn[KEY]['monitoring']['obstacles'] else "",
-                            'external': "X" if 'obstacles' in outputAnn[KEY]['monitoring'] and 'External environment' in outputAnn[KEY]['monitoring']['obstacles'] else "",
-                            "wop_related": "X" if 'obstacles' in outputAnn[KEY]['monitoring'] and 'WOP project - related' in outputAnn[KEY]['monitoring']['obstacles'] else "",
+                            'internal': 'obstacles' in outputAnn[KEY]['monitoring'] and 'Internal organizational' in outputAnn[KEY]['monitoring']['obstacles'],
+                            'external': 'obstacles' in outputAnn[KEY]['monitoring'] and 'External environment' in outputAnn[KEY]['monitoring']['obstacles'],
+                            "wop_related": 'obstacles' in outputAnn[KEY]['monitoring'] and 'WOP project - related' in outputAnn[KEY]['monitoring']['obstacles'],
                         },
                         'main_contributing': {
-                            'internal': "X" if 'contributing' in outputAnn[KEY]['monitoring'] and 'Internal organizational' in outputAnn[KEY]['monitoring']['contributing'] else "",
-                            'external': "X" if 'contributing' in outputAnn[KEY]['monitoring'] and 'External environment' in outputAnn[KEY]['monitoring']['contributing'] else "",
-                            "wop_related": "X" if 'contributing' in outputAnn[KEY]['monitoring'] and 'WOP project - related' in outputAnn[KEY]['monitoring']['contributing'] else "",
+                            'internal': 'contributing' in outputAnn[KEY]['monitoring'] and 'Internal organizational' in outputAnn[KEY]['monitoring']['contributing'],
+                            'external': 'contributing' in outputAnn[KEY]['monitoring'] and 'External environment' in outputAnn[KEY]['monitoring']['contributing'],
+                            "wop_related": 'contributing' in outputAnn[KEY]['monitoring'] and 'WOP project - related' in outputAnn[KEY]['monitoring']['contributing'],
                         },
                         'explain_limiting': outputAnn[KEY]['monitoring']['limiting'] if 'limiting' in outputAnn[KEY]['monitoring'] else "",
                         'cosidetation_for_future': outputAnn[KEY]['monitoring']['consideration'] if 'consideration' in outputAnn[KEY]['monitoring'] else "",
@@ -677,7 +677,7 @@ class View(grok.View):
                     }})
 
                     try:
-                        progress = int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['progress']) / int(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['real']) * 100
+                        progress = int(float(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['real']) / float(data['activities_outputs'][wa_title]['activities'][activity_title]['outputs'][output_title]['progress_tracker']['progress']) * 100)
                     except:
                         progress = 0
 
