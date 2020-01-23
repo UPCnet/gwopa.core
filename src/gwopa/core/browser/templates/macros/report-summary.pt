@@ -14,26 +14,43 @@
 
     <div class="row overallProjectStatus">
       <div class="col-xs-4 col-sm-4 status">
-        <div class="bg-danger" tal:condition="report/summary/progress/roadblock"><p class="text-center" i18n:translate="">Roadblock</p></div>
-        <div class="bg-disabled" data-status="roadblock" tal:condition="not:report/summary/progress/roadblock"><p class="text-center" i18n:translate="">Roadblock</p></div>
+        <div class="bg-danger" tal:condition="report/summary/progress/roadblock">
+          <p class="text-center" i18n:translate="">Roadblock</p>
+        </div>
+        <div class="bg-disabled" data-status="roadblock" tal:condition="not:report/summary/progress/roadblock"
+             i18n:attributes="title Select the overall project status by clicking on one of the three options below">
+          <p class="text-center" i18n:translate="">Roadblock</p>
+        </div>
       </div>
       <div class="col-xs-4 col-sm-4 status">
-        <div class="bg-warning" tal:condition="report/summary/progress/potential"><p class="text-center" i18n:translate="">Potential Risks/Delays</p></div>
-        <div class="bg-disabled" data-status="potential" tal:condition="not:report/summary/progress/potential"><p class="text-center" i18n:translate="">Potential Risks/Delays</p></div>
+        <div class="bg-warning" tal:condition="report/summary/progress/potential">
+          <p class="text-center" i18n:translate="">Potential Risks/Delays</p>
+        </div>
+        <div class="bg-disabled" data-status="potential" tal:condition="not:report/summary/progress/potential"
+             i18n:attributes="title Select the overall project status by clicking on one of the three options below">
+          <p class="text-center" i18n:translate="">Potential Risks/Delays</p>
+        </div>
       </div>
       <div class="col-xs-4 col-sm-4 status">
-        <div class="bg-success" tal:condition="report/summary/progress/ontrack"><p class="text-center" i18n:translate="">On track</p></div>
-        <div class="bg-disabled" data-status="ontrack" tal:condition="not:report/summary/progress/ontrack"><p class="text-center" i18n:translate="">On track</p></div>
+        <div class="bg-success" tal:condition="report/summary/progress/ontrack">
+          <p class="text-center" i18n:translate="">On track</p>
+        </div>
+        <div class="bg-disabled" data-status="ontrack" tal:condition="not:report/summary/progress/ontrack"
+             i18n:attributes="title Select the overall project status by clicking on one of the three options below">
+          <p class="text-center" i18n:translate="">On track</p>
+        </div>
       </div>
     </div>
 
     <div class="infoSummary">
       <p class="editField text-bold" i18n:translate="">Reporting period Summary</p>
-      <span data-toggle="modal" data-target="#stakeholdersModal" class="fa fa-edit"></span>
+      <span data-toggle="modal" data-target="#stakeholdersModal" class="fa fa-edit"
+            i18n:attributes="title Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders"></span>
       <p id="stakeholders" tal:content="report/summary/progress/stakeholders">Stakeholders</p>
 
       <p class="editField text-bold" i18n:translate="">Challenges, lessons learned and deviations</p>
-      <span data-toggle="modal" data-target="#otherModal" class="fa fa-edit"></span>
+      <span data-toggle="modal" data-target="#otherModal" class="fa fa-edit"
+            i18n:attributes="title Insert a maximum of two paragraphs summarizing other additional challenges, lessons learned or deviations to plans"></span>
       <p id="other" tal:content="report/summary/other">Other</p>
     </div>
 
