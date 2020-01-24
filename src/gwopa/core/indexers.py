@@ -103,3 +103,41 @@ class UserPropertiesSoupCatalogFactory(object):
 
 
 grok.global_utility(UserPropertiesSoupCatalogFactory, name='user_properties')
+
+
+@implementer(ICatalogFactory)
+class NotifyReportsSoupCatalogFactory(object):
+    """ The local user catalog (LUC) properties index factory. Almost all the
+        properties have a field type "FullTextIndex" to allow wildcard queries
+        on them. However, the FullTextIndex has a limitation its supported type
+        of queries, so for certain operations is needed a FieldIndex for the
+        username.
+
+        :index id: FieldIndex - The group id for exact queries
+        :index searchable_id: FullTextIndex - The group id used for wildcard
+            queries
+    """
+    def __call__(self, context):
+        catalog = Catalog()
+        projectindexer = NodeAttributeIndexer('id')
+        catalog['id'] = CatalogFieldIndex(projectindexer)
+
+        project_url = NodeAttributeIndexer('project_url')
+        catalog['project_url'] = CatalogTextIndex(project_url)
+
+        project_title = NodeAttributeIndexer('project_title')
+        catalog['project_title'] = CatalogTextIndex(project_title)
+
+        email = NodeAttributeIndexer('email')
+        catalog['email'] = CatalogTextIndex(email)
+
+        date_email_report = NodeAttributeIndexer('date_email_report')
+        catalog['date_email_report'] = CatalogTextIndex(date_email_report)
+
+        date_generate_report = NodeAttributeIndexer('date_generate_report')
+        catalog['date_generate_report'] = CatalogTextIndex(date_generate_report)
+
+        return catalog
+
+
+grok.global_utility(NotifyReportsSoupCatalogFactory, name='notify_reports')
