@@ -285,7 +285,7 @@ class IProject(model.Schema):
     form.widget(fieldset_geolocation=FieldsetFieldWidget)
     fieldset_geolocation = schema.Text(
         title=_(u'Geolocation'),
-        default=_(u'City'),
+        default=_(u'Geolocation'),
         required=False,
     )
 
@@ -300,7 +300,7 @@ class IProject(model.Schema):
 
     dexteritytextindexer.searchable('location')
     location = schema.TextLine(
-        title=_(u"Location"),
+        title=_(u"City"),
         description=_(u"Write the project location"),
         required=False,
     )
