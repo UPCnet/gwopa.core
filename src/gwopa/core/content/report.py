@@ -123,6 +123,7 @@ class IReport(model.Schema):
         description=_(u"Choose sections to view in the report."),
         value_type=schema.Choice(
             source=listSectionsReport),
+        default=['Project Overview', 'Summary', 'Activities and Outputs Progress', 'Outcomes', 'Budget'],
         required=True,
     )
 
