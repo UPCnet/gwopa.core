@@ -23,6 +23,7 @@ from gwopa.core.utils import getUserLang
 
 import datetime
 import random
+import transaction
 
 grok.templatedir("templates")
 
@@ -267,7 +268,7 @@ class View(grok.View):
         total = 0
         for activity in activities:
             try:
-                total += Decimal(activity['assigned_budget'])
+                total += Decimal(activities[activity]['assigned_budget'])
             except:
                 pass
 
@@ -462,7 +463,7 @@ class View(grok.View):
             self.context.save_data['summary']['progress']['ontrack'] = self.context.overall_project_status == 'ontrack'
             self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders
             self.context.save_data['summary']['other'] = self.context.other_additional_challenges
-            # return self.context.save_data
+            return self.context.save_data
 
         data = {}
         attr_lang = getTitleAttrLang()
@@ -761,7 +762,7 @@ class View(grok.View):
                     }})
 
         data['budget'] = {
-            'planned_activities': [],
+            'planned_activities': {},
             'total_budget': "",
         }
 
@@ -770,12 +771,14 @@ class View(grok.View):
             context=project)
 
         for activity in allActivities:
+            act_title = '[' + getattr(activityObj.aq_parent, attr_lang.lower()) + '] ' + activity.Title
             activityObj = activity.getObject()
-            data['budget']['planned_activities'].append({
-                'wa_title': getattr(activityObj.aq_parent, attr_lang.lower()),
-                'title': activity.Title,
+            data['budget']['planned_activities'].update({act_title: {
+                'title': act_title,
                 'assigned_budget': activityObj.budget,
-            })
+                'expenditure_reporting_period': '',
+                'total_expenditure_date': '',
+            }})
 
         data['budget']['total_budget'] = self.getTotalAssignedBudget(data['budget']['planned_activities'])
 
@@ -907,6 +910,8 @@ class ModifySummaryStatus(grok.View):
 
     def render(self):
         self.context.overall_project_status = self.request.form.get('status')
+        self.context.reindexObject()
+        transaction.commit()
 
 
 class ModifySummaryProgressStakeholders(grok.View):
@@ -915,6 +920,8 @@ class ModifySummaryProgressStakeholders(grok.View):
 
     def render(self):
         self.context.progress_stakeholders = self.request.form.get('text')
+        self.context.reindexObject()
+        transaction.commit()
 
 
 class ModifySummaryOtherAdditionalChallenges(grok.View):
@@ -923,3 +930,27 @@ class ModifySummaryOtherAdditionalChallenges(grok.View):
 
     def render(self):
         self.context.other_additional_challenges = self.request.form.get('text')
+        self.context.reindexObject()
+        transaction.commit()
+
+
+class ModifyExpenditureReportingPeriod(grok.View):
+    grok.context(IReport)
+    grok.require('zope2.View')
+
+    def render(self):
+        activity = self.request.form.get('activity', '')
+        self.context.save_data['budget']['planned_activities'][activity]['expenditure_reporting_period'] = self.request.form.get('text', '')
+        self.context.reindexObject()
+        transaction.commit()
+
+
+class ModifyTotalExpenditureDate(grok.View):
+    grok.context(IReport)
+    grok.require('zope2.View')
+
+    def render(self):
+        activity = self.request.form.get('activity', '')
+        self.context.save_data['budget']['planned_activities'][activity]['total_expenditure_date'] = self.request.form.get('text', '')
+        self.context.reindexObject()
+        transaction.commit()

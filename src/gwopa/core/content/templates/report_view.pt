@@ -143,6 +143,7 @@
       <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-budgets.js"></script>
       <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-summary.js"></script>
       <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-kpis.js"></script>
+      <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-activity-budgets.js"></script>
       <!-- <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/reporting.js"></script> -->
 
     </metal:block>

@@ -18,7 +18,7 @@
           <p class="text-center" i18n:translate="">Roadblock</p>
         </div>
         <div class="bg-disabled" data-status="roadblock" tal:condition="not:report/summary/progress/roadblock"
-             i18n:attributes="title Select the overall project status by clicking on one of the three options below">
+             title="Select the overall project status by clicking on one of the three options below">
           <p class="text-center" i18n:translate="">Roadblock</p>
         </div>
       </div>
@@ -27,7 +27,7 @@
           <p class="text-center" i18n:translate="">Potential Risks/Delays</p>
         </div>
         <div class="bg-disabled" data-status="potential" tal:condition="not:report/summary/progress/potential"
-             i18n:attributes="title Select the overall project status by clicking on one of the three options below">
+             title="Select the overall project status by clicking on one of the three options below">
           <p class="text-center" i18n:translate="">Potential Risks/Delays</p>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <p class="text-center" i18n:translate="">On track</p>
         </div>
         <div class="bg-disabled" data-status="ontrack" tal:condition="not:report/summary/progress/ontrack"
-             i18n:attributes="title Select the overall project status by clicking on one of the three options below">
+             title="Select the overall project status by clicking on one of the three options below">
           <p class="text-center" i18n:translate="">On track</p>
         </div>
       </div>
@@ -45,12 +45,12 @@
     <div class="infoSummary">
       <p class="editField text-bold" i18n:translate="">Reporting period Summary</p>
       <span data-toggle="modal" data-target="#stakeholdersModal" class="fa fa-edit"
-            i18n:attributes="title Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders"></span>
+            title="Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders"></span>
       <p id="stakeholders" tal:content="report/summary/progress/stakeholders">Stakeholders</p>
 
       <p class="editField text-bold" i18n:translate="">Challenges, lessons learned and deviations</p>
       <span data-toggle="modal" data-target="#otherModal" class="fa fa-edit"
-            i18n:attributes="title Insert a maximum of two paragraphs summarizing other additional challenges, lessons learned or deviations to plans"></span>
+            title="Insert a maximum of two paragraphs summarizing other additional challenges, lessons learned or deviations to plans"></span>
       <p id="other" tal:content="report/summary/other">Other</p>
     </div>
 
@@ -88,7 +88,8 @@
         </div>
       </div>
     </div>
-
+  </metal:block>
+</html>
 
     <!-- <table id="tabla2" cellspacing="0" border="0">
       <colgroup width="253"></colgroup>
@@ -159,8 +160,8 @@
       <tr tal:condition="report/summary/other">
         <td tal:attributes="style styles/style1" colspan="10" height="97" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><span tal:content="structure report/summary/other">Open field:  Insert a maximum of two paragraphs summarizig the or Challenges, lessons learned and deviations/ lessons learned/ deviations to plans</span></font></i></td>
       </tr>
-    </table> -->
+    </table>
 
   </metal:block>
 
-</html>
+</html> -->

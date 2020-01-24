@@ -4,9 +4,94 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="gwopa">
 
-  <metal:block metal:define-macro="budget">
+  <metal:block metal:define-macro="budget" tal:define="currency report/project_overview/currency">
 
-    <table id="tabla5" cellspacing="0" border="0">
+    <h3 i18n:translate="">Budget</h3>
+
+    <div class="row bg-gray">
+      <div class="col-xs-5 col-sm-5">
+        <p class="text-bold" i18n:translate="">Total budget</p>
+      </div>
+      <div class="col-xs-7 col-sm-7">
+        <p class="text-bold" tal:content="string:${report/budget/total_budget}${currency}"></p>
+      </div>
+    </div>
+
+    <table class="budgetsTable">
+      <thead>
+        <tr>
+          <th width="40%" i18n:translate="">Activity name</th>
+          <th width="20%" i18n:translate="">Assigned budget</th>
+          <th width="20%" i18n:translate="">Expenditure this reporting period</th>
+          <th width="20%" i18n:translate="">Total expenditure to date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="activity report/budget/planned_activities">
+          <tal:block tal:define="act python:report['budget']['planned_activities'][activity]">
+            <td tal:content="act/title"></td>
+            <td tal:content="string:${act/assigned_budget}${currency}"></td>
+            <td>
+              <span id="expenditureReportingPeriod"
+                    tal:condition="act/expenditure_reporting_period"
+                    tal:content="string:${act/expenditure_reporting_period}${currency}"></span>
+              <span tal:condition="not:act/expenditure_reporting_period">-------</span>
+              <span data-toggle="modal" data-target="#expenditureReportingPeriodModal" class="fa fa-edit"
+                    tal:attributes="data-activity act/title"></span>
+            </td>
+            <td>
+              <span id="totalExpenditureDate"
+                    tal:condition="act/total_expenditure_date"
+                    tal:content="string:${act/total_expenditure_date}${currency}"></span>
+              <span tal:condition="not:act/total_expenditure_date">-------</span>
+              <span data-toggle="modal" data-target="#totalExpenditureDateModal" class="fa fa-edit"
+                    tal:attributes="data-activity act/title"></span>
+            </td>
+          </tal:block>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="modal fade" id="expenditureReportingPeriodModal" tabindex="-1" role="dialog"
+         aria-labelledby="expenditureReportingPeriodLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="expenditureReportingPeriodLabel" i18n:translate="">Expenditure this reporting period</h5>
+          </div>
+          <div class="modal-body">
+            <input type="number" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" i18n:translate="">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" i18n:translate="">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="totalExpenditureDateModal" tabindex="-1" role="dialog"
+         aria-labelledby="totalExpenditureDateLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="totalExpenditureDateLabel" i18n:translate="">Total expenditure to date</h5>
+          </div>
+          <div class="modal-body">
+            <input type="number" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" i18n:translate="">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" i18n:translate="">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </metal:block>
+</html>
+
+    <!-- <table id="tabla5" cellspacing="0" border="0">
       <colgroup width="253"></colgroup>
       <colgroup width="95"></colgroup>
       <colgroup width="160"></colgroup>
@@ -72,4 +157,4 @@
 
   </metal:block>
 
-</html>
+</html> -->
