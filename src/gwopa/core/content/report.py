@@ -415,21 +415,23 @@ class View(grok.View):
                               'url': items[0].getURL() + '/@@images/image'})
 
         # PLATFOWMS OR PROGRAMS
-        items = api.content.find(
-            portal_type=['Platform'],
-            Title=project.wop_platform)
+        if project.wop_platform:
+            items = api.content.find(
+                portal_type=['Platform'],
+                Title=project.wop_platform)
 
-        if items and items[0].getObject().image:
-            logos.append({'name': project.wop_platform,
-                          'url': items[0].getURL() + '/@@images/image'})
+            if items and items[0].getObject().image:
+                logos.append({'name': project.wop_platform,
+                              'url': items[0].getURL() + '/@@images/image'})
 
-        items = api.content.find(
-            portal_type=['Program'],
-            Title=project.wop_program)
+        if project.wop_program:
+            items = api.content.find(
+                portal_type=['Program'],
+                Title=project.wop_program)
 
-        if items and items[0].getObject().image:
-            logos.append({'name': project.wop_program,
-                          'url': items[0].getURL() + '/@@images/image'})
+            if items and items[0].getObject().image:
+                logos.append({'name': project.wop_program,
+                              'url': items[0].getURL() + '/@@images/image'})
 
         # WATER OPERATORS
         for partner in project.partners:
