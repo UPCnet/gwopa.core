@@ -30,7 +30,9 @@
         <tr tal:repeat="activity report/budget/planned_activities">
           <tal:block tal:define="act python:report['budget']['planned_activities'][activity]">
             <td tal:content="act/title"></td>
-            <td tal:content="string:${act/assigned_budget}${currency}"></td>
+            <td tal:condition="act/assigned_budget"
+                tal:content="string:${act/assigned_budget}${currency}"></td>
+            <td tal:condition="not:act/assigned_budget">-------</td>
             <td>
               <span id="expenditureReportingPeriod"
                     tal:condition="act/expenditure_reporting_period"
