@@ -204,4 +204,11 @@
     template="templates/macros/report-firstpage.pt"
   />
 
+  <browser:page
+    name="macro-help-outcomes"
+    for="*"
+    permission="zope.Public"
+    template="templates/macros/report-help-outcomes.pt"
+  />
+
 </configure>

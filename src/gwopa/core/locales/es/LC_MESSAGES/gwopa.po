@@ -172,7 +172,7 @@ msgstr "Consumo de sulfato de aluminio por m3 de entrada del sistema"
 #: ../browser/setup_home.py:401
 #: ../browser/templates/dash-areas.pt:339
 #: ../browser/templates/monitoring.pt:944
-msgid "Applied knowledge skills"
+msgid "Applied knowledge / skills"
 msgstr "Conocimientos aplicados"
 
 #: ../browser/templates/dash-areas.pt:333
@@ -680,7 +680,7 @@ msgstr "Ambiente externo"
 #: ../browser/setup_home.py:301
 #: ../browser/templates/dash-areas.pt:264
 #: ../browser/templates/monitoring.pt:872
-msgid "External resources"
+msgid "External relations / networking"
 msgstr "Recursos externos"
 
 #: ../browser/templates/dash-areas.pt:265
@@ -864,7 +864,7 @@ msgstr "Información y Tecnología"
 #: ../browser/setup_home.py:361
 #: ../browser/templates/dash-areas.pt:310
 #: ../browser/templates/monitoring.pt:915
-msgid "Infrastructure / Equipment"
+msgid "Equipment and infrastructure"
 msgstr "Infraestructura / Equipamento"
 
 #: ../browser/templates/setup_home.pt:16
@@ -949,7 +949,7 @@ msgstr "KPI Número"
 #: ../browser/setup_home.py:381
 #: ../browser/templates/dash-areas.pt:325
 #: ../browser/templates/monitoring.pt:930
-msgid "Knowledge & Skills"
+msgid "Individual skills / abilities"
 msgstr "Habilidades y Conocimiento"
 
 #: ../userdataschema.py:27
@@ -1026,7 +1026,7 @@ msgstr "Hacer idiomas [Inglés / Francés / Español] disponibles en los perfile
 #: ../browser/setup_home.py:341
 #: ../browser/templates/dash-areas.pt:295
 #: ../browser/templates/monitoring.pt:901
-msgid "Management"
+msgid "Management practices"
 msgstr "Administración"
 
 #: ../browser/setup_home.py:599
@@ -1072,13 +1072,13 @@ msgid "Members with this region"
 msgstr "Miembros en esta región"
 
 #: ../browser/setup_home.py:271
-msgid "Mission & Strategy"
+msgid "Vision, mission and strategy"
 msgstr "Misión y estrategia"
 
 #: ../browser/templates/dash-areas.pt:243
 #: ../browser/templates/monitoring.pt:851
 #: ../browser/templates/planning.pt:1131
-msgid "Mission and strategy"
+msgid "Vision, mission and strategy"
 msgstr "Misión y Estrategia"
 
 #: ../browser/templates/setup_home.pt:26
@@ -1122,7 +1122,7 @@ msgstr "Más opciones"
 #: ../browser/setup_home.py:391
 #: ../browser/templates/dash-areas.pt:332
 #: ../browser/templates/monitoring.pt:937
-msgid "Motivation"
+msgid "Staff motivation"
 msgstr "Motivación"
 
 #: ../browser/templates/homepage.pt:84
@@ -1158,7 +1158,7 @@ msgstr "Nombre"
 #: ../browser/setup_home.py:311
 #: ../browser/templates/dash-areas.pt:271
 #: ../browser/templates/monitoring.pt:879
-msgid "Network / External relations"
+msgid "Resource acquisition"
 msgstr "Red / Relaciones externas"
 
 #: ../browser/templates/manage_portal.pt:95

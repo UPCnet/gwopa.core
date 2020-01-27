@@ -243,6 +243,7 @@ class setup(grok.View):
         settingspage.degree_changes = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
         settingspage.consensus = 'One Partner\nWop Partners'
+        settingspage.partner_roles = 'Mentor\nMentee'
         settingspage.organization_roles = 'Broker (matchmaker, facilitator)\nTechnical Support\nPolitical Support'
 
         settingspage.currency_es = 'USD-Dólar estadounidense-$\r\nEUR-Euro-€\r\nGBP-Libra británica-£\r\nAUD-Dólar australiano-$\r\nCAD-Dolar canadiense-$'
@@ -251,6 +252,7 @@ class setup(grok.View):
         settingspage.degree_changes_es = '-2 Muy negativo\n-1 Negativo\n0 Sin cambios\n1 Positivo\n2 Muy positivo'
         settingspage.contributed_project_es = '0 Sin contribución\n1 Contribución justa\n2 Contribución muy alta'
         settingspage.consensus_es = 'Un Partner\nWop Partners'
+        settingspage.partner_roles_es = 'Mentor\nAprendiz'
         settingspage.organization_roles_es = 'Corredor (facilitador)\nSoporte técnico\nSoporte político'
 
         # TODO: Falta traducir los valores al Frances
@@ -260,6 +262,7 @@ class setup(grok.View):
         settingspage.degree_changes_fr = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project_fr = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
         settingspage.consensus_fr = 'One Partner\nWop Partners'
+        settingspage.partner_roles_fr = 'Mentor\nMentee'
         settingspage.organization_roles_fr = 'Broker (matchmaker, facilitator)\nTechnical Support\nPolitical Support'
 
         settingspage.reindexObject()
@@ -272,9 +275,9 @@ class setup(grok.View):
         tool_ts = getToolByName(self, 'translation_service')
         api.content.create(
             type='OutcomeCCItem',
-            title=_(u'Mission & Strategy'),
-            title_es=tool_ts.translate(u'Mission & Strategy', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'Mission & Strategy', domain='gwopa', target_language='fr'),
+            title=_(u'Vision, mission and strategy'),
+            title_es=tool_ts.translate(u'Vision, mission and strategy', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Vision, mission and strategy', domain='gwopa', target_language='fr'),
             icon='fas fa-university',
             category='Organizational transformational dimensions',
             short_category='transformational',
@@ -302,9 +305,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title=_(u'External resources'),
-            title_es=tool_ts.translate(u'External resources', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'External resources', domain='gwopa', target_language='fr'),
+            title=_(u'External relations / networking'),
+            title_es=tool_ts.translate(u'External relations / networking', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'External relations / networking', domain='gwopa', target_language='fr'),
             icon='fab fa-industry',
             category='Organizational transformational dimensions',
             short_category='transformational',
@@ -312,22 +315,12 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title=_(u'Network / External relations'),
-            title_es=tool_ts.translate(u'Network / External relations', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'Network / External relations', domain='gwopa', target_language='fr'),
+            title=_(u'Resource acquisition'),
+            title_es=tool_ts.translate(u'Resource acquisition', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Resource acquisition', domain='gwopa', target_language='fr'),
             icon='fas fa-sitemap',
             category='Organizational transformational dimensions',
             short_category='transformational',
-            container=portal.config.capacitychanges,
-            safe_id=True)
-        api.content.create(
-            type='OutcomeCCItem',
-            title=_(u'Systems'),
-            title_es=tool_ts.translate(u'Systems', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'Systems', domain='gwopa', target_language='fr'),
-            icon='fas fa-map',
-            category='Organizational transactional dimensions',
-            short_category='transactional',
             container=portal.config.capacitychanges,
             safe_id=True)
         api.content.create(
@@ -342,10 +335,20 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title=_(u'Management'),
-            title_es=tool_ts.translate(u'Management', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'Management', domain='gwopa', target_language='fr'),
+            title=_(u'Management practices'),
+            title_es=tool_ts.translate(u'Management practices', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Management practices', domain='gwopa', target_language='fr'),
             icon='fas fa-comments',
+            category='Organizational transactional dimensions',
+            short_category='transactional',
+            container=portal.config.capacitychanges,
+            safe_id=True)
+        api.content.create(
+            type='OutcomeCCItem',
+            title=_(u'Systems'),
+            title_es=tool_ts.translate(u'Systems', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Systems', domain='gwopa', target_language='fr'),
+            icon='fas fa-map',
             category='Organizational transactional dimensions',
             short_category='transactional',
             container=portal.config.capacitychanges,
@@ -362,9 +365,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title=_(u'Infrastructure / Equipment'),
-            title_es=tool_ts.translate(u'Infrastructure / Equipment', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'Infrastructure / Equipment', domain='gwopa', target_language='fr'),
+            title=_(u'Equipment and infrastructure'),
+            title_es=tool_ts.translate(u'Equipment and infrastructure', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Equipment and infrastructure', domain='gwopa', target_language='fr'),
             icon='fas fa-university',
             category='Organizational transactional dimensions',
             short_category='transactional',
@@ -382,9 +385,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title=_(u'Knowledge & Skills'),
-            title_es=tool_ts.translate(u'Knowledge & Skills', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'Knowledge & Skills', domain='gwopa', target_language='fr'),
+            title=_(u'Individual skills / abilities'),
+            title_es=tool_ts.translate(u'Individual skills / abilities', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Individual skills / abilities', domain='gwopa', target_language='fr'),
             icon='fab fa-industry',
             category='Individual dimensions',
             short_category='individual',
@@ -392,9 +395,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title=_(u'Motivation'),
-            title_es=tool_ts.translate(u'Motivation', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'Motivation', domain='gwopa', target_language='fr'),
+            title=_(u'Staff motivation'),
+            title_es=tool_ts.translate(u'Staff motivation', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Staff motivation', domain='gwopa', target_language='fr'),
             icon='fas fa-users',
             category='Individual dimensions',
             short_category='individual',
@@ -402,9 +405,9 @@ class setup(grok.View):
             safe_id=True)
         api.content.create(
             type='OutcomeCCItem',
-            title=_(u'Applied knowledge skills'),
-            title_es=tool_ts.translate(u'Applied knowledge skills', domain='gwopa', target_language='es'),
-            title_fr=tool_ts.translate(u'Applied knowledge skills', domain='gwopa', target_language='fr'),
+            title=_(u'Applied knowledge / skills'),
+            title_es=tool_ts.translate(u'Applied knowledge / skills', domain='gwopa', target_language='es'),
+            title_fr=tool_ts.translate(u'Applied knowledge / skills', domain='gwopa', target_language='fr'),
             icon='fas fa-search',
             category='Individual dimensions',
             short_category='individual',

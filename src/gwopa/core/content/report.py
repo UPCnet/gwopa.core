@@ -194,12 +194,19 @@ class View(grok.View):
 
     def getProjectManagerAdmin(self):
         result = []
-        user = api.user.get(self.context.project_manager_admin)
-        result.append(dict(
-            id=user.id,
-            fullname=user.getProperty('fullname'),
-            position=user.getProperty('position')))
+        if self.context.project_manager_admin:
+            user = api.user.get(self.context.project_manager_admin)
+            if user:
+                result.append(dict(
+                    id=user.id,
+                    fullname=user.getProperty('fullname'),
+                    position=user.getProperty('position')))
+                return result
 
+        result.append(dict(
+            id='',
+            fullname='',
+            position=''))
         return result
 
     def getProjectWaterOperators(self, project):
@@ -406,14 +413,15 @@ class View(grok.View):
         logos = []
 
         # DONORS
-        for donor in project.donors:
-            items = api.content.find(
-                portal_type=['Donor'],
-                Title=donor)
+        if project.donors:
+            for donor in project.donors:
+                items = api.content.find(
+                    portal_type=['Donor'],
+                    Title=donor)
 
-            if items and items[0].getObject().image:
-                logos.append({'name': donor,
-                              'url': items[0].getURL() + '/@@images/image'})
+                if items and items[0].getObject().image:
+                    logos.append({'name': donor,
+                                  'url': items[0].getURL() + '/@@images/image'})
 
         # PLATFOWMS OR PROGRAMS
         if project.wop_platform:
@@ -435,14 +443,15 @@ class View(grok.View):
                               'url': items[0].getURL() + '/@@images/image'})
 
         # WATER OPERATORS
-        for partner in project.partners:
-            items = api.content.find(
-                portal_type=['Partner'],
-                Title=partner)
+        if project.partners:
+            for partner in project.partners:
+                items = api.content.find(
+                    portal_type=['Partner'],
+                    Title=partner)
 
-            if items and items[0].getObject().image:
-                logos.append({'name': partner,
-                              'url': items[0].getURL() + '/@@images/image'})
+                if items and items[0].getObject().image:
+                    logos.append({'name': partner,
+                                  'url': items[0].getURL() + '/@@images/image'})
 
         return logos
 

@@ -173,8 +173,8 @@ msgstr ""
 #: ../browser/setup_home.py:401
 #: ../browser/templates/dash-areas.pt:339
 #: ../browser/templates/monitoring.pt:944
-msgid "Applied knowledge skills"
-msgstr "Applied knowledge skills"
+msgid "Applied knowledge / skills"
+msgstr "Applied knowledge / skills"
 
 #: ../browser/templates/dash-areas.pt:333
 #: ../browser/templates/monitoring.pt:938
@@ -681,8 +681,8 @@ msgstr ""
 #: ../browser/setup_home.py:301
 #: ../browser/templates/dash-areas.pt:264
 #: ../browser/templates/monitoring.pt:872
-msgid "External resources"
-msgstr "External resources"
+msgid "External relations / networking"
+msgstr "External relations / networking"
 
 #: ../browser/templates/dash-areas.pt:265
 #: ../browser/templates/monitoring.pt:873
@@ -865,8 +865,8 @@ msgstr "Information & Technology"
 #: ../browser/setup_home.py:361
 #: ../browser/templates/dash-areas.pt:310
 #: ../browser/templates/monitoring.pt:915
-msgid "Infrastructure / Equipment"
-msgstr "Infrastructure / Equipment"
+msgid "Equipment and infrastructure"
+msgstr "Equipment and infrastructure"
 
 #: ../browser/templates/setup_home.pt:16
 #: ../browser/templates/setup_home_es.pt:16
@@ -950,8 +950,8 @@ msgstr "KPI Number"
 #: ../browser/setup_home.py:381
 #: ../browser/templates/dash-areas.pt:325
 #: ../browser/templates/monitoring.pt:930
-msgid "Knowledge & Skills"
-msgstr "Knowledge & Skills"
+msgid "Individual skills / abilities"
+msgstr "Individual skills / abilities"
 
 #: ../userdataschema.py:27
 msgid "Language"
@@ -1027,8 +1027,8 @@ msgstr "Make [English / French / Spanish] languages availables on users profiles
 #: ../browser/setup_home.py:341
 #: ../browser/templates/dash-areas.pt:295
 #: ../browser/templates/monitoring.pt:901
-msgid "Management"
-msgstr "Management"
+msgid "Management practices"
+msgstr "Management practices"
 
 #: ../browser/setup_home.py:599
 msgid "Management information system introduced/improved"
@@ -1073,14 +1073,14 @@ msgid "Members with this region"
 msgstr "Members in this region"
 
 #: ../browser/setup_home.py:271
-msgid "Mission & Strategy"
+msgid "Vision, mission and strategy"
 msgstr ""
 
 #: ../browser/templates/dash-areas.pt:243
 #: ../browser/templates/monitoring.pt:851
 #: ../browser/templates/planning.pt:1131
-msgid "Mission and strategy"
-msgstr "Mission and strategy"
+msgid "Vision, mission and strategy"
+msgstr "Vision, mission and strategy"
 
 #: ../browser/templates/setup_home.pt:26
 #: ../browser/templates/setup_home_es.pt:26
@@ -1123,8 +1123,8 @@ msgstr ""
 #: ../browser/setup_home.py:391
 #: ../browser/templates/dash-areas.pt:332
 #: ../browser/templates/monitoring.pt:937
-msgid "Motivation"
-msgstr "Motivation"
+msgid "Staff motivation"
+msgstr "Staff motivation"
 
 #: ../browser/templates/homepage.pt:84
 msgid "My Projects"
@@ -1159,8 +1159,8 @@ msgstr "Name"
 #: ../browser/setup_home.py:311
 #: ../browser/templates/dash-areas.pt:271
 #: ../browser/templates/monitoring.pt:879
-msgid "Network / External relations"
-msgstr "Network / External relations"
+msgid "Resource acquisition"
+msgstr "Resource acquisition"
 
 #: ../browser/templates/manage_portal.pt:95
 msgid "New Default Area"

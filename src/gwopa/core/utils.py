@@ -229,7 +229,7 @@ def getTranslatedMesuringFrequencyFromID(unit):
 def getTranslatedDegreeChangesFromID(unit):
     lang = getUserLang()
     item = api.content.find(portal_type="SettingsPage", id='settings')
-    if item:
+    if item and unit:
         degree_changes_dict = item[0].getObject().degree_changes_dict
         return degree_changes_dict[unit][lang]
     return None
@@ -238,7 +238,7 @@ def getTranslatedDegreeChangesFromID(unit):
 def getTranslatedContributedProjectFromID(unit):
     lang = getUserLang()
     item = api.content.find(portal_type="SettingsPage", id='settings')
-    if item:
+    if item and unit:
         contributed_project_dict = item[0].getObject().contributed_project_dict
         return contributed_project_dict[unit][lang]
     return None
@@ -247,7 +247,7 @@ def getTranslatedContributedProjectFromID(unit):
 def getTranslatedConsensusFromID(unit):
     lang = getUserLang()
     item = api.content.find(portal_type="SettingsPage", id='settings')
-    if item:
+    if item and unit:
         consensus_dict = item[0].getObject().consensus_dict
         return consensus_dict[unit][lang]
     return None
