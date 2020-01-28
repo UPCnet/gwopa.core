@@ -481,7 +481,7 @@ class View(grok.View):
         attr_lang = getTitleAttrLang()
         project_manager_admin = self.getProjectManagerAdmin()
         today = datetime.datetime.now()
-
+        data['project_url'] = project.absolute_url()
         data['generation_report_date'] = today.strftime('%m/%d/%Y %H:%M:%S')
         data['project_overview'] = {
             'project_name': project.title,

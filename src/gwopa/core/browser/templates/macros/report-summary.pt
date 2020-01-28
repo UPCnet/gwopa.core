@@ -47,7 +47,7 @@
       <span data-toggle="modal" data-target="#stakeholdersModal" class="fa fa-edit"
             title="Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders"></span>
       <p id="stakeholders" tal:content="report/summary/progress/stakeholders">Stakeholders</p>
-
+      <br />
       <p class="editField text-bold" i18n:translate="">Challenges, lessons learned and deviations</p>
       <span data-toggle="modal" data-target="#otherModal" class="fa fa-edit"
             title="Insert a maximum of two paragraphs summarizing other additional challenges, lessons learned or deviations to plans"></span>

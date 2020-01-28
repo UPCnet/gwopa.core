@@ -35,7 +35,13 @@
       </tbody>
     </table>
 
-    <h4 i18n:translate="">Project Description and Objectives</h4>
+    <h4>
+      <span class="editField" i18n:translate="">Project Description and Objectives</span>
+      <a tal:attributes="href string:${report/project_url}/edit" target="_blink"
+         title="Open a new tab to edit the field on the platform">
+        <span class="fa fa-edit"></span>
+      </a>
+    </h4>
 
     <p tal:condition="report/project_overview/project_description" tal:content="structure report/project_overview/project_description"></p>
 

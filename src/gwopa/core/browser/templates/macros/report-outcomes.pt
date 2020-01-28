@@ -74,7 +74,15 @@
               </div>
             </div>
             <div>
-              <p class="text-bold" i18n:translate="">Baseline and Progress Description</p>
+              <p class="text-bold editField" i18n:translate="">Baseline and Progress Description</p>
+              <a tal:attributes="href string:${report/project_url}/planning#outcomes" target="_blink"
+                 title="Planning: Open a new tab to edit the field on the platform">
+                <span class="fa fa-edit"></span>
+              </a>
+              <a tal:attributes="href string:${report/project_url}/monitoring#outcomes" target="_blink"
+                 title="Monitoring: Open a new tab to edit the field on the platform">
+                <span class="fa fa-edit"></span>
+              </a>
               <p tal:content="out/description/description"></p>
               <p tal:content="out/description/explanation_progress"></p>
             </div>
@@ -109,11 +117,19 @@
               </tbody>
             </table>
             <div>
-              <p class="text-bold" i18n:translate="">Explain contributed and limiting factors</p>
+              <p class="text-bold editField" i18n:translate="">Explain contributed and limiting factors</p>
+              <a tal:attributes="href string:${report/project_url}/monitoring#outcomes" target="_blink"
+                 title="Open a new tab to edit the field on the platform">
+                <span class="fa fa-edit"></span>
+              </a>
               <p tal:content="out/explain_contributed"></p>
             </div>
             <div>
-              <p class="text-bold" i18n:translate="">Consideration for further planning</p>
+              <p class="text-bold editField" i18n:translate="">Consideration for further planning</p>
+              <a tal:attributes="href string:${report/project_url}/monitoring#outcomes" target="_blink"
+                 title="Open a new tab to edit the field on the platform">
+                <span class="fa fa-edit"></span>
+              </a>
               <p tal:content="out/consideration"></p>
             </div>
             <div>
@@ -282,7 +298,11 @@
                   </tbody>
                 </table>
                 <div>
-                  <p class="text-bold" i18n:translate="">Explanation</p>
+                  <p class="text-bold editField" i18n:translate="">Explanation</p>
+                  <a tal:attributes="href string:${report/project_url}/monitoring#outcomes" target="_blink"
+                     title="Open a new tab to edit the field on the platform">
+                    <span class="fa fa-edit"></span>
+                  </a>
                   <p tal:content="cap/explain"></p>
                 </div>
               </div>
