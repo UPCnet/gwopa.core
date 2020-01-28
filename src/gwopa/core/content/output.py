@@ -22,7 +22,8 @@ class IOutput(model.Schema):
     """  Output
     """
     title = schema.TextLine(
-        title=_(u"Title"),
+        title=_(u"Numeration - Title"),
+        description=_(u"(e.g. 1.1 - Trained Staff)"),
         required=True,
     )
 

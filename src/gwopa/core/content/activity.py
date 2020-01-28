@@ -50,7 +50,8 @@ class IActivity(model.Schema):
     """  Activity """
 
     title = schema.TextLine(
-        title=_(u"Title"),
+        title=_(u"Numeration - Title"),
+        description=_(u"(e.g. 1 - Training of staff in NRW reduction approachesZ)"),
         required=True,
     )
 

@@ -519,7 +519,8 @@
               <div class="modal-url" id="ActivityPath" style="display:none"></div>
               <div class="row">
                 <div class="form-group col-md-12" style="padding-bottom:15px;">
-                  <label id="label-output" i18n:translate="">Title</label>
+                  <label id="label-output" i18n:translate="">Numeration - Title</label>
+                  <span class="formHelp" i18n:translate="">(e.g. 1 - Training of staff in NRW reduction approaches)</span>
                   <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input class="form-control" id="act-title"/>
                 </div>
@@ -590,7 +591,8 @@
               <div class="modal-url" id="OutputPath" style="display:none;"></div>
               <div class="row">
                 <div class="form-group col-md-12">
-                  <label id="label-output" i18n:translate="">Title</label>
+                  <label id="label-output" i18n:translate="">Numeration - Title</label>
+                  <span class="formHelp" i18n:translate="">(e.g. 1.1 - Trained Staff)</span>
                   <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input type="text" id="out-title"/>
                 </div>
@@ -688,7 +690,8 @@
               <span class="modal-pk" id="OutputYear" style="display:none"></span>
               <div class="row">
                 <div class="form-group col-md-12">
-                  <label id="label-output" i18n:translate="">Title</label>
+                  <label id="label-output" i18n:translate="">Numeration - Title</label>
+                  <span class="formHelp" i18n:translate="">(e.g. 1.1 - Trained Staff)</span>
                   <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input type="text" id="out-title"/>
                 </div>
