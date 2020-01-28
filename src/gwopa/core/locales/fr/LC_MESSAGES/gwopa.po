@@ -1496,7 +1496,7 @@ msgstr ""
 
 #: ../portlets/sidenav.pt:25
 msgid "Project Overview"
-msgstr "Projet"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:62
 msgid "Project Title"

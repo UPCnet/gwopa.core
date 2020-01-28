@@ -22,8 +22,10 @@
                   viewProjectOverview view/viewProjectOverview;
                   viewSummary view/viewSummary;
                   viewActivities view/viewActivities;
-                  viewOutcomes view/viewOutcomes;
-                  viewBudget view/viewBudget">
+                  viewOutcomesUtilityPerfomance view/viewOutcomesUtilityPerfomance;
+                  viewOutcomesCapacity view/viewOutcomesCapacity;
+                  viewBudget view/viewBudget;
+                  viewNextSteps view/viewNextSteps">
 
       <h1 class="documentFirstHeading">
         <tal:omit-tag i18n:translate=""> Report </tal:omit-tag>
@@ -59,8 +61,8 @@
       <div id="reportPreviewProject" class="row tabla_contenido_items">
         <div tal:condition="report" tal:define="styles view/getStyles">
           <ul class="nav nav-tabs">
-            <li class="nav-item active">
-              <a class="text-uppercase nav-link active" data-toggle="tab" href="#tabla1">Project Overview</a>
+            <li class="nav-item">
+              <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla1" i18n:translate="">Project Overview</a>
             </li>
             <li class="nav-item">
               <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla2" i18n:translate="">Summary</a>
@@ -69,18 +71,28 @@
               <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla3" i18n:translate="">Activities and Outputs</a>
             </li>
             <li class="nav-item">
-              <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla4" i18n:translate="">Outcomes</a>
+              <a class="nav-link" data-toggle="tab" href="#tabla4">
+                <span class="text-uppercase" i18n:translate="">Outcomes</span> - <span i18n:translate="">Utility Performance</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla5" i18n:translate="">Budget</a>
+              <a class="nav-link" data-toggle="tab" href="#tabla5">
+                <span class="text-uppercase" i18n:translate="">Outcomes</span> - <span i18n:translate="">Capacity</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla6" i18n:translate="">Full Report</a>
+              <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla6" i18n:translate="">Budget</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla7" i18n:translate="">Next Steps</a>
+            </li>
+            <li class="nav-item active">
+              <a class="text-uppercase nav-link active" data-toggle="tab" href="#tabla8" i18n:translate="">Full Report</a>
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
 
-            <div class="tab-pane container active" id="tabla1">
+            <div class="tab-pane container fade" id="tabla1">
               <block metal:use-macro="context/macro-report-project/project"></block>
             </div>
 
@@ -93,41 +105,60 @@
             </div>
 
             <div class="tab-pane container fade" id="tabla4">
-              <block metal:use-macro="context/macro-report-outcomes/outcomes"></block>
+              <block metal:use-macro="context/macro-report-outcomes/outcomes-utility-performance"></block>
             </div>
 
             <div class="tab-pane container fade" id="tabla5">
+              <block metal:use-macro="context/macro-report-outcomes/outcomes-capacity"></block>
+            </div>
+
+            <div class="tab-pane container fade" id="tabla6">
               <block metal:use-macro="context/macro-report-budget/budget"></block>
             </div>
 
-            <div class="tab-pane container fade fullreport" id="tabla6">
+            <div class="tab-pane container fade" id="tabla7">
+              <block metal:use-macro="context/macro-report-steps/steps"></block>
+            </div>
+
+            <div class="tab-pane container active fullreport" id="tabla8">
 
               <div class="section">
                 <block metal:use-macro="context/macro-report-firstpage/firstpage"></block>
+                <p class="break"></p>
               </div>
 
-              <div class="section">
-                <block tal:condition="viewProjectOverview" metal:use-macro="context/macro-report-project/project"></block>
-                <p tal:condition="viewProjectOverview"  class="break"></p>
+              <div class="section" tal:condition="viewProjectOverview">
+                <block metal:use-macro="context/macro-report-project/project"></block>
+                <p class="break"></p>
               </div>
 
-              <div class="section">
-                <block tal:condition="viewSummary" metal:use-macro="context/macro-report-summary/summary"></block>
-                <p tal:condition="viewSummary" class="break"></p>
+              <div class="section" tal:condition="viewSummary">
+                <block metal:use-macro="context/macro-report-summary/summary"></block>
+                <p class="break"></p>
               </div>
 
-              <div class="section">
-                <block tal:condition="viewActivities" metal:use-macro="context/macro-report-activities/activities"></block>
-                <p tal:condition="viewActivities" class="break"></p>
+              <div class="section" tal:condition="viewActivities">
+                <block metal:use-macro="context/macro-report-activities/activities"></block>
+                <p class="break"></p>
               </div>
 
-              <div class="section">
-                <block tal:condition="viewOutcomes" metal:use-macro="context/macro-report-outcomes/outcomes"></block>
-                <p tal:condition="viewOutcomes" class="break"></p>
+              <div class="section" tal:condition="viewOutcomesUtilityPerfomance">
+                <block metal:use-macro="context/macro-report-outcomes/outcomes-utility-performance"></block>
+                <p class="break"></p>
               </div>
 
-              <div class="section">
-                <block tal:condition="viewBudget" metal:use-macro="context/macro-report-budget/budget"></block>
+              <div class="section" tal:condition="viewOutcomesCapacity">
+                <block metal:use-macro="context/macro-report-outcomes/outcomes-capacity"></block>
+                <p class="break"></p>
+              </div>
+
+              <div class="section" tal:condition="viewBudget">
+                <block metal:use-macro="context/macro-report-budget/budget"></block>
+                <p class="break"></p>
+              </div>
+
+              <div class="section" tal:condition="viewNextSteps">
+                <block metal:use-macro="context/macro-report-steps/steps"></block>
               </div>
             </div>
 
@@ -145,6 +176,7 @@
       <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-summary.js"></script>
       <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-kpis.js"></script>
       <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-activity-budgets.js"></script>
+      <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/report-steps.js"></script>
       <!-- <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/reporting.js"></script> -->
 
     </metal:block>

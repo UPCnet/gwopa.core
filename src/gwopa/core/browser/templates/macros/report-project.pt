@@ -6,7 +6,7 @@
 
   <metal:block metal:define-macro="project">
 
-    <h3>Project Overview</h3>
+    <h3 i18n:translate="">Project Overview</h3>
 
     <table>
       <thead>

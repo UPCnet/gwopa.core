@@ -205,6 +205,13 @@
   />
 
   <browser:page
+    name="macro-report-steps"
+    for="*"
+    permission="zope.Public"
+    template="templates/macros/report-steps.pt"
+  />
+
+  <browser:page
     name="macro-help-outcomes"
     for="*"
     permission="zope.Public"

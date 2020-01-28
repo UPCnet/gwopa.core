@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gwopa">
+
+  <metal:block metal:define-macro="steps">
+
+    <h3 i18n:translate="">Next Steps</h3>
+    <span data-toggle="modal" data-target="#stepsModal" class="fa fa-edit" title=""></span>
+
+    <p id="steps" tal:condition="report/next_steps" tal:content="report/next_steps"></p>
+
+    <div class="modal fade" id="stepsModal" tabindex="-1" role="dialog" aria-labelledby="stepsLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="stepsLabel" i18n:translate="">Next Steps</h5>
+          </div>
+          <div class="modal-body">
+            <textarea tal:content="report/next_steps"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" i18n:translate="">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" i18n:translate="">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </metal:block>
+</html>

@@ -1498,7 +1498,7 @@ msgstr "Administrador del proyecto"
 
 #: ../portlets/sidenav.pt:25
 msgid "Project Overview"
-msgstr "Proyecto"
+msgstr "Descripción del proyecto"
 
 #: ../browser/templates/manage_portal.pt:62
 msgid "Project Title"

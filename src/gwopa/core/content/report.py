@@ -33,8 +33,10 @@ def listSectionsReport(context):
     sections.append(SimpleVocabulary.createTerm(u'Project Overview', 'Project Overview', _(u'Project Overview')))
     sections.append(SimpleVocabulary.createTerm(u'Summary', 'Summary', _(u'Summary')))
     sections.append(SimpleVocabulary.createTerm(u'Activities and Outputs Progress', 'Activities and Outputs Progress', _(u'Activities and Outputs Progress')))
-    sections.append(SimpleVocabulary.createTerm(u'Outcomes', 'Outcomes', _(u'Outcomes')))
+    sections.append(SimpleVocabulary.createTerm(u'Outcomes - Utility Perfomance', 'Outcomes - Utility Perfomance', _(u'Outcomes - Utility Perfomance')))
+    sections.append(SimpleVocabulary.createTerm(u'Outcomes - Capacity', 'Outcomes - Capacity', _(u'Outcomes - Capacity')))
     sections.append(SimpleVocabulary.createTerm(u'Budget', 'Budget', _(u'Budget')))
+    sections.append(SimpleVocabulary.createTerm(u'Next Steps', 'Next Steps', _(u'Next Steps')))
     return SimpleVocabulary(sections)
 
 
@@ -110,6 +112,13 @@ class IReport(model.Schema):
         missing_value=u'',
     )
 
+    form.mode(next_steps='hidden')
+    next_steps = schema.Text(
+        title=_(u'Next Steps'),
+        required=False,
+        missing_value=u'',
+    )
+
     form.mode(IEditForm, project_year='hidden')
     project_year = schema.Choice(
         title=_(u"Project Year"),
@@ -123,7 +132,7 @@ class IReport(model.Schema):
         description=_(u"Choose sections to view in the report."),
         value_type=schema.Choice(
             source=listSectionsReport),
-        default=['Project Overview', 'Summary', 'Activities and Outputs Progress', 'Outcomes', 'Budget'],
+        default=['Project Overview', 'Summary', 'Activities and Outputs Progress', 'Outcomes - Utility Perfomance', 'Outcomes - Capacity', 'Next Steps', 'Budget'],
         required=True,
     )
 
@@ -401,11 +410,17 @@ class View(grok.View):
     def viewActivities(self):
         return 'Activities and Outputs Progress' in self.context.sections_reports
 
-    def viewOutcomes(self):
-        return 'Outcomes' in self.context.sections_reports
+    def viewOutcomesUtilityPerfomance(self):
+        return 'Outcomes - Utility Perfomance' in self.context.sections_reports
+
+    def viewOutcomesCapacity(self):
+        return 'Outcomes - Capacity' in self.context.sections_reports
 
     def viewBudget(self):
         return 'Budget' in self.context.sections_reports
+
+    def viewNextSteps(self):
+        return 'Next Steps' in self.context.sections_reports
 
     def getLogosFirstpage(self, project):
         """ Returns all the KPIs from project  """
@@ -475,6 +490,7 @@ class View(grok.View):
             self.context.save_data['summary']['progress']['ontrack'] = self.context.overall_project_status == 'ontrack'
             self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders
             self.context.save_data['summary']['other'] = self.context.other_additional_challenges
+            self.context.save_data['next_steps'] = self.context.next_steps
             return self.context.save_data
 
         data = {}
@@ -794,6 +810,8 @@ class View(grok.View):
 
         data['budget']['total_budget'] = self.getTotalAssignedBudget(data['budget']['planned_activities'])
 
+        data['next_steps'] = self.context.next_steps
+
         self.context.save_data = data
         return data
 
@@ -964,5 +982,15 @@ class ModifyTotalExpenditureDate(grok.View):
     def render(self):
         activity = self.request.form.get('activity', '')
         self.context.save_data['budget']['planned_activities'][activity]['total_expenditure_date'] = self.request.form.get('text', '')
+        self.context.reindexObject()
+        transaction.commit()
+
+
+class ModifyNextSteps(grok.View):
+    grok.context(IReport)
+    grok.require('zope2.View')
+
+    def render(self):
+        self.context.next_steps = self.request.form.get('text')
         self.context.reindexObject()
         transaction.commit()

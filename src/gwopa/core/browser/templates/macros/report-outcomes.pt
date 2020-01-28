@@ -4,15 +4,13 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="gwopa">
 
-  <metal:block metal:define-macro="outcomes">
+  <metal:block metal:define-macro="outcomes-utility-performance">
 
-    <h3 i18n:translate="">Outcomes</h3>
-
-    <h4 i18n:translate="">Utility Perfomance</h4>
+    <h3><span i18n:translate="">Outcomes</span> - <span i18n:translate="">Utility Perfomance</span></h3>
 
     <tal:block tal:define="getItems report/outcomes/dash_info">
       <div tal:condition="not:getItems" class="row">
-        <h2 i18n:translate=""> No KPIs in this Project </h2>
+        <p i18n:translate=""> No KPIs in this Project </p>
       </div>
       <div tal:condition="getItems" class="row">
         <div class="row performance">
@@ -140,6 +138,12 @@
         </tal:block>
       </tal:block>
     </tal:block>
+
+  </metal:block>
+
+  <metal:block metal:define-macro="outcomes-capacity">
+
+    <h3><span i18n:translate="">Outcomes</span> - <span i18n:translate="">Capacity</span></h3>
 
     <tal:block tal:define="outcomes_capacity report/outcomes_capacity" tal:omit-tag="">
       <tal:block tal:repeat="ca outcomes_capacity" tal:omit-tag="">
