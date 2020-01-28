@@ -18,7 +18,14 @@
         </tr>
         <tr>
           <td><span i18n:translate="">Reporting Period</span>:</td>
-          <td><span tal:content="report/project_overview/reporting_period/from">From</span> <span i18n:translate="">to</span> <span tal:content="report/project_overview/reporting_period/to">To</span></td>
+          <td>
+            <span i18n:translate="">Project year</span>
+            <span tal:content="report/project_overview/reporting_period/project_year"></span>
+            <span i18n:translate="">runs from</span>
+            <span tal:content="report/project_overview/reporting_period/from"></span>
+            <span i18n:translate="">to</span>
+            <span tal:content="report/project_overview/reporting_period/to"></span>
+          </td>
         </tr>
         <tr>
           <td><span i18n:translate="">Author</span> / <span i18n:translate="">Position</span>:</td>
@@ -28,10 +35,15 @@
           <td><span i18n:translate="">Project Code</span>:</td>
           <td tal:content="report/project_overview/project_code"></td>
         </tr>
-        <!-- <tr>
+        <tr>
           <td><span i18n:translate="">Project Duration</span>:</td>
-          <td tal:content="string:???"></td>
-        </tr> -->
+          <td>
+            <span i18n:translate="">From</span>
+            <span tal:content="report/project_overview/project_duration/start"></span>
+            <span i18n:translate="">to</span>
+            <span tal:content="report/project_overview/project_duration/end"></span>
+          </td>
+        </tr>
       </tbody>
     </table>
 

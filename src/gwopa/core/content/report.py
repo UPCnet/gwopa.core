@@ -520,8 +520,8 @@ class View(grok.View):
                 'location': project.location
             },
             'project_duration': {
-                'start': project.startactual.strftime('%m/%d/%Y'),
-                'end': project.completionactual.strftime('%m/%d/%Y')
+                'start': project.startactual.strftime('%B %d, %Y'),
+                'end': project.completionactual.strftime('%B %d, %Y')
             },
             'association': {
                 'wop_platform': project.wop_platform,
