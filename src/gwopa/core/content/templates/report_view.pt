@@ -25,7 +25,8 @@
                   viewOutcomesUtilityPerfomance view/viewOutcomesUtilityPerfomance;
                   viewOutcomesCapacity view/viewOutcomesCapacity;
                   viewBudget view/viewBudget;
-                  viewNextSteps view/viewNextSteps">
+                  viewNextSteps view/viewNextSteps;
+                  budgets view/getBudgets">
 
       <h1 class="documentFirstHeading">
         <tal:omit-tag i18n:translate=""> Report </tal:omit-tag>

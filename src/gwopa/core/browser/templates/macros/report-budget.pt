@@ -17,39 +17,37 @@
       </div>
     </div>
 
-    <table class="budgetsTable">
+    <table class="budgetsTable" tal:repeat="wa budgets">
       <thead>
         <tr>
-          <th width="40%" i18n:translate="">Activity name</th>
+          <th width="40%" tal:content="wa"></th>
           <th width="20%" i18n:translate="">Assigned budget</th>
           <th width="20%" i18n:translate="">Expenditure this reporting period</th>
           <th width="20%" i18n:translate="">Total expenditure to date</th>
         </tr>
       </thead>
       <tbody>
-        <tr tal:repeat="activity report/budget/planned_activities">
-          <tal:block tal:define="act python:report['budget']['planned_activities'][activity]">
-            <td tal:content="act/title"></td>
-            <td tal:condition="act/assigned_budget"
-                tal:content="string:${act/assigned_budget}${currency}"></td>
-            <td tal:condition="not:act/assigned_budget">-------</td>
-            <td>
-              <span id="expenditureReportingPeriod"
-                    tal:condition="act/expenditure_reporting_period"
-                    tal:content="string:${act/expenditure_reporting_period}${currency}"></span>
-              <span tal:condition="not:act/expenditure_reporting_period">-------</span>
-              <span data-toggle="modal" data-target="#expenditureReportingPeriodModal" class="fa fa-edit"
-                    tal:attributes="data-activity act/title"></span>
-            </td>
-            <td>
-              <span id="totalExpenditureDate"
-                    tal:condition="act/total_expenditure_date"
-                    tal:content="string:${act/total_expenditure_date}${currency}"></span>
-              <span tal:condition="not:act/total_expenditure_date">-------</span>
-              <span data-toggle="modal" data-target="#totalExpenditureDateModal" class="fa fa-edit"
-                    tal:attributes="data-activity act/title"></span>
-            </td>
-          </tal:block>
+        <tr tal:repeat="act python:budgets[wa]">
+          <td tal:content="act/act_title"></td>
+          <td tal:condition="act/assigned_budget"
+              tal:content="string:${act/assigned_budget}${currency}"></td>
+          <td tal:condition="not:act/assigned_budget">-------</td>
+          <td>
+            <span id="expenditureReportingPeriod"
+                  tal:condition="act/expenditure_reporting_period"
+                  tal:content="string:${act/expenditure_reporting_period}${currency}"></span>
+            <span tal:condition="not:act/expenditure_reporting_period">-------</span>
+            <span data-toggle="modal" data-target="#expenditureReportingPeriodModal" class="fa fa-edit"
+                  tal:attributes="data-activity act/title"></span>
+          </td>
+          <td>
+            <span id="totalExpenditureDate"
+                  tal:condition="act/total_expenditure_date"
+                  tal:content="string:${act/total_expenditure_date}${currency}"></span>
+            <span tal:condition="not:act/total_expenditure_date">-------</span>
+            <span data-toggle="modal" data-target="#totalExpenditureDateModal" class="fa fa-edit"
+                  tal:attributes="data-activity act/title"></span>
+          </td>
         </tr>
       </tbody>
     </table>

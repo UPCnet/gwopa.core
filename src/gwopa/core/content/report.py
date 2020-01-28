@@ -21,7 +21,9 @@ from gwopa.core.utils import getTitleAttrLang
 from gwopa.core.utils import getTranslatedOutcomesFromTitle
 from gwopa.core.utils import getUserLang
 
+import collections
 import datetime
+import itertools
 import random
 import transaction
 
@@ -799,10 +801,12 @@ class View(grok.View):
             context=project)
 
         for activity in allActivities:
-            act_title = '[' + getattr(activityObj.aq_parent, attr_lang.lower()) + '] ' + activity.Title
+            title = '[' + getattr(activityObj.aq_parent, attr_lang.lower()) + '] ' + activity.Title
             activityObj = activity.getObject()
-            data['budget']['planned_activities'].update({act_title: {
-                'title': act_title,
+            data['budget']['planned_activities'].update({title: {
+                'title': title,
+                'wa_title': getattr(activityObj.aq_parent, attr_lang.lower()),
+                'act_title': activity.Title,
                 'assigned_budget': activityObj.budget,
                 'expenditure_reporting_period': '',
                 'total_expenditure_date': '',
@@ -814,6 +818,21 @@ class View(grok.View):
 
         self.context.save_data = data
         return data
+
+    def getBudgets(self):
+        budgets = []
+        for x in self.context.save_data['budget']['planned_activities']:
+            budgets.append(self.context.save_data['budget']['planned_activities'][x])
+
+        budgets = sorted(budgets, key=lambda x: x['wa_title'])
+
+        result = {}
+        for key, group in itertools.groupby(budgets, key=lambda x: x['wa_title']):
+            activities = [activities for activities in group]
+            activities = sorted(activities, key=lambda x: (x['act_title']))
+            result.update({activities[0]['wa_title']: activities})
+
+        return collections.OrderedDict(sorted(result.items()))
 
 
 def getOutcomeCC(wa, year):
