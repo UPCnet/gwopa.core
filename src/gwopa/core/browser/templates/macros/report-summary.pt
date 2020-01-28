@@ -43,7 +43,7 @@
     </div>
 
     <div class="infoSummary">
-      <p class="editField text-bold" i18n:translate="">Reporting period Summary</p>
+      <p class="editField text-bold" i18n:translate="">Reporting period summary</p>
       <span data-toggle="modal" data-target="#stakeholdersModal" class="fa fa-edit"
             title="Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders"></span>
       <p id="stakeholders" tal:content="report/summary/progress/stakeholders">Stakeholders</p>
@@ -59,7 +59,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="stakeholdersLabel" i18n:translate="">Reporting period Summary</h5>
+            <h5 class="modal-title" id="stakeholdersLabel" i18n:translate="">Reporting period summary</h5>
           </div>
           <div class="modal-body">
             <textarea tal:content="report/summary/progress/stakeholders"></textarea>

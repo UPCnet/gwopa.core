@@ -13,25 +13,25 @@
       </thead>
       <tbody>
         <tr>
-          <td><span i18n:translate="">Type</span>:</td>
+          <td><span i18n:translate="">Report Type</span>:</td>
           <td tal:content="report/project_overview/reporting_type"></td>
         </tr>
         <tr>
-          <td><span i18n:translate="">Author</span>:</td>
-          <td tal:content="report/project_overview/author_report"></td>
-        </tr>
-        <tr>
-          <td><span i18n:translate="">Position</span>:</td>
-          <td tal:content="report/project_overview/position_report"></td>
-        </tr>
-        <tr>
-          <td><span i18n:translate="">Period</span>:</td>
+          <td><span i18n:translate="">Reporting Period</span>:</td>
           <td><span tal:content="report/project_overview/reporting_period/from">From</span> <span i18n:translate="">to</span> <span tal:content="report/project_overview/reporting_period/to">To</span></td>
         </tr>
         <tr>
-          <td><span i18n:translate="">Code</span>:</td>
+          <td><span i18n:translate="">Author</span> / <span i18n:translate="">Position</span>:</td>
+          <td><span tal:content="report/project_overview/author_report"></span> / <span tal:content="report/project_overview/position_report"></span></td>
+        </tr>
+        <tr>
+          <td><span i18n:translate="">Project Code</span>:</td>
           <td tal:content="report/project_overview/project_code"></td>
         </tr>
+        <!-- <tr>
+          <td><span i18n:translate="">Project Duration</span>:</td>
+          <td tal:content="string:???"></td>
+        </tr> -->
       </tbody>
     </table>
 

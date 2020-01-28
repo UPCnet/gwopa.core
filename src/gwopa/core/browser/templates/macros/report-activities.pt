@@ -6,7 +6,7 @@
 
   <metal:block metal:define-macro="activities">
 
-    <h3 i18n:translate="">Activities and Outputs Progress</h3>
+    <h3 i18n:translate="">Activities and Outputs</h3>
 
     <tal:block tal:define="activities_outputs report/activities_outputs" tal:omit-tag="">
       <tal:block tal:repeat="wa activities_outputs" tal:omit-tag="">
@@ -17,7 +17,7 @@
               <div class="activityBlock">
                 <div class="row">
                   <div class="col-xs-4 col-sm-4">
-                    <p class="text-bold" i18n:translate="">Activty</p>
+                    <p class="text-bold" i18n:translate="">Activity</p>
                     <p tal:content="act_wa/title"></p>
                   </div>
                   <div class="col-xs-2 col-sm-2">

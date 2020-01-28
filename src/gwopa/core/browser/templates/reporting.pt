@@ -62,7 +62,7 @@
       <table class="table table-condensed table-bordered table-responsive sortable table-striped">
         <thead>
           <tr>
-            <th scope="col" style="width: 72%" i18n:translate="">Manual Reports</th>
+            <th scope="col" style="width: 72%" i18n:translate="">Generated Reports</th>
             <th scope="col" style="width: 16%" i18n:translate="">Date</th>
             <th scope="col" style="width: 12%" i18n:translate="">Actions</th>
           </tr>
