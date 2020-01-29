@@ -26,7 +26,9 @@ import datetime
 import itertools
 import random
 import transaction
+import logging
 
+logger = logging.getLogger(__name__)
 grok.templatedir("templates")
 
 
@@ -483,6 +485,9 @@ class View(grok.View):
 
     def reportData(self):
         refresh = self.request.form.get('refresh', False)
+        if refresh:
+            logger.info('YYY - User: ' + api.user.get_current().id)
+            logger.info('YYY - ' + self.context.save_data)
 
         project = self.context.aq_parent.aq_parent
         if self.context.save_data and self.context.save_data != "":
