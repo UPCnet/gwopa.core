@@ -482,6 +482,7 @@ class View(grok.View):
             return '#' + hex_number[2:]
 
     def reportData(self):
+        refresh = self.request.form.get('refresh', False)
 
         project = self.context.aq_parent.aq_parent
         if self.context.save_data and self.context.save_data != "":
@@ -493,7 +494,8 @@ class View(grok.View):
             self.context.save_data['summary']['progress']['stakeholders'] = self.context.progress_stakeholders
             self.context.save_data['summary']['other'] = self.context.other_additional_challenges
             self.context.save_data['next_steps'] = self.context.next_steps
-            return self.context.save_data
+            if not refresh:
+                return self.context.save_data
 
         data = {}
         attr_lang = getTitleAttrLang()
@@ -807,10 +809,15 @@ class View(grok.View):
                 'title': title,
                 'wa_title': getattr(activityObj.aq_parent, attr_lang.lower()),
                 'act_title': activity.Title,
-                'assigned_budget': activityObj.budget,
-                'expenditure_reporting_period': '',
-                'total_expenditure_date': '',
+                'assigned_budget': activityObj.budget
             }})
+
+            if not refresh:
+                data['budget']['planned_activities'][title].update({'expenditure_reporting_period': ''})
+                data['budget']['planned_activities'][title].update({'total_expenditure_date': ''})
+            else:
+                data['budget']['planned_activities'][title].update({'expenditure_reporting_period': self.context.save_data['budget']['planned_activities'][title]['expenditure_reporting_period']})
+                data['budget']['planned_activities'][title].update({'total_expenditure_date': self.context.save_data['budget']['planned_activities'][title]['total_expenditure_date']})
 
         data['budget']['total_budget'] = self.getTotalAssignedBudget(data['budget']['planned_activities'])
 

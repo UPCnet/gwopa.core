@@ -53,9 +53,14 @@
         <a id="dlink" style="display:none;"></a>
         <span id="filename" style="display:none;" tal:content="report/project_overview/project_name">Project Name</span>
         <span id="generation_report_date" style="display:none;" tal:content="report/generation_report_date">Generation report date</span>
+
         <button type="button" class="context focus right" onclick="javascript:window.print()">
           <i class="fa fa-print" aria-hidden="true"></i>
-          <span>Print</span>
+          <span i18n:translate="">Print</span>
+        </button>
+        <button type="button" class="context focus right" id="refreshReport">
+          <i class="fa fa-refresh" aria-hidden="true"></i>
+          <span i18n:translate="">Refresh</span>
         </button>
       </div>
 
