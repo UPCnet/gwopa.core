@@ -163,6 +163,7 @@ def projectAdded(content, event):
                             project_url=content.absolute_url(),
                             project_title=content.title,
                             email=email,
+                            frequency=measuring_frequency[:-2],
                         ))
                         date_start_year = date_generate_report
                     elif date2 == date_start_year:
@@ -178,6 +179,7 @@ def projectAdded(content, event):
                             project_url=content.absolute_url(),
                             project_title=content.title,
                             email=email,
+                            frequency=measuring_frequency[:-2],
                         ))
                         break
         else:
@@ -194,6 +196,7 @@ def projectAdded(content, event):
                             project_url=content.absolute_url(),
                             project_title=content.title,
                             email=email,
+                            frequency=measuring_frequency[:-2],
                         ))
                         date1 = date_generate_report
                     elif date2 == date1:
@@ -209,6 +212,7 @@ def projectAdded(content, event):
                             project_url=content.absolute_url(),
                             project_title=content.title,
                             email=email,
+                            frequency=measuring_frequency[:-2],
                         ))
                         break
 
@@ -432,6 +436,7 @@ def projectModified(content, event):
                                 project_url=content.absolute_url(),
                                 project_title=content.title,
                                 email=email,
+                                frequency=measuring_frequency[:-2],
                             ))
                             date_start_year = date_generate_report
                         elif date2 == date_start_year:
@@ -447,6 +452,7 @@ def projectModified(content, event):
                                 project_url=content.absolute_url(),
                                 project_title=content.title,
                                 email=email,
+                                frequency=measuring_frequency[:-2],
                             ))
                             break
             else:
@@ -463,6 +469,7 @@ def projectModified(content, event):
                                 project_url=content.absolute_url(),
                                 project_title=content.title,
                                 email=email,
+                                frequency=measuring_frequency[:-2],
                             ))
                             date1 = date_generate_report
                         elif date2 == date1:
@@ -478,6 +485,7 @@ def projectModified(content, event):
                                 project_url=content.absolute_url(),
                                 project_title=content.title,
                                 email=email,
+                                frequency=measuring_frequency[:-2],
                             ))
                             break
 
