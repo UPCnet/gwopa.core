@@ -40,11 +40,12 @@
                   </div>
                 </div>
                 <div>
-                  <p class="text-bold editField" i18n:translate="">Baseline and Progress Description</p>
+                  <span class="text-bold editFieldSec" i18n:translate="">Baseline</span>
                   <a tal:attributes="href string:${report/project_url}/planning#project" target="_blink"
                      title="Planning: Open a new tab to edit the field on the platform">
                     <span class="fa fa-edit"></span>
                   </a>
+                  <span class="text-bold editFieldSec" i18n:translate="">and Progress Description</span>
                   <a tal:attributes="href string:${report/project_url}/monitoring#project" target="_blink"
                      title="Monitoring: Open a new tab to edit the field on the platform">
                     <span class="fa fa-edit"></span>
@@ -130,11 +131,12 @@
                       </div>
                     </div>
                     <div>
-                      <p class="text-bold editField" i18n:translate="">Baseline and Progress Description</p>
+                      <span class="text-bold editFieldSec" i18n:translate="">Baseline</span>
                       <a tal:attributes="href string:${report/project_url}/planning#project" target="_blink"
                          title="Planning: Open a new tab to edit the field on the platform">
                         <span class="fa fa-edit"></span>
                       </a>
+                      <span class="text-bold editFieldSec" i18n:translate="">and Progress Description</span>
                       <a tal:attributes="href string:${report/project_url}/monitoring#project" target="_blink"
                          title="Monitoring: Open a new tab to edit the field on the platform">
                         <span class="fa fa-edit"></span>
