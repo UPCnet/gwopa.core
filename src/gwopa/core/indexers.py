@@ -137,6 +137,12 @@ class NotifyReportsSoupCatalogFactory(object):
         date_generate_report = NodeAttributeIndexer('date_generate_report')
         catalog['date_generate_report'] = CatalogTextIndex(date_generate_report)
 
+        num_report = NodeAttributeIndexer('num_report')
+        catalog['num_report'] = CatalogTextIndex(num_report)
+
+        project_year = NodeAttributeIndexer('project_year')
+        catalog['project_year'] = CatalogTextIndex(project_year)
+
         return catalog
 
 

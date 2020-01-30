@@ -280,6 +280,13 @@ class IProject(model.Schema):
         required=False
     )
 
+    form.mode(gwopa_reporting='hidden')
+    dexteritytextindexer.searchable('gwopa_reporting')
+    gwopa_reporting = schema.ASCIILine(
+        title=_(u'Reporting'),
+        required=False
+    )
+
     # Geolocation
 
     form.widget(fieldset_geolocation=FieldsetFieldWidget)

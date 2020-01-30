@@ -12,7 +12,9 @@ from gwopa.core.utils import getTitleAttrLang
 
 from five import grok
 from zope.interface import Interface
-
+from Products.CMFPlone.interfaces import IPloneSiteRoot
+from datetime import datetime
+import json
 
 class debug(grok.View):
     """ Convenience view for faster debugging. Needs to be manager. """
@@ -129,3 +131,38 @@ class mapView(BrowserView):
         else:
             values.append(int(values[-1:][0]) + 100)
         return {'start': values[0], 'end': values[-1:][0]}
+
+class cron_reports(grok.View):
+    """ Projects to send email report."""
+
+    grok.context(IPloneSiteRoot)
+    grok.name('cron_reports')
+    grok.require('cmf.ManagePortal')
+
+    def render(self):
+        try:
+            from plone.protect.interfaces import IDisableCSRFProtection
+            alsoProvides(self.request, IDisableCSRFProtection)
+        except:
+            pass
+
+        list_emails_report = []
+        list_generate_report = []
+        now = datetime.now()
+        current_day = now.strftime("%B %d, %Y")
+        #current_day = 'April 17, 2020'
+        projects = api.content.find(portal_type="Project")
+        for project in projects:
+            try:
+                for result in project.gwopa_reporting:
+                    if current_day == result['date_email_report']:
+                        list_emails_report.append(result)
+                    if current_day == result['date_generate_report']:
+                        list_generate_report.append(result)
+            except:
+                pass
+
+        list_cron_reports = {'list_emails_report': list_emails_report,
+                             'list_generate_report': list_generate_report}
+
+        return json.dumps(list_cron_reports)

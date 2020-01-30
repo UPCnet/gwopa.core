@@ -21,6 +21,7 @@ from gwopa.core.content.project import IProject
 from gwopa.core.utils import getUsersRegionalWOPPlatform
 from gwopa.core.utils import getUsersWOPProgram
 from gwopa.core.utils import project_currency
+from datetime import datetime
 
 # import datetime
 import dateutil.relativedelta
@@ -127,6 +128,93 @@ def projectAdded(content, event):
     content.gwopa_year_phases = results
 
     logger.info('Fases project {} id {}'.format(content.title, content.id))
+
+    measuring_frequency = content.measuring_frequency
+    if measuring_frequency:
+        frequency = int(measuring_frequency[-1])
+
+        if frequency == 4:
+            N_MONTHS = 3
+        elif frequency == 2:
+            N_MONTHS = 6
+        elif frequency == 1:
+            N_MONTHS = 12
+        reports = []
+        N_DAYS_AGO = 15
+
+        if content.project_manager_admin:
+            user = api.user.get(content.project_manager_admin)
+            email = user.getProperty('email')
+
+        if fases > 1:
+            count = 0
+            while count != fases:
+                count = count + 1
+                date_start_year = datetime.strptime(results[count-1]['start'], "%B %d, %Y").date()
+                for i in range(frequency):
+                    date_generate_report = date_start_year + relativedelta(months=N_MONTHS)
+                    if date2 >= date_generate_report and date2 != date_start_year:
+                        data_email_report = date_generate_report - relativedelta(days=N_DAYS_AGO)
+                        reports.append(dict(
+                            date_generate_report=date_generate_report.strftime("%B %d, %Y"),
+                            date_email_report=data_email_report.strftime("%B %d, %Y"),
+                            num_report=i + 1,
+                            project_year=count,
+                            project_url=content.absolute_url(),
+                            project_title=content.title,
+                            email=email,
+                        ))
+                        date_start_year = date_generate_report
+                    elif date2 == date_start_year:
+                        break
+                    else:
+                        date_generate_report = date2
+                        data_email_report = date_generate_report - relativedelta(days=N_DAYS_AGO)
+                        reports.append(dict(
+                            date_generate_report=date_generate_report.strftime("%B %d, %Y"),
+                            date_email_report=data_email_report.strftime("%B %d, %Y"),
+                            num_report=i + 1,
+                            project_year=count,
+                            project_url=content.absolute_url(),
+                            project_title=content.title,
+                            email=email,
+                        ))
+                        break
+        else:
+            count = 0
+            for i in range(frequency):
+                    date_generate_report = date1 + relativedelta(months=N_MONTHS)
+                    if date2 > date_generate_report:
+                        data_email_report = date_generate_report - relativedelta(days=N_DAYS_AGO)
+                        reports.append(dict(
+                            date_generate_report=date_generate_report.strftime("%B %d, %Y"),
+                            date_email_report=data_email_report.strftime("%B %d, %Y"),
+                            num_report=i + 1,
+                            project_year=count + 1,
+                            project_url=content.absolute_url(),
+                            project_title=content.title,
+                            email=email,
+                        ))
+                        date1 = date_generate_report
+                    elif date2 == date1:
+                        break
+                    else:
+                        date_generate_report = date2
+                        data_email_report = date_generate_report - relativedelta(days=N_DAYS_AGO)
+                        reports.append(dict(
+                            date_generate_report=date_generate_report.strftime("%B %d, %Y"),
+                            date_email_report=data_email_report.strftime("%B %d, %Y"),
+                            num_report=i + 1,
+                            project_year=count + 1,
+                            project_url=content.absolute_url(),
+                            project_title=content.title,
+                            email=email,
+                        ))
+                        break
+
+        content.gwopa_reporting = reports
+
+        logger.info('Dates to reporting project {} id {}'.format(content.title, content.id))
 
     # Create default needed folders in the new project
     api.content.create(
@@ -308,6 +396,94 @@ def projectModified(content, event):
                 fase=1
             ))
         content.gwopa_year_phases = results
+
+        measuring_frequency = content.measuring_frequency
+        if measuring_frequency:
+            frequency = int(measuring_frequency[-1])
+
+            if frequency == 4:
+                N_MONTHS = 3
+            elif frequency == 2:
+                N_MONTHS = 6
+            elif frequency == 1:
+                N_MONTHS = 12
+            reports = []
+            N_DAYS_AGO = 15
+
+            if content.project_manager_admin:
+                user = api.user.get(content.project_manager_admin)
+                email = user.getProperty('email')
+
+            if fases > 1:
+                count = 0
+                while count != fases:
+                    count = count + 1
+                    date_start_year = datetime.strptime(results[count-1]['start'], "%B %d, %Y").date()
+                    # date_end_year = datetime.strptime(results[count-1]['end'], "%B %d, %Y").date()
+                    for i in range(frequency):
+                        date_generate_report = date_start_year + relativedelta(months=N_MONTHS)
+                        if date2 >= date_generate_report and date2 != date_start_year:
+                            data_email_report = date_generate_report - relativedelta(days=N_DAYS_AGO)
+                            reports.append(dict(
+                                date_generate_report=date_generate_report.strftime("%B %d, %Y"),
+                                date_email_report=data_email_report.strftime("%B %d, %Y"),
+                                num_report=i + 1,
+                                project_year=count,
+                                project_url=content.absolute_url(),
+                                project_title=content.title,
+                                email=email,
+                            ))
+                            date_start_year = date_generate_report
+                        elif date2 == date_start_year:
+                            break
+                        else:
+                            date_generate_report = date2
+                            data_email_report = date_generate_report - relativedelta(days=N_DAYS_AGO)
+                            reports.append(dict(
+                                date_generate_report=date_generate_report.strftime("%B %d, %Y"),
+                                date_email_report=data_email_report.strftime("%B %d, %Y"),
+                                num_report=i + 1,
+                                project_year=count,
+                                project_url=content.absolute_url(),
+                                project_title=content.title,
+                                email=email,
+                            ))
+                            break
+            else:
+                count = 0
+                for i in range(frequency):
+                        date_generate_report = date1 + relativedelta(months=N_MONTHS)
+                        if date2 > date_generate_report:
+                            data_email_report = date_generate_report - relativedelta(days=N_DAYS_AGO)
+                            reports.append(dict(
+                                date_generate_report=date_generate_report.strftime("%B %d, %Y"),
+                                date_email_report=data_email_report.strftime("%B %d, %Y"),
+                                num_report=i + 1,
+                                project_year=count + 1,
+                                project_url=content.absolute_url(),
+                                project_title=content.title,
+                                email=email,
+                            ))
+                            date1 = date_generate_report
+                        elif date2 == date1:
+                            break
+                        else:
+                            date_generate_report = date2
+                            data_email_report = date_generate_report - relativedelta(days=N_DAYS_AGO)
+                            reports.append(dict(
+                                date_generate_report=date_generate_report.strftime("%B %d, %Y"),
+                                date_email_report=data_email_report.strftime("%B %d, %Y"),
+                                num_report=i + 1,
+                                project_year=count + 1,
+                                project_url=content.absolute_url(),
+                                project_title=content.title,
+                                email=email,
+                            ))
+                            break
+
+            content.gwopa_reporting = reports
+
+            logger.info('Dates to reporting project {} id {}'.format(content.title, content.id))
 
         # Assign Areas
         new_areas = content.areas
