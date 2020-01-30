@@ -65,7 +65,7 @@
       </div>
 
       <div id="reportPreviewProject" class="row tabla_contenido_items">
-        <div tal:condition="report" tal:define="styles view/getStyles">
+        <div tal:condition="report">
           <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="text-uppercase nav-link" data-toggle="tab" href="#tabla1" i18n:translate="">Project Overview</a>
