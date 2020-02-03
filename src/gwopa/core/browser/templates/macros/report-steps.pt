@@ -7,7 +7,7 @@
   <metal:block metal:define-macro="steps">
 
     <h3 i18n:translate="">Next Steps</h3>
-    <span data-toggle="modal" data-target="#stepsModal" class="fa fa-edit" title=""></span>
+    <span data-toggle="modal" data-target="#stepsModal" class="fa fa-edit" title="Based on your collective considerations for further planning and overall progress, report on the next steps that will be taken"></span>
 
     <p id="steps" tal:condition="report/next_steps" tal:content="report/next_steps"></p>
 

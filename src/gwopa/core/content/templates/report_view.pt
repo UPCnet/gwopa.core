@@ -78,12 +78,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#tabla4">
-                <span class="text-uppercase" i18n:translate="">Outcomes</span> - <span i18n:translate="">Utility Performance</span>
+                <span class="text-uppercase" i18n:translate="">Outcomes</span> - <span class="text-uppercase" i18n:translate="">Utility Performance</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#tabla5">
-                <span class="text-uppercase" i18n:translate="">Outcomes</span> - <span i18n:translate="">Capacity</span>
+                <span class="text-uppercase" i18n:translate="">Outcomes</span> - <span class="text-uppercase" i18n:translate="">Capacity</span>
               </a>
             </li>
             <li class="nav-item">

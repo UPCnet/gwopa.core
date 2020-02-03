@@ -711,7 +711,7 @@ msgstr "Explain"
 #: ../browser/templates/macros/report-outcomes.pt:119
 #: ../browser/templates/monitoring.pt:156
 msgid "Explain contributed and limiting factors"
-msgstr "Explain contributed and limiting factors"
+msgstr "Explain contributing and limiting factors"
 
 #: ../browser/templates/macros/report-outcomes.pt:306
 msgid "Explanation"
@@ -719,7 +719,7 @@ msgstr ""
 
 #: ../browser/setup_home.py:434
 msgid "Extension of Sanitation & Hygiene services"
-msgstr ""
+msgstr "Extension of Sanitation & Hygiene Services"
 
 #: ../browser/setup_home.py:435
 msgid "Extension of Water Supply Services"
@@ -765,7 +765,7 @@ msgstr "Project coordinators"
 
 #: ../content/project.py:191
 msgid "Frequency used for all the items of the project."
-msgstr "Frequency used for all the items of the project."
+msgstr "Frequency used for all the items of the project"
 
 #: ../browser/templates/macros/report-project.pt:41
 msgid "From"
@@ -785,11 +785,11 @@ msgstr ""
 
 #: ../browser/templates/reporting.pt:36
 msgid "Generate Report"
-msgstr ""
+msgstr "Customise Report"
 
 #: ../browser/templates/reporting.pt:65
 msgid "Generated Reports"
-msgstr ""
+msgstr "Customised Reports"
 
 #: ../content/project.py:287
 msgid "Geolocation"
@@ -894,13 +894,13 @@ msgstr ""
 #: ../content/contributorother.py:29
 #: ../content/contributorpartner.py:31
 msgid "In-cash"
-msgstr "In-cash"
+msgstr "In Cash"
 
 #: ../content/contributordonor.py:34
 #: ../content/contributorother.py:39
 #: ../content/contributorpartner.py:41
 msgid "In-kind"
-msgstr "In-kind"
+msgstr "In Kind"
 
 #: ../browser/setup_home.py:388
 msgid "Individual skills / abilities"
@@ -1056,7 +1056,7 @@ msgstr ""
 
 #: ../content/templates/project_view.pt:121
 msgid "Main organizations and their contributions"
-msgstr "Main organizations and their contributions"
+msgstr ""
 
 #: ../profiles/default/types/Maincontributing.xml
 msgid "Maincontributing"
@@ -1579,7 +1579,7 @@ msgstr ""
 
 #: ../browser/setup_home.py:426
 msgid "Production processes & Service Quality & Water Safety (Drinking Water)"
-msgstr "Production processes & Service Quality & Water Safety (Drinking Water)"
+msgstr "Production Processes & Service Quality & Water Safety (Drinking Water)"
 
 #: ../content/project.py:170
 msgid "Program/programs associated to this project"
@@ -1622,7 +1622,7 @@ msgstr ""
 
 #: ../content/project.py:362
 msgid "Project Manager"
-msgstr "Project Manager"
+msgstr "Project Managers"
 
 #: ../content/project.py:354
 msgid "Project Manager Admin"
@@ -1656,7 +1656,7 @@ msgstr "Project image"
 
 #: ../content/project.py:373
 msgid "Project members"
-msgstr "Project members"
+msgstr "Utility employees (e.g. engineers, operational workers etc.) involved in WOP activities"
 
 #: ../content/project.py:132
 msgid "Project title"
@@ -2030,11 +2030,11 @@ msgstr "The currency used into the project"
 
 #: ../content/project.py:261
 msgid "The dates when the project has been completed. Planned date and current date."
-msgstr "The dates when the project has been completed. Actual date and planned date."
+msgstr "The completion date of the project. Actual date or planned date"
 
 #: ../content/project.py:241
 msgid "The dates when the project has started. Planned date and current date."
-msgstr "The dates when the project has been started. Actual date and planned date."
+msgstr "The starting date of the project. Actual date or planned date"
 
 #: ../browser/setup_home.py:223
 msgid "The default config has been applied."
@@ -2042,11 +2042,11 @@ msgstr "The default config has been applied."
 
 #: ../content/project.py:355
 msgid "The responsible manager of the project"
-msgstr "The responsible of the project"
+msgstr "The project Focal Point responsible for verifying and coordinating platform inputs"
 
 #: ../content/project.py:363
 msgid "The responsible of this project"
-msgstr "The manager of this project. Main contact user"
+msgstr "The project leaders managing specific Working Areas in the project"
 
 #: ../content/contributorpartner.py:25
 msgid "The role of partner in project"
@@ -2313,7 +2313,7 @@ msgstr "What are the specific changes perceived in this working area?"
 
 #: ../browser/templates/monitoring.pt:425
 msgid "What is the change consolidation stage of this working area?"
-msgstr "What is the change consolidation stage of this working area?"
+msgstr "What is the overall stage of change seen in this working area?"
 
 #: ../browser/templates/global_map.pt:24
 msgid "Working Area"
@@ -2409,7 +2409,7 @@ msgstr "GWOPA Menu"
 #. Default: "Tags are commonly used for ad-hoc organization of content."
 #: ../content/project.py:198
 msgid "help_tags"
-msgstr "Tags of the project used in searches"
+msgstr "Tags of the project used in searches (e.g. SDG6.Country/Countries, Region(s), programmatic scope)"
 
 #: ../indexers.py:35
 msgid "home_page"

@@ -33,7 +33,7 @@
         </a> -->
         <a class="pat-plone-modal" tal:attributes="href string:${view/projectURL}/reports/++add++Report"
            data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}">
-          <button id="addFileReport" class="context focus right" i18n:translate="">Generate Report</button>
+          <button id="addFileReport" class="context focus right" i18n:translate="">Customise Report</button>
         </a>
       </div>
 
@@ -62,7 +62,7 @@
       <table class="table table-condensed table-bordered table-responsive sortable table-striped">
         <thead>
           <tr>
-            <th scope="col" style="width: 72%" i18n:translate="">Generated Reports</th>
+            <th scope="col" style="width: 72%" i18n:translate="">Customised Reports</th>
             <th scope="col" style="width: 16%" i18n:translate="">Date</th>
             <th scope="col" style="width: 12%" i18n:translate="">Actions</th>
           </tr>

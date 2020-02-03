@@ -59,7 +59,7 @@
 
     <p class="break"></p>
 
-    <h4 i18n:translate="">Main Organization and their contributions</h4>
+    <h4 i18n:translate="">Main organisations and their contributions</h4>
 
     <p id="totalBudget" tal:attributes="data-total report/project_overview/total_budget">
       <span i18n:translate="">Total budget</span>: <span tal:content="string:${report/project_overview/total_budget}${report/project_overview/currency}"></span>

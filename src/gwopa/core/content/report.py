@@ -677,7 +677,7 @@ def updateReport(self):
     data['project_overview'] = {
         'project_name': project.title,
         'project_code': project.code,
-        'reporting_type': utils.getTranslatedMesuringFrequencyFromID(project.measuring_frequency),
+        'reporting_type': utils.getTranslatedMesuringFrequencyFromID(project.measuring_frequency).split(',')[0],
         'reporting_period': {
             'project_year': self.context.project_year,
             'from': self.context.gwopa_year_phases[int(self.context.project_year) - 1]['start'],
@@ -982,13 +982,12 @@ def updateReport(self):
             'act_title': activity.Title,
             'assigned_budget': activityObj.budget
         }})
-
         if not refresh:
             data['budget']['planned_activities'][title].update({'expenditure_reporting_period': ''})
             data['budget']['planned_activities'][title].update({'total_expenditure_date': ''})
         else:
-            data['budget']['planned_activities'][title].update({'expenditure_reporting_period': self.context.save_data['budget']['planned_activities'][title]['expenditure_reporting_period']})
-            data['budget']['planned_activities'][title].update({'total_expenditure_date': self.context.save_data['budget']['planned_activities'][title]['total_expenditure_date']})
+            data['budget']['planned_activities'][title].update({'expenditure_reporting_period': self.context.save_data['budget']['planned_activities'][title]['expenditure_reporting_period'] if 'expenditure_reporting_period' in data['budget']['planned_activities'][title] else ''})
+            data['budget']['planned_activities'][title].update({'total_expenditure_date': self.context.save_data['budget']['planned_activities'][title]['total_expenditure_date'] if 'total_expenditure_date' in data['budget']['planned_activities'][title] else ''})
 
     data['budget']['total_budget'] = getTotalAssignedBudget(data['budget']['planned_activities'])
 

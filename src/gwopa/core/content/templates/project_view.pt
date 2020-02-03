@@ -134,7 +134,7 @@
               </tr>
             </thead>
             <tr tal:repeat="partner partners">
-              <td><a tal:condition="canEdit" class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block></td>
+              <td><a tal:condition="canEdit" class="pat-plone-modal" tal:attributes="href string:${partner/edit}" href="#"><i class="far fa-edit"></i></a>&nbsp;<tal:block tal:content="partner/title"></tal:block><span tal:content="partner/roles"></span></td>
               <td class="contibutioncentered" tal:content="partner/incash"></td>
               <td class="contibutioncentered" tal:content="partner/inkind"></td>
             </tr>
@@ -185,7 +185,7 @@
                             data-type partner/portal_type;
                             data-id partner/title;" i18n:attributes="title Delete; alt Delete">
                         <i class="far fa-trash-alt"></i></a>
-                        <tal:block tal:content="partner/title"></tal:block></td>
+                        <tal:block tal:content="partner/title"></tal:block><span tal:content="partner/roles"></span></td>
                 <td class="contibutioncentered" tal:content="partner/incash"></td>
                 <td class="contibutioncentered" tal:content="partner/inkind"></td>
               </tal:block>

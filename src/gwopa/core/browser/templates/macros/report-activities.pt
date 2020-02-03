@@ -10,7 +10,7 @@
 
     <tal:block tal:define="activities_outputs report/activities_outputs" tal:omit-tag="">
       <tal:block tal:repeat="wa activities_outputs" tal:omit-tag="">
-        <h4><span i18n:translate="">WORKING AREA</span>: <span tal:content="wa/title"></span></h4>
+        <h4><span i18n:translate="">WORKING AREA</span>: <span tal:content="wa"></span></h4>
         <tal:block tal:define="activities python:activities_outputs[wa]['activities']" tal:omit-tag="">
           <tal:block tal:repeat="activity activities" tal:omit-tag="">
             <tal:block tal:define="act_wa python:activities[activity]">
@@ -67,7 +67,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <th i18n:translate="">Main Obstables</th>
+                      <th i18n:translate="">Main Obstacles</th>
                       <td tal:condition="act_wa/main_obstacles/internal"><span class="fas fa-2x fa-check-circle"></span></td>
                       <td tal:condition="not:act_wa/main_obstacles/internal"></td>
                       <td tal:condition="act_wa/main_obstacles/external"><span class="fas fa-2x fa-check-circle"></span></td>

@@ -423,20 +423,20 @@ class setup(grok.View):
             _(u'Customer Service'),
             _(u'Financial Management'),
             _(u'Wastewater Collection & Treatment'),
-            _(u'Production processes & Service Quality & Water Safety (Drinking Water)'),
+            _(u'Production Processes & Service Quality & Water Safety (Drinking Water)'),
             _(u'Operation & Maintenance'),
             _(u'Energy Efficiency'),
             _(u'Human Resource Management/ Organizational Development'),
             _(u'Corporate Governance & Institutions'),
-            _(u'Catchment Management / IWRM'),
+            _(u'Catchment Management/ IWRM'),
             _(u'Climate Change Resilience'),
             _(u'Services in Low-Income Areas'),
-            _(u'Extension of Sanitation & Hygiene services'),
+            _(u'Extension of Sanitation & Hygiene Services'),
             _(u'Extension of Water Supply Services'),
-            _(u'Social Inclusion/Gender'),
+            _(u'Social Inclusion/ Gender'),
             _(u'Information & Technology'),
             _(u'Policy and Legal Support'),
-            _(u'Water Demand Managemen')
+            _(u'Water Demand Management')
         ]
 
         tool_ts = getToolByName(self, 'translation_service')

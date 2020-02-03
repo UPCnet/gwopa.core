@@ -149,7 +149,7 @@
     <tal:block tal:define="outcomes_capacity report/outcomes_capacity" tal:omit-tag="">
       <tal:block tal:repeat="ca outcomes_capacity" tal:omit-tag="">
 
-        <h4><span i18n:translate="">CAPACITY</span>: <span tal:content="ca/title"></span></h4>
+        <h4><span i18n:translate="">CAPACITY</span>: <span tal:content="ca"></span></h4>
 
         <div class="stages" tal:define="stages python:outcomes_capacity[ca]['getCurrentStage']" tal:condition="stages">
           <ul class="steps">

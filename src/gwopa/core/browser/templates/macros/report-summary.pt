@@ -6,20 +6,20 @@
 
   <metal:block metal:define-macro="summary">
 
-    <h3 i18n:translate="">Summary</h3>
+    <h3 i18n:translate="">Summary of Status</h3>
 
-    <p tal:content="report/summary/working_areas">Working areas, ...</p>
+    <span i18n:translate="">Project Working areas: </span> <span tal:content="report/summary/working_areas">Working areas, ...</span>
 
     <h4 i18n:translate="">Overall Project Status</h4>
 
     <div class="row overallProjectStatus">
       <div class="col-xs-4 col-sm-4 status">
         <div class="bg-danger" tal:condition="report/summary/progress/roadblock">
-          <p class="text-center" i18n:translate="">Roadblock</p>
+          <p class="text-center" i18n:translate="">Roadblocks</p>
         </div>
         <div class="bg-disabled" data-status="roadblock" tal:condition="not:report/summary/progress/roadblock"
              title="Select the overall project status by clicking on one of the three options below">
-          <p class="text-center" i18n:translate="">Roadblock</p>
+          <p class="text-center" i18n:translate="">Roadblocks</p>
         </div>
       </div>
       <div class="col-xs-4 col-sm-4 status">
@@ -48,7 +48,7 @@
             title="Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders"></span>
       <p id="stakeholders" tal:content="report/summary/progress/stakeholders">Stakeholders</p>
       <br />
-      <p class="editField text-bold" i18n:translate="">Challenges, lessons learned and deviations</p>
+      <p class="editField text-bold" i18n:translate="">Challenges, lessons learned and deviations from initial plan</p>
       <span data-toggle="modal" data-target="#otherModal" class="fa fa-edit"
             title="Insert a maximum of two paragraphs summarizing other additional challenges, lessons learned or deviations to plans"></span>
       <p id="other" tal:content="report/summary/other">Other</p>
