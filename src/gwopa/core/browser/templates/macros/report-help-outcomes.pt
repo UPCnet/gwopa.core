@@ -8,12 +8,12 @@
     <table>
       <tbody>
         <tr>
-          <td rowspan="5" i18n:translate="">Organization - strategic </td>
+          <td rowspan="5" i18n:translate="">Organization - strategic</td>
           <td>
             <img alt="" title="" src="++theme++gwopa.theme/assets/images/vision-mission-and-strategy.png">
           </td>
           <td i18n:translate="">Vision, mission and strategy</td>
-          <td i18n:translate="">A company vision outlines where the company is headed and what values are guiding that journey. Mission is a general statement of how you will achieve your vision. Strategies are a series of ways of using the mission to achieve the vision.</td>
+          <td i18n:translate="">A company vision outlines where the company is headed and what values are guiding that journey. Mission is a general stament of how you will achieve your vision. Strategies are a series of ways of using the mission to achieve the vision.</td>
         </tr>
         <tr>
           <td>
@@ -33,7 +33,7 @@
           <td>
             <img alt="" title="" src="++theme++gwopa.theme/assets/images/external-relations-networking.png">
           </td>
-          <td i18n:translate="">External relations / networking</td>
+          <td i18n:translate="">External relations - networking</td>
           <td i18n:translate="">Stakeholder relations that the Water Operator has forged and how such networks support the achievement of its strategy.</td>
         </tr>
         <tr>
@@ -49,21 +49,21 @@
             <img alt="" title="" src="++theme++gwopa.theme/assets/images/structure.png">
           </td>
           <td i18n:translate="">Structure</td>
-          <td i18n:translate="">Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization’s mission and strategy.</td>
+          <td i18n:translate="">Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization is mission and strategy.</td>
         </tr>
         <tr>
           <td>
             <img alt="" title="" src="++theme++gwopa.theme/assets/images/management-practices.png">
           </td>
           <td i18n:translate="">Management practices</td>
-          <td i18n:translate="">Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization’s strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control).</td>
+          <td i18n:translate="">Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization is strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control).</td>
         </tr>
         <tr>
           <td>
             <img alt="" title="" src="++theme++gwopa.theme/assets/images/systems.png">
           </td>
           <td i18n:translate="">Systems</td>
-          <td i18n:translate="">Standardized policies, procedures and mechanisms that facilitate work, primarily manifested in the organization’s reward systems, management information systems, control and support systems as performance appraisal, goal and budget development and human resource allocation. This category of the model covers a lot of ground.</td>
+          <td i18n:translate="">Standardized policies, procedures and mechanisms that facilitate work, primarily manifested in the organization reward systems, management information systems, control and support systems as performance appraisal, goal and budget development and human resource allocation. This category of the model covers a lot of ground.</td>
         </tr>
         <tr>
           <td>
@@ -91,7 +91,7 @@
           <td>
             <img alt="" title="" src="++theme++gwopa.theme/assets/images/individual-skills-abilities.png">
           </td>
-          <td i18n:translate="">Individual skills / abilities</td>
+          <td i18n:translate="">Individual skills - abilities</td>
           <td i18n:translate="">Availability of human resources and the extent to which they have the required skills and knowledge to accomplish the work they have been assigned to do.</td>
         </tr>
         <tr>
@@ -99,13 +99,13 @@
             <img alt="" title="" src="++theme++gwopa.theme/assets/images/staff-motivation.png">
           </td>
           <td i18n:translate="">Staff motivation</td>
-          <td i18n:translate="">Pro-active tendencies to move towards goals, take needed action, and persist until satisfaction is attained.</td>
+          <td i18n:translate="">Proactive tendencies to move towards goals, take needed action, and persist until satisfaction is attained.</td>
         </tr>
         <tr>
           <td>
             <img alt="" title="" src="++theme++gwopa.theme/assets/images/applied-knowledge-skills.png">
           </td>
-          <td i18n:translate="">Applied knowledge / skills</td>
+          <td i18n:translate="">Applied knowledge - skills</td>
           <td i18n:translate="">Active use of the newly acquired knowledge and skills in daily practices.</td>
         </tr>
       </tbody>

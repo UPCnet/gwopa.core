@@ -10,7 +10,7 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import alsoProvides
 
-# from gwopa.core import _
+from gwopa.core import _
 from gwopa.core.utils import getDictTranslatedContributingFromList
 from gwopa.core.utils import getDictTranslatedObstaclesFromList
 from gwopa.core.utils import getTitleAttrLang
@@ -482,7 +482,7 @@ class Create(BrowserView):
                 obj.end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
             obj.initial_situation = self.request.form.get('item_initialdescription')
             obj.currency = self.request.form.get('item_hidden_project_currency')
-            obj.project_dates = 'The dates must be between the limits of this Project. Start: ' + self.request.form.get('item_project_start') + ' End: ' + self.request.form.get('item_project_end')
+            obj.project_dates = _(u"The dates must be between the limits of this Project. Start: ") + self.request.form.get('item_project_start') + _(u" End: ") + self.request.form.get('item_project_end')
             annotations = IAnnotations(obj)
             for x in range(0, 11):  # Create 11 annotations
                 data = dict(real='', planned='', monitoring='')

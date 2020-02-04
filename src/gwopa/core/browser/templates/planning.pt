@@ -551,7 +551,7 @@
                 </div>
                 <div class="form-group col-md-12" style="margin-bottom:10px !important;">
                   <span class="legend">
-                    <tal:omit-tag i18n:translate=""> As it is common practice for utilities involved in WOPs to manage the financial tracking in-house, expenditure is not tracked within the tool. We do however provide a section within the reporting feature to document basic expenditures. </tal:omit-tag>
+                    <tal:omit-tag i18n:translate="">As it is common practice for utilities involved in WOPs to manage the financial tracking in-house, expenditure is not tracked within the tool. We do however provide a section within the reporting feature to document basic expenditures.</tal:omit-tag>
                   </span>
                 </div>
                 <div class="form-group row">

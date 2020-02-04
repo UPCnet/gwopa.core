@@ -84,6 +84,11 @@ class IActivity(model.Schema):
         constraint=checkDate
     )
 
+    directives.mode(explain_budget='display')
+    explain_budget = schema.Text(
+        title=_(u'As it is common practice for utilities involved in WOPs to manage the financial tracking in-house, expenditure is not tracked within the tool. We do however provide a section within the reporting feature to document basic expenditures.'),
+    )
+
     budget = schema.TextLine(
         title=_(u'Assigned budget'),
         required=False,
@@ -121,7 +126,12 @@ def projectCurrency(data):
 
 @form.default_value(field=IActivity['project_dates'])
 def projectDates(data):
-    return "The dates must be between the limits of this Project. Start: " + str(data.context.aq_parent.startactual) + " End: " + str(data.context.aq_parent.completionactual)
+    return _(u"The dates must be between the limits of this Project. Start: ") + str(data.context.aq_parent.startactual) + _u(" End: ") + str(data.context.aq_parent.completionactual)
+
+
+# @form.default_value(field=IActivity['explain_budget'])
+# def explainBudget(data):
+#     return _u("As it is common practice for utilities involved in WOPs to manage the financial tracking in-house, expenditure is not tracked within the tool. We do however provide a section within the reporting feature to document basic expenditures.")
 
 
 class Edit(form.SchemaEditForm):
