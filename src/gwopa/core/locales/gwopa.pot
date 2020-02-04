@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-02-04 08:26+0000\n"
+"POT-Creation-Date: 2020-02-04 08:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,11 +48,8 @@ msgid "(Estimated) coverage LIA population"
 msgstr ""
 
 #: ../browser/templates/planning.pt:523
-msgid "(e.g. 1 - Training of staff in NRW reduction approaches)"
-msgstr ""
-
 #: ../content/activity.py:54
-msgid "(e.g. 1 - Training of staff in NRW reduction approachesZ)"
+msgid "(e.g. 1 - Training of staff in NRW reduction approaches)"
 msgstr ""
 
 #: ../browser/templates/planning.pt:600

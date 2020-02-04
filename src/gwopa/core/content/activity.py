@@ -51,7 +51,7 @@ class IActivity(model.Schema):
 
     title = schema.TextLine(
         title=_(u"Numeration - Title"),
-        description=_(u"(e.g. 1 - Training of staff in NRW reduction approachesZ)"),
+        description=_(u"(e.g. 1 - Training of staff in NRW reduction approaches)"),
         required=True,
     )
 

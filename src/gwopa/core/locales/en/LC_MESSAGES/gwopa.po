@@ -42,11 +42,8 @@ msgid "(Estimated) coverage LIA population"
 msgstr ""
 
 #: ../browser/templates/planning.pt:523
-msgid "(e.g. 1 - Training of staff in NRW reduction approaches)"
-msgstr ""
-
 #: ../content/activity.py:54
-msgid "(e.g. 1 - Training of staff in NRW reduction approachesZ)"
+msgid "(e.g. 1 - Training of staff in NRW reduction approaches)"
 msgstr ""
 
 #: ../browser/templates/planning.pt:600
