@@ -499,7 +499,7 @@ class View(grok.View):
                 edit=item.getURL() + '/edit',
                 incash=str(0 if obj.incash is None else obj.incash) + ' ' + letter,
                 inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + letter,
-                roles=' [' + obj.partner_roles + ']',
+                roles=str('' if obj.partner_roles is None else ' [' + str(obj.partner_roles) + ']'),
             ))
         return results
 
@@ -581,7 +581,7 @@ class View(grok.View):
                 portal_type=obj.portal_type,
                 incash=str(0 if obj.incash is None else obj.incash) + ' ' + letter,
                 inkind=str(0 if obj.inkind is None else obj.inkind) + ' ' + letter,
-                roles=' [' + obj.organization_roles + ']',
+                roles=str('' if obj.organization_roles is None else ' [' + str(obj.organization_roles) + ']'),
             ))
         return results
 
