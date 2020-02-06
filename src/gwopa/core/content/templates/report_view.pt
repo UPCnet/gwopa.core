@@ -133,6 +133,20 @@
                 <p class="break"></p>
               </div>
 
+              <div class="section">
+                <h3 i18n:translate="">Table of Contents</h3>
+                <ul class="index">
+                  <li i18n:translate="" tal:condition="viewProjectOverview">Project Overview</li>
+                  <li i18n:translate="" tal:condition="viewSummary">Summary</li>
+                  <li i18n:translate="" tal:condition="viewActivities">Activities and Outputs</li>
+                  <li tal:condition="viewOutcomesUtilityPerfomance"><span i18n:translate="">Outcomes</span> - <span i18n:translate="">Utility Perfomance</span></li>
+                  <li tal:condition="viewOutcomesCapacity"><span i18n:translate="">Outcomes</span> - <span i18n:translate="">Capacity</span></li>
+                  <li i18n:translate="" tal:condition="viewBudget">Budget</li>
+                  <li i18n:translate="" tal:condition="viewNextSteps">Next Steps</li>
+                </ul>
+                <p class="break"></p>
+              </div>
+
               <div class="section" tal:condition="viewProjectOverview">
                 <block metal:use-macro="context/macro-report-project/project"></block>
                 <p class="break"></p>
