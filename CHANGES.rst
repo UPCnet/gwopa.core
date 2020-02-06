@@ -2,11 +2,10 @@ Changelog
 =========
 
 
-1.11 (unreleased)
+1.11 (2020-02-06)
 -----------------
 
-- Nothing changed yet.
-
+* Solucionar error partner roles [pilar.marinas]
 
 1.10 (2020-02-06)
 -----------------
