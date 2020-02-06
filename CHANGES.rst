@@ -2,11 +2,64 @@ Changelog
 =========
 
 
-1.10 (unreleased)
+1.10 (2020-02-06)
 -----------------
 
-- Nothing changed yet.
-
+* Report index [Iago López Fernández]
+* Report budgets [Iago López Fernández]
+* Añadir nuevos valores de unidad [Iago López Fernández]
+* Progress report [Iago López Fernández]
+* Traduccions [pilar.marinas]
+* Canvis demanats [pilar.marinas]
+* Cambios solicitados [pilar.marinas]
+* Locales [Iago López Fernández]
+* Remove soup NotifyReportsSoupCatalogFactory [pilar.marinas]
+* Add value frequency for report [pilar.marinas]
+* cron_reports [pilar.marinas]
+* Report edits Baseline and Progress Description [Iago López Fernández]
+* Solucionar bug [Iago López Fernández]
+* Vista para generar automaticamente el report [Iago López Fernández]
+* Log refresh report [Iago López Fernández]
+* Añadir boton para refrescar report [Iago López Fernández]
+* Modificar report budgets [Iago López Fernández]
+* Añadir ayuda actividad y output [Iago López Fernández]
+* Project Overview [Iago López Fernández]
+* Report: Separar pestaña de outcomes en 2 y añadir next steps [Iago López Fernández]
+* Report enlaces [Iago López Fernández]
+* Literales report [Iago López Fernández]
+* Modificar outcomes [Iago López Fernández]
+* Soup Notify Reports [pilar.marinas]
+* Report añadir todas las secciones por defecto [Iago López Fernández]
+* Report Budget [Iago López Fernández]
+* Cambio literal [Iago López Fernández]
+* Solvented bug [Iago López Fernández]
+* Report budget [Iago López Fernández]
+* Report Summary - Añadir ayudas [Iago López Fernández]
+* Cambio de literales [Iago López Fernández]
+* Report Outcomes [Iago López Fernández]
+* Report Project Overview [Iago López Fernández]
+* Report Activities and Outputs [Iago López Fernández]
+* Report project overview [Iago López Fernández]
+* Descomentar linea report [Iago López Fernández]
+* Report firstpage [Iago López Fernández]
+* Report fistpage [Iago López Fernández]
+* Report Summary [Iago López Fernández]
+* Solucionar error con la visualización de los graficos en el report [Iago López Fernández]
+* Canvis report [pilar.marinas]
+* Añadir codigo del proyecto directamente en este [Iago López Fernández]
+* Dividir report en diferentes macros [Iago López Fernández]
+* Correcciones + Estilos + Report añadir campo para diferencia si es auto o manual [Iago López Fernández]
+* Solucionar error de contexto en el report [Iago López Fernández]
+* Guardar estado del report [Iago López Fernández]
+* Report tabs [Iago López Fernández]
+* Solucionar error report [root muntanyeta]
+* Graficas report [Iago López Fernández]
+* Solucionar errores con el contexto en la vista del report [Iago López Fernández]
+* Overall Project Status [Iago López Fernández]
+* Modificar report pdf [pilar.marinas]
+* Fijar tamaño columnas de las tablas de reporting y cambiar icono [Iago López Fernández]
+* Habilitar el tipo de contenido report en los proyectos [Iago López Fernández]
+* Report pdf [pilar.marinas]
 
 1.9 (2019-12-20)
 ----------------
