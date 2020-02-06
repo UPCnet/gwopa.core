@@ -61,8 +61,8 @@
                 <p tal:content="out/baseline_value"></p>
               </div>
               <div class="col-xs-2 col-sm-2">
-                <p class="indicator text-bold"
-                   tal:content="string:${out/target_value_real} / ${out/target_value_planned}">
+                <p class="text-bold" i18n:translate="">Progress</p>
+                <p tal:content="string:${out/target_value_real} / ${out/target_value_planned}">
                   25%
                 </p>
                 <div class="indicators-progress" role="progressbar"

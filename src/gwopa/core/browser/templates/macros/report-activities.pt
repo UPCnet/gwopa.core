@@ -29,8 +29,8 @@
                     <p tal:content="act_wa/completion"></p>
                   </div>
                   <div class="col-xs-2 col-sm-2">
-                    <p class="indicator text-bold"
-                       tal:content="string:${act_wa/progress_tracker/progress} ${act_wa/progress_tracker/measuring_unit}">
+                    <p class="text-bold" i18n:translate="">Progress</p>
+                    <p tal:content="string:${act_wa/progress_tracker/progress} ${act_wa/progress_tracker/measuring_unit}">
                       25%
                     </p>
                     <div class="indicators-progress" role="progressbar"
@@ -53,8 +53,6 @@
                   <p tal:content="act_wa/description/description"></p>
                   <p tal:content="act_wa/description/planning"></p>
                   <p tal:content="act_wa/description/explanation_progress"></p>
-                </div>
-                <div class="row">
                 </div>
                 <table>
                   <thead>
@@ -120,8 +118,8 @@
                         <p tal:content="out_act/completion"></p>
                       </div>
                       <div class="col-xs-2 col-sm-2">
-                        <p class="indicator text-bold"
-                           tal:content="string:${out_act/progress_tracker/real} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}">
+                        <p class="text-bold" i18n:translate="">Progress</p>
+                        <p tal:content="string:${out_act/progress_tracker/real} / ${out_act/progress_tracker/progress} ${out_act/progress_tracker/measuring_unit}">
                           25%
                         </p>
                         <div class="indicators-progress" role="progressbar"
