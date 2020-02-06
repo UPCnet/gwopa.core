@@ -65,12 +65,12 @@
       <span i18n:translate="">Total budget</span>: <span tal:content="string:${report/project_overview/total_budget}${report/project_overview/currency}"></span>
     </p>
 
-    <div class="row">
+    <div class="row justify-content-md-center">
       <div class="col-xs-12 col-sm-4 budgetGraphic">
         <div id="chartWaterOperators"></div>
         <div id="chartWaterOperatorsInfo" class="chartInfo">
           <h5 i18n:translate="">Water Operators</h5>
-          <div class="col-xs-6 col-sm-6" tal:repeat="wa report/project_overview/chart_budget_legend/water_operators">
+          <div class="col-xs-12 col-sm-12" tal:repeat="wa report/project_overview/chart_budget_legend/water_operators">
             <table>
               <thead></thead>
               <tbody>
@@ -103,7 +103,7 @@
         <div id="chartDonors"></div>
         <div id="chartDonorsInfo" class="chartInfo">
           <h5 i18n:translate="">Donors</h5>
-          <div class="col-xs-6 col-sm-6" tal:repeat="donor report/project_overview/chart_budget_legend/donors">
+          <div class="col-xs-12 col-sm-12" tal:repeat="donor report/project_overview/chart_budget_legend/donors">
             <table>
               <thead></thead>
               <tbody>
@@ -132,7 +132,7 @@
         <div id="chartOtherOrganizations"></div>
         <div id="chartOtherOrganizationsInfo" class="chartInfo">
           <h5 i18n:translate="">Other Organizations</h5>
-          <div class="col-xs-6 col-sm-6" tal:repeat="oo report/project_overview/chart_budget_legend/other_organizations">
+          <div class="col-xs-12 col-sm-12" tal:repeat="oo report/project_overview/chart_budget_legend/other_organizations">
             <table>
               <thead></thead>
               <tbody>
