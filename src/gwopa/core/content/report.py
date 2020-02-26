@@ -712,7 +712,7 @@ def updateReport(self):
         data['project_overview']['donors'] +
         data['project_overview']['other_organizations'])
 
-    totalBugdets = int(data['project_overview']['total_budget'])
+    totalBugdets = float(data['project_overview']['total_budget'])
     dataChartBudgets = {'chart': {'water_operators': {'series': [],
                                                       'colors': []},
                                   'donors': {'series': [],
@@ -725,8 +725,8 @@ def updateReport(self):
 
     pos = totalWO = 0
     for wo in data['project_overview']['water_operators']:
-        inkind = int(wo['inkind']) if 'inkind' in wo and wo['inkind'] else 0
-        incash = int(wo['incash']) if 'incash' in wo and wo['incash'] else 0
+        inkind = float(wo['inkind']) if 'inkind' in wo and wo['inkind'] else 0
+        incash = float(wo['incash']) if 'incash' in wo and wo['incash'] else 0
         woValue = inkind + incash
         totalWO += woValue
 
@@ -747,8 +747,8 @@ def updateReport(self):
 
     pos = totalDonors = 0
     for donor in data['project_overview']['donors']:
-        inkind = int(donor['inkind']) if 'inkind' in donor and donor['inkind'] else 0
-        incash = int(donor['incash']) if 'incash' in donor and donor['incash'] else 0
+        inkind = float(donor['inkind']) if 'inkind' in donor and donor['inkind'] else 0
+        incash = float(donor['incash']) if 'incash' in donor and donor['incash'] else 0
         donorsValue = inkind + incash
         totalDonors += donorsValue
 
@@ -769,8 +769,8 @@ def updateReport(self):
 
     pos = totalOO = 0
     for oo in data['project_overview']['other_organizations']:
-        inkind = int(oo['inkind']) if 'inkind' in oo and oo['inkind'] else 0
-        incash = int(oo['incash']) if 'incash' in oo and oo['incash'] else 0
+        inkind = float(oo['inkind']) if 'inkind' in oo and oo['inkind'] else 0
+        incash = float(oo['incash']) if 'incash' in oo and oo['incash'] else 0
         ooValue = inkind + incash
         totalOO += ooValue
 
