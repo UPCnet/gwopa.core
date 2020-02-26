@@ -594,6 +594,10 @@ class View(grok.View):
         for result in results:
             obj = result.getObject()
             if obj.portal_type == 'ContribPartner' or obj.portal_type == 'ContribDonor' or obj.portal_type == 'ContribOther':
+                if obj.incash == None:
+                    obj.incash = 0
+                if obj.inkind == None:
+                    obj.inkind = 0
                 total = total + obj.incash + obj.inkind
 
         self.context.total_budget = total
