@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.12 (unreleased)
+1.12 (2020-02-27)
 -----------------
 
-- Nothing changed yet.
-
+* Controlar si han dejado vacio incash inkind no de error [pilar.marinas]
+* Solucionar error report [pilar.marinas]
 
 1.11 (2020-02-06)
 -----------------
