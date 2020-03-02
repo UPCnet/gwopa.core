@@ -26,15 +26,15 @@ msgstr ""
 msgid "${year}"
 msgstr ""
 
-#: ../browser/setup_home.py:645
+#: ../browser/setup_home.py:644
 msgid "% Female employees"
 msgstr ""
 
-#: ../browser/setup_home.py:646
+#: ../browser/setup_home.py:645
 msgid "% Female employees in management positions"
 msgstr ""
 
-#: ../browser/setup_home.py:644
+#: ../browser/setup_home.py:643
 msgid "(Estimated) coverage LIA population"
 msgstr ""
 
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Admin role"
 msgstr ""
 
-#: ../browser/setup_home.py:658
+#: ../browser/setup_home.py:657
 msgid "Aluminium sulphate consumption per m3 system input"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgstr ""
 msgid "Applied knowledge - skills"
 msgstr ""
 
-#: ../browser/setup_home.py:408
+#: ../browser/setup_home.py:407
 msgid "Applied knowledge / skills"
 msgstr ""
 
@@ -212,7 +212,7 @@ msgstr ""
 msgid "As it is common practice for utilities involved in WOPs to manage the financial tracking in-house, expenditure is not tracked within the tool. We do however provide a section within the reporting feature to document basic expenditures."
 msgstr ""
 
-#: ../browser/setup_home.py:419
+#: ../browser/setup_home.py:418
 msgid "Asset Management"
 msgstr ""
 
@@ -276,7 +276,7 @@ msgstr ""
 msgid "Baseline value"
 msgstr ""
 
-#: ../browser/setup_home.py:420
+#: ../browser/setup_home.py:419
 msgid "Billing & Collection Efficiency"
 msgstr ""
 
@@ -286,11 +286,11 @@ msgstr ""
 msgid "Budget"
 msgstr ""
 
-#: ../browser/setup_home.py:421
+#: ../browser/setup_home.py:420
 msgid "Business Planning"
 msgstr ""
 
-#: ../browser/setup_home.py:605
+#: ../browser/setup_home.py:604
 msgid "Business plan developed/improved"
 msgstr ""
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Capacity Items"
 msgstr ""
 
-#: ../browser/setup_home.py:611
+#: ../browser/setup_home.py:610
 msgid "Capacity development program prepared"
 msgstr ""
 
@@ -333,7 +333,7 @@ msgstr ""
 msgid "Capacity specific"
 msgstr ""
 
-#: ../browser/setup_home.py:431
+#: ../browser/setup_home.py:430
 msgid "Catchment Management/ IWRM"
 msgstr ""
 
@@ -359,7 +359,7 @@ msgstr "Change target value"
 msgid "Changes consolidated"
 msgstr ""
 
-#: ../browser/setup_home.py:657
+#: ../browser/setup_home.py:656
 msgid "Chlorine consumption per m3 system input"
 msgstr ""
 
@@ -385,11 +385,11 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: ../browser/setup_home.py:432
+#: ../browser/setup_home.py:431
 msgid "Climate Change Resilience"
 msgstr ""
 
-#: ../browser/setup_home.py:621
+#: ../browser/setup_home.py:620
 msgid "Climate resistant water supply program 2050 developed"
 msgstr ""
 
@@ -407,7 +407,7 @@ msgstr ""
 msgid "Collaborating module"
 msgstr ""
 
-#: ../browser/setup_home.py:650
+#: ../browser/setup_home.py:649
 msgid "Collection efficiency"
 msgstr ""
 
@@ -415,7 +415,7 @@ msgstr ""
 msgid "Collection of rules, values and principles that are enduring and guide organizational behaviour."
 msgstr ""
 
-#: ../browser/setup_home.py:422
+#: ../browser/setup_home.py:421
 msgid "Commercial & Physical Losses - NRW"
 msgstr ""
 
@@ -445,7 +445,7 @@ msgstr ""
 msgid "Consensus FR"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:98
+#: ../browser/templates/macros/report-activities.pt:96
 #: ../browser/templates/macros/report-outcomes.pt:127
 #: ../browser/templates/monitoring.pt:152
 msgid "Consideration for further planning"
@@ -491,11 +491,11 @@ msgstr ""
 msgid "Control panel to configure and view all the important system parameters"
 msgstr ""
 
-#: ../browser/setup_home.py:620
+#: ../browser/setup_home.py:619
 msgid "Coordination of the implementation of the proposals"
 msgstr ""
 
-#: ../browser/setup_home.py:430
+#: ../browser/setup_home.py:429
 msgid "Corporate Governance & Institutions"
 msgstr ""
 
@@ -509,7 +509,7 @@ msgstr ""
 msgid "Country/Countries"
 msgstr ""
 
-#: ../browser/setup_home.py:643
+#: ../browser/setup_home.py:642
 msgid "Coverage"
 msgstr ""
 
@@ -542,11 +542,11 @@ msgstr ""
 msgid "Current"
 msgstr ""
 
-#: ../browser/setup_home.py:423
+#: ../browser/setup_home.py:422
 msgid "Customer Service"
 msgstr ""
 
-#: ../browser/setup_home.py:651
+#: ../browser/setup_home.py:650
 msgid "Customer satisfaction"
 msgstr ""
 
@@ -582,7 +582,7 @@ msgstr ""
 msgid "Dates"
 msgstr ""
 
-#: ../browser/setup_home.py:654
+#: ../browser/setup_home.py:653
 msgid "Debt service coverage ratio (DSCR)"
 msgstr ""
 
@@ -642,7 +642,7 @@ msgstr ""
 msgid "Description of initial situation"
 msgstr ""
 
-#: ../browser/setup_home.py:616
+#: ../browser/setup_home.py:615
 msgid "Development of an improvement plan for sanitation, sewage and waste water treatment"
 msgstr ""
 
@@ -708,19 +708,19 @@ msgstr ""
 msgid "End:"
 msgstr ""
 
-#: ../browser/setup_home.py:428
+#: ../browser/setup_home.py:427
 msgid "Energy Efficiency"
 msgstr ""
 
-#: ../browser/setup_home.py:655
+#: ../browser/setup_home.py:654
 msgid "Energy consumption per m3 system input"
 msgstr ""
 
-#: ../browser/setup_home.py:622
+#: ../browser/setup_home.py:621
 msgid "Energy saving program developed"
 msgstr ""
 
-#: ../browser/setup_home.py:368
+#: ../browser/setup_home.py:367
 #: ../browser/templates/macros/report-help-outcomes.pt:79
 msgid "Equipment and infrastructure"
 msgstr ""
@@ -742,7 +742,7 @@ msgstr ""
 msgid "Expenditure this reporting period"
 msgstr ""
 
-#: ../browser/setup_home.py:656
+#: ../browser/setup_home.py:655
 msgid "Expenditures on chemicals per m3 system input"
 msgstr ""
 
@@ -751,7 +751,7 @@ msgstr ""
 msgid "Explain"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:90
+#: ../browser/templates/macros/report-activities.pt:88
 #: ../browser/templates/macros/report-outcomes.pt:119
 #: ../browser/templates/monitoring.pt:156
 msgid "Explain contributed and limiting factors"
@@ -761,20 +761,20 @@ msgstr ""
 msgid "Explanation"
 msgstr ""
 
-#: ../browser/setup_home.py:434
+#: ../browser/setup_home.py:433
 msgid "Extension of Sanitation & Hygiene Services"
 msgstr ""
 
-#: ../browser/setup_home.py:435
+#: ../browser/setup_home.py:434
 msgid "Extension of Water Supply Services"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:64
+#: ../browser/templates/macros/report-activities.pt:62
 #: ../browser/templates/macros/report-outcomes.pt:93
 msgid "External"
 msgstr ""
 
-#: ../browser/setup_home.py:687
+#: ../browser/setup_home.py:686
 msgid "External environment"
 msgstr ""
 
@@ -782,7 +782,7 @@ msgstr ""
 msgid "External relations - networking"
 msgstr ""
 
-#: ../browser/setup_home.py:308
+#: ../browser/setup_home.py:307
 msgid "External relations / networking"
 msgstr ""
 
@@ -807,7 +807,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: ../browser/setup_home.py:424
+#: ../browser/setup_home.py:423
 msgid "Financial Management"
 msgstr ""
 
@@ -831,7 +831,7 @@ msgstr ""
 msgid "GWOPA Core package (gwopa.core)"
 msgstr ""
 
-#: ../browser/setup_home.py:623
+#: ../browser/setup_home.py:622
 msgid "Gender analysis and approach developed"
 msgstr ""
 
@@ -891,7 +891,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: ../browser/setup_home.py:429
+#: ../browser/setup_home.py:428
 msgid "Human Resource Management/ Organizational Development"
 msgstr ""
 
@@ -930,7 +930,7 @@ msgstr ""
 msgid "Improvement Areas"
 msgstr ""
 
-#: ../browser/setup_home.py:608
+#: ../browser/setup_home.py:607
 msgid "Improvement plan drawn up based on internal audit"
 msgstr ""
 
@@ -954,7 +954,7 @@ msgstr ""
 msgid "Individual skills - abilities"
 msgstr ""
 
-#: ../browser/setup_home.py:388
+#: ../browser/setup_home.py:387
 msgid "Individual skills / abilities"
 msgstr ""
 
@@ -962,12 +962,12 @@ msgstr ""
 msgid "Inform participation in the assessment"
 msgstr ""
 
-#: ../browser/setup_home.py:358
+#: ../browser/setup_home.py:357
 #: ../browser/templates/macros/report-help-outcomes.pt:72
 msgid "Information"
 msgstr ""
 
-#: ../browser/setup_home.py:437
+#: ../browser/setup_home.py:436
 msgid "Information & Technology"
 msgstr ""
 
@@ -1019,16 +1019,16 @@ msgstr ""
 msgid "Insufficient permissions"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:63
+#: ../browser/templates/macros/report-activities.pt:61
 #: ../browser/templates/macros/report-outcomes.pt:92
 msgid "Internal"
 msgstr ""
 
-#: ../browser/setup_home.py:607
+#: ../browser/setup_home.py:606
 msgid "Internal audit performed on transparency and integrity"
 msgstr ""
 
-#: ../browser/setup_home.py:686
+#: ../browser/setup_home.py:685
 msgid "Internal organizational"
 msgstr ""
 
@@ -1064,12 +1064,12 @@ msgstr ""
 msgid "Latitude of this project. Used in the map view (format: -75.2509766) (format: -75.2509766)"
 msgstr ""
 
-#: ../browser/setup_home.py:288
+#: ../browser/setup_home.py:287
 #: ../browser/templates/macros/report-help-outcomes.pt:22
 msgid "Leadership"
 msgstr ""
 
-#: ../browser/setup_home.py:604
+#: ../browser/setup_home.py:603
 msgid "Leadership development program prepared"
 msgstr ""
 
@@ -1089,18 +1089,18 @@ msgstr ""
 msgid "Longitude of this project. Used in the map view (format:  -0.071389) (format:  -0.071389)"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:79
+#: ../browser/templates/macros/report-activities.pt:77
 #: ../browser/templates/macros/report-outcomes.pt:108
 #: ../browser/templates/monitoring.pt:138
 msgid "Main Contributing factors"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:158
+#: ../browser/templates/macros/report-activities.pt:156
 #: ../browser/templates/macros/report-outcomes.pt:99
 msgid "Main Obstables"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:70
+#: ../browser/templates/macros/report-activities.pt:68
 #: ../browser/templates/monitoring.pt:126
 msgid "Main Obstacles"
 msgstr ""
@@ -1121,7 +1121,7 @@ msgstr ""
 msgid "Mainobstacles"
 msgstr ""
 
-#: ../browser/setup_home.py:614
+#: ../browser/setup_home.py:613
 msgid "Maintenance and management program developed"
 msgstr ""
 
@@ -1130,11 +1130,11 @@ msgstr ""
 msgid "Make [English / French / Spanish] languages availables on users profiles"
 msgstr ""
 
-#: ../browser/setup_home.py:606
+#: ../browser/setup_home.py:605
 msgid "Management information system introduced/improved"
 msgstr ""
 
-#: ../browser/setup_home.py:338
+#: ../browser/setup_home.py:337
 #: ../browser/templates/macros/report-help-outcomes.pt:58
 msgid "Management practices"
 msgstr ""
@@ -1143,7 +1143,7 @@ msgstr ""
 msgid "Manual"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:194
+#: ../browser/templates/macros/report-activities.pt:192
 #: ../browser/templates/macros/report-outcomes.pt:135
 msgid "Means of Verification"
 msgstr ""
@@ -1237,15 +1237,15 @@ msgstr ""
 msgid "My organization Projects"
 msgstr ""
 
-#: ../browser/setup_home.py:649
+#: ../browser/setup_home.py:648
 msgid "NRW as percentage of system input"
 msgstr ""
 
-#: ../browser/setup_home.py:648
+#: ../browser/setup_home.py:647
 msgid "NRW in m3 per actve connection per year"
 msgstr ""
 
-#: ../browser/setup_home.py:612
+#: ../browser/setup_home.py:611
 msgid "NRW reduction plan developed"
 msgstr ""
 
@@ -1340,23 +1340,23 @@ msgstr ""
 msgid "Not defined"
 msgstr ""
 
-#: ../browser/setup_home.py:647
+#: ../browser/setup_home.py:646
 msgid "Number of FT employees per 1000 active connections"
 msgstr ""
 
-#: ../browser/setup_home.py:613
+#: ../browser/setup_home.py:612
 msgid "Number of people trained in NRW reduction approach"
 msgstr ""
 
-#: ../browser/setup_home.py:615
+#: ../browser/setup_home.py:614
 msgid "Number of people trained in maintenance and management"
 msgstr ""
 
-#: ../browser/setup_home.py:663
+#: ../browser/setup_home.py:662
 msgid "Number of people with access to improved sanitation facilities"
 msgstr ""
 
-#: ../browser/setup_home.py:665
+#: ../browser/setup_home.py:664
 msgid "Number of people with access to unimproved sanitation facilities"
 msgstr ""
 
@@ -1394,15 +1394,15 @@ msgstr ""
 msgid "One unit per line. Ex: liters"
 msgstr ""
 
-#: ../browser/setup_home.py:653
+#: ../browser/setup_home.py:652
 msgid "Operating ratio"
 msgstr ""
 
-#: ../browser/setup_home.py:427
+#: ../browser/setup_home.py:426
 msgid "Operation & Maintenance"
 msgstr ""
 
-#: ../browser/setup_home.py:610
+#: ../browser/setup_home.py:609
 msgid "Organisation improvement plan developed"
 msgstr ""
 
@@ -1430,7 +1430,7 @@ msgstr ""
 msgid "Organization roles"
 msgstr ""
 
-#: ../browser/setup_home.py:298
+#: ../browser/setup_home.py:297
 #: ../browser/templates/macros/report-help-outcomes.pt:29
 msgid "Organizational culture"
 msgstr ""
@@ -1494,7 +1494,7 @@ msgstr ""
 msgid "Outcomes - Utility Perfomance"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:111
+#: ../browser/templates/macros/report-activities.pt:109
 #: ../profiles/default/types/Output.xml
 msgid "Output"
 msgstr ""
@@ -1557,31 +1557,31 @@ msgstr ""
 msgid "Perceived degree of change"
 msgstr ""
 
-#: ../browser/setup_home.py:660
+#: ../browser/setup_home.py:659
 msgid "Percentage of checks that do not comply with norm on faecal coliform"
 msgstr ""
 
-#: ../browser/setup_home.py:662
+#: ../browser/setup_home.py:661
 msgid "Percentage of checks that do not comply with norm on residual Chlorine"
 msgstr ""
 
-#: ../browser/setup_home.py:664
+#: ../browser/setup_home.py:663
 msgid "Percentage of people with access to improved sanitation facilities"
 msgstr ""
 
-#: ../browser/setup_home.py:666
+#: ../browser/setup_home.py:665
 msgid "Percentage of people with access to unimproved sanitation facilities"
 msgstr ""
 
-#: ../browser/setup_home.py:659
+#: ../browser/setup_home.py:658
 msgid "Percentage of required checks carried out for faecal coliform"
 msgstr ""
 
-#: ../browser/setup_home.py:661
+#: ../browser/setup_home.py:660
 msgid "Percentage of required checks carried out for residual chlorine"
 msgstr ""
 
-#: ../browser/setup_home.py:668
+#: ../browser/setup_home.py:667
 msgid "Percentage of waste water treated"
 msgstr ""
 
@@ -1612,7 +1612,7 @@ msgstr ""
 msgid "Please enter a valid coordinate format (-75.2509766)."
 msgstr ""
 
-#: ../browser/setup_home.py:438
+#: ../browser/setup_home.py:437
 msgid "Policy and Legal Support"
 msgstr ""
 
@@ -1634,11 +1634,11 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#: ../browser/setup_home.py:617
+#: ../browser/setup_home.py:616
 msgid "Pro-poor coordinators appointed and trained"
 msgstr ""
 
-#: ../browser/setup_home.py:618
+#: ../browser/setup_home.py:617
 msgid "Pro-poor vision, strategy and objectives developed"
 msgstr ""
 
@@ -1646,12 +1646,17 @@ msgstr ""
 msgid "Proactive tendencies to move towards goals, take needed action, and persist until satisfaction is attained."
 msgstr ""
 
-#: ../browser/setup_home.py:426
+#: ../browser/setup_home.py:425
 msgid "Production Processes & Service Quality & Water Safety (Drinking Water)"
 msgstr ""
 
 #: ../content/project.py:170
 msgid "Program/programs associated to this project"
+msgstr ""
+
+#: ../browser/templates/macros/report-activities.pt:32
+#: ../browser/templates/macros/report-outcomes.pt:64
+msgid "Progress"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:122
@@ -1751,7 +1756,7 @@ msgstr ""
 msgid "Projects"
 msgstr ""
 
-#: ../browser/setup_home.py:619
+#: ../browser/setup_home.py:618
 msgid "Proposals developed for providing people with direct acces to improved water and/ or sanitation facilities"
 msgstr ""
 
@@ -1811,7 +1816,7 @@ msgstr ""
 msgid "Required"
 msgstr ""
 
-#: ../browser/setup_home.py:318
+#: ../browser/setup_home.py:317
 #: ../browser/templates/macros/report-help-outcomes.pt:43
 msgid "Resource acquisition"
 msgstr ""
@@ -1857,7 +1862,7 @@ msgstr ""
 msgid "Save title"
 msgstr ""
 
-#: ../browser/setup_home.py:906
+#: ../browser/setup_home.py:905
 msgid "Se ha aplicado la configuración por defecto."
 msgstr ""
 
@@ -1927,7 +1932,7 @@ msgstr ""
 msgid "Select what best represents the perceived degree of change with respect to the last reporting period"
 msgstr ""
 
-#: ../browser/setup_home.py:433
+#: ../browser/setup_home.py:432
 msgid "Services in Low-Income Areas"
 msgstr ""
 
@@ -1978,7 +1983,7 @@ msgstr ""
 msgid "Site Members"
 msgstr ""
 
-#: ../browser/setup_home.py:436
+#: ../browser/setup_home.py:435
 msgid "Social Inclusion/ Gender"
 msgstr ""
 
@@ -1997,7 +2002,7 @@ msgstr ""
 msgid "Specific title FR"
 msgstr ""
 
-#: ../browser/setup_home.py:398
+#: ../browser/setup_home.py:397
 #: ../browser/templates/macros/report-help-outcomes.pt:101
 msgid "Staff motivation"
 msgstr ""
@@ -2061,7 +2066,7 @@ msgstr ""
 msgid "Starting date"
 msgstr ""
 
-#: ../browser/setup_home.py:328
+#: ../browser/setup_home.py:327
 #: ../browser/templates/macros/report-help-outcomes.pt:51
 msgid "Structure"
 msgstr ""
@@ -2076,9 +2081,13 @@ msgstr ""
 msgid "Summary of Status"
 msgstr ""
 
-#: ../browser/setup_home.py:348
+#: ../browser/setup_home.py:347
 #: ../browser/templates/macros/report-help-outcomes.pt:65
 msgid "Systems"
+msgstr ""
+
+#: ../content/templates/report_view.pt:137
+msgid "Table of Contents"
 msgstr ""
 
 #: ../browser/templates/global_map.pt:54
@@ -2245,15 +2254,15 @@ msgstr ""
 msgid "Total expenditure to date"
 msgstr ""
 
-#: ../browser/setup_home.py:641
+#: ../browser/setup_home.py:640
 msgid "Total number of connections"
 msgstr ""
 
-#: ../browser/setup_home.py:642
+#: ../browser/setup_home.py:641
 msgid "Total number of people served"
 msgstr ""
 
-#: ../browser/setup_home.py:667
+#: ../browser/setup_home.py:666
 msgid "Total number of sewerage connections"
 msgstr ""
 
@@ -2307,6 +2316,7 @@ msgid "Users in this Partner"
 msgstr ""
 
 #: ../browser/templates/macros/report-outcomes.pt:9
+#: ../content/templates/report_view.pt:142
 msgid "Utility Perfomance"
 msgstr ""
 
@@ -2332,7 +2342,7 @@ msgstr ""
 msgid "Visibility of changes"
 msgstr ""
 
-#: ../browser/setup_home.py:278
+#: ../browser/setup_home.py:277
 #: ../browser/templates/macros/report-help-outcomes.pt:15
 msgid "Vision, mission and strategy"
 msgstr ""
@@ -2382,11 +2392,11 @@ msgstr ""
 msgid "WOP Programs"
 msgstr ""
 
-#: ../browser/setup_home.py:688
+#: ../browser/setup_home.py:687
 msgid "WOP project - related"
 msgstr ""
 
-#: ../browser/templates/macros/report-activities.pt:65
+#: ../browser/templates/macros/report-activities.pt:63
 #: ../browser/templates/macros/report-outcomes.pt:94
 msgid "WOP related"
 msgstr ""
@@ -2399,11 +2409,11 @@ msgstr ""
 msgid "Wall"
 msgstr ""
 
-#: ../browser/setup_home.py:425
+#: ../browser/setup_home.py:424
 msgid "Wastewater Collection & Treatment"
 msgstr ""
 
-#: ../browser/setup_home.py:439
+#: ../browser/setup_home.py:438
 msgid "Water Demand Management"
 msgstr ""
 
@@ -2439,11 +2449,11 @@ msgstr ""
 msgid "Working Areas"
 msgstr ""
 
-#: ../browser/setup_home.py:652
+#: ../browser/setup_home.py:651
 msgid "Working ratio"
 msgstr ""
 
-#: ../browser/setup_home.py:378
+#: ../browser/setup_home.py:377
 #: ../browser/templates/macros/report-help-outcomes.pt:86
 msgid "Working routines"
 msgstr ""
@@ -2456,7 +2466,7 @@ msgstr ""
 msgid "Year"
 msgstr ""
 
-#: ../browser/setup_home.py:609
+#: ../browser/setup_home.py:608
 msgid "Yearly benchmark report prepared"
 msgstr ""
 
