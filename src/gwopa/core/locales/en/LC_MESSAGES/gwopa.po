@@ -12,7 +12,7 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
+"Domain: gwopa\n"
 "Language: en\n"
 "X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -119,7 +119,7 @@ msgstr ""
 
 #: ../browser/templates/macros/report-help-outcomes.pt:16
 msgid "A company vision outlines where the company is headed and what values are guiding that journey. Mission is a general stament of how you will achieve your vision. Strategies are a series of ways of using the mission to achieve the vision."
-msgstr ""
+msgstr "A company vision outlines where the company is headed and what values are guiding that journey. Mission is a general statement of how you will achieve your vision. Strategies are a series of ways of using the mission to achieve the vision."
 
 #: ../content/settingspage.py:68
 msgid "A string and the number of notifications per year, separated by comma. One per line. Ex: Annually,1"
@@ -1101,7 +1101,7 @@ msgstr "Main Contributing factors"
 #: ../browser/templates/macros/report-activities.pt:156
 #: ../browser/templates/macros/report-outcomes.pt:99
 msgid "Main Obstables"
-msgstr ""
+msgstr "Main Obstacles"
 
 #: ../browser/templates/macros/report-activities.pt:68
 #: ../browser/templates/monitoring.pt:126
@@ -1110,11 +1110,11 @@ msgstr "Main Obstacles"
 
 #: ../browser/templates/macros/report-project.pt:62
 msgid "Main organisations and their contributions"
-msgstr ""
+msgstr "Main organizations and their contributions"
 
 #: ../content/templates/project_view.pt:121
 msgid "Main organizations and their contributions"
-msgstr ""
+msgstr "Main organizations and their contributions"
 
 #: ../profiles/default/types/Maincontributing.xml
 msgid "Maincontributing"
@@ -1246,7 +1246,7 @@ msgstr ""
 
 #: ../browser/setup_home.py:647
 msgid "NRW in m3 per actve connection per year"
-msgstr ""
+msgstr "NRW in m3 per active connection per year"
 
 #: ../browser/setup_home.py:611
 msgid "NRW reduction plan developed"
@@ -1761,7 +1761,7 @@ msgstr "Projects"
 
 #: ../browser/setup_home.py:618
 msgid "Proposals developed for providing people with direct acces to improved water and/ or sanitation facilities"
-msgstr ""
+msgstr "Proposals developed for providing people with direct access to improved water and/ or sanitation facilities"
 
 #: ../content/templates/improvementarea_view.pt:133
 msgid "Recent files"
@@ -1867,7 +1867,7 @@ msgstr "Save title"
 
 #: ../browser/setup_home.py:905
 msgid "Se ha aplicado la configuración por defecto."
-msgstr ""
+msgstr "The default settings have been applied."
 
 #: ../browser/templates/homepage.pt:135
 msgid "Search Projects"
@@ -1911,20 +1911,20 @@ msgstr "Select one or more associated Working Area"
 
 #: ../browser/templates/reporting.pt:45
 msgid "Select proyect year"
-msgstr ""
+msgstr "Select project year"
 
 #: ../content/outcomeccs.py:73
 #: ../content/outcomeccvalues.py:46
 msgid "Select the contributing factors to the perceived change"
-msgstr "Select the contributing factors to the perceived change"
+msgstr ""
 
 #: ../content/outcomeccvalues.py:56
 msgid "Select the limiting factors to the perceived change"
-msgstr "Select the limiting factors to the perceived change"
+msgstr ""
 
 #: ../content/outcomeccs.py:78
 msgid "Select the main obstacles"
-msgstr "Select the main obstacles"
+msgstr ""
 
 #: ../content/report.py:100
 msgid "Select the overall Project status."
@@ -2168,7 +2168,7 @@ msgstr ""
 
 #: ../content/settingspage.py:148
 msgid "The roles of other origanizations"
-msgstr ""
+msgstr "The roles of other organizations"
 
 #: ../content/settingspage.py:132
 msgid "The roles of the partner"
