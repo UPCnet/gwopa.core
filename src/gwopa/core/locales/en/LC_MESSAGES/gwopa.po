@@ -101,13 +101,13 @@ msgstr "-2 Very negative"
 msgid "0 No change"
 msgstr "0 No change"
 
+#: ../browser/templates/dash-areas.pt:55
+msgid "<span>Activities and Outputs</span>"
+msgstr ""
+
 #: ../browser/templates/dash-areas.pt:66
 msgid "<span>Outcomes</span>"
 msgstr ""
-
-#: ../browser/templates/dash-areas.pt:55
-msgid "<span>Project</span>"
-msgstr "<span>Activities and Outputs</span>"
 
 #: ../browser/templates/manage_portal.pt:99
 msgid "<strong>NOTE: </strong> The default Area is the item shown as a Working Area in select Project edit form. <br />A Working Area, is the item who has items related as Files, folders, Activities, etc... <br />To Create a Working Area, first you have to create a Project"
@@ -144,7 +144,7 @@ msgstr ""
 #: ../browser/templates/macros/report-activities.pt:9
 #: ../content/templates/report_view.pt:77
 msgid "Activities and Outputs"
-msgstr ""
+msgstr "Activities and Outputs"
 
 #: ../content/report.py:41
 msgid "Activities and Outputs Progress"
@@ -696,7 +696,7 @@ msgstr "Edit Specific"
 
 #: ../content/templates/project_view.pt:31
 msgid "Edit_project"
-msgstr "Edit project"
+msgstr "Edit Project Overview"
 
 #: ../content/templates/activity_view.pt:31
 msgid "End"
@@ -752,7 +752,7 @@ msgstr ""
 #: ../browser/templates/monitoring.pt:701
 #: ../content/outcomeccs.py:88
 msgid "Explain"
-msgstr "Explain"
+msgstr "Description Describe the changes seen in this specific capacity domain"
 
 #: ../browser/templates/macros/report-activities.pt:88
 #: ../browser/templates/macros/report-outcomes.pt:119
@@ -1379,7 +1379,7 @@ msgstr "Objective"
 #: ../content/outcomecc.py:50
 #: ../content/outcomeccs.py:58
 msgid "Objective date"
-msgstr "Objective date"
+msgstr "Objective Date When do you plan to meet this objective?"
 
 #: ../content/report.py:72
 msgid "On Track"
@@ -1674,7 +1674,7 @@ msgstr ""
 #: ../browser/templates/planning.pt:43
 #: ../content/project.py:123
 msgid "Project"
-msgstr "Activities and Outputs"
+msgstr "Project Overview"
 
 #: ../browser/templates/macros/report-project.pt:35
 #: ../content/project.py:138
@@ -2215,9 +2215,9 @@ msgstr "This option generate loremipsum items in the Site."
 msgid "This values are necessary for create elements on the Platform"
 msgstr "This values are necessary for create elements on the Platform"
 
-#: ../browser/templates/planning.pt:792
 #: ../content/donor.py:18
 #: ../content/improvement_area.py:35
+#: ../content/outcomecc.py:24
 msgid "Title"
 msgstr "Title"
 
@@ -2238,6 +2238,10 @@ msgstr "Title (French)"
 #: ../content/maincontributing.py:21
 msgid "Title Spanish"
 msgstr "Title (Spanish)"
+
+#: ../browser/templates/planning.pt:792
+msgid "Title_KPI"
+msgstr "Key Performance Indicator (KPI)"
 
 #: ../browser/templates/macros/report-help-outcomes.pt:80
 msgid "Tools and equipment necessary for utility operations and basic infrastructure for the business processes (e.g. water production and distribution)."
@@ -2486,6 +2490,10 @@ msgstr "Your telephone number."
 #: ../browser/templates/planning.pt:242
 msgid "Zone"
 msgstr "Zone"
+
+#: ../browser/templates/planning.pt:815
+msgid "Zone_KPI"
+msgstr "Zone If applicable define pressure/ pilot zone"
 
 #: ../content/templates/project_view.pt:222
 msgid "admin"

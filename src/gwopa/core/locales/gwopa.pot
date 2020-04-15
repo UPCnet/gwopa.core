@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-04-15 06:30+0000\n"
+"POT-Creation-Date: 2020-04-15 11:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,12 +107,12 @@ msgstr ""
 msgid "0 No change"
 msgstr ""
 
-#: ../browser/templates/dash-areas.pt:66
-msgid "<span>Outcomes</span>"
+#: ../browser/templates/dash-areas.pt:55
+msgid "<span>Activities and Outputs</span>"
 msgstr ""
 
-#: ../browser/templates/dash-areas.pt:55
-msgid "<span>Project</span>"
+#: ../browser/templates/dash-areas.pt:66
+msgid "<span>Outcomes</span>"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:99
@@ -2220,9 +2220,9 @@ msgstr ""
 msgid "This values are necessary for create elements on the Platform"
 msgstr ""
 
-#: ../browser/templates/planning.pt:792
 #: ../content/donor.py:18
 #: ../content/improvement_area.py:35
+#: ../content/outcomecc.py:24
 msgid "Title"
 msgstr ""
 
@@ -2242,6 +2242,10 @@ msgstr ""
 #: ../content/itemarea.py:23
 #: ../content/maincontributing.py:21
 msgid "Title Spanish"
+msgstr ""
+
+#: ../browser/templates/planning.pt:792
+msgid "Title_KPI"
 msgstr ""
 
 #: ../browser/templates/macros/report-help-outcomes.pt:80
@@ -2490,6 +2494,10 @@ msgstr ""
 #: ../browser/templates/monitoring.pt:286
 #: ../browser/templates/planning.pt:242
 msgid "Zone"
+msgstr ""
+
+#: ../browser/templates/planning.pt:815
+msgid "Zone_KPI"
 msgstr ""
 
 #: ../content/templates/project_view.pt:222

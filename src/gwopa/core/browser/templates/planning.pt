@@ -789,7 +789,7 @@
               <div class="modal-url" id="KPIZonePath" style="display:none"></div>
               <div class="row">
                 <div class="form-group col-md-12">
-                  <label id="label-kpi" i18n:translate="">Title</label>
+                  <label id="label-kpi" i18n:translate="">Title_KPI</label>
                   <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input id="kpizone-title" type="hidden"/>
                 </div>
@@ -812,7 +812,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
-                    <label id="label-zone" i18n:translate=""> Zone </label>
+                    <label id="label-zone" i18n:translate=""> Zone_KPI </label>
                     <input type="text" class="form-control" id="kpizone-zone" />
                   </div>
                   <div class="col-xs-6 col-md-6">
@@ -905,13 +905,13 @@
               <span class="modal-pk" id="KPIZoneYear" style="display:none"></span>
               <div class="row">
                 <div class="form-group col-md-12">
-                  <label id="label-kpi" i18n:translate="">Title</label>
+                  <label id="label-kpi" i18n:translate="">Title_KPI</label>
                   <span class="requiredfield" i18n:attributes="title Required"> <i class="fas fa-circle"></i> </span>
                   <input readonly  type="text" id="kpizone-title"/>
                 </div>
                 <div class="form-group row">
                   <div class="col-xs-6 col-md-6">
-                    <label id="label-zone" i18n:translate=""> Zone </label>
+                    <label id="label-zone" i18n:translate=""> Zone_KPI </label>
                     <input type="text" class="form-control" id="kpizone-zone" />
                   </div>
                   <div class="col-xs-6 col-md-6">

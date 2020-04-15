@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.browser.search import quote_chars
 
 from decimal import Decimal
 from five import grok
@@ -587,13 +588,12 @@ def getLogosFirstpage(project):
     """ Returns all the KPIs from project  """
 
     logos = []
-
     # DONORS
     if project.donors:
         for donor in project.donors:
             items = api.content.find(
                 portal_type=['Donor'],
-                Title=donor)
+                Title=quote_chars(donor))
 
             if items and items[0].getObject().image:
                 logos.append({'name': donor,
@@ -603,7 +603,7 @@ def getLogosFirstpage(project):
     if project.wop_platform:
         items = api.content.find(
             portal_type=['Platform'],
-            Title=project.wop_platform)
+            Title=quote_chars(project.wop_platform))
 
         if items and items[0].getObject().image:
             logos.append({'name': project.wop_platform,
@@ -612,7 +612,7 @@ def getLogosFirstpage(project):
     if project.wop_program:
         items = api.content.find(
             portal_type=['Program'],
-            Title=project.wop_program)
+            Title=quote_chars(project.wop_program))
 
         if items and items[0].getObject().image:
             logos.append({'name': project.wop_program,
@@ -623,7 +623,7 @@ def getLogosFirstpage(project):
         for partner in project.partners:
             items = api.content.find(
                 portal_type=['Partner'],
-                Title=partner)
+                Title=quote_chars(partner))
 
             if items and items[0].getObject().image:
                 logos.append({'name': partner,

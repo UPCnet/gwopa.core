@@ -101,13 +101,13 @@ msgstr "-2 Très négatif"
 msgid "0 No change"
 msgstr "0 Pas de changement"
 
+#: ../browser/templates/dash-areas.pt:55
+msgid "<span>Activities and Outputs</span>"
+msgstr ""
+
 #: ../browser/templates/dash-areas.pt:66
 msgid "<span>Outcomes</span>"
 msgstr "<span>Résultats</span>"
-
-#: ../browser/templates/dash-areas.pt:55
-msgid "<span>Project</span>"
-msgstr "<span>Projet</span>"
 
 #: ../browser/templates/manage_portal.pt:99
 msgid "<strong>NOTE: </strong> The default Area is the item shown as a Working Area in select Project edit form. <br />A Working Area, is the item who has items related as Files, folders, Activities, etc... <br />To Create a Working Area, first you have to create a Project"
@@ -696,7 +696,7 @@ msgstr "Modifier l’activité spécifique"
 
 #: ../content/templates/project_view.pt:31
 msgid "Edit_project"
-msgstr "Modifier_projet"
+msgstr "Modifier la Synthèse du Projet"
 
 #: ../content/templates/activity_view.pt:31
 msgid "End"
@@ -752,7 +752,7 @@ msgstr "Dépenses d’approvisionnement en produits chimiques par m3 d’intrant
 #: ../browser/templates/monitoring.pt:701
 #: ../content/outcomeccs.py:88
 msgid "Explain"
-msgstr "Veuillez expliquer"
+msgstr "Description Décrivez les changements observés dans ce domaine de capacité spécifique."
 
 #: ../browser/templates/macros/report-activities.pt:88
 #: ../browser/templates/macros/report-outcomes.pt:119
@@ -1379,7 +1379,7 @@ msgstr "Objectif"
 #: ../content/outcomecc.py:50
 #: ../content/outcomeccs.py:58
 msgid "Objective date"
-msgstr "Date prévisionnelle de réalisation de l’objectif"
+msgstr "Date prévisionnelle de réalisation de l’objectif Quand comptez-vous atteindre cet objectif?"
 
 #: ../content/report.py:72
 msgid "On Track"
@@ -1674,7 +1674,7 @@ msgstr "Acteurs ayant contribué à la réalisation du progrès"
 #: ../browser/templates/planning.pt:43
 #: ../content/project.py:123
 msgid "Project"
-msgstr "Projet"
+msgstr "la Synthèse du Projet"
 
 #: ../browser/templates/macros/report-project.pt:35
 #: ../content/project.py:138
@@ -2215,9 +2215,9 @@ msgstr "Le choix de cette option génère du faux-texte (de type lorem ipsum) su
 msgid "This values are necessary for create elements on the Platform"
 msgstr "Ces valeurs sont requises pour la création d’éléments sur la Plateforme"
 
-#: ../browser/templates/planning.pt:792
 #: ../content/donor.py:18
 #: ../content/improvement_area.py:35
+#: ../content/outcomecc.py:24
 msgid "Title"
 msgstr "Intitulé"
 
@@ -2238,6 +2238,10 @@ msgstr ""
 #: ../content/maincontributing.py:21
 msgid "Title Spanish"
 msgstr ""
+
+#: ../browser/templates/planning.pt:792
+msgid "Title_KPI"
+msgstr "Indicateur clé de performance (ICP)"
 
 #: ../browser/templates/macros/report-help-outcomes.pt:80
 msgid "Tools and equipment necessary for utility operations and basic infrastructure for the business processes (e.g. water production and distribution)."
@@ -2486,6 +2490,10 @@ msgstr "Indiquez votre numéro de téléphone."
 #: ../browser/templates/planning.pt:242
 msgid "Zone"
 msgstr "Zone"
+
+#: ../browser/templates/planning.pt:815
+msgid "Zone_KPI"
+msgstr "Zone Effets à court et moyen termes, probables ou obtenus, des produits générés par une intervention."
 
 #: ../content/templates/project_view.pt:222
 msgid "admin"
