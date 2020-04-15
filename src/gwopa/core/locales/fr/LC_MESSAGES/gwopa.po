@@ -147,7 +147,7 @@ msgid "Activities and Outputs"
 msgstr "Activités et Produits"
 
 #: ../content/report.py:41
-msgid "Activities and Output Progress"
+msgid "Activities and Outputs Progress"
 msgstr "Progrès réalisés au niveau des Activités et des Produits"
 
 #: ../browser/templates/macros/report-activities.pt:20
@@ -738,7 +738,7 @@ msgid "Execute the initial GWOPA configurations on the Site."
 msgstr "Exécution des paramétrages GWOPA de départ sur le site"
 
 #: ../browser/templates/macros/report-help-outcomes.pt:23
-msgid " Executives providing overall organizational direction and serving as behavioural role models for all employees."
+msgid "Executives providing overall organizational direction and serving as behavioural role models for all employees."
 msgstr "Communication par les cadres de direction des principales orientations organisationnelles et adoption de comportements exemplaires faisant office de modèles pour l’ensemble des employés"
 
 #: ../browser/templates/macros/report-budget.pt:25
@@ -909,7 +909,7 @@ msgid "Image"
 msgstr "Image"
 
 #: ../content/improvement_area.py:49
-msgid "Image used to describe the Area. If no file chosen, a default one will be used."
+msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
 msgstr "Image utilisée pour illustrer l’Axe d’Amélioration. Si aucun fichier n’est sélectionné, une image par défaut sera utilisée"
 
 #: ../content/itemarea.py:40
@@ -995,7 +995,6 @@ msgstr "Insérer au maximum deux paragraphes pour décrire succinctement les aut
 #: ../content/report.py:108
 msgid "Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders."
 msgstr "Insérer au maximum deux paragraphes pour décrire succinctement les progrès réalisés durant la période de recueil de données et qui peuvent être partagés avec les acteurs clés du programme"
-
 
 #: ../content/outcomeccitem.py:39
 msgid "Insert the Font Awesome icon to describe this Outcome. IE: fa-globe"
@@ -1244,6 +1243,7 @@ msgstr "Les projets entrepris par mon Organisation"
 #: ../browser/setup_home.py:648
 msgid "NRW as percentage of system input"
 msgstr "Eau non génératrice de revenu en pourcentage d’intrant dans le système"
+
 #: ../browser/setup_home.py:647
 msgid "NRW in m3 per actve connection per year"
 msgstr "Quantité d’eau non génératrice de revenu en m3 par raccordement actif et par année"
@@ -1866,7 +1866,7 @@ msgid "Save title"
 msgstr "Sauvegarder l’intitulé"
 
 #: ../browser/setup_home.py:905
-msgid "Se ha aplicado la configuraciÃ³n por defecto."
+msgid "Se ha aplicado la configuración por defecto."
 msgstr "La configation par défaut a été appliquée"
 
 #: ../browser/templates/homepage.pt:135
@@ -2608,7 +2608,6 @@ msgstr "jusqu’au"
 
 #: ../browser/user_profile.py:52
 #: ../indexers.py:28
-
 msgid "type_of_organization"
 msgstr ""
 

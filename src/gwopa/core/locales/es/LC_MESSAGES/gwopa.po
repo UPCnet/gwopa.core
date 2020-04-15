@@ -41,7 +41,6 @@ msgstr "% de mujeres en puestos directivos"
 msgid "(Estimated) coverage LIA population"
 msgstr " Tasa de cobertura (estimada) de las poblaciones que viven en zonas de bajos ingresos"
 
-
 #: ../browser/templates/planning.pt:523
 #: ../content/activity.py:54
 msgid "(e.g. 1 - Training of staff in NRW reduction approaches)"
@@ -148,7 +147,7 @@ msgid "Activities and Outputs"
 msgstr "Actividades y primeros resultados asociados"
 
 #: ../content/report.py:41
-msgid "Activities and Output Progress"
+msgid "Activities and Outputs Progress"
 msgstr "Actividades y progreso de los resultados"
 
 #: ../browser/templates/macros/report-activities.pt:20
@@ -475,7 +474,6 @@ msgstr "Aportación de un Donante"
 msgid "ContribOther"
 msgstr "Aportación de otra Organización"
 
-
 #: ../profiles/default/types/ContribPartner.xml
 msgid "ContribPartner"
 msgstr "Aportación de un Socio"
@@ -740,7 +738,7 @@ msgid "Execute the initial GWOPA configurations on the Site."
 msgstr "Ejecutar las configuraciones iniciales del sitio de GWOPA"
 
 #: ../browser/templates/macros/report-help-outcomes.pt:23
-msgid " Executives providing overall organizational direction and serving as behavioural role models for all employees."
+msgid "Executives providing overall organizational direction and serving as behavioural role models for all employees."
 msgstr "Ejecutivos que proporcionan la dirección organizativa general  y sirven como modelos de comportamiento para todos los empleados"
 
 #: ../browser/templates/macros/report-budget.pt:25
@@ -911,8 +909,8 @@ msgid "Image"
 msgstr "Imagen"
 
 #: ../content/improvement_area.py:49
-msgid "Image used to describe the Area. If no file chosen, a default one will be used."
-msgstr "Imagen utilizada para describir el Área. Si no se escoge imagen, se establecerá una imagen por defecto"
+msgid "Image used to describe the Area. If no file chosen, a defult one will be used."
+msgstr "Imagen utilizada para describir el Área. Si no se escoge imagen, se establecerá una imagen por defecto."
 
 #: ../content/itemarea.py:40
 msgid "Image used to describe the Working Area"
@@ -997,7 +995,6 @@ msgstr "Insertar un máximo de dos párrafos resumiendo otros desafíos adiciona
 #: ../content/report.py:108
 msgid "Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders."
 msgstr "Insertar un máximo de dos párrafos resumiendo el progreso durante el período de evaluación que podría ser compartido con los actores e interesados clave del programa"
-
 
 #: ../content/outcomeccitem.py:39
 msgid "Insert the Font Awesome icon to describe this Outcome. IE: fa-globe"
@@ -1246,6 +1243,7 @@ msgstr "Proyectos de mi organización"
 #: ../browser/setup_home.py:648
 msgid "NRW as percentage of system input"
 msgstr "Agua No Facturada (ANC) como porcentaje dentro del sistema"
+
 #: ../browser/setup_home.py:647
 msgid "NRW in m3 per actve connection per year"
 msgstr "Cantidad de Agua No Facturada en m3 por conexión activa al año"
@@ -1428,8 +1426,8 @@ msgid "Organization Roles ES"
 msgstr "Roles de organización ES"
 
 #: ../content/settingspage.py:158
-msgid "Roles de organización FR"
-msgstr ""
+msgid "Organization Roles FR"
+msgstr "Roles de organización FR"
 
 #: ../content/contributorother.py:22
 msgid "Organization roles"
@@ -1634,6 +1632,7 @@ msgstr "Riesgos/Retrasos potenciales"
 #: ../browser/templates/macros/report-help-outcomes.pt:59
 msgid "Practices that managers exercise in the normal course of events to use the human and material resources at their disposal to carry out the organization is strategy (including elements such as managerial behaviour, work etiquette, professionalism, planning, communication and control)."
 msgstr "Prácticas que gerentes realizan habitualmente en el curso normal de eventos para utilizar los recursos humanos y materiales a su disposición al servicio de la estrategia de la organización (incluyendo elementos como comportamientos directivos, cultura de trabajo, profesionalidad, planificación, comunicación y control)."
+
 #: ../content/templates/report_view.pt:59
 msgid "Print"
 msgstr "Imprimir"
@@ -1867,8 +1866,8 @@ msgid "Save title"
 msgstr "Guardar título"
 
 #: ../browser/setup_home.py:905
-msgid "Se ha aplicado la configuraciÃ³n por defecto."
-msgstr "Se ha aplicado la configuración por defecto"
+msgid "Se ha aplicado la configuración por defecto."
+msgstr "Se ha aplicado la configuración por defecto."
 
 #: ../browser/templates/homepage.pt:135
 msgid "Search Projects"
@@ -2368,7 +2367,6 @@ msgstr "Asociado del WOP"
 #: ../userdataschema.py:71
 msgid "WOP Partners"
 msgstr "Operador de Agua y/o Saneamiento"
-
 
 #: ../browser/templates/global_map.pt:34
 #: ../profiles/default/types/Platform.xml
