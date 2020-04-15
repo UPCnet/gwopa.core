@@ -1183,7 +1183,7 @@ msgstr "Measuring unit (French)"
 #: ../content/templates/activity_view.pt:41
 #: ../content/templates/improvementarea_view.pt:38
 msgid "Members"
-msgstr "Members"
+msgstr "Project Member(s)"
 
 #: ../content/templates/platform_view.pt:27
 msgid "Members with this region"
@@ -1699,11 +1699,11 @@ msgstr ""
 
 #: ../content/project.py:369
 msgid "Project Manager"
-msgstr "Project Managers"
+msgstr "Content Moderator"
 
 #: ../content/project.py:361
 msgid "Project Manager Admin"
-msgstr "Project Manager (Administrator role)"
+msgstr "PMP Account Manager (Administrator role)"
 
 #: ../browser/templates/macros/report-project.pt:9
 #: ../content/report.py:39
@@ -1737,7 +1737,7 @@ msgstr "Project image"
 
 #: ../content/project.py:380
 msgid "Project members"
-msgstr "Utility employees (e.g. engineers, operational workers etc.) involved in WOP activities"
+msgstr "The project member(s) contributing to the WOP activities. (e.g. Utility employees - engineers, operational workers). Project Members hold view only rights on the PMP."
 
 #: ../content/project.py:132
 msgid "Project title"
@@ -1747,7 +1747,7 @@ msgstr "Project Title"
 #: ../browser/monitoring.py:121
 #: ../browser/planning.py:118
 msgid "Project year"
-msgstr "Project year"
+msgstr "Project Year"
 
 #: ../browser/templates/macros/report-outcomes.pt:267
 #: ../browser/templates/monitoring.pt:681
@@ -2152,11 +2152,11 @@ msgstr "The default config has been applied."
 
 #: ../content/project.py:362
 msgid "The responsible manager of the project"
-msgstr "The project Focal Point responsible for verifying and coordinating platform inputs"
+msgstr "The project member(s) responsible for verifying and coordinating platform inputs."
 
 #: ../content/project.py:370
 msgid "The responsible of this project"
-msgstr "The project leaders managing specific Working Areas in the project"
+msgstr "The project member(s) responsible for leading and providing inputs to specific Working Areas."
 
 #: ../content/contributorpartner.py:25
 msgid "The role of partner in project"

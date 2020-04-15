@@ -1183,7 +1183,7 @@ msgstr "Unité de mesure FR"
 #: ../content/templates/activity_view.pt:41
 #: ../content/templates/improvementarea_view.pt:38
 msgid "Members"
-msgstr "Membres"
+msgstr "Membre(s) du projet"
 
 #: ../content/templates/platform_view.pt:27
 msgid "Members with this region"
@@ -1699,11 +1699,11 @@ msgstr "Durée du projet"
 
 #: ../content/project.py:369
 msgid "Project Manager"
-msgstr "Gestionnaire du Projet"
+msgstr "Modérateur de contenu"
 
 #: ../content/project.py:361
 msgid "Project Manager Admin"
-msgstr "Administrateur gestionnaire du projet"
+msgstr "Gestionnaire de compte PMP (rôle d'Administrateur)"
 
 #: ../browser/templates/macros/report-project.pt:9
 #: ../content/report.py:39
@@ -1717,7 +1717,7 @@ msgstr "Intitulé du Projet"
 
 #: ../browser/templates/macros/report-summary.pt:11
 msgid "Project Working areas:"
-msgstr "Champs d’Intervention du projet :"
+msgstr "Champs d’Intervention du projet:"
 
 #: ../content/report.py:130
 msgid "Project Year"
@@ -1737,7 +1737,7 @@ msgstr "Image du projet"
 
 #: ../content/project.py:380
 msgid "Project members"
-msgstr "Personnels (ex.: ingénieurs, agents opérationnels, etc.) participant aux activités du projet de partenariat WOP"
+msgstr "Le(s) membre(s) du projet contribuant aux activités du partenariat WOP (par exemple, les employés, ingénieurs, agents opérationnels travaillant au sein de l’opérateur). Les membres du projet ne détiennent qu’un droit de visualisation des données saisies dans la plateforme PMP."
 
 #: ../content/project.py:132
 msgid "Project title"
@@ -2152,11 +2152,11 @@ msgstr "La configuration par défaut a été appliquée."
 
 #: ../content/project.py:362
 msgid "The responsible manager of the project"
-msgstr "Le manager en charge du projet"
+msgstr "Le(s) membre(s) du projet chargé(s) de vérifier et de coordonner la saisie des données dans la plateforme."
 
 #: ../content/project.py:370
 msgid "The responsible of this project"
-msgstr "Le responsable de ce projet"
+msgstr "Le(s) membre(s) du projet chargé(s) de contrôler et de fournir les données se rapportant à des Domaines d’Activités spécifiques."
 
 #: ../content/contributorpartner.py:25
 msgid "The role of partner in project"
