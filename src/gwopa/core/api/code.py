@@ -190,10 +190,11 @@ class getDegree(BrowserView):
             values = item[0].getObject().degree_changes_dict
             for value in values.keys():
                 results.append({'id': value,
-                                'name': values[value][lang]})
+                                'name': values[value][lang],
+                                'num': float(value.split(' ')[0])})
 
         self.request.response.setHeader("Content-type", "application/json")
-        return json.dumps(sorted(results, key=lambda k: k['name']))
+        return json.dumps(sorted(results, key=lambda k: k['num']))
 
 
 class getContributed(BrowserView):
