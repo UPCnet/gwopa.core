@@ -2,11 +2,18 @@ Changelog
 =========
 
 
-1.13 (unreleased)
+1.13 (2020-04-16)
 -----------------
 
-- Nothing changed yet.
-
+* Traducciones EN rojo [pilar.marinas]
+* Sort /api-getDegree [Iago López Fernández]
+* Nuevo logo [Iago López Fernández]
+* Traducciones [pilar.marinas]
+* Traducciones [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Estilos menu lateral izquierdo [Iago López Fernández]
+* Translate [pilar.marinas]
 
 1.12 (2020-02-27)
 -----------------
