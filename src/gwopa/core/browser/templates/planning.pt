@@ -336,10 +336,10 @@
               <div class="col-md-12" tal:repeat="outcome outcomes">
                 <div class="information object" tal:attributes="id string:${outcome/rid};">
                   <div class="contentt row" id="total">
-                    <div class="part0">
+                    <!-- <div class="part0">
                       <i class="fa fa-chevron-down expandccs" aria-hidden="true"></i>
                       <i style="display: none" class="fa fa-chevron-up notexpandccs" aria-hidden="true"></i>
-                    </div>
+                    </div> -->
                     <div class="part1 label-2nd">
                       <span class="CC-planning" i18n:translate="">Capacity</span>
                     </div>
@@ -348,7 +348,7 @@
                       <h5 tal:attributes="id string:${outcome/rid};" class="capacity-title" tal:content="outcome/area"> Working Area N </h5>
                     </div>
                   </div>
-                  <div class="contentt" id="actions">
+                  <!-- <div class="contentt" id="actions">
                     <a tal:condition="canEditPlanningMonitoring" data-toggle="modal" class="editOutcomeCC" data-target="#modalEditOutcomeCC"
                             tal:attributes="
                                 data-pk currentYear;
@@ -362,7 +362,7 @@
                         <i class="far fa-edit"></i></a>
                       <a data-toggle="modal" data-target="#modalInfoCapacity" class="btn-info-capacity">
                         <i class="fa fa-info-circle"></i></a>
-                  </div>
+                  </div> -->
                   <div class="information cc_container" >
                     <div class="primerafila">
                       <tal:block repeat="item outcome/specifics">
