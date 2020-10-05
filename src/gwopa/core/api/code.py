@@ -751,10 +751,10 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         year = self.request.form['year']
         item_path = self.request.form['item_path']
         # description = self.request.form['description']
-        baseline = self.request.form['baseline']
-        baseline_date = self.request.form['baseline_date']
-        objective = self.request.form['objective']
-        objective_date = self.request.form['objective_date']
+        # baseline = self.request.form['baseline']
+        # baseline_date = self.request.form['baseline_date']
+        # objective = self.request.form['objective']
+        # objective_date = self.request.form['objective_date']
         id_specific = self.request.form['id_specific']
         degree_changes = self.request.form['degree_changes']
         contributed_project = self.request.form['contributed_project']
@@ -772,19 +772,19 @@ class UpdateOutcomeCCSMonitoring(BrowserView):
         for specific in specifics:
             if specific['id_specific'] == id_specific:
                 # specific['description'] = description
-                specific['baseline'] = baseline
-                specific['baseline_date'] = baseline_date
-                specific['objective'] = objective
-                specific['objective_date'] = objective_date
+                # specific['baseline'] = baseline
+                # specific['baseline_date'] = baseline_date
+                # specific['objective'] = objective
+                # specific['objective_date'] = objective_date
                 specific['selected_specific'] = 'selected'
         monitoring = annotations[KEY]['monitoring']
         for specific in monitoring:
             if specific['id_specific'] == id_specific:
                 # specific['description'] = description
-                specific['baseline'] = baseline
-                specific['baseline_date'] = baseline_date
-                specific['objective'] = objective
-                specific['objective_date'] = objective_date
+                # specific['baseline'] = baseline
+                # specific['baseline_date'] = baseline_date
+                # specific['objective'] = objective
+                # specific['objective_date'] = objective_date
                 specific['selected_specific'] = 'selected'
                 specific['degree_changes'] = degree_changes
                 specific['contributed_project'] = contributed_project
