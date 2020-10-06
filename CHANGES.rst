@@ -2,11 +2,13 @@ Changelog
 =========
 
 
-1.14 (unreleased)
+1.14 (2020-10-06)
 -----------------
 
-- Nothing changed yet.
-
+* Traducccion target value [Iago López Fernández]
+* Comentar valores capacity baseline, etc  que se ponian en el planning y ahora no [Pilar Marinas]
+* Esconder planificación de los Capacity de los Outcomes [Iago López Fernández]
+* Mover Reporting abajo del todo en el menu [Iago López Fernández]
 
 1.13 (2020-04-16)
 -----------------
