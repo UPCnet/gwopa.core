@@ -35,15 +35,22 @@
                     <i class="fas fa-chart-pie"></i><tal:omit-tag i18n:translate=""> Monitoring </tal:omit-tag></a>
                 </li>
 
-                <li tal:condition="canViewDashboardProject" class="menuItem paddingleft15"><i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></li>
-
-                <li tal:condition="canViewDashboardProject" style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-areas">
-                    <a style="padding-left:25px;" tal:attributes="class python:tab_id in selected_tab and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/dash-areas"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Working Areas </tal:omit-tag></a>
+                <li tal:condition="canViewDashboardProject">
+                    <a class="paddingleft15 plone-btn plone-btn-info" data-toggle="collapse" data-target=".multi-collapse" role="button" aria-expanded="false" aria-controls="workingAreasMenu performanceMenu">
+                    <i class="fas fa-tachometer-alt"></i><tal:omit-tag i18n:translate=""> Dashboard </tal:omit-tag></a>
                 </li>
 
-                <li tal:condition="canViewDashboardProject" style="padding-left:0px;" tal:define="tab_id string:${projectPath}/dash-performance">
-                    <a style="padding-left:25px;" tal:attributes="class python:tab_id in selected_tab and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href string:${projectPath}/dash-performance"><i class="fas fa-angle-right"></i><tal:block i18n:translate=""> Performance </tal:block></a>
-                </li>
+                <tal:block tal:define="tab_id_dash_areas string:${projectPath}/dash-areas; tab_id_dash_performance string:${projectPath}/dash-performance;">
+
+                    <li tal:attributes="class python:selected_tab in [tab_id_dash_areas, tab_id_dash_performance] and 'collapse in multi-collapse' or 'collapse multi-collapse'" id="workingAreasMenu" tal:condition="canViewDashboardProject" style="padding-left:0px;" >
+                        <a style="padding-left:25px;" tal:attributes="class python:tab_id_dash_areas==selected_tab and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href tab_id_dash_areas"><i class="fas fa-angle-right"></i><tal:omit-tag i18n:translate=""> Working Areas </tal:omit-tag></a>
+                    </li>
+
+                    <li tal:attributes="class python:selected_tab in [tab_id_dash_areas, tab_id_dash_performance] and 'collapse in multi-collapse' or 'collapse multi-collapse'" id="performanceMenu" tal:condition="canViewDashboardProject" style="padding-left:0px;">
+                        <a style="padding-left:25px;" tal:attributes="class python:tab_id_dash_performance==selected_tab and 'plone-btn plone-btn-info active' or 'plone-btn plone-btn-info'; href tab_id_dash_performance"><i class="fas fa-angle-right"></i><tal:block i18n:translate=""> Performance </tal:block></a>
+                    </li>
+
+                </tal:block>
 
                 <li tal:condition="canViewPlanningMonitoring" tal:define="tab_id string:${projectPath}/reporting">
                     <a tal:attributes="class python:selected_tab==tab_id and 'paddingleft15 plone-btn plone-btn-info active' or 'paddingleft15 plone-btn plone-btn-info'; href string:${projectPath}/reporting">
