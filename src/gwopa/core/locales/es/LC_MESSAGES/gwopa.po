@@ -355,7 +355,7 @@ msgstr "Desafíos, lecciones aprendidas y desviaciones del marco inicial de trab
 #: ../browser/templates/monitoring.pt:197
 #: ../browser/templates/planning.pt:155
 msgid "Change_target_value"
-msgstr "Cambio_objetivo_valor"
+msgstr "Cambio objetivo valor"
 
 #: ../browser/templates/dash-areas.pt:114
 #: ../browser/templates/monitoring.pt:820

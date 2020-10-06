@@ -355,7 +355,7 @@ msgstr "Défis, enseignements tirés et écarts constatés par rapport au cadre 
 #: ../browser/templates/monitoring.pt:197
 #: ../browser/templates/planning.pt:155
 msgid "Change_target_value"
-msgstr "Changement_cible_valeur"
+msgstr "Changement cible valeur"
 
 #: ../browser/templates/dash-areas.pt:114
 #: ../browser/templates/monitoring.pt:820

@@ -355,7 +355,7 @@ msgstr "Challenges, Lessons Learned and Deviations from the Initial Plan"
 #: ../browser/templates/monitoring.pt:197
 #: ../browser/templates/planning.pt:155
 msgid "Change_target_value"
-msgstr ""
+msgstr "Change target value"
 
 #: ../browser/templates/dash-areas.pt:114
 #: ../browser/templates/monitoring.pt:820
