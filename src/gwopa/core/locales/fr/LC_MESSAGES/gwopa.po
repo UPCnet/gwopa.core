@@ -2050,7 +2050,7 @@ msgstr "Stade 1"
 
 #: ../browser/templates/monitoring.pt:430
 msgid "Stage 1 - Diagnosing and action planning"
-msgstr "Stade 1"
+msgstr "Stade 1 Etablissement d’un diagnostic et mise au point d’un plan d’action"
 
 #: ../browser/templates/monitoring.pt:795
 msgid "Stage 2"
@@ -2058,7 +2058,7 @@ msgstr "Stade 2"
 
 #: ../browser/templates/monitoring.pt:431
 msgid "Stage 2 - Initial implementation of activities"
-msgstr "Stade 2"
+msgstr "Stade 2 Mise en œuvre initiale d’activités"
 
 #: ../browser/templates/monitoring.pt:800
 msgid "Stage 3"
@@ -2066,7 +2066,7 @@ msgstr "Stade 3"
 
 #: ../browser/templates/monitoring.pt:432
 msgid "Stage 3 - Visibility of changes"
-msgstr "Stade 3"
+msgstr "Stade 3 Visibilité des changements"
 
 #: ../browser/templates/monitoring.pt:805
 msgid "Stage 4"
@@ -2074,7 +2074,7 @@ msgstr "Stade 4"
 
 #: ../browser/templates/monitoring.pt:433
 msgid "Stage 4 - Changes Consolidated"
-msgstr "Stade 4"
+msgstr "Stade 4 Changements consolidés"
 
 #: ../browser/templates/dash-areas.pt:85
 msgid "Stage Meaning"
