@@ -727,8 +727,8 @@
                         <input readonly class="form-control" id="outcomeccs-objective_date"/>
                     </div>
                   </div>
-              </div>
-            </div> -->
+              </div> -->
+            </div>
 
             <div class="modal-footer">
               <a type="button" class="btn button-cancel" data-dismiss="modal" i18n:translate="">Cancel</a>
