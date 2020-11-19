@@ -238,7 +238,7 @@ class setup(grok.View):
             container=portal.config,
             safe_id=False)
         settingspage.currency = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
-        settingspage.measuring_unit = 'liters\nm3\npeople\nconnections\nhouseholds\nkilometers\nstaff by population\nstaff by connection\ncost recovery ratio\nworkplace accidents\nworker satisfaction\nhours\ndays\npercentage\nother'
+        settingspage.measuring_unit = 'connections\ncost recovery ratio\ndays\nhours\nhouseholds\nkilometers\nliters\nm3\nother\npeople\npercentage\nstaff by connection\nstaff by population\nworker satisfaction\nworkplace accidents'
         settingspage.measuring_frequency = 'Annually,1\nBiannually,2\nQuarterly,4'
         settingspage.degree_changes = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
@@ -247,7 +247,7 @@ class setup(grok.View):
         settingspage.organization_roles = 'Broker (matchmaker, facilitator)\nTechnical Support\nPolitical Support'
 
         settingspage.currency_es = 'USD-Dólar estadounidense-$\r\nEUR-Euro-€\r\nGBP-Libra británica-£\r\nAUD-Dólar australiano-$\r\nCAD-Dolar canadiense-$'
-        settingspage.measuring_unit_es = 'litros\nm3\npersonas\nconexiones\nhogares\nkilómetros\npersonal por población\npersonal por conexión\nrelación de recuperación de costos\naccidentes laborales\nsatisfacción del trabajador\nhoras\ndias\nporcentaje\notro'
+        settingspage.measuring_unit_es = 'litros\nm3\npersonas\nconexiones\nhogares\nkilómetros\npersonal por población\npersonal por conexión\ntasa de recuperación de costos\naccidentes laborales\nsatisfacción laboral\nhoras\ndias\nporcentaje\notro'
         settingspage.measuring_frequency_es = 'Anualmente,1\nBianualmente,2\nTrimestralmente,4'
         settingspage.degree_changes_es = '-2 Muy negativo\n-1 Negativo\n0 Sin cambios\n1 Positivo\n2 Muy positivo'
         settingspage.contributed_project_es = '0 Sin contribución\n1 Contribución justa\n2 Contribución muy alta'
@@ -257,8 +257,8 @@ class setup(grok.View):
 
         # TODO: Falta traducir los valores al Frances
         settingspage.currency_fr = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
-        settingspage.measuring_unit_fr = 'liters\nm3\npeople\nconnections\nhouseholds\nkilometers\nstaff by population\nstaff by connection\ncost recovery ratio\nworkplace accidents\nworker satisfaction\nhours\ndays\npercentage\nother'
-        settingspage.measuring_frequency_fr = 'Annually,1\nBiannually,2\nQuarterly,4'
+        settingspage.measuring_unit_fr = 'litres\nm3\npersonnes\nconnections\nménages\nkilomètres\npersonnel par population\npersonnel par connexion\nratio de recouvrement des coûts\naccidents du travail\nsatisfaction des travailleurs\nheures\njours\npercentage\nautre'
+        settingspage.measuring_frequency_fr = 'Annuellement,1\nTous les deux ans,2\nTrimestriel,4'
         settingspage.degree_changes_fr = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project_fr = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
         settingspage.consensus_fr = 'One Partner\nWop Partners'
@@ -482,7 +482,7 @@ class setup(grok.View):
         wop_platforms = [
             "Cari-WOP",
             "PWWA",
-            "Waterlinks",
+            "WaterLinks",
             "WOP-Africa",
             "WOP-LAC",
             "P-WOP (Pakistan)",
@@ -946,7 +946,7 @@ class setupEs(grok.View):
         wop_platforms = [
             "Cari-WOP",
             "PWWA",
-            "Waterlinks",
+            "WaterLinks",
             "WOP-Africa",
             "WOP-LAC",
             "P-WOP (Pakistan)",

@@ -396,7 +396,7 @@
                         </font></td>
                       </tr>
                       <tr>
-                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000" i18n:translate="">Baseline and Progress Description</font></b></td>
                       </tr>
                       <tr>
                         <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
@@ -466,7 +466,7 @@
                               </font></td>
                             </tr>
                             <tr>
-                              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+                              <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000" i18n:translate="">Baseline and Progress Description</font></b></td>
                             </tr>
                             <tr>
                               <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
@@ -668,7 +668,7 @@
                     <td tal:attributes="style styles/style1" colspan="4" align="center" valign="bottom" bgcolor="#FFFFFF"><font face="Arial" size="1" color="#4472C4"><span tal:content="out/target_value_real">Achieved/Target </span> / <span tal:content="out/target_value_planned">Achieved/Target </span></font></td>
                   </tr>
                   <tr>
-                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+                    <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000" i18n:translate="">Baseline and Progress Description</font></b></td>
                   </tr>
                   <tr>
                     <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4"><p tal:content="out/description/description">AUTO ENTRY: Planning - Description/ and Description of initial situation</p> <br><p tal:content="out/description/explanation_progress">AUTO ENTRY: Text form Progress Explanation</p> </font></i></td>

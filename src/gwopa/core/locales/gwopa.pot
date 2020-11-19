@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-04-15 11:55+0000\n"
+"POT-Creation-Date: 2020-11-18 12:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid ""
 msgstr ""
 
-#: ../api/code.py:485
+#: ../api/code.py:486
 msgid " End: "
 msgstr ""
 
@@ -152,7 +152,7 @@ msgstr ""
 msgid "Activities and Outputs"
 msgstr ""
 
-#: ../content/report.py:41
+#: ../content/report.py:42
 msgid "Activities and Outputs Progress"
 msgstr ""
 
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: ../content/report.py:82
+#: ../content/report.py:83
 msgid "Auto"
 msgstr ""
 
@@ -267,13 +267,16 @@ msgstr ""
 msgid "Baseline"
 msgstr ""
 
+#: ../browser/templates/reportPreview.pt:399
+msgid "Baseline and Progress Description"
+msgstr ""
+
 #: ../browser/templates/macros/report-outcomes.pt:56
 #: ../browser/templates/monitoring.pt:287
 #: ../browser/templates/planning.pt:243
 msgid "Baseline date"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:710
 #: ../browser/templates/planning.pt:1056
 #: ../content/outcomeccvalues.py:31
 msgid "Baseline description"
@@ -291,7 +294,7 @@ msgstr ""
 
 #: ../browser/templates/global_map.pt:59
 #: ../browser/templates/macros/report-budget.pt:9
-#: ../content/report.py:44
+#: ../content/report.py:45
 msgid "Budget"
 msgstr ""
 
@@ -378,7 +381,7 @@ msgstr ""
 msgid "Choose countries from list that represents this country."
 msgstr ""
 
-#: ../content/report.py:131
+#: ../content/report.py:132
 msgid "Choose project year to view in the report."
 msgstr ""
 
@@ -386,7 +389,7 @@ msgstr ""
 msgid "Choose region based on selected country."
 msgstr ""
 
-#: ../content/report.py:138
+#: ../content/report.py:139
 msgid "Choose sections to view in the report."
 msgstr ""
 
@@ -432,6 +435,11 @@ msgstr ""
 #: ../browser/templates/monitoring.pt:68
 #: ../browser/templates/planning.pt:81
 msgid "Completion date"
+msgstr ""
+
+#: ../browser/templates/dash-areas.pt:110
+#: ../browser/templates/monitoring.pt:816
+msgid "Conditions for change have been co-created, but there are no visible, effective changes materialized. Equipment may have been procured; trainings have been implemented, resulting in new knowledge to be applied by staff from mentee utility, etc"
 msgstr ""
 
 #: ../browser/templates/manage_portal.pt:16
@@ -567,7 +575,7 @@ msgstr ""
 msgid "Customised Reports"
 msgstr ""
 
-#: ../portlets/sidenav.pt:43
+#: ../portlets/sidenav.pt:40
 msgid "Dashboard"
 msgstr ""
 
@@ -579,7 +587,7 @@ msgstr ""
 msgid "Dashboard Working Areas"
 msgstr ""
 
-#: ../content/report.py:147
+#: ../content/report.py:148
 msgid "Data"
 msgstr ""
 
@@ -734,7 +742,19 @@ msgstr ""
 msgid "Equipment and infrastructure"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:330
+#: ../browser/uploadusers.py:78
+msgid "Error datos no insertados."
+msgstr ""
+
+#: ../browser/uploadusers.py:72
+msgid "Error datos no validos. Puede comprobar el error en https://codebeautify.org/python-formatter-beautifier"
+msgstr ""
+
+#: ../browser/uploadusers.py:75
+msgid "Error desconocido."
+msgstr ""
+
+#: ../browser/templates/manage_portal.pt:357
 msgid "Exchange Currency / Measuring Unit / Capacity Settings"
 msgstr ""
 
@@ -848,7 +868,7 @@ msgstr ""
 msgid "Geolocation"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:328
+#: ../browser/templates/manage_portal.pt:355
 msgid "Go to Config folder"
 msgstr ""
 
@@ -994,11 +1014,11 @@ msgstr ""
 msgid "Initial implementation of activities"
 msgstr ""
 
-#: ../content/report.py:116
+#: ../content/report.py:117
 msgid "Insert a maximum of two paragraphs summarizig the or other additional challenges/ lessons learned/ deviations to plans."
 msgstr ""
 
-#: ../content/report.py:108
+#: ../content/report.py:109
 msgid "Insert a maximum of two paragraphs summarizing the progress during the reporting period that could be shared with the programs key stakeholders."
 msgstr ""
 
@@ -1148,7 +1168,7 @@ msgstr ""
 msgid "Management practices"
 msgstr ""
 
-#: ../content/report.py:81
+#: ../content/report.py:82
 msgid "Manual"
 msgstr ""
 
@@ -1230,8 +1250,18 @@ msgstr ""
 msgid "Monitoring value"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:326
+#: ../browser/templates/manage_portal.pt:353
 msgid "More options"
+msgstr ""
+
+#: ../browser/templates/dash-areas.pt:116
+#: ../browser/templates/monitoring.pt:822
+msgid "Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice."
+msgstr ""
+
+#: ../browser/templates/dash-areas.pt:113
+#: ../browser/templates/monitoring.pt:819
+msgid "Mostly there are visible changes implemented in the working routines, but there is a need for additional support (training, supervision, top management support, others) for them to be fully consolidated."
 msgstr ""
 
 #: ../browser/templates/homepage.pt:84
@@ -1297,7 +1327,7 @@ msgid "New WOP Program"
 msgstr ""
 
 #: ../browser/templates/macros/report-steps.pt:9
-#: ../content/report.py:45
+#: ../content/report.py:46
 #: ../content/templates/report_view.pt:93
 msgid "Next Steps"
 msgstr ""
@@ -1335,7 +1365,7 @@ msgstr ""
 msgid "No Projects found in the Platform."
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:299
+#: ../browser/templates/manage_portal.pt:326
 msgid "No users found in the Platform"
 msgstr ""
 
@@ -1387,7 +1417,7 @@ msgstr ""
 msgid "Objective date"
 msgstr ""
 
-#: ../content/report.py:72
+#: ../content/report.py:73
 msgid "On Track"
 msgstr ""
 
@@ -1453,7 +1483,7 @@ msgstr ""
 msgid "Other Organizations"
 msgstr ""
 
-#: ../content/report.py:115
+#: ../content/report.py:116
 msgid "Other additional challenges"
 msgstr ""
 
@@ -1495,11 +1525,11 @@ msgstr ""
 msgid "Outcomes"
 msgstr ""
 
-#: ../content/report.py:43
+#: ../content/report.py:44
 msgid "Outcomes - Capacity"
 msgstr ""
 
-#: ../content/report.py:42
+#: ../content/report.py:43
 msgid "Outcomes - Utility Perfomance"
 msgstr ""
 
@@ -1513,7 +1543,7 @@ msgid "Outputdefaults"
 msgstr ""
 
 #: ../browser/templates/macros/report-summary.pt:13
-#: ../content/report.py:99
+#: ../content/report.py:100
 msgid "Overall Project Status"
 msgstr ""
 
@@ -1631,7 +1661,7 @@ msgid "Position"
 msgstr ""
 
 #: ../browser/templates/macros/report-summary.pt:27
-#: ../content/report.py:71
+#: ../content/report.py:72
 msgid "Potential Risks/Delays"
 msgstr ""
 
@@ -1672,7 +1702,7 @@ msgstr ""
 msgid "Progress Explanation"
 msgstr ""
 
-#: ../content/report.py:107
+#: ../content/report.py:108
 msgid "Progress stakeholders"
 msgstr ""
 
@@ -1712,7 +1742,7 @@ msgid "Project Manager Admin"
 msgstr ""
 
 #: ../browser/templates/macros/report-project.pt:9
-#: ../content/report.py:39
+#: ../content/report.py:40
 #: ../content/templates/report_view.pt:71
 msgid "Project Overview"
 msgstr ""
@@ -1725,7 +1755,7 @@ msgstr ""
 msgid "Project Working areas:"
 msgstr ""
 
-#: ../content/report.py:130
+#: ../content/report.py:131
 msgid "Project Year"
 msgstr ""
 
@@ -1808,7 +1838,7 @@ msgstr ""
 
 #: ../browser/templates/reporting.pt:23
 #: ../content/project.py:286
-#: ../portlets/sidenav.pt:40
+#: ../portlets/sidenav.pt:57
 msgid "Reporting"
 msgstr ""
 
@@ -1845,7 +1875,7 @@ msgstr ""
 msgid "Return"
 msgstr ""
 
-#: ../content/report.py:70
+#: ../content/report.py:71
 msgid "Roadblock"
 msgstr ""
 
@@ -1883,7 +1913,7 @@ msgstr ""
 msgid "Search projects by Title, Objectives, Platform, Program, Country, Location or Partners"
 msgstr ""
 
-#: ../content/report.py:137
+#: ../content/report.py:138
 msgid "Sections Report"
 msgstr ""
 
@@ -1932,7 +1962,7 @@ msgstr ""
 msgid "Select the main obstacles"
 msgstr ""
 
-#: ../content/report.py:100
+#: ../content/report.py:101
 msgid "Select the overall Project status."
 msgstr ""
 
@@ -1950,7 +1980,7 @@ msgstr ""
 msgid "Set default Homepage view"
 msgstr ""
 
-#: ../portlets/sidenav.pt:57
+#: ../portlets/sidenav.pt:64
 msgid "Settings"
 msgstr ""
 
@@ -1984,7 +2014,7 @@ msgstr ""
 
 #: ../browser/reportPreview.py:91
 #: ../browser/reporting.py:63
-#: ../content/report.py:189
+#: ../content/report.py:190
 msgid "Show report preview of year "
 msgstr ""
 
@@ -2020,20 +2050,36 @@ msgstr ""
 msgid "Stage"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:430
+#: ../browser/templates/monitoring.pt:790
 msgid "Stage 1"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:431
+#: ../browser/templates/monitoring.pt:430
+msgid "Stage 1 - Diagnosing and action planning"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:795
 msgid "Stage 2"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:432
+#: ../browser/templates/monitoring.pt:431
+msgid "Stage 2 - Initial implementation of activities"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:800
 msgid "Stage 3"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:433
+#: ../browser/templates/monitoring.pt:432
+msgid "Stage 3 - Visibility of changes"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:805
 msgid "Stage 4"
+msgstr ""
+
+#: ../browser/templates/monitoring.pt:433
+msgid "Stage 4 - Changes Consolidated"
 msgstr ""
 
 #: ../browser/templates/dash-areas.pt:85
@@ -2120,12 +2166,10 @@ msgstr ""
 msgid "Target_value_differs_from_planned"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:721
 #: ../browser/templates/planning.pt:1068
 msgid "Targeted improvements"
 msgstr ""
 
-#: ../browser/templates/monitoring.pt:726
 #: ../browser/templates/planning.pt:1073
 msgid "Targeted improvements date"
 msgstr ""
@@ -2138,7 +2182,7 @@ msgstr ""
 msgid "The currency used into the project"
 msgstr ""
 
-#: ../api/code.py:485
+#: ../api/code.py:486
 #: ../content/activity.py:129
 msgid "The dates must be between the limits of this Project. Start: "
 msgstr ""
@@ -2153,6 +2197,11 @@ msgstr ""
 
 #: ../browser/setup_home.py:223
 msgid "The default config has been applied."
+msgstr ""
+
+#: ../browser/templates/dash-areas.pt:107
+#: ../browser/templates/monitoring.pt:813
+msgid "The project has started, and at this point, most initial needs in terms of needed capacity and resources are being identified and action plans developed and agreed by both partners. Some initial trainings might have been organised."
 msgstr ""
 
 #: ../content/project.py:362
@@ -2278,7 +2327,7 @@ msgstr ""
 msgid "Total number of sewerage connections"
 msgstr ""
 
-#: ../content/report.py:153
+#: ../content/report.py:154
 msgid "Type"
 msgstr ""
 
@@ -2311,7 +2360,7 @@ msgstr ""
 msgid "Use this area to introduce the project description and a summary of all the project objectives"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:305
+#: ../browser/templates/manage_portal.pt:332
 msgid "User ID"
 msgstr ""
 
@@ -2345,7 +2394,7 @@ msgstr ""
 msgid "View all"
 msgstr ""
 
-#: ../browser/templates/manage_portal.pt:332
+#: ../browser/templates/manage_portal.pt:359
 msgid "View or edit values"
 msgstr ""
 
@@ -2531,6 +2580,10 @@ msgstr ""
 #: ../browser/user_profile.py:45
 #: ../indexers.py:23
 msgid "email"
+msgstr ""
+
+#: ../browser/uploadusers.py:72
+msgid "error"
 msgstr ""
 
 #: ../browser/user_profile.py:44

@@ -427,10 +427,10 @@
                     </p>
                     <a data-toggle="modal" data-target="#modalUpdateStage" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url; data-stage outcome/stage; id string:${outcome/rid}-update-stage" i18n:translate="">
                       <ul class="steps">
-                        <li class="future" id="stage-1" i18n:translate="">Stage 1</li>
-                        <li class="future" id="stage-2" i18n:translate="">Stage 2</li>
-                        <li class="future" id="stage-3" i18n:translate="">Stage 3</li>
-                        <li class="future" id="stage-4" i18n:translate="">Stage 4</li>
+                        <li class="future" id="stage-1" i18n:translate="">Stage 1 - Diagnosing and action planning</li>
+                        <li class="future" id="stage-2" i18n:translate="">Stage 2 - Initial implementation of activities</li>
+                        <li class="future" id="stage-3" i18n:translate="">Stage 3 - Visibility of changes</li>
+                        <li class="future" id="stage-4" i18n:translate="">Stage 4 - Changes Consolidated</li>
                       </ul>
                     </a>
                   </div>
@@ -810,16 +810,16 @@
                   <div class="col-xs-10 col-md-10">
                     <label class="container" i18n:translate="">Diagnosing and action planning
                     </label>
-                    <div>The project has started, and at this point, most initial needs in terms of needed capacity and resources are being identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
+                    <div i18n:translate="">The project has started, and at this point, most initial needs in terms of needed capacity and resources are being identified and action plans developed and agreed by both partners. Some initial trainings might have been organised.</div>
                     <label class="container" i18n:translate="">Initial implementation of activities
                     </label>
-                    <div>Conditions for change have been co-created, but there are no visible, effective changes materialized. Equipment may have been procured; trainings have been implemented, resulting in new knowledge to be applied by staff from mentee utility, etc</div>
+                    <div i18n:translate="">Conditions for change have been co-created, but there are no visible, effective changes materialized. Equipment may have been procured; trainings have been implemented, resulting in new knowledge to be applied by staff from mentee utility, etc</div>
                     <label class="container" i18n:translate="">Visibility of changes
                     </label>
-                    <div>Mostly there are visible changes implemented in the working routines, but there is a need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
+                    <div i18n:translate="">Mostly there are visible changes implemented in the working routines, but there is a need for additional support (training, supervision, top management support, others) for them to be fully consolidated.</div>
                     <label class="container" i18n:translate="">Changes consolidated
                     </label>
-                    <div> Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice.</div>
+                    <div i18n:translate="">Most intended (and possibly unintended) positive changes are well consolidated and are becoming standard practice.</div>
                   </div>
                 </div>
               </div>

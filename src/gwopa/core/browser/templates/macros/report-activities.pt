@@ -301,7 +301,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+                  <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000" i18n:translate="">Baseline and Progress Description</font></b></td>
                 </tr>
                 <tr>
                   <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
@@ -370,7 +370,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000">Baseline and Progress Description</font></b></td>
+                        <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#F2F2F2"><b><font face="Arial" size="1" color="#000000" i18n:translate="">Baseline and Progress Description</font></b></td>
                       </tr>
                       <tr>
                         <td tal:attributes="style styles/style1" colspan="14" align="left" valign="top" bgcolor="#FFFFFF"><i><font face="Arial" size="1" color="#4472C4">
