@@ -2046,7 +2046,7 @@ msgstr "Etapa"
 
 #: ../browser/templates/monitoring.pt:790
 msgid "Stage 1"
-msgstr "Etapa 1 Plan de diagnóstico y acción"
+msgstr "Etapa 1"
 
 #: ../browser/templates/monitoring.pt:430
 msgid "Stage 1 - Diagnosing and action planning"
@@ -2054,7 +2054,7 @@ msgstr "Etapa 1 Plan de diagnóstico y acción"
 
 #: ../browser/templates/monitoring.pt:795
 msgid "Stage 2"
-msgstr "Etapa 2 Implementación inicial de actividades"
+msgstr "Etapa 2"
 
 #: ../browser/templates/monitoring.pt:431
 msgid "Stage 2 - Initial implementation of activities"
@@ -2062,7 +2062,7 @@ msgstr "Etapa 2 Implementación inicial de actividades"
 
 #: ../browser/templates/monitoring.pt:800
 msgid "Stage 3"
-msgstr "Etapa 3 Visibilidad de los cambios"
+msgstr "Etapa 3"
 
 #: ../browser/templates/monitoring.pt:432
 msgid "Stage 3 - Visibility of changes"
@@ -2070,7 +2070,7 @@ msgstr "Etapa 3 Visibilidad de los cambios"
 
 #: ../browser/templates/monitoring.pt:805
 msgid "Stage 4"
-msgstr "Etapa 4 Cambios consolidados"
+msgstr "Etapa 4"
 
 #: ../browser/templates/monitoring.pt:433
 msgid "Stage 4 - Changes Consolidated"
