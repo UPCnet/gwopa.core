@@ -238,7 +238,7 @@ class setup(grok.View):
             container=portal.config,
             safe_id=False)
         settingspage.currency = 'USD-US Dollar-$\r\nEUR-Euro-€\r\nGBP-British Pound-£\r\nAUD-Australian Dollar-$\r\nCAD-Canadian Dollar-$'
-        settingspage.measuring_unit = 'connections\ncost recovery ratio\ndays\nhours\nhouseholds\nkilometers\nliters\nm3\nother\npeople\npercentage\nstaff by connection\nstaff by population\nworker satisfaction\nworkplace accidents'
+        settingspage.measuring_unit = 'liters\nm3\npeople\nconnections\nhouseholds\nkilometers\nstaff by population\nstaff by connection\ncost recovery ratio\nworkplace accidents\nworker satisfaction\ndays\nhours\npercentage\nother'
         settingspage.measuring_frequency = 'Annually,1\nBiannually,2\nQuarterly,4'
         settingspage.degree_changes = '-2 Very negative\n-1 Negative\n0 No change\n1 Positive\n2 Very positive'
         settingspage.contributed_project = '0 No contribution\n1 Fair contribution\n2 Very high contribution'
