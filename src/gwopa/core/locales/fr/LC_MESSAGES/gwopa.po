@@ -2542,7 +2542,7 @@ msgstr "Zone"
 
 #: ../browser/templates/planning.pt:815
 msgid "Zone_KPI"
-msgstr "Zone Effets à court et moyen termes, probables ou obtenus, des produits générés par une intervention."
+msgstr "Zone Le cas échéant, définir la zone de pression / pilote"
 
 #: ../content/templates/project_view.pt:222
 msgid "admin"
