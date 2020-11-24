@@ -951,7 +951,7 @@ msgstr "Área de Mejora"
 
 #: ../browser/templates/areas.pt:15
 msgid "Improvement Areas"
-msgstr "Áreas de Mejora"
+msgstr "Áreas de TrabajoÁreas de TrabajoÁreas de TrabajoÁreas de TrabajoÁreas de Trabajo"
 
 #: ../browser/setup_home.py:607
 msgid "Improvement plan drawn up based on internal audit"
@@ -1203,7 +1203,7 @@ msgstr "Unidad de medida FR"
 #: ../content/templates/activity_view.pt:41
 #: ../content/templates/improvementarea_view.pt:38
 msgid "Members"
-msgstr "Miembros"
+msgstr "Miembro(s) de Proyectos"
 
 #: ../content/templates/platform_view.pt:27
 msgid "Members with this region"
@@ -1729,7 +1729,7 @@ msgstr "Duración del Proyecto"
 
 #: ../content/project.py:369
 msgid "Project Manager"
-msgstr "Gerente del Proyecto"
+msgstr "Colaborador (es) de contenido"
 
 #: ../content/project.py:361
 msgid "Project Manager Admin"
@@ -1767,7 +1767,7 @@ msgstr "Imagen del Proyecto"
 
 #: ../content/project.py:380
 msgid "Project members"
-msgstr "Empleados del servicio de agua (ej. ingenieros, trabajadores operacionales, etc.) involucrados en actividades del WOP"
+msgstr "Miembro(s) del proyecto que contribuyen a las actividades de las Asociaciones de Operadores de Agua (WOP). (por ejemplo, empleados de servicios públicos: ingenieros, trabajadores operativos)."
 
 #: ../content/project.py:132
 msgid "Project title"
@@ -2205,7 +2205,7 @@ msgstr "Miembro(s) del equipo responsables de verificar y coordinar las aportaci
 
 #: ../content/project.py:370
 msgid "The responsible of this project"
-msgstr "La persona a cargo de este proyecto"
+msgstr "Miembro(s) del equipo del proyecto responsables de proporcionar entradas de información planificadas y supervisadas para las áreas de trabajo asignadas en el proyecto."
 
 #: ../content/contributorpartner.py:25
 msgid "The role of partner in project"
