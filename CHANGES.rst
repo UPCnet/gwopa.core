@@ -2,11 +2,17 @@ Changelog
 =========
 
 
-1.15 (unreleased)
+1.15 (2020-11-25)
 -----------------
 
-- Nothing changed yet.
-
+* Poner en orden los valores del setup [Iago López Fernández]
+* Traducciones FR [Iago López Fernández]
+* Traducciones ES [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Fix modals [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Menu lateral, desplegar opciones (collapse) [Iago López Fernández]
 
 1.14 (2020-10-06)
 -----------------
