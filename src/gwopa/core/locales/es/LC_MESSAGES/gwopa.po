@@ -1834,7 +1834,7 @@ msgstr "Tipo de informe"
 #: ../content/project.py:286
 #: ../portlets/sidenav.pt:57
 msgid "Reporting"
-msgstr "Recogida de datos"
+msgstr "Informe"
 
 #: ../browser/templates/macros/report-project.pt:20
 msgid "Reporting Period"
