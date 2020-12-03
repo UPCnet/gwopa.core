@@ -293,8 +293,35 @@
         <div class="tabla_items">
           <h1> <tal:block i18n:translate="">Users</tal:block>
             <a class="pat-plone-modal" data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}" tal:attributes="href string:${portal_url}/@@new-user" href="#">
-              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New User</tal:block></button></a>
+              <button id="add-new-project" class="context"><i class="fas fa-plus"></i> <tal:block i18n:translate="">New User</tal:block></button>
+            </a>
+
+            <a class="pat-plone-modal" href="#modalMassiveUsers"
+               data-pat-plone-modal="width: 600" i18n:domain="gwopa.core" >
+              <button class="context">
+                <!-- <i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp; -->
+                <tal:omit-tag i18n:translate="">Massive users upload</tal:omit-tag>
+              </button>
+            </a>
           </h1>
+
+          <div i18n:domain="gwopa.core" id="modalMassiveUsers" style="display: none;">
+            <h1 i18n:translate="">Massive users upload</h1>
+            <div>
+              <form enctype="multipart/form-data" action="massive-users" method="post">
+                <h4 i18n:translate="">Users data</h4>
+                <p>
+                  <textarea name="file"></textarea>
+                </p>
+                <p>
+                  <input class="btn btn-primary form-control" type="submit" value="Upload"
+                         i18n:attributes="value label_add_massive_users">
+                </p>
+              </form>
+            </div>
+          </div>
+
+
           <tal:block tal:define="users view/getUsers" >
             <table tal:condition="not:users" i18n:translate="">
               No users found in the Platform
