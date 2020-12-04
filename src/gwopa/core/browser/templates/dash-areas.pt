@@ -52,7 +52,7 @@
       </div>
       <hr />
       <h1 class="documentFirstHeading" style="padding: 0px; border-bottom: 2px solid #dddddd;">
-        <tal:omit-tag i18n:translate=""><span>Activities and Outputs</span></tal:omit-tag>
+        <tal:omit-tag i18n:translate=""><span i18n:translate="">Activities and Outputs</span></tal:omit-tag>
       </h1>
       <div tal:condition="not:areas" class="row">
         <h2 i18n:translate=""> Seems that there are no Working Areas in this Project </h2>
