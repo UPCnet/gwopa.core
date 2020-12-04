@@ -2,11 +2,10 @@ Changelog
 =========
 
 
-1.17 (unreleased)
+1.17 (2020-12-04)
 -----------------
 
-- Nothing changed yet.
-
+* Etapas monitoring [Iago López Fernández]
 
 1.16 (2020-12-04)
 -----------------
