@@ -2,11 +2,15 @@ Changelog
 =========
 
 
-1.16 (unreleased)
+1.16 (2020-12-04)
 -----------------
 
-- Nothing changed yet.
-
+* Etapas [Iago López Fernández]
+* Monitoring: Modificar col-sm- [Iago López Fernández]
+* Poner en negrita las etapas [Iago López Fernández]
+* Fix: Guardar los valores del presupuesto al editar el informe [Iago López Fernández]
+* Traducción Activities and Outputs [Iago López Fernández]
+* Actualizar la traducción de Recogida de datos, ahora es Informe [Iago López Fernández]
 
 1.15 (2020-11-25)
 -----------------
