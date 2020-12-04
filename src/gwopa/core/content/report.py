@@ -1038,7 +1038,7 @@ class ModifyExpenditureReportingPeriod(grok.View):
 
     def render(self):
         activity = self.request.form.get('activity', '')
-        self.context.save_data['budget']['planned_activities'][activity]['expenditure_reporting_period'] = self.request.form.get('text', '')
+        self.context.save_data['budget']['planned_activities'][activity.decode('utf-8')]['expenditure_reporting_period'] = self.request.form.get('text', '')
         self.context.reindexObject()
         transaction.commit()
 
@@ -1049,7 +1049,7 @@ class ModifyTotalExpenditureDate(grok.View):
 
     def render(self):
         activity = self.request.form.get('activity', '')
-        self.context.save_data['budget']['planned_activities'][activity]['total_expenditure_date'] = self.request.form.get('text', '')
+        self.context.save_data['budget']['planned_activities'][activity.decode('utf-8')]['total_expenditure_date'] = self.request.form.get('text', '')
         self.context.reindexObject()
         transaction.commit()
 
