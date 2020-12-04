@@ -427,10 +427,10 @@
                     </p>
                     <a data-toggle="modal" data-target="#modalUpdateStage" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url; data-stage outcome/stage; id string:${outcome/rid}-update-stage" i18n:translate="">
                       <ul class="steps">
-                        <li class="future" id="stage-1" i18n:translate="">Stage 1 - Diagnosing and action planning</li>
-                        <li class="future" id="stage-2" i18n:translate="">Stage 2 - Initial implementation of activities</li>
-                        <li class="future" id="stage-3" i18n:translate="">Stage 3 - Visibility of changes</li>
-                        <li class="future" id="stage-4" i18n:translate="">Stage 4 - Changes Consolidated</li>
+                        <li class="future" id="stage-1"><strong i18n:translate="">Stage 1</strong>&nbsp;<span i18n:translate="">Diagnosing and action planning</span></li>
+                        <li class="future" id="stage-2"><strong i18n:translate="">Stage 2</strong>&nbsp;<span i18n:translate="">Initial implementation of activities</span></li>
+                        <li class="future" id="stage-3"><strong i18n:translate="">Stage 3</strong>&nbsp;<span i18n:translate="">Visibility of changes</span></li>
+                        <li class="future" id="stage-4"><strong i18n:translate="">Stage 4</strong>&nbsp;<span i18n:translate="">Changes Consolidated</span></li>
                       </ul>
                     </a>
                   </div>
