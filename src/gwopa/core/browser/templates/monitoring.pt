@@ -426,7 +426,7 @@
                       What is the change consolidation stage of this working area?
                     </p>
                     <a data-toggle="modal" data-target="#modalUpdateStage" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url; data-stage outcome/stage; id string:${outcome/rid}-update-stage" i18n:translate="">
-                      <ul class="steps" tal:define="stages view/getCurrentStage">
+                      <ul class="steps" tal:define="stages python:view.getCurrentStage(outcome['area'])">
                         <li tal:repeat="stage stages" tal:attributes="class string:${stage/state}; id string:${stage/id}"><strong tal:content="stage/title" i18n:translate="">Stage 1</strong>&nbsp;<span tal:content="stage/description" i18n:translate="">Description</span>
                         </li>
                       </ul>
