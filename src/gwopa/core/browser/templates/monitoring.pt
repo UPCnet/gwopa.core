@@ -211,11 +211,11 @@
                       <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                         <form id="updateOutput">
                           <div class="filacontenido">
-                            <div class="col-sm-1">
+                            <div class="col-sm-2">
                               <h5 i18n:translate=""> Value </h5>
                                 <input type="text" tal:attributes="id string:${output/id}-progress; value output/progress;">
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                               <h5 i18n:translate="">Progress Explanation</h5>
                               <textarea class="form-control" rows="1" tal:content="output/explanation" tal:attributes="id string:${output/id}-explanation;"></textarea>
                             </div>
@@ -339,11 +339,11 @@
                   <form id="updateKPI">
                     <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                       <div class="filacontenido">
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                           <h5 i18n:translate="">Current</h5>
                           <input type="text" tal:attributes="id string:${outcome/id}-progress; value outcome/progress;">
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                           <h5 i18n:translate="">Progress Explanation</h5>
                           <textarea class="form-control" rows="1" tal:content="outcome/explanation" tal:attributes="id string:${outcome/id}-explanation;"></textarea>
                         </div>
