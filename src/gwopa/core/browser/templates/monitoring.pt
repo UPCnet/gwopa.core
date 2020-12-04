@@ -426,12 +426,24 @@
                       What is the change consolidation stage of this working area?
                     </p>
                     <a data-toggle="modal" data-target="#modalUpdateStage" tal:attributes=" data-pk currentYear; data-urloutcomeccs outcome/url; data-stage outcome/stage; id string:${outcome/rid}-update-stage" i18n:translate="">
-                      <ul class="steps">
-                        <li class="future" id="stage-1"><strong i18n:translate="">Stage 1</strong>&nbsp;<span i18n:translate="">Diagnosing and action planning</span></li>
-                        <li class="future" id="stage-2"><strong i18n:translate="">Stage 2</strong>&nbsp;<span i18n:translate="">Initial implementation of activities</span></li>
-                        <li class="future" id="stage-3"><strong i18n:translate="">Stage 3</strong>&nbsp;<span i18n:translate="">Visibility of changes</span></li>
-                        <li class="future" id="stage-4"><strong i18n:translate="">Stage 4</strong>&nbsp;<span i18n:translate="">Changes Consolidated</span></li>
+                      <ul class="steps" tal:define="stages view/getCurrentStage">
+                        <li tal:repeat="stage stages" tal:attributes="class string:${stage/state}; id string:${stage/id}"><strong tal:content="stage/title" i18n:translate="">Stage 1</strong>&nbsp;<span tal:content="stage/description" i18n:translate="">Description</span>
+                        </li>
                       </ul>
+
+                      <span style="display: none !important" i18n:translate="">Stage 1</span>
+                      <span style="display: none !important" i18n:translate="">Stage 2</span>
+                      <span style="display: none !important" i18n:translate="">Stage 3</span>
+                      <span style="display: none !important" i18n:translate="">Stage 4</span>
+                      <span style="display: none !important" i18n:translate="">Diagnosing and action planning</span>
+                      <span style="display: none !important" i18n:translate="">Initial implementation of activities</span>
+                      <span style="display: none !important" i18n:translate="">Visibility of changes</span>
+                      <span style="display: none !important" i18n:translate="">Changes Consolidated</span>
+                      <span style="display: none !important" i18n:translate="">Stage 1 Description</span>
+                      <span style="display: none !important" i18n:translate="">Stage 2 Description</span>
+                      <span style="display: none !important" i18n:translate="">Stage 3 Description</span>
+                      <span style="display: none !important" i18n:translate="">Stage 4 Description</span>
+
                     </a>
                   </div>
 

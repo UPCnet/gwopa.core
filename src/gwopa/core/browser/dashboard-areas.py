@@ -282,11 +282,13 @@ class dashboardAreasView(BrowserView):
                         state = "future"
                     results.append(dict(id="stage-" + str(i),
                                         title="Stage " + str(i),
+                                        description="Stage " + str(i) + " Description",
                                         state=state))
             else:
                 for i in range(1, 5):
                     results.append(dict(id="stage-" + str(i),
                                         title="Stage " + str(i),
+                                        description="Stage " + str(i) + " Description",
                                         state="future"))
 
         return results[0:4]
