@@ -166,7 +166,8 @@ def getTranslatedCurrencyFromID(unit):
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
         currency_dict = item[0].getObject().currency_dict
-        return currency_dict[unit][lang]
+        if unit in currency_dict:
+            return currency_dict[unit][lang]
     return None
 
 
@@ -193,7 +194,8 @@ def getTranslatedMesuringUnitFromID(unit):
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item:
         measuring_unit_dict = item[0].getObject().measuring_unit_dict
-        return measuring_unit_dict[unit][lang]
+        if unit in measuring_unit_dict:
+            return measuring_unit_dict[unit][lang]
     return None
 
 
@@ -231,7 +233,8 @@ def getTranslatedDegreeChangesFromID(unit):
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item and unit:
         degree_changes_dict = item[0].getObject().degree_changes_dict
-        return degree_changes_dict[unit][lang]
+        if unit in degree_changes_dict:
+            return degree_changes_dict[unit][lang]
     return None
 
 
@@ -240,7 +243,8 @@ def getTranslatedContributedProjectFromID(unit):
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item and unit:
         contributed_project_dict = item[0].getObject().contributed_project_dict
-        return contributed_project_dict[unit][lang]
+        if unit in contributed_project_dict:
+            return contributed_project_dict[unit][lang]
     return None
 
 
@@ -249,7 +253,8 @@ def getTranslatedConsensusFromID(unit):
     item = api.content.find(portal_type="SettingsPage", id='settings')
     if item and unit:
         consensus_dict = item[0].getObject().consensus_dict
-        return consensus_dict[unit][lang]
+        if unit in consensus_dict:
+            return consensus_dict[unit][lang]
     return None
 
 
