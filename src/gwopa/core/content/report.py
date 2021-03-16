@@ -894,7 +894,7 @@ def updateReport(self):
     for outcome in outcomes:
         outcomeObj = outcome.getObject()
         annotations = IAnnotations(outcomeObj)
-        outcome_title = getattr(outcome, attr_lang)
+        outcome_title = getTranslatedOutcomesFromTitle(outcomeObj.title)
         data['outcomes']['list'].update({outcome_title: {
             'title': outcome_title,
             'zone': outcomeObj.zone,
