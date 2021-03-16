@@ -318,8 +318,8 @@ class GetPerformance(BrowserView):
             KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
             info = annotations[KEY]
 
-            real = 0 if not info['real'] or info['real'] == '' else int(info['real'])
-            planned = 0 if not info['planned'] or info['planned'] == '' else int(info['planned'])
+            real = 0 if not info['real'] or info['real'] == '' else float(info['real'])
+            planned = 0 if not info['planned'] or info['planned'] == '' else float(info['planned'])
 
             series[0]['data'].append(planned)
             series[1]['data'].append(real)
