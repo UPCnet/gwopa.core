@@ -309,12 +309,14 @@ class GetPerformance(BrowserView):
         project = project[0].getObject()
 
         projectPhases = len(project.gwopa_year_phases)
+        phases = int(self.request.form.get('year', projectPhases))
+
         annotations = IAnnotations(kpi)
 
         series = [{"name": "", "data": []}, {"name": "", "data": []}]
         xaxis = []
         maxYaxis = 0
-        for x in range(0, projectPhases):
+        for x in range(0, phases):
             KEY = "GWOPA_TARGET_YEAR_" + str(x + 1)
             info = annotations[KEY]
 

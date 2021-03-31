@@ -19,6 +19,7 @@
               <p class="bolder" tal:content="item/title"></p>
               <div class="chart">
                 <div class="chartPerfomance" tal:attributes="data-url item/url;
+                                                             data-year context/project_year;
                                                              id string:chart${item/pos}">
                   <div id="timeline-chart"></div>
                 </div>
