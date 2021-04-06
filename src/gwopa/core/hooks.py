@@ -491,7 +491,7 @@ def projectModified(content, event):
 
             content.gwopa_reporting = reports
 
-            logger.info('Dates to reporting project {} id {}'.format(content.title, content.id))
+            logger.info('Dates to reporting project {} id {}'.format(content.title.encode('utf-8'), content.id))
 
         # Assign Areas
         new_areas = content.areas
