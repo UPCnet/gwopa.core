@@ -258,6 +258,14 @@ def getTranslatedConsensusFromID(unit):
     return None
 
 
+def getTranslatedWorkingAreaFromID(unit):
+    attr_lang = getTitleAttrLang()
+    item = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], id=unit)
+    if item:
+        return getattr(item[0], attr_lang)
+    return None
+
+
 def settings_capacity_changes(context):
     """ Capacity changes settings. """
     items = api.content.find(portal_type="OutcomeCCItem")
@@ -301,8 +309,7 @@ def area_title(context):
 
     literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
     for item in literals:
-        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, getattr(item, attr_lang)))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, getattr(item, attr_lang)))
     return SimpleVocabulary(terms)
 
 

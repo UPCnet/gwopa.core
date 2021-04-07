@@ -57,8 +57,14 @@ class userProfile(BrowserView):
 
         rendered_properties = []
         for prop in profile__properties:
-            rendered_properties.append(dict(
-                name=_(prop),
-                value=member_data.getProperty(prop, '')
-            ))
+            if prop != 'common_working_areas':
+                rendered_properties.append(dict(
+                    name=_(prop),
+                    value=member_data.getProperty(prop, '')
+                ))
+            else:
+                rendered_properties.append(dict(
+                    name=_(prop),
+                    value=utils.getTranslatedWorkingAreaFromID(member_data.getProperty(prop, ''))
+                ))
         return rendered_properties

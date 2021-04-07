@@ -12,6 +12,7 @@ from gwopa.core import _
 from gwopa.core.utils import getTitleAttrLang
 from gwopa.core.utils import getUserLang
 from gwopa.core.utils import percentage
+from gwopa.core.utils import getTranslatedWorkingAreaFromID
 
 import datetime
 
@@ -112,7 +113,7 @@ class dashboardAreasView(BrowserView):
         results = []
         for (i, project) in enumerate(items):
             item = project.getObject()
-            results.append(dict(title=getattr(project, attr_lang),
+            results.append(dict(title=getTranslatedWorkingAreaFromID(project.id),
                                 url='/'.join(item.getPhysicalPath()),
                                 id=item.id,
                                 description=item.description,

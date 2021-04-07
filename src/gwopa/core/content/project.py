@@ -79,8 +79,7 @@ def area_not_used(context):
     literals = api.content.find(portal_type="ItemArea", context=api.portal.get()['config']['areas'], depth=1)
     attr_lang = utils.getTitleAttrLang()
     for item in literals:
-        flattened = unicodedata.normalize('NFKD', item.Title.decode('utf-8')).encode('ascii', errors='ignore')
-        terms.append(SimpleVocabulary.createTerm(item.Title, flattened, getattr(item, attr_lang)))
+        terms.append(SimpleVocabulary.createTerm(item.id, item.id, getattr(item, attr_lang)))
     return SimpleVocabulary(terms)
 
 
@@ -403,9 +402,8 @@ class View(grok.View):
             else:
                 image = obj.absolute_url_path() + '/@@images/image/thumb'
 
-            attr_lang = utils.getTitleAttrLang()
             results.append(dict(
-                title=getattr(item, attr_lang),
+                title=utils.getTranslatedWorkingAreaFromID(item.id),
                 image=image,
                 url='/'.join(obj.getPhysicalPath()),
                 description=item.Description))

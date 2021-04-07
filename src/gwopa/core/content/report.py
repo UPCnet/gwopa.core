@@ -788,7 +788,7 @@ def updateReport(self):
 
     working_areas = getWorkingAreas(project)
     data['summary'] = {
-        'working_areas': ", ".join([getattr(wa, attr_lang) for wa in working_areas]),
+        'working_areas': ", ".join([utils.getTranslatedWorkingAreaFromID(wa.id) for wa in working_areas]),
         'progress': {
             'roadblock': self.context.overall_project_status == 'roadblock',
             'potential': self.context.overall_project_status == 'potential',
@@ -802,7 +802,7 @@ def updateReport(self):
     KEY = "GWOPA_TARGET_YEAR_" + str(self.context.project_year)
 
     for wa in working_areas:
-        wa_title = getattr(wa, attr_lang)
+        wa_title = utils.getTranslatedWorkingAreaFromID(wa.id)
         data['activities_outputs'].update({wa_title: {
             'title': wa_title,
             'activities': {},
@@ -931,7 +931,7 @@ def updateReport(self):
 
     data['outcomes_capacity'] = {}
     for wa in working_areas:
-        wa_title = getattr(wa, attr_lang)
+        wa_title = utils.getTranslatedWorkingAreaFromID(wa.id)
         wa_object = wa.getObject()
         data['outcomes_capacity'].update({wa_title: {
             'title': wa_title,
@@ -978,7 +978,7 @@ def updateReport(self):
         activityObj = activity.getObject()
         data['budget']['planned_activities'].update({title: {
             'title': title,
-            'wa_title': getattr(activityObj.aq_parent, attr_lang.lower()),
+            'wa_title': utils.getTranslatedWorkingAreaFromID(activityObj.aq_parent.id),
             'act_title': activity.Title,
             'assigned_budget': activityObj.budget
         }})

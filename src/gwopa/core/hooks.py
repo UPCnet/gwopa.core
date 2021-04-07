@@ -495,7 +495,7 @@ def projectModified(content, event):
 
         # Assign Areas
         new_areas = content.areas
-        current = [a.Title for a in api.content.find(
+        current = [a.id for a in api.content.find(
             portal_type="ImprovementArea", context=content, depth=1)]
 
         new_areas = content.areas
@@ -504,21 +504,24 @@ def projectModified(content, event):
         else:
             for area in new_areas:
                 if area not in current:
-                    data = api.content.find(portal_type="ItemArea", Title=quote_chars(area))[0]
-                    api.content.create(
-                        type='ImprovementArea',
-                        title=data.Title,
-                        title_es=data.title_es,
-                        title_fr=data.title_fr,
-                        description=data.Description,
-                        image=data.getObject().image,
-                        container=content)
+                    data = api.content.find(portal_type="ItemArea", id=quote_chars(area))[0]
+                    if data.id not in content:
+                        api.content.create(
+                            type=u'ImprovementArea',
+                            id=data.id,
+                            title=data.Title.decode('utf-8'),
+                            title_es=data.title_es,
+                            title_fr=data.title_fr,
+                            description=data.Description,
+                            image=data.getObject().image,
+                            container=content)
 
         # Delete Areas
         delete_areas = list(set(current) - set(new_areas))
         for area in delete_areas:
-            item = api.content.find(portal_type="ImprovementArea", Title=quote_chars(area), context=content)
-            api.content.delete(obj=item[0].getObject(), check_linkintegrity=False)
+            item = api.content.find(portal_type="ImprovementArea", id=quote_chars(area), context=content)
+            if item:
+                api.content.delete(obj=item[0].getObject(), check_linkintegrity=False)
 
         # Modify project_dates and currency
         project_path = '/'.join(content.getPhysicalPath())
