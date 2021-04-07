@@ -1930,7 +1930,7 @@ msgstr "Seleccione la opción que mejor refleje el grado de contribución del pr
 
 #: ../content/project.py:152
 msgid "Select one or more associated Working Area"
-msgstr "Seleccione una o más Áreas de Trabajo asociadas"
+msgstr "Seleccione una o más Áreas de Trabajo asociadas <span class=\"fa fa-info-circle\" style=\"padding-left: 5px;\" title=\"Debes mandar un mensage a pmp@gwopa.org para incorporar el tipo que necesitas y no está especificado en la esta lista.\"></span>"
 
 #: ../browser/templates/reporting.pt:45
 msgid "Select proyect year"

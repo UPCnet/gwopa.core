@@ -1930,7 +1930,7 @@ msgstr "Sélectionnez l’option qui reflète le mieux le degré de contribution
 
 #: ../content/project.py:152
 msgid "Select one or more associated Working Area"
-msgstr "Sélectionnez un ou plusieurs Champs d’Intervention pertinents"
+msgstr "Sélectionnez un ou plusieurs Champs d’Intervention pertinents <span class=\"fa fa-info-circle\" style=\"padding-left: 5px;\" title=\"Vous devez envoyer un message à xxxx@xxx.org pour incorporer le type dont vous avez besoin et il n'est pas spécifié dans cette liste.\"></span>"
 
 #: ../browser/templates/reporting.pt:45
 msgid "Select proyect year"

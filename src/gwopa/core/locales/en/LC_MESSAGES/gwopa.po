@@ -1930,7 +1930,7 @@ msgstr "Select how much has contributed to the project"
 
 #: ../content/project.py:152
 msgid "Select one or more associated Working Area"
-msgstr "Select one or more relevant Working Areas"
+msgstr "Select one or more relevant Working Areas <span class=\"fa fa-info-circle\" style=\"padding-left: 5px;\" title=\"You must send a message to pmp@gwopa.org to incorporate the type you need and it is not specified in this list.\"></span>"
 
 #: ../browser/templates/reporting.pt:45
 msgid "Select proyect year"
