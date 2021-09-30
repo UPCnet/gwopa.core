@@ -516,7 +516,7 @@
                 <div class="col-md-12">
                   <div class="information object">
                     <div class="contentt row" id="total">
-                      <div class="part0">
+                      <div class="part0" tal:attributes="id string:${partnership/id}">
                         <i class="fa fa-chevron-down expandPartnership" aria-hidden="true"></i>
                         <i style="display: none" class="fa fa-chevron-up notexpandPartnership" aria-hidden="true"></i>
                       </div>
@@ -524,19 +524,19 @@
                           <span tal:attributes="class string:${partnership/portal_type}-planning second-level" i18n:translate="">Partnership</span>
                       </div>
                       <div class="part2 label-2nd">
-                        <span class="titulocatplan" tal:attributes="id string:${partnership/id}" tal:content="partnership/title">
+                        <span class="titulocatplan" tal:content="partnership/title">
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="tabla_cuerpo planning_info" tal:attributes="id string:${partnership/id}-expandP">
-                  <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
+                  <div class="tabla_cuerpo planning_info" tal:attributes="id string:${partnership/id}-expandP">
+                    <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
                       <div class="filacontenido">
                         <div class="col-sm-12">
-                          <div type="text" tal:attributes="id string:${partnership/id}; value partnership/description;">
+                          <div type="text" tal:attributes="id string:${partnership/id}" tal:content="structure partnership/description">
                           </div>
                         </div>
                       </div>
+                    </div>
                   </div>
                 </div>
               </tal:objects>
