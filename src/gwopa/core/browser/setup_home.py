@@ -220,6 +220,16 @@ class setup(grok.View):
             allowed_types = ['Maincontributing', ]
             _setup_constrains(maincontributing, allowed_types)
 
+            partnershippractice = api.content.create(
+                type='Folder',
+                id='partnershippractice',
+                title='Default Partnership Practice values',
+                description='Partnership Practice used in the projects',
+                container=config_folder,
+                safe_id=False)
+            allowed_types = ['IPartnershipPractice', ]
+            _setup_constrains(partnershippractice, allowed_types)
+
             message = _(u"The default config has been applied.")
             messages.addStatusMessage(message, type="info")
         except Exception, e:
@@ -456,6 +466,7 @@ class setup(grok.View):
         self.createDefaultOutcomes()
         self.createDefaultMainObstacles()
         self.createDefaultMainContributing()
+        self.createDefaultPartnershippractice()
         return "Default values content created"
 
     def createUsers(self):
@@ -720,6 +731,47 @@ class setup(grok.View):
                 container=portal.config.maincontributing,
                 safe_id=True)
 
+
+    def createDefaultPartnershippractice(self):
+        titles = [
+            _(u'Set Up'),
+            _(u'Roles and responsibilities'),
+            _(u'Meeting processes'),
+            _(u'Work processes'),
+            _(u'Communication and transparency'),
+            _(u'Trust and teamwork'),
+            _(u'Partnership adaptation and sustainability'),
+            _(u'Resourses'),
+        ]
+
+        descriptions = [
+            _(u'Description Set Up'),
+            _(u'Description Roles and responsibilities'),
+            _(u'Description Meeting processes'),
+            _(u'Description Work processes'),
+            _(u'Description Communication and transparency'),
+            _(u'Description Trust and teamwork'),
+            _(u'Description Partnership adaptation and sustainability'),
+            _(u'Description Resourses'),
+        ]
+        tool_ts = getToolByName(self, 'translation_service')
+        portal = api.portal.get()
+        for item in titles:
+            title_es = tool_ts.translate(item, domain='gwopa', target_language='es')
+            title_fr = tool_ts.translate(item, domain='gwopa', target_language='fr')
+            for description in descriptions:
+                description_es = tool_ts.translate(description, domain='gwopa', target_language='es')
+                description_fr = tool_ts.translate(description, domain='gwopa', target_language='fr')
+
+            api.content.create(
+                type='PartnershipPractice',
+                title=item,
+                title_es=title_es if title_es != '' else item,
+                title_fr=title_fr if title_fr != '' else item,
+                description_es=description_es if description_es != '' else item,
+                description_fr=description_fr if description_fr != '' else item,
+                container=portal.config.partnershippractice,
+                safe_id=True)
 
 class setupEs(grok.View):
     grok.name('setup_home_es')
@@ -1342,3 +1394,70 @@ class addReportContentInProjects(grok.View):
                 behavior.setConstrainTypesMode(1)
                 behavior.setLocallyAllowedTypes(('File', 'Report'))
                 behavior.setImmediatelyAddableTypes(('File', 'Report'))
+
+
+class setupPartnership(grok.View):
+    grok.name('setup_partnershippractive')
+    grok.context(IPloneSiteRoot)
+    grok.layer(IGwopaCoreLayer)
+    grok.require('cmf.ManagePortal')
+
+    def render(self):
+
+        config_folder = api.content.find(type='Folder',id='config')
+        config_folder = config_folder[0].getObject()
+        partnershippractice = api.content.create(
+                type='Folder',
+                id='partnershippractice',
+                title='Default Partnership Practice values',
+                description='Partnership Practice used in the projects',
+                container=config_folder,
+                safe_id=False)
+        allowed_types = ['PartnershipPractice', ]
+        _setup_constrains(partnershippractice, allowed_types)
+
+        self.createDefaultPartnershippractice()
+
+    def createDefaultPartnershippractice(self):
+        titles = [
+            _(u'Set Up'),
+            _(u'Roles and responsibilities'),
+            _(u'Meeting processes'),
+            _(u'Work processes'),
+            _(u'Communication and transparency'),
+            _(u'Trust and teamwork'),
+            _(u'Partnership adaptation and sustainability'),
+            _(u'Resourses'),
+        ]
+
+        descriptions = [
+            _(u'Description Set Up'),
+            _(u'Description Roles and responsibilities'),
+            _(u'Description Meeting processes'),
+            _(u'Description Work processes'),
+            _(u'Description Communication and transparency'),
+            _(u'Description Trust and teamwork'),
+            _(u'Description Partnership adaptation and sustainability'),
+            _(u'Description Resourses'),
+        ]
+        tool_ts = getToolByName(self, 'translation_service')
+        portal = api.portal.get()
+        num = 0
+        for item in titles:
+            title_es = tool_ts.translate(item, domain='gwopa', target_language='es')
+            title_fr = tool_ts.translate(item, domain='gwopa', target_language='fr')
+            description_en = tool_ts.translate(descriptions[num], domain='gwopa', target_language='en')
+            description_es = tool_ts.translate(descriptions[num], domain='gwopa', target_language='es')
+            description_fr = tool_ts.translate(descriptions[num], domain='gwopa', target_language='fr')
+            num = num + 1
+
+            api.content.create(
+                type='PartnershipPractice',
+                title=item,
+                title_es=title_es if title_es != '' else title_en,
+                title_fr=title_fr if title_fr != '' else title_en,
+                description=description_en,
+                description_es=description_es if description_es != '' else description_en,
+                description_fr=description_fr if description_fr != '' else description_en,
+                container=portal.config.partnershippractice,
+                safe_id=True)

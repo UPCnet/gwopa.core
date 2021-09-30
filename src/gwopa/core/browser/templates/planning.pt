@@ -42,6 +42,8 @@
     <ul class="nav nav-tabs" role="tablist" id="myTab">
       <li role="presentation" class="active"><a href="#project" aria-controls="project" role="tab" data-toggle="tab" i18n:translate=""> Project </a></li>
       <li role="presentation"><a href="#outcomes" aria-controls="outcomes" role="tab" data-toggle="tab" i18n:translate=""> Outcomes </a></li>
+
+      <li role="presentation"><a href="#partnership" aria-controls="partnership" role="tab" data-toggle="tab" i18n:translate=""> Partnership Practice </a></li>
     </ul>
 
     <div class="tab-content">
@@ -505,6 +507,44 @@
           </div>
         </div>
       </div>
+
+      <div role="tabpanel" class="tab-pane" id="partnership">
+        <div class="tabla_contenido_items">
+          <div id="partnershipPractice" class="row" tal:define="partnerships view/listPartnershipPractice">
+            <div class="tabla_cuerpo">
+              <tal:objects repeat="partnership partnerships">
+                <div class="col-md-12">
+                  <div class="information object">
+                    <div class="contentt row" id="total">
+                      <div class="part0">
+                        <i class="fa fa-chevron-down expandPartnership" aria-hidden="true"></i>
+                        <i style="display: none" class="fa fa-chevron-up notexpandPartnership" aria-hidden="true"></i>
+                      </div>
+                      <div class="part1 label-nopart0">
+                          <span tal:attributes="class string:${partnership/portal_type}-planning second-level" i18n:translate="">Partnership</span>
+                      </div>
+                      <div class="part2 label-2nd">
+                        <span class="titulocatplan" tal:attributes="id string:${partnership/id}" tal:content="partnership/title">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tabla_cuerpo planning_info" tal:attributes="id string:${partnership/id}-expandP">
+                  <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
+                      <div class="filacontenido">
+                        <div class="col-sm-12">
+                          <div type="text" tal:attributes="id string:${partnership/id}; value partnership/description;">
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </tal:objects>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div id="modalActivity" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalAddActivity" data-dismiss="modal" aria-hidden="true">

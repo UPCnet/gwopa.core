@@ -23,6 +23,7 @@
   <object meta_type="Dexterity FTI" name="Mainobstacles" />
   <object meta_type="Dexterity FTI" name="Maincontributing" />
   <object meta_type="Dexterity FTI" name="Report" />
+  <object meta_type="Dexterity FTI" name="PartnershipPractice" />
 
   <object name="File" meta_type="Dexterity FTI"/>
   <object name="Folder" meta_type="Dexterity FTI"/>

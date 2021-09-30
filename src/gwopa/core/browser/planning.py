@@ -466,3 +466,25 @@ class planningView(BrowserView):
             return specific['title_specific_' + lang]
         else:
             return specific['title_specific']
+
+    def listPartnershipPractice(self):
+        config_folder = api.content.find(type='Folder',id='partnershippractice')
+        config_folder = config_folder[0].getObject()
+        items = api.content.find(
+            portal_type=['PartnershipPractice'],
+            context=config_folder,
+            sort_on='getObjPositionInParent')
+        results = []
+        for item in items:
+            obj = item.getObject()
+            results.append(dict(
+                id=obj.id,
+                title=obj.title,
+                title_es=obj.title_es,
+                title_fr=obj.title_fr,
+                description=obj.description,
+                description_es=obj.description_es,
+                description_fr=obj.description_fr,
+                portal_type=obj.portal_type,
+                ))
+        return results
