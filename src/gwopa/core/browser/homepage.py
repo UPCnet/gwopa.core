@@ -233,3 +233,17 @@ class MainTemplate(BrowserView):
             return text[0:count - 10] + '...'
         else:
             return text
+
+    def getBudgetLimits(self):
+        items = api.content.find(portal_type="Project")
+        values = []
+        for item in items:
+            value = item.getObject().total_budget
+            if value and value != 0:
+                values.append(int(value / 100) * 100)
+        values.sort()
+        if values == []:
+            values = [0, 0]
+        else:
+            values.append(int(values[-1:][0]) + 100)
+        return {'start': values[0], 'end': values[-1:][0]}

@@ -74,123 +74,163 @@
         <div metal:define-macro="content">
           <metal:slot define-slot="body">
             <article id="content">
-              <metal:bodytext define-slot="main">
-                <a tal:condition="view/canAdd" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus right" i18n:translate=""> + New Project </button></a>
-                <div class="has-table" tal:define="items view/myProjects">
-              <!--     <div class="row" tal:condition="not:items">
-                    <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
-                  </div> -->
-                  <tal:projects tal:condition="items">
-                  <h1 class="documentFirstHeading" i18n:translate=""> My Projects </h1>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12">
-                        <tal:items repeat="item items">
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
-                              <a tal:attributes="href item/url; title item/alt; alt item/alt" >
-                                <p class="card-text-top" tal:content="item/title">Event Title</p>
-                                <img class="img200" tal:attributes="src item/image;"/>
-                                <div class="card-body">
-                                  <p class="card-text bottom">
-                                    <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </tal:items>
-                      </div>
+              <div class="col-lg-12 col-md-12">
+
+                <div class="search global">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-10" style="padding-top:10px; padding-bottom:10px; background-color:#e3e3e3">
+
+                      <form tal:attributes="action string:${navigation_root_url}/search;
+                                            data-pat-livesearch string:ajaxUrl:${navigation_root_url}/ajax-search" role="search" class="pat-livesearch">
+                        <div class="LSBox">
+                          <input class="searchField"
+                                 name="SearchableText"
+                                 type="text"
+                                 i18n:attributes="title title_search_title;
+                                                  placeholder title_search_site"
+                                 tal:attributes="value request/SearchableText|nothing;"/>
+                          <input type="hidden" name="portal_type" value="Project" />
+                        </div>
+                      </form>
+
                     </div>
-                  </tal:projects>
-                </div>
-                <br/>
-                <div class="has-table" tal:define="items view/companyProjects">
-                  <!-- <div class="row" tal:condition="not:items">
-                    <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
-                  </div> -->
-                  <tal:CompanyProjects condition="items">
-                    <h1 class="documentFirstHeading" i18n:translate="">My organization Projects </h1>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12">
-                        <tal:items repeat="item items">
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
-                              <a tal:attributes="href item/url; title item/alt; alt item/alt" >
-                                <p class="card-text-top" tal:content="item/title">Event Title</p>
-                                <img class="img200" style="height: 136px;" tal:attributes="src item/image;"/>
-                                <div class="card-body">
-                                  <p class="card-text bottom">
-                                    <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </tal:items>
-                      </div>
-                    </div>
-                  </tal:CompanyProjects>
-                </div>
-                <br/>
-                <h1 class="documentFirstHeading" i18n:translate="">Search Projects </h1>
-                <div class="has-table">
-                  <div class="search global">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8" style="padding-top:10px; padding-bottom:10px; background-color:#e3e3e3">
-                          <form tal:attributes="action string:${navigation_root_url}/search;
-                                               data-pat-livesearch string:ajaxUrl:${navigation_root_url}/ajax-search" role="search" class="pat-livesearch">
-                            <div class="LSBox">
-                              <input class="searchField"
-                                  name="SearchableText"
-                                  type="text"
-                                  i18n:attributes="title title_search_title;
-                                                   placeholder title_search_site"
-                                  tal:attributes="value request/SearchableText|nothing;"/>
-                              <input type="hidden" name="portal_type" value="Project" />
-                            </div>
-                         </form>
-                        </div>
-                        <div class="col-xs-12 col-md-4" style="padding-top:10px; padding-bottom:10px; background-color:#e3e3e3">
-                          <a tal:attributes="href string:${portal_url}/showMap">
-                              <button class="center-btn">
-                                <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:omit-tag i18n:translate="">Show map Projects </tal:omit-tag>
-                              </button>
-                            </a>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-xs-8 col-md-8">
-                          <div class="descSearch" i18n:translate="">Search projects by Title, Objectives, Platform, Program, Country, Location or Partners</div>
-                        </div>
-                        <div class="col-xs-4 col-md-4">
-                          <div class="descSearch" i18n:translate="">Show a map with all the Projects</div>
-                        </div>
+                    <div class="col-xs-12 col-md-2" style="padding-top:10px; padding-bottom:10px; padding-right:10px; background-color:#e3e3e3">
+                      <a tal:attributes="href string:${portal_url}/showMap">
+                        <button class="context focus right">
+                          <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:omit-tag i18n:domain="plone" i18n:translate="">Search</tal:omit-tag>
+                        </button>
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div class="has-table">
-                  <tal:AllProjects define="items view/allProjects" condition="items">
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12">
-                        <tal:items repeat="item items">
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
-                              <a tal:attributes="href item/url; title item/alt; alt item/alt" >
-                                 <div class="card-body2">
-                                  <h4 class="card-title top" tal:content="item/title">Event Title</h4>
-                                  <p class="card-text bottom">
-                                    <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>
-                                  </p>
-                                </div>
-                              </a>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <metal:bodytext define-slot="main">
+                  <a tal:condition="view/canAdd" tal:attributes="href string:${context/absolute_url}/projects/++add++Project" href="#"><button class="context focus right" i18n:translate=""> + New Project </button></a>
+                  <div class="has-table" tal:define="items view/myProjects">
+                <!--     <div class="row" tal:condition="not:items">
+                      <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
+                    </div> -->
+                    <tal:projects tal:condition="items">
+                    <h1 class="documentFirstHeading" i18n:translate=""> My Projects </h1>
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-12 xrow">
+                          <tal:items repeat="item items">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                              <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
+                                <a tal:attributes="href item/url; title item/alt; alt item/alt" >
+                                  <p class="card-text-top" tal:content="item/title">Event Title</p>
+                                  <img class="img200" tal:attributes="src item/image;"/>
+                                  <div class="card-body">
+                                    <p class="card-text bottom">
+                                      <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>
+                                    </p>
+                                  </div>
+                                </a>
+                              </div>
                             </div>
-                          </div>
-                        </tal:items>
+                          </tal:items>
+                        </div>
                       </div>
+                    </tal:projects>
+                  </div>
+                  <br/>
+                  <div class="has-table" tal:define="items view/companyProjects">
+                    <!-- <div class="row" tal:condition="not:items">
+                      <div class="col-md-12 col-xs-12"><h4 style="padding-left: 35px;" i18n:translate=""> Your company has no projects. </h4></div>
+                    </div> -->
+                    <tal:CompanyProjects condition="items">
+                      <h1 class="documentFirstHeading" i18n:translate="">My organization Projects </h1>
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-12 xrow">
+                          <tal:items repeat="item items">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                              <div class="box" tal:define="country item/country; location item/location; project_manager item/project_manager">
+                                <a tal:attributes="href item/url; title item/alt; alt item/alt" >
+                                  <p class="card-text-top" tal:content="item/title">Event Title</p>
+                                  <img class="img200" style="height: 136px;" tal:attributes="src item/image;"/>
+                                  <div class="card-body">
+                                    <p class="card-text bottom">
+                                      <i class="fas fa-map-marker-alt"></i>&nbsp;<tal:block tal:condition="location"> <tal:location tal:content="location"></tal:location>, </tal:block><tal:country tal:content="country"></tal:country>
+                                    </p>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                          </tal:items>
+                        </div>
+                      </div>
+                    </tal:CompanyProjects>
+                  </div>
+                </metal:bodytext>
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+
+                <h1 class="documentFirstHeading">Projects Map</h1>
+                <div id="map"></div>
+
+                <form class="xrow mt20">
+                  <div class="col-xs-12 col-md-6">
+                    <label i18n:translate=""> Year </label>
+                    <input id="map-year" type="hidden"
+                           class="people-control" multiple="multiple" />
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <label i18n:translate=""> Working Area </label>
+                    <input id="map-area" type="hidden"
+                           class="people-control" multiple="multiple"  />
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <label i18n:translate=""> Country </label>
+                    <input id="map-country" type="hidden"
+                           class="people-control" multiple="multiple"  />
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <label i18n:translate=""> WOP Platform </label>
+                    <input id="map-platform" type="hidden"
+                           class="people-control" multiple="multiple" />
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <label i18n:translate=""> WOP Program </label>
+                    <input id="map-program" type="hidden"
+                           class="people-control" multiple="multiple" />
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <label i18n:translate=""> Partner </label>
+                    <input id="map-partner" type="hidden"
+                           class="people-control" multiple="multiple" />
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <label i18n:translate=""> KPI </label>
+                    <input id="map-kpi" type="hidden"
+                           class="people-control" multiple="multiple" />
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <label i18n:translate="">Tags</label>
+                    <input id="map-tags" type="hidden"
+                           class="people-control" multiple="multiple" />
+                  </div>
+                  <div class="col-xs-12 col-md-6" tal:define="values view/getBudgetLimits">
+                    <label i18n:translate=""> Budget </label>
+                    <input type="text" class="js-range-slider" name="budget_range" id="map-budget"
+                        tal:attributes="data-min values/start; data-max values/end; from values/start; data-to values/end;" />
+                  </div>
+                  <div class="col-xs-12 col-md-12 xrow mt20">
+                    <div class="col-xs-12 col-md-6">
+                      <input class="btn btn-warning w100" id="clearfilters" value='Clear' />
                     </div>
-                  </tal:AllProjects>
-                </div>
-              </metal:bodytext>
+                    <div class="col-xs-12 col-md-6">
+                      <input class="btn btn-info w100" id="applyfilters" value='Apply' />
+                    </div>
+                  </div>
+                </form>
+
+                <link tal:attributes="href string:${portal_url}/++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.css" rel="stylesheet" />
+                <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/ion.rangeSlider.min.js"></script>
+                <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/global_map.js"></script>
+
+              </div>
             </article>
           </metal:slot>
         </div>
@@ -200,7 +240,7 @@
       </footer>
     </article>
     <aside id="portal-column-one"
-           metal:define-slot="column_one_slot"
+           metal:define-slot="column"
            tal:condition="sl">
       <metal:portlets define-slot="portlets_one_slot">
         <tal:block replace="structure provider:plone.leftcolumn" />
