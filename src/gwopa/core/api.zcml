@@ -224,6 +224,13 @@
 
   <browser:page
     for="*"
+    name="updatePartnership"
+    class=".api.code.updatePartnership"
+    layer="gwopa.core.interfaces.IGwopaCoreLayer"
+    permission="cmf.ModifyPortalContent" />
+
+  <browser:page
+    for="*"
     name="updateOutput"
     class=".api.code.UpdateOutput"
     layer="gwopa.core.interfaces.IGwopaCoreLayer"

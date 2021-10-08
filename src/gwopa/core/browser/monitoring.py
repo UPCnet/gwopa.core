@@ -606,3 +606,57 @@ class monitoringView(BrowserView):
         if contributing:
             return json.dumps(getDictTranslatedContributingFromList(contributing))
         return ''
+
+    def listPartnershipPractice(self):
+        items = api.content.find(
+            portal_type=['PartnershipPractice'],
+            context=self.context.partnerships,
+            sort_on='getObjPositionInParent')
+        results = []
+        lang = getUserLang()
+        KEY = "GWOPA_TARGET_YEAR_" + str(self.year)
+        data_year = self.context.gwopa_year_phases[int(self.year) - 1]
+        partnerships = {}
+        for item in items:
+            obj = item.getObject()
+            if lang == 'es':
+                title = obj.title_es
+                description = obj.description_es
+            elif lang == 'fr':
+                title = obj.title_fr
+                description = obj.description_fr
+            else:
+                title = obj.title
+                description = obj.description
+            annotations = IAnnotations(obj)
+            if KEY in annotations.keys() and annotations[KEY]['partnerships']:
+                if annotations[KEY] == '' or annotations[KEY] is None or annotations[KEY] == 'None':
+                    overall_score = '-----'
+                    improvement_needed = '-----'
+                    suggestions_improve = '-----'                    
+                else:
+                    overall_score = annotations[KEY]['partnerships']['overall_score']
+                    improvement_needed = annotations[KEY]['partnerships']['improvement_needed']
+                    suggestions_improve = annotations[KEY]['partnerships']['suggestions_improve']
+            else:
+                partnerships_values = {'overall_score': '',  'improvement_needed': '', 'suggestions_improve': ''}
+                #partnerships[item.id] = partnerships_values
+
+                data = dict(partnerships=partnerships_values)
+                annotations[KEY] = data
+                overall_score = annotations[KEY]['partnerships']['overall_score']
+                improvement_needed = annotations[KEY]['partnerships']['improvement_needed']
+                suggestions_improve = annotations[KEY]['partnerships']['suggestions_improve']
+                    
+
+            results.append(dict(
+                id=obj.id,
+                title=title,
+                description=description,
+                portal_type=obj.portal_type,
+                overall_score=overall_score,
+                improvement_needed=improvement_needed,
+                suggestions_improve=suggestions_improve,
+                url='/'.join(obj.getPhysicalPath())
+                ))
+        return results

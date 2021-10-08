@@ -9,7 +9,8 @@ from plone.app.event.base import first_weekday
 from plone.app.event.base import localized_today
 from plone.app.event.base import wkday_to_mon1
 from plone.app.event.portlets import get_calendar_url
-from plone.app.textfield import RichText
+from plone.app.textfield import RichText as RichTextField
+from plone.app.z3cform.widget import RichTextFieldWidget
 from plone.autoform import directives
 from plone.directives import form
 from plone.indexer import indexer
@@ -46,70 +47,70 @@ class IPartnershipPractice(form.Schema):
         required=False,
     )
 
-    description = RichText(
+    description = schema.TextLine(
         title=_(u"Description English"),
         required=True,
         missing_value=u'',
     )
 
-    description_es = RichText(
+    description_es = schema.TextLine(
         title=_(u"Description Spanish"),
         required=False,
         missing_value=u'',
     )
 
-    description_fr = RichText(
+    description_fr = schema.TextLine(
         title=_(u"Description French"),
         required=False,
         missing_value=u'',
     )
 
 
-@indexer(IPartnershipPractice)
-def title_es(context):
-    try:
-        value = context.title_es.decode("utf-8")
-        return value
-    except:
-        return context.title_es
+# @indexer(IPartnershipPractice)
+# def title_es(context):
+#     try:
+#         value = context.title_es.decode("utf-8")
+#         return value
+#     except:
+#         return context.title_es
 
 
-grok.global_adapter(title_es, name='title_es')
+# grok.global_adapter(title_es, name='title_es')
 
 
-@indexer(IPartnershipPractice)
-def title_fr(context):
-    try:
-        value = context.title_fr.decode("utf-8")
-        return value
-    except:
-        return context.title_fr
+# @indexer(IPartnershipPractice)
+# def title_fr(context):
+#     try:
+#         value = context.title_fr.decode("utf-8")
+#         return value
+#     except:
+#         return context.title_fr
 
 
-grok.global_adapter(title_fr, name='title_fr')
+# grok.global_adapter(title_fr, name='title_fr')
 
-@indexer(IPartnershipPractice)
-def description_es(context):
-    try:
-        value = context.description_es.decode("utf-8")
-        return value
-    except:
-        return context.description_es
-
-
-grok.global_adapter(description_es, name='description_es')
+# @indexer(IPartnershipPractice)
+# def description_es(context):
+#     try:
+#         value = context.description_es.decode("utf-8")
+#         return value
+#     except:
+#         return context.description_es
 
 
-@indexer(IPartnershipPractice)
-def description_fr(context):
-    try:
-        value = context.description_fr.decode("utf-8")
-        return value
-    except:
-        return context.description_fr
+# grok.global_adapter(description_es, name='description_es')
 
 
-grok.global_adapter(description_fr, name='description_fr')
+# @indexer(IPartnershipPractice)
+# def description_fr(context):
+#     try:
+#         value = context.description_fr.decode("utf-8")
+#         return value
+#     except:
+#         return context.description_fr
+
+
+# grok.global_adapter(description_fr, name='description_fr')
 
 class Edit(form.SchemaEditForm):
     grok.context(IPartnershipPractice)

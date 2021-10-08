@@ -245,10 +245,24 @@ def projectAdded(content, event):
 
     logger.info('Create folder reports in project {} id {}'.format(content.title, content.id))
 
+    partnerships = api.content.create(
+                        type='Folder',
+                        id='partnerships',
+                        title='Partnerships',
+                        container=content)
+
+    logger.info('Create folder partnerships in project {} id {}'.format(content.title, content.id))
+
+
     behavior = ISelectableConstrainTypes(reports)
     behavior.setConstrainTypesMode(1)
     behavior.setLocallyAllowedTypes(('File', 'Report'))
     behavior.setImmediatelyAddableTypes(('File', 'Report'))
+
+    behaviorp = ISelectableConstrainTypes(partnerships)
+    behaviorp.setConstrainTypesMode(1)
+    behaviorp.setLocallyAllowedTypes(('PartnershipPractice', 'Folder'))
+    behaviorp.setImmediatelyAddableTypes(('PartnershipPractice', 'Folder'))
 
     # Create Working Areas
     areas = content.areas
@@ -304,6 +318,30 @@ def projectAdded(content, event):
     if content.project_manager:
         for user in content.project_manager:
             api.user.grant_roles(username=user, obj=obj_files, roles=['Contributor'])
+
+    # Create Partnership Practice
+    config_folder = api.content.find(type='Folder',id='partnershippractice')
+    config_folder = config_folder[0].getObject()
+    items = api.content.find(
+        portal_type=['PartnershipPractice'],
+        context=config_folder,
+        sort_on='getObjPositionInParent')
+    if items:
+        for item in items:
+            partnership = item.getObject()
+            obj = api.content.create(
+                type='PartnershipPractice',
+                title=partnership.title,
+                title_es=partnership.title_es,
+                title_fr=partnership.title_fr,
+                description=partnership.description,
+                description_es=partnership.description_es,
+                description_fr=partnership.description_fr,
+                container=content.partnerships)
+
+            logger.info('Create parthership practice {} in project {} id {}'.format(data.Title, content.title, content.id))
+
+    logger.info('Finish create parthership practice in project {} id {}'.format(content.title, content.id))
 
     logger.info('Finish add project {} id {}'.format(content.title, content.id))
 
@@ -613,6 +651,47 @@ def projectModified(content, event):
         if content.project_manager:
             for user in content.project_manager:
                 api.user.grant_roles(username=user, obj=obj_files, roles=['Contributor'])
+
+        # Partnership practice
+        try:
+            partnerships = content.partnerships
+        except:
+            partnerships = api.content.create(
+                                type='Folder',
+                                id='partnerships',
+                                title='Partnerships',
+                                container=content)
+
+            logger.info('Create folder partnerships in project {} id {}'.format(content.title, content.id))
+
+            behaviorp = ISelectableConstrainTypes(partnerships)
+            behaviorp.setConstrainTypesMode(1)
+            behaviorp.setLocallyAllowedTypes(('PartnershipPractice', 'Folder'))
+            behaviorp.setImmediatelyAddableTypes(('PartnershipPractice', 'Folder'))
+
+
+        current_partnerships = [a.id for a in api.content.find(
+            portal_type="PartnershipPractice", context=content.partnerships, depth=1)]
+
+        config_folder = api.content.find(type='Folder',id='partnershippractice')
+        config_folder = config_folder[0].getObject()
+        partnerships_default = api.content.find(
+            portal_type=['PartnershipPractice'],
+            context=config_folder,
+            sort_on='getObjPositionInParent')
+
+        for partnership in partnerships_default:
+            if partnership.id not in current_partnerships:
+                partnership = partnership.getObject()
+                obj = api.content.create(
+                            type='PartnershipPractice',
+                            title=partnership.title,
+                            title_es=partnership.title_es,
+                            title_fr=partnership.title_fr,
+                            description=partnership.description,
+                            description_es=partnership.description_es,
+                            description_fr=partnership.description_fr,
+                            container=content.partnerships)
 
 
 @grok.subscribe(IPartner, IObjectAddedEvent)

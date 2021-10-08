@@ -524,7 +524,7 @@
                           <span tal:attributes="class string:${partnership/portal_type}-planning second-level" i18n:translate="">Partnership</span>
                       </div>
                       <div class="part2 label-2nd">
-                        <span class="titulocatplan" tal:content="partnership/title">
+                        <span class="titulocatplan" tal:content="partnership/title"></span>
                       </div>
                     </div>
                   </div>

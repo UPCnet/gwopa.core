@@ -42,6 +42,7 @@
     <ul class="nav nav-tabs" role="tablist" id="myTab">
       <li role="presentation" class="active"><a href="#project" aria-controls="project" role="tab" data-toggle="tab" i18n:translate=""> Project </a></li>
       <li role="presentation"><a href="#outcomes" aria-controls="outcomes" role="tab" data-toggle="tab" i18n:translate=""> Outcomes </a></li>
+      <li role="presentation"><a href="#partnership" aria-controls="partnership" role="tab" data-toggle="tab" i18n:translate=""> Partnership Practice </a></li>
     </ul>
 
     <div class="tab-content">
@@ -660,6 +661,111 @@
                 </div>
               </div>
           </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="partnership">
+        <div class="tabla_contenido_items">
+          <div id="partnershipPractice" class="row" tal:define="partnerships view/listPartnershipPractice">
+            <div class="tabla_cabecera">
+              <div class="information object" id="header">
+                <div class="contentt" id="total">
+                  <div class="titleRowMonitoring">                   
+                  </div>
+                </div>
+                <tal:block>
+                  <div class="contentt" id="score" i18n:translate=""> Overall score  </div>
+                  <div class="contentt" id="improvement" i18n:translate=""> Why improvement is needed? </div>
+                  <div class="contentt" id="suggestions" i18n:translate=""> Suggestions to improve </div>
+                </tal:block>
+              </div>
+            </div>
+            <div class="tabla_cuerpo">
+              <tal:objects repeat="partnership partnerships">
+                <div class="col-md-12">
+                  <div class="information object">
+                    <div class="contentt row" id="total">
+                      <div class="part0" tal:attributes="id string:${partnership/id}">
+                        <i class="fa fa-chevron-down expandPartnership" aria-hidden="true"></i>
+                        <i style="display: none" class="fa fa-chevron-up notexpandPartnership" aria-hidden="true"></i>
+                      </div>
+                      <div class="part1 label-nopart0">
+                          <span tal:attributes="class string:${partnership/portal_type}-planning second-level" i18n:translate="">Partnership</span>
+                      </div>
+                      <div class="part2 label-2nd">
+                        <span class="titulocatplan" tal:content="partnership/title"></span>
+                      </div>
+                    </div>
+                    <div class="contentt" id="score">
+                      <span tal:content="partnership/overall_score"> 2019-03-29 </span>
+                    </div>
+                    <div class="contentt" id="improvement">
+                      <span tal:content="partnership/improvement_needed"> 2019-03-29 </span>
+                    </div>
+                    <div class="contentt" id="suggestions">
+                      <span tal:content="partnership/suggestions_improve"> 2019-03-29 </span>
+                    </div>
+                    <div tal:condition="canEditPlanningMonitoring" class="contentt" id="actions">
+                       <a data-toggle="modal" class="editPartnership" data-target="#modalEditPartnership"
+                          tal:attributes="
+                          data-pk currentYear;
+                          data-urlpartnership partnership/url;
+                          data-title string:Edit ${partnership/title};
+                          data-id partnership/id;
+                          data-overall-score partnership/overall_score;
+                          data-improvement-needed partnership/improvement_needed;
+                          data-suggestions-improve partnership/suggestions_improve"><i class="far fa-edit"></i></a>
+                    </div>
+                  </div>
+                  <div class="tabla_cuerpo planning_info" tal:attributes="id string:${partnership/id}-expandP">
+                    <div class="col-md-12 text-item-planning expandedBox" id="#" role="tabpanel" aria-expanded="true">
+                      <div class="filacontenido">
+                        <div class="col-sm-12">
+                          <div type="text" tal:attributes="id string:${partnership/id}" tal:content="structure partnership/description">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </tal:objects>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalEditPartnership" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modalEditPartnership" data-dismiss="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="toClearPartnership">
+            <div class="modal-header">
+              <button type="button" class="close output" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalEditPartnership" i18n:translate=""> Edit Partnership </h4>
+            </div>
+            <div class="modal-body" id="EditPartnership">
+              <div class="modal-url" id="PartnershipPath" style="display:none"></div>
+              <span class="modal-pk" id="PartnershipYear" style="display:none"></span>
+              <span class="modal-id" id="idPartnership" style="display:none"></span>
+              <div class="row">
+                <div class="form-group col-md-12" style="padding-top: 10px;">
+                    <label for="message-text" class="control-label" i18n:translate="">Overall score</label>
+                    <textarea class="form-control" id="overall-score"></textarea>
+                </div>
+                <div class="form-group col-md-12" style="padding-top: 10px;">
+                    <label for="message-text" class="control-label" i18n:translate="">Why improvement is needed?</label>
+                    <textarea class="form-control" id="improvement-needed"></textarea>
+                </div>
+                <div class="form-group col-md-12" style="padding-top: 10px;">
+                    <label for="message-text" class="control-label" i18n:translate="">Suggestions to improve</label>
+                    <textarea class="form-control" id="suggestions-improve"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn button-cancel partnership" data-dismiss="modal" i18n:translate="">Cancel</a>
+              <a type="submit" class="btn button-save" id="updatePartnershipFromModal"  data-dismiss="modal" i18n:translate="">Update</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -41,12 +41,12 @@ msgstr "% de femmes occupant des postes de direction"
 msgid "(Estimated) coverage LIA population"
 msgstr "Taux de couverture (estimé) des populations vivant dans des zones à faible revenu"
 
-#: ../browser/templates/planning.pt:822
+#: ../browser/templates/planning.pt:563
 #: ../content/activity.py:54
 msgid "(e.g. 1 - Training of staff in NRW reduction approaches)"
 msgstr "(Ex. 1. Formation du personnel sur les approches de réduction de l'eau non génératrice de revenu)"
 
-#: ../browser/templates/planning.pt:899
+#: ../browser/templates/planning.pt:640
 #: ../content/output.py:26
 msgid "(e.g. 1.1 - Trained Staff)"
 msgstr "(Ex. 1.1. Personnels ayant bénéficié d’une formation)"
@@ -79,7 +79,7 @@ msgstr "+2 Très positif"
 
 #: ../browser/templates/planning.pt:125
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: ../browser/templates/dash-areas.pt:134
 #: ../browser/templates/macros/report-outcomes.pt:166
@@ -157,13 +157,13 @@ msgid "Activity"
 msgstr "Activité"
 
 #: ../browser/templates/monitoring.pt:778
-#: ../browser/templates/planning.pt:1416
+#: ../browser/templates/planning.pt:1157
 msgid "Add"
 msgstr "Ajouter"
 
 #: ../browser/templates/planning.pt:75
 msgid "Add Activity"
-msgstr "Ajouter une Activité"
+msgstr ""
 
 #: ../content/templates/project_view.pt:338
 msgid "Add Contributor"
@@ -171,11 +171,11 @@ msgstr "Ajouter un Contributeur"
 
 #: ../browser/templates/planning.pt:236
 msgid "Add New Overall KPI"
-msgstr "Ajouter un Nouvel Indicateur clé de performance (ICP) d’ordre général"
+msgstr ""
 
 #: ../browser/templates/planning.pt:103
 msgid "Add Output"
-msgstr "Ajouter un Produit"
+msgstr ""
 
 #: ../browser/templates/monitoring.pt:650
 #: ../browser/templates/planning.pt:499
@@ -183,13 +183,13 @@ msgid "Add other"
 msgstr "Ajouter une autre entrée"
 
 #: ../browser/templates/monitoring.pt:760
-#: ../browser/templates/planning.pt:1398
+#: ../browser/templates/planning.pt:1139
 msgid "Add other specific"
 msgstr "Ajouter une autre capacité spécifique"
 
-#: ../browser/templates/planning.pt:957
+#: ../browser/templates/planning.pt:698
 msgid "Add target"
-msgstr "Ajouter une date cible"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:65
 msgid "Admin role"
@@ -211,7 +211,7 @@ msgstr "Connaissances mises en application / compétences"
 msgid "Arrangement of functions and people into specific areas and levels of responsibility, decision-making authority, communication and relationships to assure effective implementation of the organization is mission and strategy."
 msgstr "Organisation du rôles et du travail des employés selon des domaines et des niveaux spécifiques de responsabilité, de pouvoir décisionnel, de communication et de relations interprofessionnels, dans le but d’assurer une mise en œuvre efficace de la mission et de la stratégie de l’organisation"
 
-#: ../browser/templates/planning.pt:853
+#: ../browser/templates/planning.pt:594
 #: ../content/activity.py:89
 msgid "As it is common practice for utilities involved in WOPs to manage the financial tracking in-house, expenditure is not tracked within the tool. We do however provide a section within the reporting feature to document basic expenditures."
 msgstr "Le suivi financier s’effectuant le plus souvent en interne par les opérateurs de distribution d'eau participant à des WOPs, le présent outil ne propose pas de module de suivi des dépenses. En revanche, dans la rubrique consacrée au reporting , nous avons prévu une section vous permettant de saisir des dépenses de base"
@@ -231,7 +231,7 @@ msgid "Assign GWOPA workflow"
 msgstr "Attribuer une procédure de travail GWOPA"
 
 #: ../browser/templates/macros/report-budget.pt:24
-#: ../browser/templates/planning.pt:858
+#: ../browser/templates/planning.pt:599
 #: ../content/activity.py:93
 msgid "Assigned budget"
 msgstr "Budget alloué"
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Baseline date"
 msgstr "Date associée aux données de référence"
 
-#: ../browser/templates/planning.pt:1355
+#: ../browser/templates/planning.pt:1096
 #: ../content/outcomeccvalues.py:31
 msgid "Baseline description"
 msgstr "Description des données de référence"
@@ -310,7 +310,7 @@ msgid "Calendar"
 msgstr "Calendrier"
 
 #: ../browser/templates/monitoring.pt:746
-#: ../browser/templates/planning.pt:878
+#: ../browser/templates/planning.pt:619
 #: ../content/templates/project_view.pt:372
 msgid "Cancel"
 msgstr "Annuler"
@@ -336,7 +336,7 @@ msgstr "Programme de développement de capacité mis au point"
 
 #: ../browser/templates/dash-areas.pt:233
 #: ../browser/templates/monitoring.pt:853
-#: ../browser/templates/planning.pt:1428
+#: ../browser/templates/planning.pt:1169
 msgid "Capacity specific"
 msgstr "Domaines de capacité spécifiques"
 
@@ -533,9 +533,9 @@ msgstr "Pays/Différents pays"
 msgid "Coverage"
 msgstr "Taux de couverture"
 
-#: ../browser/templates/planning.pt:879
+#: ../browser/templates/planning.pt:620
 msgid "Create"
-msgstr "Créer"
+msgstr ""
 
 #: ../browser/templates/setup_home.pt:22
 #: ../browser/templates/setup_home_es.pt:22
@@ -647,7 +647,7 @@ msgstr "Décrivez les facteurs qui ont contribué aux changements perçus"
 msgid "Describe the limiting factors to the perceived changes"
 msgstr "Décrivez les facteurs qui ont limité la survenue des changements perçus"
 
-#: ../browser/templates/planning.pt:827
+#: ../browser/templates/planning.pt:568
 #: ../content/activity.py:59
 #: ../content/improvement_area.py:42
 msgid "Description"
@@ -657,11 +657,11 @@ msgstr "Description"
 msgid "Description Communication and transparency"
 msgstr ""
 
-#: ../content/partnership_practice.py:49
+#: ../content/partnership_practice.py:51
 msgid "Description English"
 msgstr ""
 
-#: ../content/partnership_practice.py:61
+#: ../content/partnership_practice.py:63
 msgid "Description French"
 msgstr ""
 
@@ -683,9 +683,9 @@ msgstr ""
 
 #: ../browser/setup_home.py:748
 msgid "Description Set Up"
-msgstr ""
+msgstr "- Les objectifs sont bien articulés <br /> - Les partenaires sont motivés, inspirés et engagés envers l'objectif commun"
 
-#: ../content/partnership_practice.py:55
+#: ../content/partnership_practice.py:57
 msgid "Description Spanish"
 msgstr ""
 
@@ -701,7 +701,7 @@ msgstr ""
 msgid "Description and main objectives"
 msgstr "Description et objectifs principaux"
 
-#: ../browser/templates/planning.pt:831
+#: ../browser/templates/planning.pt:572
 #: ../content/activity.py:65
 msgid "Description of initial situation"
 msgstr "Description de la situation de départ"
@@ -738,20 +738,20 @@ msgstr "Donateurs"
 msgid "Download"
 msgstr "Télécharger"
 
-#: ../browser/templates/planning.pt:1294
+#: ../browser/templates/planning.pt:1035
 msgid "Edit Capacity"
-msgstr "Modifier la Capacité"
+msgstr ""
 
-#: ../browser/templates/planning.pt:1200
+#: ../browser/templates/planning.pt:941
 msgid "Edit KPI"
-msgstr "Modifier l’Indicateur clé de performance (ICP)"
+msgstr ""
 
-#: ../browser/templates/planning.pt:990
+#: ../browser/templates/planning.pt:731
 msgid "Edit Output"
-msgstr "Modifier le Produit"
+msgstr ""
 
 #: ../browser/templates/monitoring.pt:673
-#: ../browser/templates/planning.pt:1344
+#: ../browser/templates/planning.pt:1085
 msgid "Edit Specific"
 msgstr "Modifier l’activité spécifique"
 
@@ -767,7 +767,7 @@ msgstr "Fin"
 msgid "End Date"
 msgstr "Date de fin"
 
-#: ../browser/templates/planning.pt:836
+#: ../browser/templates/planning.pt:577
 #: ../content/templates/project_view.pt:74
 msgid "End:"
 msgstr "Fin :"
@@ -1212,7 +1212,7 @@ msgstr "Manuel"
 msgid "Means of Verification"
 msgstr "Moyens de véfification"
 
-#: ../browser/templates/planning.pt:961
+#: ../browser/templates/planning.pt:702
 #: ../content/outcomezone.py:72
 #: ../content/output.py:54
 msgid "Means of verification"
@@ -1222,7 +1222,7 @@ msgstr "Moyens de véfification"
 msgid "Means of verification used to assess capacity change in this dimension"
 msgstr "Moyens de vérification utilisés pour évaluer les changements intervenus au niveau des capacités dans ce domaine"
 
-#: ../browser/templates/planning.pt:931
+#: ../browser/templates/planning.pt:672
 #: ../content/outcomezone.py:60
 #: ../content/output.py:42
 msgid "Measuring unit"
@@ -1341,9 +1341,9 @@ msgstr "Nouveau Champ par défaut"
 msgid "New Donor"
 msgstr "Nouveau Donateur"
 
-#: ../browser/templates/planning.pt:1101
+#: ../browser/templates/planning.pt:842
 msgid "New KPI Title"
-msgstr "Intitulé du nouvel Indicateur clé de performance (ICP)"
+msgstr ""
 
 #: ../browser/templates/manage_portal.pt:49
 msgid "New Project"
@@ -1438,19 +1438,19 @@ msgstr "Nombre de personnes ayant accès à des installations d’assainissement
 msgid "Number of people with access to unimproved sanitation facilities"
 msgstr "Nombre de personnes ayant accès à des installations d’assainissement de l’eau non améliorées"
 
-#: ../browser/templates/planning.pt:821
+#: ../browser/templates/planning.pt:562
 #: ../content/activity.py:53
 #: ../content/output.py:25
 msgid "Numeration - Title"
 msgstr "Intitulé"
 
-#: ../browser/templates/planning.pt:1318
+#: ../browser/templates/planning.pt:1059
 #: ../content/outcomecc.py:45
 #: ../content/outcomeccs.py:53
 msgid "Objective"
 msgstr "Objectif"
 
-#: ../browser/templates/planning.pt:1322
+#: ../browser/templates/planning.pt:1063
 #: ../content/outcomecc.py:50
 #: ../content/outcomeccs.py:58
 msgid "Objective date"
@@ -1622,6 +1622,10 @@ msgstr "Responsabilités du Partenaire"
 #: ../content/project.py:341
 msgid "Partner/partners of the project"
 msgstr "Partenaire/Partenaires du Projet"
+
+#: ../browser/templates/planning.pt:524
+msgid "Partnership"
+msgstr ""
 
 #: ../browser/templates/planning.pt:46
 msgid "Partnership Practice"
@@ -1869,13 +1873,13 @@ msgstr "Région"
 msgid "Regional WOP Platform"
 msgstr "Plateforme WOP régionale"
 
-#: ../browser/templates/planning.pt:926
+#: ../browser/templates/planning.pt:667
 msgid "Remember that the related Activity dates are: Start:"
-msgstr "Veuillez vous souvenir que les dates associées à l’Activité sont : Début :"
+msgstr ""
 
-#: ../browser/templates/planning.pt:836
+#: ../browser/templates/planning.pt:577
 msgid "Remember that the related Project dates are: Start:"
-msgstr "Veuillez vous souvenir que les dates associées au Projet sont : Début :"
+msgstr ""
 
 #: ../browser/templates/reportPreview.pt:34
 #: ../content/templates/report_view.pt:32
@@ -1902,7 +1906,7 @@ msgid "Reporting period summary"
 msgstr "Résumé de la période de recueil de données"
 
 #: ../browser/templates/monitoring.pt:689
-#: ../browser/templates/planning.pt:823
+#: ../browser/templates/planning.pt:564
 msgid "Required"
 msgstr "Requis"
 
@@ -1917,9 +1921,9 @@ msgstr ""
 
 #: ../browser/templates/planning.pt:85
 msgid "Responsible"
-msgstr "En charge"
+msgstr ""
 
-#: ../browser/templates/planning.pt:866
+#: ../browser/templates/planning.pt:607
 #: ../content/activity.py:104
 #: ../content/outcomezone.py:36
 msgid "Responsible people"
@@ -1956,9 +1960,9 @@ msgstr "Sauvegarder"
 msgid "Save changes"
 msgstr "Sauvegarder les modifications"
 
-#: ../browser/templates/planning.pt:1107
+#: ../browser/templates/planning.pt:848
 msgid "Save title"
-msgstr "Sauvegarder l’intitulé"
+msgstr ""
 
 #: ../browser/setup_home.py:957
 msgid "Se ha aplicado la configuración por defecto."
@@ -2090,17 +2094,17 @@ msgid "Social Inclusion/ Gender"
 msgstr "Inclusion sociale/ Problématique femmes-hommes"
 
 #: ../browser/templates/monitoring.pt:767
-#: ../browser/templates/planning.pt:1405
+#: ../browser/templates/planning.pt:1146
 msgid "Specific title EN"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:769
-#: ../browser/templates/planning.pt:1407
+#: ../browser/templates/planning.pt:1148
 msgid "Specific title ES"
 msgstr ""
 
 #: ../browser/templates/monitoring.pt:771
-#: ../browser/templates/planning.pt:1409
+#: ../browser/templates/planning.pt:1150
 msgid "Specific title FR"
 msgstr ""
 
@@ -2216,9 +2220,9 @@ msgstr "Etiquettes"
 msgid "Target Value Year"
 msgstr "Année-Valeur Cible"
 
-#: ../browser/templates/planning.pt:949
+#: ../browser/templates/planning.pt:690
 msgid "Target date"
-msgstr "Date cible"
+msgstr ""
 
 #: ../browser/templates/dash-performance.pt:31
 #: ../browser/templates/macros/report-outcomes.pt:37
@@ -2230,13 +2234,13 @@ msgstr "Valeur cible"
 msgid "Target_value_differs_from_planned"
 msgstr "Cible_valeur_différente_de_programmée"
 
-#: ../browser/templates/planning.pt:1367
+#: ../browser/templates/planning.pt:1108
 msgid "Targeted improvements"
-msgstr "Améliorations prévues"
+msgstr ""
 
-#: ../browser/templates/planning.pt:1372
+#: ../browser/templates/planning.pt:1113
 msgid "Targeted improvements date"
-msgstr "Date prévisionnelle d’amélioration"
+msgstr ""
 
 #: ../browser/templates/teams.pt:16
 msgid "Team Members"
@@ -2357,9 +2361,9 @@ msgstr ""
 msgid "Title Spanish"
 msgstr ""
 
-#: ../browser/templates/planning.pt:1091
+#: ../browser/templates/planning.pt:832
 msgid "Title_KPI"
-msgstr "Indicateur clé de performance (ICP)"
+msgstr ""
 
 #: ../browser/templates/macros/report-help-outcomes.pt:80
 msgid "Tools and equipment necessary for utility operations and basic infrastructure for the business processes (e.g. water production and distribution)."
@@ -2416,7 +2420,7 @@ msgid "Unit"
 msgstr "Unité"
 
 #: ../browser/templates/monitoring.pt:162
-#: ../browser/templates/planning.pt:1072
+#: ../browser/templates/planning.pt:813
 msgid "Update"
 msgstr "Mettre à jour"
 
@@ -2617,9 +2621,9 @@ msgstr "Indiquez votre numéro de téléphone."
 msgid "Zone"
 msgstr "Zone"
 
-#: ../browser/templates/planning.pt:1114
+#: ../browser/templates/planning.pt:855
 msgid "Zone_KPI"
-msgstr "Zone Le cas échéant, définir la zone de pression / pilote"
+msgstr ""
 
 #: ../content/templates/project_view.pt:222
 msgid "admin"

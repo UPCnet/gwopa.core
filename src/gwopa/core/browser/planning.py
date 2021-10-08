@@ -467,24 +467,28 @@ class planningView(BrowserView):
         else:
             return specific['title_specific']
 
-    def listPartnershipPractice(self):
-        config_folder = api.content.find(type='Folder',id='partnershippractice')
-        config_folder = config_folder[0].getObject()
+    def listPartnershipPractice(self):        
         items = api.content.find(
             portal_type=['PartnershipPractice'],
-            context=config_folder,
+            context=self.context.partnerships,
             sort_on='getObjPositionInParent')
         results = []
+        lang = getUserLang()
         for item in items:
             obj = item.getObject()
+            if lang == 'es':
+                title = obj.title_es
+                description = obj.description_es
+            elif lang == 'fr':
+                title = obj.title_fr
+                description = obj.description_fr
+            else:
+                title = obj.title
+                description = obj.description
             results.append(dict(
                 id=obj.id,
-                title=obj.title,
-                title_es=obj.title_es,
-                title_fr=obj.title_fr,
-                description=obj.description,
-                description_es=obj.description_es,
-                description_fr=obj.description_fr,
+                title=title,
+                description=description,
                 portal_type=obj.portal_type,
                 ))
         return results
