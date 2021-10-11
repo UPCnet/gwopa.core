@@ -19,6 +19,7 @@ from gwopa.core.utils import getTranslatedDegreeChangesFromID
 from gwopa.core.utils import getTranslatedMesuringUnitFromID
 from gwopa.core.utils import getTranslatedOutcomesFromTitle
 from gwopa.core.utils import getTranslatedWorkingAreaFromID
+from gwopa.core.utils import getTranslatedOverallScoreFromID
 from gwopa.core.utils import getUserLang
 from gwopa.core.utils import project_currency
 
@@ -647,7 +648,6 @@ class monitoringView(BrowserView):
                 overall_score = annotations[KEY]['partnerships']['overall_score']
                 improvement_needed = annotations[KEY]['partnerships']['improvement_needed']
                 suggestions_improve = annotations[KEY]['partnerships']['suggestions_improve']
-                    
 
             results.append(dict(
                 id=obj.id,
@@ -655,6 +655,7 @@ class monitoringView(BrowserView):
                 description=description,
                 portal_type=obj.portal_type,
                 overall_score=overall_score,
+                overall_score_text=getTranslatedOverallScoreFromID(overall_score),
                 improvement_needed=improvement_needed,
                 suggestions_improve=suggestions_improve,
                 url='/'.join(obj.getPhysicalPath())

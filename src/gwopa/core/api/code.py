@@ -178,6 +178,23 @@ class getRolesOtherContributor(BrowserView):
         self.request.response.setHeader("Content-type", "application/json")
         return json.dumps(sorted(results, key=lambda k: k['name']))
 
+class getOverallScore(BrowserView):
+    # /api-getRolesPartner
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
+        lang = getUserLang()
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        results = []
+        if item:
+            values = item[0].getObject().overall_score_dict
+            for value in values.keys():
+                results.append({'id': value,
+                                'name': values[value][lang]})
+
+        self.request.response.setHeader("Content-type", "application/json")
+        return json.dumps(sorted(results, key=lambda k: k['name']))
+
 class getDegree(BrowserView):
     # /api-getDegree
     def __call__(self):

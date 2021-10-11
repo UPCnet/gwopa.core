@@ -161,6 +161,24 @@ def settings_organization_roles(context):
 directlyProvides(settings_organization_roles, IContextSourceBinder)
 
 
+def settings_overall_score(context):
+    """ overall_score settings page. """
+    lang = getUserLang()
+    item = api.content.find(portal_type="SettingsPage", id='settings')
+    if item:
+        values = item[0].getObject().overall_score_dict
+        terms = []
+        for value in values.keys():
+            if value != '':
+                flattened = unicodedata.normalize('NFKD', value.decode('utf-8')).encode('ascii', errors='ignore')
+                terms.append(SimpleVocabulary.createTerm(value, flattened, values[value][lang]))
+        return SimpleVocabulary(terms)
+    return None
+
+
+directlyProvides(settings_overall_score, IContextSourceBinder)
+
+
 def getTranslatedCurrencyFromID(unit):
     lang = getUserLang()
     item = api.content.find(portal_type="SettingsPage", id='settings')
@@ -225,6 +243,17 @@ def getTranslatedMesuringFrequencyFromID(unit):
             measuring_frequency_dict = item[0].getObject().measuring_frequency_dict
             if unit in measuring_frequency_dict:
                 return measuring_frequency_dict[unit][lang]
+    return ''
+
+
+def getTranslatedOverallScoreFromID(unit):
+    if unit:
+        lang = getUserLang()
+        item = api.content.find(portal_type="SettingsPage", id='settings')
+        if item:
+            overall_score_dict = item[0].getObject().overall_score_dict
+            if unit in overall_score_dict:
+                return overall_score_dict[unit][lang]
     return ''
 
 

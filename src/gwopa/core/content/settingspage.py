@@ -159,6 +159,22 @@ class ISettingspage(model.Schema):
         required=True,
     )
 
+    overall_score = schema.Text(
+        title=_(u'Overall score EN'),
+        description=_(u'Perceived degree of change'),
+        required=True,
+    )
+
+    overall_score_es = schema.Text(
+        title=_(u'Overall score ES'),
+        required=True,
+    )
+
+    overall_score_fr = schema.Text(
+        title=_(u'Overall score FR'),
+        required=True,
+    )
+
     currency_dict = schema.Text(title=u'', required=False)
     measuring_unit_dict = schema.Text(title=u'', required=False)
     measuring_frequency_dict = schema.Text(title=u'', required=False)
@@ -167,6 +183,7 @@ class ISettingspage(model.Schema):
     consensus_dict = schema.Text(title=u'', required=False)
     partner_roles_dict = schema.Text(title=u'', required=False)
     organization_roles_dict = schema.Text(title=u'', required=False)
+    overall_score_dict = schema.Text(title=u'', required=False)
 
 
 # class View(grok.View):
@@ -190,6 +207,7 @@ class Edit(form.SchemaEditForm):
         self.widgets["consensus_dict"].mode = HIDDEN_MODE
         self.widgets["partner_roles_dict"].mode = HIDDEN_MODE
         self.widgets["organization_roles_dict"].mode = HIDDEN_MODE
+        self.widgets["overall_score_dict"].mode = HIDDEN_MODE
 
 
 @grok.subscribe(ISettingspage, IObjectModifiedEvent)
@@ -200,7 +218,7 @@ def settingsModified(content, event):
 def updateDictsSetting(content):
     fields = ['measuring_unit', 'measuring_frequency',
               'degree_changes', 'contributed_project', 'consensus', 'partner_roles',
-              'organization_roles']
+              'organization_roles', 'overall_score']
 
     for field in fields:
         values_en = getattr(content, field).split('\n')
