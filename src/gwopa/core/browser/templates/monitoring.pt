@@ -696,11 +696,13 @@
                         <span class="titulocatplan" tal:content="partnership/title"></span>
                       </div>
                     </div>
-                    <div class="contentt" id="score">
-                      <span tal:content="partnership/overall_score_text"> 2019-03-29 </span>
+                    <div class="contentt" id="score" tal:condition="not:partnership/overall_score_text"></div>
+                    <div class="contentt box" id="score" tal:condition="partnership/overall_score_text">
+                      <span tal:condition="partnership/overall_score_text" tal:content="partnership/overall_score_text"> 2019-03-29 </span>
                     </div>
-                    <div class="contentt" id="improvement">
-                      <span tal:content="partnership/improvement_needed"> 2019-03-29 </span>
+                    <div class="contentt" id="improvement" tal:condition="not:partnership/improvement_needed"></div>
+                    <div class="contentt box" id="improvement" tal:condition="partnership/improvement_needed">
+                      <span tal:condition="partnership/improvement_needed" tal:content="partnership/improvement_needed"> 2019-03-29 </span>
                     </div>
                     <!-- <div class="contentt" id="suggestions">
                       <span tal:content="partnership/suggestions_improve"> 2019-03-29 </span>
