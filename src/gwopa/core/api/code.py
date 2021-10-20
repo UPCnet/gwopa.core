@@ -854,14 +854,15 @@ class updatePartnership(BrowserView):
         item_path = self.request.form['item_path']
         overall_score = self.request.form['overall_score']
         improvement_needed = self.request.form['improvement_needed']
-        suggestions_improve = self.request.form['suggestions_improve']
+        # suggestions_improve = self.request.form['suggestions_improve']
 
         KEY = "GWOPA_TARGET_YEAR_" + str(year)
         item = api.content.find(path=item_path, depth=0)[0]
         annotations = IAnnotations(item.getObject())
         annotations[KEY]['partnerships']['overall_score'] = overall_score
         annotations[KEY]['partnerships']['improvement_needed'] = improvement_needed
-        annotations[KEY]['partnerships']['suggestions_improve'] = suggestions_improve
+        # annotations[KEY]['partnerships']['suggestions_improve'] = suggestions_improve
+        annotations[KEY]['partnerships']['suggestions_improve'] = ''
         data = dict(partnerships=annotations[KEY]['partnerships'])
         annotations[KEY] = data
         return 'Ok, item updated'

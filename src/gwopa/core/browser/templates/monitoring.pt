@@ -674,8 +674,9 @@
                 </div>
                 <tal:block>
                   <div class="contentt" id="score" i18n:translate=""> Overall score  </div>
-                  <div class="contentt" id="improvement" i18n:translate=""> Why improvement is needed? </div>
-                  <div class="contentt" id="suggestions" i18n:translate=""> Suggestions to improve </div>
+                  <div class="contentt" id="improvement" i18n:translate=""> What do partners agree to improve </div>
+                  <!-- <div class="contentt" id="improvement" i18n:translate=""> Why improvement is needed? </div> -->
+                  <!-- <div class="contentt" id="suggestions" i18n:translate=""> Suggestions to improve </div> -->
                 </tal:block>
               </div>
             </div>
@@ -701,11 +702,11 @@
                     <div class="contentt" id="improvement">
                       <span tal:content="partnership/improvement_needed"> 2019-03-29 </span>
                     </div>
-                    <div class="contentt" id="suggestions">
+                    <!-- <div class="contentt" id="suggestions">
                       <span tal:content="partnership/suggestions_improve"> 2019-03-29 </span>
-                    </div>
+                    </div> -->
                     <div tal:condition="canEditPlanningMonitoring" class="contentt" id="actions">
-                       <a data-toggle="modal" class="editPartnership" data-target="#modalEditPartnership"
+                      <a data-toggle="modal" class="editPartnership" data-target="#modalEditPartnership"
                           tal:attributes="
                           data-pk currentYear;
                           data-urlpartnership partnership/url;
@@ -714,7 +715,9 @@
                           data-overall-score partnership/overall_score;
                           data-overall-score-text partnership/overall_score_text;
                           data-improvement-needed partnership/improvement_needed;
-                          data-suggestions-improve partnership/suggestions_improve"><i class="far fa-edit"></i></a>
+                          data-suggestions-improve partnership/suggestions_improve">
+                          <i class="far fa-edit"></i>
+                      </a>
                     </div>
                   </div>
                   <div class="tabla_cuerpo planning_info" tal:attributes="id string:${partnership/id}-expandP">
@@ -756,13 +759,14 @@
                     <!-- <textarea class="form-control" id="overall-score"></textarea> -->
                 </div>
                 <div class="form-group col-md-12" style="padding-top: 10px;">
-                    <label for="message-text" class="control-label" i18n:translate="">Why improvement is needed?</label>
+                    <!-- <label for="message-text" class="control-label" i18n:translate="">Why improvement is needed?</label> -->
+                    <label for="message-text" class="control-label" i18n:translate="">What do partners agree to improve</label>
                     <textarea class="form-control" id="improvement-needed"></textarea>
                 </div>
-                <div class="form-group col-md-12" style="padding-top: 10px;">
+                <!-- <div class="form-group col-md-12" style="padding-top: 10px;">
                     <label for="message-text" class="control-label" i18n:translate="">Suggestions to improve</label>
                     <textarea class="form-control" id="suggestions-improve"></textarea>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="modal-footer">
