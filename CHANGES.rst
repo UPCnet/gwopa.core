@@ -2,11 +2,26 @@ Changelog
 =========
 
 
-1.18 (unreleased)
+1.18 (2021-12-16)
 -----------------
 
-- Nothing changed yet.
-
+* Retoques partnership [Iago López Fernández]
+* Retoques partnership [Iago López Fernández]
+* Partnership practice monitoring [Pilar Marinas]
+* Fix updatePartnership [Iago López Fernández]
+* Monitoring Partnership practice [Pilar Marinas]
+* HOmepage [Iago López Fernández]
+* Rediseño homepage [Iago López Fernández]
+* Fix partnership [Iago López Fernández]
+* Partnership practice [Pilar Marinas]
+* Información campo areas de trabajo del proyecto [Iago López Fernández]
+* Traducciones areas de trabajo [Iago López Fernández]
+* Fix bug: Modificar proyecto con título con acento [Iago López Fernández]
+* Fix report outcomes [Iago López Fernández]
+* int a float [Iago López Fernández]
+* Corregir error report [Iago López Fernández]
+* Que no de error proyecto si modifican literales del settings [Pilar Marinas]
+* Readme [Pilar Marinas]
 
 1.17 (2020-12-04)
 -----------------
